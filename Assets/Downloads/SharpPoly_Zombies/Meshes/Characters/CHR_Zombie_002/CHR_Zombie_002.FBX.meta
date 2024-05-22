@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 92bb628c1ce37b349b60ccfce57af850
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bone_Head
+    100002: Bone_Hips
+    100004: Bone_LeftArm
+    100006: Bone_LeftFoot
+    100008: Bone_LeftForeArm
+    100010: Bone_LeftHand
+    100012: Bone_LeftHandIndex1
+    100014: Bone_LeftHandIndex2
+    100016: Bone_LeftHandIndex3
+    100018: Bone_LeftHandThumb1
+    100020: Bone_LeftHandThumb2
+    100022: Bone_LeftHandThumb3
+    100024: Bone_LeftLeg
+    100026: Bone_LeftShoulder
+    100028: Bone_LeftToeBase
+    100030: Bone_LeftUpLeg
+    100032: Bone_Neck
+    100034: Bone_RightArm
+    100036: Bone_RightFoot
+    100038: Bone_RightForeArm
+    100040: Bone_RightHand
+    100042: Bone_RightHandIndex1
+    100044: Bone_RightHandIndex2
+    100046: Bone_RightHandIndex3
+    100048: Bone_RightHandThumb1
+    100050: Bone_RightHandThumb2
+    100052: Bone_RightHandThumb3
+    100054: Bone_RightLeg
+    100056: Bone_RightShoulder
+    100058: Bone_RightToeBase
+    100060: Bone_RightUpLeg
+    100062: Bone_Spine
+    100064: Bone_Spine1
+    100066: Bone_Spine2
+    100068: CHR_Zombie_002
+    100070: //RootNode
+    400000: Bone_Head
+    400002: Bone_Hips
+    400004: Bone_LeftArm
+    400006: Bone_LeftFoot
+    400008: Bone_LeftForeArm
+    400010: Bone_LeftHand
+    400012: Bone_LeftHandIndex1
+    400014: Bone_LeftHandIndex2
+    400016: Bone_LeftHandIndex3
+    400018: Bone_LeftHandThumb1
+    400020: Bone_LeftHandThumb2
+    400022: Bone_LeftHandThumb3
+    400024: Bone_LeftLeg
+    400026: Bone_LeftShoulder
+    400028: Bone_LeftToeBase
+    400030: Bone_LeftUpLeg
+    400032: Bone_Neck
+    400034: Bone_RightArm
+    400036: Bone_RightFoot
+    400038: Bone_RightForeArm
+    400040: Bone_RightHand
+    400042: Bone_RightHandIndex1
+    400044: Bone_RightHandIndex2
+    400046: Bone_RightHandIndex3
+    400048: Bone_RightHandThumb1
+    400050: Bone_RightHandThumb2
+    400052: Bone_RightHandThumb3
+    400054: Bone_RightLeg
+    400056: Bone_RightShoulder
+    400058: Bone_RightToeBase
+    400060: Bone_RightUpLeg
+    400062: Bone_Spine
+    400064: Bone_Spine1
+    400066: Bone_Spine2
+    400068: //RootNode
+    400070: CHR_Zombie_002
+    2100000: 'Material #30'
+    4300000: CHR_Zombie_002
+    9500000: //RootNode
+    13700000: CHR_Zombie_002
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #30'
+    second: {fileID: 2100000, guid: ddf6067e5a1ed15429a50ea2f4a6ba79, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: GreetingTutorialTitle
+  m_EditorClassIdentifier: 
+  _localizationId: GreetingTutorialTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C
+    \u0432 \u0438\u0433\u0440\u0443!"
+  _editEnglish: 0
+  _english: Welcome to game!
+  _editTurkish: 0
+  _turkish: "Oyuna ho\u015F geldiniz!"

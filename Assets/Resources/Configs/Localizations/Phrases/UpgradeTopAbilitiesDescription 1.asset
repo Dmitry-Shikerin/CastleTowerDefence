@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: UpgradeTopAbilitiesDescription 1
+  m_EditorClassIdentifier: 
+  _localizationId: UpgradeTopAbilitiesDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u0441\u043F\u0438\u0441\u043E\u043A \u0432\u0441\u0435\u0445
+    \u0432\u0430\u0448\u0438\u0445 \u0438\u043C\u0435\u044E\u0449\u0438\u0445\u0441\u044F
+    \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0439."
+  _editEnglish: 0
+  _english: This is a list of all your available improvements.
+  _editTurkish: 0
+  _turkish: "Bu, mevcut t\xFCm iyile\u015Ftirmelerinizin bir listesidir."
