@@ -1,17 +1,15 @@
-﻿using NodeCanvas.Framework;
-using NodeCanvas.StateMachines;
+﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Extensions;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
-    public class EnemyInitializeState : FSMState
+    public class EnemyMoveToPlayerState : FSMState
     {
         private Enemy _enemy;
         private IEnemyView _view;
@@ -20,7 +18,6 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         protected override void OnInit()
         {
             EnemyDependencyProvider provider = graphBlackboard.GetDependencyProvider();
-
             _enemy = provider.Enemy;
             _view = provider.View;
             _enemyAnimation = _view.Animation;
@@ -28,9 +25,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnEnter()
         {
-            Debug.Log($"Enemy in InitializeState");
-            _enemy.IsInitialized = true;
-            _enemyAnimation.PlayIdle();
+            base.OnEnter();
         }
 
         protected override void OnUpdate()

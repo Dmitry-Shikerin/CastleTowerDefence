@@ -6,6 +6,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
 {
     public interface IEnemyView : IEnemyViewBase
     {
+        IEnemyAnimation Animation { get; }
         FSMOwner FsmOwner { get; }
         EnemyDependencyProvider Provider { get; }
     }
