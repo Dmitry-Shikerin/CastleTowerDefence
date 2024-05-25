@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Domain.Dictionaries;
 using Sources.Frameworks.UiFramework.Domain.Localizations.Phrases;
 using Sources.Frameworks.UiFramework.Extensions;
-using UnityEditor;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Domain.Localizations.Configs
@@ -29,7 +27,7 @@ namespace Sources.Frameworks.UiFramework.Domain.Localizations.Configs
         {
             _localizationPhrases.Clear();
             
-                TextExtension
+                LocalizationExtension
                     .FindAllLocalizationPhrases()
                     .ForEach(phrase => _localizationPhrases.Add(phrase));
         }
@@ -43,10 +41,10 @@ namespace Sources.Frameworks.UiFramework.Domain.Localizations.Configs
         
         [Button]
         private void CreateLocalizationPhrase() =>
-            TextExtension.CreateLocalizationPhrase();
+            LocalizationExtension.CreateLocalizationPhrase();
 
         [UsedImplicitly]
         private List<string> GetDropdownValues() =>
-            TextExtension.GetTranslateId();
+            LocalizationExtension.GetTranslateId();
     }
 }

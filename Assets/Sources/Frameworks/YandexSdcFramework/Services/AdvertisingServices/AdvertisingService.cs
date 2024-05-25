@@ -3,7 +3,7 @@ using System.Threading;
 using Agava.WebUtility;
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
-using Sources.BoundedContexts.PlayerWallet.Domain;
+using Sources.BoundedContexts.Players.Domain;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.AdverticingServices;
 using Sources.InfrastructureInterfaces.Services.PauseServices;

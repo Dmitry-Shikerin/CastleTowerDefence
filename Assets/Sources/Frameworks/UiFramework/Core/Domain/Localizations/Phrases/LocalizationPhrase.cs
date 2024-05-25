@@ -50,13 +50,13 @@ namespace Sources.Frameworks.UiFramework.Domain.Localizations.Phrases
             if (string.IsNullOrWhiteSpace(_localizationId))
                 return;
 
-            TextExtension.RenameAsset(this, _localizationId);
+            LocalizationExtension.RenameAsset(this, _localizationId);
         }
 
         [Button(ButtonSizes.Large)]
         private void AddTextId()
         {
-            var localizationIds = TextExtension.GetTranslateId();
+            var localizationIds = LocalizationExtension.GetTranslateId();
 
             if (localizationIds.Contains(_textId))
                 return;
@@ -69,6 +69,6 @@ namespace Sources.Frameworks.UiFramework.Domain.Localizations.Phrases
 
         [UsedImplicitly]
         private List<string> GetDropdownValues() =>
-            TextExtension.GetTranslateId();
+            LocalizationExtension.GetTranslateId();
     }
 }
