@@ -3,6 +3,7 @@
     public enum SpawnPointType
     {
         Enemy = 0,
-        Character = 1,
+        CharacterMelee = 1,
+        CharacterRanged = 2,
     }
 }
