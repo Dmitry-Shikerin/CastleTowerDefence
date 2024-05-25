@@ -1,4 +1,5 @@
-﻿using Sources.BoundedContexts.SpawnPoints.Presentation;
+﻿using ParadoxNotion.Design;
+using Sources.BoundedContexts.SpawnPoints.Presentation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
 using UnityEditor;
 using UnityEngine;
@@ -19,7 +20,8 @@ namespace Sources.BoundedContexts.Editor.SpawnPoints
         {
             return  spawnPoint.Type switch
             {
-                SpawnPointType.Character => Color.green,
+                SpawnPointType.CharacterMelee => Color.green,
+                SpawnPointType.CharacterRanged => Color.blue,
                 SpawnPointType.Enemy => Color.red,
                 _ => Color.white
             };
