@@ -1581,9 +1581,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3251735432730056180, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251735432730056180, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3388632552365605048, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
       propertyPath: m_Name
       value: CharacterMeleeView
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182838588300415209, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182838588300415209, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: lengthInSec
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7741628310135848135, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1624,6 +1640,14 @@ PrefabInstance:
     - target: {fileID: 7741628310135848135, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796702325638321082, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796702325638321082, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: lengthInSec
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

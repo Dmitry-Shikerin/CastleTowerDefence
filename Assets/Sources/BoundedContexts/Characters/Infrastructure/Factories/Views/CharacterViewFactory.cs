@@ -17,7 +17,8 @@ namespace Sources.BoundedContexts.Characters.Infrastructure.Factories.Views
         
         public ICharacterView Create(CharacterView view)
         {
-            CharacterDependencyProvider provider = _providerFactory.Create(view);
+            _providerFactory.Create(view);
+            view.FSMOwner.StartBehaviour();
             
             return view;
         }
