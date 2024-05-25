@@ -1,4 +1,4 @@
-﻿using Sources.BoundedContexts.PlayerWallet.Domain;
+﻿using Sources.BoundedContexts.Players.Domain;
 using Sources.ControllersInterfaces.ControllerLifetimes;
 using Sources.InfrastructureInterfaces.Services.StatesLifetimes;
 using Sources.PresentationsInterfaces.Views.Constructors;

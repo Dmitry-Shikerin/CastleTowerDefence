@@ -84,7 +84,7 @@ namespace Sources.Frameworks.UiFramework.Presentation.Texts
         [Button(ButtonSizes.Large)]
         private void AddTextId()
         {
-            var localizationIds = TextExtension.GetTranslateId();
+            var localizationIds = LocalizationExtension.GetTranslateId();
         
             if(localizationIds.Contains(_textId))
                 return;
@@ -96,6 +96,6 @@ namespace Sources.Frameworks.UiFramework.Presentation.Texts
         
         [UsedImplicitly]
         private List<string> GetDropdownValues() =>
-            TextExtension.GetTranslateId();
+            LocalizationExtension.GetTranslateId();
     }
 }
