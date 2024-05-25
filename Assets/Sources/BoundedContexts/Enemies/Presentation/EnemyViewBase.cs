@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Characters.Controllers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.NavMeshAgents.Presentation;

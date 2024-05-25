@@ -37,7 +37,7 @@ MonoBehaviour:
       IncludeAssetDependencies: 1
     AssetBundle: 
     AddressableGroup: 
-  - Enabled: 1
+  - Enabled: 0
     Type: 2
     Asset:
       Path: 
@@ -49,7 +49,7 @@ MonoBehaviour:
       IncludeAssetDependencies: 0
     AssetBundle: 
     AddressableGroup: 
-  - Enabled: 1
+  - Enabled: 0
     Type: 0
     Asset:
       Path: Assets

@@ -1,5 +1,7 @@
 ﻿using System;
 using Sources.BoundedContexts.Enemies.Domain;
+using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
+using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Zenject;
 
@@ -7,18 +9,17 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views
 {
     public class EnemyViewFactory
     {
-        private readonly DiContainer _container;
+        private readonly EnemyDependencyProviderFactory _providerFactory;
 
         public EnemyViewFactory(
-            DiContainer container)
+            EnemyDependencyProviderFactory providerFactory)
         {
-            _container = container ?? throw new ArgumentNullException(nameof(container));
+            _providerFactory = providerFactory ?? throw new ArgumentNullException(nameof(providerFactory));
         }
         
         public IEnemyView Create(Enemy enemy, EnemyView view)
         {
-            view.Provider.Construct(enemy, view);
-            _container.Inject(view.Provider);
+            _providerFactory.Create(enemy, view);
             view.FsmOwner.StartBehaviour();
             
             return view;

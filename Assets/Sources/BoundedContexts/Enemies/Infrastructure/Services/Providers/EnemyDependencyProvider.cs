@@ -1,7 +1,7 @@
 ﻿using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Presentation;
+using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using UnityEngine;
-using Zenject;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers
 {
@@ -9,17 +9,13 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers
     {
         public Enemy Enemy { get; private set; }
         public IEnemyView View { get; private set; }
+        public IEnemyAnimation EnemyAnimation { get; private set; }
         
-        public void Construct(Enemy enemy, IEnemyView view)
+        public void Construct(Enemy enemy, IEnemyView view, IEnemyAnimation enemyAnimation)
         {
             Enemy = enemy ?? throw new System.ArgumentNullException(nameof(enemy));
             View = view ?? throw new System.ArgumentNullException(nameof(view));
-        }
-
-        [Inject]
-        private void OnAfterConstruct()
-        {
-            Debug.Log($"DependencyProvider: {Enemy} {View}");
+            EnemyAnimation = view.Animation ?? throw new System.ArgumentNullException(nameof(view.Animation));
         }
     }
 }
