@@ -1,8 +1,8 @@
 ﻿using JetBrains.Annotations;
+using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain;
-using Sources.BoundedContexts.Enemies.Extensions;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
@@ -19,11 +19,12 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnInit()
         {
-            EnemyDependencyProvider provider = graphBlackboard.GetDependencyProvider<EnemyDependencyProvider>();
+            EnemyDependencyProvider provider = 
+                graphBlackboard.parent.GetVariable<EnemyDependencyProvider>("_provider").value;
 
             _enemy = provider.Enemy;
             _view = provider.View;
-            _enemyAnimation = _view.Animation;
+            _enemyAnimation = provider.EnemyAnimation;
         }
 
         protected override void OnEnter()

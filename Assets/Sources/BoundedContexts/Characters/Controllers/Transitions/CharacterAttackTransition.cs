@@ -3,7 +3,6 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Characters.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Characters.PresentationInterfaces;
-using Sources.BoundedContexts.Enemies.Extensions;
 
 namespace Sources.BoundedContexts.Characters.Controllers.Transitions
 {
@@ -16,7 +15,7 @@ namespace Sources.BoundedContexts.Characters.Controllers.Transitions
         protected override string OnInit()
         {
             CharacterDependencyProvider provider = 
-                blackboard.GetDependencyProvider<CharacterDependencyProvider>();
+                blackboard.GetVariable<CharacterDependencyProvider>("_provider").value;
             _view = provider.View;
             return null;
         }
