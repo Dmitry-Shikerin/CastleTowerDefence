@@ -1,9 +1,9 @@
 ﻿using JetBrains.Annotations;
+using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Characters.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Characters.PresentationInterfaces;
-using Sources.BoundedContexts.Enemies.Extensions;
 
 namespace Sources.BoundedContexts.Characters.Controllers.States
 {
@@ -17,9 +17,10 @@ namespace Sources.BoundedContexts.Characters.Controllers.States
         protected override void OnInit()
         {
             CharacterDependencyProvider provider = 
-                graphBlackboard.GetDependencyProvider<CharacterDependencyProvider>();
+                graphBlackboard.parent.GetVariable<CharacterDependencyProvider>("_provider").value;
+
             _view = provider.View;
-            _animation = _view.Animation;
+            _animation = provider.Animation;
         }
 
         protected override void OnEnter()

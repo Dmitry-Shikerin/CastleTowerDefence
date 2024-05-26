@@ -1097,6 +1097,17 @@ MonoBehaviour:
   - {fileID: 1803656539}
   _enemySpawnPoints:
   - {fileID: 1356153700}
+--- !u!114 &1259530807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+  m_PrefabInstance: {fileID: 7289551501237749110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1356153698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1763,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 14657073937353269, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.Characters.Presentation.CharacterView.Provider","_name":"_provider","_id":"91e46e1a-c45e-4175-945b-b04f2a909cf4","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Characters.Infrastructure.Services.Providers.CharacterDependencyProvider,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 14657073937353269, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: _serializedVariables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14657073937353269, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: _serializedVariables.Array.data[0]._json
+      value: '{"_propertyPath":"Sources.BoundedContexts.Characters.Presentation.CharacterView.Provider","_name":"_provider","_id":"91e46e1a-c45e-4175-945b-b04f2a909cf4","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Characters.Infrastructure.Services.Providers.CharacterDependencyProvider,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 3251735432730056180, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
       propertyPath: looping
       value: 0
@@ -1955,6 +1980,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2153056909352687614, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _blackboard
+      value: 
+      objectReference: {fileID: 1259530807}
     - target: {fileID: 3391113285427405577, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
       propertyPath: m_Name
       value: EnemyView
@@ -1998,6 +2027,20 @@ PrefabInstance:
     - target: {fileID: 6593444774142356389, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedVariables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedVariables.Array.data[0]._json
+      value: '{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
