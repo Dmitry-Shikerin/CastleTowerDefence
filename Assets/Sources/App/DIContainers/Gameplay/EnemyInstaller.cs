@@ -1,6 +1,7 @@
 ﻿using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Zenject;
 
 namespace Sources.App.DIContainers.Gameplay

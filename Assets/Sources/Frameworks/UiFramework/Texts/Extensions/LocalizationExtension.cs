@@ -5,19 +5,13 @@ using Sources.Frameworks.UiFramework.Domain.Localizations.Phrases;
 using UnityEditor;
 using UnityEngine;
 
-namespace Sources.Frameworks.UiFramework.Extensions
+namespace Sources.Frameworks.UiFramework.Texts.Extensions
 {
     public static class LocalizationExtension
     {
         public static List<string> GetTranslateId()
         {
 #if UNITY_EDITOR
-            
-            // return AssetDatabase
-            //     .FindAssets("t:LocalizationConfig")
-            //     .Select(path => AssetDatabase.GUIDToAssetPath(path))
-            //     .Select(path => AssetDatabase.LoadAssetAtPath<LocalizationConfig>(path))
-            //     .ToList()
             return FindAssets<LocalizationConfig>("t:LocalizationConfig")
                 .FirstOrDefault()
                 .LocalizationIds;
@@ -28,11 +22,6 @@ namespace Sources.Frameworks.UiFramework.Extensions
         public static List<LocalizationPhrase> FindAllLocalizationPhrases()
         {
 #if UNITY_EDITOR
-            // return AssetDatabase
-            //     .FindAssets("t:LocalizationPhrase")
-            //     .Select(path => AssetDatabase.GUIDToAssetPath(path))
-            //     .Select(path => AssetDatabase.LoadAssetAtPath<LocalizationPhrase>(path))
-            //     .ToList();
             return FindAssets<LocalizationPhrase>("t:LocalizationPhrase");
 #endif
             return new List<LocalizationPhrase>();

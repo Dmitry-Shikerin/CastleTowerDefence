@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Domain.Models.TextViewTypes;
 using Sources.Frameworks.UiFramework.Domain.Constants;
-using Sources.Frameworks.UiFramework.Extensions;
+using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Presentations.Views;
 using Sources.PresentationsInterfaces.UI.Texts;
 using TMPro;

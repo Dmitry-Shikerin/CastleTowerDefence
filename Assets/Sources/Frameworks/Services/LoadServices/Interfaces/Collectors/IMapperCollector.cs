@@ -1,6 +1,6 @@
 ﻿using System;
-using Sources.DomainInterfaces.Entities;
 using Sources.DomainInterfaces.Models.Data;
+using Sources.Frameworks.Domain.Interfaces.Entities;
 
 namespace Sources.InfrastructureInterfaces.Services.LoadServices.Collectors
 {

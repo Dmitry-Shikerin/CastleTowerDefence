@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sources.DomainInterfaces.Entities;
+using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 

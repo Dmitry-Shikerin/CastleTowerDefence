@@ -1,0 +1,27 @@
+﻿using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Sources.BoundedContexts.KillEnemyCounters.Domain;
+
+namespace Sources.BoundedContexts.EnemySpawners.Domain
+{
+    public class EnemySpawner
+    {
+        public bool IsSpawnEnemy { get; set; }
+        public int SpawnedEnemies { get; set; }
+        public bool IsSpawnBoss { get; set; }
+        public int SpawnedBosses { get; set; }
+        public List<int> SpawnDelays { get; set; }
+        public int CurrentWave { get; set; }
+
+        public async Task WaitWave(KillEnemyCounter killEnemyCounter, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SetCurrentWave(int killZombies)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+}

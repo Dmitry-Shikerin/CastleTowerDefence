@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sources.DomainInterfaces.Entities;
 using Sources.DomainInterfaces.Models.Data;
+using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.InfrastructureInterfaces.Services.LoadServices.Collectors;
 
 namespace Sources.Frameworks.Services.LoadServices.Implementation.Collectors
