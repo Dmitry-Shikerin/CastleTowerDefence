@@ -16,6 +16,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
     public class EnemyViewBase : NavMeshAgentBase, IEnemyViewBase
     {
         [Required] [SerializeField] private EnemyHealthView _healthView;
+        [ChildGameObjectsOnly]
         [SerializeField] private List<SkinView> _skins; 
 
         private readonly IPODestroyerService _poDestroyerService = 
