@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Characters.Controllers;
@@ -15,6 +16,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
 {
     public class EnemyViewBase : NavMeshAgentBase, IEnemyViewBase
     {
+        [Required] [SerializeField] private FSMOwner _fsmOwner;
         [Required] [SerializeField] private EnemyHealthView _healthView;
         [ChildGameObjectsOnly]
         [SerializeField] private List<SkinView> _skins; 
@@ -22,6 +24,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         private readonly IPODestroyerService _poDestroyerService = 
             new PODestroyerService();
         
+        public FSMOwner FsmOwner => _fsmOwner;
         public EnemyHealthView EnemyHealthView => _healthView;
         public IReadOnlyList<ISkinView> Skins => _skins;
         public ICharacterHealthView CharacterHealthView { get; private set; }

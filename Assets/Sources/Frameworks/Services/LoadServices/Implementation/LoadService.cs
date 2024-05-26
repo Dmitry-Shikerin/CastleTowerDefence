@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.Domain.Models.Data.Ids;
-using Sources.DomainInterfaces.Entities;
 using Sources.DomainInterfaces.Models.Data;
+using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.InfrastructureInterfaces.Services.LoadServices;
 using Sources.InfrastructureInterfaces.Services.LoadServices.Collectors;
 using Sources.InfrastructureInterfaces.Services.LoadServices.Data;

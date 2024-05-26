@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sources.DomainInterfaces.Entities
+namespace Sources.Frameworks.Domain.Interfaces.Entities
 {
     public interface IEntity
     {

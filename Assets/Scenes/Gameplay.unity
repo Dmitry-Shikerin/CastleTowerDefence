@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2170,7 +2170,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.29488245, y: -0.5137239, z: 0.1937052, w: 0.7820552}
-  m_LocalPosition: {x: 20.3, y: 14.19, z: -8.92}
+  m_LocalPosition: {x: 18.9, y: 13.4, z: -8.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3017,8 +3017,6 @@ MonoBehaviour:
   - {fileID: 695640862}
   _charactersRangedSpawnPoints:
   - {fileID: 1803656539}
-  _enemySpawnPoints:
-  - {fileID: 1356153700}
 --- !u!114 &1259530807 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
@@ -3310,7 +3308,7 @@ Transform:
   m_GameObject: {fileID: 1356153698}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6, y: 0, z: 55.3}
+  m_LocalPosition: {x: -2.6, y: 0, z: 19.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4228,8 +4226,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1828093307}
+  - component: {fileID: 1828093308}
   m_Layer: 0
-  m_Name: Enemies_Container
+  m_Name: EnemySpanerView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4251,6 +4250,20 @@ Transform:
   - {fileID: 1356153699}
   m_Father: {fileID: 1931460762}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828093308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828093306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8034cddf37f545a0be0f776bd6c03d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemySpawnPoints:
+  - {fileID: 1356153700}
 --- !u!1001 &1848074599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4376,7 +4389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1931460762}
   m_Layer: 0
-  m_Name: SpawnPoints_Container
+  m_Name: Spawners_Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

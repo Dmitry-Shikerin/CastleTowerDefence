@@ -3,8 +3,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Domain.Localizations.Configs;
-using Sources.Frameworks.UiFramework.Extensions;
 using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
+using Sources.Frameworks.UiFramework.Texts.Extensions;
 using UnityEditor;
 using UnityEngine;
 

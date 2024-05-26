@@ -4,8 +4,10 @@ using Sources.BoundedContexts.Characters.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Characters.Presentation;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.Upgrades.Domain;
 using UnityEngine.TextCore.Text;
 using Object = UnityEngine.Object;
@@ -31,8 +33,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views
             EnemyAttacker enemyAttacker = new EnemyAttacker();
             EnemyHealth enemyHealth = new EnemyHealth(0);
             Enemy enemy = new Enemy(enemyHealth, enemyAttacker);
+            KillEnemyCounter killEnemyCounter = new KillEnemyCounter("KillEnemyCounter", 0);
             EnemyView enemyView = Object.FindObjectOfType<EnemyView>();
-            _enemyViewFactory.Create(enemy, enemyView);
+            _enemyViewFactory.Create(enemy, killEnemyCounter, enemyView);
             
             CharacterView characterView = Object.FindObjectOfType<CharacterView>();
             _characterViewFactory.Create(characterView);

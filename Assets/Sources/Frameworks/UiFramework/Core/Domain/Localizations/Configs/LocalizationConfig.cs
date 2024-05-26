@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Domain.Dictionaries;
 using Sources.Frameworks.UiFramework.Domain.Localizations.Phrases;
-using Sources.Frameworks.UiFramework.Extensions;
+using Sources.Frameworks.UiFramework.Texts.Extensions;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Domain.Localizations.Configs
