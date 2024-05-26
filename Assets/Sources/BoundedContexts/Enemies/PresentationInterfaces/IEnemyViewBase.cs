@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Characters.Controllers;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;
 
