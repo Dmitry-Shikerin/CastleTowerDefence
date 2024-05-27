@@ -28,9 +28,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 86733671063742266}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -163,11 +163,11 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7756020468688749773}
   - {fileID: 86733670074408208}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -237,9 +237,7 @@ MonoBehaviour:
   CurrentStateName: Normal
   NormalState:
     StateType: 0
-    StateName: Normal
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -247,9 +245,7 @@ MonoBehaviour:
           m_Calls: []
   HighlightedState:
     StateType: 1
-    StateName: Highlighted
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -257,9 +253,7 @@ MonoBehaviour:
           m_Calls: []
   PressedState:
     StateType: 2
-    StateName: Pressed
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -267,9 +261,7 @@ MonoBehaviour:
           m_Calls: []
   SelectedState:
     StateType: 3
-    StateName: Selected
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -277,9 +269,7 @@ MonoBehaviour:
           m_Calls: []
   DisabledState:
     StateType: 4
-    StateName: Disabled
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -289,10 +279,12 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 86733671063742267}
     Selectable: {fileID: 86733671063742265}
+  Cooldown: 0
+  DisableWhenInCooldown: 0
   Id:
     Category: None
     Name: None
-    Custom: 1
+    Custom: 0
 --- !u!114 &86733671063742263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,9 +1680,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 86733671063742266}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1844,6 +1836,8 @@ MonoBehaviour:
       ToLightnessOffset: 0
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   HighlightedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -1924,6 +1918,8 @@ MonoBehaviour:
       ToLightnessOffset: 0.1
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   PressedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -2004,6 +2000,8 @@ MonoBehaviour:
       ToLightnessOffset: -0.1
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   SelectedAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -2084,6 +2082,8 @@ MonoBehaviour:
       ToLightnessOffset: 0
       FromAlphaOffset: 0
       ToAlphaOffset: 0
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}
   DisabledAnimation:
     OnPlayCallback:
       m_PersistentCalls:
@@ -2164,3 +2164,5 @@ MonoBehaviour:
       ToLightnessOffset: 0
       FromAlphaOffset: 0
       ToAlphaOffset: -0.5
+    UseCustomStartValue: 0
+    CustomStartValue: {r: 0, g: 0, b: 0, a: 0}

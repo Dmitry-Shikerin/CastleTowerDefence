@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Frameworks.Services.ObjectPools.Generic;
 using Sources.Presentations.Views;
+using Sources.PresentationsInterfaces.Views;
 using UnityEngine;
 
 namespace Sources.Frameworks.Services.ObjectPools.Implementation
 {
-    public class ObjectPool<T> : IObjectPool
+    public class ObjectPool<T> : IObjectPool<T> 
+        where T : IView
     {
         private readonly Queue<T> _objects = new Queue<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
