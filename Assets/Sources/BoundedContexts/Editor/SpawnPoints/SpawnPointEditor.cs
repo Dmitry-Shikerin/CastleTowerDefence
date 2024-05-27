@@ -1,5 +1,6 @@
 ﻿using ParadoxNotion.Design;
 using Sources.BoundedContexts.SpawnPoints.Presentation;
+using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
 using UnityEditor;
 using UnityEngine;

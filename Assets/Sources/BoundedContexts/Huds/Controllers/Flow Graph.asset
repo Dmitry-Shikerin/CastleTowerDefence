@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Flow Graph
   m_EditorClassIdentifier: 
-  EditorPosition: {x: -997, y: 37, z: 0}
-  EditorScale: {x: 1.520875, y: 1.520875, z: 1}
+  EditorPosition: {x: 161.5, y: 114.5, z: 0}
+  EditorScale: {x: 0.57175326, y: 0.57175326, z: 1}
   Id: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   GraphName: Flow Graph
   GraphDescription: 
@@ -248,7 +248,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 513.93475, y: -15.0000105}
+  Position: {x: 425.67517, y: -0.00000667572}
   OnEnterShowViews:
   - Id:
       Category: Gameplay
@@ -322,7 +322,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 771, y: 103}
+  Position: {x: 677.5, y: 102.999985}
   OnEnterShowViews:
   - Id:
       Category: Gameplay
@@ -385,7 +385,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 199, y: 191.00002}
+  Position: {x: 145, y: 229.99997}
   OnEnterShowViews:
   - Id:
       Category: Gameplay
@@ -487,7 +487,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 771.09644, y: -15}
+  Position: {x: 684.56415, y: -23.999998}
   OnEnterShowViews:
   - Id:
       Category: Gameplay

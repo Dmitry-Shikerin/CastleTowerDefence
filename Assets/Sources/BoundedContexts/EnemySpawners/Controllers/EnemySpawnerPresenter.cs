@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Sources.BoundedContexts.BossEnemyView.Presentation;
-using Sources.BoundedContexts.BossEnemyView.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.PresentationInterfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
@@ -10,6 +8,7 @@ using Sources.BoundedContexts.EnemySpawners.Domain;
 using Sources.BoundedContexts.EnemySpawners.Presentationinterfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.SpawnPoints.Presentation;
+using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
 using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
 using Sources.Controllers.Common;

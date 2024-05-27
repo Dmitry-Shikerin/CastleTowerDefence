@@ -3,7 +3,7 @@ using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
 using Sources.Presentations.Views;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.SpawnPoints.Presentation
+namespace Sources.BoundedContexts.SpawnPoints.Presentation.Implementation
 {
     public class SpawnPoint : View, ISpawnPoint
     {

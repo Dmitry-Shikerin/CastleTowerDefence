@@ -1,6 +1,7 @@
 ﻿using Sources.BoundedContexts.Enemies.Controllers;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers
 {

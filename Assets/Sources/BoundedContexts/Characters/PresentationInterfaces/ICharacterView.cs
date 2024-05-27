@@ -3,6 +3,7 @@ using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Characters.Controllers;
 using Sources.BoundedContexts.Characters.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 
 namespace Sources.BoundedContexts.Characters.PresentationInterfaces
 {

@@ -6,6 +6,7 @@ using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Characters.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Characters.PresentationInterfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.Presentations.Views;
 using UnityEngine;
 
