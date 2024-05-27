@@ -24,7 +24,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
             _enemy = provider.Enemy;
             _view = provider.View;
-            _enemyAnimation = provider.EnemyAnimation;
+            _enemyAnimation = provider.Animation;
         }
 
         protected override void OnEnter()

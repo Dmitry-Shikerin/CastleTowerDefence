@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
-using Sources.BoundedContexts.Characters.Presentation;
-using Sources.BoundedContexts.Characters.PresentationInterfaces;
-using Sources.BoundedContexts.SpawnPoints.Presentation;
+using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
+using Sources.BoundedContexts.TargetPoints.Presentation.Interfaces;
 
-namespace Sources.BoundedContexts.EnemySpawners.Presentationinterfaces
+namespace Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces
 {
     public interface IEnemySpawnerView
     {
         IReadOnlyList<SpawnPoint> SpawnPoints { get; }
-        ICharacterView CharacterView { get; }
+        ITargetPoint TargetPoint { get; }
+        ICharacterMeleeView CharacterMeleeView { get; }
         
-        void SetCharacterView(ICharacterView characterView);
+        void SetCharacterView(ICharacterMeleeView characterMeleeView);
     }
 }

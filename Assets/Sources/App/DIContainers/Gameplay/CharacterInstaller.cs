@@ -1,7 +1,21 @@
 ﻿using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.Characters.Infrastructure.Factories.Providers;
-using Sources.BoundedContexts.Characters.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Implementation;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.CharacterMelees.Presentation;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Services;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Implementation;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
+using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Controllers;
+using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Views;
+using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.Services.ObjectPools.Implementation;
 using Zenject;
 
 namespace Sources.App.DIContainers.Gameplay
@@ -10,8 +24,18 @@ namespace Sources.App.DIContainers.Gameplay
     {
         public override void InstallBindings()
         {
-            Container.Bind<CharacterDependencyProviderFactory>().AsSingle();
-            Container.Bind<CharacterViewFactory>().AsSingle();
+            Container.Bind<CharacterSpawnerPresenterFactory>().AsSingle();
+            Container.Bind<CharacterSpawnerViewFactory>().AsSingle();
+
+            Container.Bind<IObjectPool<CharacterMeleeView>>().To<ObjectPool<CharacterMeleeView>>().AsSingle();
+            Container.Bind<ICharacterMeleeSpawnService>().To<CharacterMeleeSpawnService>().AsSingle();
+            Container.Bind<CharacterMeleeDependencyProviderFactory>().AsSingle();
+            Container.Bind<ICharacterMeleeViewFactory>().To<CharacterMeleeViewFactory>().AsSingle();
+
+            Container.Bind<IObjectPool<CharacterRangeView>>().To<ObjectPool<CharacterRangeView>>().AsSingle();
+            Container.Bind<ICharacterRangeSpawnService>().To<CharacterRangeSpawnService>().AsSingle();
+            Container.Bind<CharacterRangeDependencyProviderFactory>().AsSingle();
+            Container.Bind<ICharacterRangeViewFactory>().To<CharacterRangeViewFactory>().AsSingle();
 
             Container.Bind<CharacterHealthPresenterFactory>().AsSingle();
             Container.Bind<CharacterHealthViewFactory>().AsSingle();

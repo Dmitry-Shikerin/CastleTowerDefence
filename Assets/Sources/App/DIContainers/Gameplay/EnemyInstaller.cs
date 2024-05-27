@@ -12,6 +12,8 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Interfa
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
+using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.Frameworks.Services.ObjectPools.Generic;
 using Sources.Frameworks.Services.ObjectPools.Implementation;
 using Zenject;
@@ -22,19 +24,21 @@ namespace Sources.App.DIContainers.Gameplay
     {
         public override void InstallBindings()
         {
+            Container.Bind<EnemySpawnerPresenterFactory>().AsSingle();
+            Container.Bind<EnemySpawnerViewFactory>().AsSingle();
+            
+            Container.Bind<IEnemySpawnService>().To<EnemySpawnService>().AsSingle();
             Container.Bind<IObjectPool<EnemyView>>().To<ObjectPool<EnemyView>>().AsSingle();
             Container.Bind<EnemyDependencyProviderFactory>().AsSingle();
             Container.Bind<IEnemyViewFactory>().To<EnemyViewFactory>().AsSingle();
-            Container.Bind<IEnemySpawnService>().To<EnemySpawnService>().AsSingle();
 
+            Container.Bind<IBossEnemySpawnService>().To<BossEnemySpawnService>().AsSingle();
             Container.Bind<IObjectPool<BossEnemyView>>().To<ObjectPool<BossEnemyView>>().AsSingle();
             Container.Bind<BossEnemyDependencyProviderFactory>().AsSingle();
             Container.Bind<IBossEnemyViewFactory>().To<BossEnemyViewFactory>().AsSingle();
-            Container.Bind<IBossEnemySpawnService>().To<BossEnemySpawnService>().AsSingle();
             
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
-
         }
     }
 }
