@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.Characters.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
 using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Presentationinterfaces;
 using Sources.BoundedContexts.SpawnPoints.Extensions;
@@ -19,10 +19,10 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation
         [SerializeField] private List<SpawnPoint> _enemySpawnPoints;
 
         public IReadOnlyList<SpawnPoint> SpawnPoints => _enemySpawnPoints;
-        public ICharacterView CharacterView { get; set; }
+        public ICharacterMeleeView CharacterMeleeView { get; set; }
         
-        public void SetCharacterView(ICharacterView characterView) =>
-            CharacterView = characterView;
+        public void SetCharacterView(ICharacterMeleeView characterMeleeView) =>
+            CharacterMeleeView = characterMeleeView;
 
         public void Validate(SelfValidationResult result) =>
             _enemySpawnPoints.ValidateSpawnPoints(SpawnPointType.Enemy, result);

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sources.BoundedContexts.Characters.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.Characters.Presentation;
+using Sources.BoundedContexts.CharacterMelees.Domain;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.CharacterMelees.Presentation;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
@@ -21,17 +22,17 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views
     public class GameplaySceneViewFactory
     {
         private readonly IEnemyViewFactory _enemyViewFactory;
-        private readonly CharacterViewFactory _characterViewFactory;
+        private readonly CharacterMeleeViewFactory _characterMeleeViewFactory;
         private readonly IBossEnemyViewFactory _bossEnemyViewFactory;
 
         public GameplaySceneViewFactory(
             IEnemyViewFactory enemyViewFactory,
-            CharacterViewFactory characterViewFactory,
+            CharacterMeleeViewFactory characterMeleeViewFactory,
             IBossEnemyViewFactory bossEnemyViewFactory)
         {
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
-            _characterViewFactory = characterViewFactory ?? 
-                                    throw new ArgumentNullException(nameof(characterViewFactory));
+            _characterMeleeViewFactory = characterMeleeViewFactory ?? 
+                                    throw new ArgumentNullException(nameof(characterMeleeViewFactory));
             _bossEnemyViewFactory = bossEnemyViewFactory ?? 
                                     throw new ArgumentNullException(nameof(bossEnemyViewFactory));
         }
@@ -53,8 +54,16 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views
                 Object.FindObjectOfType<EnemyBosses.Presentation.Implementation.BossEnemyView>();
             _bossEnemyViewFactory.Create(bossEnemy, bossKillEnemyCounter, bossEnemyView);
             
-            CharacterView characterView = Object.FindObjectOfType<CharacterView>();
-            _characterViewFactory.Create(characterView);
+            CharacterMeleeView characterMeleeView = Object.FindObjectOfType<CharacterMeleeView>();
+            CharacterMelee characterMelee = new CharacterMelee(
+                new Characters.CharacterHealth(
+                    new Upgrade(
+                        0,
+                        0,
+                        0,
+                        new List<int>(), "CharacterHealthUpgrade"))
+            );
+            _characterMeleeViewFactory.Create(characterMelee, characterMeleeView);
         }
     }
 }

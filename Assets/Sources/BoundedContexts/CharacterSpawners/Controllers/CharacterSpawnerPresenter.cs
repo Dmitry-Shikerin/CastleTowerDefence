@@ -18,12 +18,12 @@ namespace Sources.BoundedContexts.CharacterSpawners.Controllers
 
         public override void Enable()
         {
-            base.Enable();
+            
         }
 
         public override void Disable()
         {
-            base.Disable();
+            
         }
     }
 }

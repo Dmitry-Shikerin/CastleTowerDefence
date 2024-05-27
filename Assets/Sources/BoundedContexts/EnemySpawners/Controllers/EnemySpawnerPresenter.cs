@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Sources.BoundedContexts.Characters.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Domain;
@@ -66,8 +66,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
                     foreach (ISpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
                     {
                         _enemySpawner.SetCurrentWave(_killEnemyCounter.KillZombies);
-                        SpawnEnemy(spawnPoint.Position, _enemySpawnerView.CharacterView);
-                        SpawnBoss(spawnPoint.Position, _enemySpawnerView.CharacterView);
+                        SpawnEnemy(spawnPoint.Position, _enemySpawnerView.CharacterMeleeView);
+                        SpawnBoss(spawnPoint.Position, _enemySpawnerView.CharacterMeleeView);
                         
                         await _enemySpawner.WaitWave(_killEnemyCounter, cancellationToken);
                         await UniTask.Delay(
@@ -82,19 +82,19 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             }
         }
         
-        private void SpawnEnemy(Vector3 position, ICharacterView characterView)
+        private void SpawnEnemy(Vector3 position, ICharacterMeleeView characterMeleeView)
         {
             if (_enemySpawner.IsSpawnEnemy == false)
                   return;
             
             IEnemyView enemyView = _enemySpawnService.Spawn(_killEnemyCounter, position);
-            enemyView.SetCharacterHealth(characterView.HealthView);
-            enemyView.SetTargetFollow(characterView.HealthView);
+            enemyView.SetCharacterHealth(characterMeleeView.HealthView);
+            enemyView.SetTargetFollow(characterMeleeView.HealthView);
 
             _enemySpawner.SpawnedEnemies++;
         }
 
-        private void SpawnBoss(Vector3 position, ICharacterView characterView)
+        private void SpawnBoss(Vector3 position, ICharacterMeleeView characterMeleeView)
         {
             if (_enemySpawner.IsSpawnBoss == false)
                 return;

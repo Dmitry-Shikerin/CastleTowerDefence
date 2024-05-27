@@ -22,19 +22,18 @@ namespace Sources.App.DIContainers.Gameplay
     {
         public override void InstallBindings()
         {
+            Container.Bind<IEnemySpawnService>().To<EnemySpawnService>().AsSingle();
             Container.Bind<IObjectPool<EnemyView>>().To<ObjectPool<EnemyView>>().AsSingle();
             Container.Bind<EnemyDependencyProviderFactory>().AsSingle();
             Container.Bind<IEnemyViewFactory>().To<EnemyViewFactory>().AsSingle();
-            Container.Bind<IEnemySpawnService>().To<EnemySpawnService>().AsSingle();
 
+            Container.Bind<IBossEnemySpawnService>().To<BossEnemySpawnService>().AsSingle();
             Container.Bind<IObjectPool<BossEnemyView>>().To<ObjectPool<BossEnemyView>>().AsSingle();
             Container.Bind<BossEnemyDependencyProviderFactory>().AsSingle();
             Container.Bind<IBossEnemyViewFactory>().To<BossEnemyViewFactory>().AsSingle();
-            Container.Bind<IBossEnemySpawnService>().To<BossEnemySpawnService>().AsSingle();
             
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
-
         }
     }
 }

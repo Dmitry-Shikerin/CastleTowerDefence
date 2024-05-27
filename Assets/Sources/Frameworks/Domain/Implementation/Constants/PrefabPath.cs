@@ -9,6 +9,6 @@
         public const string ExplosionBodyBloody = "Views/ExplosionBodyBloodyView";
         public const string FirstAidKit = "Views/FirstAidKitView"; 
         public const string RewardItem = "Views/RewardItemView";
-        
+        public const string CharacterMeleeView = "Views/CharacterMeleeView";
     }
 }

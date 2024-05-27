@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
-using Sources.BoundedContexts.Characters.Presentation;
 using Sources.Controllers.Common;
 
 namespace Sources.BoundedContexts.Characters.Controllers
