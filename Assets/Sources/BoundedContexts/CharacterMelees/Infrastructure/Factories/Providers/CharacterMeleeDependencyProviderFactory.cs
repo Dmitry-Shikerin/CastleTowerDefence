@@ -1,7 +1,7 @@
 ﻿using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
 
-namespace Sources.BoundedContexts.Characters.Infrastructure.Factories.Providers
+namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers
 {
     public class CharacterMeleeDependencyProviderFactory
     {

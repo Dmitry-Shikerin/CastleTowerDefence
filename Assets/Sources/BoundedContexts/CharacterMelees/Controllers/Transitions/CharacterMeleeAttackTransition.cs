@@ -4,7 +4,7 @@ using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
 
-namespace Sources.BoundedContexts.Characters.Controllers.Transitions
+namespace Sources.BoundedContexts.CharacterMelees.Controllers.Transitions
 {
     [Category("Custom/Character")]
     [UsedImplicitly]

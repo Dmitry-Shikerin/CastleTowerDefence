@@ -2168,7 +2168,6 @@ MonoBehaviour:
   bossEnemyAnimation: {fileID: 6500395313846775484}
   _massAttackParticle: {fileID: 4664877922965263205}
   _provider: {fileID: 6066335486042126730}
-  _fsmOwner: {fileID: 8208917591704278497}
 --- !u!114 &6066335486042126730
 MonoBehaviour:
   m_ObjectHideFlags: 0

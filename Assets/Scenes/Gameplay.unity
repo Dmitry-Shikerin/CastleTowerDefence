@@ -9354,6 +9354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d958d7034b4cbfbc1089c634cb40af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterSpawnerView: {fileID: 1392002578}
+  _enemySpawnerView: {fileID: 1828093308}
 --- !u!1 &1245941927
 GameObject:
   m_ObjectHideFlags: 0
@@ -16733,7 +16735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8235918301835340966, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07114029
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 8235918301835340966, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16741,7 +16743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8235918301835340966, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.1401563
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 8235918301835340966, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16798,7 +16800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7741628310135848135, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.09
+      value: -7.66
       objectReference: {fileID: 0}
     - target: {fileID: 7741628310135848135, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17004,6 +17006,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 609505543896433135, guid: 37e260413833d7542a4078815bc4dc1d, type: 3}
+      propertyPath: _rootGameObject
+      value: 
+      objectReference: {fileID: 1231156403}
     - target: {fileID: 1038929029405357112, guid: 37e260413833d7542a4078815bc4dc1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.197773
@@ -17455,10 +17461,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8208917591704278497, guid: 7ae95c6991f0c6741b4d7b3683c16c02, type: 3}
-      propertyPath: _enableAction
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17476,7 +17478,7 @@ SceneRoots:
   - {fileID: 2093320788}
   - {fileID: 1231156402}
   - {fileID: 2106181199}
-  - {fileID: 7289551501237749110}
   - {fileID: 1645908177672049945}
   - {fileID: 201192637047380963}
+  - {fileID: 7289551501237749110}
   - {fileID: 8469546098000195876}

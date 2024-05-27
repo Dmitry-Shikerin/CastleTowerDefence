@@ -13,7 +13,8 @@ namespace Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.View
 
         public CharacterSpawnerViewFactory(CharacterSpawnerPresenterFactory presenterFactory)
         {
-            _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
+            _presenterFactory = presenterFactory ?? 
+                                throw new ArgumentNullException(nameof(presenterFactory));
         }
 
         public ICharacterSpawnerView Create(CharacterSpawner characterSpawner, CharacterSpawnerView view)

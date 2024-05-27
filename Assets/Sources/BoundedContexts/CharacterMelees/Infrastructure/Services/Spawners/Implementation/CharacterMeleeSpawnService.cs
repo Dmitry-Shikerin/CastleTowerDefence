@@ -39,10 +39,11 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawne
                         new List<int>( ), "CharacterHealthUpgrade"))
             );
             
-            ICharacterMeleeView enemyView = SpawnFromPool(characterMelee) ?? 
+            ICharacterMeleeView characterMeleeView = SpawnFromPool(characterMelee) ?? 
                                             _characterViewFactory.Create(characterMelee);
+            characterMeleeView.SetPosition(position);
             
-            return enemyView;
+            return characterMeleeView;
         }
 
         private ICharacterMeleeView SpawnFromPool(CharacterMelee characterMelee)

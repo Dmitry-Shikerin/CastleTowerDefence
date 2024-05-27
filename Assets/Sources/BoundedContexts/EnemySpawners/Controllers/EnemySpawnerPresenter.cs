@@ -49,7 +49,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         public override void Enable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            Spawn(_cancellationTokenSource.Token);
+            // Spawn(_cancellationTokenSource.Token);
         }
 
         public override void Disable()

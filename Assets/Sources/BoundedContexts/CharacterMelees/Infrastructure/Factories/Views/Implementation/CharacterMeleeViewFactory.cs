@@ -1,10 +1,10 @@
 ﻿using System;
 using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterMelees.Domain;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.CharacterMelees.Presentation;
 using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
-using Sources.BoundedContexts.Characters.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.Services.ObjectPools.Generic;
