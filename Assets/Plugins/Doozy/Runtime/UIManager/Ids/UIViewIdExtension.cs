@@ -26,7 +26,8 @@ namespace Doozy.Runtime.UIManager
     {
         public enum Gameplay
         {
-            Hud
+            Hud,
+            Pause
         }    
     }
 }
