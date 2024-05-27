@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: defe2424e2294add87e7fc8f38137ba9, type: 3}
-  m_Name: NodySettings
+  m_Script: {fileID: 11500000, guid: 11e5d87aedf6426e9f917c154154295e, type: 3}
+  m_Name: UIMenuSettings
   m_EditorClassIdentifier: 
-  Graph: {fileID: 11400000, guid: 476585dd02974cd409ac43227370ec68, type: 2}
+  SelectNewlyCreatedObjects: 0
+  InstantiateMode: 0
+  ItemSize: 96
