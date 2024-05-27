@@ -6,6 +6,7 @@ using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Presentationinterfaces;
 using Sources.BoundedContexts.SpawnPoints.Extensions;
 using Sources.BoundedContexts.SpawnPoints.Presentation;
+using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
 using Sources.Presentations.Views;
 using UnityEngine;

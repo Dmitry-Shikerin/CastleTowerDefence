@@ -2,6 +2,7 @@
 using System.Linq;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.SpawnPoints.Presentation;
+using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
 using UnityEngine;
 

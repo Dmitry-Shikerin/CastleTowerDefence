@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
+namespace Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces
 {
     public interface IEnemyHealthView
     {

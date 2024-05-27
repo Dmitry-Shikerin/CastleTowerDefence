@@ -4587,9 +4587,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
 --- !u!114 &8472846847038663704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4615,6 +4619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navMeshAgentBase: {fileID: 5176623936762462039}
+  _fsmOwner: {fileID: 2153056909352687614}
   _healthView: {fileID: 7255903961243589285}
   _skins:
   - {fileID: 5898033113725672953}
@@ -4668,7 +4673,6 @@ MonoBehaviour:
   - {fileID: 3186282182184992603}
   - {fileID: 7545764557829745756}
   _provider: {fileID: 8472846847038663704}
-  _fsmOwner: {fileID: 2153056909352687614}
   _animation: {fileID: 7134315104259951130}
 --- !u!1 &3402315619859024065
 GameObject:

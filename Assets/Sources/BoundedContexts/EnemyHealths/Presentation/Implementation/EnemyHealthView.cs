@@ -1,10 +1,11 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Enemies.Controllers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.Presentations.Views;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.Enemies.Presentation
+namespace Sources.BoundedContexts.EnemyHealths.Presentation.Implementation
 {
     public class EnemyHealthView : PresentableView<EnemyHealthPresenter>, IEnemyHealthView
     {

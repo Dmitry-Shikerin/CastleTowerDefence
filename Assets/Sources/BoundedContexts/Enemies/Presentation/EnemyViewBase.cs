@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Characters.Controllers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.NavMeshAgents.Presentation;
 using Sources.BoundedContexts.Skins.Presentation;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;

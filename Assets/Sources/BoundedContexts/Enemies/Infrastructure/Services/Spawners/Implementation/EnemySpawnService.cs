@@ -24,7 +24,9 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
 
         public IEnemyView Spawn(KillEnemyCounter killEnemyCounter, Vector3 position)
         {
-            Enemy enemy = new Enemy(new EnemyHealth(50), new EnemyAttacker());
+            Enemy enemy = new Enemy(
+                new EnemyHealth(50), 
+                new EnemyAttacker(0));
             
             IEnemyView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
                                    _enemyViewFactory.Create(enemy, killEnemyCounter);
