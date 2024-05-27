@@ -19,6 +19,12 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Hud
     - Category: Gameplay
+      Name: MainMenu
+    - Category: Gameplay
       Name: Pause
+    - Category: Gameplay
+      Name: Settings
+    - Category: Gameplay
+      Name: Tutorial
     - Category: None
       Name: None
