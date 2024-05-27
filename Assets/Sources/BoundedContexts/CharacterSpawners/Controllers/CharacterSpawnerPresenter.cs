@@ -4,7 +4,6 @@ using Sources.BoundedContexts.CharacterMeleeSpawners.Domain;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
 using Sources.Controllers.Common;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterSpawners.Controllers
 {

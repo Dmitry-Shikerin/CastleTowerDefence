@@ -16685,50 +16685,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.052
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.017
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.026
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.47846442
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.37584502
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.42662847
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.66917896
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -192.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -111.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335942542610179831, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 79.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887001870240943115, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3ce64d38e427e1c43875ca33ec7f5739, type: 2}
     - target: {fileID: 4906587123687682222, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_Name
       value: CharacterRangeView

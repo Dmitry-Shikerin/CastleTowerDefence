@@ -10,5 +10,6 @@
         public const string FirstAidKit = "Views/FirstAidKitView"; 
         public const string RewardItem = "Views/RewardItemView";
         public const string CharacterMeleeView = "Views/CharacterMeleeView";
+        public const string CharacterRangeView = "Views/CharacterRangeView";
     }
 }
