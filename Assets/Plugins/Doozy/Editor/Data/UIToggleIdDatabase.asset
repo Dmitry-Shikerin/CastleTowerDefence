@@ -9,22 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a745bce9a5b442ba82b755fe202f795, type: 3}
-  m_Name: UIViewIdDatabase
+  m_Script: {fileID: 11500000, guid: 53e6f219fa644a7786ed1c73b8871899, type: 3}
+  m_Name: UIToggleIdDatabase
   m_EditorClassIdentifier: 
   Database:
     Items:
     - Category: Gameplay
-      Name: GameOver
-    - Category: Gameplay
-      Name: Hud
-    - Category: Gameplay
-      Name: LevelCompleted
-    - Category: Gameplay
-      Name: Pause
-    - Category: Gameplay
       Name: Settings
-    - Category: Gameplay
-      Name: Tutorial
     - Category: None
       Name: None
