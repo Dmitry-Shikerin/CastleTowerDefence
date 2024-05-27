@@ -6,6 +6,12 @@ using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Int
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.CharacterMelees.Presentation;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Services;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Implementation;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Views;
 using Sources.Frameworks.Services.ObjectPools.Generic;
@@ -25,6 +31,11 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<ICharacterMeleeSpawnService>().To<CharacterMeleeSpawnService>().AsSingle();
             Container.Bind<CharacterMeleeDependencyProviderFactory>().AsSingle();
             Container.Bind<ICharacterMeleeViewFactory>().To<CharacterMeleeViewFactory>().AsSingle();
+
+            Container.Bind<IObjectPool<CharacterRangeView>>().To<ObjectPool<CharacterRangeView>>().AsSingle();
+            Container.Bind<ICharacterRangeSpawnService>().To<CharacterRangeSpawnService>().AsSingle();
+            Container.Bind<CharacterRangeDependencyProviderFactory>().AsSingle();
+            Container.Bind<ICharacterRangeViewFactory>().To<CharacterRangeViewFactory>().AsSingle();
 
             Container.Bind<CharacterHealthPresenterFactory>().AsSingle();
             Container.Bind<CharacterHealthViewFactory>().AsSingle();

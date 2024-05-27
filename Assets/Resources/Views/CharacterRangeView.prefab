@@ -3372,7 +3372,7 @@ MonoBehaviour:
     _translation: {x: 0, y: 0}
     _zoomFactor: 1
   _firstActivation: 0
-  _enableAction: 0
+  _enableAction: 1
   _disableAction: 0
   _lockBoundGraphPrefabOverrides: 1
   _preInitializeSubGraphs: 0
@@ -3392,9 +3392,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.CharacterRanges.Presentation.Implementation.CharacterRangeView.Provider","_name":"_provider","_id":"89db9ca2-81e4-4e2f-9de6-5db968b0598a","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers.CharacterRangeDependencyProvider,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_propertyPath":"Sources.BoundedContexts.CharacterRanges.Presentation.Implementation.CharacterRangeView.Provider","_name":"_provider","_id":"89db9ca2-81e4-4e2f-9de6-5db968b0598a","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers.CharacterRangeDependencyProvider,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
 --- !u!114 &8782936900031788647
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,15 +2,11 @@
 using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterHealth.Presentation;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.CharacterMelees.Presentation;
-using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.Presentations.Views;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
 {

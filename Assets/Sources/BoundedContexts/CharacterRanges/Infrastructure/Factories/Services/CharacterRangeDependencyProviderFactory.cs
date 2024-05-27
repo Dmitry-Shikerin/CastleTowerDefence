@@ -10,7 +10,10 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Servi
             CharacterRange characterRange, 
             CharacterRangeView view)
         {
-            view.Provider.Construct(characterRange, view);
+            view.Provider.Construct(
+                characterRange, 
+                view,
+                view.RangeAnimation);
             
             return view.Provider;
         }
