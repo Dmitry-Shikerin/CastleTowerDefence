@@ -11,31 +11,29 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
     [UsedImplicitly]
-    public class EnemyMoveToPlayerState : FSMState
+    public class EnemyMoveToTargetPointState : FSMState
     {
         private Enemy _enemy;
         private IEnemyView _view;
-        private IEnemyAnimation _enemyAnimation;
+        private IEnemyAnimation _animation;
 
         protected override void OnInit()
         {
-            EnemyDependencyProvider provider = 
+            EnemyDependencyProvider provider =
                 graphBlackboard.parent.GetVariable<EnemyDependencyProvider>("_provider").value;
 
             _enemy = provider.Enemy;
             _view = provider.View;
-            _enemyAnimation = provider.Animation;
+            _animation = provider.Animation;
         }
 
         protected override void OnEnter()
         {
-            base.OnEnter();
+            _animation.PlayIdle();
         }
 
-        protected override void OnUpdate()
-        {
-            base.OnUpdate();
-        }
+        protected override void OnUpdate() =>
+            _view.Move(_view.TargetPoint.Position);
 
         protected override void OnExit()
         {

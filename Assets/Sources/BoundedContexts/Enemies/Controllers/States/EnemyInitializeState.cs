@@ -15,7 +15,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     {
         private Enemy _enemy;
         private IEnemyView _view;
-        private IEnemyAnimation _enemyAnimation;
+        private IEnemyAnimation _animation;
 
         protected override void OnInit()
         {
@@ -24,13 +24,13 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
             _enemy = provider.Enemy;
             _view = provider.View;
-            _enemyAnimation = provider.EnemyAnimation;
+            _animation = provider.Animation;
         }
 
         protected override void OnEnter()
         {
             _enemy.IsInitialized = true;
-            _enemyAnimation.PlayIdle();
+            _animation.PlayIdle();
         }
 
         protected override void OnUpdate()

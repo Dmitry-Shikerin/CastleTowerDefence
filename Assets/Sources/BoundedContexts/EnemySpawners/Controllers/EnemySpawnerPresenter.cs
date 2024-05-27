@@ -5,7 +5,7 @@ using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Domain;
-using Sources.BoundedContexts.EnemySpawners.Presentationinterfaces;
+using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.SpawnPoints.Presentation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
@@ -88,8 +88,9 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
                   return;
             
             IEnemyView enemyView = _enemySpawnService.Spawn(_killEnemyCounter, position);
-            enemyView.SetCharacterHealth(characterMeleeView.HealthView);
-            enemyView.SetTargetFollow(characterMeleeView.HealthView);
+            enemyView.SetTargetPoint(_enemySpawnerView.TargetPoint);
+            // enemyView.SetCharacterHealth(characterMeleeView.HealthView);
+            // enemyView.SetTargetFollow(characterMeleeView.HealthView);
 
             _enemySpawner.SpawnedEnemies++;
         }

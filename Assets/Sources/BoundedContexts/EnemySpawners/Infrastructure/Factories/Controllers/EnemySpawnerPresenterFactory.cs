@@ -2,7 +2,7 @@
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Domain;
-using Sources.BoundedContexts.EnemySpawners.Presentationinterfaces;
+using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 
 namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers
