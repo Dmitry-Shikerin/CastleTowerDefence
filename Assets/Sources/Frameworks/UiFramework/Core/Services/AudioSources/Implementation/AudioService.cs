@@ -7,6 +7,7 @@ using Sources.Frameworks.UiFramework.Presentation.Forms;
 using Sources.Frameworks.UiFramework.Presentation.Views;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.AudioSources;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.AudioSources;
+using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using Sources.InfrastructureInterfaces.Services.Volumes;
 
 namespace Sources.Frameworks.UiFramework.Services.AudioSources

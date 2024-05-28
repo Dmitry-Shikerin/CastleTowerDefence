@@ -3,18 +3,18 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Controllers.Buttons;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.UiFramework.Domain.Constants;
+using Sources.Frameworks.UiFramework.Presentation.Buttons;
 using Sources.Frameworks.UiFramework.Presentation.Buttons.Types;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.Buttons;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Sources.Frameworks.UiFramework.Presentation.Buttons
+namespace Sources.Frameworks.UiFramework.Buttons.Presentations.Implementation
 {
     public class UiButton : PresentableUiButton<UiButtonPresenter>, IUiButton
     {
-        [DisplayAsString(false)] [HideLabel] [Indent(8)] [SerializeField]
-        private string _labelText = UiConstant.UiButtonLabel;
+        [DisplayAsString(false)] [HideLabel] [Indent(8)] 
+        [SerializeField] private string _labelText = UiConstant.UiButtonLabel;
 
         [TabGroup("Ids")] [EnableIf("_buttonId", ButtonId.Default)] [SerializeField]
         private FormId _formId;

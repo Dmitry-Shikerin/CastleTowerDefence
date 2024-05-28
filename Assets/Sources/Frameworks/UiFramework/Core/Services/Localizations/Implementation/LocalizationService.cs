@@ -9,6 +9,7 @@ using Sources.Frameworks.UiFramework.Domain.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.Presentation.Views;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
+using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using Sources.PresentationsInterfaces.UI.Texts;
 using UnityEngine;
 

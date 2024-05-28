@@ -50,6 +50,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _cancellationTokenSource = new CancellationTokenSource();
             // Spawn(_cancellationTokenSource.Token);
+            SpawnEnemy(_enemySpawnerView.SpawnPoints[0].Position, _enemySpawnerView.CharacterMeleeView);
         }
 
         public override void Disable()

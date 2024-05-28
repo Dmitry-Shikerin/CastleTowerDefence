@@ -14,7 +14,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Extensions
 #if UNITY_EDITOR
             return FindAssets<LocalizationConfig>("t:LocalizationConfig")
                 .FirstOrDefault()
-                .LocalizationIds;
+                ?.LocalizationIds;
 #endif
             return new List<string>();
         }

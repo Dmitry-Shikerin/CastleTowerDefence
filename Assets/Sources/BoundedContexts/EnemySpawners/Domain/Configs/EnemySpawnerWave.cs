@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using JetBrains.Annotations;
+using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
     [CreateAssetMenu(fileName = "EnemySpawnerWave", menuName = "Configs/EnemySpawnerWave", order = 51)]
     public class EnemySpawnerWave : ScriptableObject
     {
-        [EnumToggleButtons] [HideLabel]
+        [EnumToggleButtons] [HideLabel] [UsedImplicitly]
         [SerializeField] private Enable _enable = Enable.Disable;
         [EnableIf("_enable", Enable.Enable)]
         [SerializeField] private int _waveId;

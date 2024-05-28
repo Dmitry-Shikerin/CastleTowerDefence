@@ -10,7 +10,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Presentation.Implementation
     {
         private static int s_isRun = Animator.StringToHash("IsRun");
         
-        public event Action Attacking;
         public event Action ScreamAnimationEnded;
 
         protected override void OnAfterAwake() =>
@@ -29,10 +28,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Presentation.Implementation
             
             Animator.SetBool(s_isRun, false);
         }
-        
-        [UsedImplicitly]
-        private void OnAttack() =>
-            Attacking?.Invoke();
         
         [UsedImplicitly]
         private void OnScreamAnimationEnded() =>

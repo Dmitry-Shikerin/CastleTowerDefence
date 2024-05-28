@@ -1,19 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
+using Sources.Frameworks.UiFramework.Animations.Presentations.Implementation;
+using Sources.Frameworks.UiFramework.Buttons.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Domain.Constants;
-using Sources.Frameworks.UiFramework.Presentation.Animations;
 using Sources.Frameworks.UiFramework.Presentation.AudioSources;
 using Sources.Frameworks.UiFramework.Presentation.Buttons;
 using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.Presentation.Texts;
+using Sources.Frameworks.UiFramework.Presentation.Views;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.AudioSources;
 using Sources.Presentations.Views;
 using Sources.PresentationsInterfaces.UI.Texts;
 using UnityEngine;
 
-namespace Sources.Frameworks.UiFramework.Presentation.Views
+namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
 {
     public class UiCollector : View
     {
@@ -28,7 +31,7 @@ namespace Sources.Frameworks.UiFramework.Presentation.Views
         [SerializeField] private Enable _includeTexts = Enable.Enable;
         
         [TabGroup("Tab1", "Texts", true, 1)] 
-        [EnumToggleButtons]
+        [EnumToggleButtons] [UsedImplicitly]
         [SerializeField] private Enable _testLocalization = Enable.Enable; 
         
         [TabGroup("Tab1", "Texts", true, 1)] 

@@ -1,14 +1,17 @@
 ﻿using Cysharp.Threading.Tasks;
+using Sources.App.Factories;
 using Sources.App.Scenes;
 using Sources.ControllersInterfaces.Scenes;
 
-namespace Sources.App.Factories
+namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers
 {
     public class MainMenuSceneFactory : ISceneFactory
     {
-        public async UniTask<IScene> Create(object payload)
+        public UniTask<IScene> Create(object payload)
         {
-            return new MainMenuScene();
+            IScene mainMenuScene = new MainMenuScene();
+            
+            return UniTask.FromResult(mainMenuScene);
         }
     }
 }

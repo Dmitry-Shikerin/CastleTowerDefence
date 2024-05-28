@@ -1,10 +1,11 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Sources.App.Factories;
 using Sources.App.Scenes;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views;
 using Sources.ControllersInterfaces.Scenes;
 
-namespace Sources.App.Factories
+namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers
 {
     public class GameplaySceneFactory : ISceneFactory
     {
@@ -17,9 +18,12 @@ namespace Sources.App.Factories
                                         throw new ArgumentNullException(nameof(gameplaySceneViewFactory));
         }
 
-        public async UniTask<IScene> Create(object payload)
+        public UniTask<IScene> Create(object payload)
         {
-            return new GameplayScene(_gameplaySceneViewFactory);
+            IScene gameplayScene = new GameplayScene(
+                _gameplaySceneViewFactory);
+
+            return UniTask.FromResult(gameplayScene);
         }
     }
 }
