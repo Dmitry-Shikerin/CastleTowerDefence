@@ -14,17 +14,20 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation
 {
     public class CharacterMeleeView : View, ICharacterMeleeView
     {
+        [SerializeField] private float _findRange = 1.2f;
         [Required] [SerializeField] private CharacterMeleeAnimation meleeAnimation;
         [Required] [SerializeField] private CharacterHealthView _healthView;
         [Required] [SerializeField] private CharacterMeleeDependencyProvider _provider;
         [Required] [SerializeField] private FSMOwner _fsmOwner;
-        
+
+        public float FindRange => _findRange;
         public ICharacterMeleeAnimation MeleeAnimation => meleeAnimation;
         public CharacterHealthView HealthView => _healthView;
         public CharacterMeleeDependencyProvider Provider => _provider;
         public FSMOwner FSMOwner => _fsmOwner;
         public IEnemyHealthView EnemyHealthView { get; private set; }
-        
+
+
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView) =>
             EnemyHealthView = enemyHealthView ?? throw new ArgumentNullException(nameof(enemyHealthView));
     }

@@ -4,6 +4,7 @@ using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+using Sources.InfrastructureInterfaces.Services.Overlaps;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
@@ -13,6 +14,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     {
         private ICharacterMeleeView _meleeView;
         private ICharacterMeleeAnimation _meleeAnimation;
+        private IOverlapService _overlapService;
 
         protected override void OnInit()
         {
@@ -21,6 +23,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 
             _meleeView = provider.MeleeView;
             _meleeAnimation = provider.MeleeAnimation;
+            _overlapService = provider.OverlapService;
         }
 
         protected override void OnEnter()
@@ -30,12 +33,15 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 
         protected override void OnUpdate()
         {
-            base.OnUpdate();
         }
 
         protected override void OnExit()
         {
-            base.OnExit();
+        }
+        
+        private void FindTarget()
+        {
+            
         }
     }
 }

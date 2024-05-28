@@ -2,18 +2,17 @@
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Domain.Constants;
 using Sources.Frameworks.UiFramework.Presentation.Animations.Types;
-using Sources.Frameworks.UiFramework.Presentation.Buttons;
 using Sources.Frameworks.UiFramework.Services.Animations;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Animations;
 using Sources.Presentations.Views;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Sources.Frameworks.UiFramework.Presentation.Animations
+namespace Sources.Frameworks.UiFramework.Animations.Presentations.Implementation
 {
     public class UiAnimator : View
     {
-        [DisplayAsString(false)] [HideLabel] [Indent(8)]
+        [DisplayAsString(false)] [HideLabel] 
+        [Indent(8)] [UsedImplicitly]
         [SerializeField] private string _label = UiConstant.UiAnimatorLabel;
         
         [Space(15)]

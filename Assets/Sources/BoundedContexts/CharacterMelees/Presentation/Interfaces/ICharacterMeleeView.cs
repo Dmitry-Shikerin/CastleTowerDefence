@@ -1,4 +1,5 @@
 using NodeCanvas.StateMachines;
+using Sources.BoundedContexts.AttackTargetFinders.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterHealth.Presentation;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
@@ -7,7 +8,7 @@ using Sources.PresentationsInterfaces.Views;
 
 namespace Sources.BoundedContexts.CharacterMelees.PresentationInterfaces
 {
-    public interface ICharacterMeleeView : IView
+    public interface ICharacterMeleeView : IView, IAttackTargetFinder
     {
         public ICharacterMeleeAnimation MeleeAnimation { get; }
         public CharacterHealthView HealthView { get; }

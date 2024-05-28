@@ -29,7 +29,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnEnter()
         {
-            _animation.PlayIdle();
+            _animation.PlayWalk();
         }
 
         protected override void OnUpdate() =>

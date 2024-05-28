@@ -7368,6 +7368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385f7c13fc9d490583df9beb28811b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _findRange: 1.2
   meleeAnimation: {fileID: 3735942029561016650}
   _healthView: {fileID: 6934783632022637132}
   _provider: {fileID: 5586510660625519743}

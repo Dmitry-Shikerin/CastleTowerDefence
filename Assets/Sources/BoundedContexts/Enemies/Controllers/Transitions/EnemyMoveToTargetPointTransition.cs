@@ -21,6 +21,6 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
         }
 
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null && _view.TargetPoint != null;
+            _view.CharacterHealthView == null && _view.TargetPoint != null;
     }
 }

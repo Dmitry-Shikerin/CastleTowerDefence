@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sources.Infrastructure.Services.Linecasts;
+using Sources.Frameworks.Services.Linecasts.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Overlaps;
 using UnityEngine;
 
-namespace Sources.Infrastructure.Services.Overlaps
+namespace Sources.Frameworks.Services.Overlaps.Implementation
 {
     public class OverlapService : IOverlapService
     {
         private readonly Collider[] _colliders = new Collider[32];
-        private readonly LinecastService _linecastService;
+        private readonly ILinecastService _linecastService;
 
-        public OverlapService(LinecastService linecastService)
+        public OverlapService(ILinecastService linecastService)
         {
             _linecastService = linecastService ?? throw new ArgumentNullException(nameof(linecastService));
         }
