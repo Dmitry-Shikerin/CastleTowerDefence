@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Doozy.Runtime.Signals;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands.Buttons;
@@ -7,6 +8,7 @@ using Sources.Frameworks.UiFramework.PresentationsInterfaces.Buttons;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Leaderboads;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
+using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Buttons.Commands.Implementation
 {
@@ -32,7 +34,8 @@ namespace Sources.Frameworks.UiFramework.Buttons.Commands.Implementation
         
         public void Handle(IMyUiButton myUiButton)
         {
-            SignalStream stream = SignalStream.Get("Leaderboard", "IsAuthorization");
+            //todo переделать на энамы
+            SignalStream stream = SignalStream.Get("MainMenu", "Leaderboard");
             
             if (_playerAccountAuthorizeService.IsAuthorized() == false)
             {
