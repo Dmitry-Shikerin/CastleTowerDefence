@@ -2,8 +2,8 @@
 using Sources.Frameworks.UiFramework.Buttons.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Controllers.Buttons;
 using Sources.Frameworks.UiFramework.Infrastructure.Factories.Controllers.Buttons;
-using Sources.Frameworks.UiFramework.Infrastructure.Services.Buttons;
 using Sources.Frameworks.UiFramework.Presentation.Buttons;
+using Sources.Frameworks.UiFramework.PresentationsInterfaces.Buttons;
 
 namespace Sources.Frameworks.UiFramework.Infrastructure.Factories.Views.Buttons
 {
@@ -17,7 +17,7 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Factories.Views.Buttons
                                 throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public UiButton Create(UiButton view)
+        public IMyUiButton Create(MyUiButton view)
         {
             UiButtonPresenter presenter = _presenterFactory.Create(view);
             

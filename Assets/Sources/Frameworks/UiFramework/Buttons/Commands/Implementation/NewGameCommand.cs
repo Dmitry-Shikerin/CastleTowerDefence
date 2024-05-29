@@ -22,7 +22,7 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.NewGame;
         
-        public void Handle(IUiButton uiButton)
+        public void Handle(IMyUiButton myUiButton)
         {
             if (_loadService.HasKey(ModelId.PlayerWallet))
             {

@@ -35,6 +35,9 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
         protected override void OnUpdate()
         {
             ChangeLookDirection();
+            
+            if(_view.EnemyHealth.CurrentHealth <= 0)
+                _view.SetEnemyHealth(null);
         }
 
         protected override void OnExit()
@@ -44,6 +47,8 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 
         private void OnAttack()
         {
+            _view.PlayShootParticle();
+            _view.EnemyHealth.TakeDamage(2);
         }
         
         private void ChangeLookDirection()

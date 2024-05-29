@@ -32,7 +32,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
 
 
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView) =>
-            EnemyHealth = enemyHealthView ?? throw new ArgumentNullException(nameof(enemyHealthView));
+            EnemyHealth = enemyHealthView;
 
         public void SetLookRotation(float angle)
         {

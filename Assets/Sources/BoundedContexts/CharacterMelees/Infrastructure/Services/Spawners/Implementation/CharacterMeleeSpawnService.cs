@@ -34,7 +34,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawne
             CharacterMelee characterMelee = new CharacterMelee(
                 new CharacterHealth.Domain.CharacterHealth(
                     new Upgrade(
-                        0,
+                        100,
                         0,
                         0, 
                         new List<int>( ), "CharacterHealthUpgrade"))

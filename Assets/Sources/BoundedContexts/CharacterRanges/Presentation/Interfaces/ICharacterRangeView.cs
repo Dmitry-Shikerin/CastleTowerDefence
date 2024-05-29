@@ -12,5 +12,6 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces
 
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView);
         void SetLookRotation(float angle);
+        void PlayShootParticle();
     }
 }

@@ -2,7 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Controllers.Common;
-using Sources.Frameworks.UiFramework.Infrastructure.Services.Buttons;
+using Sources.Frameworks.UiFramework.Buttons.Services.Interfaces;
 using Sources.Frameworks.UiFramework.Presentation.Buttons;
 using Sources.Frameworks.UiFramework.Presentation.Buttons.Types;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.Buttons;
@@ -12,12 +12,12 @@ namespace Sources.Frameworks.UiFramework.Controllers.Buttons
     public class UiButtonPresenter : PresenterBase
     {
         private readonly IUiButtonService _uiButtonService;
-        private readonly IUiButton _view;
+        private readonly IMyUiButton _view;
 
         private CancellationTokenSource _cancellationTokenSource;
 
         public UiButtonPresenter(
-            IUiButton view,
+            IMyUiButton view,
             IUiButtonService uiButtonService)
         {
             _uiButtonService = uiButtonService ??

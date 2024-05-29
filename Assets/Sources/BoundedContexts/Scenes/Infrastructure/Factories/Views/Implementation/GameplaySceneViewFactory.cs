@@ -10,11 +10,13 @@ using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.Domain.Models.Data;
 using Sources.DomainInterfaces.Models.Payloads;
+using Sources.Frameworks.UiFramework.Collectors;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
     public class GameplaySceneViewFactory : ISceneViewFactory
     {
+        private readonly UiCollectorFactory _uiCollectorFactory;
         private readonly RootGameObject _rootGameObject;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
         private readonly ICharacterMeleeViewFactory _characterMeleeViewFactory;
@@ -22,12 +24,14 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly IEnemyViewFactory _enemyViewFactory;
 
         public GameplaySceneViewFactory(
+            UiCollectorFactory uiCollectorFactory,
             RootGameObject rootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             CharacterSpawnerViewFactory characterSpawnerViewFactory,
             IEnemyViewFactory enemyViewFactory,
             ICharacterMeleeViewFactory characterMeleeViewFactory)
         {
+            _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _enemySpawnerViewFactory = enemySpawnerViewFactory ?? 
                                        throw new ArgumentNullException(nameof(enemySpawnerViewFactory));
@@ -50,6 +54,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                 enemySpawner, 
                 new KillEnemyCounter(new KillEnemyCounterDto()), 
                 _rootGameObject.EnemySpawnerView);
+            
+            //UiCollector
+            _uiCollectorFactory.Create();
         }
     }
 }

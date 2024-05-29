@@ -18,6 +18,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         [Required] [SerializeField] private CharacterHealthView _healthView;
         [Required] [SerializeField] private CharacterRangeDependencyProvider _provider;
         [Required] [SerializeField] private FSMOwner _fsmOwner;
+        [Required] [SerializeField] private ParticleSystem _shootParticle;
         
         public ICharacterRangeAnimation RangeAnimation => _rangeAnimation;
         public CharacterHealthView HealthView => _healthView;
@@ -27,8 +28,11 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         public Vector3 Position => transform.position;
         public IEnemyHealthView EnemyHealth { get; private set; }
         
+        public void PlayShootParticle() =>
+            _shootParticle.Play();
+
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView) =>
-            EnemyHealth = enemyHealthView ?? throw new ArgumentNullException(nameof(enemyHealthView));
+            EnemyHealth = enemyHealthView;
 
         public void SetLookRotation(float angle)
         {

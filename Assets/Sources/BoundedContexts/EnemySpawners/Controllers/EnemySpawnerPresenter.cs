@@ -50,7 +50,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _cancellationTokenSource = new CancellationTokenSource();
             // Spawn(_cancellationTokenSource.Token);
-            SpawnEnemy(_enemySpawnerView.SpawnPoints[0].Position, _enemySpawnerView.CharacterMeleeView);
+            // SpawnEnemy(_enemySpawnerView.SpawnPoints[0].Position, _enemySpawnerView.CharacterMeleeView);
+            Spawn(_cancellationTokenSource.Token);
         }
 
         public override void Disable()
@@ -66,15 +67,16 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
                 {
                     foreach (ISpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
                     {
-                        _enemySpawner.SetCurrentWave(_killEnemyCounter.KillZombies);
+                        // _enemySpawner.SetCurrentWave(_killEnemyCounter.KillZombies);
                         SpawnEnemy(spawnPoint.Position, _enemySpawnerView.CharacterMeleeView);
-                        SpawnBoss(spawnPoint.Position, _enemySpawnerView.CharacterMeleeView);
+                        // SpawnBoss(spawnPoint.Position, _enemySpawnerView.CharacterMeleeView);
                         
-                        await _enemySpawner.WaitWave(_killEnemyCounter, cancellationToken);
-                        await UniTask.Delay(
-                            TimeSpan.FromSeconds(
-                                _enemySpawner.SpawnDelays[_enemySpawner.CurrentWave]),
-                            cancellationToken: cancellationToken);
+                        // await _enemySpawner.WaitWave(_killEnemyCounter, cancellationToken);
+                        await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: cancellationToken);
+                        // await UniTask.Delay(
+                        //     TimeSpan.FromSeconds(
+                        //         _enemySpawner.SpawnDelays[_enemySpawner.CurrentWave]),
+                        //     cancellationToken: cancellationToken);
                     }
                 }
             }
