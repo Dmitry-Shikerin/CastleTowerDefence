@@ -17,6 +17,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Back
     - Category: Gameplay
+      Name: Exit
+    - Category: Gameplay
       Name: Hud
     - Category: Gameplay
       Name: MainMenu

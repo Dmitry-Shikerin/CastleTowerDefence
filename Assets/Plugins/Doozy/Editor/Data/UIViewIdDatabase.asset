@@ -25,6 +25,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Pause
     - Category: Gameplay
+      Name: Quit
+    - Category: Gameplay
       Name: Settings
     - Category: Gameplay
       Name: Tutorial

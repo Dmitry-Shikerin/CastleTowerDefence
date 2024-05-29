@@ -31,6 +31,7 @@ namespace Doozy.Runtime.UIManager
             Hud,
             LevelCompleted,
             Pause,
+            Quit,
             Settings,
             Tutorial
         }    
