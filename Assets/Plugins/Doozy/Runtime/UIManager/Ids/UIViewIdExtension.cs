@@ -42,6 +42,7 @@ namespace Doozy.Runtime.UIManager
 
         public enum MainMenu
         {
+            Authorization,
             Background,
             Hud,
             Leaderboard,

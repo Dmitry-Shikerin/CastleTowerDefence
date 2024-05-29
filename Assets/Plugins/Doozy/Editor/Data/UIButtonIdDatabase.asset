@@ -29,9 +29,13 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Tutorial
     - Category: MainMenu
+      Name: Authorization
+    - Category: MainMenu
       Name: Back
     - Category: MainMenu
       Name: Continue
+    - Category: MainMenu
+      Name: Hud
     - Category: MainMenu
       Name: Leaderboard
     - Category: MainMenu

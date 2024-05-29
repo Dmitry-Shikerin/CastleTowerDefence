@@ -31,6 +31,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Tutorial
     - Category: MainMenu
+      Name: Authorization
+    - Category: MainMenu
       Name: Background
     - Category: MainMenu
       Name: Hud

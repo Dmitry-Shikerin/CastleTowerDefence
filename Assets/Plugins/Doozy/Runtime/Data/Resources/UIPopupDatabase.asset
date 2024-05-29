@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1142824b18ef490e9311385acfe1c486, type: 3}
-  m_Name: StreamIdDatabase
+  m_Script: {fileID: 11500000, guid: 3bd76c0fc98e49b88d5146f8747eae7f, type: 3}
+  m_Name: UIPopupDatabase
   m_EditorClassIdentifier: 
-  Database:
-    Items:
-    - Category: Authorization
-      Name: IsAuthorized
-    - Category: None
-      Name: None
+  Database: []
