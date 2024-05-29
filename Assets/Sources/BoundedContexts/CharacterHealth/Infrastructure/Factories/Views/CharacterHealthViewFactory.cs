@@ -15,7 +15,7 @@ namespace Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views
             _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public ICharacterHealthView Create(Characters.CharacterHealth characterHealth, CharacterHealthView view)
+        public ICharacterHealthView Create(Domain.CharacterHealth characterHealth, CharacterHealthView view)
         {
             CharacterHealthPresenter presenter = _presenterFactory.Create(characterHealth, view);
             view.Construct(presenter);

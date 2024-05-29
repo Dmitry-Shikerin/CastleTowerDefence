@@ -5,7 +5,7 @@ namespace Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Contr
 {
     public class CharacterHealthPresenterFactory
     {
-        public CharacterHealthPresenter Create(Characters.CharacterHealth characterHealth, CharacterHealthView view) =>
+        public CharacterHealthPresenter Create(Domain.CharacterHealth characterHealth, CharacterHealthView view) =>
             new CharacterHealthPresenter(characterHealth, view);
     }
 }

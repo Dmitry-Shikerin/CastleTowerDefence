@@ -43,6 +43,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 
         private void OnAttack()
         {
+            _view.EnemyHealth.TakeDamage(10);
         }
         
         private void ChangeLookDirection()

@@ -32,7 +32,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawne
         public ICharacterMeleeView Spawn(Vector3 position)
         {
             CharacterMelee characterMelee = new CharacterMelee(
-                new Characters.CharacterHealth(
+                new CharacterHealth.Domain.CharacterHealth(
                     new Upgrade(
                         0,
                         0,

@@ -16842,6 +16842,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterMeleeView
       objectReference: {fileID: 0}
+    - target: {fileID: 6792633969396128749, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792633969396128749, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596211157856494746, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596211157856494746, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9843137
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596211157856494746, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+      propertyPath: m_Color.r
+      value: 0.30432293
+      objectReference: {fileID: 0}
     - target: {fileID: 7741628310135848135, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.014
@@ -17423,29 +17443,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2444405312829945054, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3391113285427405577, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
       propertyPath: m_Name
       value: EnemyView
-      objectReference: {fileID: 0}
-    - target: {fileID: 3391113285427405577, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3760317775171790496, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4582214587061296468, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896722996484056735, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6593444774142356389, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
       propertyPath: m_LocalPosition.x

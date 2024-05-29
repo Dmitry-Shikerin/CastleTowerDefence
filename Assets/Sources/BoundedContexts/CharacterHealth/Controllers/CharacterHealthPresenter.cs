@@ -7,9 +7,9 @@ namespace Sources.BoundedContexts.Characters.Controllers
     public class CharacterHealthPresenter : PresenterBase
     {
         private readonly ICharacterHealthView _characterHealthView;
-        private readonly CharacterHealth _characterHealth;
+        private readonly CharacterHealth.Domain.CharacterHealth _characterHealth;
 
-        public CharacterHealthPresenter(CharacterHealth characterHealth,
+        public CharacterHealthPresenter(CharacterHealth.Domain.CharacterHealth characterHealth,
             ICharacterHealthView characterHealthView)
         {
             _characterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));

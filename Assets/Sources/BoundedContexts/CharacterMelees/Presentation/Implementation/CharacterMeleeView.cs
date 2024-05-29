@@ -6,6 +6,7 @@ using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
+using Sources.BoundedContexts.Healths.Presentation.Implementation;
 using Sources.Presentations.Views;
 using UnityEngine;
 
@@ -18,7 +19,9 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
         [Required] [SerializeField] private CharacterHealthView _healthView;
         [Required] [SerializeField] private CharacterMeleeDependencyProvider _provider;
         [Required] [SerializeField] private FSMOwner _fsmOwner;
+        [Required] [SerializeField] private HealthBarView _healthBarView;
 
+        public HealthBarView HealthBarView => _healthBarView;
         public float FindRange => _findRange;
         public Vector3 Position => transform.position;
         public ICharacterMeleeAnimation MeleeAnimation => meleeAnimation;

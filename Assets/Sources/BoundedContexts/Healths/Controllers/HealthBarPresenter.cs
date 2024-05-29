@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.BoundedContexts.Healths.DomainInterfaces;
-using Sources.BoundedContexts.Healths.Presentation.Implementation;
 using Sources.BoundedContexts.Healths.Presentation.Interfaces;
 using Sources.Controllers.Common;
 using Sources.Domain.Models.Constants;
