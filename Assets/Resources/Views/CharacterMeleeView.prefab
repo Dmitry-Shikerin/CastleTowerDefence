@@ -7231,6 +7231,7 @@ GameObject:
   - component: {fileID: 14657073937353269}
   - component: {fileID: 4130873234004890325}
   - component: {fileID: 5586510660625519743}
+  - component: {fileID: 4476541095687359964}
   m_Layer: 0
   m_Name: CharacterMeleeView
   m_TagString: Untagged
@@ -7369,7 +7370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _findRange: 1.2
-  meleeAnimation: {fileID: 3735942029561016650}
+  meleeAnimation: {fileID: 4476541095687359964}
   _healthView: {fileID: 6934783632022637132}
   _provider: {fileID: 5586510660625519743}
   _fsmOwner: {fileID: 3755755198892554804}
@@ -7385,6 +7386,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4ce2ee2aec49dab606d55d3400febb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4476541095687359964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388632552365605048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f02d86e4b416fbe00d04f6901bac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8783298564297753094}
 --- !u!1 &3512506881893632096
 GameObject:
   m_ObjectHideFlags: 0
@@ -18241,7 +18255,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7428401040731896914}
-  - component: {fileID: 3735942029561016650}
   m_Layer: 0
   m_Name: CharacterAnimation
   m_TagString: Untagged
@@ -18264,19 +18277,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7741628310135848135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3735942029561016650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4830716403617678647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660f02d86e4b416fbe00d04f6901bac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 8783298564297753094}
 --- !u!1 &5003375556339368798
 GameObject:
   m_ObjectHideFlags: 0

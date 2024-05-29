@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Overlaps;
 
 namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers
@@ -8,10 +9,15 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Provi
     public class CharacterMeleeDependencyProviderFactory
     {
         private readonly IOverlapService _overlapService;
+        private readonly ICharacterRotationService _characterRotationService;
 
-        public CharacterMeleeDependencyProviderFactory(IOverlapService overlapService)
+        public CharacterMeleeDependencyProviderFactory(
+            IOverlapService overlapService,
+            ICharacterRotationService characterRotationService)
         {
             _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
+            _characterRotationService = characterRotationService ?? 
+                                        throw new ArgumentNullException(nameof(characterRotationService));
         }
 
         public CharacterMeleeDependencyProvider Create(ICharacterMeleeView meleeView)
@@ -20,7 +26,8 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Provi
             provider.Construct(
                 meleeView, 
                 meleeView.MeleeAnimation,
-                _overlapService);
+                _overlapService,
+                _characterRotationService);
 
             return provider;
         }

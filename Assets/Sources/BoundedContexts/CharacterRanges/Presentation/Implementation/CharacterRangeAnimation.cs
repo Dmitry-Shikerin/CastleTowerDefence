@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using JetBrains.Annotations;
+using UnityEngine;
 using Sources.BoundedContexts.Animations.Presentations;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 
@@ -8,6 +10,8 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
     {
         private static int s_isIdle = Animator.StringToHash("IsIdle");
         private static int s_isAttack = Animator.StringToHash("IsAttack");
+
+        public event Action Attacking;
 
         private void Awake()
         {
@@ -26,6 +30,10 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
             ExceptAnimation(StopPlayAttack);
             Animator.SetBool(s_isAttack, true);
         }
+        
+        [UsedImplicitly]
+        private void OnAttack() =>
+            Attacking?.Invoke();
 
         private void StopPlayIdle() =>
             Animator.SetBool(s_isIdle, false);
