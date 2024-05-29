@@ -1,5 +1,7 @@
-﻿using Sources.BoundedContexts.Animations.Presentations;
-using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+﻿using System;
+using JetBrains.Annotations;
+using Sources.BoundedContexts.Animations.Presentations;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Presentation
@@ -8,6 +10,8 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation
     {
         private static int s_isIdle = Animator.StringToHash("IsIdle");
         private static int s_isAttack = Animator.StringToHash("IsAttack");
+
+        public event Action Attacking;
 
         private void Awake()
         {
@@ -26,6 +30,10 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation
             ExceptAnimation(StopPlayAttack);
             Animator.SetBool(s_isAttack, true);
         }
+        
+        [UsedImplicitly]
+        private void OnAttack() =>
+            Attacking?.Invoke();
 
         private void StopPlayIdle() =>
             Animator.SetBool(s_isIdle, false);

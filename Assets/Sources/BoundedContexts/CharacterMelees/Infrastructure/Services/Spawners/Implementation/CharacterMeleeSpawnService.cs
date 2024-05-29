@@ -4,7 +4,8 @@ using Sources.BoundedContexts.CharacterMelees.Domain;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.CharacterMelees.Presentation;
-using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
@@ -31,9 +32,9 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawne
         public ICharacterMeleeView Spawn(Vector3 position)
         {
             CharacterMelee characterMelee = new CharacterMelee(
-                new Characters.CharacterHealth(
+                new CharacterHealth.Domain.CharacterHealth(
                     new Upgrade(
-                        0,
+                        100,
                         0,
                         0, 
                         new List<int>( ), "CharacterHealthUpgrade"))

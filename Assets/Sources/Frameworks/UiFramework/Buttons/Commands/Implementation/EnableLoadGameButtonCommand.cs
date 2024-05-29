@@ -21,12 +21,12 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.EnableLoadGameButton;
         
-        public void Handle(IUiButton uiButton)
+        public void Handle(IMyUiButton myUiButton)
         {
-            uiButton.Show();
+            myUiButton.Show();
             
             if (_loadService.HasKey(ModelId.PlayerWallet) == false)
-                uiButton.Hide();
+                myUiButton.Hide();
             
             // Debug.Log($"Enable load game, player wallet: {_loadService.HasKey(ModelId.PlayerWallet)}");
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Domain.Models.Constants;
 using Sources.Domain.Models.Data.Ids;

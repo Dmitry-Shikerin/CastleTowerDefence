@@ -1,14 +1,14 @@
 ﻿using System;
+using Doozy.Runtime.Signals;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands.Buttons;
-using Sources.Frameworks.UiFramework.Presentation.Buttons;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.Buttons;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Leaderboads;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
+namespace Sources.Frameworks.UiFramework.Buttons.Commands.Implementation
 {
     public class ShowLeaderboardCommand : IButtonCommand
     {
@@ -30,17 +30,18 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.Leaderboard;
         
-        public void Handle(IUiButton uiButton)
+        public void Handle(IMyUiButton myUiButton)
         {
+            SignalStream stream = SignalStream.Get("Leaderboard", "IsAuthorization");
+            
             if (_playerAccountAuthorizeService.IsAuthorized() == false)
             {
-                _formService.Show(FormId.Authorization);
-
+                stream.SendSignal(false);
                 return;
             }
 
             _leaderboardInitializeService.Fill();
-            _formService.Show(FormId.Leaderboard);
+            stream.SendSignal(true);
         }
     }
 }

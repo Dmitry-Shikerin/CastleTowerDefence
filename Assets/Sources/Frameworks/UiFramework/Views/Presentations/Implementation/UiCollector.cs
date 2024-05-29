@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Animations.Presentations.Implementation;
+using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Implementation;
 using Sources.Frameworks.UiFramework.Buttons.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Domain.Constants;
 using Sources.Frameworks.UiFramework.Presentation.AudioSources;
@@ -46,7 +47,7 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         [SerializeField] private Enable _includeContainers = Enable.Enable;
         
         [TabGroup("Tab1", "Buttons", true, 1)] 
-        [SerializeField] private List<UiButton> _uiFormButtons;
+        [SerializeField] private List<ButtonCommandProviderView> _buttonCommandProviders;
         
         [TabGroup("Tab1", "Buttons", true, 1)] 
         [EnumToggleButtons] [HideLabel] [LabelText("IncludeInactive", SdfIconType.Search)]
@@ -73,7 +74,7 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         private bool IncludeAnimators => _includeAnimators == Enable.Enable;
 
         public Localization Localization => _localization;
-        public IReadOnlyList<UiButton> UiFormButtons => _uiFormButtons;
+        public IReadOnlyList<ButtonCommandProviderView> UiFormButtons => _buttonCommandProviders;
         public IReadOnlyList<UiView> UiContainers => _uiContainers;
         public IReadOnlyList<IUiText> UiTexts => _uiTexts;
         public IReadOnlyList<IUiAudioSource> UiAudioSources => _uiAudioSources;
@@ -102,12 +103,14 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         [TabGroup("Tab1", "Buttons", true, 1)] 
         [Button(ButtonSizes.Large)] 
         private void AddButtons() =>
-            _uiFormButtons = GetComponentsInChildren<UiButton>(IncludeButtons).ToList();
+            _buttonCommandProviders = 
+                GetComponentsInChildren<ButtonCommandProviderView>(IncludeButtons)
+                .ToList();
         
         [TabGroup("Tab1", "Buttons", true, 1)] 
         [Button(ButtonSizes.Medium)]
         private void ClearButtons() =>
-            _uiFormButtons.Clear();
+            _buttonCommandProviders.Clear();
         
         [TabGroup("Tab1", "AudioSources", true, 1)] 
         [Button(ButtonSizes.Large)]

@@ -18,9 +18,9 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.ShowForm;
 
-        public void Handle(IUiButton uiButton)
+        public void Handle(IMyUiButton myUiButton)
         {
-            _formService.Show(uiButton.FormId);
+            _formService.Show(myUiButton.FormId);
         }
     }
 }

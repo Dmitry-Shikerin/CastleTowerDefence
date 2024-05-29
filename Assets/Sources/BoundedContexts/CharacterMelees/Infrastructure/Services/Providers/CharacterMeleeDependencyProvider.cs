@@ -1,5 +1,6 @@
 ﻿using System;
-using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Overlaps;
 using UnityEngine;
 
@@ -7,18 +8,22 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Provid
 {
     public class CharacterMeleeDependencyProvider : MonoBehaviour
     {
-        public ICharacterMeleeView MeleeView { get; private set; }
-        public ICharacterMeleeAnimation MeleeAnimation { get; private set; }
+        public ICharacterMeleeView View { get; private set; }
+        public ICharacterMeleeAnimation Animation { get; private set; }
         public IOverlapService OverlapService { get; private set; }
+        public ICharacterRotationService CharacterRotationService { get; private set; }
 
         public void Construct(
-            ICharacterMeleeView meleeView, 
+            ICharacterMeleeView view, 
             ICharacterMeleeAnimation meleeAnimation,
-            IOverlapService overlapService)
+            IOverlapService overlapService,
+            ICharacterRotationService characterRotationService)
         {
-            MeleeView = meleeView ?? throw new ArgumentNullException(nameof(meleeView));
-            MeleeAnimation = meleeAnimation ?? throw new ArgumentNullException(nameof(meleeAnimation));
+            View = view ?? throw new ArgumentNullException(nameof(view));
+            Animation = meleeAnimation ?? throw new ArgumentNullException(nameof(meleeAnimation));
             OverlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
+            CharacterRotationService = characterRotationService ?? 
+                                       throw new ArgumentNullException(nameof(characterRotationService));
         }
     }
 }

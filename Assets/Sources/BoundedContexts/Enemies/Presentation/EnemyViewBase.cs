@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
+using Sources.BoundedContexts.Healths.Presentation.Implementation;
 using Sources.BoundedContexts.NavMeshAgents.Presentation;
 using Sources.BoundedContexts.Skins.Presentation;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;
@@ -20,12 +21,13 @@ namespace Sources.BoundedContexts.Enemies.Presentation
     {
         [Required] [SerializeField] private FSMOwner _fsmOwner;
         [Required] [SerializeField] private EnemyHealthView _healthView;
-        [ChildGameObjectsOnly]
-        [SerializeField] private List<SkinView> _skins; 
+        [SerializeField] private List<SkinView> _skins;
+        [Required] [SerializeField] private HealthBarView _healthBarView;
 
         private readonly IPODestroyerService _poDestroyerService = 
             new PODestroyerService();
         
+        public HealthBarView HealthBarView => _healthBarView;
         public FSMOwner FsmOwner => _fsmOwner;
         public EnemyHealthView EnemyHealthView => _healthView;
         public IReadOnlyList<ISkinView> Skins => _skins;

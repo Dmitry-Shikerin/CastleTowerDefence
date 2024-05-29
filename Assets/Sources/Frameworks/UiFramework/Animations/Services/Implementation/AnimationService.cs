@@ -3,28 +3,26 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Frameworks.UiFramework.Animations.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Buttons.Presentations.Implementation;
-using Sources.Frameworks.UiFramework.Presentation.Animations;
 using Sources.Frameworks.UiFramework.Presentation.Animations.Types;
-using Sources.Frameworks.UiFramework.Presentation.Buttons;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Animations;
 using UnityEngine;
 
-namespace Sources.Frameworks.UiFramework.Services.Animations
+namespace Sources.Frameworks.UiFramework.Animations.Services.Implementation
 {
     public class AnimationService : IAnimationService
     {
         private UiAnimator _uiAnimator;
-        private UiButton _uiUiUiButton;
+        private MyUiButton _myMyUiMyMyUiMyMyUiButton;
         private CancellationTokenSource _cancellationTokenSource;
 
         public void Awake()
         {
             if (_uiAnimator.ReactionAnimationType == ReactionAnimationType.ButtonClick)
             {
-                _uiUiUiButton = _uiAnimator.GetComponent<UiButton>();
+                _myMyUiMyMyUiMyMyUiButton = _uiAnimator.GetComponent<MyUiButton>();
 
-                if (_uiUiUiButton == null)
-                    throw new NullReferenceException(nameof(_uiUiUiButton));
+                if (_myMyUiMyMyUiMyMyUiButton == null)
+                    throw new NullReferenceException(nameof(_myMyUiMyMyUiMyMyUiButton));
             }
         }
 
@@ -33,7 +31,7 @@ namespace Sources.Frameworks.UiFramework.Services.Animations
             _cancellationTokenSource = new CancellationTokenSource();
 
             if (_uiAnimator.ReactionAnimationType == ReactionAnimationType.ButtonClick)
-                _uiUiUiButton.AddClickListener(PlayAnimation);
+                _myMyUiMyMyUiMyMyUiButton.AddClickListener(PlayAnimation);
 
             if (_uiAnimator.ReactionAnimationType == ReactionAnimationType.ShowView)
                 PlayAnimation();
@@ -42,7 +40,7 @@ namespace Sources.Frameworks.UiFramework.Services.Animations
         public void Disable()
         {
             if (_uiAnimator.ReactionAnimationType == ReactionAnimationType.ButtonClick)
-                _uiUiUiButton.RemoveClickListener(PlayAnimation);
+                _myMyUiMyMyUiMyMyUiButton.RemoveClickListener(PlayAnimation);
 
             _cancellationTokenSource.Cancel();
         }

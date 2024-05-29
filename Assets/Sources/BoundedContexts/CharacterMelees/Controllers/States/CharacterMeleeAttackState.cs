@@ -3,7 +3,9 @@ using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
@@ -11,31 +13,47 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     [UsedImplicitly]
     public class CharacterMeleeAttackState : FSMState
     {
-        private ICharacterMeleeView _meleeView;
-        private ICharacterMeleeAnimation _meleeAnimation;
+        private ICharacterMeleeView _view;
+        private ICharacterMeleeAnimation _animation;
+        private ICharacterRotationService _rotationService;
 
         protected override void OnInit()
         {
             CharacterMeleeDependencyProvider provider = 
                 graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
 
-            _meleeView = provider.MeleeView;
-            _meleeAnimation = provider.MeleeAnimation;
+            _view = provider.View;
+            _animation = provider.Animation;
+            _rotationService = provider.CharacterRotationService;
         }
 
         protected override void OnEnter()
         {
-            _meleeAnimation.PlayAttack();
+            _animation.Attacking += OnAttack;
+            _animation.PlayAttack();
         }
 
-        protected override void OnUpdate()
-        {
-            base.OnUpdate();
-        }
+        protected override void OnUpdate() =>
+            ChangeLookDirection();
 
         protected override void OnExit()
         {
-            base.OnExit();
+            _animation.Attacking -= OnAttack;
+        }
+
+        private void OnAttack()
+        {
+            _view.EnemyHealth.TakeDamage(10);
+        }
+        
+        private void ChangeLookDirection()
+        {
+            if (_view.EnemyHealth == null)
+                return;
+
+            float angle = _rotationService.GetAngleRotation(
+                _view.EnemyHealth.Position, _view.Position);
+            _view.SetLookRotation(angle);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
 using Sources.BoundedContexts.TargetPoints.Presentation.Interfaces;
 

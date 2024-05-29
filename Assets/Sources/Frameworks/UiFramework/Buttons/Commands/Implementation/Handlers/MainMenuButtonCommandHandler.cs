@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons;
 using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands.Buttons;
 using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands.Buttons.Handlers;
-using Sources.Frameworks.UiFramework.Presentation.Buttons;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.Buttons;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons.Handlers
+namespace Sources.Frameworks.UiFramework.Buttons.Commands.Implementation.Handlers
 {
     public class MainMenuButtonCommandHandler : IButtonCommandHandler
     {
@@ -26,12 +26,12 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons.Handler
             _commands[clearSavesButtonCommand.Id] = clearSavesButtonCommand;
         }
         
-        public void Handle(IUiButton uiButton, ButtonCommandId buttonCommandId)
+        public void Handle(IMyUiButton myUiButton, ButtonCommandId buttonCommandId)
         {
             if (_commands.ContainsKey(buttonCommandId) == false)
                 throw new KeyNotFoundException(nameof(buttonCommandId));
 
-            _commands[buttonCommandId].Handle(uiButton);
+            _commands[buttonCommandId].Handle(myUiButton);
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using Sources.BoundedContexts.CharacterMelees.Presentation;
+﻿using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using UnityEditor;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.Editor.AttackTargetFinders
+namespace Sources.BoundedContexts.Editor.Characters
 {
     [CustomEditor(typeof(CharacterMeleeView))]
-    public class AttackTargetFinderEditor : UnityEditor.Editor
+    public class CharacterMeleeEditor : UnityEditor.Editor
     {
         [DrawGizmo(GizmoType.Active | GizmoType.Pickable | GizmoType.NonSelected)]
         public static void RenderCustomGizmo(CharacterMeleeView characterMeleeView, GizmoType gizmo)

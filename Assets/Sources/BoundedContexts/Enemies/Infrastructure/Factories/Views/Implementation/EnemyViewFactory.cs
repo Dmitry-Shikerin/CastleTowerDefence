@@ -3,6 +3,7 @@ using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
+using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.Domain.Models.Constants;
@@ -14,16 +15,20 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
     {
         private readonly EnemyDependencyProviderFactory _providerFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;
+        private readonly HealthBarViewFactory _healthBarViewFactory;
 
         public EnemyViewFactory(
             EnemyDependencyProviderFactory providerFactory,
             IObjectPool<EnemyView> enemyPool,
-            EnemyHealthViewFactory enemyHealthViewFactory) 
+            EnemyHealthViewFactory enemyHealthViewFactory,
+            HealthBarViewFactory healthBarViewFactory) 
             : base(enemyPool)
         {
             _providerFactory = providerFactory ?? throw new ArgumentNullException(nameof(providerFactory));
             _enemyHealthViewFactory = enemyHealthViewFactory ?? 
                                       throw new ArgumentNullException(nameof(enemyHealthViewFactory));
+            _healthBarViewFactory = healthBarViewFactory ?? 
+                                    throw new ArgumentNullException(nameof(healthBarViewFactory));
         }
         
         public IEnemyView Create(Enemy enemy, KillEnemyCounter killEnemyCounter)
@@ -39,6 +44,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
             view.FsmOwner.StartBehaviour();
             
             _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
+            _healthBarViewFactory.Create(enemy.EnemyHealth, view.HealthBarView);
             
             return view;
         }
