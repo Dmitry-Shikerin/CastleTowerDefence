@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Factories.Views;
 using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Implementation;
-using Sources.Frameworks.UiFramework.Infrastructure.Factories.Views.Buttons;
-using Sources.Frameworks.UiFramework.Infrastructure.Factories.Views.Forms;
-using Sources.Frameworks.UiFramework.Presentation.Views;
 using Sources.Presentations.UI.Huds;
 
 namespace Sources.Frameworks.UiFramework.Collectors

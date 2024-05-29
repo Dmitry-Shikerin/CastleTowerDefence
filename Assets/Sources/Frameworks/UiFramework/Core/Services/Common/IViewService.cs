@@ -1,12 +1,10 @@
 ﻿using Sources.ControllersInterfaces.ControllerLifetimes;
-using Sources.Frameworks.UiFramework.Animations.Presentations.Implementation;
-using Sources.Frameworks.UiFramework.Presentation.Animations;
+using Sources.Frameworks.UiFramework.ServicesInterfaces;
 using Sources.InfrastructureInterfaces.Services.StatesLifetimes;
-using Sources.PresentationsInterfaces.Views.Constructors;
 
-namespace Sources.Frameworks.UiFramework.ServicesInterfaces
+namespace Sources.Frameworks.UiFramework.Core.Services.Common
 {
-    public interface IViewService : IAwake, IEnable, IDisable, IDestroy, IConstruct<UiAnimator>
+    public interface IViewService : IAwake, IEnable, IDisable, IDestroy
     {
     }
 }

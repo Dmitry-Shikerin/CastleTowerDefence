@@ -11,7 +11,7 @@ using Sources.Frameworks.UiFramework.PresentationsInterfaces;
 using Sources.Presentations.Views;
 using UnityEngine;
 
-namespace Sources.Frameworks.UiFramework.Presentation.Views
+namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
 {
     public class UiView : PresentableView<UiViewPresenter>, IUiView
     {

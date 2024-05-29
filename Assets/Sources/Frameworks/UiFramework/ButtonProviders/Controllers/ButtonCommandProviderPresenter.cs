@@ -1,8 +1,7 @@
 ﻿using System;
 using Sources.Controllers.Common;
+using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Interfaces;
-using Sources.Frameworks.UiFramework.Buttons.Services.Interfaces;
-using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.ButtonProviders.Controllers
 {
@@ -22,18 +21,18 @@ namespace Sources.Frameworks.UiFramework.ButtonProviders.Controllers
         public override void Enable()
         {
             _view.Button.onClickEvent.AddListener(HandleCommand);
-            _buttonService.Handle(_view.EnableCommandId, null);
+            _buttonService.Handle(_view.EnableCommandId);
         }
 
         public override void Disable()
         {
             _view.Button.onClickEvent.RemoveListener(HandleCommand);
-            _buttonService.Handle(_view.DisableCommandId, null);
+            _buttonService.Handle(_view.DisableCommandId);
         }
 
         private void HandleCommand()
         {
-            _buttonService.Handle(_view.OnClickCommandId, null);
+            _buttonService.Handle(_view.OnClickCommandId);
         }
     }
 }

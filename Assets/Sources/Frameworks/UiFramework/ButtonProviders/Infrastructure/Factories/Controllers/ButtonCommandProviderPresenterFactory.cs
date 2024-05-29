@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.Frameworks.UiFramework.ButtonProviders.Controllers;
+using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Interfaces;
-using Sources.Frameworks.UiFramework.Buttons.Services.Interfaces;
 
 namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Factories.Controllers
 {

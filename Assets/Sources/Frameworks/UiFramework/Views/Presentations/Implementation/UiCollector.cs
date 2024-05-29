@@ -2,16 +2,12 @@
 using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
-using Sources.Frameworks.UiFramework.Animations.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Implementation;
-using Sources.Frameworks.UiFramework.Buttons.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Domain.Constants;
 using Sources.Frameworks.UiFramework.Presentation.AudioSources;
-using Sources.Frameworks.UiFramework.Presentation.Buttons;
 using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.Presentation.Texts;
-using Sources.Frameworks.UiFramework.Presentation.Views;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.AudioSources;
 using Sources.Presentations.Views;
 using Sources.PresentationsInterfaces.UI.Texts;
@@ -60,9 +56,6 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         [EnumToggleButtons] [HideLabel] [LabelText("IncludeInactive", SdfIconType.Search)]
         [SerializeField] private Enable _includeAudioSources = Enable.Enable;
         
-        [TabGroup("Tab1", "Animators", true, 1)]
-        [SerializeField] private List<UiAnimator> _uiAnimators;
-        
         [TabGroup("Tab1", "Animators", true, 1)] 
         [EnumToggleButtons] [HideLabel] [LabelText("IncludeInactive", SdfIconType.Search)]
         [SerializeField] private Enable _includeAnimators = Enable.Enable;
@@ -78,7 +71,6 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         public IReadOnlyList<UiView> UiContainers => _uiContainers;
         public IReadOnlyList<IUiText> UiTexts => _uiTexts;
         public IReadOnlyList<IUiAudioSource> UiAudioSources => _uiAudioSources;
-        public IReadOnlyList<UiAnimator> UiAnimators => _uiAnimators;
         
         [TabGroup("Tab1","Texts", true, 1)] 
         [Button(ButtonSizes.Large)] 
@@ -121,15 +113,5 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         [Button(ButtonSizes.Medium)]
         private void ClearAudioSources() =>
             _uiAudioSources.Clear();
-        
-        [TabGroup("Tab1", "Animators", true, 1)] 
-        [Button(ButtonSizes.Large)]
-        private void AddAnimators() =>
-            _uiAnimators = GetComponentsInChildren<UiAnimator>(IncludeAnimators).ToList();
-        
-        [TabGroup("Tab1", "Animators", true, 1)]
-        [Button(ButtonSizes.Medium)]
-        private void ClearAnimators() =>
-            _uiAnimators.Clear();
     }
 }
