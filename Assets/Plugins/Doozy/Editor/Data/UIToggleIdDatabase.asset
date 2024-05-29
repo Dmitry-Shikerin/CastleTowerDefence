@@ -16,5 +16,7 @@ MonoBehaviour:
     Items:
     - Category: Gameplay
       Name: Settings
+    - Category: MainMenu
+      Name: Settings
     - Category: None
       Name: None

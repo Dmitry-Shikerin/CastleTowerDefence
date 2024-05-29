@@ -17,6 +17,10 @@ namespace Doozy.Runtime.UIManager.Containers
         public static IEnumerable<UIView> GetViews(UIViewId.Gameplay id) => GetViews(nameof(UIViewId.Gameplay), id.ToString());
         public static void Show(UIViewId.Gameplay id, bool instant = false) => Show(nameof(UIViewId.Gameplay), id.ToString(), instant);
         public static void Hide(UIViewId.Gameplay id, bool instant = false) => Hide(nameof(UIViewId.Gameplay), id.ToString(), instant);
+
+        public static IEnumerable<UIView> GetViews(UIViewId.MainMenu id) => GetViews(nameof(UIViewId.MainMenu), id.ToString());
+        public static void Show(UIViewId.MainMenu id, bool instant = false) => Show(nameof(UIViewId.MainMenu), id.ToString(), instant);
+        public static void Hide(UIViewId.MainMenu id, bool instant = false) => Hide(nameof(UIViewId.MainMenu), id.ToString(), instant);
     }
 }
 
@@ -31,8 +35,18 @@ namespace Doozy.Runtime.UIManager
             Hud,
             LevelCompleted,
             Pause,
+            Quit,
             Settings,
             Tutorial
+        }
+
+        public enum MainMenu
+        {
+            Authorization,
+            Background,
+            Hud,
+            Leaderboard,
+            Settings
         }    
     }
 }

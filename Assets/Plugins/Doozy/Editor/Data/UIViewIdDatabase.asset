@@ -25,8 +25,20 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Pause
     - Category: Gameplay
+      Name: Quit
+    - Category: Gameplay
       Name: Settings
     - Category: Gameplay
       Name: Tutorial
+    - Category: MainMenu
+      Name: Authorization
+    - Category: MainMenu
+      Name: Background
+    - Category: MainMenu
+      Name: Hud
+    - Category: MainMenu
+      Name: Leaderboard
+    - Category: MainMenu
+      Name: Settings
     - Category: None
       Name: None

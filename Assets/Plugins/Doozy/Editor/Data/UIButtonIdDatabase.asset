@@ -17,6 +17,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Back
     - Category: Gameplay
+      Name: Exit
+    - Category: Gameplay
       Name: Hud
     - Category: Gameplay
       Name: MainMenu
@@ -26,5 +28,19 @@ MonoBehaviour:
       Name: Settings
     - Category: Gameplay
       Name: Tutorial
+    - Category: MainMenu
+      Name: Authorization
+    - Category: MainMenu
+      Name: Back
+    - Category: MainMenu
+      Name: Continue
+    - Category: MainMenu
+      Name: Hud
+    - Category: MainMenu
+      Name: Leaderboard
+    - Category: MainMenu
+      Name: Settings
+    - Category: MainMenu
+      Name: Start
     - Category: None
       Name: None
