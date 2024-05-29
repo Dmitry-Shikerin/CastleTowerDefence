@@ -1,6 +1,7 @@
 ﻿using Sources.BoundedContexts.CharacterMelees.Domain;
 using Sources.BoundedContexts.CharacterMelees.Presentation;
-using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 
 namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Interfaces
 {

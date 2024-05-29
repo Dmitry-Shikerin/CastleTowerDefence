@@ -18,9 +18,9 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.HideForm;
         
-        public void Handle(IUiButton uiButton)
+        public void Handle(IMyUiButton myUiButton)
         {
-            _formService.Hide(uiButton.FormId);
+            _formService.Hide(myUiButton.FormId);
         }
     }
 }

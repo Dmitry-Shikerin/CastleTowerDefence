@@ -1,4 +1,4 @@
-﻿using Sources.BoundedContexts.CharacterMelees.PresentationInterfaces;
+﻿using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces

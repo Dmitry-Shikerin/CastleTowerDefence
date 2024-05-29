@@ -1,8 +1,8 @@
 ﻿using JetBrains.Annotations;
 using Sirenix.OdinInspector;
+using Sources.Frameworks.UiFramework.Animations.Services.Implementation;
 using Sources.Frameworks.UiFramework.Domain.Constants;
 using Sources.Frameworks.UiFramework.Presentation.Animations.Types;
-using Sources.Frameworks.UiFramework.Services.Animations;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Animations;
 using Sources.Presentations.Views;
 using UnityEngine;

@@ -1,15 +1,18 @@
 ﻿using System;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
+using Sources.DomainInterfaces.Models.Payloads;
 
 namespace Sources.App.Scenes
 {
     public class GameplayScene : IScene
     {
-        private readonly GameplaySceneViewFactory _gameplaySceneViewFactory;
+        private readonly ISceneViewFactory _gameplaySceneViewFactory;
 
         public GameplayScene(
-            GameplaySceneViewFactory gameplaySceneViewFactory)
+            ISceneViewFactory gameplaySceneViewFactory)
         {
             _gameplaySceneViewFactory = gameplaySceneViewFactory ?? 
                                         throw new ArgumentNullException(nameof(gameplaySceneViewFactory));
@@ -17,7 +20,7 @@ namespace Sources.App.Scenes
 
         public void Enter(object payload = null)
         {
-            _gameplaySceneViewFactory.Create();
+            _gameplaySceneViewFactory.Create((IScenePayload)payload);
         }
 
         public void Exit()

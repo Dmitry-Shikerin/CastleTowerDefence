@@ -19,10 +19,10 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.ShowRewardedAdvertising;
         
-        public void Handle(IUiButton uiButton)
+        public void Handle(IMyUiButton myUiButton)
         {
-            uiButton.Disable();
-            _videoAdService.ShowVideo(uiButton.Enable);
+            myUiButton.Disable();
+            _videoAdService.ShowVideo(myUiButton.Enable);
         }
     }
 }

@@ -2,9 +2,9 @@
 {
     public class CharacterRange
     {
-        public Characters.CharacterHealth CharacterHealth { get; }
+        public CharacterHealth.Domain.CharacterHealth CharacterHealth { get; }
 
-        public CharacterRange(Characters.CharacterHealth characterHealth)
+        public CharacterRange(CharacterHealth.Domain.CharacterHealth characterHealth)
         {
             CharacterHealth = characterHealth;
         }

@@ -18,7 +18,7 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.ClearSaves;
         
-        public void Handle(IUiButton uiButton)
+        public void Handle(IMyUiButton myUiButton)
         {
             _loadService.ClearAll();
         }

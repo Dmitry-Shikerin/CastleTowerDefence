@@ -23,6 +23,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1828093306-0
         - globalObjectIdString: GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1392002576-0
         - globalObjectIdString: GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1931460761-0
+        - globalObjectIdString: GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1062849636-0
         values:
         - colorIndex: 3
           iconNameOrGuid: Folder Icon
@@ -34,3 +35,5 @@ MonoBehaviour:
           iconNameOrGuid: cs Script Icon
         - colorIndex: 0
           iconNameOrGuid: Folder Icon
+        - colorIndex: 3
+          iconNameOrGuid: 

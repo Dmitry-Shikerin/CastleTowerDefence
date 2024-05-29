@@ -2,9 +2,9 @@
 {
     public class CharacterMelee
     {
-        public Characters.CharacterHealth CharacterHealth { get; }
+        public CharacterHealth.Domain.CharacterHealth CharacterHealth { get; }
 
-        public CharacterMelee(Characters.CharacterHealth characterHealth)
+        public CharacterMelee(CharacterHealth.Domain.CharacterHealth characterHealth)
         {
             CharacterHealth = characterHealth;
         }

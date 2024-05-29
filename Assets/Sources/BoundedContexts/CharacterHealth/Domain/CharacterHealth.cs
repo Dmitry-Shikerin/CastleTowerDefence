@@ -1,10 +1,11 @@
 ﻿using System;
+using Sources.BoundedContexts.Healths.DomainInterfaces;
 using Sources.BoundedContexts.Upgrades.Domain;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.Characters
+namespace Sources.BoundedContexts.CharacterHealth.Domain
 {
-    public class CharacterHealth
+    public class CharacterHealth : IHealth
     {
         private readonly Upgrade _healthUpgrader;
         private float _currentHealth;

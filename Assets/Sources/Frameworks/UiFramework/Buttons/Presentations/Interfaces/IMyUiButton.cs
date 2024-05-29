@@ -7,7 +7,7 @@ using Sources.PresentationsInterfaces.UI.Buttons;
 
 namespace Sources.Frameworks.UiFramework.PresentationsInterfaces.Buttons
 {
-    public interface IUiButton : IButtonView
+    public interface IMyUiButton : IButtonView
     {
         float Delay { get; }
         List<ButtonCommandId> OnClickCommandId { get; }

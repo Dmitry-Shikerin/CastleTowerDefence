@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Buttons.Presentations.Implementation
 {
-    public class UiButton : PresentableUiButton<UiButtonPresenter>, IUiButton
+    public class MyUiButton : PresentableUiButton<UiButtonPresenter>, IMyUiButton
     {
         [DisplayAsString(false)] [HideLabel] [Indent(8)] 
         [SerializeField] private string _labelText = UiConstant.UiButtonLabel;
