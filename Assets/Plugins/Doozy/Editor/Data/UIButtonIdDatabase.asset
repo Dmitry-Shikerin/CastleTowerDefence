@@ -28,5 +28,15 @@ MonoBehaviour:
       Name: Settings
     - Category: Gameplay
       Name: Tutorial
+    - Category: MainMenu
+      Name: Back
+    - Category: MainMenu
+      Name: Continue
+    - Category: MainMenu
+      Name: Leaderboard
+    - Category: MainMenu
+      Name: Settings
+    - Category: MainMenu
+      Name: Start
     - Category: None
       Name: None

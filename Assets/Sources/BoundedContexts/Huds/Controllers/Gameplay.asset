@@ -81,7 +81,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 6156ea01-6e94-478a-803e-b1b8e572efae
   NodeType: 0
-  NodeName: View - Quit
+  NodeName: Quit View
   NodeDescription: 
   InputPorts:
   - NodeId: 6156ea01-6e94-478a-803e-b1b8e572efae
@@ -155,7 +155,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 322463ed-918f-4927-be8b-f51ffaf7a1a8
   NodeType: 0
-  NodeName: View - Hud
+  NodeName: Hud View
   NodeDescription: 
   InputPorts:
   - NodeId: 322463ed-918f-4927-be8b-f51ffaf7a1a8
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
-  m_Name: Flow Graph
+  m_Name: Gameplay
   m_EditorClassIdentifier: 
   EditorPosition: {x: 122, y: 254, z: 0}
   EditorScale: {x: 1, y: 1, z: 1}
@@ -269,7 +269,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 8a8fd176-ee4d-4c05-b9a6-2c8f3a450bfb
   NodeType: 0
-  NodeName: View - Pause
+  NodeName: Pause View
   NodeDescription: 
   InputPorts:
   - NodeId: 8a8fd176-ee4d-4c05-b9a6-2c8f3a450bfb
@@ -376,7 +376,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 62b8cdf2-ab60-4e18-85a5-671b8dec0522
   NodeType: 0
-  NodeName: View - Settings
+  NodeName: Settings View
   NodeDescription: 
   InputPorts:
   - NodeId: 62b8cdf2-ab60-4e18-85a5-671b8dec0522
@@ -450,7 +450,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: b8ae2660-7274-4238-abe6-39122ea9f7cc
   NodeType: 0
-  NodeName: View - GameOver
+  NodeName: GameOver View
   NodeDescription: 
   InputPorts:
   - NodeId: b8ae2660-7274-4238-abe6-39122ea9f7cc
@@ -561,7 +561,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 01dd84d1-2290-48ea-9375-40c798de6d45
   NodeType: 0
-  NodeName: View- Tutorial
+  NodeName: Tutorial View
   NodeDescription: 
   InputPorts:
   - NodeId: 01dd84d1-2290-48ea-9375-40c798de6d45
