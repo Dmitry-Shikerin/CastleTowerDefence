@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Database:
     Items:
-    - Category: Authorization
-      Name: IsAuthorized
+    - Category: MainMenu
+      Name: Leaderboard
     - Category: None
       Name: None

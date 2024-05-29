@@ -1,32 +1,40 @@
-﻿using Sources.ControllersInterfaces.Scenes;
+﻿using System;
+using JetBrains.Annotations;
+using Sources.ControllersInterfaces.Scenes;
+using Sources.DomainInterfaces.Models.Payloads;
+using UnityEngine;
 
 namespace Sources.App.Scenes
 {
     public class MainMenuScene : IScene
     {
+        private readonly MainMenuSceneViewFactory _mainMenuSceneViewFactory;
+
+        public MainMenuScene(MainMenuSceneViewFactory mainMenuSceneViewFactory)
+        {
+            _mainMenuSceneViewFactory = mainMenuSceneViewFactory ??
+                                        throw new ArgumentNullException(nameof(mainMenuSceneViewFactory));
+        }
+
         public void Enter(object payload = null)
         {
-            throw new System.NotImplementedException();
+            _mainMenuSceneViewFactory.Create((IScenePayload)payload);
         }
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
         }
 
         public void Update(float deltaTime)
         {
-            throw new System.NotImplementedException();
         }
 
         public void UpdateLate(float deltaTime)
         {
-            throw new System.NotImplementedException();
         }
 
         public void UpdateFixed(float fixedDeltaTime)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

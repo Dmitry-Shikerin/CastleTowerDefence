@@ -13,17 +13,17 @@ namespace Sources.Frameworks.UiFramework.Buttons.Commands.Implementation.Handler
             new Dictionary<ButtonCommandId, IButtonCommand>();
         
         public MainMenuButtonCommandHandler(
-            ShowFormCommand showFormCommand,
-            NewGameCommand newGameCommand,
-            ShowLeaderboardCommand showLeaderBoardCommand,
-            EnableLoadGameButtonCommand enableLoadGameButtonCommand,
-            ClearSavesButtonCommand clearSavesButtonCommand)
+            // ShowFormCommand showFormCommand,
+            // NewGameCommand newGameCommand,
+             ShowLeaderboardCommand showLeaderBoardCommand)
+            // EnableLoadGameButtonCommand enableLoadGameButtonCommand,
+            // ClearSavesButtonCommand clearSavesButtonCommand)
         {
-            _commands[showFormCommand.Id] = showFormCommand;
-            _commands[newGameCommand.Id] = newGameCommand;
-            _commands[showLeaderBoardCommand.Id] = showLeaderBoardCommand;
-            _commands[enableLoadGameButtonCommand.Id] = enableLoadGameButtonCommand;
-            _commands[clearSavesButtonCommand.Id] = clearSavesButtonCommand;
+            // _commands[showFormCommand.Id] = showFormCommand;
+            // _commands[newGameCommand.Id] = newGameCommand;
+             _commands[showLeaderBoardCommand.Id] = showLeaderBoardCommand;
+            // _commands[enableLoadGameButtonCommand.Id] = enableLoadGameButtonCommand;
+            // _commands[clearSavesButtonCommand.Id] = clearSavesButtonCommand;
         }
         
         public void Handle(IMyUiButton myUiButton, ButtonCommandId buttonCommandId)
