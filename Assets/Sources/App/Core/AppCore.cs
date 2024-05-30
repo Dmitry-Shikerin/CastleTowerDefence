@@ -1,5 +1,5 @@
 ﻿using System;
-using Sources.Domain.Models.Payloads;
+using Sources.Frameworks.GameServices.Scenes.Domain.Implementation;
 using Sources.InfrastructureInterfaces.Services.SceneServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;

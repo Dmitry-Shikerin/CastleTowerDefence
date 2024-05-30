@@ -1,9 +1,9 @@
 ﻿using Sources.ControllersInterfaces.ControllerLifetimes;
-using Sources.InfrastructureInterfaces.Services.StatesLifetimes;
+using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 
-namespace Sources.ControllersInterfaces
+namespace Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.Presenters
 {
-    public interface IPresenter : IEnable, IDisable
+    public interface IPresenter : IInitialize, IEnable, IDisable, IDestroy
     {
     }
 }

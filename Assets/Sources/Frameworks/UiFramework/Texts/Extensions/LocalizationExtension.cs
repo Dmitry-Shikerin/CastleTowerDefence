@@ -15,24 +15,26 @@ namespace Sources.Frameworks.UiFramework.Texts.Extensions
             return FindAssets<LocalizationConfig>("t:LocalizationConfig")
                 .FirstOrDefault()
                 ?.LocalizationIds;
-#endif
+#else
             return new List<string>();
+#endif
         }
 
         public static List<LocalizationPhrase> FindAllLocalizationPhrases()
         {
 #if UNITY_EDITOR
             return FindAssets<LocalizationPhrase>("t:LocalizationPhrase");
-#endif
+#else
             return new List<LocalizationPhrase>();
+#endif
         }
 
         public static void CreateLocalizationPhrase()
         {
 #if UNITY_EDITOR
             LocalizationPhrase phrase = ScriptableObject.CreateInstance<LocalizationPhrase>();
-            
-            AssetDatabase.CreateAsset(phrase, 
+
+            AssetDatabase.CreateAsset(phrase,
                 "Assets/Resources/Configs/Localizations/LocalizationPhrase.asset");
             AssetDatabase.SaveAssets();
 #endif

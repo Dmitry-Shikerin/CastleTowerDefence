@@ -1,4 +1,4 @@
-﻿namespace Sources.Frameworks.UiFramework.Domain.Constants
+﻿namespace Sources.Frameworks.UiFramework.Core.Domain.Constants
 {
     public static class UiConstant
     {

@@ -5,12 +5,11 @@ using Agava.WebUtility;
 using Agava.YandexGames;
 using Sources.Domain.Models.Constants;
 using Sources.Domain.Models.TextViewTypes;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
 using Sources.Frameworks.UiFramework.Domain.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
-using Sources.Frameworks.UiFramework.Presentation.Views;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
-using Sources.PresentationsInterfaces.UI.Texts;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Services.Localizations

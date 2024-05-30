@@ -9,7 +9,7 @@ using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.Domain.Models.Data;
-using Sources.DomainInterfaces.Models.Payloads;
+using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation

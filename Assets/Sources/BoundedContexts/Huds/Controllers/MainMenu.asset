@@ -102,7 +102,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 202, y: 205}
+  Position: {x: 213, y: 130.49998}
   Trigger: 0
   SignalPayload:
     StreamId:
@@ -132,6 +132,60 @@ MonoBehaviour:
     Name: None
     Custom: 0
   CommandShowHide: 0
+--- !u!114 &-6643470239170704954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c01f9a7d07f5c04a9f277379e94a10b, type: 3}
+  m_Name: UI
+  m_EditorClassIdentifier: 
+  FlowGraphId: e874f402-eb11-4f12-a322-8c6be6104c8f
+  NodeId: 300a3726-ffba-43d2-8f3b-24203a56fd33
+  NodeType: 0
+  NodeName: Warning NewGame View
+  NodeDescription: 
+  InputPorts:
+  - NodeId: 300a3726-ffba-43d2-8f3b-24203a56fd33
+    PortId: 743fcb49-2f9b-4658-a620-d949fa4751c7
+    Direction: 0
+    Capacity: 1
+    Connections:
+    - b66deacc-a4df-48da-8242-86b18d38fde4
+    Value: '{"CanGoBack":false}'
+    ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
+      Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  OutputPorts:
+  - NodeId: 300a3726-ffba-43d2-8f3b-24203a56fd33
+    PortId: 8c2cbca7-70fd-4207-b953-353c424a9f19
+    Direction: 1
+    Capacity: 0
+    Connections: []
+    Value: '{"Trigger":0,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"None","Name":"None","Custom":false},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"None","Name":"None","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":false},"CommandShowHide":0}'
+    ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
+      Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  RunUpdate: 0
+  RunFixedUpdate: 0
+  RunLateUpdate: 0
+  NodeState: 0
+  CanBeDeleted: 1
+  Passthrough: 0
+  ClearGraphHistory: 0
+  Position: {x: 368.50003, y: 358.95407}
+  OnEnterShowViews: []
+  OnEnterHideViews: []
+  OnExitShowViews: []
+  OnExitHideViews: []
+  OnEnterHideAllViews: 0
+  OnExitHideAllViews: 0
 --- !u!114 &-252667682252221380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,8 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: MainMenu
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 44, y: -45, z: 0}
-  EditorScale: {x: 1, y: 1, z: 1}
+  EditorPosition: {x: 195.5, y: -162, z: 0}
+  EditorScale: {x: 0.7561437, y: 0.7561437, z: 1}
   Id: e874f402-eb11-4f12-a322-8c6be6104c8f
   GraphName: Flow Graph
   GraphDescription: 
@@ -242,6 +296,8 @@ MonoBehaviour:
   - {fileID: 5510253935361180782}
   - {fileID: -8001596129608715986}
   - {fileID: 1558740862706365575}
+  - {fileID: -6643470239170704954}
+  - {fileID: 1580127656862114740}
   RootNode: {fileID: 7433194227136480768}
   ActiveNode: {fileID: 0}
 --- !u!114 &527840539069033971
@@ -291,7 +347,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 385.414, y: 181.00003}
+  Position: {x: 371.49997, y: 130.49998}
   OnEnterShowViews:
   - Id:
       Category: MainMenu
@@ -344,12 +400,78 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 213, y: 321}
+  Position: {x: 213.00003, y: 233.50002}
   Trigger: 0
   SignalPayload:
     StreamId:
       Category: MainMenu
       Name: Leaderboard
+      Custom: 0
+    SignalValueType: 2
+    IntegerValue: 0
+    BooleanValue: 1
+    FloatValue: 0
+    StringValue: 
+    ColorValue: {r: 0, g: 0, b: 0, a: 0}
+    Vector2Value: {x: 0, y: 0}
+    Vector3Value: {x: 0, y: 0, z: 0}
+    Vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  ButtonId:
+    Category: None
+    Name: None
+    Custom: 0
+  ToggleId:
+    Category: None
+    Name: None
+    Custom: 0
+  CommandToggle: 2
+  ViewId:
+    Category: None
+    Name: None
+    Custom: 0
+  CommandShowHide: 0
+--- !u!114 &1580127656862114740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2479a69f56cf54c96de81c44e8ad1a, type: 3}
+  m_Name: Portal
+  m_EditorClassIdentifier: 
+  FlowGraphId: e874f402-eb11-4f12-a322-8c6be6104c8f
+  NodeId: 65c584b4-1e86-48a8-a9e1-80f567cd0628
+  NodeType: 1
+  NodeName: Portal
+  NodeDescription: 
+  InputPorts: []
+  OutputPorts:
+  - NodeId: 65c584b4-1e86-48a8-a9e1-80f567cd0628
+    PortId: b66deacc-a4df-48da-8242-86b18d38fde4
+    Direction: 1
+    Capacity: 0
+    Connections:
+    - 743fcb49-2f9b-4658-a620-d949fa4751c7
+    Value: 
+    ValueTypeQualifiedName: 
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  RunUpdate: 0
+  RunFixedUpdate: 0
+  RunLateUpdate: 0
+  NodeState: 0
+  CanBeDeleted: 1
+  Passthrough: 1
+  ClearGraphHistory: 0
+  Position: {x: 213, y: 359.00003}
+  Trigger: 0
+  SignalPayload:
+    StreamId:
+      Category: MainMenu
+      Name: NewGame
       Custom: 0
     SignalValueType: 2
     IntegerValue: 0
@@ -410,7 +532,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 13.852564, y: 125.99996}
+  Position: {x: -0.000008583069, y: -79.00001}
   Trigger: 1
   SignalPayload:
     StreamId:
@@ -487,7 +609,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 505.68237, y: 311}
+  Position: {x: 368.50003, y: 233.50003}
   OnEnterShowViews:
   - Id:
       Category: MainMenu
@@ -496,7 +618,12 @@ MonoBehaviour:
     Mode: 0
   OnEnterHideViews: []
   OnExitShowViews: []
-  OnExitHideViews: []
+  OnExitHideViews:
+  - Id:
+      Category: MainMenu
+      Name: Leaderboard
+      Custom: 0
+    Mode: 0
   OnEnterHideAllViews: 1
   OnExitHideAllViews: 0
 --- !u!114 &7433194227136480768

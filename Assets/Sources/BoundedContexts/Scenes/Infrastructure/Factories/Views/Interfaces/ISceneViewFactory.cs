@@ -1,4 +1,4 @@
-﻿using Sources.DomainInterfaces.Models.Payloads;
+﻿using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces
 {

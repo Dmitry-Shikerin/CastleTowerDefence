@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 4731228013817722780}
   - component: {fileID: 3013478987297408154}
   - component: {fileID: 4273273252348653571}
-  - component: {fileID: 5272357542532805233}
   m_Layer: 5
   m_Name: LoadingWeel_Image
   m_TagString: Untagged
@@ -151,75 +150,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5272357542532805233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3267306220475166057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07af929147148c8aa6146618ce512cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _label: <size=24><b><color=#FF5555><i>UiAnimator</i></color></b></size>
-  _animationFps: 30
-  _animationType: 2
-  _reactionAnimationType: 2
-  _scaleAnimationType: 0
-  _animationDuration: 0.1
-  _scaleAnimationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _fromScale: {x: 1, y: 1, z: 1}
-  _targetScale: {x: 0.7, y: 0.7, z: 0.7}
-  _rotateAnimationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _rotationVector: {x: 0, y: 0, z: -5}
 --- !u!1 &5364543834764428983
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
-using Sources.Controllers.Common;
+using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
 namespace Sources.BoundedContexts.Enemies.Controllers
 {

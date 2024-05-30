@@ -1,5 +1,6 @@
 ﻿using System;
 using Sources.BoundedContexts.Enemies.Domain;
+using Sources.BoundedContexts.Enemies.Domain.Constants;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
@@ -33,7 +34,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
         
         public IEnemyView Create(Enemy enemy, KillEnemyCounter killEnemyCounter)
         {
-            EnemyView enemyView = CreateView(PrefabPath.Enemy);
+            EnemyView enemyView = CreateView(EnemyConst.PrefabPath);
             
             return Create(enemy, killEnemyCounter, enemyView);
         }

@@ -1,5 +1,6 @@
 ﻿using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
 using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
+using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Presentations.Views;
 using UnityEngine;
 
