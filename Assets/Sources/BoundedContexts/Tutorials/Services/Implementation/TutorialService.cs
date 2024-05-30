@@ -4,7 +4,7 @@ using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
 using Sources.InfrastructureInterfaces.Services.LoadServices;
 
-namespace Sources.Infrastructure.Services.Tutorials
+namespace Sources.BoundedContexts.Tutorials.Services.Implementation
 {
     public class TutorialService : ITutorialService
     {
@@ -20,7 +20,7 @@ namespace Sources.Infrastructure.Services.Tutorials
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
         }
 
-        public void Enable()
+        public void Initialize()
         {
             if (_tutorial.HasCompleted)
                 return;

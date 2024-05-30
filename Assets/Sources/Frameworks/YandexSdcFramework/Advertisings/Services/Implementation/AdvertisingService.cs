@@ -4,12 +4,12 @@ using Agava.WebUtility;
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Players.Domain;
-using Sources.Domain.Models.Constants;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Domain.Constant;
+using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.AdverticingServices;
 using Sources.InfrastructureInterfaces.Services.PauseServices;
 
-namespace Sources.Frameworks.YandexSdcFramework.Services.AdvertisingServices
+namespace Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Implementation
 {
     public class AdvertisingService : IInterstitialAdService, IVideoAdService, IAdvertisingService
     {
@@ -27,10 +27,10 @@ namespace Sources.Frameworks.YandexSdcFramework.Services.AdvertisingServices
 
         public bool IsAvailable { get; private set; } = true;
 
-        public void Enable() =>
+        public void Initialize() =>
             _cancellationTokenSource = new CancellationTokenSource();
 
-        public void Disable() =>
+        public void Destroy() =>
             _cancellationTokenSource.Cancel();
 
         public void Construct(PlayerWallet playerWallet) =>

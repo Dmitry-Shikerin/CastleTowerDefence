@@ -102,7 +102,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 202, y: 205}
+  Position: {x: 213, y: 130.49998}
   Trigger: 0
   SignalPayload:
     StreamId:
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: MainMenu
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 44, y: -45, z: 0}
-  EditorScale: {x: 1, y: 1, z: 1}
+  EditorPosition: {x: 203, y: 57.5, z: 0}
+  EditorScale: {x: 0.65751624, y: 0.65751624, z: 1}
   Id: e874f402-eb11-4f12-a322-8c6be6104c8f
   GraphName: Flow Graph
   GraphDescription: 
@@ -291,7 +291,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 385.414, y: 181.00003}
+  Position: {x: 371.49997, y: 130.49998}
   OnEnterShowViews:
   - Id:
       Category: MainMenu
@@ -344,7 +344,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 213, y: 321}
+  Position: {x: 213, y: 269.5}
   Trigger: 0
   SignalPayload:
     StreamId:
@@ -410,7 +410,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 13.852564, y: 125.99996}
+  Position: {x: -0.000008583069, y: -79.00001}
   Trigger: 1
   SignalPayload:
     StreamId:
@@ -487,7 +487,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 505.68237, y: 311}
+  Position: {x: 368.5, y: 269.49997}
   OnEnterShowViews:
   - Id:
       Category: MainMenu
@@ -496,7 +496,12 @@ MonoBehaviour:
     Mode: 0
   OnEnterHideViews: []
   OnExitShowViews: []
-  OnExitHideViews: []
+  OnExitHideViews:
+  - Id:
+      Category: MainMenu
+      Name: Leaderboard
+      Custom: 0
+    Mode: 0
   OnEnterHideAllViews: 1
   OnExitHideAllViews: 0
 --- !u!114 &7433194227136480768

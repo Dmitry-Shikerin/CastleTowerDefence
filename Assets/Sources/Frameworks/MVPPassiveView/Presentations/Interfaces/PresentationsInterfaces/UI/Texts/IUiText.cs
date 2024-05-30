@@ -1,10 +1,10 @@
 using System.Threading;
 using Sources.ControllersInterfaces.ControllerLifetimes;
 using Sources.Domain.Models.TextViewTypes;
-using Sources.InfrastructureInterfaces.Services.StatesLifetimes;
+using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 using UnityEngine;
 
-namespace Sources.PresentationsInterfaces.UI.Texts
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts
 {
     public interface IUiText : IEnable, IDisable
     {

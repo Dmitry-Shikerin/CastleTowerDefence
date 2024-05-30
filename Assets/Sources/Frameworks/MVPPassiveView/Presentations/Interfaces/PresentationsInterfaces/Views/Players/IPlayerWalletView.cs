@@ -1,4 +1,4 @@
-using Sources.PresentationsInterfaces.UI.Texts;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
 
 namespace Sources.PresentationsInterfaces.Views.Players
 {

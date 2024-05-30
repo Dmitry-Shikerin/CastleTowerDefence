@@ -1,7 +1,7 @@
 ﻿using System;
-using Sources.InfrastructureInterfaces.Services.Registers;
+using Sources.Frameworks.GameServices.ActionRegisters.Interfaces;
 
-namespace Sources.InfrastructureInterfaces.Services.UpdateServices
+namespace Sources.Frameworks.GameServices.UpdateServices.Interfaces
 {
     public interface IUpdateRegister : IActionRegister<float>
     {

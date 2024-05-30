@@ -1,9 +1,9 @@
 ﻿using Sources.BoundedContexts.Tutorials.Domain;
-using Sources.InfrastructureInterfaces.Services.StatesLifetimes;
+using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 
 namespace Sources.BoundedContexts.Tutorials.Services.Interfaces
 {
-    public interface ITutorialService : IEnable
+    public interface ITutorialService : IInitialize
     {
         void Complete();
 

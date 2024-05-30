@@ -1,33 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using Sources.InfrastructureInterfaces.Services.UpdateServices;
+using Sources.Frameworks.GameServices.ActionRegisters.Implementation;
+using Sources.Frameworks.GameServices.UpdateServices.Interfaces;
 
-namespace Sources.Infrastructure.Services.UpdateServices
+namespace Sources.Frameworks.GameServices.UpdateServices.Implementation
 {
-    public class UpdateService : IUpdateRegister, IUpdateService
+    public class UpdateService : ActionRegisterer<float>, IUpdateRegister, IUpdateService
     {
-        private readonly List<Action<float>> _actions = new List<Action<float>>();
-
         public event Action<float> UpdateChanged;
-
-        public void Register(Action<float> action) => 
-            _actions.Add(action);
-
-        public void UnRegister(Action<float> action) => 
-            _actions.Remove(action);
-
+        
         public void Update(float deltaTime)
         {
             UpdateChanged?.Invoke(deltaTime);
             
-            if(_actions.Count == 0)
+            if(Actions.Count == 0)
                 return;
             
-            for (int i = _actions.Count - 1; i >= 0; i--)
-                _actions[i].Invoke(deltaTime);
+            for (int i = Actions.Count - 1; i >= 0; i--)
+                Actions[i].Invoke(deltaTime);
         }
-
-        public void UnregisterAll() => 
-            _actions.Clear();
     }
 }

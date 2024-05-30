@@ -19927,7 +19927,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1448772909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b044ac4cd8d477c9d02738bad076f04, type: 3}
+  m_Script: {fileID: 11500000, guid: b32a18db22984b7eb49fa15ac7395602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1448772911}
@@ -25057,12 +25057,10 @@ MonoBehaviour:
   _localization: 0
   _uiContainers: []
   _includeContainers: 1
-  _buttonCommandProviders:
-  - {fileID: 1448772912}
+  _buttonCommandProviders: []
   _includeButtons: 1
   _uiAudioSources: []
   _includeAudioSources: 1
-  _uiAnimators: []
   _includeAnimators: 1
 --- !u!1 &2093685215
 GameObject:

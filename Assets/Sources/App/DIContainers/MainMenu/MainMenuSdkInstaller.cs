@@ -1,9 +1,9 @@
-﻿using Sources.Frameworks.YandexSdcFramework.Services.Focuses;
+﻿using Sources.Frameworks.YandexSdcFramework.Focuses.Implementation;
+using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Services.Leaderboards;
 using Sources.Frameworks.YandexSdcFramework.Services.PlayerAccounts;
 using Sources.Frameworks.YandexSdcFramework.Services.SdcInitializeServices;
 using Sources.Frameworks.YandexSdcFramework.Services.Stickies;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Focuses;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Leaderboads;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.SdcInitializeServices;

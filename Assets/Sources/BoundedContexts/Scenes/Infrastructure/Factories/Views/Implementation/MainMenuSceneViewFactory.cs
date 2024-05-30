@@ -1,25 +1,19 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
 using UnityEngine;
 
-public class MainMenuSceneViewFactory : ISceneViewFactory
+namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
-    private readonly UiCollectorFactory _uiCollectorFactory;
-
-    public MainMenuSceneViewFactory(UiCollectorFactory uiCollectorFactory)
+    public class MainMenuSceneViewFactory : ISceneViewFactory
     {
-        _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
-    }
+        public MainMenuSceneViewFactory()
+        {
+        }
     
-    public void Create(IScenePayload payload)
-    {
-        //ui framework
-        _uiCollectorFactory.Create();
+        public void Create(IScenePayload payload)
+        {
+        }
     }
 }

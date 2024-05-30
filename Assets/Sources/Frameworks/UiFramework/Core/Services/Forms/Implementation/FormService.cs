@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Sources.Frameworks.UiFramework.Presentation.Forms;
+﻿using System.Collections.Generic;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using Sources.Presentations.Views;
 
-namespace Sources.Frameworks.UiFramework.Services.Forms
+namespace Sources.Frameworks.UiFramework.Core.Services.Forms.Implementation
 {
     public class FormService : IFormService
     {

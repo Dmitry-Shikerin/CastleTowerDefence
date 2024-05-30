@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Database:
     Items:
+    - Category: ButtonCommand
+      Name: OnClick
+    - Category: MainMenu
+      Name: HandleButtonCommands
     - Category: MainMenu
       Name: Leaderboard
     - Category: None

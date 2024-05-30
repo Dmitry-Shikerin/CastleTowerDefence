@@ -6,11 +6,11 @@ using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Domain.Models.TextViewTypes;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Domain.Constants;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Presentations.Views;
-using Sources.PresentationsInterfaces.UI.Texts;
 using TMPro;
 using UnityEngine;
 

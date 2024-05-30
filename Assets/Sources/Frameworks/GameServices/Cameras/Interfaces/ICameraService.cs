@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.ControllersInterfaces.ControllerLifetimes;
-using Sources.InfrastructureInterfaces.Services.StatesLifetimes;
 using Sources.PresentationsInterfaces.Views.Cameras.Points;
 using UnityEngine;
 

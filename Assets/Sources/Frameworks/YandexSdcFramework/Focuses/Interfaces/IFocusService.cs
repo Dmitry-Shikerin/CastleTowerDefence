@@ -1,9 +1,9 @@
 using Sources.ControllersInterfaces.ControllerLifetimes;
-using Sources.InfrastructureInterfaces.Services.StatesLifetimes;
+using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 
-namespace Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Focuses
+namespace Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces
 {
-    public interface IFocusService : IEnable, IDisable
+    public interface IFocusService : IInitialize, IDestroy
     {
     }
 }

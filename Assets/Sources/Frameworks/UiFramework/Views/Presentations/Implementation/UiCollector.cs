@@ -3,6 +3,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
+using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Implementation;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Domain.Constants;
@@ -12,7 +14,6 @@ using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.Presentation.Texts;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.AudioSources;
 using Sources.Presentations.Views;
-using Sources.PresentationsInterfaces.UI.Texts;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation

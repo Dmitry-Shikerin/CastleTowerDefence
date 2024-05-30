@@ -1,10 +1,10 @@
 ﻿using System;
 using Agava.WebUtility;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Focuses;
+using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
 using Sources.InfrastructureInterfaces.Services.PauseServices;
 using UnityEngine;
 
-namespace Sources.Frameworks.YandexSdcFramework.Services.Focuses
+namespace Sources.Frameworks.YandexSdcFramework.Focuses.Implementation
 {
     public class FocusService : IFocusService
     {
@@ -15,7 +15,7 @@ namespace Sources.Frameworks.YandexSdcFramework.Services.Focuses
             _pauseService = pauseService ?? throw new ArgumentNullException(nameof(pauseService));
         }
         
-        public void Enable()
+        public void Initialize()
         {
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
@@ -27,7 +27,7 @@ namespace Sources.Frameworks.YandexSdcFramework.Services.Focuses
             WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
         }
 
-        public void Disable()
+        public void Destroy()
         {
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
