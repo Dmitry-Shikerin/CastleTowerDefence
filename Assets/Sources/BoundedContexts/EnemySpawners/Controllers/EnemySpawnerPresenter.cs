@@ -11,7 +11,7 @@ using Sources.BoundedContexts.SpawnPoints.Presentation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
 using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
-using Sources.Controllers.Common;
+using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemySpawners.Controllers

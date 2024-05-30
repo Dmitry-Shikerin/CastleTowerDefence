@@ -6,6 +6,7 @@ using Sources.BoundedContexts.SpawnPoints.Extensions;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
 using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
+using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Presentations.Views;
 using UnityEngine;
 

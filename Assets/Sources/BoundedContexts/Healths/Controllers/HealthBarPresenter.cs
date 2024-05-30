@@ -1,8 +1,9 @@
 ﻿using System;
 using Sources.BoundedContexts.Healths.DomainInterfaces;
 using Sources.BoundedContexts.Healths.Presentation.Interfaces;
-using Sources.Controllers.Common;
 using Sources.Domain.Models.Constants;
+using Sources.Frameworks.Domain.Implementation.Constants;
+using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.Utils.Extentions;
 
 namespace Sources.BoundedContexts.Healths.Controllers

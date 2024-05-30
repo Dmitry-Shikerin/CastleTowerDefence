@@ -1,5 +1,5 @@
 ﻿using System;
-using Sources.Controllers.Common;
+using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Interfaces;
 

@@ -1,5 +1,6 @@
 ﻿using System;
-using Sources.Domain.Models.Data.Ids;
+using Sources.BoundedContexts.Ids;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.InfrastructureInterfaces.Services.LoadServices;

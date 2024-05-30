@@ -1,4 +1,4 @@
-﻿namespace Sources.Domain.Models.Constants
+﻿namespace Sources.Frameworks.Domain.Implementation.Constants
 {
     public class MathConst
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
-using Sources.DomainInterfaces.Models.Payloads;
+using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
 using UnityEngine;
 

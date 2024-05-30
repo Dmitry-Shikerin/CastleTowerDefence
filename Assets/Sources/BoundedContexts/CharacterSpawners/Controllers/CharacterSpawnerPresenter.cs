@@ -4,7 +4,7 @@ using Sources.BoundedContexts.CharacterMeleeSpawners.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
-using Sources.Controllers.Common;
+using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
 namespace Sources.BoundedContexts.CharacterSpawners.Controllers
 {

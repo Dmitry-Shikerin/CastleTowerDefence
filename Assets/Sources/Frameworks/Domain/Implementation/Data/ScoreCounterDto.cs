@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Sources.DomainInterfaces.Models.Data;
+using Sources.Frameworks.Domain.Interfaces.Data;
 
-namespace Sources.Domain.Models.Data
+namespace Sources.Frameworks.Domain.Implementation.Data
 {
     public class ScoreCounterDto : IDto
     {

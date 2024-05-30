@@ -1,7 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using Sources.ControllersInterfaces.Scenes;
-using Sources.DomainInterfaces.Models.Payloads;
+using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using UnityEngine;
 
 namespace Sources.App.Scenes

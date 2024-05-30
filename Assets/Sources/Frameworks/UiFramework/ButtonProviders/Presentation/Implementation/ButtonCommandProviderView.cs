@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Doozy.Runtime.UIManager.Components;
 using Sirenix.OdinInspector;
+using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.UiFramework.ButtonProviders.Controllers;
 using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
