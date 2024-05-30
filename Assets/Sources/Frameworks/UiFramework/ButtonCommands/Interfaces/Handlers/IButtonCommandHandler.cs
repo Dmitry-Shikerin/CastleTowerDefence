@@ -1,6 +1,6 @@
 using Sources.Frameworks.UiFramework.Domain.Commands;
 
-namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces.Handlers
+namespace Sources.Frameworks.UiFramework.ButtonCommands.Interfaces.Handlers
 {
     public interface IButtonCommandHandler
     {

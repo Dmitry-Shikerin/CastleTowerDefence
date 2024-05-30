@@ -2,7 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace Sources.InfrastructureInterfaces.Services.PauseServices
+namespace Sources.Frameworks.GameServices.Pauses.Services.Interfaces
 {
     public interface IPauseService
     {

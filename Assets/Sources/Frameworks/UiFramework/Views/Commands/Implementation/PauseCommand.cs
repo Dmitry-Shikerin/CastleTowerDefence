@@ -1,7 +1,7 @@
 ﻿using System;
+using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands;
-using Sources.InfrastructureInterfaces.Services.PauseServices;
 
 namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Forms
 {

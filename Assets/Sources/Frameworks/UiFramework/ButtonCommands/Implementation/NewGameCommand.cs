@@ -1,22 +1,21 @@
 ﻿using System;
-using Sources.BoundedContexts.Ids;
+using Doozy.Runtime.Signals;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
 using Sources.InfrastructureInterfaces.Services.LoadServices;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
+namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation
 {
     public class NewGameCommand : IButtonCommand
     {
         private readonly ILoadService _loadService;
         private readonly IFormService _formService;
 
-        public NewGameCommand(ILoadService loadService, IFormService formService)
+        public NewGameCommand(ILoadService loadService)
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            _formService = formService ?? throw new ArgumentNullException(nameof(formService));
         }
 
         public ButtonCommandId Id => ButtonCommandId.NewGame;
@@ -25,12 +24,12 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
         {
             if (_loadService.HasKey(ModelId.PlayerWallet))
             {
-                // _formService.Show(FormId.WarningNewGame);
+                Signal.Send(StreamId.MainMenu.NewGame, false);
 
                 return;
             }
 
-            // _formService.Show(FormId.NewGame);
+            Signal.Send(StreamId.MainMenu.Leaderboard, false);
         }
     }
 }

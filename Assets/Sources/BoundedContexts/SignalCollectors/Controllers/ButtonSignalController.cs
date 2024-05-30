@@ -4,7 +4,7 @@ using Doozy.Runtime.Signals;
 using Sources.Frameworks.GameServices.DoozySignalBuses.Controllers.Actions;
 using Sources.Frameworks.GameServices.DoozySignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.DoozySignalBuses.Domain.Signals.Interfaces;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces.Handlers;
+using Sources.Frameworks.UiFramework.ButtonCommands.Interfaces.Handlers;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.YandexSdcFramework.Leaderboards.Controllers.Actions;
 

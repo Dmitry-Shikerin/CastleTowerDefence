@@ -4,7 +4,7 @@ using Sources.Frameworks.UiFramework.Domain.Commands;
 
 namespace Sources.Frameworks.GameServices.DoozySignalBuses.Domain.Signals.Interfaces
 {
-    public class ButtonCommandSignal
+    public struct ButtonCommandSignal
     {
         public ButtonCommandSignal(IEnumerable<ButtonCommandId> buttonCommandIds)
         {

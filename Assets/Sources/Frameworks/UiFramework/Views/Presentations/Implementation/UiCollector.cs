@@ -5,15 +5,11 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation;
-using Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Implementation;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
-using Sources.Frameworks.UiFramework.Domain.Constants;
-using Sources.Frameworks.UiFramework.Presentation.AudioSources;
 using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.Presentation.Texts;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces.AudioSources;
-using Sources.Presentations.Views;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
@@ -46,9 +42,6 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         [SerializeField] private Enable _includeContainers = Enable.Enable;
         
         [TabGroup("Tab1", "Buttons", true, 1)] 
-        [SerializeField] private List<ButtonCommandProviderView> _buttonCommandProviders;
-        
-        [TabGroup("Tab1", "Buttons", true, 1)] 
         [EnumToggleButtons] [HideLabel] [LabelText("IncludeInactive", SdfIconType.Search)]
         [SerializeField] private Enable _includeButtons = Enable.Enable;
         
@@ -70,7 +63,6 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         private bool IncludeAnimators => _includeAnimators == Enable.Enable;
 
         public Localization Localization => _localization;
-        public IReadOnlyList<ButtonCommandProviderView> UiFormButtons => _buttonCommandProviders;
         public IReadOnlyList<UiView> UiContainers => _uiContainers;
         public IReadOnlyList<IUiText> UiTexts => _uiTexts;
         public IReadOnlyList<IUiAudioSource> UiAudioSources => _uiAudioSources;
@@ -94,18 +86,6 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         [Button(ButtonSizes.Medium)]
         private void ClearContainers() =>
             _uiContainers.Clear();
-        
-        [TabGroup("Tab1", "Buttons", true, 1)] 
-        [Button(ButtonSizes.Large)] 
-        private void AddButtons() =>
-            _buttonCommandProviders = 
-                GetComponentsInChildren<ButtonCommandProviderView>(IncludeButtons)
-                .ToList();
-        
-        [TabGroup("Tab1", "Buttons", true, 1)] 
-        [Button(ButtonSizes.Medium)]
-        private void ClearButtons() =>
-            _buttonCommandProviders.Clear();
         
         [TabGroup("Tab1", "AudioSources", true, 1)] 
         [Button(ButtonSizes.Large)]

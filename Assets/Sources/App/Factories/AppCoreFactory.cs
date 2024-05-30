@@ -46,7 +46,6 @@ namespace Sources.App.Factories
                 await projectContext.Container.Resolve<ISceneLoaderService>().LoadSceneAsync(sceneName));
 
             appCore.Construct(sceneService);
-            // Debug.Log($"appCore: {nameof(AppCoreFactory)}");
 
             return appCore;
         }

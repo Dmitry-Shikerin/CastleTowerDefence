@@ -6,7 +6,7 @@ using Sources.Frameworks.GameServices.DoozySignalBuses.Domain.Signals.Interfaces
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using UnityEngine;
 
-namespace Sources.Frameworks.UiFramework.Buttons
+namespace Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Implementation
 {
     public class ButtonSignalSender : MonoBehaviour
     {

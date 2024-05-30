@@ -4,7 +4,7 @@ using Sources.Frameworks.Domain.Interfaces.Data;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.InfrastructureInterfaces.Services.LoadServices.Collectors;
 
-namespace Sources.Frameworks.Services.LoadServices.Implementation.Collectors
+namespace Sources.Frameworks.GameServices.Loads.Services.Implementation.Collectors
 {
     public class MapperCollector : IMapperCollector
     {

@@ -5,7 +5,7 @@ using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Leaderboads;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
 
-namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation
+namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation
 {
     public class ShowLeaderboardCommand : IButtonCommand
     {

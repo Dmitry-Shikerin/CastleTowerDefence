@@ -17,8 +17,8 @@ MonoBehaviour:
     - Category: ButtonCommand
       Name: OnClick
     - Category: MainMenu
-      Name: HandleButtonCommands
-    - Category: MainMenu
       Name: Leaderboard
+    - Category: MainMenu
+      Name: NewGame
     - Category: None
       Name: None

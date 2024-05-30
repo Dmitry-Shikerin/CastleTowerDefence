@@ -1,7 +1,7 @@
 ﻿using System;
 using Agava.WebUtility;
+using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
-using Sources.InfrastructureInterfaces.Services.PauseServices;
 using UnityEngine;
 
 namespace Sources.Frameworks.YandexSdcFramework.Focuses.Implementation
@@ -38,8 +38,6 @@ namespace Sources.Frameworks.YandexSdcFramework.Focuses.Implementation
 
         private void OnInBackgroundChangeApp(bool inApp)
         {
-            // Debug.Log($"FocusService: {inApp}");
-            //
             if (inApp == false)
             {
                 _pauseService.Pause();
@@ -57,8 +55,6 @@ namespace Sources.Frameworks.YandexSdcFramework.Focuses.Implementation
 
         private void OnInBackgroundChangeWeb(bool isBackground)
         {
-            // Debug.Log($"FocusService: {isBackground}");
-            //
             if (isBackground)
             {
                 _pauseService.Pause();

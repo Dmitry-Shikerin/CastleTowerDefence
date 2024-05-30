@@ -4,10 +4,10 @@ using Agava.WebUtility;
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Players.Domain;
+using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Domain.Constant;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.AdverticingServices;
-using Sources.InfrastructureInterfaces.Services.PauseServices;
 
 namespace Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Implementation
 {

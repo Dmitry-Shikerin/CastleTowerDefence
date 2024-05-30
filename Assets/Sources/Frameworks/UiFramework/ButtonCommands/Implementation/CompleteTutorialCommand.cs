@@ -3,7 +3,7 @@ using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
+namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation
 {
     public class CompleteTutorialCommand : IButtonCommand
     {

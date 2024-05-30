@@ -44,8 +44,8 @@ namespace Doozy.Runtime.Signals
 
         public enum MainMenu
         {
-            HandleButtonCommands,
-            Leaderboard
+            Leaderboard,
+            NewGame
         }         
     }
 }
