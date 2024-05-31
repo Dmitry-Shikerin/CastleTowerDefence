@@ -24,12 +24,12 @@ namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation
         {
             if (_loadService.HasKey(ModelId.PlayerWallet))
             {
-                Signal.Send(StreamId.MainMenu.NewGame, false);
+                Signal.Send(StreamId.MainMenu.NewGame, true);
 
                 return;
             }
 
-            Signal.Send(StreamId.MainMenu.Leaderboard, false);
+            Signal.Send(StreamId.MainMenu.NewGame, true);
         }
     }
 }
