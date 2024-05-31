@@ -117,11 +117,6 @@ MonoBehaviour:
   OnEnterShowViews:
   - Id:
       Category: Gameplay
-      Name: Background
-      Custom: 0
-    Mode: 0
-  - Id:
-      Category: Gameplay
       Name: Quit
       Custom: 0
     Mode: 0
@@ -130,15 +125,10 @@ MonoBehaviour:
   OnExitHideViews:
   - Id:
       Category: Gameplay
-      Name: Background
-      Custom: 0
-    Mode: 0
-  - Id:
-      Category: Gameplay
       Name: Quit
       Custom: 0
     Mode: 0
-  OnEnterHideAllViews: 1
+  OnEnterHideAllViews: 0
   OnExitHideAllViews: 0
 --- !u!114 &-4708939395200394320
 MonoBehaviour:
@@ -189,7 +179,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 199.49713, y: 0.0000021755695}
+  Position: {x: 200.8, y: -0.3999939}
   OnEnterShowViews:
   - Id:
       Category: Gameplay
@@ -218,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Gameplay
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 122, y: 254, z: 0}
+  EditorPosition: {x: 112.8, y: 92.8, z: 0}
   EditorScale: {x: 1, y: 1, z: 1}
   Id: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   GraphName: Flow Graph
@@ -334,7 +324,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 425.67517, y: -0.00000667572}
+  Position: {x: 426.4, y: 0}
   OnEnterShowViews:
   - Id:
       Category: Gameplay
@@ -354,12 +344,7 @@ MonoBehaviour:
       Name: Pause
       Custom: 0
     Mode: 0
-  - Id:
-      Category: Gameplay
-      Name: Background
-      Custom: 0
-    Mode: 0
-  OnEnterHideAllViews: 1
+  OnEnterHideAllViews: 0
   OnExitHideAllViews: 0
 --- !u!114 &4121471602724331556
 MonoBehaviour:
@@ -415,11 +400,6 @@ MonoBehaviour:
       Name: Settings
       Custom: 0
     Mode: 0
-  - Id:
-      Category: Gameplay
-      Name: Background
-      Custom: 0
-    Mode: 0
   OnEnterHideViews: []
   OnExitShowViews: []
   OnExitHideViews:
@@ -428,12 +408,7 @@ MonoBehaviour:
       Name: Settings
       Custom: 0
     Mode: 0
-  - Id:
-      Category: Gameplay
-      Name: Background
-      Custom: 0
-    Mode: 0
-  OnEnterHideAllViews: 1
+  OnEnterHideAllViews: 0
   OnExitHideAllViews: 0
 --- !u!114 &5564933960267590721
 MonoBehaviour:
@@ -481,16 +456,11 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 145, y: 229.99997}
+  Position: {x: 247.19998, y: 212.00003}
   OnEnterShowViews:
   - Id:
       Category: Gameplay
       Name: GameOver
-      Custom: 0
-    Mode: 0
-  - Id:
-      Category: Gameplay
-      Name: Background
       Custom: 0
     Mode: 0
   OnEnterHideViews: []
@@ -501,12 +471,7 @@ MonoBehaviour:
       Name: GameOver
       Custom: 0
     Mode: 0
-  - Id:
-      Category: Gameplay
-      Name: Background
-      Custom: 0
-    Mode: 0
-  OnEnterHideAllViews: 1
+  OnEnterHideAllViews: 0
   OnExitHideAllViews: 0
 --- !u!114 &5871047642016965581
 MonoBehaviour:
@@ -593,7 +558,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 676, y: -51.500008}
+  Position: {x: 678.4, y: -51.59999}
   OnEnterShowViews:
   - Id:
       Category: Gameplay
@@ -608,5 +573,5 @@ MonoBehaviour:
       Name: Tutorial
       Custom: 0
     Mode: 0
-  OnEnterHideAllViews: 1
+  OnEnterHideAllViews: 0
   OnExitHideAllViews: 0
