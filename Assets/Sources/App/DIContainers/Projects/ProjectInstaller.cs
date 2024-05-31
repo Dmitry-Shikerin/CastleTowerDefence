@@ -1,7 +1,7 @@
 ﻿using Sources.Frameworks.GameServices.Pauses.Services.Implementation;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
-using Sources.Frameworks.YandexSdcFramework.Focuses.Implementation;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Focuses.Implementation;
 using Sources.Infrastructure.Services.LoadServices;
 using Sources.Infrastructure.Services.SceneLoaderServices;
 using Sources.InfrastructureInterfaces.Services.LoadServices;
