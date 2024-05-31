@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Sources.BoundedContexts.Ids;
 using Sources.BoundedContexts.Ids.Domain.Constant;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Domain.Models.Constants;
+using Sources.Frameworks.GameServices.Curtains.Presentation.Implementation;
+using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Infrastructure.Services.SceneServices;
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
-using Sources.Presentations.UI.Curtains;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -27,7 +25,7 @@ namespace Sources.App.Factories
             CurtainView curtainView =
                 Object.Instantiate(Resources.Load<CurtainView>(PrefabPath.Curtain)) ??
                 throw new NullReferenceException(nameof(CurtainView));
-            projectContext.Container.Bind<CurtainView>().FromInstance(curtainView);
+            projectContext.Container.Bind<ICurtainView>().To<CurtainView>().FromInstance(curtainView);
             curtainView.Hide();
 
             Dictionary<string, Func<object, SceneContext, UniTask<IScene>>> sceneFactories =

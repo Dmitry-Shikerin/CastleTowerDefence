@@ -6,7 +6,7 @@ using Sources.Domain.Models.Constants;
 using Sources.Frameworks.Services.ObjectPools.Generic;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.ExplosionBodies.Ifrastructure.Factories.Views
+namespace Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation
 {
     public class ExplosionBodyBloodyViewFactory : PoolableObjectFactory<ExplosionBodyBloodyView>, IExplosionBodyBloodyViewFactory
     {

@@ -19,7 +19,7 @@ namespace Sources.App.DIContainers.MainMenu
             Container.Bind<ILeaderboardInitializeService>().To<YandexLeaderboardInitializeService>().AsSingle();
             Container.Bind<ILeaderBoardScoreSetter>().To<YandexLeaderBoardScoreSetter>().AsSingle();
             Container.Bind<IPlayerAccountAuthorizeService>().To<PlayerAccountAuthorizeService>().AsSingle();
-            Container.Bind<ISdcInitializeService>().To<SdcInitializeService>().AsSingle();
+            Container.Bind<ISdkInitializeService>().To<SdkInitializeService>().AsSingle();
             Container.Bind<IStickyService>().To<StickyService>().AsSingle();
             Container.Bind<LeaderBoardElementViewFactory>().AsSingle();
             Container.Bind<LeaderBoardElementPresenterFactory>().AsSingle();
