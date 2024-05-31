@@ -1,6 +1,6 @@
-﻿using Sources.Frameworks.UiFramework.Presentation.AudioSources.Types;
+﻿using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
 
-namespace Sources.Frameworks.UiFramework.PresentationsInterfaces.AudioSources
+namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Interfaces
 {
     public interface IUiAudioSource
     {

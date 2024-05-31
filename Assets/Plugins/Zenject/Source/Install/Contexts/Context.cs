@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModestTree;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 #if UNITY_EDITOR
@@ -102,6 +103,11 @@ namespace Zenject
             _normalInstallers.Add(installer);
         }
 
+        
+        [Button(ButtonSizes.Large)]
+        private void AddChildMonoInstallers() =>
+            Installers = GetComponentsInChildren<MonoInstaller>();
+        
         void CheckInstallerPrefabTypes(List<MonoInstaller> installers, List<MonoInstaller> installerPrefabs)
         {
             foreach (var installer in installers)

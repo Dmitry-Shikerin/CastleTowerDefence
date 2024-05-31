@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.SdcInitializeServices
 {
-    public interface ISdcInitializeService
+    public interface ISdkInitializeService
     {
         void GameReady();
         void EnableCallbackLogging();

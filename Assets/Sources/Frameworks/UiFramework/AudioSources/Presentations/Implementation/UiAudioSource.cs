@@ -1,8 +1,8 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
+using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
+using Sources.Frameworks.UiFramework.AudioSources.Presentations.Interfaces;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
-using Sources.Frameworks.UiFramework.Presentation.AudioSources.Types;
-using Sources.Frameworks.UiFramework.PresentationsInterfaces.AudioSources;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation

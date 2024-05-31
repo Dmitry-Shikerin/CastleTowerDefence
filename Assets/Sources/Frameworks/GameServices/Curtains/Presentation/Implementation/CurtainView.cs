@@ -2,21 +2,22 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
-using Sources.Domain.Models.Constants;
 using Sources.Frameworks.Domain.Implementation.Constants;
 using Sources.Frameworks.GameServices.Curtains.Domain;
+using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using UnityEngine;
 
-namespace Sources.Presentations.UI.Curtains
+namespace Sources.Frameworks.GameServices.Curtains.Presentation.Implementation
 {
-    public class CurtainView : View
+    public class CurtainView : View, ICurtainView
     {
         [Required] [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private float _duration = 1f;
         
         private CancellationTokenSource _cancellationTokenSource;
+        private TimeSpan _timeSpan => TimeSpan.FromMilliseconds(1);
+        
         public bool IsInProgress { get; private set; }
 
         private void Awake()
@@ -31,14 +32,14 @@ namespace Sources.Presentations.UI.Curtains
         private void OnDisable() =>
             _cancellationTokenSource.Cancel();
 
-        public async UniTask ShowCurtain()
+        public async UniTask ShowAsync()
         {
             IsInProgress = true;
             Show();
             await Fade(0, CurtainConst.Max, _cancellationTokenSource.Token);
         }
 
-        public async UniTask HideCurtain()
+        public async UniTask HideAsync()
         {
             await Fade(CurtainConst.Max, 0, _cancellationTokenSource.Token);
             Hide();
@@ -56,8 +57,7 @@ namespace Sources.Presentations.UI.Curtains
                     _canvasGroup.alpha = Mathf.MoveTowards(
                         _canvasGroup.alpha, end, Time.deltaTime / _duration);
 
-                    //await UniTask.Yield(cancellationToken);
-                    await UniTask.Delay(TimeSpan.FromMilliseconds(1), ignoreTimeScale:true, cancellationToken: cancellationToken);
+                    await UniTask.Delay(_timeSpan, ignoreTimeScale:true, cancellationToken: cancellationToken);
                 }
 
                 _canvasGroup.alpha = end;

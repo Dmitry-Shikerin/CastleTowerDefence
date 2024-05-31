@@ -1,6 +1,5 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.App.Factories;
-using Sources.App.Scenes;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation;
