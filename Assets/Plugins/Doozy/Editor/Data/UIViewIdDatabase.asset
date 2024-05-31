@@ -40,5 +40,7 @@ MonoBehaviour:
       Name: Leaderboard
     - Category: MainMenu
       Name: Settings
+    - Category: MainMenu
+      Name: WarningNewGame
     - Category: None
       Name: None
