@@ -179,7 +179,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 368.50003, y: 358.95407}
+  Position: {x: 360.50015, y: 358.99994}
   OnEnterShowViews: []
   OnEnterHideViews: []
   OnExitShowViews: []
@@ -262,8 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: MainMenu
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 195.5, y: -162, z: 0}
-  EditorScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  EditorPosition: {x: 294, y: 35.5, z: 0}
+  EditorScale: {x: 0.43232757, y: 0.43232757, z: 1}
   Id: e874f402-eb11-4f12-a322-8c6be6104c8f
   GraphName: Flow Graph
   GraphDescription: 

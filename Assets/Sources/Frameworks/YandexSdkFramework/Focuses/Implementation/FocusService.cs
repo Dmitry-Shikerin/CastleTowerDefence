@@ -4,7 +4,7 @@ using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
 using UnityEngine;
 
-namespace Sources.Frameworks.YandexSdcFramework.Focuses.Implementation
+namespace Sources.Frameworks.YandexSdkFramework.Focuses.Implementation
 {
     public class FocusService : IFocusService
     {

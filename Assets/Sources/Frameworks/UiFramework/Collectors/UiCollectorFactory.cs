@@ -1,5 +1,5 @@
 ﻿using System;
-using Sources.Presentations.UI.Huds;
+using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds;
 
 namespace Sources.Frameworks.UiFramework.Collectors
 {

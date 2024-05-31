@@ -1,7 +1,6 @@
-using Sources.Frameworks.UiFramework.Presentation.Forms;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 
-namespace Sources.Presentations.UI.Huds
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds
 {
     public interface IHud
     {
