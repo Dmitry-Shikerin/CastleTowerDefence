@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
+using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using UnityEngine;
