@@ -11,8 +11,8 @@ using Sources.BoundedContexts.NavMeshAgents.Presentation;
 using Sources.BoundedContexts.Skins.Presentation;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;
 using Sources.BoundedContexts.TargetPoints.Presentation.Interfaces;
-using Sources.Frameworks.Services.ObjectPools.Implementation.Destroyers;
-using Sources.Frameworks.Services.ObjectPools.Interfaces.Destroyers;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Presentation

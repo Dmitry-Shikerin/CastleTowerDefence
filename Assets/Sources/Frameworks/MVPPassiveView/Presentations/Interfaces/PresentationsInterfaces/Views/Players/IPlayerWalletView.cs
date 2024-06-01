@@ -1,9 +1,9 @@
-using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
+using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
 
-namespace Sources.PresentationsInterfaces.Views.Players
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Players
 {
     public interface IPlayerWalletView
     {
-        IUiText CoinsUiText { get; }
+        IUiLocalizationText CoinsUiLocalizationText { get; }
     }
 }

@@ -1,3 +1,4 @@
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 using UnityEngine;
 
 namespace Sources.PresentationsInterfaces.Views.Cameras

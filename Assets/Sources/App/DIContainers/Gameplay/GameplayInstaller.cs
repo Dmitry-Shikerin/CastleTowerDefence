@@ -1,12 +1,13 @@
 ﻿using Sirenix.OdinInspector;
-using Sources.App.Factories;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
+using Sources.Frameworks.UiFramework.ButtonCommands.Interfaces.Handlers;
+using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation.Handlers;
+using Sources.Frameworks.UiFramework.Infrastructure.Commands.Forms.Handlers;
+using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands.Views.Handlers;
 using UnityEngine;
 using Zenject;
 
@@ -22,6 +23,10 @@ namespace Sources.App.DIContainers.Gameplay
             
             Container.Bind<ISceneFactory>().To<GameplaySceneFactory>().AsSingle();
             Container.Bind<ISceneViewFactory>().To<GameplaySceneViewFactory>().AsSingle();
+            
+            //CommandHandlers
+            Container.Bind<IButtonCommandHandler>().To<GameplayButtonCommandHandler>().AsSingle();
+            Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
         }
     }
 }

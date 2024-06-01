@@ -3,7 +3,8 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
-using Sources.Frameworks.UiFramework.AudioSources.Services.Interfaces;
+using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
+using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
@@ -45,11 +46,14 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _advertisingService.Initialize();
             _localizationService.Translate();
             _audioService.Initialize();
+            _audioService.PlayGroup(AudioGroupId.GameplayBackground);
             // await _curtainView.HideAsync();
         }
 
         public void Exit()
         {
+            _audioService.StopPlayGroup(AudioGroupId.GameplayBackground);
+            _audioService.Destroy();
         }
 
         public void Update(float deltaTime)

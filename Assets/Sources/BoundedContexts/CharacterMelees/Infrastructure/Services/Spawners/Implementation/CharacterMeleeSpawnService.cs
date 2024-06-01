@@ -11,7 +11,7 @@ using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.Upgrades.Domain;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Implementation

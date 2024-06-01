@@ -2,7 +2,7 @@
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
 using UnityEngine.SceneManagement;
 
-namespace Sources.Infrastructure.Services.SceneLoaderServices
+namespace Sources.Frameworks.GameServices.SceneLoaderServices.Implementation
 {
     public class SceneLoaderService : ISceneLoaderService
     {

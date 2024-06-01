@@ -1,0 +1,16 @@
+﻿using Sources.Frameworks.GameServices.Volumes.Domain.Models.Interfaces;
+using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
+using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
+using Sources.Frameworks.UiFramework.AudioSources.Presentations.Interfaces;
+using Sources.PresentationsInterfaces.Views.Constructors;
+
+namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces
+{
+    public interface IAudioService : IInitialize, IDestroy, IConstruct<IVolume>
+    {
+        void Play(AudioSourceId id);
+        IUiAudioSource Play(AudioClipId audioClipId);
+        void PlayGroup(AudioGroupId audioGroupId);
+        void StopPlayGroup(AudioGroupId audioGroupId);
+    }
+}

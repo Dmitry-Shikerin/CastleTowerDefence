@@ -1,3 +1,5 @@
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces;
+
 namespace Sources.Frameworks.Services.ObjectPools
 {
     public interface IPoolableObject

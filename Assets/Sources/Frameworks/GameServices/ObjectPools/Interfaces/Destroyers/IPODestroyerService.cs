@@ -1,10 +1,10 @@
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 
-namespace Sources.Frameworks.Services.ObjectPools.Interfaces.Destroyers
+namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers
 {
     public interface IPODestroyerService
     {
-        void Destroy(View view);
+        public void Destroy<T>(T view)
+            where T : View;
     }
 }

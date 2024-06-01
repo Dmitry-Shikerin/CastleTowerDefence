@@ -16,8 +16,8 @@ using Sources.BoundedContexts.CharacterRotations.Services.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Views;
-using Sources.Frameworks.Services.ObjectPools.Generic;
-using Sources.Frameworks.Services.ObjectPools.Implementation;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Zenject;
 
 namespace Sources.App.DIContainers.Gameplay

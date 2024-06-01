@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 
-namespace Sources.BoundedContexts.EnemySpawners.Domain
+namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
 {
     public class EnemySpawner
     {

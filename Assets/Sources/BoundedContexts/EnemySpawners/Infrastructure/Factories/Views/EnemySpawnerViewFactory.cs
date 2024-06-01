@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Domain;
+using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;

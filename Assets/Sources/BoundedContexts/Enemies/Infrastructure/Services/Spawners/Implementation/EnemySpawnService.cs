@@ -6,7 +6,7 @@ using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interface
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Implementation
