@@ -130,7 +130,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
             if(localizationIds.Contains(_textId))
                 return;
             
-            LocalizationPhrase phrase = LocalizationExtension.CreateLocalizationPhrase();
+            LocalizationPhrase phrase = LocalizationExtension.CreateLocalizationPhrase(_textId);
             phrase.SetId(_textId);
             phrase.SetRussian(_russian);
             phrase.SetEnglish(_english);

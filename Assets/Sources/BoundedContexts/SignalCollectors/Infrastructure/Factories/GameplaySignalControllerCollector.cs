@@ -4,16 +4,19 @@ using Sources.Frameworks.GameServices.DoozySignalBuses.Controllers.Interfaces;
 
 namespace Sources.BoundedContexts.SignalCollectors.Infrastructure.Factories
 {
-    public class MainMenuSignalControllerCollector : ISignalControllersCollector
+    public class GameplaySignalControllerCollector : ISignalControllersCollector
     {
         private readonly List<ISignalController> _signalControllers;
-        
-        public MainMenuSignalControllerCollector(
-            MainMenuButtonsCommandSignalController mainMenuButtonsCommandSignalController)
+
+
+        public GameplaySignalControllerCollector(
+            GameplayButtonsCommandSignalController mainMenuButtonsCommandSignalController,
+            AudioServiceSignalController audioServiceSignalController)
         {
             _signalControllers = new List<ISignalController>()
             {
                 mainMenuButtonsCommandSignalController,
+                audioServiceSignalController,
             };
         }
 
@@ -21,6 +24,7 @@ namespace Sources.BoundedContexts.SignalCollectors.Infrastructure.Factories
         {
             foreach (ISignalController signalController in _signalControllers)
                 signalController.Initialize();
+
         }
 
         public void Destroy()

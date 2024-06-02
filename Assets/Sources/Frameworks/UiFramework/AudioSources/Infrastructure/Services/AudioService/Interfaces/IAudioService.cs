@@ -1,5 +1,4 @@
 ﻿using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
-using Sources.Frameworks.GameServices.Volumes.Domain.Models.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Interfaces;
@@ -11,7 +10,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
     {
         void Play(AudioSourceId id);
         IUiAudioSource Play(AudioClipId audioClipId);
-        void PlayGroup(AudioGroupId audioGroupId);
-        void StopPlayGroup(AudioGroupId audioGroupId);
+        void Play(AudioGroupId audioGroupId);
+        void Stop(AudioGroupId audioGroupId);
     }
 }

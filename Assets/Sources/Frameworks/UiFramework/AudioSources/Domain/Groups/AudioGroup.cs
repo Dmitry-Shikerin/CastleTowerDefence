@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.PresentationsInterfaces.Views.Constructors;
+using Sources.Utils.Extentions;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Groups
@@ -12,7 +13,10 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Groups
     public class AudioGroup : IConstruct<IAudioService>, IDestroy
     {
         [SerializeField] private List<AudioClip> _audioClips;
-        [ProgressBar(0, 100, r: 0.5f, g: 0.5f, b: 0.5f, Height = 10, DrawValueLabel = false)]
+        [BoxGroup("CurrentClip")] [HideLabel]
+        [SerializeField] private AudioClip _currentClip;
+        [BoxGroup("CurrentClip", showLabel: false)]
+        [ProgressBar(0, 100, r: 255f, g: 215f, b: 0.5f, Height = 10, DrawValueLabel = false)]
         [HideLabel]
         [SerializeField] private float _currentTime;
 
@@ -20,15 +24,19 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Groups
 
         public IReadOnlyList<AudioClip> AudioClips => _audioClips;
         public bool IsPlaying { get; private set; } = false;
-        public AudioClip CurrentClip { get; private set; }
+        public AudioClip CurrentClip => _currentClip;
 
         public float CurrentTime => _currentTime;
 
         public void Construct(IAudioService soundService) =>
             _audioService = soundService ?? throw new ArgumentNullException(nameof(soundService));
 
-        public void Destroy() =>
+        public void Destroy()
+        {
             _audioService = null;
+            _currentClip = null;
+            _currentTime = 0;
+        }
 
         public void Play() =>
             IsPlaying = true;
@@ -37,19 +45,31 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Groups
             IsPlaying = false;
 
         public void SetCurrentClip(AudioClip clip) =>
-            CurrentClip = clip;
+            _currentClip = clip;
 
         public void SetCurrentTime(float time) =>
-            _currentTime = time;
+            _currentTime = time.FloatToPercent(_currentClip.length);
 
-        [ResponsiveButtonGroup]
-        private void NextClip()
+        [ButtonGroup("CurrentClip/Buttons")] 
+        [Button(SdfIconType.ArrowLeft)] 
+        [HideLabel]
+        private void PreviousClip()
         {
             
         }
 
-        [ResponsiveButtonGroup]
-        private void PreviousClip()
+        [Button(SdfIconType.Pause)]
+        [ButtonGroup("CurrentClip/Buttons")] 
+        [HideLabel] 
+        private void PauseClip()
+        {
+            
+        }
+
+        [ButtonGroup("CurrentClip/Buttons")] 
+        [Button(SdfIconType.ArrowRight)] 
+        [HideLabel]
+        private void NextClip()
         {
             
         }

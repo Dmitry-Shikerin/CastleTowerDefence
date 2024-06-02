@@ -1,9 +1,10 @@
 ﻿using System;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
+using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 
-namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation
+namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation
 {
     public class CompleteTutorialCommand : IButtonCommand
     {

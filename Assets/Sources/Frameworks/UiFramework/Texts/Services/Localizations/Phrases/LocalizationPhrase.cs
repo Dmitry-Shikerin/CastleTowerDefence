@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
+using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using UnityEngine;
 
@@ -11,30 +11,33 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
     [CreateAssetMenu(fileName = "LocalizationPhrase", menuName = "Configs/LocalizationPhrase", order = 51)]
     public class LocalizationPhrase : ScriptableObject
     {
-        [ValueDropdown("GetDropdownValues")] [SerializeField]
-        private string _localizationId;
+        [DisplayAsString(false)] [HideLabel] 
+        [SerializeField] private string _headere = UiConstant.UiLocalizationPhraseLabel;
+        
+        [ValueDropdown("GetDropdownValues")] [Space(10)]
+        [SerializeField] private string _localizationId;
 
         [SerializeField] private string _textId;
 
-        [FoldoutGroup("Russian")] [EnumToggleButtons] [SerializeField]
-        private Enable _editRussian;
+        [FoldoutGroup("Russian")] [EnumToggleButtons] [LabelText("Russian")]
+        [SerializeField] private Enable _editRussian;
 
-        [FoldoutGroup("Russian")] [TextArea(1, 20)]
-        [EnableIf("_editRussian", Enable.Enable)] 
+        [FoldoutGroup("Russian")] [TextArea(1, 20)] [HideLabel]
+        [EnableIf("_editRussian", Enable.Enable)]
         [SerializeField] private string _russian;
 
-        [FoldoutGroup("English")] [EnumToggleButtons] 
+        [FoldoutGroup("English")] [EnumToggleButtons] [LabelText("English")]
         [SerializeField] private Enable _editEnglish;
 
         [EnableIf("_editEnglish", Enable.Enable)] 
-        [FoldoutGroup("English")] [TextArea(1, 20)]
+        [FoldoutGroup("English")] [TextArea(1, 20)] [HideLabel]
         [SerializeField] private string _english;
 
-        [FoldoutGroup("Turkish")] [EnumToggleButtons] 
+        [FoldoutGroup("Turkish")] [EnumToggleButtons] [LabelText("Turkish")]
         [SerializeField] private Enable _editTurkish;
 
         [EnableIf("_editTurkish", Enable.Enable)] 
-        [FoldoutGroup("Turkish")] [TextArea(1, 20)] 
+        [FoldoutGroup("Turkish")] [TextArea(1, 20)] [HideLabel]
         [SerializeField] private string _turkish;
 
         public string LocalizationId => _localizationId;
@@ -54,7 +57,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         public void SetTurkish(string turkish) =>
             _turkish = turkish;
 
-        [Button(ButtonSizes.Large)]
+        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
         private void ChangeName()
         {
             if (string.IsNullOrWhiteSpace(_localizationId))
@@ -63,7 +66,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
             LocalizationExtension.RenameAsset(this, _localizationId);
         }
 
-        [Button(ButtonSizes.Large)]
+        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
         private void AddTextId()
         {
             var localizationIds = LocalizationExtension.GetTranslateId();

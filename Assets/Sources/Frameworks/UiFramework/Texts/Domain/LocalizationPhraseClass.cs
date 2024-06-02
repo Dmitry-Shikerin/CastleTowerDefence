@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Texts.Domain

@@ -17,7 +17,6 @@ using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.T
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Interfaces;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Implementation
 {
@@ -46,6 +45,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
             _audioClips = audioServiceDataBase.AudioClips;
             _audioGroups = audioServiceDataBase.AudioGroups;
             _audioSourcePool = new ObjectPool<UiAudioSource>();
+            _audioSourcePool.SetPoolCount(_audioServiceDataBase.PoolCount);
             IAudioContainerFactory audioContainerFactory = new AudioContainerFactory(_audioSourcePool);
             _audioSourceSpawner = new AudioSourceSpawner(_audioSourcePool, audioContainerFactory);
         }
@@ -91,21 +91,13 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
             audioSource.SetClip(_audioClips[audioClipId]);
             audioSource?.PlayAsync(() =>
             {
-                if (_audioSourcePool.Collection.Count > _audioServiceDataBase.PoolCount)
-                {
-                    PoolableObject poolableObject = audioSource.GetComponent<PoolableObject>();
-                    _audioSourcePool.RemoveFromCollection(audioSource);
-                    Object.Destroy(poolableObject);
-                    Debug.Log($"AudioSourceDataBase poolCount is: {_audioServiceDataBase.PoolCount}");
-                }
-
                 audioSource.Destroy();
             });
 
             return audioSource;
         }
 
-        public async void PlayGroup(AudioGroupId audioGroupId)
+        public async void Play(AudioGroupId audioGroupId)
         {
             if (_audioGroups.ContainsKey(audioGroupId) == false)
                 throw new KeyNotFoundException(audioGroupId.ToString());
@@ -125,7 +117,8 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
                     foreach (AudioClip audioClip in _audioGroups[audioGroupId].AudioClips)
                     {
                         audioSource.SetClip(audioClip);
-                        await audioSource.PlayAsync();
+                        _audioGroups[audioGroupId].SetCurrentClip(audioClip);
+                        await audioSource.PlayAsync(audioGroup: _audioGroups[audioGroupId]);
                     }
                 }
             }
@@ -135,7 +128,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
             }
         }
 
-        public void StopPlayGroup(AudioGroupId audioGroupId)
+        public void Stop(AudioGroupId audioGroupId)
         {
             if (_audioGroups.ContainsKey(audioGroupId) == false)
                 throw new KeyNotFoundException(audioGroupId.ToString());
@@ -149,9 +142,12 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
         private void ClearStates()
         {
             foreach (AudioGroup audioGroup in _audioGroups.Values)
+            {
                 audioGroup.Stop();
+                audioGroup.Destroy();
+            }
         }
-        
+
         private void OnVolumeChanged() =>
             ChangeVolume(_volume.MusicVolume);
 

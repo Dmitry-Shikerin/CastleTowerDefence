@@ -28,6 +28,8 @@ namespace Sources.BoundedContexts.ObjectPools.Infrastructure.Factories
             enemyView
                 .AddComponent<PoolableObject>()
                 .SetPool(_pool);
+            
+            _pool.AddToCollection(enemyView);
 
             return enemyView;
         }

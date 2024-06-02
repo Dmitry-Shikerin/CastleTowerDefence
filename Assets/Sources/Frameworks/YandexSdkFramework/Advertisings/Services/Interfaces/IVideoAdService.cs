@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.AdverticingServices
+namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces
 {
     public interface IVideoAdService
     {

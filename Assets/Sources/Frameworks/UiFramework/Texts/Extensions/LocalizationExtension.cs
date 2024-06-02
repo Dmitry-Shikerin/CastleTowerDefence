@@ -30,12 +30,13 @@ namespace Sources.Frameworks.UiFramework.Texts.Extensions
 #endif
         }
 
-        public static LocalizationPhrase CreateLocalizationPhrase()
+        public static LocalizationPhrase CreateLocalizationPhrase(string name)
         {
 #if UNITY_EDITOR
             LocalizationPhrase phrase = ScriptableObject.CreateInstance<LocalizationPhrase>();
 
             AssetDatabase.CreateAsset(phrase, LocalizationConst.LocalisationPhraseAssetPath);
+            RenameAsset(phrase, name);
             AssetDatabase.SaveAssets();
             return phrase;
 #else

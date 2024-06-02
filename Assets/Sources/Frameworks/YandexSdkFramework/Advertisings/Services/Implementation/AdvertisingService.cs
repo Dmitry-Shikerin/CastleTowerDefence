@@ -8,8 +8,9 @@ using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Domain.Constant;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.AdverticingServices;
+using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces;
 
-namespace Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Implementation
+namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementation
 {
     public class AdvertisingService : IInterstitialAdService, IVideoAdService, IAdvertisingService
     {

@@ -25,7 +25,6 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Factories.I
         public UiAudioSource Create()
         {
             UiAudioSource uiAudioSource = CreateView(AudioSourceConst.PrefabPath);
-            _uiAudioSourcePool.AddToCollection(uiAudioSource);
             
             return uiAudioSource;
         }

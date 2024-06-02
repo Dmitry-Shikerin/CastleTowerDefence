@@ -5,6 +5,7 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interf
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.DoozySignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
@@ -20,6 +21,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly ILocalizationService _localizationService;
         private readonly IAudioService _audioService;
         private readonly ICurtainView _curtainView;
+        private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplaySceneFactory(
             ISceneViewFactory gameplaySceneViewFactory,
@@ -27,7 +29,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             IAdvertisingService advertisingService,
             ILocalizationService localizationService,
             IAudioService audioService,
-            ICurtainView curtainView)
+            ICurtainView curtainView,
+            ISignalControllersCollector signalControllersCollector)
         {
             _sceneViewFactory = gameplaySceneViewFactory ?? 
                                 throw new ArgumentNullException(nameof(gameplaySceneViewFactory));
@@ -36,6 +39,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             _localizationService = localizationService ?? throw new ArgumentNullException(nameof(localizationService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _curtainView = curtainView ?? throw new ArgumentNullException(nameof(curtainView));
+            _signalControllersCollector = signalControllersCollector ?? 
+                                          throw new ArgumentNullException(nameof(signalControllersCollector));
         }
 
         public UniTask<IScene> Create(object payload)
@@ -46,7 +51,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
                 _advertisingService,
                 _localizationService,
                 _audioService,
-                _curtainView);
+                _curtainView,
+                _signalControllersCollector);
 
             return UniTask.FromResult(gameplayScene);
         }

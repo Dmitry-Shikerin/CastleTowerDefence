@@ -3,12 +3,10 @@ using Sirenix.OdinInspector;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Domain.Dictionaries;
-using Sources.Frameworks.UiFramework.Domain.Dictionaries;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
 {
@@ -19,7 +17,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
     public class LocalizationDataBase : ScriptableObject
     {
         [DisplayAsString(false)] [HideLabel] 
-        [SerializeField] private string _header = UiConstant.UiLocalizationDataBaseLabel;
+        [SerializeField] private string _headere = UiConstant.UiLocalizationDataBaseLabel;
         [Space(10)]
         [SerializeField] private List<string> _localizationIds;
         [Space(10)]
@@ -55,7 +53,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         public List<string> LocalizationIds => _localizationIds;
         public List<LocalizationPhrase> LocalizationPhrases => _localizationPhrases;
 
-        [Button]
+        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
         public void AddAllPhrases()
         {
             _localizationPhrases.Clear();
@@ -67,16 +65,12 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
             FillIds();
         }
 
-        [Button]
+        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
         private void FillIds()
         {
             _localizationIds.Clear();
             _localizationPhrases.ForEach(phrase => _localizationIds.Add(phrase.LocalizationId));
         }
-
-        [Button]
-        public void CreateLocalizationPhrase() =>
-            LocalizationExtension.CreateLocalizationPhrase();
 
         [OnInspectorGUI]
         private void ValidateIds()

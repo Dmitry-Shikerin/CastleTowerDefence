@@ -3,9 +3,9 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;
-using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
+using Sources.Frameworks.UiFramework.AudioSources.Domain.Groups;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Interfaces;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
@@ -19,6 +19,8 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementati
         [DisplayAsString(false)] [HideLabel] 
         [SerializeField] private string _lebel = UiConstant.UiAudioSourceLabel;
         [SerializeField] private AudioSourceId _audioSourceId;
+        
+        private float _currentTime;
         
         private IPODestroyerService _destroyerService = new PODestroyerService();
         private AudioSource _audioSource;
@@ -36,23 +38,10 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementati
         private void OnDisable() =>
             _cancellationTokenSource.Cancel();
 
-        public override void Destroy()
-        {
+        public override void Destroy() =>
             _destroyerService.Destroy(this);
-            // if (TryGetComponent(out PoolableObject poolableObject) == false)
-            // {
-            //     Destroy(gameObject);
-            //     Debug.Log($"PoolableObject not found: {gameObject.name}");
-            //
-            //     return;
-            // }
-            //
-            // Debug.Log($"PoolableObject found: {gameObject.name}");
-            // poolableObject.ReturnToPool();
-            // Hide();
-        }
 
-        public async UniTask PlayAsync(Action callback)
+        public async UniTask PlayAsync(Action callback, AudioGroup audioGroup = null)
         {
             _cancellationTokenSource.Cancel();
             _cancellationTokenSource = new CancellationTokenSource();
@@ -63,7 +52,13 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementati
             try
             {
                 _audioSource.Play();
-                await UniTask.WaitUntil(CanPlay, cancellationToken: _cancellationTokenSource.Token);
+
+                while (CanPlay() == false && _cancellationTokenSource.Token.IsCancellationRequested == false)
+                {
+                    audioGroup?.SetCurrentTime(_audioSource.time);
+                    await UniTask.Yield();
+                }
+                
                 callback?.Invoke();
             }
             catch (OperationCanceledException)
@@ -93,7 +88,19 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementati
             
             return this;
         }
-        
+
+        public void Pause()
+        {
+            _currentTime = _audioSource.time;
+            _audioSource.Pause();
+        }
+
+        public void UnPause()
+        {
+            _audioSource.time = _currentTime;
+            _audioSource.UnPause();
+        }
+
         private bool CanPlay() =>
             _audioSource != null && _audioSource.clip.length <= _audioSource.time + 0.1f;
     }

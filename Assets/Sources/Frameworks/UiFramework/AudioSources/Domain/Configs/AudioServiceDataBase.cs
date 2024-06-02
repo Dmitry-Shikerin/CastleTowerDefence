@@ -12,7 +12,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Configs
     public class AudioServiceDataBase : ScriptableObject, IConstruct<Volume>
     {
         [DisplayAsString(false)] [HideLabel] 
-        [SerializeField] private string _label = UiConstant.AudioServiceDataBaseLabel;
+        [SerializeField] private string _labele = UiConstant.AudioServiceDataBaseLabel;
 
         [BoxGroup("Settings")]
         [SerializeField] private int _poolCount = 3;

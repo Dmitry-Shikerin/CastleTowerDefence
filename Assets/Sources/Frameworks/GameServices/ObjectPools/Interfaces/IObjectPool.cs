@@ -11,5 +11,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces
         T Get<T>()
             where T : View;
         void Return(PoolableObject poolableObject);
+        void PoolableObjectDestroyed();
     }
 }

@@ -42,14 +42,20 @@ namespace Sources.App.DIContainers.Common
                 .Bind<LocalizationDataBase>()
                 .FromResources(LocalizationConst.LocalizationDataBaseAssetPath);
             
+            //Audio
+            Container.Bind<AudioServiceSignalController>().AsSingle();
+            
             //Buttons
-            Container.Bind<ButtonSignalController>().AsSingle();
+            Container.Bind<MainMenuButtonsCommandSignalController>().AsSingle();
             Container.Bind<ShowLeaderboardSignalAction>().AsSingle();
             
             Container.Bind<UnPauseButtonCommand>().AsSingle();
             Container.Bind<ShowRewardedAdvertisingButtonCommand>().AsSingle();
             Container.Bind<NewGameCommand>().AsSingle();
             Container.Bind<ShowLeaderboardCommand>().AsSingle();
+            Container.Bind<CompleteTutorialCommand>().AsSingle();
+            Container.Bind<LoadMainMenuSceneCommand>().AsSingle();
+            Container.Bind<ClearSavesButtonCommand>().AsSingle();
             
             //Views
             Container.Bind<UnPauseCommand>().AsSingle();

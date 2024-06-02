@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.DoozySignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
@@ -19,6 +20,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ILocalizationService _localizationService;
         private readonly IAudioService _audioService;
         private readonly ICurtainView _curtainView;
+        private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplayScene(
             ISceneViewFactory gameplaySceneViewFactory,
@@ -26,7 +28,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             IAdvertisingService advertisingService,
             ILocalizationService localizationService,
             IAudioService audioService,
-            ICurtainView curtainView)
+            ICurtainView curtainView,
+            ISignalControllersCollector signalControllersCollector)
         {
             _gameplaySceneViewFactory = gameplaySceneViewFactory ?? 
                                         throw new ArgumentNullException(nameof(gameplaySceneViewFactory));
@@ -37,6 +40,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
                                    throw new ArgumentNullException(nameof(localizationService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _curtainView = curtainView ?? throw new ArgumentNullException(nameof(curtainView));
+            _signalControllersCollector = signalControllersCollector ?? 
+                                          throw new ArgumentNullException(nameof(signalControllersCollector));
         }
 
         public async void Enter(object payload = null)
@@ -46,13 +51,15 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _advertisingService.Initialize();
             _localizationService.Translate();
             _audioService.Initialize();
-            _audioService.PlayGroup(AudioGroupId.GameplayBackground);
+            _signalControllersCollector.Initialize();
+            _audioService.Play(AudioGroupId.GameplayBackground);
             // await _curtainView.HideAsync();
         }
 
         public void Exit()
         {
-            _audioService.StopPlayGroup(AudioGroupId.GameplayBackground);
+            _signalControllersCollector.Destroy();
+            _audioService.Stop(AudioGroupId.GameplayBackground);
             _audioService.Destroy();
         }
 
