@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sources.BoundedContexts.SignalCollectors.Controllers;
 using Sources.Frameworks.GameServices.DoozySignalBuses.Controllers.Interfaces;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.SignalCollectors.Infrastructure.Factories
 {
@@ -10,11 +9,11 @@ namespace Sources.BoundedContexts.SignalCollectors.Infrastructure.Factories
         private readonly List<ISignalController> _signalControllers;
         
         public MainMenuSignalControllerCollector(
-            ButtonSignalController buttonSignalController)
+            MainMenuButtonsCommandSignalController mainMenuButtonsCommandSignalController)
         {
             _signalControllers = new List<ISignalController>()
             {
-                buttonSignalController,
+                mainMenuButtonsCommandSignalController,
             };
         }
 

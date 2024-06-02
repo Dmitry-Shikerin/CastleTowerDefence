@@ -4,7 +4,7 @@ using Sources.InfrastructureInterfaces.Services.SceneServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Sources.App
+namespace Sources.App.Core
 {
     public class AppCore : MonoBehaviour
     {
@@ -37,6 +37,9 @@ namespace Sources.App
 
         private void FixedUpdate() =>
             _sceneService.UpdateFixed(Time.fixedDeltaTime);
+
+        private void OnDestroy() =>
+            _sceneService?.Disable();
 
         public void Construct(ISceneService sceneService) =>
             _sceneService = sceneService ?? throw new ArgumentNullException(nameof(sceneService));

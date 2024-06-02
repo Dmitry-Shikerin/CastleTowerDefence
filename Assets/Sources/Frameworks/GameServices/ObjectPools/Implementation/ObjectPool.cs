@@ -1,21 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Frameworks.Services.ObjectPools.Generic;
-using Sources.Presentations.Views;
-using Sources.PresentationsInterfaces.Views;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace Sources.Frameworks.Services.ObjectPools.Implementation
+namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
 {
     public class ObjectPool<T> : IObjectPool<T> 
-        where T : IView
+        where T : View
     {
         private readonly Queue<T> _objects = new Queue<T>();
+        private readonly List<T> _collection = new List<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
+
+        private int _maxCount = -1;
         
         public event Action<int> ObjectCountChanged;
+        
+        public IReadOnlyList<T> Collection => _collection;
 
+        public void SetPoolCount(int count)
+        {
+            if (count <= 0)
+                throw new ArgumentOutOfRangeException(nameof(count));
+            
+            _maxCount = count;
+        }
+        
         public TType Get<TType>()
             where TType : View
         {
@@ -39,9 +52,34 @@ namespace Sources.Frameworks.Services.ObjectPools.Implementation
             if (poolableObject.TryGetComponent(out T @object) == false)
                 return;
 
+            if (_maxCount != -1)
+            {
+                if (_collection.Count >= _maxCount)
+                {
+                    _collection.Remove(@object);
+                    Object.Destroy(poolableObject);
+                    
+                    return;
+                }
+            }
+
             poolableObject.transform.SetParent(_parent);
             _objects.Enqueue(@object);
             ObjectCountChanged?.Invoke(_objects.Count);
+        }
+
+        public void PoolableObjectDestroyed(PoolableObject poolableObject)
+        {
+            T element = poolableObject.GetComponent<T>();
+            _collection.Remove(element);
+        }
+
+        public void AddToCollection(T @object)
+        {
+            if (_objects.Contains(@object))
+                throw new InvalidOperationException(nameof(@object));
+            
+            _collection.Add(@object);
         }
     }
 }

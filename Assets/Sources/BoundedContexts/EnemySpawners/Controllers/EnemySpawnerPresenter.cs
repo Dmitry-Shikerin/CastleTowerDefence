@@ -5,6 +5,7 @@ using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Domain;
+using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.SpawnPoints.Presentation;
@@ -50,8 +51,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _cancellationTokenSource = new CancellationTokenSource();
             // Spawn(_cancellationTokenSource.Token);
-            // SpawnEnemy(_enemySpawnerView.SpawnPoints[0].Position, _enemySpawnerView.CharacterMeleeView);
-            Spawn(_cancellationTokenSource.Token);
         }
 
         public override void Disable()

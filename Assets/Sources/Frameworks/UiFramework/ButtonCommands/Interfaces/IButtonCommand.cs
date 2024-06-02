@@ -1,4 +1,5 @@
-﻿using Sources.Frameworks.UiFramework.Domain.Commands;
+﻿using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
+using Sources.Frameworks.UiFramework.Domain.Commands;
 
 namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces
 {

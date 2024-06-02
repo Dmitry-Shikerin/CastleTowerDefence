@@ -5,7 +5,7 @@ using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.DoozySignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
-using Sources.Frameworks.UiFramework.AudioSources.Services.Interfaces;
+using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Services.Stickies;

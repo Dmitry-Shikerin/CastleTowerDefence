@@ -22,3 +22,5 @@ MonoBehaviour:
       Name: NewGame
     - Category: None
       Name: None
+    - Category: SoundCommand
+      Name: Play

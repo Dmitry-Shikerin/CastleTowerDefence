@@ -1,4 +1,5 @@
-﻿using Sources.PresentationsInterfaces.Views;
+﻿using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
+using Sources.PresentationsInterfaces.Views;
 using UnityEngine;
 
 namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views

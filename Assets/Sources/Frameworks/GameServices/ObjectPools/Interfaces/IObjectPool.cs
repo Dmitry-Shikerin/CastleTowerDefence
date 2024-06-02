@@ -1,8 +1,8 @@
 ﻿using System;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 
-namespace Sources.Frameworks.Services.ObjectPools
+namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces
 {
     public interface IObjectPool
     {
@@ -11,5 +11,6 @@ namespace Sources.Frameworks.Services.ObjectPools
         T Get<T>()
             where T : View;
         void Return(PoolableObject poolableObject);
+        void PoolableObjectDestroyed(PoolableObject poolableObject);
     }
 }

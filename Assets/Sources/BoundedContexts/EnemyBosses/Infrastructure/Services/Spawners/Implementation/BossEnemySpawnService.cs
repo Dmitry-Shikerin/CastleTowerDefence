@@ -6,7 +6,7 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Interfa
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Implementation

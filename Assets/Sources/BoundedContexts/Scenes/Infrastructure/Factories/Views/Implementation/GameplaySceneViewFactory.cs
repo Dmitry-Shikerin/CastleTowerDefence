@@ -4,12 +4,15 @@ using Sources.BoundedContexts.CharacterMeleeSpawners.Domain;
 using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain;
+using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.Domain.Models.Data;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
+using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
@@ -20,6 +23,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly RootGameObject _rootGameObject;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
         private readonly ICharacterMeleeViewFactory _characterMeleeViewFactory;
+        private readonly IAudioService _audioService;
         private readonly CharacterSpawnerViewFactory _characterSpawnerViewFactory;
         private readonly IEnemyViewFactory _enemyViewFactory;
 
@@ -29,7 +33,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             CharacterSpawnerViewFactory characterSpawnerViewFactory,
             IEnemyViewFactory enemyViewFactory,
-            ICharacterMeleeViewFactory characterMeleeViewFactory)
+            ICharacterMeleeViewFactory characterMeleeViewFactory,
+            IAudioService audioService)
         {
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
@@ -37,6 +42,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                                        throw new ArgumentNullException(nameof(enemySpawnerViewFactory));
             _characterMeleeViewFactory = characterMeleeViewFactory ?? 
                                          throw new ArgumentNullException(nameof(characterMeleeViewFactory));
+            _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _characterSpawnerViewFactory = characterSpawnerViewFactory ?? 
                                            throw new ArgumentNullException(nameof(characterSpawnerViewFactory));
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
@@ -57,6 +63,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //UiCollector
             _uiCollectorFactory.Create();
+            
+            //Volume
+            Volume volume = new Volume();
+            _audioService.Construct(volume);
         }
     }
 }

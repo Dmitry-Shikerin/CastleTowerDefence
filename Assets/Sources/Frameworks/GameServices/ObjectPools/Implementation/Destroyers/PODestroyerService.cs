@@ -1,22 +1,35 @@
-﻿using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Frameworks.Services.ObjectPools.Interfaces.Destroyers;
-using Sources.Presentations.Views;
+﻿using System;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers;
+using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
+using Object = UnityEngine.Object;
 
-namespace Sources.Frameworks.Services.ObjectPools.Implementation.Destroyers
+namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers
 {
     public class PODestroyerService : IPODestroyerService
     {
-        public void Destroy(View view)
+        public void Destroy<T>(T view) where T : View
         {
-            if (view.TryGetComponent(out PoolableObject poolableObject) == false)
+            try
             {
-                view.Destroy();
-
-                return;
+                var poolableObject = CheckPoolableObject(view);
+                poolableObject.ReturnToPool();
+                CheckPoolableObject(view);
+                view.Hide();
             }
+            catch (NullReferenceException)
+            {
+            }
+        }
 
-            poolableObject.ReturnToPool();
-            view.Hide();
+        private PoolableObject CheckPoolableObject<T>(T view) where T : View
+        {
+            if (view.TryGetComponent(out PoolableObject poolableObject))
+                return poolableObject;
+
+            Object.Destroy(view.gameObject);
+
+            throw new NullReferenceException(nameof(poolableObject));
         }
     }
 }

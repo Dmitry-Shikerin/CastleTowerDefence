@@ -6,9 +6,10 @@ using Agava.YandexGames;
 using Sources.Domain.Models.Constants;
 using Sources.Domain.Models.TextViewTypes;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
-using Sources.Frameworks.UiFramework.Domain.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
+using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
+using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using UnityEngine;
 
@@ -17,11 +18,11 @@ namespace Sources.Frameworks.UiFramework.Services.Localizations
     public class LocalizationService : ILocalizationService
     {
         private readonly UiCollector _uiCollector;
-        private readonly List<IUiText> _textViews = new List<IUiText>();
+        private readonly List<IUiLocalizationText> _textViews = new List<IUiLocalizationText>();
         private readonly Dictionary<string, IReadOnlyDictionary<string, string>> _textDictionary;
         private IReadOnlyDictionary<string, string> _currentLanguageDictionary;
 
-        public LocalizationService(UiCollector uiCollector, LocalizationConfig localizationConfig)
+        public LocalizationService(UiCollector uiCollector, LocalizationDataBase localizationDataBase)
         {
             _uiCollector = uiCollector ? uiCollector : throw new ArgumentNullException(nameof(uiCollector));
 
@@ -29,11 +30,11 @@ namespace Sources.Frameworks.UiFramework.Services.Localizations
 
             _textDictionary = new Dictionary<string, IReadOnlyDictionary<string, string>>()
             {
-                [LocalizationConst.RussianCode] = localizationConfig.LocalizationPhrases
+                [LocalizationConst.RussianCode] = localizationDataBase.LocalizationPhrases
                     .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.Russian),
-                [LocalizationConst.EnglishCode] = localizationConfig.LocalizationPhrases
+                [LocalizationConst.EnglishCode] = localizationDataBase.LocalizationPhrases
                     .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.English),
-                [LocalizationConst.TurkishCode] = localizationConfig.LocalizationPhrases
+                [LocalizationConst.TurkishCode] = localizationDataBase.LocalizationPhrases
                     .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.Turkish),
             };
         }
@@ -59,12 +60,10 @@ namespace Sources.Frameworks.UiFramework.Services.Localizations
         {
             _currentLanguageDictionary = _textDictionary[key];
 
-            foreach (IUiText textView in _textViews)
+            foreach (IUiLocalizationText textView in _textViews)
             {
-                if (textView.TextViewType == TextViewType.Default)
-                    continue;
 
-                if (textView.TextViewType == TextViewType.Translate && string.IsNullOrWhiteSpace(textView.Id))
+                if (string.IsNullOrWhiteSpace(textView.Id))
                 {
                     if (textView is MonoBehaviour concrete)
                         throw new NullReferenceException(nameof(concrete.gameObject.name));
@@ -80,7 +79,7 @@ namespace Sources.Frameworks.UiFramework.Services.Localizations
 
         private void AddTextViews(UiCollector uiCollector)
         {
-            foreach (IUiText textView in uiCollector.UiTexts)
+            foreach (IUiLocalizationText textView in uiCollector.UiTexts)
             {
                 _textViews.Add(textView);
             }

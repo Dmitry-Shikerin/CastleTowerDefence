@@ -14,10 +14,6 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Forms.Implementation
 
         public FormService(UiCollector uiCollector)
         {
-            foreach (IUiView form in uiCollector.UiContainers)
-            {
-                _forms.Add(form.FormId, form);
-            }
         }
 
         public void Show(FormId formId)

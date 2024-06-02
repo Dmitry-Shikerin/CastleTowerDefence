@@ -3,6 +3,7 @@ using Sources.BoundedContexts.AttackTargetFinders.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterHealth.Presentation;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 using Sources.PresentationsInterfaces.Views;
 using UnityEngine;
 using UnityEngine.UIElements;

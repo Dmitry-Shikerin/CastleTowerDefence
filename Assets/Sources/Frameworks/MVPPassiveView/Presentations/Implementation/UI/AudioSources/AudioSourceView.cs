@@ -1,13 +1,11 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using Sources.PresentationsInterfaces.UI.AudioSources;
 using UnityEngine;
 
-namespace Sources.Presentations.UI.AudioSources
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.AudioSources
 {
     public class AudioSourceView : View, IAudioSourceView
     {

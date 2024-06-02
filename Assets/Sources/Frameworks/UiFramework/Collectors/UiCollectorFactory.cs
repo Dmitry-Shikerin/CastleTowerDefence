@@ -1,5 +1,6 @@
 ﻿using System;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds;
+using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 
 namespace Sources.Frameworks.UiFramework.Collectors
 {
@@ -8,9 +9,8 @@ namespace Sources.Frameworks.UiFramework.Collectors
         private readonly IHud _hud;
 
         protected UiCollectorFactory(
-            IHud hud)
+            UiCollector uiCollector)
         {
-            _hud = hud ?? throw new ArgumentNullException(nameof(hud));
         }
 
         public void Create()

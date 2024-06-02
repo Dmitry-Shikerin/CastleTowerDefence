@@ -1,8 +1,8 @@
 ﻿using Sources.Frameworks.GameServices.Pauses.Services.Implementation;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
+using Sources.Frameworks.GameServices.SceneLoaderServices.Implementation;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Focuses.Implementation;
-using Sources.Infrastructure.Services.SceneLoaderServices;
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
 using Zenject;
 

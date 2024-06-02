@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
+using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.PresentationsInterfaces.Views;

@@ -8,7 +8,7 @@ using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.Domain.Models.Constants;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
 namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Implementation
 {

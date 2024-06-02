@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using Sources.Frameworks.UiFramework.ButtonCommands.Interfaces.Handlers;
+using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
+using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation;
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons;
 
-namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation.Handlers
+namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation.Handlers
 {
     public class GameplayButtonCommandHandler : IButtonCommandHandler
     {

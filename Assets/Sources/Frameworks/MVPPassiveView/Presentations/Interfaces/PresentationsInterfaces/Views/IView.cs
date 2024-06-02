@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sources.PresentationsInterfaces.Views
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views
 {
     public interface IView
     {
