@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Doozy.Runtime.Signals;
+﻿using Doozy.Runtime.Signals;
+using Sources.Frameworks.GameServices.DoozySignalBuses.Domain.Constants;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Signals;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
 using UnityEngine;
@@ -13,7 +12,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementati
         
         private void Awake()
         {
-            _stream = SignalStream.Get("SoundCommand", "Play");
+            _stream = SignalStream.Get(StreamConst.SoundCommand, StreamConst.Play);
             OnAfterAwake();
         }
 

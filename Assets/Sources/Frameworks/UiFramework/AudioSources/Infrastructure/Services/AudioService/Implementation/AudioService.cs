@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation;
-using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Configs;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Groups;
@@ -89,11 +88,8 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
                 throw new KeyNotFoundException(audioClipId.ToString());
 
             audioSource.SetClip(_audioClips[audioClipId]);
-            audioSource?.PlayAsync(() =>
-            {
-                audioSource.Destroy();
-            });
-
+            audioSource?.PlayAsync(audioSource.Destroy);
+            
             return audioSource;
         }
 

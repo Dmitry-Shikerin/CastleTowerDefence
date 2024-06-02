@@ -2,6 +2,7 @@
 using Doozy.Runtime.Signals;
 using Doozy.Runtime.UIManager.Components;
 using Sirenix.OdinInspector;
+using Sources.Frameworks.GameServices.DoozySignalBuses.Domain.Constants;
 using Sources.Frameworks.GameServices.DoozySignalBuses.Domain.Signals.Interfaces;
 using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
@@ -25,7 +26,7 @@ namespace Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Implementa
         private SignalStream _stream;
 
         private void Awake() =>
-            _stream = SignalStream.Get("ButtonCommand", "OnClick");
+            _stream = SignalStream.Get(StreamConst.ButtonCommand, StreamConst.OnClick);
 
         private void OnEnable() =>
             _button.onClickEvent.AddListener(SendSignal);

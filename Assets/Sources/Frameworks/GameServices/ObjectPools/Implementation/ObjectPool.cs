@@ -68,13 +68,10 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             ObjectCountChanged?.Invoke(_objects.Count);
         }
 
-        public void PoolableObjectDestroyed()
+        public void PoolableObjectDestroyed(PoolableObject poolableObject)
         {
-            for (int i = _collection.Count; i > 0 ; i--)
-            {
-                if (_collection[i].TryGetComponent(out PoolableObject poolableObject) == false)
-                    _collection.Remove(_collection[i]);
-            }
+            T element = poolableObject.GetComponent<T>();
+            _collection.Remove(element);
         }
 
         public void AddToCollection(T @object)

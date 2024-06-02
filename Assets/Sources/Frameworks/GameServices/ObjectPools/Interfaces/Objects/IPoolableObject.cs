@@ -1,6 +1,4 @@
-using Sources.Frameworks.GameServices.ObjectPools.Interfaces;
-
-namespace Sources.Frameworks.Services.ObjectPools
+namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces.Objects
 {
     public interface IPoolableObject
     {

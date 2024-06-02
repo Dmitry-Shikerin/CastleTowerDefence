@@ -1,6 +1,6 @@
 ﻿using Sources.Frameworks.GameServices.ObjectPools.Interfaces;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Objects;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Frameworks.Services.ObjectPools;
 
 namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects
 {
@@ -9,7 +9,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects
         private IObjectPool _pool;
 
         private void OnDestroy() =>
-            _pool.PoolableObjectDestroyed();
+            _pool.PoolableObjectDestroyed(this);
 
         public void SetPool(IObjectPool pool) =>
             _pool = pool;

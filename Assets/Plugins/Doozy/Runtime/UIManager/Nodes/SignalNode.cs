@@ -23,7 +23,7 @@ namespace Doozy.Runtime.UIManager.Nodes
         {
             AddInputPort()                 
                 .SetCanBeDeleted(false)    
-                .SetCanBeReordered(false); 
+                .SetCanBeReordered(false);
 
             AddOutputPort()                
                 .SetCanBeDeleted(false)    

@@ -103916,6 +103916,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _objectReferences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _objectReferences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedVariables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedVariables.Array.data[1]._json
+      value: '{"_value":1,"_name":"myButton","_id":"1a23f887-ba6e-42fd-8e0a-f565f645d93c","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.UI.Button,
+        UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedVariables.Array.data[1]._references.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedVariables.Array.data[1]._references.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
