@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
-using Sources.Frameworks.GameServices.Volumes.Domain.Models.Interfaces;
+using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Configs;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Groups;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Factories.Implementation;
@@ -28,10 +28,9 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
         private readonly Dictionary<AudioClipId, AudioClip> _audioClips;
         private readonly Dictionary<AudioGroupId, AudioGroup> _audioGroups;
         private readonly ObjectPool<UiAudioSource> _audioSourcePool;
-        private readonly IAudioContainerFactory _audioContainerFactory;
         private readonly IAudioSourceSpawner _audioSourceSpawner;
 
-        private IVolume _volume;
+        private Volume _volume;
         private CancellationTokenSource _audioCancellationTokenSource;
 
         public AudioService(
@@ -47,11 +46,11 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
             _audioClips = audioServiceDataBase.AudioClips;
             _audioGroups = audioServiceDataBase.AudioGroups;
             _audioSourcePool = new ObjectPool<UiAudioSource>();
-            _audioContainerFactory = new AudioContainerFactory(_audioSourcePool);
-            _audioSourceSpawner = new AudioSourceSpawner(_audioSourcePool, _audioContainerFactory);
+            IAudioContainerFactory audioContainerFactory = new AudioContainerFactory(_audioSourcePool);
+            _audioSourceSpawner = new AudioSourceSpawner(_audioSourcePool, audioContainerFactory);
         }
 
-        public void Construct(IVolume volume) =>
+        public void Construct(Volume volume) =>
             _volume = volume ?? throw new ArgumentNullException(nameof(volume));
 
         public void Initialize()
@@ -62,6 +61,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
             _audioCancellationTokenSource = new CancellationTokenSource();
             ClearStates();
             OnVolumeChanged();
+            _audioServiceDataBase.Construct(_volume);
             _volume.MusicVolumeChanged += OnVolumeChanged;
         }
 
@@ -70,15 +70,6 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
             _volume.MusicVolumeChanged -= OnVolumeChanged;
             _audioCancellationTokenSource.Cancel();
             ClearStates();
-        }
-
-        private void OnVolumeChanged()
-        {
-            foreach (IUiAudioSource audioSource in _audioSources.Values)
-                audioSource.SetVolume(_volume.MusicVolume);
-
-            foreach (UiAudioSource audioSource in _audioSourcePool.Collection)
-                audioSource.SetVolume(_volume.MusicVolume);
         }
 
         public void Play(AudioSourceId id)
@@ -92,6 +83,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
         public IUiAudioSource Play(AudioClipId audioClipId)
         {
             UiAudioSource audioSource = _audioSourceSpawner.Spawn();
+            audioSource.SetVolume(_volume.MusicVolume);
 
             if (_audioClips.ContainsKey(audioClipId) == false)
                 throw new KeyNotFoundException(audioClipId.ToString());
@@ -122,6 +114,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
                 throw new InvalidOperationException($"Group {audioGroupId} is already playing");
 
             IUiAudioSource audioSource = _audioSourceSpawner.Spawn();
+            audioSource.SetVolume(_volume.MusicVolume);
             _audioGroups[audioGroupId].Play();
 
             try
@@ -157,6 +150,18 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
         {
             foreach (AudioGroup audioGroup in _audioGroups.Values)
                 audioGroup.Stop();
+        }
+        
+        private void OnVolumeChanged() =>
+            ChangeVolume(_volume.MusicVolume);
+
+        private void ChangeVolume(float volume)
+        {
+            foreach (IUiAudioSource audioSource in _audioSources.Values)
+                audioSource.SetVolume(volume);
+
+            foreach (UiAudioSource audioSource in _audioSourcePool.Collection)
+                audioSource.SetVolume(volume);
         }
     }
 }

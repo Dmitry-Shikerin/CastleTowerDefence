@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588dddd10d9c4c96ab56be361aa39768, type: 3}
   m_Name: AudioServiceDataBase
   m_EditorClassIdentifier: 
+  _label: <size=24><b><color=#FFD700><i>AudioService DataBase</i></color></b></size>
+  _poolCount: 5
+  _volume: 0.07
   _audioClips:
     _keys: 01000000
     _values:
@@ -37,4 +40,3 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 0c61c20e65bd4c64093f29ca0f293bed, type: 3}
       - {fileID: 8300000, guid: 5f83cc59a45f12648be569746d5ea88c, type: 3}
       _currentTime: 0
-  _poolCount: 5

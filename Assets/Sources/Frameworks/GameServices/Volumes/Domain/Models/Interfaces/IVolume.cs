@@ -5,7 +5,7 @@ namespace Sources.Frameworks.GameServices.Volumes.Domain.Models.Interfaces
     public interface IVolume
     {
         public event Action MusicVolumeChanged;
-        public event Action MiniGunVolumeChanged;
+        public event Action SoundsVolumeChanged;
         
         public float SoundsVolume { get; }
         public float MusicVolume { get; }

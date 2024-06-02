@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Sources.Domain.Models.Constants;
-using Sources.Frameworks.UiFramework.Domain.Localizations.Phrases;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;

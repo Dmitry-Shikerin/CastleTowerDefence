@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sources.Domain.Models.Constants;
+using Sources.Frameworks.UiFramework.Core.Domain.Constants;
+using Sources.Frameworks.UiFramework.Core.Domain.Dictionaries;
 using Sources.Frameworks.UiFramework.Domain.Dictionaries;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
 {
@@ -15,9 +18,14 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         order = 51)]
     public class LocalizationDataBase : ScriptableObject
     {
+        [DisplayAsString(false)] [HideLabel] 
+        [SerializeField] private string _header = UiConstant.UiLocalizationDataBaseLabel;
+        [Space(10)]
         [SerializeField] private List<string> _localizationIds;
+        [Space(10)]
         [SerializeField] private List<LocalizationPhrase> _localizationPhrases;
-        [SerializeField] private StringPhraseSerializedDictionary _localizationPhrase;
+        [Space(10)]
+        [SerializeField] private PhraseSerializedDictionary _localizationPhrase;
 
         private static LocalizationDataBase s_instance;
 

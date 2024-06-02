@@ -72893,7 +72893,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Anonymous
+  m_text: Audio
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -72983,11 +72983,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: <size=24><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
-  _localizationId: Anonymous
+  _localizationId: Audio
   _disableTexts: 0
-  _russianText: "\u0410\u043D\u043E\u043D\u0438\u043C"
-  _englishText: Anonymous
-  _turkishText: Anonim
+  _russianText: "\u0410\u0443\u0434\u0438\u043E"
+  _englishText: Audio
+  _turkishText: Ses
   _enableTextId: 0
   _textId: 
   _enableRussian: 0
