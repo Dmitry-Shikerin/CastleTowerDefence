@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 18527918}
   - component: {fileID: 18527920}
   - component: {fileID: 18527919}
+  - component: {fileID: 18527921}
   m_Layer: 5
   m_Name: Yes_Text
   m_TagString: Untagged
@@ -286,7 +287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YES
+  m_text: "\u0414\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -363,6 +364,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18527917}
   m_CullTransparentMesh: 0
+--- !u!114 &18527921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18527917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Yes
+  _disableTexts: 0
+  _russianText: "\u0414\u0410"
+  _englishText: YES
+  _turkishText: EVET
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 18527919}
 --- !u!1 &20204221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2993,7 +3021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &89800830
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10746,10 +10774,10 @@ RectTransform:
   - {fileID: 972533611}
   m_Father: {fileID: 1594132577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 288.13608, y: -23.053982}
-  m_SizeDelta: {x: 25.424051, y: 46.107964}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &320136586
 MonoBehaviour:
@@ -11387,7 +11415,7 @@ RectTransform:
   m_Father: {fileID: 897022973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12253,9 +12281,9 @@ RectTransform:
   - {fileID: 549766182}
   m_Father: {fileID: 1438812327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 614.2, y: -109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 190, y: 218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371282052
@@ -15532,10 +15560,10 @@ RectTransform:
   - {fileID: 2007223455}
   m_Father: {fileID: 1594132577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 12.712026, y: -23.053982}
-  m_SizeDelta: {x: 25.424051, y: 46.107964}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &395072203
 PrefabInstance:
@@ -15784,6 +15812,7 @@ GameObject:
   - component: {fileID: 404384016}
   - component: {fileID: 404384015}
   - component: {fileID: 404384014}
+  - component: {fileID: 404384018}
   m_Layer: 5
   m_Name: On_Text
   m_TagString: Untagged
@@ -16395,7 +16424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ON
+  m_text: "\u0412\u041A\u041B."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -16422,8 +16451,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16472,6 +16501,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404384012}
   m_CullTransparentMesh: 0
+--- !u!114 &404384018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404384012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: On
+  _disableTexts: 0
+  _russianText: "\u0412\u041A\u041B."
+  _englishText: ON
+  _turkishText: "\rA\xC7IK"
+  _enableTextId: 0
+  _textId: On
+  _enableRussian: 0
+  _russian: "\u0412\u041A\u041B."
+  _enableEnglish: 0
+  _english: ON
+  _enableTurkish: 0
+  _turkish: "\rA\xC7IK"
+  _tmpText: {fileID: 404384016}
 --- !u!1 &409852993
 GameObject:
   m_ObjectHideFlags: 0
@@ -23732,6 +23788,7 @@ GameObject:
   - component: {fileID: 549766182}
   - component: {fileID: 549766184}
   - component: {fileID: 549766183}
+  - component: {fileID: 549766185}
   m_Layer: 5
   m_Name: Settings_Text
   m_TagString: Untagged
@@ -23778,9 +23835,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SETTINGS
-
-'
+  m_text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -23807,7 +23862,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 36.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23857,6 +23912,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549766181}
   m_CullTransparentMesh: 0
+--- !u!114 &549766185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549766181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Settings
+  _disableTexts: 0
+  _russianText: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+  _englishText: SETTINGS
+  _turkishText: "\rAYARLAR"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 549766183}
 --- !u!1 &551958182
 GameObject:
   m_ObjectHideFlags: 0
@@ -23996,7 +24078,7 @@ RectTransform:
   m_Father: {fileID: 1729452492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26289,6 +26371,7 @@ GameObject:
   - component: {fileID: 620030088}
   - component: {fileID: 620030087}
   - component: {fileID: 620030086}
+  - component: {fileID: 620030090}
   m_Layer: 5
   m_Name: On_Text
   m_TagString: Untagged
@@ -26900,10 +26983,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ON
+  m_text: "\u0412\u041A\u041B."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 23a985d6997814d67a6519c6f990b2a7, type: 2}
-  m_sharedMaterial: {fileID: 5372900234332131479, guid: 23a985d6997814d67a6519c6f990b2a7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
+  m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26927,8 +27010,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26977,6 +27060,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620030084}
   m_CullTransparentMesh: 0
+--- !u!114 &620030090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620030084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: On
+  _disableTexts: 0
+  _russianText: "\u0412\u041A\u041B."
+  _englishText: ON
+  _turkishText: "\rA\xC7IK"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 620030088}
 --- !u!1 &623338277
 GameObject:
   m_ObjectHideFlags: 0
@@ -29539,6 +29649,7 @@ GameObject:
   - component: {fileID: 714964513}
   - component: {fileID: 714964515}
   - component: {fileID: 714964514}
+  - component: {fileID: 714964516}
   m_Layer: 5
   m_Name: Sound_Text
   m_TagString: Untagged
@@ -29585,7 +29696,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sound
+  m_text: "\u0417\u0432\u0443\u043A\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -29662,6 +29773,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714964512}
   m_CullTransparentMesh: 0
+--- !u!114 &714964516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714964512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Sounds
+  _disableTexts: 0
+  _russianText: "\u0417\u0432\u0443\u043A\u0438"
+  _englishText: Sounds
+  _turkishText: Sesler
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 714964514}
 --- !u!1 &723548683
 GameObject:
   m_ObjectHideFlags: 0
@@ -29847,6 +29985,7 @@ GameObject:
   - component: {fileID: 741086605}
   - component: {fileID: 741086607}
   - component: {fileID: 741086606}
+  - component: {fileID: 741086608}
   m_Layer: 5
   m_Name: Settings_Text
   m_TagString: Untagged
@@ -29893,7 +30032,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SETTINGS
+  m_text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -29920,7 +30059,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.89
+  m_fontSize: 32.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -29970,6 +30109,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741086604}
   m_CullTransparentMesh: 0
+--- !u!114 &741086608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741086604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Settings
+  _disableTexts: 0
+  _russianText: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+  _englishText: SETTINGS
+  _turkishText: AYARLAR
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 741086606}
 --- !u!1 &746218732
 GameObject:
   m_ObjectHideFlags: 0
@@ -37287,10 +37453,10 @@ RectTransform:
   - {fileID: 1165582221}
   m_Father: {fileID: 1594132577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 563.5601, y: -23.053982}
-  m_SizeDelta: {x: 25.424051, y: 46.107964}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923714939
 MonoBehaviour:
@@ -42338,6 +42504,7 @@ GameObject:
   - component: {fileID: 972533614}
   - component: {fileID: 972533613}
   - component: {fileID: 972533612}
+  - component: {fileID: 972533616}
   m_Layer: 5
   m_Name: Graphic_Text
   m_TagString: Untagged
@@ -42575,7 +42742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Graphic
+  m_text: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -42652,6 +42819,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972533610}
   m_CullTransparentMesh: 0
+--- !u!114 &972533616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972533610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Graphic
+  _disableTexts: 0
+  _russianText: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
+  _englishText: Graphic
+  _turkishText: "\rGrafik"
+  _enableTextId: 0
+  _textId: Graphic
+  _enableRussian: 0
+  _russian: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
+  _enableEnglish: 0
+  _english: Graphic
+  _enableTurkish: 0
+  _turkish: "\rGrafik"
+  _tmpText: {fileID: 972533614}
 --- !u!1 &975382491
 GameObject:
   m_ObjectHideFlags: 0
@@ -49780,6 +49974,7 @@ GameObject:
   - component: {fileID: 1084757124}
   - component: {fileID: 1084757126}
   - component: {fileID: 1084757125}
+  - component: {fileID: 1084757127}
   m_Layer: 5
   m_Name: Exit_Text
   m_TagString: Untagged
@@ -49826,7 +50021,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EXIT
+  m_text: "\u0413\u041B\u0410\u0412\u041D\u041E\u0415 \u041C\u0415\u041D\u042E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -49853,10 +50048,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 28.2
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 40
   m_fontStyle: 0
@@ -49903,6 +50098,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084757123}
   m_CullTransparentMesh: 0
+--- !u!114 &1084757127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084757123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: MainMenu
+  _disableTexts: 0
+  _russianText: "\u0413\u041B\u0410\u0412\u041D\u041E\u0415 \u041C\u0415\u041D\u042E"
+  _englishText: MAIN MENU
+  _turkishText: "ANA MEN\xDC"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1084757125}
 --- !u!1 &1086638142
 GameObject:
   m_ObjectHideFlags: 0
@@ -49916,6 +50138,7 @@ GameObject:
   - component: {fileID: 1086638146}
   - component: {fileID: 1086638145}
   - component: {fileID: 1086638144}
+  - component: {fileID: 1086638148}
   m_Layer: 5
   m_Name: Off_Text
   m_TagString: Untagged
@@ -50527,7 +50750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OFF
+  m_text: "\u0412\u042B\u041A\u041B."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -50554,8 +50777,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -50604,6 +50827,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086638142}
   m_CullTransparentMesh: 0
+--- !u!114 &1086638148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086638142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Off
+  _disableTexts: 0
+  _russianText: "\u0412\u042B\u041A\u041B."
+  _englishText: OFF
+  _turkishText: "\rKAPALI"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1086638146}
 --- !u!1 &1086789319
 GameObject:
   m_ObjectHideFlags: 0
@@ -50615,6 +50865,7 @@ GameObject:
   - component: {fileID: 1086789320}
   - component: {fileID: 1086789322}
   - component: {fileID: 1086789321}
+  - component: {fileID: 1086789323}
   m_Layer: 5
   m_Name: Quit_Text
   m_TagString: Untagged
@@ -50661,7 +50912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do you want to quit?
+  m_text: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -50738,6 +50989,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086789319}
   m_CullTransparentMesh: 0
+--- !u!114 &1086789323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086789319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Quit
+  _disableTexts: 0
+  _russianText: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
+  _englishText: Do you want to quit?
+  _turkishText: "\xC7\u0131kmak m\u0131 istiyorsun?"
+  _enableTextId: 0
+  _textId: Quit
+  _enableRussian: 0
+  _russian: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
+  _enableEnglish: 0
+  _english: Do you want to quit?
+  _enableTurkish: 0
+  _turkish: "\xC7\u0131kmak m\u0131 istiyorsun?"
+  _tmpText: {fileID: 1086789321}
 --- !u!1 &1087049008
 GameObject:
   m_ObjectHideFlags: 0
@@ -51284,6 +51562,7 @@ GameObject:
   - component: {fileID: 1097975758}
   - component: {fileID: 1097975760}
   - component: {fileID: 1097975759}
+  - component: {fileID: 1097975761}
   m_Layer: 5
   m_Name: GameOver_Text
   m_TagString: Untagged
@@ -51330,7 +51609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME OVER
+  m_text: "\u041A\u041E\u041D\u0415\u0426 \u0418\u0413\u0420\u042B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -51407,6 +51686,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097975757}
   m_CullTransparentMesh: 0
+--- !u!114 &1097975761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097975757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: GameOver
+  _disableTexts: 0
+  _russianText: "\u041A\u041E\u041D\u0415\u0426 \u0418\u0413\u0420\u042B"
+  _englishText: GAME OVER
+  _turkishText: "\rOYUN B\u0130TT\u0130"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1097975759}
 --- !u!1 &1107320083
 GameObject:
   m_ObjectHideFlags: 0
@@ -52564,6 +52870,7 @@ GameObject:
   - component: {fileID: 1165582224}
   - component: {fileID: 1165582223}
   - component: {fileID: 1165582222}
+  - component: {fileID: 1165582226}
   m_Layer: 5
   m_Name: Gameplay_Text
   m_TagString: Untagged
@@ -52801,7 +53108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gameplay
+  m_text: "\u0418\u0433\u0440\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -52828,7 +53135,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.85
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -52878,6 +53185,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165582220}
   m_CullTransparentMesh: 0
+--- !u!114 &1165582226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165582220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Gameplay
+  _disableTexts: 0
+  _russianText: "\u0418\u0433\u0440\u0430"
+  _englishText: Gameplay
+  _turkishText: "\rOynan\u0131\u015F"
+  _enableTextId: 0
+  _textId: Gameplay
+  _enableRussian: 0
+  _russian: "\u0418\u0433\u0440\u0430"
+  _enableEnglish: 0
+  _english: Gameplay
+  _enableTurkish: 0
+  _turkish: "\rOynan\u0131\u015F"
+  _tmpText: {fileID: 1165582224}
 --- !u!1 &1166068328
 GameObject:
   m_ObjectHideFlags: 0
@@ -52889,6 +53223,7 @@ GameObject:
   - component: {fileID: 1166068329}
   - component: {fileID: 1166068331}
   - component: {fileID: 1166068330}
+  - component: {fileID: 1166068332}
   m_Layer: 5
   m_Name: Score_Text
   m_TagString: Untagged
@@ -52935,7 +53270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SCORE
+  m_text: "\u041E\u0427\u041A\u0418"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -53012,6 +53347,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166068328}
   m_CullTransparentMesh: 0
+--- !u!114 &1166068332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166068328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Score
+  _disableTexts: 0
+  _russianText: "\u041E\u0427\u041A\u0418"
+  _englishText: SCORE
+  _turkishText: PUAN
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1166068330}
 --- !u!1 &1170419354
 GameObject:
   m_ObjectHideFlags: 0
@@ -53125,9 +53487,9 @@ RectTransform:
   - {fileID: 1759256785}
   m_Father: {fileID: 1438812327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 354.6, y: -109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 190, y: 218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179321733
@@ -58196,6 +58558,7 @@ GameObject:
   - component: {fileID: 1256598312}
   - component: {fileID: 1256598311}
   - component: {fileID: 1256598310}
+  - component: {fileID: 1256598314}
   m_Layer: 5
   m_Name: Off_Text
   m_TagString: Untagged
@@ -58807,10 +59170,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OFF
+  m_text: "\u0412\u042B\u041A\u041B."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 23a985d6997814d67a6519c6f990b2a7, type: 2}
-  m_sharedMaterial: {fileID: 5372900234332131479, guid: 23a985d6997814d67a6519c6f990b2a7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
+  m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -58834,8 +59197,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -58884,6 +59247,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256598308}
   m_CullTransparentMesh: 0
+--- !u!114 &1256598314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256598308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Off
+  _disableTexts: 0
+  _russianText: "\u0412\u042B\u041A\u041B."
+  _englishText: OFF
+  _turkishText: "\rKAPALI"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1256598312}
 --- !u!1 &1256675186
 GameObject:
   m_ObjectHideFlags: 0
@@ -59001,6 +59391,7 @@ GameObject:
   - component: {fileID: 1262217345}
   - component: {fileID: 1262217347}
   - component: {fileID: 1262217346}
+  - component: {fileID: 1262217348}
   m_Layer: 5
   m_Name: Title_Text
   m_TagString: Untagged
@@ -59047,7 +59438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PAUSED
+  m_text: "\u041F\u0410\u0423\u0417\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -59074,10 +59465,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 50
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -59124,6 +59515,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262217344}
   m_CullTransparentMesh: 0
+--- !u!114 &1262217348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262217344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Pause
+  _disableTexts: 0
+  _russianText: "\u041F\u0410\u0423\u0417\u0410"
+  _englishText: PAUSE
+  _turkishText: "\rDURAKLAT"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1262217346}
 --- !u!1 &1264260034
 GameObject:
   m_ObjectHideFlags: 0
@@ -59647,10 +60065,10 @@ RectTransform:
   - {fileID: 1291770554}
   m_Father: {fileID: 1145542413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.895, y: -290.54376}
-  m_SizeDelta: {x: 631.79, y: 116.2175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1270341992
 GameObject:
@@ -60589,7 +61007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.113000005, y: 0.13800001}
   m_AnchorMax: {x: 0.83621967, y: 0.89120483}
-  m_AnchoredPosition: {x: 0.19999695, y: -0.099998474}
+  m_AnchoredPosition: {x: 0.19999695, y: -0.1000061}
   m_SizeDelta: {x: -1, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293048415
@@ -60837,6 +61255,7 @@ GameObject:
   - component: {fileID: 1299020496}
   - component: {fileID: 1299020498}
   - component: {fileID: 1299020497}
+  - component: {fileID: 1299020499}
   m_Layer: 5
   m_Name: No_Text
   m_TagString: Untagged
@@ -60883,7 +61302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NO
+  m_text: "\u041D\u0415\u0422"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -60960,6 +61379,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299020495}
   m_CullTransparentMesh: 0
+--- !u!114 &1299020499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299020495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: No
+  _disableTexts: 0
+  _russianText: "\u041D\u0415\u0422"
+  _englishText: NO
+  _turkishText: HAYIR
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1299020497}
 --- !u!1 &1299598976
 GameObject:
   m_ObjectHideFlags: 0
@@ -61588,6 +62034,7 @@ GameObject:
   - component: {fileID: 1323492165}
   - component: {fileID: 1323492164}
   - component: {fileID: 1323492163}
+  - component: {fileID: 1323492167}
   m_Layer: 5
   m_Name: On_Text
   m_TagString: Untagged
@@ -62199,7 +62646,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ON
+  m_text: "\u0412\u041A\u041B."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -62226,8 +62673,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -62276,6 +62723,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323492161}
   m_CullTransparentMesh: 0
+--- !u!114 &1323492167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323492161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: On
+  _disableTexts: 0
+  _russianText: "\u0412\u041A\u041B."
+  _englishText: ON
+  _turkishText: "\rA\xC7IK"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1323492165}
 --- !u!1 &1323525577
 GameObject:
   m_ObjectHideFlags: 0
@@ -62728,10 +63202,10 @@ RectTransform:
   - {fileID: 1906352205}
   m_Father: {fileID: 1145542413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.895, y: -174.32625}
-  m_SizeDelta: {x: 631.79, y: 116.2175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1326079252
 GameObject:
@@ -65967,7 +66441,7 @@ RectTransform:
   m_Father: {fileID: 2026713736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -66700,10 +67174,10 @@ RectTransform:
   - {fileID: 1324039539}
   m_Father: {fileID: 1145542413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.895, y: -58.10875}
-  m_SizeDelta: {x: 631.79, y: 116.2175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1398809099
 PrefabInstance:
@@ -71089,6 +71563,7 @@ GameObject:
   - component: {fileID: 1435285883}
   - component: {fileID: 1435285882}
   - component: {fileID: 1435285881}
+  - component: {fileID: 1435285885}
   m_Layer: 5
   m_Name: Off_Text
   m_TagString: Untagged
@@ -71700,7 +72175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OFF
+  m_text: "\u0412\u042B\u041A\u041B."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -71727,8 +72202,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -71777,6 +72252,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435285879}
   m_CullTransparentMesh: 0
+--- !u!114 &1435285885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435285879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Off
+  _disableTexts: 0
+  _russianText: "\u0412\u042B\u041A\u041B."
+  _englishText: OFF
+  _turkishText: "\rKAPALI"
+  _enableTextId: 0
+  _textId: Off
+  _enableRussian: 0
+  _russian: "\u0412\u042B\u041A\u041B."
+  _enableEnglish: 0
+  _english: OFF
+  _enableTurkish: 0
+  _turkish: "\rKAPALI"
+  _tmpText: {fileID: 1435285883}
 --- !u!1 &1438812326
 GameObject:
   m_ObjectHideFlags: 0
@@ -71815,7 +72317,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 709.2, y: 218}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438812328
 MonoBehaviour:
@@ -72448,6 +72950,7 @@ GameObject:
   - component: {fileID: 1482161239}
   - component: {fileID: 1482161241}
   - component: {fileID: 1482161240}
+  - component: {fileID: 1482161242}
   m_Layer: 5
   m_Name: Complete_Text
   m_TagString: Untagged
@@ -72494,7 +72997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: COMPLETE!
+  m_text: "\u0423\u0420\u041E\u0412\u0415\u041D\u042C \u0417\u0410\u0412\u0415\u0420\u0428\u0415\u041D!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -72521,7 +73024,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.29
+  m_fontSize: 32.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -72571,6 +73074,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482161238}
   m_CullTransparentMesh: 0
+--- !u!114 &1482161242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482161238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: LevelCompleted
+  _disableTexts: 0
+  _russianText: "\u0423\u0420\u041E\u0412\u0415\u041D\u042C \u0417\u0410\u0412\u0415\u0420\u0428\u0415\u041D!"
+  _englishText: LEVEL COMPLETED!
+  _turkishText: "SEV\u0130YE TAMAMLANDI!"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1482161240}
 --- !u!1 &1482702586
 GameObject:
   m_ObjectHideFlags: 0
@@ -73500,7 +74030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1509541387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -76285,9 +76815,9 @@ RectTransform:
   - {fileID: 1084757124}
   m_Father: {fileID: 1438812327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 95, y: -109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 190, y: 218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544677718
@@ -78500,10 +79030,10 @@ RectTransform:
   - {fileID: 252682844}
   m_Father: {fileID: 1145542413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.895, y: -406.76123}
-  m_SizeDelta: {x: 631.79, y: 116.2175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1573708592
 GameObject:
@@ -88777,6 +89307,7 @@ GameObject:
   - component: {fileID: 1759256785}
   - component: {fileID: 1759256787}
   - component: {fileID: 1759256786}
+  - component: {fileID: 1759256788}
   m_Layer: 5
   m_Name: Resume_Text
   m_TagString: Untagged
@@ -88823,7 +89354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESUME
+  m_text: "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -88850,7 +89381,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 31.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -88900,6 +89431,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759256784}
   m_CullTransparentMesh: 0
+--- !u!114 &1759256788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759256784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Resume
+  _disableTexts: 0
+  _russianText: "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
+  _englishText: RESUME
+  _turkishText: "\rS\xDCRD\xDCRMEK"
+  _enableTextId: 0
+  _textId: Resume
+  _enableRussian: 0
+  _russian: "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
+  _enableEnglish: 0
+  _english: RESUME
+  _enableTurkish: 0
+  _turkish: "\rS\xDCRD\xDCRMEK"
+  _tmpText: {fileID: 1759256786}
 --- !u!1 &1767460685
 GameObject:
   m_ObjectHideFlags: 0
@@ -91589,6 +92147,7 @@ GameObject:
   - component: {fileID: 1829368597}
   - component: {fileID: 1829368599}
   - component: {fileID: 1829368598}
+  - component: {fileID: 1829368600}
   m_Layer: 5
   m_Name: Score_Text
   m_TagString: Untagged
@@ -91635,7 +92194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SCORE
+  m_text: "\u041E\u0427\u041A\u0418"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -91712,6 +92271,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829368596}
   m_CullTransparentMesh: 0
+--- !u!114 &1829368600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829368596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Score
+  _disableTexts: 0
+  _russianText: "\u041E\u0427\u041A\u0418"
+  _englishText: SCORE
+  _turkishText: PUAN
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 1829368598}
 --- !u!1 &1836184359
 GameObject:
   m_ObjectHideFlags: 0
@@ -99967,6 +100553,7 @@ GameObject:
   - component: {fileID: 2007223458}
   - component: {fileID: 2007223457}
   - component: {fileID: 2007223456}
+  - component: {fileID: 2007223460}
   m_Layer: 5
   m_Name: Audio_Text
   m_TagString: Untagged
@@ -100204,7 +100791,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Audio
+  m_text: "\u0410\u0443\u0434\u0438\u043E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -100281,6 +100868,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007223454}
   m_CullTransparentMesh: 0
+--- !u!114 &2007223460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007223454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Audio
+  _disableTexts: 0
+  _russianText: "\u0410\u0443\u0434\u0438\u043E"
+  _englishText: Audio
+  _turkishText: Ses
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 2007223458}
 --- !u!1 &2015943341
 GameObject:
   m_ObjectHideFlags: 0
@@ -102217,6 +102831,7 @@ GameObject:
   - component: {fileID: 2096711502}
   - component: {fileID: 2096711504}
   - component: {fileID: 2096711503}
+  - component: {fileID: 2096711505}
   m_Layer: 5
   m_Name: HealthBars_Text
   m_TagString: Untagged
@@ -102263,7 +102878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health Bars
+  m_text: "\u0418\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440\u044B \u0417\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -102290,7 +102905,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 23.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -102340,6 +102955,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096711501}
   m_CullTransparentMesh: 0
+--- !u!114 &2096711505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096711501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: HealthBars
+  _disableTexts: 0
+  _russianText: "\u0418\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440\u044B \u0417\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
+  _englishText: Health Bars
+  _turkishText: "\rSa\u011Fl\u0131k Barlar\u0131"
+  _enableTextId: 0
+  _textId: HealthBars
+  _enableRussian: 0
+  _russian: "\u0418\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440\u044B \u0417\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
+  _enableEnglish: 0
+  _english: Health Bars
+  _enableTurkish: 0
+  _turkish: "\rSa\u011Fl\u0131k Barlar\u0131"
+  _tmpText: {fileID: 2096711503}
 --- !u!1 &2102072926
 GameObject:
   m_ObjectHideFlags: 0
@@ -102488,6 +103130,7 @@ GameObject:
   - component: {fileID: 2107283679}
   - component: {fileID: 2107283681}
   - component: {fileID: 2107283680}
+  - component: {fileID: 2107283682}
   m_Layer: 5
   m_Name: Graphic_Text
   m_TagString: Untagged
@@ -102534,7 +103177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Graphic
+  m_text: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -102611,6 +103254,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107283678}
   m_CullTransparentMesh: 0
+--- !u!114 &2107283682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107283678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Graphic
+  _disableTexts: 0
+  _russianText: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
+  _englishText: Graphic
+  _turkishText: "\rGrafik"
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
+  _tmpText: {fileID: 2107283680}
 --- !u!1 &2113857268
 GameObject:
   m_ObjectHideFlags: 0
@@ -103199,6 +103869,7 @@ GameObject:
   - component: {fileID: 2124182234}
   - component: {fileID: 2124182236}
   - component: {fileID: 2124182235}
+  - component: {fileID: 2124182237}
   m_Layer: 5
   m_Name: Music_Text
   m_TagString: Untagged
@@ -103245,7 +103916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music
+  m_text: "\u041C\u0443\u0437\u044B\u043A\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -103322,6 +103993,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124182233}
   m_CullTransparentMesh: 0
+--- !u!114 &2124182237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124182233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Music
+  _disableTexts: 0
+  _russianText: "\u041C\u0443\u0437\u044B\u043A\u0430"
+  _englishText: Music
+  _turkishText: "\rM\xFCzik"
+  _enableTextId: 0
+  _textId: Music
+  _enableRussian: 0
+  _russian: "\u041C\u0443\u0437\u044B\u043A\u0430"
+  _enableEnglish: 0
+  _english: Music
+  _enableTurkish: 0
+  _turkish: "\rM\xFCzik"
+  _tmpText: {fileID: 2124182235}
 --- !u!1 &2124497779
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
   m_Name: LevelCompleted
   m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
   _localizationId: LevelCompleted
   _textId: 
   _editRussian: 0
-  _russian: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D"
+  _russian: "\u0423\u0420\u041E\u0412\u0415\u041D\u042C \u0417\u0410\u0412\u0415\u0420\u0428\u0415\u041D!"
   _editEnglish: 0
-  _english: Level completed
+  _english: LEVEL COMPLETED!
   _editTurkish: 0
-  _turkish: "Seviye tamamland\u0131"
+  _turkish: "SEV\u0130YE TAMAMLANDI!"

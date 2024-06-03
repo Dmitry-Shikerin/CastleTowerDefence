@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
   m_Name: No
   m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
   _localizationId: No
   _textId: 
   _editRussian: 0
-  _russian: "\u041D\u0435\u0442"
+  _russian: "\u041D\u0415\u0422"
   _editEnglish: 0
-  _english: No
+  _english: NO
   _editTurkish: 0
-  _turkish: "Hay\u0131r"
+  _turkish: HAYIR

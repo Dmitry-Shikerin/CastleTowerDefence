@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
   m_Name: Score
   m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
   _localizationId: Score
   _textId: 
   _editRussian: 0
-  _russian: "\u041E\u0447\u043A\u0438"
+  _russian: "\u041E\u0427\u041A\u0418"
   _editEnglish: 0
-  _english: Score
+  _english: SCORE
   _editTurkish: 0
-  _turkish: Puan
+  _turkish: PUAN

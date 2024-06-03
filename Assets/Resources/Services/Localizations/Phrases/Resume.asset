@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
-  m_Name: Pause
+  m_Name: Resume
   m_EditorClassIdentifier: 
   _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
-  _localizationId: Pause
+  _localizationId: 
   _textId: 
   _editRussian: 0
-  _russian: "\u041F\u0410\u0423\u0417\u0410"
+  _russian: 
   _editEnglish: 0
-  _english: PAUSE
+  _english: 
   _editTurkish: 0
-  _turkish: "\rDURAKLAT"
+  _turkish: 

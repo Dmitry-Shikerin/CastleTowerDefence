@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
   m_Name: MainMenu
   m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
   _localizationId: MainMenu
   _textId: 
   _editRussian: 0
-  _russian: "\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
+  _russian: "\u0413\u041B\u0410\u0412\u041D\u041E\u0415 \u041C\u0415\u041D\u042E"
   _editEnglish: 0
-  _english: Main menu
+  _english: MAIN MENU
   _editTurkish: 0
-  _turkish: "Ana men\xFC"
+  _turkish: "\rANA MEN\xDC"
