@@ -3,12 +3,12 @@
     public class CharacterMelee
     {
 
-        public CharacterMelee(CharacterHealth.Domain.CharacterHealth characterHealth)
+        public CharacterMelee(CharacterHealths.Domain.CharacterHealth characterHealth)
         {
             CharacterHealth = characterHealth;
         }
         
-        public CharacterHealth.Domain.CharacterHealth CharacterHealth { get; }
+        public CharacterHealths.Domain.CharacterHealth CharacterHealth { get; }
         public bool IsInitialized { get; set; }
     }
 }

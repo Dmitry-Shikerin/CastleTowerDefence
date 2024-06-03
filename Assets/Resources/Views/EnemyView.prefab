@@ -2265,7 +2265,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1762452032083321044}
-  - component: {fileID: 7134315104259951130}
   m_Layer: 8
   m_Name: EnemyAnimation
   m_TagString: Untagged
@@ -2288,19 +2287,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6593444774142356389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7134315104259951130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206343232967009638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3284f09caa2e4234b8184b40b88110a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 8829353313782744124}
 --- !u!1 &2291538954454781180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4353,6 +4339,7 @@ GameObject:
   - component: {fileID: 8647694516050573320}
   - component: {fileID: 8472846847038663704}
   - component: {fileID: 8435948641295468632}
+  - component: {fileID: 3818196743991438505}
   m_Layer: 8
   m_Name: EnemyView
   m_TagString: Untagged
@@ -4602,7 +4589,20 @@ MonoBehaviour:
   - {fileID: 7545764557829745756}
   _healthBarView: {fileID: 6003326834073596623}
   _provider: {fileID: 8472846847038663704}
-  _animation: {fileID: 7134315104259951130}
+  _animation: {fileID: 3818196743991438505}
+--- !u!114 &3818196743991438505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391113285427405577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3284f09caa2e4234b8184b40b88110a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8829353313782744124}
 --- !u!1 &3402315619859024065
 GameObject:
   m_ObjectHideFlags: 0

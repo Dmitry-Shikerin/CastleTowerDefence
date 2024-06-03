@@ -4,7 +4,6 @@ using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States

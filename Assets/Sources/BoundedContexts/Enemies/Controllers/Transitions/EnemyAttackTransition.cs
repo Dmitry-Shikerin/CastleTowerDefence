@@ -25,14 +25,11 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
             return null;
         }
 
-        protected override bool OnCheck()
-        {
-            Debug.Log(_view.CharacterMeleePoint.CharacterHealthView);
-            Debug.Log(_view.CharacterMeleePoint);
-            
-            return _view.CharacterMeleePoint.CharacterHealthView != null
-                   && Vector3.Distance(_view.Position, _view.CharacterHealthView.Position)
-                   <= _view.StoppingDistance;
-        }
+        protected override bool OnCheck() =>
+            _view.CharacterHealthView != null
+            && Vector3.Distance(
+                _view.Position,
+                _view.CharacterHealthView.Position)
+            <= _view.StoppingDistance;
     }
 }
