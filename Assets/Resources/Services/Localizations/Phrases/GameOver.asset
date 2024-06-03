@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
   m_Name: GameOver
   m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
   _localizationId: GameOver
   _textId: 
   _editRussian: 0
-  _russian: "\u041A\u043E\u043D\u0435\u0446 \u0418\u0433\u0440\u044B"
+  _russian: "\u041A\u041E\u041D\u0415\u0426 \u0418\u0413\u0420\u042B"
   _editEnglish: 0
-  _english: Game Over
+  _english: GAME OVER
   _editTurkish: 0
-  _turkish: Oyun bitti
+  _turkish: "\rOYUN B\u0130TT\u0130"
