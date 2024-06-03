@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
   m_Name: Leaderboard
   m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
   _localizationId: Leaderboard
   _textId: 
   _editRussian: 0
-  _russian: "\u0422\u0430\u0431\u043B\u0438\u0446\u0430 \u043B\u0438\u0434\u0435\u0440\u043E\u0432"
+  _russian: "\u0422\u0410\u0411\u041B\u0418\u0426\u0410 \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
   _editEnglish: 0
-  _english: Leaderboard
+  _english: LEADERBOARD
   _editTurkish: 0
-  _turkish: Lider Tablosu
+  _turkish: "L\u0130DERLER SIRALAMASI"

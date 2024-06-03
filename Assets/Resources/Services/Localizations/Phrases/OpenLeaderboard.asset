@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
   m_Name: OpenLeaderboard
   m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
   _localizationId: OpenLeaderboard
   _textId: 
   _editRussian: 1
@@ -23,5 +24,5 @@ MonoBehaviour:
   _editEnglish: 0
   _english: To open the leaderboard, you need to log in. Do you want to log in?
   _editTurkish: 0
-  _turkish: "Liderlik tablosunu a\xE7mak i\xE7in giri\u015F yapman\u0131z gerekir.
-    Giri\u015F yapmak ister misiniz?"
+  _turkish: "Liderlik tablosunu a\xE7mak i\xE7in giris yapman\u0131z gerekir. Giris
+    yapmak ister misiniz?"
