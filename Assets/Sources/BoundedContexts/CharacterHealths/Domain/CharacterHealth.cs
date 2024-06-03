@@ -3,7 +3,7 @@ using Sources.BoundedContexts.Healths.DomainInterfaces;
 using Sources.BoundedContexts.Upgrades.Domain;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.CharacterHealth.Domain
+namespace Sources.BoundedContexts.CharacterHealths.Domain
 {
     public class CharacterHealth : IHealth
     {

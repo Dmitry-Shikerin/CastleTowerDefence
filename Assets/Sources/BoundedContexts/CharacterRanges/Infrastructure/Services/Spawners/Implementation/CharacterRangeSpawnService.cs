@@ -27,7 +27,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawne
         public ICharacterRangeView Spawn(Vector3 position)
         {
             CharacterRange characterMelee = new CharacterRange(
-                new CharacterHealth.Domain.CharacterHealth(
+                new CharacterHealths.Domain.CharacterHealth(
                     new Upgrade(
                         0,
                         0,

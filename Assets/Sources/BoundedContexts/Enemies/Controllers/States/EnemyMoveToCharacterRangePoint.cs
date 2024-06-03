@@ -29,7 +29,23 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         protected override void OnEnter() =>
             _animation.PlayWalk();
 
-        protected override void OnUpdate() =>
+        protected override void OnUpdate()
+        {
             _view.Move(_view.CharacterRangePoint.Position);
+            SetCharacterHealth();
+        }
+
+        protected override void OnExit()
+        {
+            SetCharacterHealth();
+        }
+
+        private void SetCharacterHealth()
+        {
+            if (_view.CharacterRangePoint.CharacterHealthView == null)
+                return;
+
+            _view.SetCharacterHealth(_view.CharacterRangePoint.CharacterHealthView);
+        }
     }
 }

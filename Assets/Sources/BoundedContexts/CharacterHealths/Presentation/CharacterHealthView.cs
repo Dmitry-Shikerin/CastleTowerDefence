@@ -1,6 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
-using Sources.BoundedContexts.Characters.Controllers;
+using Sources.BoundedContexts.CharacterHealths.Controllers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Presentations.Views;
 using UnityEngine;
@@ -12,6 +12,7 @@ namespace Sources.BoundedContexts.CharacterHealth.Presentation
         [Required] [SerializeField] private ParticleSystem _healParticleSystem;
 
         public Vector3 Position => transform.position;
+        public float CurrentHealth => Presenter.CurrentHealth;
 
         public void TakeDamage(int damage) =>
             Presenter.TakeDamage(damage);

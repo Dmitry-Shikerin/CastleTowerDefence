@@ -23,12 +23,8 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
             return null;
         }
 
-        protected override bool OnCheck()
-        {
-            Debug.Log(_view.CharacterRangePoint.IsEmpty);
-            
-            return Vector3.Distance(_view.Position, _view.CharacterRangePoint.Position)
-                < _view.StoppingDistance && _view.CharacterMeleePoint.CharacterHealthView == null;
-        }
+        protected override bool OnCheck() =>
+            Vector3.Distance(_view.Position, _view.CharacterRangePoint.Position)
+            <= _view.StoppingDistance && _view.CharacterRangePoint.CharacterHealthView == null;
     }
 }

@@ -6,6 +6,7 @@ using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
@@ -37,14 +38,27 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnUpdate()
         {
+            if (_view.CharacterHealthView == null)
+                return;
+            
+            if (_view.CharacterHealthView.CurrentHealth <= 0)
+            {
+                Debug.Log($"Character died: {_view.CharacterHealthView.CurrentHealth}");
+                _view.SetCharacterHealth(null);
+            }
         }
 
         protected override void OnExit()
         {
+            _animation.Attacking -= OnAttack;
+            _view.SetCharacterHealth(null);
         }
 
         private void OnAttack()
         {
+            if (_view.CharacterHealthView == null)
+                return;
+            
             _view.CharacterHealthView.TakeDamage(_enemyAttacker.Damage);
         }
     }
