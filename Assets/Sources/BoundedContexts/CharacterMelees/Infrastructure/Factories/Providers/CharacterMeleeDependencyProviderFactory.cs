@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.BoundedContexts.CharacterMelees.Domain;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
@@ -20,10 +21,13 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Provi
                                         throw new ArgumentNullException(nameof(characterRotationService));
         }
 
-        public CharacterMeleeDependencyProvider Create(ICharacterMeleeView meleeView)
+        public CharacterMeleeDependencyProvider Create(
+            CharacterMelee characterMelee, 
+            ICharacterMeleeView meleeView)
         {
             CharacterMeleeDependencyProvider provider = meleeView.Provider;
             provider.Construct(
+                characterMelee,
                 meleeView, 
                 meleeView.MeleeAnimation,
                 _overlapService,

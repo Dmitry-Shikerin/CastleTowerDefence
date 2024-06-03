@@ -3,6 +3,7 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.Presentation;
+using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
 {
@@ -17,6 +18,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
             EnemyDependencyProvider provider = 
                 blackboard.GetVariable<EnemyDependencyProvider>("_provider").value;
             _view = provider.View;
+            
             return null;
         }
 

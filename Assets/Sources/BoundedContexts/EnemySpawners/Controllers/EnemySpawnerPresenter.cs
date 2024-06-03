@@ -4,14 +4,15 @@ using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
+using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
+using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.SpawnPoints.Presentation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
-using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
-using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
+using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using UnityEngine;
 
@@ -37,13 +38,19 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             _enemySpawnerView = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
             _enemySpawnService = enemySpawnService ?? throw new ArgumentNullException(nameof(enemySpawnService));
 
-            foreach (SpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
+            foreach (IEnemySpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
             {
                 if(spawnPoint == null)
                     throw new ArgumentNullException(nameof(spawnPoint));
                 
                 if(spawnPoint.Type != SpawnPointType.Enemy)
                     throw new ArgumentException(nameof(spawnPoint.Type));
+                
+                if(spawnPoint.CharacterMeleeSpawnPoint == null)
+                    throw new ArgumentNullException(nameof(spawnPoint.CharacterMeleeSpawnPoint));
+                
+                if(spawnPoint.CharacterRangedSpawnPoint == null)
+                    throw new ArgumentNullException(nameof(spawnPoint.CharacterRangedSpawnPoint));
             }
         }
 
@@ -51,6 +58,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _cancellationTokenSource = new CancellationTokenSource();
             // Spawn(_cancellationTokenSource.Token);
+            SpawnEnemy(_enemySpawnerView.SpawnPoints[0]);
         }
 
         public override void Disable()
@@ -64,10 +72,10 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             {
                 while (_cancellationTokenSource.IsCancellationRequested == false)
                 {
-                    foreach (ISpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
+                    foreach (IEnemySpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
                     {
                         // _enemySpawner.SetCurrentWave(_killEnemyCounter.KillZombies);
-                        SpawnEnemy(spawnPoint.Position, _enemySpawnerView.CharacterMeleeView);
+                        SpawnEnemy(spawnPoint);
                         // SpawnBoss(spawnPoint.Position, _enemySpawnerView.CharacterMeleeView);
                         
                         // await _enemySpawner.WaitWave(_killEnemyCounter, cancellationToken);
@@ -84,13 +92,15 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             }
         }
         
-        private void SpawnEnemy(Vector3 position, ICharacterMeleeView characterMeleeView)
+        private void SpawnEnemy(IEnemySpawnPoint spawnPoint)
         {
             if (_enemySpawner.IsSpawnEnemy == false)
                   return;
             
-            IEnemyView enemyView = _enemySpawnService.Spawn(_killEnemyCounter, position);
+            IEnemyView enemyView = _enemySpawnService.Spawn(_killEnemyCounter, spawnPoint.Position);
             enemyView.SetTargetPoint(_enemySpawnerView.TargetPoint);
+            enemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
+            enemyView.SetCharacterRangePoint(spawnPoint.CharacterRangedSpawnPoint);
             // enemyView.SetCharacterHealth(characterMeleeView.HealthView);
             // enemyView.SetTargetFollow(characterMeleeView.HealthView);
 

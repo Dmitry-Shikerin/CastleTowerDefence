@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _labele: <size=18><b><color=#FFD700><i>AudioServiceDataBase</i></color></b></size>
   _poolCount: 5
-  _volume: 1
+  _volume: 0.022
   _audioClips:
     _keys: 01000000
     _values:
@@ -35,7 +35,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: eb400fbd7e86f854ba7580b37e5dbaf8, type: 3}
       - {fileID: 8300000, guid: a6836bd66ecacad498f66ce186839bfc, type: 3}
       _currentClip: {fileID: 8300000, guid: a6836bd66ecacad498f66ce186839bfc, type: 3}
-      _currentTime: 22.62931
+      _currentTime: 0
     - _audioClips:
       - {fileID: 8300000, guid: 08a78d26d7a81df4aad95ff61eb80dad, type: 3}
       - {fileID: 8300000, guid: 0c61c20e65bd4c64093f29ca0f293bed, type: 3}

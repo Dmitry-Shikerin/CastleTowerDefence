@@ -39,7 +39,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
 
         public ICharacterMeleeView Create(CharacterMelee characterMelee, CharacterMeleeView view)
         {
-            _providerFactory.Create(view);
+            _providerFactory.Create(characterMelee, view);
             view.FSMOwner.StartBehaviour();
             
             _characterHealthViewFactory.Create(characterMelee.CharacterHealth, view.HealthView);

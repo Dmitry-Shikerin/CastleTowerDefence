@@ -5,6 +5,7 @@ using Sources.BoundedContexts.CharacterHealth.Presentation;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;
+using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Healths.Presentation.Implementation;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
@@ -30,6 +31,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
         public CharacterMeleeDependencyProvider Provider => _provider;
         public FSMOwner FSMOwner => _fsmOwner;
         public IEnemyHealthView EnemyHealth { get; private set; }
+        public ICharacterSpawnPoint CharacterSpawnPoint { get; private set; }
 
 
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView) =>
@@ -40,5 +42,8 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation, Quaternion.Euler(0, angle, 0), CharacterConst.DeltaRotation);
         }
+
+        public void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint) =>
+            CharacterSpawnPoint = spawnPoint;
     }
 }

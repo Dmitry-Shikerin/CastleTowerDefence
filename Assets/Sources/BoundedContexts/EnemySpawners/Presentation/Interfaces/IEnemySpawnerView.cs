@@ -7,7 +7,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces
 {
     public interface IEnemySpawnerView
     {
-        IReadOnlyList<SpawnPoint> SpawnPoints { get; }
+        IReadOnlyList<IEnemySpawnPoint> SpawnPoints { get; }
         ITargetPoint TargetPoint { get; }
         ICharacterMeleeView CharacterMeleeView { get; }
         
