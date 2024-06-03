@@ -4,13 +4,11 @@ using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.SpawnPoints.Extensions;
-using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
-using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
+using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using Sources.BoundedContexts.TargetPoints.Presentation.Implementation;
 using Sources.BoundedContexts.TargetPoints.Presentation.Implementation.Types;
 using Sources.BoundedContexts.TargetPoints.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemySpawners.Presentation.Implementation
@@ -18,11 +16,11 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation.Implementation
     public class EnemySpawnerView : PresentableView<EnemySpawnerPresenter>, IEnemySpawnerView, ISelfValidator
     {
         [ChildGameObjectsOnly]
-        [SerializeField] private List<SpawnPoint> _enemySpawnPoints;
+        [SerializeField] private List<EnemySpawnPoint> _enemySpawnPoints;
         [ChildGameObjectsOnly]
         [SerializeField] private TargetPoint _targetPoint;
 
-        public IReadOnlyList<SpawnPoint> SpawnPoints => _enemySpawnPoints;
+        public IReadOnlyList<IEnemySpawnPoint> SpawnPoints => _enemySpawnPoints;
         public ITargetPoint TargetPoint => _targetPoint;
         public ICharacterMeleeView CharacterMeleeView { get; private set; }
         
@@ -39,6 +37,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation.Implementation
 
         [Button]
         private void AddEnemySpawnPoints() =>
-            _enemySpawnPoints = gameObject.GetSpawnPoints(SpawnPointType.Enemy);
+            _enemySpawnPoints = this.GetSpawnPoints(SpawnPointType.Enemy);
     }
 }

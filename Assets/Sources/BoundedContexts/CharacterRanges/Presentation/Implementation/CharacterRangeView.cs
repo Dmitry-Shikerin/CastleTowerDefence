@@ -5,6 +5,7 @@ using Sources.BoundedContexts.CharacterHealth.Presentation;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;
+using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Presentations.Views;
@@ -28,9 +29,13 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         public float FindRange => _findRange;
         public Vector3 Position => transform.position;
         public IEnemyHealthView EnemyHealth { get; private set; }
-        
+        public ICharacterSpawnPoint CharacterSpawnPoint { get; private set; }
+
         public void PlayShootParticle() =>
             _shootParticle.Play();
+
+        public void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint) =>
+            CharacterSpawnPoint = spawnPoint;
 
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView) =>
             EnemyHealth = enemyHealthView;

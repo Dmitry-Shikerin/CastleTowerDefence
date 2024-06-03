@@ -73,8 +73,8 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
             IEnemyHealthView enemyHealthView = 
                 _overlapService.OverlapSphere<EnemyHealthView>(
                         _view.Position, _view.FindRange, 
-                        LayerConst.s_enemy, 
-                        LayerConst.s_defaul)
+                        LayerConst.Enemy, 
+                        LayerConst.Defaul)
                     .FirstOrDefault();
 
             if (enemyHealthView != null)

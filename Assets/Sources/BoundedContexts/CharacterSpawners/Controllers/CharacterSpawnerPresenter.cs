@@ -1,9 +1,11 @@
 ﻿using System;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterMeleeSpawners.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
-using Sources.BoundedContexts.SpawnPoints.PresentationInterfaces;
+using Sources.BoundedContexts.SpawnPoints.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
 namespace Sources.BoundedContexts.CharacterSpawners.Controllers
@@ -42,17 +44,19 @@ namespace Sources.BoundedContexts.CharacterSpawners.Controllers
 
         private void SpawnMelee()
         {
-            foreach (ISpawnPoint spawnPoint in _view.MeleeSpawnPoints)
+            foreach (ICharacterSpawnPoint spawnPoint in _view.MeleeSpawnPoints)
             {
-                _characterMeleeSpawnService.Spawn(spawnPoint.Position);
+                ICharacterMeleeView view = _characterMeleeSpawnService.Spawn(spawnPoint.Position);
+                view.SetCharacterSpawnPoint(spawnPoint);
             }
         }
         
         private void SpawnRange()
         {
-            foreach (ISpawnPoint spawnPoint in _view.RangeSpawnPoints)
+            foreach (ICharacterSpawnPoint spawnPoint in _view.RangeSpawnPoints)
             {
-                _characterRangeSpawnService.Spawn(spawnPoint.Position);
+                ICharacterRangeView view =_characterRangeSpawnService.Spawn(spawnPoint.Position);
+                view.SetCharacterSpawnPoint(spawnPoint);
             }
         }
     }

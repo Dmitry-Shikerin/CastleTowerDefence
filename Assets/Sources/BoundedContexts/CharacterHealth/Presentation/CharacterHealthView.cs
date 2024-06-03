@@ -10,7 +10,9 @@ namespace Sources.BoundedContexts.CharacterHealth.Presentation
     public class CharacterHealthView : PresentableView<CharacterHealthPresenter>, ICharacterHealthView
     {
         [Required] [SerializeField] private ParticleSystem _healParticleSystem;
-        
+
+        public Vector3 Position => transform.position;
+
         public void TakeDamage(int damage) =>
             Presenter.TakeDamage(damage);
 

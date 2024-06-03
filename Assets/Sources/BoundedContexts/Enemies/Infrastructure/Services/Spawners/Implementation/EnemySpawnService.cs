@@ -4,6 +4,7 @@ using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementat
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
+using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
@@ -26,7 +27,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
         {
             Enemy enemy = new Enemy(
                 new EnemyHealth(50), 
-                new EnemyAttacker(0));
+                new EnemyAttacker(10));
             
             IEnemyView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
                                    _enemyViewFactory.Create(enemy, killEnemyCounter);

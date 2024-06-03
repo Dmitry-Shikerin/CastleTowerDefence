@@ -1,15 +1,22 @@
 using NodeCanvas.StateMachines;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.BoundedContexts.SpawnPoints.Presentation.Interfaces;
 
-namespace Sources.BoundedContexts.Enemies.Presentation
+namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
 {
     public interface IEnemyView : IEnemyViewBase
     {
         IEnemyAnimation Animation { get; }
         FSMOwner FsmOwner { get; }
         EnemyDependencyProvider Provider { get; }
+        ICharacterSpawnPoint CharacterMeleePoint { get; }
+        ICharacterSpawnPoint CharacterRangePoint { get; }
+        
+        
         void SetTargetFollow(ICharacterHealthView characterViewHealthView);
+        void SetCharacterMeleePoint(ICharacterSpawnPoint spawnPoint);
+        void SetCharacterRangePoint(ICharacterSpawnPoint spawnPoint);
     }
 }
