@@ -72751,7 +72751,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0435\u0442"
+  m_text: asdasd
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -72841,19 +72841,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: <size=24><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
-  _localizationId: No
+  _localizationId: Maks
   _disableTexts: 0
-  _russianText: "\u041D\u0435\u0442"
-  _englishText: No
-  _turkishText: "Hay\u0131r"
+  _russianText: axasd
+  _englishText: asdasd
+  _turkishText: asdad
   _enableTextId: 1
-  _textId: Test
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
+  _textId: Maks
+  _enableRussian: 1
+  _russian: axasd
+  _enableEnglish: 1
+  _english: asdasd
+  _enableTurkish: 1
+  _turkish: asdad
   _tmpText: {fileID: 1495588525}
 --- !u!1 &1498383720
 GameObject:

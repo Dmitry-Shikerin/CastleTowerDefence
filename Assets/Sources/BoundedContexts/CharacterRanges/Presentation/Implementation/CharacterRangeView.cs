@@ -2,6 +2,7 @@
 using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterHealth.Presentation;
+using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;
@@ -28,6 +29,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         public FSMOwner FSMOwner => _fsmOwner;
         public float FindRange => _findRange;
         public Vector3 Position => transform.position;
+        public ICharacterHealthView CharacterHealth => _healthView;
         public IEnemyHealthView EnemyHealth { get; private set; }
         public ICharacterSpawnPoint CharacterSpawnPoint { get; private set; }
 

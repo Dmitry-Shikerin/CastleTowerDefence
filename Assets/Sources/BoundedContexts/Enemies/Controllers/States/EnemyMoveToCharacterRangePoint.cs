@@ -5,6 +5,7 @@ using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
@@ -45,6 +46,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
             if (_view.CharacterRangePoint.CharacterHealthView == null)
                 return;
 
+            Debug.Log($"Character health is not null: {_view.CharacterRangePoint.CharacterHealthView}");
             _view.SetCharacterHealth(_view.CharacterRangePoint.CharacterHealthView);
         }
     }
