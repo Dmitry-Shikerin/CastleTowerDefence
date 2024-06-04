@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Sources.BoundedContexts.Players.Domain;
 
-namespace Sources.BoundedContexts.Upgrades.Domain
+namespace Sources.BoundedContexts.Upgrades.Domain.Models
 {
     public class Upgrade
     {

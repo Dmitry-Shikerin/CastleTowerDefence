@@ -25,12 +25,12 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
         public override void Enable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            _nukeAbilityView.NukeButton.onClickEvent.AddListener(ApplyAbility);
+            _nukeAbility.AbilityApplied += ApplyAbility;
         }
 
         public override void Disable()
         {
-            _nukeAbilityView.NukeButton.onClickEvent.RemoveListener(ApplyAbility);
+            _nukeAbility.AbilityApplied -= ApplyAbility;
             _cancellationTokenSource.Cancel();
         }
         

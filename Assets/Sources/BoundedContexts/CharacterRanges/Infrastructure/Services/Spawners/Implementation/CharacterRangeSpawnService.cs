@@ -6,6 +6,7 @@ using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.I
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.Upgrades.Domain;
+using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 

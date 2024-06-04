@@ -1,4 +1,6 @@
-﻿using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
+﻿using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
@@ -38,6 +40,8 @@ using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Zenject;
@@ -56,10 +60,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<HealthBarPresenterFactory>().AsSingle();
             Container.Bind<HealthBarViewFactory>().AsSingle();
             
-            //CharactersSpawners
-            Container.Bind<CharacterSpawnAbilityPresenterFactory>().AsSingle();
-            Container.Bind<CharacterSpawnAbilityViewFactory>().AsSingle();
-
             //Characters
             Container.Bind<ICharacterRotationService>().To<CharacterRotationService>().AsSingle();
             
@@ -95,8 +95,18 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
             
             //Abilities
+            Container.Bind<AbilityApplierPresenterFactory>().AsSingle();
+            Container.Bind<AbilityApplierViewFactory>().AsSingle();
+            
             Container.Bind<NukeAbilityPresenterFactory>().AsSingle();
             Container.Bind<NukeAbilityViewFactory>().AsSingle();
+            
+            Container.Bind<CharacterSpawnAbilityPresenterFactory>().AsSingle();
+            Container.Bind<CharacterSpawnAbilityViewFactory>().AsSingle();
+            
+            //Upgrades
+            Container.Bind<UpgradePresenterFactory>().AsSingle();
+            Container.Bind<UpgradeViewFactory>().AsSingle();
         }
     }
 }

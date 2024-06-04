@@ -79,11 +79,8 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
             if(enemyHealthView?.CurrentHealth <= 0)
                 return;
             
-            
             if (enemyHealthView != null)
-            {
                 _view.SetEnemyHealth(enemyHealthView);
-            }
         }
     }
 }
