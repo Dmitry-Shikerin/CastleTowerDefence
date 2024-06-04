@@ -1,7 +1,7 @@
 ﻿using System;
 using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterHealth.Presentation;
+using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;

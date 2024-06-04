@@ -18,7 +18,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
     [UsedImplicitly]
-    public class EnemyMoveToTargetPointState : FSMState
+    public class EnemyMoveToCharacterMeleePointState : FSMState
     {
         private Enemy _enemy;
         private IEnemyView _view;
@@ -45,14 +45,16 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
             StartFind(_cancellationTokenSource.Token);
         }
 
-        protected override void OnUpdate() =>
-            _view.Move(_view.TargetPoint.Position);
+        protected override void OnUpdate()
+        {
+            _view.Move(_view.CharacterMeleePoint.Position);
+        }
 
         protected override void OnExit()
         {
             _cancellationTokenSource.Cancel();
         }
-        
+
         private async void StartFind(CancellationToken cancellationToken)
         {
             try

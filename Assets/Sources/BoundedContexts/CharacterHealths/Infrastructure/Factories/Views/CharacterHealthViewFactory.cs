@@ -1,8 +1,8 @@
 ﻿using System;
-using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Controllers;
-using Sources.BoundedContexts.CharacterHealth.Presentation;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterHealths.Controllers;
+using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.CharacterHealths.Presentation;
 
 namespace Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views
 {

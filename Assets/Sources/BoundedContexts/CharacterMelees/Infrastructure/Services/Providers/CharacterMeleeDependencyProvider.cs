@@ -2,7 +2,7 @@
 using Sources.BoundedContexts.CharacterMelees.Domain;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Overlaps;
+using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers

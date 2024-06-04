@@ -24,7 +24,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
         }
 
         protected override bool OnCheck() =>
-            Vector3.Distance(_view.Position, _view.CharacterRangePoint.Position)
-            <= _view.StoppingDistance && _view.CharacterRangePoint.CharacterHealthView == null;
+            Vector3.Distance(_view.Position, _view.CharacterMeleePoint.Position)
+            <= _view.StoppingDistance && _view.CharacterHealthView == null;
     }
 }

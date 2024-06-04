@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Sources.InfrastructureInterfaces.Services.Overlaps
+namespace Sources.Frameworks.GameServices.Overlaps.Interfaces
 {
     public interface IOverlapService
     {
         IReadOnlyList<T> OverlapSphere<T>(
-            Vector3 position, float radius, int searchLayerMask, int obstacleLayerMask)
+            Vector3 position, float radius, int searchLayerMask, int obstacleLayerMask = 0)
             where T : MonoBehaviour;
     }
 }

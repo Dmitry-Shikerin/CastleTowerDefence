@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.ButtonProviders.Presentation.Implementation
 {
+    [RequireComponent(typeof(UIButton))]
     public class UiButtonSignalSender : MonoBehaviour
     {
         [DisplayAsString(false)] [HideLabel] 

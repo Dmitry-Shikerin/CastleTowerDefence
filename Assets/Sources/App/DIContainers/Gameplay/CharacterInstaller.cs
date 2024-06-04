@@ -1,5 +1,5 @@
-﻿using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Controllers;
-using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
+﻿using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Interfaces;

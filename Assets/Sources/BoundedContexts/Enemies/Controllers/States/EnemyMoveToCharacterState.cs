@@ -5,12 +5,13 @@ using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
     [UsedImplicitly]
-    public class EnemyMoveToCharacterMeleePoint : FSMState
+    public class EnemyMoveToCharacterState : FSMState
     {
         private Enemy _enemy;
         private IEnemyView _view;
@@ -26,28 +27,16 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
             _animation = provider.Animation;
         }
 
-        protected override void OnEnter()
-        {
+        protected override void OnEnter() =>
             _animation.PlayWalk();
-        }
 
         protected override void OnUpdate()
         {
-            _view.Move(_view.CharacterMeleePoint.Position);
-            SetCharacterHealth();
+            _view.Move(_view.CharacterHealthView.Position);
         }
 
         protected override void OnExit()
         {
-            SetCharacterHealth();
-        }
-
-        private void SetCharacterHealth()
-        {
-            if (_view.CharacterMeleePoint.CharacterHealthView == null)
-                return;
-
-            _view.SetCharacterHealth(_view.CharacterMeleePoint.CharacterHealthView);
         }
     }
 }

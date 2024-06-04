@@ -72841,19 +72841,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: <size=24><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
-  _localizationId: Maks
+  _localizationId: Yes
   _disableTexts: 0
-  _russianText: axasd
-  _englishText: asdasd
-  _turkishText: asdad
-  _enableTextId: 1
-  _textId: Maks
-  _enableRussian: 1
-  _russian: axasd
-  _enableEnglish: 1
-  _english: asdasd
-  _enableTurkish: 1
-  _turkish: asdad
+  _russianText: "\u0414\u0430"
+  _englishText: Yes
+  _turkishText: Evet
+  _enableTextId: 0
+  _textId: 
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 
   _tmpText: {fileID: 1495588525}
 --- !u!1 &1498383720
 GameObject:
@@ -103652,7 +103652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8235918301835340966, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.6
+      value: 3.0149386
       objectReference: {fileID: 0}
     - target: {fileID: 8235918301835340966, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_LocalPosition.y
@@ -103660,7 +103660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8235918301835340966, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.77
+      value: -6.7821712
       objectReference: {fileID: 0}
     - target: {fileID: 8235918301835340966, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
       propertyPath: m_LocalRotation.w

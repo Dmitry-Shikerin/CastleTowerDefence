@@ -18,16 +18,16 @@ namespace Sources.BoundedContexts.CharacterSpawners.Controllers
         private readonly ICharacterRangeSpawnService _characterRangeSpawnService;
 
         public CharacterSpawnerPresenter(
-            CharacterSpawner characterSpawner, 
+            CharacterSpawner characterSpawner,
             ICharacterSpawnerView view,
             ICharacterMeleeSpawnService characterMeleeSpawnService,
             ICharacterRangeSpawnService characterRangeSpawnService)
         {
             _characterSpawner = characterSpawner ?? throw new ArgumentNullException(nameof(characterSpawner));
             _view = view ?? throw new ArgumentNullException(nameof(view));
-            _characterMeleeSpawnService = characterMeleeSpawnService ?? 
+            _characterMeleeSpawnService = characterMeleeSpawnService ??
                                           throw new ArgumentNullException(nameof(characterMeleeSpawnService));
-            _characterRangeSpawnService = characterRangeSpawnService ?? 
+            _characterRangeSpawnService = characterRangeSpawnService ??
                                           throw new ArgumentNullException(nameof(characterRangeSpawnService));
         }
 
@@ -39,23 +39,24 @@ namespace Sources.BoundedContexts.CharacterSpawners.Controllers
 
         public override void Disable()
         {
-            
         }
 
         private void SpawnMelee()
         {
-            foreach (ICharacterSpawnPoint spawnPoint in _view.MeleeSpawnPoints)
+            for (int i = 0; i < 2; i++)
             {
+                var spawnPoint = _view.MeleeSpawnPoints[i];
                 ICharacterMeleeView view = _characterMeleeSpawnService.Spawn(spawnPoint.Position);
                 view.SetCharacterSpawnPoint(spawnPoint);
             }
         }
-        
+
         private void SpawnRange()
         {
-            foreach (ICharacterSpawnPoint spawnPoint in _view.RangeSpawnPoints)
+            for (int i = 0; i < 2; i++)
             {
-                ICharacterRangeView view =_characterRangeSpawnService.Spawn(spawnPoint.Position);
+                var spawnPoint = _view.RangeSpawnPoints[i];
+                ICharacterRangeView view = _characterRangeSpawnService.Spawn(spawnPoint.Position);
                 view.SetCharacterSpawnPoint(spawnPoint);
             }
         }

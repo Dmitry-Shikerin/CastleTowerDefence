@@ -4588,6 +4588,7 @@ MonoBehaviour:
   - {fileID: 3186282182184992603}
   - {fileID: 7545764557829745756}
   _healthBarView: {fileID: 6003326834073596623}
+  _findRange: 3
   _provider: {fileID: 8472846847038663704}
   _animation: {fileID: 3818196743991438505}
 --- !u!114 &3818196743991438505

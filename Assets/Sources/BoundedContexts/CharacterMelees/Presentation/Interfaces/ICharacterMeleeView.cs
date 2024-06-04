@@ -1,6 +1,6 @@
 using NodeCanvas.StateMachines;
 using Sources.BoundedContexts.AttackTargetFinders.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterHealth.Presentation;
+using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;

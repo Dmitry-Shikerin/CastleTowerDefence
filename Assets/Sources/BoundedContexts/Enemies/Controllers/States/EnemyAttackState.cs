@@ -43,7 +43,6 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
             
             if (_view.CharacterHealthView.CurrentHealth <= 0)
             {
-                Debug.Log($"Character died: {_view.CharacterHealthView.CurrentHealth}");
                 _view.SetCharacterHealth(null);
             }
         }
