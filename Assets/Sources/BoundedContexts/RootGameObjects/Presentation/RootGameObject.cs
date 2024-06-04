@@ -2,8 +2,11 @@
 using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
+using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
+using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Implementation;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.RootGameObjects.Presentation
 {
@@ -15,16 +18,21 @@ namespace Sources.BoundedContexts.RootGameObjects.Presentation
         [FoldoutGroup("Bunkers")] 
         [Required] [SerializeField] private BunkerView _bunkerView;
         
+        [FormerlySerializedAs("characterSpawnAbilityView")]
         [FoldoutGroup("Abilities")]
-        [Required] [SerializeField] private CharacterSpawnAbilityView characterSpawnAbilityView;
+        [Required] [SerializeField] private CharacterSpawnAbilityView _characterSpawnAbilityView;
+        [FormerlySerializedAs("nukeAbilityView")]
         [FoldoutGroup("Abilities")]
-        [Required] [SerializeField] private NukeAbilityView nukeAbilityView;
+        [Required] [SerializeField] private NukeAbilityView _nukeAbilityView;
+        [FoldoutGroup("Abilities")]
+        [Required] [SerializeField] private FlamethrowerAbilityView _flamethrowerAbilityView;
         
         public EnemySpawnerView EnemySpawnerView => _enemySpawnerView;
 
         public BunkerView BunkerView => _bunkerView;
         
-        public CharacterSpawnAbilityView CharacterSpawnAbilityView => characterSpawnAbilityView;
-        public NukeAbilityView NukeAbilityView => nukeAbilityView;
+        public CharacterSpawnAbilityView CharacterSpawnAbilityView => _characterSpawnAbilityView;
+        public NukeAbilityView NukeAbilityView => _nukeAbilityView;
+        public FlamethrowerAbilityView FlamethrowerAbilityView => _flamethrowerAbilityView;
     }
 }
