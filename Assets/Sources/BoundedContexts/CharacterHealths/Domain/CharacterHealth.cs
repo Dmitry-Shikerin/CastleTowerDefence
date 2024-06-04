@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.BoundedContexts.Healths.DomainInterfaces;
 using Sources.BoundedContexts.Upgrades.Domain;
+using Sources.BoundedContexts.Upgrades.Domain.Models;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterHealths.Domain

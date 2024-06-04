@@ -70,6 +70,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
         public void Create(IScenePayload payload)
         {
+            //Bunker
             Bunker bunker = new Bunker(15);
             IBunkerView bunkerView = _bunkerViewFactory.Create(bunker, _rootGameObject.BunkerView);
             
@@ -95,7 +96,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
             //Volume
             Volume volume = new Volume();
-            //Bunker
             _audioService.Construct(volume);
         }
     }
