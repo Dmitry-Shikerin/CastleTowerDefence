@@ -16,9 +16,13 @@ namespace Sources.BoundedContexts.Huds.Presentations
         [FoldoutGroup("Abilities")]
         [Required] [SerializeField] private AbilityApplierView _spawnAbilityApplier;
 
+        [FoldoutGroup("Abilities")]
+        [Required] [SerializeField] private AbilityApplierView _flamethrowerAbilityApplier;
+
         public UiCollector UiCollector => _uiCollector;
 
         public AbilityApplierView NukeAbilityApplier => _nukeAbilityApplier;
         public AbilityApplierView SpawnAbilityApplier => _spawnAbilityApplier;
+        public AbilityApplierView FlamethrowerAbilityApplier => _flamethrowerAbilityApplier;
     }
 }

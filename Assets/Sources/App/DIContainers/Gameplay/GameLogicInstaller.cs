@@ -36,6 +36,8 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Inter
 using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
@@ -103,6 +105,9 @@ namespace Sources.App.DIContainers.Gameplay
             
             Container.Bind<CharacterSpawnAbilityPresenterFactory>().AsSingle();
             Container.Bind<CharacterSpawnAbilityViewFactory>().AsSingle();
+
+            Container.Bind<FlamethrowerAbilityPresenterFactory>().AsSingle();
+            Container.Bind<FlamethrowerAbilityViewFactory>().AsSingle();
             
             //Upgrades
             Container.Bind<UpgradePresenterFactory>().AsSingle();

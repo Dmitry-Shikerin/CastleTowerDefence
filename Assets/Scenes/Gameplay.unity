@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28448,6 +28448,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651909210}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &653756422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653756423}
+  m_Layer: 0
+  m_Name: ToFlamethrowerPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653756423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653756422}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.300001, y: 0.4, z: 1.1459932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1992731573}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &655457047
 GameObject:
   m_ObjectHideFlags: 0
@@ -28726,6 +28757,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670080805}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &671955381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671955382}
+  m_Layer: 0
+  m_Name: FromFlamethrowerPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &671955382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671955381}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.1994786, y: 0.4, z: 1.1459932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1992731573}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &672288056
 GameObject:
   m_ObjectHideFlags: 0
@@ -53221,6 +53283,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151502246}
   m_CullTransparentMesh: 1
+--- !u!1 &1157645199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157645200}
+  - component: {fileID: 1157645201}
+  m_Layer: 5
+  m_Name: FlamethrowerAbilityApplierView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1157645200
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157645199}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1309570729}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1157645201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157645199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1d17c556324561955163bb9c2935bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilityButton: {fileID: 970612284}
 --- !u!1 &1161672243
 GameObject:
   m_ObjectHideFlags: 0
@@ -57498,6 +57609,7 @@ Transform:
   - {fileID: 716426159}
   - {fileID: 1825909351}
   - {fileID: 1647448306}
+  - {fileID: 1992731573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1231156403
@@ -57514,8 +57626,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySpawnerView: {fileID: 1828093308}
   _bunkerView: {fileID: 1825909350}
-  characterSpawnAbilityView: {fileID: 1392002578}
-  nukeAbilityView: {fileID: 716426160}
+  _characterSpawnAbilityView: {fileID: 1392002578}
+  _nukeAbilityView: {fileID: 716426160}
+  _flamethrowerAbilityView: {fileID: 1992731574}
 --- !u!1 &1236149100
 GameObject:
   m_ObjectHideFlags: 0
@@ -62539,6 +62652,7 @@ RectTransform:
   m_Children:
   - {fileID: 1319331199}
   - {fileID: 1761546320}
+  - {fileID: 1157645200}
   - {fileID: 517735024}
   - {fileID: 415903068}
   - {fileID: 217835767}
@@ -85243,9 +85357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c90caa2482e4098b3fa4a7b45317572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiCollector: {fileID: 1634786034}
+  _uiCollector: {fileID: 0}
   _nukeAbilityApplier: {fileID: 1319331200}
   _spawnAbilityApplier: {fileID: 1761546319}
+  _flamethrowerAbilityApplier: {fileID: 1157645201}
 --- !u!1 &1637762777
 GameObject:
   m_ObjectHideFlags: 0
@@ -91651,6 +91766,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742933551}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!198 &1744642350 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6703699423050468838, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+  m_PrefabInstance: {fileID: 477321262406224566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1747436294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103360,11 +103480,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992707150}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1992731572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1992731573}
+  - component: {fileID: 1992731574}
+  m_Layer: 0
+  m_Name: FlamethrowerAbilityView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1992731573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992731572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4169295006010853}
+  - {fileID: 671955382}
+  - {fileID: 653756423}
+  m_Father: {fileID: 1231156402}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1992731574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992731572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62ec3ba68e27b54f9eeb07aaa8035d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 1744642350}
+  _flamethrowerView: {fileID: 2001669646}
 --- !u!4 &1993588080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4782023576840710, guid: 10d47bfe948060f42a04bc5a5f3a6e08, type: 3}
   m_PrefabInstance: {fileID: 1707337512}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2001669646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8238118618572731087, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+  m_PrefabInstance: {fileID: 477321262406224566}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5550a2dd4241471fa1175278f9f46e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2006628540
 GameObject:
   m_ObjectHideFlags: 0
@@ -107465,6 +107645,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listEnums:
   - Defaul
+--- !u!4 &4169295006010853 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+  m_PrefabInstance: {fileID: 477321262406224566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &201192637047380963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107522,6 +107707,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bce51f0989cf71469271032f9acd743, type: 3}
+--- !u!1001 &477321262406224566
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1992731573}
+    m_Modifications:
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.1994786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1459932
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100711022610237187, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841904388179512955, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: m_Name
+      value: FlamethrowerView
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238118618572731087, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: _to
+      value: 
+      objectReference: {fileID: 653756423}
+    - target: {fileID: 8238118618572731087, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
+      propertyPath: _from
+      value: 
+      objectReference: {fileID: 671955382}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67c8d7b9788d5eb40b074aa10861c4ec, type: 3}
 --- !u!1001 &1645908177672049945
 PrefabInstance:
   m_ObjectHideFlags: 0
