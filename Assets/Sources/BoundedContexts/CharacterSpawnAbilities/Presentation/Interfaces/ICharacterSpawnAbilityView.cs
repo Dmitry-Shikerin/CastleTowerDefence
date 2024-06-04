@@ -6,8 +6,8 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interface
 {
     public interface ICharacterSpawnAbilityView
     {
-        UIButton SpawnButton { get; }
-        IReadOnlyList<ICharacterSpawnPoint> MeleeSpawnPoints { get; }
-        IReadOnlyList<ICharacterSpawnPoint> RangeSpawnPoints { get; }
+        public IReadOnlyList<ICharacterSpawnPoint> MeleeSpawnPoints { get; }
+        public IReadOnlyList<ICharacterSpawnPoint> RangeSpawnPoints { get; }
+    
     }
 }

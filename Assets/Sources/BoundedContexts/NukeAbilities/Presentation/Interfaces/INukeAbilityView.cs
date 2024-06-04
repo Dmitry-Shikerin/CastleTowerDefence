@@ -7,7 +7,6 @@ namespace Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces
     public interface INukeAbilityView : IView
     {
         Vector3 DamageSize { get; }
-        UIButton NukeButton { get; }
         IBombView BombView { get; }
         
         void PlayNukeParticle();

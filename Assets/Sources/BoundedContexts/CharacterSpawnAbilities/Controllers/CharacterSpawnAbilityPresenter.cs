@@ -32,7 +32,6 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 
         public override void Enable()
         {
-            _view.SpawnButton.onClickEvent.AddListener(ApplyAbility);
             SpawnMelee();
             SpawnRange();
         }
@@ -40,12 +39,7 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         public override void Disable()
         {
         }
-
-        private void ApplyAbility()
-        {
-            _view.SpawnButton.onClickEvent.RemoveListener(ApplyAbility);
-        }
-
+        
         private void SpawnMelee()
         {
             for (int i = 0; i < 2; i++)

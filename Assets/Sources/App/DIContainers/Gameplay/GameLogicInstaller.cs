@@ -1,4 +1,6 @@
-﻿using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
+﻿using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
@@ -56,10 +58,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<HealthBarPresenterFactory>().AsSingle();
             Container.Bind<HealthBarViewFactory>().AsSingle();
             
-            //CharactersSpawners
-            Container.Bind<CharacterSpawnAbilityPresenterFactory>().AsSingle();
-            Container.Bind<CharacterSpawnAbilityViewFactory>().AsSingle();
-
             //Characters
             Container.Bind<ICharacterRotationService>().To<CharacterRotationService>().AsSingle();
             
@@ -95,8 +93,14 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
             
             //Abilities
+            Container.Bind<AbilityApplierPresenterFactory>().AsSingle();
+            Container.Bind<AbilityApplierViewFactory>().AsSingle();
+            
             Container.Bind<NukeAbilityPresenterFactory>().AsSingle();
             Container.Bind<NukeAbilityViewFactory>().AsSingle();
+            
+            Container.Bind<CharacterSpawnAbilityPresenterFactory>().AsSingle();
+            Container.Bind<CharacterSpawnAbilityViewFactory>().AsSingle();
         }
     }
 }

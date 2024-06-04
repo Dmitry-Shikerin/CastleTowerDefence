@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Doozy.Runtime.UIManager.Components;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
@@ -14,26 +13,23 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implement
     public class CharacterSpawnAbilityView : PresentableView<CharacterSpawnAbilityPresenter>, 
         ICharacterSpawnAbilityView, ISelfValidator
     {
-        [Required] [SerializeField] private UIButton _abilityButton;
-        [SerializeField] private List<CharacterSpawnPoint> _charactersMeleeSpawnPoints;
-        [SerializeField] private List<CharacterSpawnPoint> _charactersRangedSpawnPoints;
+        [SerializeField] private List<CharacterSpawnPoint> _meleeSpawnPoints;
+        [SerializeField] private List<CharacterSpawnPoint> _rangeSpawnPoints;
 
-        public UIButton SpawnButton => _abilityButton;
-        public IReadOnlyList<ICharacterSpawnPoint> MeleeSpawnPoints => _charactersMeleeSpawnPoints;
-        public IReadOnlyList<ICharacterSpawnPoint> RangeSpawnPoints => _charactersRangedSpawnPoints;
-        
+        public IReadOnlyList<ICharacterSpawnPoint> MeleeSpawnPoints => _meleeSpawnPoints;
+        public IReadOnlyList<ICharacterSpawnPoint> RangeSpawnPoints => _rangeSpawnPoints;
+
         public void Validate(SelfValidationResult result)
         {
-            _charactersMeleeSpawnPoints.ValidateSpawnPoints(SpawnPointType.CharacterMelee,  result);
-            _charactersRangedSpawnPoints.ValidateSpawnPoints(SpawnPointType.CharacterRanged,  result);
+            _meleeSpawnPoints.ValidateSpawnPoints(SpawnPointType.CharacterMelee, result);
+            _rangeSpawnPoints.ValidateSpawnPoints(SpawnPointType.CharacterRanged, result);
         }
-        
+
         [Button]
-        private void AddCharacterMeleeSpawnPoints() =>
-            _charactersMeleeSpawnPoints = this.GetSpawnPoints(SpawnPointType.CharacterMelee);
-        
-        [Button]
-        private void AddCharacterRangeSpawnPoints() =>
-            _charactersRangedSpawnPoints = this.GetSpawnPoints(SpawnPointType.CharacterRanged);
+        public void AddSpawnPoints()
+        {
+            _meleeSpawnPoints = this.GetSpawnPoints(SpawnPointType.CharacterMelee);
+            _rangeSpawnPoints = this.GetSpawnPoints(SpawnPointType.CharacterRanged);
+        }
     }
 }
