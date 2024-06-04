@@ -16,8 +16,8 @@ using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.I
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
-using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Controllers;
-using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
@@ -55,8 +55,8 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<HealthBarViewFactory>().AsSingle();
             
             //CharactersSpawners
-            Container.Bind<CharacterSpawnerPresenterFactory>().AsSingle();
-            Container.Bind<CharacterSpawnerViewFactory>().AsSingle();
+            Container.Bind<CharacterSpawnAbilityPresenterFactory>().AsSingle();
+            Container.Bind<CharacterSpawnAbilityViewFactory>().AsSingle();
 
             //Characters
             Container.Bind<ICharacterRotationService>().To<CharacterRotationService>().AsSingle();

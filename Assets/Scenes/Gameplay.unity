@@ -82026,7 +82026,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lebel: <size=24><b><color=#3CB371><i>UiCollector</i></color></b></size>
-  _uiTexts: []
+  _uiTexts:
+  - {fileID: 1495588527}
   _includeTexts: 1
   _testLocalization: 1
   _localization: 0

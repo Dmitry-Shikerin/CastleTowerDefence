@@ -1,18 +1,19 @@
 ﻿using System;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces;
-using Sources.BoundedContexts.CharacterMeleeSpawners.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
-using Sources.BoundedContexts.CharacterSpawners.Controllers;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 
-namespace Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Controllers
+namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers
 {
-    public class CharacterSpawnerPresenterFactory
+    public class CharacterSpawnAbilityPresenterFactory
     {
         private readonly ICharacterMeleeSpawnService _characterMeleeSpawnService;
         private readonly ICharacterRangeSpawnService _characterRangeSpawnService;
 
-        public CharacterSpawnerPresenterFactory(
+        public CharacterSpawnAbilityPresenterFactory(
             ICharacterMeleeSpawnService characterMeleeSpawnService,
             ICharacterRangeSpawnService characterRangeSpawnService)
         {
@@ -22,10 +23,10 @@ namespace Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Cont
                                           throw new ArgumentNullException(nameof(characterRangeSpawnService));
         }
 
-        public CharacterSpawnerPresenter Create(CharacterSpawner characterSpawner, ICharacterSpawnerView view)
+        public CharacterSpawnAbilityPresenter Create(CharacterSpawnAbility characterSpawnAbility, ICharacterSpawnAbilityView view)
         {
-            return new CharacterSpawnerPresenter(
-                characterSpawner,
+            return new CharacterSpawnAbilityPresenter(
+                characterSpawnAbility,
                 view,
                 _characterMeleeSpawnService,
                 _characterRangeSpawnService);

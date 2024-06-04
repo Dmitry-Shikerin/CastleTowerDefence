@@ -3,8 +3,8 @@ using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Interfaces;
-using Sources.BoundedContexts.CharacterMeleeSpawners.Domain;
-using Sources.BoundedContexts.CharacterSpawners.Ifrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
@@ -28,14 +28,14 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly ICharacterMeleeViewFactory _characterMeleeViewFactory;
         private readonly IAudioService _audioService;
         private readonly BunkerViewFactory _bunkerViewFactory;
-        private readonly CharacterSpawnerViewFactory _characterSpawnerViewFactory;
+        private readonly CharacterSpawnAbilityViewFactory _characterSpawnAbilityViewFactory;
         private readonly IEnemyViewFactory _enemyViewFactory;
 
         public GameplaySceneViewFactory(
             UiCollectorFactory uiCollectorFactory,
             RootGameObject rootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
-            CharacterSpawnerViewFactory characterSpawnerViewFactory,
+            CharacterSpawnAbilityViewFactory characterSpawnAbilityViewFactory,
             IEnemyViewFactory enemyViewFactory,
             ICharacterMeleeViewFactory characterMeleeViewFactory,
             IAudioService audioService,
@@ -49,8 +49,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                                          throw new ArgumentNullException(nameof(characterMeleeViewFactory));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _bunkerViewFactory = bunkerViewFactory ?? throw new ArgumentNullException(nameof(bunkerViewFactory));
-            _characterSpawnerViewFactory = characterSpawnerViewFactory ?? 
-                                           throw new ArgumentNullException(nameof(characterSpawnerViewFactory));
+            _characterSpawnAbilityViewFactory = characterSpawnAbilityViewFactory ?? 
+                                           throw new ArgumentNullException(nameof(characterSpawnAbilityViewFactory));
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
@@ -60,8 +60,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             IBunkerView bunkerView = _bunkerViewFactory.Create(bunker, _rootGameObject.BunkerView);
             
             //Characters
-            CharacterSpawner characterSpawner = new CharacterSpawner();
-            _characterSpawnerViewFactory.Create(characterSpawner, _rootGameObject.CharacterSpawnerView);
+            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility();
+            _characterSpawnAbilityViewFactory.Create(characterSpawnAbility, _rootGameObject.CharacterSpawnAbilityView);
 
             //Enemies
             EnemySpawner enemySpawner = new EnemySpawner();

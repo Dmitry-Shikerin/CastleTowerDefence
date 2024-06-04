@@ -1,29 +1,28 @@
 ﻿using System;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterMeleeSpawners.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
-using Sources.BoundedContexts.SpawnPoints.Presentation.Interfaces;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
-namespace Sources.BoundedContexts.CharacterSpawners.Controllers
+namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 {
-    public class CharacterSpawnerPresenter : PresenterBase
+    public class CharacterSpawnAbilityPresenter : PresenterBase
     {
-        private readonly CharacterSpawner _characterSpawner;
-        private readonly ICharacterSpawnerView _view;
+        private readonly CharacterSpawnAbility _characterSpawnAbility;
+        private readonly ICharacterSpawnAbilityView _view;
         private readonly ICharacterMeleeSpawnService _characterMeleeSpawnService;
         private readonly ICharacterRangeSpawnService _characterRangeSpawnService;
 
-        public CharacterSpawnerPresenter(
-            CharacterSpawner characterSpawner,
-            ICharacterSpawnerView view,
+        public CharacterSpawnAbilityPresenter(
+            CharacterSpawnAbility characterSpawnAbility,
+            ICharacterSpawnAbilityView view,
             ICharacterMeleeSpawnService characterMeleeSpawnService,
             ICharacterRangeSpawnService characterRangeSpawnService)
         {
-            _characterSpawner = characterSpawner ?? throw new ArgumentNullException(nameof(characterSpawner));
+            _characterSpawnAbility = characterSpawnAbility ?? throw new ArgumentNullException(nameof(characterSpawnAbility));
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _characterMeleeSpawnService = characterMeleeSpawnService ??
                                           throw new ArgumentNullException(nameof(characterMeleeSpawnService));
@@ -33,12 +32,18 @@ namespace Sources.BoundedContexts.CharacterSpawners.Controllers
 
         public override void Enable()
         {
+            _view.SpawnButton.onClickEvent.AddListener(ApplyAbility);
             SpawnMelee();
             SpawnRange();
         }
 
         public override void Disable()
         {
+        }
+
+        private void ApplyAbility()
+        {
+            _view.SpawnButton.onClickEvent.RemoveListener(ApplyAbility);
         }
 
         private void SpawnMelee()

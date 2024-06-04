@@ -1,22 +1,24 @@
 ﻿using System.Collections.Generic;
+using Doozy.Runtime.UIManager.Components;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterSpawners.Controllers;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.SpawnPoints.Extensions;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
-using Sources.BoundedContexts.SpawnPoints.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.CharacterSpawners.Presentation.Implementation
+namespace Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementation
 {
-    public class CharacterSpawnerView : PresentableView<CharacterSpawnerPresenter>, 
-        ICharacterSpawnerView, ISelfValidator
+    public class CharacterSpawnAbilityView : PresentableView<CharacterSpawnAbilityPresenter>, 
+        ICharacterSpawnAbilityView, ISelfValidator
     {
-        
+        [Required] [SerializeField] private UIButton _abilityButton;
         [SerializeField] private List<CharacterSpawnPoint> _charactersMeleeSpawnPoints;
         [SerializeField] private List<CharacterSpawnPoint> _charactersRangedSpawnPoints;
-        
+
+        public UIButton SpawnButton => _abilityButton;
         public IReadOnlyList<ICharacterSpawnPoint> MeleeSpawnPoints => _charactersMeleeSpawnPoints;
         public IReadOnlyList<ICharacterSpawnPoint> RangeSpawnPoints => _charactersRangedSpawnPoints;
         

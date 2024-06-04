@@ -1,5 +1,5 @@
 ﻿using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Implementation;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
