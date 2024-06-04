@@ -9,10 +9,10 @@ using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Imp
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
 using Sources.Frameworks.UiFramework.Core.Services.Forms.Implementation;
+using Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementation;
 using Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons;
 using Sources.Frameworks.UiFramework.Infrastructure.Commands.Forms;
 using Sources.Frameworks.UiFramework.Services.Buttons;
-using Sources.Frameworks.UiFramework.Services.Localizations;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Views.Commands.Implementation;

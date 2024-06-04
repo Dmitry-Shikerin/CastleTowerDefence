@@ -3,7 +3,7 @@ using Sources.BoundedContexts.CharacterRanges.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Overlaps;
+using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 
 namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Services
 {

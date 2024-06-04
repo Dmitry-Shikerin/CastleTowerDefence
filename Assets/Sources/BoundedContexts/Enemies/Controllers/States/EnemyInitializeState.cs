@@ -4,7 +4,6 @@ using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
@@ -31,16 +30,6 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         {
             _enemy.IsInitialized = true;
             _animation.PlayIdle();
-        }
-
-        protected override void OnUpdate()
-        {
-            base.OnUpdate();
-        }
-
-        protected override void OnExit()
-        {
-            base.OnExit();
         }
     }
 }

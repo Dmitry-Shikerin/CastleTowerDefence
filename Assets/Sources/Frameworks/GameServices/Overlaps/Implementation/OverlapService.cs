@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.Services.Linecasts.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Overlaps;
 using UnityEngine;
 
 namespace Sources.Frameworks.Services.Overlaps.Implementation
@@ -17,7 +17,7 @@ namespace Sources.Frameworks.Services.Overlaps.Implementation
         }
 
         public IReadOnlyList<T> OverlapSphere<T>(
-            Vector3 position, float radius, int searchLayerMask, int obstacleLayerMask)
+            Vector3 position, float radius, int searchLayerMask, int obstacleLayerMask = 0)
             where T : MonoBehaviour
         {
             int collidersCount = Overlap(position, radius, searchLayerMask);

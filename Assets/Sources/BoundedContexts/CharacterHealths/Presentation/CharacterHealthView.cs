@@ -2,10 +2,9 @@
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterHealths.Controllers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.CharacterHealth.Presentation
+namespace Sources.BoundedContexts.CharacterHealths.Presentation
 {
     public class CharacterHealthView : PresentableView<CharacterHealthPresenter>, ICharacterHealthView
     {

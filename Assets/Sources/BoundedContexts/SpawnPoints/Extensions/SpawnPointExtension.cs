@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Implementation;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
@@ -13,7 +13,7 @@ namespace Sources.BoundedContexts.SpawnPoints.Extensions
     public static class SpawnPointExtension
     {
         public static List<CharacterSpawnPoint> GetSpawnPoints(
-            this CharacterSpawnerView gameObject, SpawnPointType type)
+            this CharacterSpawnAbilityView gameObject, SpawnPointType type)
         {
             return gameObject.GetComponentsInChildren<CharacterSpawnPoint>()
                 .Where(spawnPoint => spawnPoint.Type == type)

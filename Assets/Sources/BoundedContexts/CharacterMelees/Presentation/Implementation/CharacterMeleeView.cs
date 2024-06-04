@@ -1,13 +1,15 @@
 ﻿using System;
 using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterHealth.Presentation;
+using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Healths.Presentation.Implementation;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Presentations.Views;
 using UnityEngine;
@@ -23,6 +25,8 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
         [Required] [SerializeField] private FSMOwner _fsmOwner;
         [Required] [SerializeField] private HealthBarView _healthBarView;
 
+        private IPODestroyerService _poDestroyerService = new PODestroyerService();
+        
         public HealthBarView HealthBarView => _healthBarView;
         public float FindRange => _findRange;
         public Vector3 Position => transform.position;
@@ -33,6 +37,11 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
         public IEnemyHealthView EnemyHealth { get; private set; }
         public ICharacterSpawnPoint CharacterSpawnPoint { get; private set; }
 
+        public override void Destroy()
+        {
+            _poDestroyerService.Destroy(this);
+            _fsmOwner.StopBehaviour();
+        }
 
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView) =>
             EnemyHealth = enemyHealthView;

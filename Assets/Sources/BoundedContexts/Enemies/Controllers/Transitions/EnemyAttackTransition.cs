@@ -21,15 +21,14 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
                 blackboard.GetVariable<EnemyDependencyProvider>("_provider").value;
             _enemy = provider.Enemy;
             _view = provider.View;
-            
+
             return null;
         }
 
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null
-            && Vector3.Distance(
-                _view.Position,
-                _view.CharacterHealthView.Position)
-            <= _view.StoppingDistance;
+            _view.CharacterHealthView != null 
+            && _view.CharacterHealthView.CurrentHealth > 0
+            && Vector3.Distance(_view.Position, _view.CharacterHealthView.Position)
+            <= _view.StoppingDistance + 0.15f;
     }
 }

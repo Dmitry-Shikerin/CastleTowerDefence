@@ -9,7 +9,8 @@ namespace Sources.BoundedContexts.CharacterHealths.Controllers
         private readonly ICharacterHealthView _characterHealthView;
         private readonly Domain.CharacterHealth _characterHealth;
 
-        public CharacterHealthPresenter(Domain.CharacterHealth characterHealth,
+        public CharacterHealthPresenter(
+            Domain.CharacterHealth characterHealth,
             ICharacterHealthView characterHealthView)
         {
             _characterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));

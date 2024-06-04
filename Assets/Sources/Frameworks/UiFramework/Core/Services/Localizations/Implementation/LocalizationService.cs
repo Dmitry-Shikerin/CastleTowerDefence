@@ -4,8 +4,6 @@ using System.Linq;
 using Agava.WebUtility;
 using Agava.YandexGames;
 using Sources.Domain.Models.Constants;
-using Sources.Domain.Models.TextViewTypes;
-using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
@@ -13,7 +11,7 @@ using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using UnityEngine;
 
-namespace Sources.Frameworks.UiFramework.Services.Localizations
+namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementation
 {
     public class LocalizationService : ILocalizationService
     {
@@ -68,8 +66,7 @@ namespace Sources.Frameworks.UiFramework.Services.Localizations
                     if (textView is MonoBehaviour concrete)
                         throw new NullReferenceException(nameof(concrete.gameObject.name));
                 }
-                    
-
+                
                 if (_currentLanguageDictionary.ContainsKey(textView.Id) == false)
                     throw new KeyNotFoundException(nameof(textView.Id));
 

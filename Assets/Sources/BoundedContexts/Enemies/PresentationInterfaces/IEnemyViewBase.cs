@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.NavMeshAgents.PresentationInterfaces;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;
@@ -11,9 +12,9 @@ namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
     {
         IReadOnlyList<ISkinView> Skins { get; }
         ICharacterHealthView CharacterHealthView { get; }
-        ITargetPoint TargetPoint { get; }
+        IBunkerView BunkerView { get; }
         
-        void SetTargetPoint(ITargetPoint targetPointView);
+        void SetBunkerView(IBunkerView bunkerView);
         void SetCharacterHealth(ICharacterHealthView characterHealthView);
         void EnableNavmeshAgent();
         void DisableNavmeshAgent();

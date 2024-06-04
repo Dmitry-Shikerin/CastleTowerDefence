@@ -41,7 +41,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [TextArea(1, 20)] [Space(10)]         
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
         [SerializeField] private string _turkishText;
-
         [TabGroup("GetId", "CreatePhrase")] 
         [EnumToggleButtons] [Space(10)] [LabelText("TextId")]
         [SerializeField] private Enable _enableTextId;
