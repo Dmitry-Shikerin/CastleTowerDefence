@@ -3,6 +3,7 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Proveders;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
 {
@@ -22,6 +23,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
         }
 
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null;
+            _view.CharacterHealthView != null && 
+            Vector3.Distance(_view.Position, _view.CharacterHealthView.Position) > _view.StoppingDistance;
     }
 }

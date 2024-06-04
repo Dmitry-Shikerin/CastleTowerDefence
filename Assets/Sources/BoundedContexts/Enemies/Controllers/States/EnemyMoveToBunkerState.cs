@@ -18,7 +18,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
     [UsedImplicitly]
-    public class EnemyMoveToTargetPointState : FSMState
+    public class EnemyMoveToBunkerState : FSMState
     {
         private Enemy _enemy;
         private IEnemyView _view;
@@ -46,7 +46,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         }
 
         protected override void OnUpdate() =>
-            _view.Move(_view.TargetPoint.Position);
+            _view.Move(_view.BunkerView.Position);
 
         protected override void OnExit()
         {
