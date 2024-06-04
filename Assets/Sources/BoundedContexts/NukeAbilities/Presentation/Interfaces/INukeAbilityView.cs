@@ -9,11 +9,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces
         Vector3 DamageSize { get; }
         UIButton NukeButton { get; }
         IBombView BombView { get; }
-
-        void ShowNukePostprocess();
-        void HideNukePostprocess();
-        void ShowDarkPostProcess();
-        void HideDarkPostProcess();
+        
         void PlayNukeParticle();
     }
 }
