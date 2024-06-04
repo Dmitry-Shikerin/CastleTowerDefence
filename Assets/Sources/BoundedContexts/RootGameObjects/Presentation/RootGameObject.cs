@@ -3,6 +3,7 @@ using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
+using Sources.BoundedContexts.NukeAbilities.Presentation.Implementation;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,10 +19,14 @@ namespace Sources.BoundedContexts.RootGameObjects.Presentation
 
         [FoldoutGroup("Bunkers")] [Required] 
         [SerializeField] private BunkerView _bunkerView;
+
+        [FoldoutGroup("NukeAbility")] [Required]
+        [SerializeField] private NukeAbilityView _nukeAbilityView;
         
         public CharacterSpawnAbilityView CharacterSpawnAbilityView => characterSpawnAbilityView;
         public EnemySpawnerView EnemySpawnerView => _enemySpawnerView;
 
         public BunkerView BunkerView => _bunkerView;
+        public NukeAbilityView NukeAbilityView => _nukeAbilityView;
     }
 }

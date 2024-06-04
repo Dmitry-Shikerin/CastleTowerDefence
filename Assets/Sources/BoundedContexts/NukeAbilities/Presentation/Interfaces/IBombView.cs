@@ -7,6 +7,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces
     {
         Vector3 FromPosition { get; }
         Vector3 ToPosition { get; }
+        Vector3 Position { get; }
 
         void Move();
     }
