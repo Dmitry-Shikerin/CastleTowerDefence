@@ -36,6 +36,8 @@ using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Zenject;
@@ -91,6 +93,10 @@ namespace Sources.App.DIContainers.Gameplay
             
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
+            
+            //Abilities
+            Container.Bind<NukeAbilityPresenterFactory>().AsSingle();
+            Container.Bind<NukeAbilityViewFactory>().AsSingle();
         }
     }
 }
