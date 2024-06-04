@@ -26,8 +26,9 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
         }
 
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null
+            _view.CharacterHealthView != null 
+            && _view.CharacterHealthView.CurrentHealth > 0
             && Vector3.Distance(_view.Position, _view.CharacterHealthView.Position)
-            <= _view.StoppingDistance;
+            <= _view.StoppingDistance + 0.15f;
     }
 }

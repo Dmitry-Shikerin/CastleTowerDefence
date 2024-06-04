@@ -38,11 +38,9 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnUpdate()
         {
-            if (_view.CharacterHealthView == null)
-                return;
-            
-            if (_view.CharacterHealthView.CurrentHealth <= 0)
+            if (_view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth <= 0)
             {
+                Debug.Log($"Set null {_view.CharacterHealthView.CurrentHealth}");
                 _view.SetCharacterHealth(null);
             }
         }
@@ -55,9 +53,15 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         private void OnAttack()
         {
+            if (_view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth <= 0)
+            {
+                Debug.Log($"Set null {_view.CharacterHealthView.CurrentHealth}");
+                _view.SetCharacterHealth(null);
+            }
+
             if (_view.CharacterHealthView == null)
                 return;
-            
+
             _view.CharacterHealthView.TakeDamage(_enemyAttacker.Damage);
         }
     }

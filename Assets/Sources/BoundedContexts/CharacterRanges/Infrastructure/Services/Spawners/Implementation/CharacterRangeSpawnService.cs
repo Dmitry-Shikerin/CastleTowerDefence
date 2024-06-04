@@ -29,7 +29,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawne
             CharacterRange characterMelee = new CharacterRange(
                 new CharacterHealths.Domain.CharacterHealth(
                     new Upgrade(
-                        0,
+                        30,
                         0,
                         0, 
                         new List<int>( ), "CharacterHealthUpgrade"))

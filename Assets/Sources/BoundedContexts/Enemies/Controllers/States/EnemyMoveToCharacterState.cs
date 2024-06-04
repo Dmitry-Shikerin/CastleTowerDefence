@@ -32,6 +32,13 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnUpdate()
         {
+            Debug.Log($"EnemyHealth {_view.CharacterHealthView}");
+            Debug.Log($"EnemyHealth current value {_view.CharacterHealthView.CurrentHealth}");
+            Debug.Log($"Distance {Vector3.Distance(_view.Position, _view.CharacterHealthView.Position)}");
+            
+            if(_view.CharacterHealthView.CurrentHealth <= 0)
+                _view.SetCharacterHealth(null);
+            
             _view.Move(_view.CharacterHealthView.Position);
         }
 

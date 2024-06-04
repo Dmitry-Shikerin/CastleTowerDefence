@@ -12,7 +12,6 @@ using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 {
@@ -77,6 +76,10 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
                         LayerConst.Defaul)
                     .FirstOrDefault();
 
+            if(enemyHealthView?.CurrentHealth <= 0)
+                return;
+            
+            
             if (enemyHealthView != null)
             {
                 _view.SetEnemyHealth(enemyHealthView);

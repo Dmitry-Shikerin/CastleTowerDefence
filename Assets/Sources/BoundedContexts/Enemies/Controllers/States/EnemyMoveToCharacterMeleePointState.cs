@@ -79,8 +79,6 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
                         LayerConst.Defaul)
                     .FirstOrDefault();
             
-            Debug.Log(characterHealthView);
-            
             if (characterHealthView == null)
                 return;
 

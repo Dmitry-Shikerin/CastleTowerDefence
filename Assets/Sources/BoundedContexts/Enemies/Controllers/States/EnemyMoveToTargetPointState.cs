@@ -81,6 +81,9 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
             
             if (characterHealthView == null)
                 return;
+            
+            if (characterHealthView.CurrentHealth <= 0)
+                return;
 
             _view.SetCharacterHealth(characterHealthView);
         }
