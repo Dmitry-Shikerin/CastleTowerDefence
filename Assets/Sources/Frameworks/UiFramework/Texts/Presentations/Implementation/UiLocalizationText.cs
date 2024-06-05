@@ -124,18 +124,14 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [Button(ButtonSizes.Large)]
         private void CreatePhrase()
         {
-            List<string> localizationIds = LocalizationDataBase.Instance.LocalizationIds;
-        
-            if(localizationIds.Contains(_textId))
+            LocalizationPhrase phrase = LocalizationDataBase.Instance.CreatePhrase(_textId);
+
+            if (phrase == null)
                 return;
-            
-            LocalizationPhrase phrase = LocalizationExtension.CreateLocalizationPhrase(_textId);
-            phrase.SetId(_textId);
+             
             phrase.SetRussian(_russian);
             phrase.SetEnglish(_english);
             phrase.SetTurkish(_turkish);
-            
-            LocalizationDataBase.Instance.AddAllPhrases();
         }
         
         [UsedImplicitly]
@@ -145,7 +141,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [UsedImplicitly]
         private void GetPhrase()
         {
-            var phrase = LocalizationDataBase.Instance.LocalizationPhrases
+            var phrase = LocalizationDataBase.Instance.Phrases
                 .FirstOrDefault(phrase => phrase.LocalizationId == _localizationId);
 
             if (phrase == null)

@@ -11,15 +11,28 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         [EnumToggleButtons] [HideLabel] [UsedImplicitly]
         [SerializeField] private Enable _enable = Enable.Disable;
         [EnableIf("_enable", Enable.Enable)]
+        [SerializeField] private EnemySpawnerConfigContainer _parent;
+        [EnableIf("_enable", Enable.Enable)]
         [SerializeField] private int _waveId;
+        [Space(10)]
         [SerializeField] private int _spawnDelay;
-        [SerializeField] private int _enemyCount;
+        [SerializeField] private int _enemyCount;       
         
         public int WaveId => _waveId;
         public int SpawnDelay => _spawnDelay;
         public int EnemyCount => _enemyCount;
+
+        public EnemySpawnerConfigContainer Parent
+        {
+            get => _parent; 
+            set => _parent = value;
+        }
         
         public void SetWaveId(int id) =>
             _waveId = id;
+        
+        [Button(ButtonSizes.Medium)] [PropertySpace(20)]
+        private void Remove() =>
+            Parent.RemoveWave(this);
     }
 }

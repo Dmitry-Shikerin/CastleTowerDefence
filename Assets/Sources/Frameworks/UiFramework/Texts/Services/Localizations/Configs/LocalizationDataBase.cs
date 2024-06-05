@@ -2,7 +2,6 @@
 using Sirenix.OdinInspector;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
-using Sources.Frameworks.UiFramework.Core.Domain.Dictionaries;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;
@@ -10,20 +9,13 @@ using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
 {
-    [CreateAssetMenu(
-        fileName = "LocalizationDataBase",
-        menuName = "Configs/LocalizationDataBase",
-        order = 51)]
     public class LocalizationDataBase : ScriptableObject
     {
-        [DisplayAsString(false)] [HideLabel] 
-        [SerializeField] private string _headere = UiConstant.UiLocalizationDataBaseLabel;
-        [Space(10)]
-        [SerializeField] private List<string> _localizationIds;
-        [Space(10)]
-        [SerializeField] private List<LocalizationPhrase> _localizationPhrases;
-        [Space(10)]
-        [SerializeField] private PhraseSerializedDictionary _localizationPhrase;
+        [DisplayAsString(false)] [HideLabel] [SerializeField]
+        private string _headere = UiConstant.UiLocalizationDataBaseLabel;
+
+        [Space(10)] [SerializeField] private List<string> _localizationIds;
+        [Space(10)] [SerializeField] private List<LocalizationPhrase> _phrases;
 
         private static LocalizationDataBase s_instance;
 
@@ -51,32 +43,62 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         }
 
         public List<string> LocalizationIds => _localizationIds;
-        public List<LocalizationPhrase> LocalizationPhrases => _localizationPhrases;
+        public List<LocalizationPhrase> Phrases => _phrases;
 
-        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
+        public void RemovePhrase(LocalizationPhrase phrase)
+        {
+            AssetDatabase.RemoveObjectFromAsset(phrase);
+            _phrases.Remove(phrase);
+            AssetDatabase.SaveAssets();
+        }
+
+        public LocalizationPhrase CreatePhrase(string id)
+        {
+#if UNITY_EDITOR
+            if (_localizationIds.Contains(id))
+                return null;
+            
+            LocalizationPhrase phrase = CreateInstance<LocalizationPhrase>();
+            phrase.SetParent(this);
+            AssetDatabase.AddObjectToAsset(phrase, this);
+            phrase.SetId(id);
+            phrase.name = id;
+            _phrases.Add(phrase);
+            AssetDatabase.SaveAssets();
+
+            return phrase;
+#else
+            return null;
+#endif
+        }
+
+        [Button(ButtonSizes.Large)]
+        [ResponsiveButtonGroup]
         public void AddAllPhrases()
         {
-            _localizationPhrases.Clear();
+            _phrases.Clear();
 
             LocalizationExtension
                 .FindAllLocalizationPhrases()
-                .ForEach(phrase => _localizationPhrases.Add(phrase));
-            
+                .ForEach(phrase => _phrases.Add(phrase));
+
             FillIds();
         }
 
-        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
         private void FillIds()
         {
             _localizationIds.Clear();
-            _localizationPhrases.ForEach(phrase => _localizationIds.Add(phrase.LocalizationId));
+            _phrases.ForEach(phrase => _localizationIds.Add(phrase.LocalizationId));
         }
 
         [OnInspectorGUI]
         private void ValidateIds()
         {
-            if (_localizationIds.Count != _localizationPhrase.Count)
-                FillIds();
+            if (_localizationIds.Count == _phrases.Count)
+                return;
+
+            AddAllPhrases();
+            FillIds();
         }
     }
 }
