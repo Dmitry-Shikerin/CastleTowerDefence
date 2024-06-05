@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: LocalizationDataBase
   m_EditorClassIdentifier: 
   _headere: <size=18><b><color=#FF7F50><i>UiLocalizationDataBase</i></color></b></size>
+  _scopeId: Test
   _localizationIds:
+  - TestPh
   - AdTutorialDescription
   - Anonymous
   - Apply
@@ -139,3 +141,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 90aaa6d14d0146840ac202cba1bf2c8e, type: 2}
   - {fileID: 11400000, guid: d71805d7a77af3347821b13d87c438f1, type: 2}
   - {fileID: 11400000, guid: f5d8e4744973f6d42ad95b6bb1fdf67b, type: 2}
+  _scopes: []
+  _scopeIds: []
+  _enableTextId: 1
+  _textId: TestPh
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 

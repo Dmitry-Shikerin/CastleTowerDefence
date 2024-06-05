@@ -64131,11 +64131,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
-  _localizationId: 
+  _localizationId: LevelCompleted
   _disableTexts: 0
-  _russianText: 
-  _englishText: 
-  _turkishText: 
+  _russianText: "\u0423\u0420\u041E\u0412\u0415\u041D\u042C \u0417\u0410\u0412\u0415\u0420\u0428\u0415\u041D!"
+  _englishText: LEVEL COMPLETED!
+  _turkishText: "SEV\u0130YE TAMAMLANDI!"
   _enableTextId: 1
   _textId: Test2
   _enableRussian: 0
