@@ -23,7 +23,6 @@ namespace Sources.BoundedContexts.Bunkers.Presentation.Implementation
         private void OnEntered(IEnemyView enemyView)
         {
             Presenter.TakeDamage(enemyView);
-            Debug.Log($"EenmyEntered: {enemyView}");
         }
     }
 }

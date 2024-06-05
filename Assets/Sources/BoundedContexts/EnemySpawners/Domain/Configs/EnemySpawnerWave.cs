@@ -1,7 +1,6 @@
 ﻿using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs

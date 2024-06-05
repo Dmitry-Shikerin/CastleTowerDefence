@@ -36,14 +36,8 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
             _animation.PlayAttack();
         }
 
-        protected override void OnUpdate()
-        {
-            if (_view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth <= 0)
-            {
-                Debug.Log($"Set null {_view.CharacterHealthView.CurrentHealth}");
-                _view.SetCharacterHealth(null);
-            }
-        }
+        protected override void OnUpdate() =>
+            SetCharacterHealth();
 
         protected override void OnExit()
         {
@@ -53,16 +47,23 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         private void OnAttack()
         {
-            if (_view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth <= 0)
-            {
-                Debug.Log($"Set null {_view.CharacterHealthView.CurrentHealth}");
-                _view.SetCharacterHealth(null);
-            }
+            SetCharacterHealth();
 
             if (_view.CharacterHealthView == null)
                 return;
 
             _view.CharacterHealthView.TakeDamage(_enemyAttacker.Damage);
+        }
+
+        private void SetCharacterHealth()
+        {
+            if (_view.CharacterHealthView == null)
+                return;
+            
+            if (_view.CharacterHealthView.CurrentHealth > 0)
+                return;
+
+            _view.SetCharacterHealth(null);
         }
     }
 }

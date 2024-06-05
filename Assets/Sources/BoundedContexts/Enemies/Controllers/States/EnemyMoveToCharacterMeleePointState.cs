@@ -12,7 +12,6 @@ using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
@@ -45,15 +44,11 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
             StartFind(_cancellationTokenSource.Token);
         }
 
-        protected override void OnUpdate()
-        {
+        protected override void OnUpdate() =>
             _view.Move(_view.CharacterMeleePoint.Position);
-        }
 
-        protected override void OnExit()
-        {
+        protected override void OnExit() =>
             _cancellationTokenSource.Cancel();
-        }
 
         private async void StartFind(CancellationToken cancellationToken)
         {

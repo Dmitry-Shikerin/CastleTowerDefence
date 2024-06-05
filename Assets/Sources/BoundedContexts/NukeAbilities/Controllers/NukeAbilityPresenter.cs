@@ -41,12 +41,14 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
 
         private async void ApplyAbility()
         {
-            Debug.Log("nuke ability button on click");
-            _nukeAbilityView.BombView.SetPosition(_nukeAbilityView.BombView.FromPosition);
-            _nukeAbilityView.BombView.Show();
-
+            if(_nukeAbility.IsAvailable == false)
+                return;
+            
             try
             {
+                _nukeAbilityView.BombView.SetPosition(_nukeAbilityView.BombView.FromPosition);
+                _nukeAbilityView.BombView.Show();
+                
                 while (Vector3.Distance(_nukeAbilityView.BombView.Position, _nukeAbilityView.BombView.ToPosition) >
                        0.001f)
                 {
@@ -61,6 +63,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
             catch (OperationCanceledException)
             {
             }
+
         }
     }
 }

@@ -2,7 +2,6 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.Transitions

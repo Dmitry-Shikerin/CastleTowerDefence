@@ -32,14 +32,14 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnUpdate()
         {
-            if(_view.CharacterHealthView.CurrentHealth <= 0)
+            if (_view.CharacterHealthView.CurrentHealth <= 0)
+            {
                 _view.SetCharacterHealth(null);
+                
+                return;
+            }
             
             _view.Move(_view.CharacterHealthView.Position);
-        }
-
-        protected override void OnExit()
-        {
         }
     }
 }

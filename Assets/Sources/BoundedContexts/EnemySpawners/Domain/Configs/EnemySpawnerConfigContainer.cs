@@ -38,6 +38,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
                 "Assets/Resources/Configs/EnemySpawnerWaves/Waves/EnemySpawnerWave.asset");
             int waveId = _waves.Count + 1;
             RenameAsset(phrase, $"Wave_{waveId}");
+            AssetDatabase.AddObjectToAsset(phrase, 
+                "Assets/Resources/Configs/EnemySpawnerWaves/Waves/EnemySpawnerConfigContainer.asset");
             phrase.SetWaveId(waveId);
             _waves.Add(phrase);
             AssetDatabase.SaveAssets();

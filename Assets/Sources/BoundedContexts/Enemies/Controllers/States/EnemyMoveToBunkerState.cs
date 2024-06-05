@@ -48,11 +48,9 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         protected override void OnUpdate() =>
             _view.Move(_view.BunkerView.Position);
 
-        protected override void OnExit()
-        {
+        protected override void OnExit() =>
             _cancellationTokenSource.Cancel();
-        }
-        
+
         private async void StartFind(CancellationToken cancellationToken)
         {
             try
@@ -76,8 +74,6 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
                         LayerConst.Character,
                         LayerConst.Defaul)
                     .FirstOrDefault();
-            
-            Debug.Log(characterHealthView);
             
             if (characterHealthView == null)
                 return;
