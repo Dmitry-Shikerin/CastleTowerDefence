@@ -96,34 +96,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
             AssetDatabase.SaveAssets();
         }
 
-        [Button(ButtonSizes.Gigantic)]
-        private void TransferData()
-        {
-            _phrases.Clear();
-            var phrases = LocalizationExtension.FindAllLocalizationPhrases();
-
-            foreach (LocalizationPhrase phras in phrases)
-            {
-                // if (_phrases.Any(phrase => phrase.LocalizationId == _textId))
-                //     return;
-                //
-                LocalizationPhrase phrase = CreateInstance<LocalizationPhrase>();
-            
-                AssetDatabase.AddObjectToAsset(phrase, this);
-                AssetDatabase.Refresh();
-            
-                _phrases.Add(phrase);
-                phrase.SetDataBase(this);
-                phrase.SetId(phras.LocalizationId);
-                phrase.name = phras.LocalizationId + "_Phrase";
-
-                phrase.SetRussian(phras.Russian);
-                phrase.SetEnglish(phras.English);
-                phrase.SetTurkish(phras.Turkish);
-            
-                AssetDatabase.SaveAssets();
-            }
-        }
         
         [TabGroup("GetId", "CreatePhrase")]
         [Button(ButtonSizes.Large)]
