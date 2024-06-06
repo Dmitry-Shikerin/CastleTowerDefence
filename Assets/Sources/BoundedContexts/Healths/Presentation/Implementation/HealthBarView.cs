@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Healths.Controllers;
 using Sources.BoundedContexts.Healths.Presentation.Interfaces;
+using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Presentations.UI.Images;
 using Sources.Presentations.Views;
 using Sources.PresentationsInterfaces.UI.Images;

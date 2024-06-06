@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Sources.Frameworks.UiFramework.Domain.Localizations.Configs;
-using Sources.Frameworks.UiFramework.Domain.Localizations.Phrases;
+using Cysharp.Threading.Tasks;
+using Sources.Domain.Models.Constants;
+using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
+using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,29 +14,34 @@ namespace Sources.Frameworks.UiFramework.Texts.Extensions
         public static List<string> GetTranslateId()
         {
 #if UNITY_EDITOR
-            return FindAssets<LocalizationConfig>("t:LocalizationConfig")
+            return FindAssets<LocalizationDataBase>(LocalizationConst.LocalizationDatabaseAsset)
                 .FirstOrDefault()
-                ?.LocalizationIds;
-#endif
+                ?.Phrases.Select(phrase => phrase.LocalizationId).ToList();
+#else
             return new List<string>();
+#endif
         }
 
         public static List<LocalizationPhrase> FindAllLocalizationPhrases()
         {
 #if UNITY_EDITOR
-            return FindAssets<LocalizationPhrase>("t:LocalizationPhrase");
-#endif
+            return FindAssets<LocalizationPhrase>(LocalizationConst.LocalizationPhraseAsset);
+#else
             return new List<LocalizationPhrase>();
+#endif
         }
 
-        public static void CreateLocalizationPhrase()
+        public static LocalizationPhrase CreateLocalizationPhrase(string name)
         {
 #if UNITY_EDITOR
             LocalizationPhrase phrase = ScriptableObject.CreateInstance<LocalizationPhrase>();
-            
-            AssetDatabase.CreateAsset(phrase, 
-                "Assets/Resources/Configs/Localizations/LocalizationPhrase.asset");
+
+            AssetDatabase.CreateAsset(phrase, LocalizationConst.LocalisationPhraseAssetPath);
+            RenameAsset(phrase, name);
             AssetDatabase.SaveAssets();
+            return phrase;
+#else
+            return null;
 #endif
         }
 
@@ -46,7 +53,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Extensions
 #endif
         }
 
-        private static List<T> FindAssets<T>(string assetName) where T : Object
+        public static List<T> FindAssets<T>(string assetName) where T : Object
         {
             return AssetDatabase
                 .FindAssets(assetName)

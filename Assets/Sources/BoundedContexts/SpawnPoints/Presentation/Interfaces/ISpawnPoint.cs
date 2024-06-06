@@ -1,7 +1,7 @@
-﻿using Sources.BoundedContexts.SpawnPoints.Presentation.Types;
+﻿using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.SpawnPoints.PresentationInterfaces
+namespace Sources.BoundedContexts.SpawnPoints.Presentation.Interfaces
 {
     public interface ISpawnPoint
     {

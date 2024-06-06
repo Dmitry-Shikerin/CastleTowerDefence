@@ -1,4 +1,4 @@
-﻿namespace Sources.BoundedContexts.SpawnPoints.Presentation.Types
+﻿namespace Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types
 {
     public enum SpawnPointType
     {

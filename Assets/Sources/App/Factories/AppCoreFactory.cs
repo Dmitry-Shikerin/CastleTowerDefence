@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation;
+using Sources.App.Core;
+using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Domain.Models.Constants;
-using Sources.Domain.Models.Data.Ids;
+using Sources.Frameworks.GameServices.Curtains.Presentation.Implementation;
+using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Infrastructure.Services.SceneServices;
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
-using Sources.Presentations.UI.Curtains;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -25,7 +26,7 @@ namespace Sources.App.Factories
             CurtainView curtainView =
                 Object.Instantiate(Resources.Load<CurtainView>(PrefabPath.Curtain)) ??
                 throw new NullReferenceException(nameof(CurtainView));
-            projectContext.Container.Bind<CurtainView>().FromInstance(curtainView);
+            projectContext.Container.Bind<ICurtainView>().To<CurtainView>().FromInstance(curtainView);
             curtainView.Hide();
 
             Dictionary<string, Func<object, SceneContext, UniTask<IScene>>> sceneFactories =
@@ -34,16 +35,14 @@ namespace Sources.App.Factories
             projectContext.Container.BindInterfacesAndSelfTo<SceneService>().FromInstance(sceneService);
 
             sceneFactories[ModelId.MainMenu] = (payload, sceneContext) =>
-                sceneContext.Container.Resolve<MainMenuSceneFactory>().Create(payload);
+                sceneContext.Container.Resolve<ISceneFactory>().Create(payload);
             sceneFactories[ModelId.Gameplay] = (payload, sceneContext) =>
-                sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
+                sceneContext.Container.Resolve<ISceneFactory>().Create(payload);
 
             // sceneService.AddBeforeSceneChangeHandler(async _ => await curtainView.ShowCurtain());
             //
             sceneService.AddBeforeSceneChangeHandler(async sceneName =>
                 await projectContext.Container.Resolve<ISceneLoaderService>().LoadSceneAsync(sceneName));
-            //
-            // sceneService.AddAfterSceneChangeHandler(async () => await curtainView.HideCurtain());
 
             appCore.Construct(sceneService);
 

@@ -2,11 +2,11 @@
 {
     public class EnemyAttacker
     {
-        public EnemyAttacker(int attack)
+        public EnemyAttacker(int damage)
         {
-            Attack = attack;
+            Damage = damage;
         }
 
-        public int Attack { get; }
+        public int Damage { get; }
     }
 }

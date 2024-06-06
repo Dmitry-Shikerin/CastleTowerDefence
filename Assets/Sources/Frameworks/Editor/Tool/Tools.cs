@@ -1,4 +1,5 @@
-﻿using Sources.Domain.Models.Data.Ids;
+﻿using Sources.BoundedContexts.Ids;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using UnityEditor;
 using UnityEngine;
 

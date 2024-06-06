@@ -7,9 +7,10 @@ using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Services;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
+using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.Domain.Models.Constants;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
 namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation
 {
@@ -17,16 +18,19 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views
     {
         private readonly CharacterHealthViewFactory _characterHealthViewFactory;
         private readonly CharacterRangeDependencyProviderFactory _providerFactory;
+        private readonly HealthBarViewFactory _healthBarViewFactory;
 
         public CharacterRangeViewFactory(
             CharacterHealthViewFactory characterHealthViewFactory,
             CharacterRangeDependencyProviderFactory providerFactory,
+            HealthBarViewFactory healthBarViewFactory,
             IObjectPool<CharacterRangeView> pool) 
             : base(pool)
         {
             _characterHealthViewFactory = characterHealthViewFactory ?? 
                                           throw new ArgumentNullException(nameof(characterHealthViewFactory));
             _providerFactory = providerFactory ?? throw new ArgumentNullException(nameof(providerFactory));
+            _healthBarViewFactory = healthBarViewFactory ?? throw new ArgumentNullException(nameof(healthBarViewFactory));
         }
         
         public ICharacterRangeView Create(CharacterRange characterRange)
@@ -42,6 +46,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views
             view.FSMOwner.StartBehaviour();
             
             _characterHealthViewFactory.Create(characterRange.CharacterHealth, view.HealthView);
+            _healthBarViewFactory.Create(characterRange.CharacterHealth, view.HealthBarView);
             
             return view;
         }

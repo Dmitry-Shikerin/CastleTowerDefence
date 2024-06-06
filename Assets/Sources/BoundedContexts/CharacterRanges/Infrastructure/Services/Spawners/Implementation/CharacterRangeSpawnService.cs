@@ -6,7 +6,8 @@ using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.I
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.Upgrades.Domain;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.BoundedContexts.Upgrades.Domain.Models;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Implementation
@@ -27,9 +28,9 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawne
         public ICharacterRangeView Spawn(Vector3 position)
         {
             CharacterRange characterMelee = new CharacterRange(
-                new CharacterHealth.Domain.CharacterHealth(
+                new CharacterHealths.Domain.CharacterHealth(
                     new Upgrade(
-                        0,
+                        30,
                         0,
                         0, 
                         new List<int>( ), "CharacterHealthUpgrade"))

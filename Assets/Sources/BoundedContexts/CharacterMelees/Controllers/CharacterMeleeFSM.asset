@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
   m_Name: CharacterMeleeFSM
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":384.5,"y":230.0},"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.States.CharacterMeleeIdleState","$id":"0"},{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":640.0,"y":329.0},"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.States.CharacterMeleeAttackState","$id":"1"}],"connections":[{"_condition":{"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.Transitions.CharacterMeleeAttackTransition"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.Transitions.CharacterMeleeIdleTransition"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":314.5,"y":229.0},"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.States.CharacterMeleeInitializeState","$id":"0"},{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":505.4414,"y":304.3918},"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.States.CharacterMeleeIdleState","$id":"1"},{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":666.9092,"y":370.8032},"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.States.CharacterMeleeAttackState","$id":"2"},{"_position":{"x":745.5,"y":157.0},"$type":"NodeCanvas.StateMachines.AnyState","$id":"3"},{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":732.1671,"y":238.6668},"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.States.CharacterMeleeDyeState","$id":"4"}],"connections":[{"_condition":{"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.Transitions.FromInitializedToCharacterMeleeIdleTransition"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.Transitions.CharacterMeleeAttackTransition"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.Transitions.CharacterMeleeIdleTransition"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"Sources.BoundedContexts.CharacterMelees.Controllers.Transitions.ToCharacterMeleeDyeTransition"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _objectReferences: []
   _graphSource:
     _version: 3.3
     _category: 
     _comments: 
-    _translation: {x: 0, y: 0}
-    _zoomFactor: 1
+    _translation: {x: -142, y: -39}
+    _zoomFactor: 0.75758094
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
+using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
@@ -10,9 +11,8 @@ using Sources.BoundedContexts.Healths.Presentation.Implementation;
 using Sources.BoundedContexts.NavMeshAgents.Presentation;
 using Sources.BoundedContexts.Skins.Presentation;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;
-using Sources.BoundedContexts.TargetPoints.Presentation.Interfaces;
-using Sources.Frameworks.Services.ObjectPools.Implementation.Destroyers;
-using Sources.Frameworks.Services.ObjectPools.Interfaces.Destroyers;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Presentation
@@ -32,13 +32,16 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         public EnemyHealthView EnemyHealthView => _healthView;
         public IReadOnlyList<ISkinView> Skins => _skins;
         public ICharacterHealthView CharacterHealthView { get; private set; }
-        public ITargetPoint TargetPoint { get; private set; }
+        public IBunkerView BunkerView { get; private set; }
 
-        public override void Destroy() =>
+        public override void Destroy()
+        {
             _poDestroyerService.Destroy(this);
+            _fsmOwner.StopBehaviour();
+        }
 
-        public void SetTargetPoint(ITargetPoint targetPointView) =>
-            TargetPoint = targetPointView ?? throw new ArgumentNullException(nameof(targetPointView));
+        public void SetBunkerView(IBunkerView bunkerView) =>
+            BunkerView = bunkerView ?? throw new ArgumentNullException(nameof(bunkerView));
 
         public void SetCharacterHealth(ICharacterHealthView characterHealthView) =>
             CharacterHealthView = characterHealthView;

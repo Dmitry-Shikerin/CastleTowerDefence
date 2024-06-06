@@ -1,13 +1,15 @@
 ﻿using System;
 using Sources.BoundedContexts.Enemies.Domain;
+using Sources.BoundedContexts.Enemies.Domain.Constants;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
+using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.Domain.Models.Constants;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation
 {
@@ -33,7 +35,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
         
         public IEnemyView Create(Enemy enemy, KillEnemyCounter killEnemyCounter)
         {
-            EnemyView enemyView = CreateView(PrefabPath.Enemy);
+            EnemyView enemyView = CreateView(EnemyConst.PrefabPath);
             
             return Create(enemy, killEnemyCounter, enemyView);
         }

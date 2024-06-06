@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
   m_Name: CharacterRangeFSM
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":442.0,"y":211.0},"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.States.CharacterRangeIdleState","$id":"0"},{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":629.0,"y":305.5},"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.States.CharacterRangeAttackState","$id":"1"}],"connections":[{"_condition":{"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.Transitions.CharacterRangeAttackTransition"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.Transitions.CharacterRangeIdleTransition"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":252.0,"y":134.5},"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.States.CharacterRangeInitializeState","$id":"0"},{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":442.0,"y":211.0},"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.States.CharacterRangeIdleState","$id":"1"},{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":629.0,"y":305.5},"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.States.CharacterRangeAttackState","$id":"2"},{"_position":{"x":719.9889,"y":90.67225},"$type":"NodeCanvas.StateMachines.AnyState","$id":"3"},{"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":705.9907,"y":179.9939},"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.States.CharacterRangeDyeState","$id":"4"}],"connections":[{"_condition":{"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.Transitions.FromInitializedToCharacterRangeIdleTransition"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.Transitions.CharacterRangeAttackTransition"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.Transitions.CharacterRangeIdleTransition"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"Sources.BoundedContexts.CharacterRanges.Controllers.Transitions.ToCharacterRangeDyeTransition"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _objectReferences: []
   _graphSource:
     _version: 3.3
     _category: 
     _comments: 
-    _translation: {x: 0, y: 0}
-    _zoomFactor: 1
+    _translation: {x: -170, y: 2}
+    _zoomFactor: 0.7500976
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}

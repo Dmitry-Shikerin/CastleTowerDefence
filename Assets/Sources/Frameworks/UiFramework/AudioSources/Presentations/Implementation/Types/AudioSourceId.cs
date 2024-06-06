@@ -1,4 +1,4 @@
-﻿namespace Sources.Frameworks.UiFramework.Presentation.AudioSources.Types
+﻿namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types
 {
     public enum AudioSourceId
     {

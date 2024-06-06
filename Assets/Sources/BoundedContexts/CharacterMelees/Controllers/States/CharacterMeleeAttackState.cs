@@ -5,7 +5,6 @@ using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {

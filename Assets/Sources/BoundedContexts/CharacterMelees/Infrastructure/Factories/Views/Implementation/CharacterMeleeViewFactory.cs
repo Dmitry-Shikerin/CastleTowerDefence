@@ -8,7 +8,7 @@ using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.Domain.Models.Constants;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
 namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation
 {
@@ -39,7 +39,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
 
         public ICharacterMeleeView Create(CharacterMelee characterMelee, CharacterMeleeView view)
         {
-            _providerFactory.Create(view);
+            _providerFactory.Create(characterMelee, view);
             view.FSMOwner.StartBehaviour();
             
             _characterHealthViewFactory.Create(characterMelee.CharacterHealth, view.HealthView);

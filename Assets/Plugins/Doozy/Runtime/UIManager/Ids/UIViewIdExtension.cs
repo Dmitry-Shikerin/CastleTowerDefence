@@ -46,7 +46,8 @@ namespace Doozy.Runtime.UIManager
             Background,
             Hud,
             Leaderboard,
-            Settings
+            Settings,
+            WarningNewGame
         }    
     }
 }

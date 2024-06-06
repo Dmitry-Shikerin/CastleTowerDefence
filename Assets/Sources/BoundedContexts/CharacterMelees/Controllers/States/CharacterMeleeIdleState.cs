@@ -11,7 +11,7 @@ using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
-using Sources.InfrastructureInterfaces.Services.Overlaps;
+using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
@@ -23,12 +23,12 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         private ICharacterMeleeView _view;
         private ICharacterMeleeAnimation _animation;
         private IOverlapService _overlapService;
-        
+
         private CancellationTokenSource _cancellationTokenSource;
 
         protected override void OnInit()
         {
-            CharacterMeleeDependencyProvider provider = 
+            CharacterMeleeDependencyProvider provider =
                 graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
 
             _view = provider.View;
@@ -67,20 +67,20 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
             {
             }
         }
-        
+
         private void FindTarget()
         {
-            IEnemyHealthView enemyHealthView = 
+            IEnemyHealthView enemyHealthView =
                 _overlapService.OverlapSphere<EnemyHealthView>(
-                    _view.Position, _view.FindRange, 
-                    LayerConst.s_enemy, 
-                    LayerConst.s_defaul)
+                        _view.Position, _view.FindRange,
+                        LayerConst.Enemy,
+                        LayerConst.Defaul)
                     .FirstOrDefault();
+            
+            if (enemyHealthView == null)
+                return;
 
-            if (enemyHealthView != null)
-            {
-                _view.SetEnemyHealth(enemyHealthView);
-            }
+            _view.SetEnemyHealth(enemyHealthView);
         }
     }
 }

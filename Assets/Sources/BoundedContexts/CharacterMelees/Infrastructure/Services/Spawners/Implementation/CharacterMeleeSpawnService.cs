@@ -11,7 +11,8 @@ using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.Upgrades.Domain;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.BoundedContexts.Upgrades.Domain.Models;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Implementation
@@ -32,7 +33,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawne
         public ICharacterMeleeView Spawn(Vector3 position)
         {
             CharacterMelee characterMelee = new CharacterMelee(
-                new CharacterHealth.Domain.CharacterHealth(
+                new CharacterHealths.Domain.CharacterHealth(
                     new Upgrade(
                         100,
                         0,

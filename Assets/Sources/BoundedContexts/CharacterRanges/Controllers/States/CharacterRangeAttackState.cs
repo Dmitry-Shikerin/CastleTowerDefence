@@ -47,6 +47,9 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 
         private void OnAttack()
         {
+            if (_view.EnemyHealth == null)
+                return;
+            
             _view.PlayShootParticle();
             _view.EnemyHealth.TakeDamage(2);
         }

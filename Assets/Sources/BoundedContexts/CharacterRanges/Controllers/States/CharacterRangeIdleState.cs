@@ -11,8 +11,7 @@ using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
-using Sources.InfrastructureInterfaces.Services.Overlaps;
-using UnityEngine;
+using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 {
@@ -73,14 +72,15 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
             IEnemyHealthView enemyHealthView = 
                 _overlapService.OverlapSphere<EnemyHealthView>(
                         _view.Position, _view.FindRange, 
-                        LayerConst.s_enemy, 
-                        LayerConst.s_defaul)
+                        LayerConst.Enemy, 
+                        LayerConst.Defaul)
                     .FirstOrDefault();
 
+            if(enemyHealthView?.CurrentHealth <= 0)
+                return;
+            
             if (enemyHealthView != null)
-            {
                 _view.SetEnemyHealth(enemyHealthView);
-            }
         }
     }
 }

@@ -3,10 +3,10 @@ using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Interfaces;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.Domain.Models.Constants;
-using Sources.Frameworks.Services.ObjectPools.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.ExplosionBodies.Ifrastructure.Factories.Views
+namespace Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation
 {
     public class ExplosionBodyBloodyViewFactory : PoolableObjectFactory<ExplosionBodyBloodyView>, IExplosionBodyBloodyViewFactory
     {
