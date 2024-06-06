@@ -18,10 +18,12 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         [SerializeField] private Enable _editParent;
         [DisableIf("_editParent", Enable.Disable)]
         [SerializeField] private LocalizationDataBase _parent;
+        [DisableIf("_editParent", Enable.Disable)]
+        [SerializeField] private LocalizationScope _scope;
 
         [ValueDropdown("GetDropdownValues")] [Space(10)]
         [SerializeField] private string _localizationId;
-
+        
         [SerializeField] private string _textId;
 
         [FoldoutGroup("Russian")] [EnumToggleButtons] [LabelText("Russian")]
@@ -50,6 +52,11 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         public string English => _english;
         public string Turkish => _turkish;
         
+        public LocalizationScope Scope => _scope;
+        
+        public void SetScope(LocalizationScope scope) =>
+            _scope = scope ?? throw new UnityException("Scope is null");
+        
         public void SetId(string id) =>
             _localizationId = id;
         
@@ -62,7 +69,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         public void SetTurkish(string turkish) =>
             _turkish = turkish;
         
-        public void SetParent(LocalizationDataBase parent) =>
+        public void SetDataBase(LocalizationDataBase parent) =>
             _parent = parent ?? throw new UnityException("Parent is null");
 
         [Button(ButtonSizes.Large)] 

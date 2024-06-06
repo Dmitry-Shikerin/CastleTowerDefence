@@ -38,34 +38,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [TextArea(1, 20)] [Space(10)]         
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
         [SerializeField] private string _turkishText;
-        // [TabGroup("GetId", "CreatePhrase")] 
-        // [EnumToggleButtons] [Space(10)] [LabelText("TextId")]
-        // [SerializeField] private Enable _enableTextId;
-        // [TabGroup("GetId", "CreatePhrase")]
-        // [HideLabel] [ValidateInput("ValidateTextId", "TextId contains in DataBase")]
-        // [EnableIf("_enableTextId", Core.Presentation.CommonTypes.Enable.Enable)]
-        // [SerializeField] private string _textId;
-        // [TabGroup("GetId", "CreatePhrase")] 
-        // [EnumToggleButtons] [Space(10)] [LabelText("Russian")]
-        // [SerializeField] private Enable _enableRussian;
-        // [TabGroup("GetId", "CreatePhrase")]
-        // [TextArea(1, 20)] [HideLabel] 
-        // [EnableIf("_enableRussian", Core.Presentation.CommonTypes.Enable.Enable)]
-        // [SerializeField] private string _russian;
-        // [TabGroup("GetId", "CreatePhrase")] 
-        // [EnumToggleButtons] [Space(10)] [LabelText("English")]
-        // [SerializeField] private Enable _enableEnglish;
-        // [TabGroup("GetId", "CreatePhrase")]
-        // [TextArea(1, 20)] [HideLabel]
-        // [EnableIf("_enableEnglish", Core.Presentation.CommonTypes.Enable.Enable)]
-        // [SerializeField] private string _english;
-        // [TabGroup("GetId", "CreatePhrase")] 
-        // [EnumToggleButtons] [Space(10)] [LabelText("Turkish")]
-        // [SerializeField] private Enable _enableTurkish;
-        // [TabGroup("GetId", "CreatePhrase")]
-        // [TextArea(1, 20)] [HideLabel]
-        // [EnableIf("_enableTurkish", Core.Presentation.CommonTypes.Enable.Enable)]
-        // [SerializeField] private string _turkish;
         [Space(10)]
         [SerializeField] private TextMeshProUGUI _tmpText;
 
@@ -116,20 +88,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [OnInspectorGUI]
         public void SetTmpText() =>
             _tmpText = GetComponent<TextMeshProUGUI>();
-
-        // [TabGroup("GetId", "CreatePhrase")]
-        // [Button(ButtonSizes.Large)]
-        // private void CreatePhrase()
-        // {
-        //     LocalizationPhrase phrase = LocalizationDataBase.Instance.CreatePhrase(_textId);
-        //
-        //     if (phrase == null)
-        //         return;
-        //      
-        //     phrase.SetRussian(_russian);
-        //     phrase.SetEnglish(_english);
-        //     phrase.SetTurkish(_turkish);
-        // }
         
         [UsedImplicitly]
         private List<string> GetDropdownValues() =>

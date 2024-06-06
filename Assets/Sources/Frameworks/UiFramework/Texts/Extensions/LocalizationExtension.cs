@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
@@ -15,7 +16,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Extensions
 #if UNITY_EDITOR
             return FindAssets<LocalizationDataBase>(LocalizationConst.LocalizationDatabaseAsset)
                 .FirstOrDefault()
-                ?.LocalizationIds;
+                ?.Phrases.Select(phrase => phrase.LocalizationId).ToList();
 #else
             return new List<string>();
 #endif
@@ -52,7 +53,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Extensions
 #endif
         }
 
-        private static List<T> FindAssets<T>(string assetName) where T : Object
+        public static List<T> FindAssets<T>(string assetName) where T : Object
         {
             return AssetDatabase
                 .FindAssets(assetName)

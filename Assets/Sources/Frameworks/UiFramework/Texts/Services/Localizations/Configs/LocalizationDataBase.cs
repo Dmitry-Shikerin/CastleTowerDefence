@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;
 using UnityEngine;
@@ -20,41 +20,41 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         [SerializeField] private string _scopeId;
         
         [TabGroup("GetId", "DataBase")] [Space(10)] 
-        [SerializeField] private List<string> _localizationIds;
-        [TabGroup("GetId", "DataBase")] [Space(10)] 
         [SerializeField] private List<LocalizationPhrase> _phrases;
         [TabGroup("GetId", "DataBase")] [Space(10)] 
         [SerializeField] private List<LocalizationScope> _scopes;
-        [TabGroup("GetId", "DataBase")] [Space(10)] 
-        [SerializeField] private List<string> _scopeIds;
         
         [TabGroup("GetId", "CreatePhrase")] 
         [EnumToggleButtons] [Space(10)] [LabelText("TextId")]
         [SerializeField] private Enable _enableTextId;
         [TabGroup("GetId", "CreatePhrase")]
         [HideLabel] [ValidateInput("ValidateTextId", "TextId contains in DataBase")]
-        [EnableIf("_enableTextId", Core.Presentation.CommonTypes.Enable.Enable)]
+        [EnableIf("_enableTextId", Enable.Enable)]
         [SerializeField] private string _textId;
+        [Space(7)]
+        [TabGroup("GetId", "CreatePhrase")]
+        [ValueDropdown("GetScopes")]
+        [SerializeField] private string _scope;
         [TabGroup("GetId", "CreatePhrase")] 
         [EnumToggleButtons] [Space(10)] [LabelText("Russian")]
         [SerializeField] private Enable _enableRussian;
         [TabGroup("GetId", "CreatePhrase")]
         [TextArea(1, 20)] [HideLabel] 
-        [EnableIf("_enableRussian", Core.Presentation.CommonTypes.Enable.Enable)]
+        [EnableIf("_enableRussian", Enable.Enable)]
         [SerializeField] private string _russian;
         [TabGroup("GetId", "CreatePhrase")] 
         [EnumToggleButtons] [Space(10)] [LabelText("English")]
         [SerializeField] private Enable _enableEnglish;
         [TabGroup("GetId", "CreatePhrase")]
         [TextArea(1, 20)] [HideLabel]
-        [EnableIf("_enableEnglish", Core.Presentation.CommonTypes.Enable.Enable)]
+        [EnableIf("_enableEnglish", Enable.Enable)]
         [SerializeField] private string _english;
         [TabGroup("GetId", "CreatePhrase")] 
         [EnumToggleButtons] [Space(10)] [LabelText("Turkish")]
         [SerializeField] private Enable _enableTurkish;
         [TabGroup("GetId", "CreatePhrase")]
         [TextArea(1, 20)] [HideLabel]
-        [EnableIf("_enableTurkish", Core.Presentation.CommonTypes.Enable.Enable)]
+        [EnableIf("_enableTurkish", Enable.Enable)]
         [SerializeField] private string _turkish;
 
         private static LocalizationDataBase s_instance;
@@ -82,7 +82,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
             }
         }
 
-        public List<string> LocalizationIds => _localizationIds;
         public List<LocalizationPhrase> Phrases => _phrases;
 
         public void RemovePhrase(LocalizationPhrase phrase)
@@ -97,7 +96,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         public void CreateScope()
         {
 #if UNITY_EDITOR
-            if (_scopeIds.Contains(_scopeId))
+            if (_scopes.Any(scope => scope.Id == _scopeId))
                 return;
             
             LocalizationScope scope = CreateInstance<LocalizationScope>();
@@ -105,7 +104,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
             AssetDatabase.AddObjectToAsset(scope, this);
             scope.SetId(_scopeId);
             scope.name = _scopeId + "_Scope";
-            _scopeIds.Add(_scopeId);
             _scopes.Add(scope);
             AssetDatabase.SaveAssets();
 #else
@@ -113,60 +111,10 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
 #endif
         }
 
-        public LocalizationPhrase CreatePhrase(string id)
-        {
-#if UNITY_EDITOR
-            if (_localizationIds.Contains(id))
-                return null;
-            
-            LocalizationPhrase phrase = CreateInstance<LocalizationPhrase>();
-            phrase.SetParent(this);
-            AssetDatabase.AddObjectToAsset(phrase, this);
-            phrase.SetId(id);
-            phrase.name = id;
-            _phrases.Add(phrase);
-            AssetDatabase.SaveAssets();
-
-            return phrase;
-#else
-            return null;
-#endif
-        }
-
-        [TabGroup("GetId", "DataBase")]
-        [Button(ButtonSizes.Large)]
-        public void AddAllPhrases()
-        {
-            _phrases.Clear();
-
-            LocalizationExtension
-                .FindAllLocalizationPhrases()
-                .ForEach(phrase => _phrases.Add(phrase));
-
-            FillIds();
-        }
-
-        private void FillIds()
-        {
-            _localizationIds.Clear();
-            _phrases.ForEach(phrase => _localizationIds.Add(phrase.LocalizationId));
-        }
-
-        [OnInspectorGUI]
-        private void ValidateIds()
-        {
-            if (_localizationIds.Count == _phrases.Count)
-                return;
-
-            AddAllPhrases();
-            FillIds();
-        }
-
         public void RemoveScope(LocalizationScope localizationScope)
         {
             AssetDatabase.RemoveObjectFromAsset(localizationScope);
             _scopes.Remove(localizationScope);
-            _scopeIds.Remove(localizationScope.Id);
             AssetDatabase.SaveAssets();
         }
         
@@ -174,18 +122,38 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         [Button(ButtonSizes.Large)]
         private void CreatePhrase()
         {
-            LocalizationPhrase phrase = LocalizationDataBase.Instance.CreatePhrase(_textId);
-
-            if (phrase == null)
+#if UNITY_EDITOR
+            if (_phrases.Any(phrase => phrase.LocalizationId == _textId))
                 return;
-             
+            
+            LocalizationPhrase phrase = CreateInstance<LocalizationPhrase>();
+            
+            AssetDatabase.AddObjectToAsset(phrase, this);
+            AssetDatabase.Refresh();
+            
+            _phrases.Add(phrase);
+            phrase.SetDataBase(this);
+            phrase.SetId(_textId);
+            phrase.name = _textId + "_Phrase";
+
             phrase.SetRussian(_russian);
             phrase.SetEnglish(_english);
             phrase.SetTurkish(_turkish);
+            
+            AssetDatabase.SaveAssets();
+#endif
         }
-        
+
+        private List<string> GetScopes()
+        {
+            if (_scopes == null || _scopes.Count == 0)
+                return new List<string>() { "Default", };
+            
+            return _scopes.Select(scope => scope.Id).ToList();
+        }
+
         [UsedImplicitly]
         private bool ValidateTextId(string textId) =>
-            LocalizationDataBase.Instance.LocalizationIds.Contains(textId) == false;
+            _phrases.Any(phrase => phrase.LocalizationId == textId) == false;
     }
 }
