@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: AdTutorialDescription
   m_EditorClassIdentifier: 
   _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 0}
   _localizationId: AdTutorialDescription
   _textId: 
   _editRussian: 0

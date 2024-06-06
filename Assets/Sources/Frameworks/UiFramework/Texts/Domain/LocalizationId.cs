@@ -14,7 +14,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Domain
         
         public string Id => _localizationId;
         
-        private IEnumerable<string> GetDropdownValues() =>
-            LocalizationDataBase.Instance.LocalizationIds;
+        // private IEnumerable<string> GetDropdownValues() =>
+        //     LocalizationDataBase.Instance.LocalizationIds;
     }
 }

@@ -13,4 +13,39 @@ MonoBehaviour:
   m_Name: EnemySpawnerConfigContainer
   m_EditorClassIdentifier: 
   _waves:
-  - {fileID: 11400000, guid: 09ac40b6396ad6a41bcd027af89fb601, type: 2}
+  - {fileID: 8948478608034842370}
+  - {fileID: 25638417482649779}
+--- !u!114 &25638417482649779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_2
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 2
+  _spawnDelay: 0
+  _enemyCount: 0
+--- !u!114 &8948478608034842370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_1
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 1
+  _spawnDelay: 0
+  _enemyCount: 0

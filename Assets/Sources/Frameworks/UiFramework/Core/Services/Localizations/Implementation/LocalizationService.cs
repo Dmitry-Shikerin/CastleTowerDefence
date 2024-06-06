@@ -28,11 +28,11 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
 
             _textDictionary = new Dictionary<string, IReadOnlyDictionary<string, string>>()
             {
-                [LocalizationConst.RussianCode] = localizationDataBase.LocalizationPhrases
+                [LocalizationConst.RussianCode] = localizationDataBase.Phrases
                     .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.Russian),
-                [LocalizationConst.EnglishCode] = localizationDataBase.LocalizationPhrases
+                [LocalizationConst.EnglishCode] = localizationDataBase.Phrases
                     .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.English),
-                [LocalizationConst.TurkishCode] = localizationDataBase.LocalizationPhrases
+                [LocalizationConst.TurkishCode] = localizationDataBase.Phrases
                     .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.Turkish),
             };
         }

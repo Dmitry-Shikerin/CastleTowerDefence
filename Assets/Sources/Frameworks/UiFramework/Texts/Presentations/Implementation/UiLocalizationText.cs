@@ -8,13 +8,10 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
-using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
 {
@@ -41,34 +38,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [TextArea(1, 20)] [Space(10)]         
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
         [SerializeField] private string _turkishText;
-        [TabGroup("GetId", "CreatePhrase")] 
-        [EnumToggleButtons] [Space(10)] [LabelText("TextId")]
-        [SerializeField] private Enable _enableTextId;
-        [TabGroup("GetId", "CreatePhrase")]
-        [HideLabel] [ValidateInput("ValidateTextId", "TextId contains in DataBase")]
-        [EnableIf("_enableTextId", Core.Presentation.CommonTypes.Enable.Enable)]
-        [SerializeField] private string _textId;
-        [TabGroup("GetId", "CreatePhrase")] 
-        [EnumToggleButtons] [Space(10)] [LabelText("Russian")]
-        [SerializeField] private Enable _enableRussian;
-        [TabGroup("GetId", "CreatePhrase")]
-        [TextArea(1, 20)] [HideLabel] 
-        [EnableIf("_enableRussian", Core.Presentation.CommonTypes.Enable.Enable)]
-        [SerializeField] private string _russian;
-        [TabGroup("GetId", "CreatePhrase")] 
-        [EnumToggleButtons] [Space(10)] [LabelText("English")]
-        [SerializeField] private Enable _enableEnglish;
-        [TabGroup("GetId", "CreatePhrase")]
-        [TextArea(1, 20)] [HideLabel]
-        [EnableIf("_enableEnglish", Core.Presentation.CommonTypes.Enable.Enable)]
-        [SerializeField] private string _english;
-        [TabGroup("GetId", "CreatePhrase")] 
-        [EnumToggleButtons] [Space(10)] [LabelText("Turkish")]
-        [SerializeField] private Enable _enableTurkish;
-        [TabGroup("GetId", "CreatePhrase")]
-        [TextArea(1, 20)] [HideLabel]
-        [EnableIf("_enableTurkish", Core.Presentation.CommonTypes.Enable.Enable)]
-        [SerializeField] private string _turkish;
         [Space(10)]
         [SerializeField] private TextMeshProUGUI _tmpText;
 
@@ -119,33 +88,15 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [OnInspectorGUI]
         public void SetTmpText() =>
             _tmpText = GetComponent<TextMeshProUGUI>();
-
-        [TabGroup("GetId", "CreatePhrase")]
-        [Button(ButtonSizes.Large)]
-        private void CreatePhrase()
-        {
-            List<string> localizationIds = LocalizationDataBase.Instance.LocalizationIds;
-        
-            if(localizationIds.Contains(_textId))
-                return;
-            
-            LocalizationPhrase phrase = LocalizationExtension.CreateLocalizationPhrase(_textId);
-            phrase.SetId(_textId);
-            phrase.SetRussian(_russian);
-            phrase.SetEnglish(_english);
-            phrase.SetTurkish(_turkish);
-            
-            LocalizationDataBase.Instance.AddAllPhrases();
-        }
         
         [UsedImplicitly]
         private List<string> GetDropdownValues() =>
-            LocalizationDataBase.Instance.LocalizationIds;
+            LocalizationDataBase.Instance.Phrases.Select(phrase => phrase.LocalizationId).ToList();
 
         [UsedImplicitly]
         private void GetPhrase()
         {
-            var phrase = LocalizationDataBase.Instance.LocalizationPhrases
+            var phrase = LocalizationDataBase.Instance.Phrases
                 .FirstOrDefault(phrase => phrase.LocalizationId == _localizationId);
 
             if (phrase == null)
@@ -171,8 +122,8 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         private void GetTurkish() =>
             _tmpText.text = _turkishText;
         
-        [UsedImplicitly]
-        private bool ValidateTextId(string textId) =>
-            LocalizationDataBase.Instance.LocalizationIds.Contains(textId) == false;
+        // [UsedImplicitly]
+        // private bool ValidateTextId(string textId) =>
+        //     LocalizationDataBase.Instance.LocalizationIds.Contains(textId) == false;
     }
 }

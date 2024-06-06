@@ -19,7 +19,6 @@ namespace Sources.BoundedContexts.Bunkers.Domain
 
         public void TakeDamage()
         {
-            Debug.Log("Bunker dealDamage");
             Health--;
             OnHealthChanged?.Invoke();
 

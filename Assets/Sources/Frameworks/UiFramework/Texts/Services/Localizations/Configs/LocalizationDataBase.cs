@@ -1,29 +1,61 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
-using Sources.Frameworks.UiFramework.Core.Domain.Dictionaries;
-using Sources.Frameworks.UiFramework.Texts.Extensions;
+using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
 {
-    [CreateAssetMenu(
-        fileName = "LocalizationDataBase",
-        menuName = "Configs/LocalizationDataBase",
-        order = 51)]
     public class LocalizationDataBase : ScriptableObject
     {
-        [DisplayAsString(false)] [HideLabel] 
-        [SerializeField] private string _headere = UiConstant.UiLocalizationDataBaseLabel;
-        [Space(10)]
-        [SerializeField] private List<string> _localizationIds;
-        [Space(10)]
-        [SerializeField] private List<LocalizationPhrase> _localizationPhrases;
-        [Space(10)]
-        [SerializeField] private PhraseSerializedDictionary _localizationPhrase;
+        [DisplayAsString(false)] [HideLabel] [SerializeField]
+        private string _headere = UiConstant.UiLocalizationDataBaseLabel;
+
+        [TabGroup("GetId", "Scopes")] 
+        [SerializeField] private string _scopeId;
+        
+        [TabGroup("GetId", "DataBase")] [Space(10)] 
+        [SerializeField] private List<LocalizationPhrase> _phrases;
+        [TabGroup("GetId", "DataBase")] [Space(10)] 
+        [SerializeField] private List<LocalizationScope> _scopes;
+        
+        [TabGroup("GetId", "CreatePhrase")] 
+        [EnumToggleButtons] [Space(10)] [LabelText("TextId")]
+        [SerializeField] private Enable _enableTextId;
+        [TabGroup("GetId", "CreatePhrase")]
+        [HideLabel] [ValidateInput("ValidateTextId", "TextId contains in DataBase")]
+        [EnableIf("_enableTextId", Enable.Enable)]
+        [SerializeField] private string _textId;
+        [Space(7)]
+        [TabGroup("GetId", "CreatePhrase")]
+        [ValueDropdown("GetScopes")]
+        [SerializeField] private string _scope;
+        [TabGroup("GetId", "CreatePhrase")] 
+        [EnumToggleButtons] [Space(10)] [LabelText("Russian")]
+        [SerializeField] private Enable _enableRussian;
+        [TabGroup("GetId", "CreatePhrase")]
+        [TextArea(1, 20)] [HideLabel] 
+        [EnableIf("_enableRussian", Enable.Enable)]
+        [SerializeField] private string _russian;
+        [TabGroup("GetId", "CreatePhrase")] 
+        [EnumToggleButtons] [Space(10)] [LabelText("English")]
+        [SerializeField] private Enable _enableEnglish;
+        [TabGroup("GetId", "CreatePhrase")]
+        [TextArea(1, 20)] [HideLabel]
+        [EnableIf("_enableEnglish", Enable.Enable)]
+        [SerializeField] private string _english;
+        [TabGroup("GetId", "CreatePhrase")] 
+        [EnumToggleButtons] [Space(10)] [LabelText("Turkish")]
+        [SerializeField] private Enable _enableTurkish;
+        [TabGroup("GetId", "CreatePhrase")]
+        [TextArea(1, 20)] [HideLabel]
+        [EnableIf("_enableTurkish", Enable.Enable)]
+        [SerializeField] private string _turkish;
 
         private static LocalizationDataBase s_instance;
 
@@ -50,33 +82,78 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
             }
         }
 
-        public List<string> LocalizationIds => _localizationIds;
-        public List<LocalizationPhrase> LocalizationPhrases => _localizationPhrases;
+        public List<LocalizationPhrase> Phrases => _phrases;
 
-        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
-        public void AddAllPhrases()
+        public void RemovePhrase(LocalizationPhrase phrase)
         {
-            _localizationPhrases.Clear();
+            AssetDatabase.RemoveObjectFromAsset(phrase);
+            _phrases.Remove(phrase);
+            AssetDatabase.SaveAssets();
+        }
 
-            LocalizationExtension
-                .FindAllLocalizationPhrases()
-                .ForEach(phrase => _localizationPhrases.Add(phrase));
+        [TabGroup("GetId", "Scopes")]
+        [Button(ButtonSizes.Large)]
+        public void CreateScope()
+        {
+#if UNITY_EDITOR
+            if (_scopes.Any(scope => scope.Id == _scopeId))
+                return;
             
-            FillIds();
+            LocalizationScope scope = CreateInstance<LocalizationScope>();
+            scope.SetParent(this);
+            AssetDatabase.AddObjectToAsset(scope, this);
+            scope.SetId(_scopeId);
+            scope.name = _scopeId + "_Scope";
+            _scopes.Add(scope);
+            AssetDatabase.SaveAssets();
+#else
+            return null;
+#endif
         }
 
-        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
-        private void FillIds()
+        public void RemoveScope(LocalizationScope localizationScope)
         {
-            _localizationIds.Clear();
-            _localizationPhrases.ForEach(phrase => _localizationIds.Add(phrase.LocalizationId));
+            AssetDatabase.RemoveObjectFromAsset(localizationScope);
+            _scopes.Remove(localizationScope);
+            AssetDatabase.SaveAssets();
+        }
+        
+        [TabGroup("GetId", "CreatePhrase")]
+        [Button(ButtonSizes.Large)]
+        private void CreatePhrase()
+        {
+#if UNITY_EDITOR
+            if (_phrases.Any(phrase => phrase.LocalizationId == _textId))
+                return;
+            
+            LocalizationPhrase phrase = CreateInstance<LocalizationPhrase>();
+            
+            AssetDatabase.AddObjectToAsset(phrase, this);
+            AssetDatabase.Refresh();
+            
+            _phrases.Add(phrase);
+            phrase.SetDataBase(this);
+            phrase.SetId(_textId);
+            phrase.name = _textId + "_Phrase";
+
+            phrase.SetRussian(_russian);
+            phrase.SetEnglish(_english);
+            phrase.SetTurkish(_turkish);
+            
+            AssetDatabase.SaveAssets();
+#endif
         }
 
-        [OnInspectorGUI]
-        private void ValidateIds()
+        private List<string> GetScopes()
         {
-            if (_localizationIds.Count != _localizationPhrase.Count)
-                FillIds();
+            if (_scopes == null || _scopes.Count == 0)
+                return new List<string>() { "Default", };
+            
+            return _scopes.Select(scope => scope.Id).ToList();
         }
+
+        [UsedImplicitly]
+        private bool ValidateTextId(string textId) =>
+            _phrases.Any(phrase => phrase.LocalizationId == textId) == false;
     }
 }

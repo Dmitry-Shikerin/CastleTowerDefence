@@ -4,19 +4,26 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
+using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
 {
-    [CreateAssetMenu(fileName = "LocalizationPhrase", menuName = "Configs/LocalizationPhrase", order = 51)]
     public class LocalizationPhrase : ScriptableObject
     {
         [DisplayAsString(false)] [HideLabel] 
         [SerializeField] private string _headere = UiConstant.UiLocalizationPhraseLabel;
-        
+
+        [EnumToggleButtons] [LabelText("Parent")]
+        [SerializeField] private Enable _editParent;
+        [DisableIf("_editParent", Enable.Disable)]
+        [SerializeField] private LocalizationDataBase _parent;
+        [DisableIf("_editParent", Enable.Disable)]
+        [SerializeField] private LocalizationScope _scope;
+
         [ValueDropdown("GetDropdownValues")] [Space(10)]
         [SerializeField] private string _localizationId;
-
+        
         [SerializeField] private string _textId;
 
         [FoldoutGroup("Russian")] [EnumToggleButtons] [LabelText("Russian")]
@@ -45,6 +52,11 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         public string English => _english;
         public string Turkish => _turkish;
         
+        public LocalizationScope Scope => _scope;
+        
+        public void SetScope(LocalizationScope scope) =>
+            _scope = scope ?? throw new UnityException("Scope is null");
+        
         public void SetId(string id) =>
             _localizationId = id;
         
@@ -56,8 +68,12 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         
         public void SetTurkish(string turkish) =>
             _turkish = turkish;
+        
+        public void SetDataBase(LocalizationDataBase parent) =>
+            _parent = parent ?? throw new UnityException("Parent is null");
 
-        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
+        [Button(ButtonSizes.Large)] 
+        [ResponsiveButtonGroup]
         private void ChangeName()
         {
             if (string.IsNullOrWhiteSpace(_localizationId))
@@ -66,7 +82,8 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
             LocalizationExtension.RenameAsset(this, _localizationId);
         }
 
-        [Button(ButtonSizes.Large)] [ResponsiveButtonGroup]
+        [Button(ButtonSizes.Large)] 
+        [ResponsiveButtonGroup]
         private void AddTextId()
         {
             var localizationIds = LocalizationExtension.GetTranslateId();
@@ -78,6 +95,13 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
             localizationIds.Sort();
 
             _textId = "";
+        }
+
+        [Button(ButtonSizes.Large)]
+        [ResponsiveButtonGroup]
+        private void Remove()
+        {
+            _parent.RemovePhrase(this);
         }
 
         [UsedImplicitly]

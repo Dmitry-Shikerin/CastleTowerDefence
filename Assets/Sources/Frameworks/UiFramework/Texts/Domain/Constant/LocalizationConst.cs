@@ -11,6 +11,7 @@
 
         public const string LocalizationDatabaseAsset = "t:LocalizationDataBase";
         public const string LocalizationPhraseAsset = "t:LocalizationPhrase";
+        public const string LocalizationScopeAsset = "t:LocalizationScope";
 
         public const string LocalisationPhraseAssetPath =
             "Assets/Resources/Services/Localizations/Phrases/LocalizationPhrase.asset";

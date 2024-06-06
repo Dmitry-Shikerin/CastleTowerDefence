@@ -103,7 +103,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426577596944114996}
-  - component: {fileID: 5778360445941038143}
   m_Layer: 0
   m_Name: FlickerFireLight
   m_TagString: Untagged
@@ -128,88 +127,6 @@ Transform:
   - {fileID: 6083631832936498466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5778360445941038143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6803804204552386033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a4f538bd114722ad5809cfde0be08b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _flickerLight: {fileID: 7656968107068529210}
-  _animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.027824402
-      value: 1.0131226
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.4083109
-      value: 2.1277444
-      inSlope: 0.39052504
-      outSlope: 0.39052504
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8426733
-      value: 1.0187877
-      inSlope: -0.22510315
-      outSlope: -0.22510315
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.6574478
-      value: 1.9365208
-      inSlope: -0.07082643
-      outSlope: -0.07082643
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 2.6957707
-      value: 0.7443578
-      inSlope: -0.32322276
-      outSlope: -0.32322276
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 3.6690435
-      value: 2.4408917
-      inSlope: -0.04209478
-      outSlope: -0.04209478
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 5.346988
-      value: 1.0158207
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &8157680446579471732
 PrefabInstance:
   m_ObjectHideFlags: 0

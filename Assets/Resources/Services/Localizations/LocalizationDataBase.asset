@@ -13,61 +13,8 @@ MonoBehaviour:
   m_Name: LocalizationDataBase
   m_EditorClassIdentifier: 
   _headere: <size=18><b><color=#FF7F50><i>UiLocalizationDataBase</i></color></b></size>
-  _localizationIds:
-  - AdTutorialDescription
-  - Anonymous
-  - Apply
-  - Audio
-  - Autosaving
-  - AutosavingDescription
-  - BackToGame
-  - BearAttackUpgrader
-  - BearMassAttackUpgrader
-  - CharacterHealthUpgrader
-  - EnemySpawnTutorialDescription
-  - FirstAidKitTutorialDescription
-  - GameOver
-  - GreetingTutorialDescription
-  - GreetingTutorialTitle
-  - HealthBarTutorialDescription
-  - KillEnemyCounterTutorialDescription
-  - Leaderboard
-  - Level1
-  - Level2
-  - Level3
-  - Level4
-  - LevelCompleted
-  - LevelUp
-  - LoadGame
-  - Loading
-  - MainMenu
-  - MiniGunAttackUpgrader
-  - Name
-  - NewGame
-  - Next
-  - No
-  - OpenLeaderboard
-  - Pause
-  - Previous
-  - Rank
-  - RewardedAd
-  - SaveTutorialDescription
-  - SawLauncherAbilityUpgrader
-  - SawLauncherUpgrader
-  - Score
-  - ScoreTutorialDescription
-  - Settings
-  - SettingsTutorialDescription
-  - ShowAd
-  - Sounds
-  - Test
-  - Tutorial
-  - UpgradeAvailableAbilitiesDescription
-  - UpgradeTopAbilitiesDescription
-  - WalletTutorialDescription
-  - Warning
-  - Yes
-  _localizationPhrases:
+  _scopeId: Test
+  _phrases:
   - {fileID: 11400000, guid: 77528d783d4f1e0428aa6d0f5ed84b5f, type: 2}
   - {fileID: 11400000, guid: 63876c74ea1de9d43994d7327ca8e399, type: 2}
   - {fileID: 11400000, guid: 69de5ec067d1d704b822e44b57440ede, type: 2}
@@ -78,11 +25,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 662a6daab1a42c047bc0a9bab2c10caa, type: 2}
   - {fileID: 11400000, guid: ffe6784ac738169498b327e4d203a934, type: 2}
   - {fileID: 11400000, guid: 07cc5ec473b165341a4995f3aa5993f6, type: 2}
+  - {fileID: 11400000, guid: 1c302e1cb020bca4583d0901373e76c3, type: 2}
   - {fileID: 11400000, guid: 8f0650560cbebec42848a2320d017587, type: 2}
   - {fileID: 11400000, guid: 1c4ea06829c9cf549a33f5fce606e117, type: 2}
   - {fileID: 11400000, guid: 1eb6e793e2556b44db4a751cac9efef8, type: 2}
+  - {fileID: 11400000, guid: 39aa15fb1c5dce0449ee1bacafac14da, type: 2}
+  - {fileID: 11400000, guid: d2d89215a676ccb48a4ed6a2e4d27dfb, type: 2}
   - {fileID: 11400000, guid: f53a64aa283eb004399314159479c766, type: 2}
   - {fileID: 11400000, guid: 615f5c29af8730c4981b7396864eb9df, type: 2}
+  - {fileID: 11400000, guid: d269a92c0f2042543bd429c6661e3899, type: 2}
   - {fileID: 11400000, guid: 78cf9189f53ef894c8939ad02130f0b7, type: 2}
   - {fileID: 11400000, guid: 0af2db2987b6433479caf46ec87176bd, type: 2}
   - {fileID: 11400000, guid: 172694eecd6491d47b672c8153fe7073, type: 2}
@@ -96,14 +47,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 78dd1bea5122a00409cd836f1ba7f27f, type: 2}
   - {fileID: 11400000, guid: 7a3f9f19a26a746488461618e5dd894b, type: 2}
   - {fileID: 11400000, guid: 4df6a4f67226fd240874ee7697617532, type: 2}
+  - {fileID: 11400000, guid: b900af3d3f998284ba87fe5b26c8ca40, type: 2}
   - {fileID: 11400000, guid: 74d17935097955149a3131ea32f84042, type: 2}
   - {fileID: 11400000, guid: e29e83f3b023fd047a6b8fb4a7c87348, type: 2}
   - {fileID: 11400000, guid: 01570d1388375a349a33b991814d4dcb, type: 2}
   - {fileID: 11400000, guid: 26659e615d198f2459a53720a088d683, type: 2}
+  - {fileID: 11400000, guid: 74424b1217dee604f9f9006920b77a8c, type: 2}
+  - {fileID: 11400000, guid: 296c2354aeda9ac4cba084ef76e7a4f0, type: 2}
   - {fileID: 11400000, guid: c341409e63de21a4dabfcb392c4658b7, type: 2}
   - {fileID: 11400000, guid: 56c468c6143498147b807cef26c4c63d, type: 2}
   - {fileID: 11400000, guid: 7eacf3a1c21991d4f807d686c0daa77c, type: 2}
+  - {fileID: 11400000, guid: d037b93999631eb4a8ccf12c71be7066, type: 2}
   - {fileID: 11400000, guid: 1ae1e141b65693140ab7a25854350afe, type: 2}
+  - {fileID: 11400000, guid: 4be68596362646c488cfcb47f3017e8d, type: 2}
   - {fileID: 11400000, guid: e316c8286514cd648a287bbed8cf08d6, type: 2}
   - {fileID: 11400000, guid: 8fda57a94d33105499128f084fcdc649, type: 2}
   - {fileID: 11400000, guid: 19f322697e1460e478cde67c2e0e8db3, type: 2}
@@ -121,6 +77,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 90aaa6d14d0146840ac202cba1bf2c8e, type: 2}
   - {fileID: 11400000, guid: d71805d7a77af3347821b13d87c438f1, type: 2}
   - {fileID: 11400000, guid: f5d8e4744973f6d42ad95b6bb1fdf67b, type: 2}
-  _localizationPhrase:
-    _keys: []
-    _values: []
+  _scopes: []
+  _enableTextId: 1
+  _textId: wdwdada
+  _scope: Default
+  _enableRussian: 0
+  _russian: 
+  _enableEnglish: 0
+  _english: 
+  _enableTurkish: 0
+  _turkish: 

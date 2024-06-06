@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEditor;
@@ -7,50 +7,52 @@ using UnityEditor;
 namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
 {
     [CreateAssetMenu(
-        fileName = "EnemySpawnerConfigContainer", 
+        fileName = "EnemySpawnerConfigContainer",
         menuName = "Configs/EnemySpawnerConfigContainer",
         order = 51)]
     public class EnemySpawnerConfigContainer : ScriptableObject
     {
         [SerializeField] private List<EnemySpawnerWave> _waves;
-        
-        public IReadOnlyList<EnemySpawnerWave> Waves => _waves;
-        
-        private void RenameAsset(Object asset, string newName)
-        {
-#if UNITY_EDITOR
-            string path = AssetDatabase.GetAssetPath(asset);
-            AssetDatabase.RenameAsset(path, newName);
-#endif
-        }
 
-        [Button(ButtonSizes.Medium)]
-        private void AddWaves() =>
-            _waves = FindAssets<EnemySpawnerWave>("t:EnemySpawnerWave");
+        public IReadOnlyList<EnemySpawnerWave> Waves => _waves;
+
+        public void RemoveWave(EnemySpawnerWave wave)
+        {
+            AssetDatabase.RemoveObjectFromAsset(wave);
+            _waves.Remove(wave);
+            AssetDatabase.SaveAssets();
+        }
         
-        [Button(ButtonSizes.Medium)]
-        private void CreateWave()
+        [UsedImplicitly]
+        [ButtonGroup("Buttons")]
+        [ResponsiveButtonGroup("Buttons/Buttons")]
+        private void RenameWaves()
         {
 #if UNITY_EDITOR
-            EnemySpawnerWave phrase = CreateInstance<EnemySpawnerWave>();
+            for (int i = 0; i < _waves.Count; i++)
+            {
+                _waves[i].name = $"Wave_{i + 1}";
+                _waves[i].SetWaveId(i + 1);
+            }
             
-            AssetDatabase.CreateAsset(phrase, 
-                "Assets/Resources/Configs/EnemySpawnerWaves/Waves/EnemySpawnerWave.asset");
-            int waveId = _waves.Count + 1;
-            RenameAsset(phrase, $"Wave_{waveId}");
-            phrase.SetWaveId(waveId);
-            _waves.Add(phrase);
             AssetDatabase.SaveAssets();
 #endif
         }
-
-        private static List<T> FindAssets<T>(string assetName) where T : Object
+        
+        [UsedImplicitly]
+        [ResponsiveButtonGroup("Buttons/Buttons")]
+        private void CreateWave()
         {
-            return AssetDatabase
-                .FindAssets(assetName)
-                .Select(path => AssetDatabase.GUIDToAssetPath(path))
-                .Select(path => AssetDatabase.LoadAssetAtPath<T>(path))
-                .ToList();
+#if UNITY_EDITOR
+            EnemySpawnerWave wave = CreateInstance<EnemySpawnerWave>();
+            int waveId = _waves.Count + 1;
+            wave.Parent = this;
+            AssetDatabase.AddObjectToAsset(wave, this);
+            wave.SetWaveId(waveId);
+            wave.name = $"Wave_{waveId}";
+            _waves.Add(wave);
+            AssetDatabase.SaveAssets();
+#endif
         }
     }
 }
