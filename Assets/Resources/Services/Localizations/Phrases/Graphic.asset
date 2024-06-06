@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Graphic
   m_EditorClassIdentifier: 
   _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
-  _localizationId: 
-  _textId: 
+  _editParent: 0
+  _parent: {fileID: 0}
+  _scope: {fileID: 0}
+  _localizationId: Graphic
+  _textId: Graphic
   _editRussian: 0
   _russian: 
   _editEnglish: 0

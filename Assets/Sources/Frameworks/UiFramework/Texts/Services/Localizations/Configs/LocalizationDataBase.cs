@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
+using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;
 using UnityEngine;
@@ -16,9 +17,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         [DisplayAsString(false)] [HideLabel] [SerializeField]
         private string _headere = UiConstant.UiLocalizationDataBaseLabel;
 
-        [TabGroup("GetId", "Scopes")] 
-        [SerializeField] private string _scopeId;
-        
         [TabGroup("GetId", "DataBase")] [Space(10)] 
         [SerializeField] private List<LocalizationPhrase> _phrases;
         [TabGroup("GetId", "DataBase")] [Space(10)] 
@@ -83,7 +81,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         }
 
         public List<LocalizationPhrase> Phrases => _phrases;
-
+        
         public void RemovePhrase(LocalizationPhrase phrase)
         {
             AssetDatabase.RemoveObjectFromAsset(phrase);
@@ -91,31 +89,40 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
             AssetDatabase.SaveAssets();
         }
 
-        [TabGroup("GetId", "Scopes")]
-        [Button(ButtonSizes.Large)]
-        public void CreateScope()
-        {
-#if UNITY_EDITOR
-            if (_scopes.Any(scope => scope.Id == _scopeId))
-                return;
-            
-            LocalizationScope scope = CreateInstance<LocalizationScope>();
-            scope.SetParent(this);
-            AssetDatabase.AddObjectToAsset(scope, this);
-            scope.SetId(_scopeId);
-            scope.name = _scopeId + "_Scope";
-            _scopes.Add(scope);
-            AssetDatabase.SaveAssets();
-#else
-            return null;
-#endif
-        }
-
         public void RemoveScope(LocalizationScope localizationScope)
         {
             AssetDatabase.RemoveObjectFromAsset(localizationScope);
             _scopes.Remove(localizationScope);
             AssetDatabase.SaveAssets();
+        }
+
+        [Button(ButtonSizes.Gigantic)]
+        private void TransferData()
+        {
+            _phrases.Clear();
+            var phrases = LocalizationExtension.FindAllLocalizationPhrases();
+
+            foreach (LocalizationPhrase phras in phrases)
+            {
+                // if (_phrases.Any(phrase => phrase.LocalizationId == _textId))
+                //     return;
+                //
+                LocalizationPhrase phrase = CreateInstance<LocalizationPhrase>();
+            
+                AssetDatabase.AddObjectToAsset(phrase, this);
+                AssetDatabase.Refresh();
+            
+                _phrases.Add(phrase);
+                phrase.SetDataBase(this);
+                phrase.SetId(phras.LocalizationId);
+                phrase.name = phras.LocalizationId + "_Phrase";
+
+                phrase.SetRussian(phras.Russian);
+                phrase.SetEnglish(phras.English);
+                phrase.SetTurkish(phras.Turkish);
+            
+                AssetDatabase.SaveAssets();
+            }
         }
         
         [TabGroup("GetId", "CreatePhrase")]
