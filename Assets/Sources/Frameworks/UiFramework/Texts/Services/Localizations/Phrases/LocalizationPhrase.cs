@@ -91,8 +91,10 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
             if (localizationIds.Contains(_textId))
                 return;
 
-            localizationIds.Add(_textId);
-            localizationIds.Sort();
+            //localizationIds.Add(_textId);
+            //localizationIds.Sort();
+
+            _localizationId = _textId;
 
             _textId = "";
         }

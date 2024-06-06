@@ -382,14 +382,6 @@ MonoBehaviour:
   _russianText: "\u0414\u0410"
   _englishText: YES
   _turkishText: EVET
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 18527919}
 --- !u!1 &20204221
 GameObject:
@@ -17122,14 +17114,6 @@ MonoBehaviour:
   _russianText: "\u0412\u041A\u041B."
   _englishText: ON
   _turkishText: "\rA\xC7IK"
-  _enableTextId: 0
-  _textId: On
-  _enableRussian: 0
-  _russian: "\u0412\u041A\u041B."
-  _enableEnglish: 0
-  _english: ON
-  _enableTurkish: 0
-  _turkish: "\rA\xC7IK"
   _tmpText: {fileID: 404384016}
 --- !u!1 &409852993
 GameObject:
@@ -24734,14 +24718,6 @@ MonoBehaviour:
   _russianText: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
   _englishText: SETTINGS
   _turkishText: "\rAYARLAR"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 549766183}
 --- !u!4 &550764841 stripped
 Transform:
@@ -27887,14 +27863,6 @@ MonoBehaviour:
   _russianText: "\u0412\u041A\u041B."
   _englishText: ON
   _turkishText: "\rA\xC7IK"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 620030088}
 --- !u!1 &623338277
 GameObject:
@@ -31035,14 +31003,6 @@ MonoBehaviour:
   _russianText: "\u0417\u0432\u0443\u043A\u0438"
   _englishText: Sounds
   _turkishText: Sesler
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 714964514}
 --- !u!1 &716426158
 GameObject:
@@ -31423,14 +31383,6 @@ MonoBehaviour:
   _russianText: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
   _englishText: SETTINGS
   _turkishText: AYARLAR
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 741086606}
 --- !u!1 &746218732
 GameObject:
@@ -44072,14 +44024,6 @@ MonoBehaviour:
   _russianText: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
   _englishText: Graphic
   _turkishText: "\rGrafik"
-  _enableTextId: 0
-  _textId: Graphic
-  _enableRussian: 0
-  _russian: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
-  _enableEnglish: 0
-  _english: Graphic
-  _enableTurkish: 0
-  _turkish: "\rGrafik"
   _tmpText: {fileID: 972533614}
 --- !u!1 &975382491
 GameObject:
@@ -51377,14 +51321,6 @@ MonoBehaviour:
   _russianText: "\u0413\u041B\u0410\u0412\u041D\u041E\u0415 \u041C\u0415\u041D\u042E"
   _englishText: MAIN MENU
   _turkishText: "ANA MEN\xDC"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1084757125}
 --- !u!1 &1086638142
 GameObject:
@@ -52106,14 +52042,6 @@ MonoBehaviour:
   _russianText: "\u0412\u042B\u041A\u041B."
   _englishText: OFF
   _turkishText: "\rKAPALI"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1086638146}
 --- !u!1 &1086789319
 GameObject:
@@ -52268,14 +52196,6 @@ MonoBehaviour:
   _russianText: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
   _englishText: Do you want to quit?
   _turkishText: "\xC7\u0131kmak m\u0131 istiyorsun?"
-  _enableTextId: 0
-  _textId: Quit
-  _enableRussian: 0
-  _russian: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
-  _enableEnglish: 0
-  _english: Do you want to quit?
-  _enableTurkish: 0
-  _turkish: "\xC7\u0131kmak m\u0131 istiyorsun?"
   _tmpText: {fileID: 1086789321}
 --- !u!1 &1087049008
 GameObject:
@@ -52965,14 +52885,6 @@ MonoBehaviour:
   _russianText: "\u041A\u041E\u041D\u0415\u0426 \u0418\u0413\u0420\u042B"
   _englishText: GAME OVER
   _turkishText: "\rOYUN B\u0130TT\u0130"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1097975759}
 --- !u!1 &1107320083
 GameObject:
@@ -54592,14 +54504,6 @@ MonoBehaviour:
   _russianText: "\u0418\u0433\u0440\u0430"
   _englishText: Gameplay
   _turkishText: "\rOynan\u0131\u015F"
-  _enableTextId: 0
-  _textId: Gameplay
-  _enableRussian: 0
-  _russian: "\u0418\u0433\u0440\u0430"
-  _enableEnglish: 0
-  _english: Gameplay
-  _enableTurkish: 0
-  _turkish: "\rOynan\u0131\u015F"
   _tmpText: {fileID: 1165582224}
 --- !u!1 &1166068328
 GameObject:
@@ -54754,14 +54658,6 @@ MonoBehaviour:
   _russianText: "\u041E\u0427\u041A\u0418"
   _englishText: SCORE
   _turkishText: PUAN
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1166068330}
 --- !u!1 &1170419354
 GameObject:
@@ -60801,14 +60697,6 @@ MonoBehaviour:
   _russianText: "\u0412\u042B\u041A\u041B."
   _englishText: OFF
   _turkishText: "\rKAPALI"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1256598312}
 --- !u!1 &1256675186
 GameObject:
@@ -61069,14 +60957,6 @@ MonoBehaviour:
   _russianText: "\u041F\u0410\u0423\u0417\u0410"
   _englishText: PAUSE
   _turkishText: "\rDURAKLAT"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1262217346}
 --- !u!1 &1264260034
 GameObject:
@@ -62964,14 +62844,6 @@ MonoBehaviour:
   _russianText: "\u041D\u0415\u0422"
   _englishText: NO
   _turkishText: HAYIR
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1299020497}
 --- !u!1 &1299598976
 GameObject:
@@ -63534,6 +63406,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1319331199}
   - component: {fileID: 1319331200}
+  - component: {fileID: 1319331203}
+  - component: {fileID: 1319331202}
+  - component: {fileID: 1319331201}
   m_Layer: 5
   m_Name: NukeAbilityApplierView
   m_TagString: Untagged
@@ -63558,7 +63433,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319331200
 MonoBehaviour:
@@ -63573,6 +63448,122 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilityButton: {fileID: 786596875}
+--- !u!114 &1319331201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319331198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: 
+  _disableTexts: 0
+  _russianText: 
+  _englishText: 
+  _turkishText: 
+  _tmpText: {fileID: 1319331202}
+--- !u!114 &1319331202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319331198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1319331203
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319331198}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1320212741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64359,14 +64350,6 @@ MonoBehaviour:
   _russianText: "\u0412\u041A\u041B."
   _englishText: ON
   _turkishText: "\rA\xC7IK"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1323492165}
 --- !u!1 &1323525577
 GameObject:
@@ -74017,14 +74000,6 @@ MonoBehaviour:
   _russianText: "\u0412\u042B\u041A\u041B."
   _englishText: OFF
   _turkishText: "\rKAPALI"
-  _enableTextId: 0
-  _textId: Off
-  _enableRussian: 0
-  _russian: "\u0412\u042B\u041A\u041B."
-  _enableEnglish: 0
-  _english: OFF
-  _enableTurkish: 0
-  _turkish: "\rKAPALI"
   _tmpText: {fileID: 1435285883}
 --- !u!1 &1438812326
 GameObject:
@@ -76842,14 +76817,6 @@ MonoBehaviour:
   _russianText: "\u0423\u0420\u041E\u0412\u0415\u041D\u042C \u0417\u0410\u0412\u0415\u0420\u0428\u0415\u041D!"
   _englishText: LEVEL COMPLETED!
   _turkishText: "SEV\u0130YE TAMAMLANDI!"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1482161240}
 --- !u!1 &1482702586
 GameObject:
@@ -93406,14 +93373,6 @@ MonoBehaviour:
   _russianText: "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
   _englishText: RESUME
   _turkishText: "\rS\xDCRD\xDCRMEK"
-  _enableTextId: 0
-  _textId: Resume
-  _enableRussian: 0
-  _russian: "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
-  _enableEnglish: 0
-  _english: RESUME
-  _enableTurkish: 0
-  _turkish: "\rS\xDCRD\xDCRMEK"
   _tmpText: {fileID: 1759256786}
 --- !u!1 &1761546318
 GameObject:
@@ -96356,14 +96315,6 @@ MonoBehaviour:
   _russianText: "\u041E\u0427\u041A\u0418"
   _englishText: SCORE
   _turkishText: PUAN
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1829368598}
 --- !u!1 &1836184359
 GameObject:
@@ -105478,14 +105429,6 @@ MonoBehaviour:
   _russianText: "\u0410\u0443\u0434\u0438\u043E"
   _englishText: Audio
   _turkishText: Ses
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 2007223458}
 --- !u!1 &2015943341
 GameObject:
@@ -107565,14 +107508,6 @@ MonoBehaviour:
   _russianText: "\u0418\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440\u044B \u0417\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
   _englishText: Health Bars
   _turkishText: "\rSa\u011Fl\u0131k Barlar\u0131"
-  _enableTextId: 0
-  _textId: HealthBars
-  _enableRussian: 0
-  _russian: "\u0418\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440\u044B \u0417\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
-  _enableEnglish: 0
-  _english: Health Bars
-  _enableTurkish: 0
-  _turkish: "\rSa\u011Fl\u0131k Barlar\u0131"
   _tmpText: {fileID: 2096711503}
 --- !u!1 &2102072926
 GameObject:
@@ -107833,14 +107768,6 @@ MonoBehaviour:
   _russianText: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
   _englishText: Graphic
   _turkishText: "\rGrafik"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 2107283680}
 --- !u!1 &2113857268
 GameObject:
@@ -108572,14 +108499,6 @@ MonoBehaviour:
   _russianText: "\u041C\u0443\u0437\u044B\u043A\u0430"
   _englishText: Music
   _turkishText: "\rM\xFCzik"
-  _enableTextId: 0
-  _textId: Music
-  _enableRussian: 0
-  _russian: "\u041C\u0443\u0437\u044B\u043A\u0430"
-  _enableEnglish: 0
-  _english: Music
-  _enableTurkish: 0
-  _turkish: "\rM\xFCzik"
   _tmpText: {fileID: 2124182235}
 --- !u!1 &2124497779
 GameObject:
