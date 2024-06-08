@@ -52,8 +52,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         public override void Enable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            // Spawn(_cancellationTokenSource.Token);
-            SpawnEnemy(_view.SpawnPoints[0]);
+            Spawn(_cancellationTokenSource.Token);
+            // SpawnEnemy(_view.SpawnPoints[0]);
         }
 
         public override void Disable()
@@ -74,7 +74,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
                         // SpawnBoss(spawnPoint.Position, _enemySpawnerView.CharacterMeleeView);
                         
                         // await _enemySpawner.WaitWave(_killEnemyCounter, cancellationToken);
-                        await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: cancellationToken);
+                        await UniTask.Delay(TimeSpan.FromSeconds(2), cancellationToken: cancellationToken);
                         // await UniTask.Delay(
                         //     TimeSpan.FromSeconds(
                         //         _enemySpawner.SpawnDelays[_enemySpawner.CurrentWave]),

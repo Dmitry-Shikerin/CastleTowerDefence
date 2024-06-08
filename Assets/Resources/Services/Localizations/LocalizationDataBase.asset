@@ -631,30 +631,6 @@ MonoBehaviour:
   _english: 
   _editTurkish: 0
   _turkish: 
---- !u!114 &-2575697378296887874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
-  m_Name: On_Phrase
-  m_EditorClassIdentifier: 
-  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
-  _editParent: 0
-  _parent: {fileID: 11400000}
-  _scope: {fileID: 0}
-  _localizationId: On
-  _textId: 
-  _editRussian: 0
-  _russian: 
-  _editEnglish: 0
-  _english: 
-  _editTurkish: 0
-  _turkish: 
 --- !u!114 &-2340926341720809940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,30 +706,6 @@ MonoBehaviour:
   _english: Increases the damage from circular saws
   _editTurkish: 0
   _turkish: "Daire testerelerden kaynaklanan hasar\u0131 art\u0131r\u0131r"
---- !u!114 &-1911654384898094221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
-  m_Name: Test_Phrase
-  m_EditorClassIdentifier: 
-  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
-  _editParent: 0
-  _parent: {fileID: 11400000}
-  _scope: {fileID: 0}
-  _localizationId: Test
-  _textId: 
-  _editRussian: 0
-  _russian: 
-  _editEnglish: 0
-  _english: 
-  _editTurkish: 0
-  _turkish: 
 --- !u!114 &-1169646632141698292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +895,6 @@ MonoBehaviour:
   - {fileID: 7171604089684731652}
   - {fileID: -4169823259303798984}
   - {fileID: 3561057331734364861}
-  - {fileID: -2575697378296887874}
   - {fileID: 562711224492482245}
   - {fileID: 6072498139290405345}
   - {fileID: -906205523627026144}
@@ -956,7 +907,6 @@ MonoBehaviour:
   - {fileID: -3465262421581960423}
   - {fileID: -8106710555367711880}
   - {fileID: 2479459449794573606}
-  - {fileID: -1911654384898094221}
   - {fileID: -6256734255822034777}
   - {fileID: 6227071353628013496}
   - {fileID: -1169646632141698292}

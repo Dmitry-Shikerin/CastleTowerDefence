@@ -42,7 +42,7 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         
         private void SpawnMelee()
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < _view.MeleeSpawnPoints.Count; i++)
             {
                 var spawnPoint = _view.MeleeSpawnPoints[i];
                 ICharacterMeleeView view = _characterMeleeSpawnService.Spawn(spawnPoint.Position);
@@ -52,7 +52,7 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 
         private void SpawnRange()
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < _view.RangeSpawnPoints.Count; i++)
             {
                 var spawnPoint = _view.RangeSpawnPoints[i];
                 ICharacterRangeView view = _characterRangeSpawnService.Spawn(spawnPoint.Position);

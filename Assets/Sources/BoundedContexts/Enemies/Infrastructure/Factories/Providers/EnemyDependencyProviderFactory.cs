@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.Presentation;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers
@@ -9,10 +10,16 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers
     public class EnemyDependencyProviderFactory
     {
         private readonly IOverlapService _overlapService;
+        private readonly IExplosionBodyBloodySpawnService _explosionBodyBloodySpawnService;
 
-        public EnemyDependencyProviderFactory(IOverlapService overlapService)
+        public EnemyDependencyProviderFactory(
+            IOverlapService overlapService,
+            IExplosionBodyBloodySpawnService explosionBodyBloodySpawnService)
         {
             _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
+            _explosionBodyBloodySpawnService = 
+                explosionBodyBloodySpawnService 
+                ?? throw new ArgumentNullException(nameof(explosionBodyBloodySpawnService));
         }
 
         public EnemyDependencyProvider Create(Enemy enemy, EnemyView view)
@@ -22,7 +29,8 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers
                 enemy, 
                 view,
                 view.Animation,
-                _overlapService);
+                _overlapService,
+                _explosionBodyBloodySpawnService);
             
             return provider;
         }

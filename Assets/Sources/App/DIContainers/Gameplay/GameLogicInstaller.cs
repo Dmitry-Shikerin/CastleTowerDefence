@@ -36,6 +36,11 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Inter
 using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Implementation;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
@@ -95,6 +100,11 @@ namespace Sources.App.DIContainers.Gameplay
             
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
+            
+            //ExplosionBodyBloody
+            Container.Bind<IObjectPool<ExplosionBodyBloodyView>>().To<ObjectPool<ExplosionBodyBloodyView>>().AsSingle();
+            Container.Bind<IExplosionBodyBloodyViewFactory>().To<ExplosionBodyBloodyViewFactory>().AsSingle();
+            Container.Bind<IExplosionBodyBloodySpawnService>().To<ExplosionBodyBloodySpawnService>().AsSingle();
             
             //Abilities
             Container.Bind<AbilityApplierPresenterFactory>().AsSingle();

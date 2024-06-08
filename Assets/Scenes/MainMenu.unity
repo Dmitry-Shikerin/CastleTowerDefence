@@ -1103,14 +1103,6 @@ MonoBehaviour:
   _russianText: "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
   _englishText: CONTINUE
   _turkishText: DEVAM ETMEK
-  _enableTextId: 0
-  _textId: Continue
-  _enableRussian: 0
-  _russian: "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
-  _enableEnglish: 0
-  _english: CONTINUE
-  _enableTurkish: 0
-  _turkish: DEVAM ETMEK
   _tmpText: {fileID: 11019086}
 --- !u!1 &11123342
 GameObject:
@@ -4257,14 +4249,6 @@ MonoBehaviour:
   _russianText: "\u0412\u041A\u041B."
   _englishText: ON
   _turkishText: "\rA\xC7IK"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 69349132}
 --- !u!1 &79695703
 GameObject:
@@ -6307,14 +6291,6 @@ MonoBehaviour:
   _russianText: "\u0410\u0443\u0434\u0438\u043E"
   _englishText: Audio
   _turkishText: Ses
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 157824006}
 --- !u!1 &166653556
 GameObject:
@@ -7036,14 +7012,6 @@ MonoBehaviour:
   _russianText: "\u0412\u041A\u041B."
   _englishText: ON
   _turkishText: "\rA\xC7IK"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 166653560}
 --- !u!1001 &213551437
 PrefabInstance:
@@ -9705,14 +9673,6 @@ MonoBehaviour:
   _russianText: "\u0414\u0410"
   _englishText: YES
   _turkishText: EVET
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 410873573}
 --- !u!1 &414288218
 GameObject:
@@ -9867,14 +9827,6 @@ MonoBehaviour:
   _russianText: "\u0417\u0432\u0443\u043A\u0438"
   _englishText: Sounds
   _turkishText: Sesler
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 414288220}
 --- !u!1 &437090577
 GameObject:
@@ -13672,14 +13624,6 @@ MonoBehaviour:
   _englishText: To open the leaderboard, you need to log in. Do you want to log in?
   _turkishText: "Liderlik tablosunu a\xE7mak i\xE7in giris yapman\u0131z gerekir.
     Giris yapmak ister misiniz?"
-  _enableTextId: 1
-  _textId: 
-  _enableRussian: 1
-  _russian: 
-  _enableEnglish: 1
-  _english: 
-  _enableTurkish: 1
-  _turkish: 
   _tmpText: {fileID: 541255794}
 --- !u!1 &554668143
 GameObject:
@@ -22719,14 +22663,6 @@ MonoBehaviour:
   _russianText: "\u0412\u041A\u041B."
   _englishText: ON
   _turkishText: "\rA\xC7IK"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 763044695}
 --- !u!1 &781950365
 GameObject:
@@ -25749,14 +25685,6 @@ MonoBehaviour:
   _russianText: "\u0412\u042B\u041A\u041B."
   _englishText: OFF
   _turkishText: "\rKAPALI"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 844874876}
 --- !u!1 &867454541
 GameObject:
@@ -26127,14 +26055,6 @@ MonoBehaviour:
   _russianText: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
   _englishText: SETTINGS
   _turkishText: AYARLAR
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 869979543}
 --- !u!1 &884613421
 GameObject:
@@ -26856,14 +26776,6 @@ MonoBehaviour:
   _russianText: "\u0412\u042B\u041A\u041B."
   _englishText: OFF
   _turkishText: "\rKAPALI"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 884613425}
 --- !u!1 &890349615
 GameObject:
@@ -27832,14 +27744,6 @@ MonoBehaviour:
   _russianText: "\u0412\u042B\u041A\u041B."
   _englishText: OFF
   _turkishText: "\rKAPALI"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 900975102}
 --- !u!1 &912522643
 GameObject:
@@ -29795,14 +29699,6 @@ MonoBehaviour:
   _russianText: "\u0418\u0433\u0440\u0430"
   _englishText: Gameplay
   _turkishText: "\rOynan\u0131s"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 932783945}
 --- !u!1 &976151621
 GameObject:
@@ -30508,14 +30404,6 @@ MonoBehaviour:
   _russianText: "\u041D\u041E\u0412\u0410\u042F \u0418\u0413\u0420\u0410"
   _englishText: NEW GAME
   _turkishText: "\rYEN\u0130 OYUN"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1054881718}
 --- !u!1 &1070237475
 GameObject:
@@ -33580,14 +33468,6 @@ MonoBehaviour:
   _russianText: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
   _englishText: SETTINGS
   _turkishText: AYARLAR
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1158323488}
 --- !u!1 &1161086617
 GameObject:
@@ -34584,14 +34464,6 @@ MonoBehaviour:
   _russianText: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
   _englishText: Graphic
   _turkishText: "\rGrafik"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1336236394}
 --- !u!1 &1338771068
 GameObject:
@@ -34746,14 +34618,6 @@ MonoBehaviour:
   _russianText: "\u041D\u0415\u0422"
   _englishText: NO
   _turkishText: HAYIR
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1338771070}
 --- !u!1 &1343866409
 GameObject:
@@ -35115,14 +34979,6 @@ MonoBehaviour:
   _russianText: "\u0414\u0410"
   _englishText: YES
   _turkishText: EVET
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1370961472}
 --- !u!1 &1383691317
 GameObject:
@@ -35730,14 +35586,6 @@ MonoBehaviour:
   _russianText: "\u041C\u0443\u0437\u044B\u043A\u0430"
   _englishText: Music
   _turkishText: "\rM\xFCzik"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1429663684}
 --- !u!1 &1440037333
 GameObject:
@@ -35904,14 +35752,6 @@ MonoBehaviour:
     sure you want to start a new game?
   _turkishText: "Yeni bir oyuna baslarsan\u0131z, ge\xE7mis tasarruflar s\u0131f\u0131rlan\u0131r.
     Yeni bir oyuna baslamak istedi\u011Finizden emin misiniz?"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1440037335}
 --- !u!1 &1448772909
 GameObject:
@@ -36007,7 +35847,7 @@ MonoBehaviour:
   NormalState:
     StateType: 0
     StateEvent:
-      EventName: Normal
+      EventName: Normal State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -36015,7 +35855,7 @@ MonoBehaviour:
   HighlightedState:
     StateType: 1
     StateEvent:
-      EventName: Highlighted
+      EventName: Highlighted State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -36023,7 +35863,7 @@ MonoBehaviour:
   PressedState:
     StateType: 2
     StateEvent:
-      EventName: Pressed
+      EventName: Pressed State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -36031,7 +35871,7 @@ MonoBehaviour:
   SelectedState:
     StateType: 3
     StateEvent:
-      EventName: Selected
+      EventName: Selected State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -39640,14 +39480,6 @@ MonoBehaviour:
   _russianText: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
   _englishText: Graphic
   _turkishText: "\rGrafik"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1495436984}
 --- !u!1 &1531644793
 GameObject:
@@ -40521,14 +40353,6 @@ MonoBehaviour:
   _russianText: "\u0418\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440\u044B \u0417\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
   _englishText: Health Bars
   _turkishText: "\rSa\u011Fl\u0131k Barlar\u0131"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1654319234}
 --- !u!1 &1660048868
 GameObject:
@@ -41298,14 +41122,6 @@ MonoBehaviour:
   _russianText: "\u0422\u0410\u0411\u041B\u0418\u0426\u0410 \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
   _englishText: LEADERBOARD
   _turkishText: "L\u0130DERLER SIRALAMASI"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1773687355}
 --- !u!1 &1774921363
 GameObject:
@@ -42425,14 +42241,6 @@ MonoBehaviour:
   _russianText: "\u0422\u0410\u0411\u041B\u0418\u0426\u0410 \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
   _englishText: LEADERBOARD
   _turkishText: "L\u0130DERLER SIRALAMASI"
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 1894077469}
 --- !u!1 &1921165095
 GameObject:
@@ -45503,14 +45311,6 @@ MonoBehaviour:
   _russianText: "\u041D\u0415\u0422"
   _englishText: NO
   _turkishText: HAYIR
-  _enableTextId: 0
-  _textId: 
-  _enableRussian: 0
-  _russian: 
-  _enableEnglish: 0
-  _english: 
-  _enableTurkish: 0
-  _turkish: 
   _tmpText: {fileID: 2110635675}
 --- !u!1 &2112322690
 GameObject:
