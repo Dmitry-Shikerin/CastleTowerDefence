@@ -121,9 +121,5 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [ResponsiveButtonGroup("GetId/Translations/Get")] [UsedImplicitly]
         private void GetTurkish() =>
             _tmpText.text = _turkishText;
-        
-        // [UsedImplicitly]
-        // private bool ValidateTextId(string textId) =>
-        //     LocalizationDataBase.Instance.LocalizationIds.Contains(textId) == false;
     }
 }

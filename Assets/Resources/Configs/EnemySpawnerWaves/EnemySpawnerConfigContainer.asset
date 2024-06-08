@@ -18,7 +18,13 @@ MonoBehaviour:
   _spawnDelay: 2
   _enemyCount: 6
   _moneyPerResilenceCharacters: 3
+  _enemyAttackPower: 0
+  _enemyHealth: 0
+  _enemyAttackSpeed: 0
   _bossesCount: 0
+  _bossAttackPower: 0
+  _bossHealth: 0
+  _bossAttackSpeed: 0
   _rannerEnemyCount: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -53,5 +59,11 @@ MonoBehaviour:
   _spawnDelay: 2
   _enemyCount: 5
   _moneyPerResilenceCharacters: 2
+  _enemyAttackPower: 0
+  _enemyHealth: 0
+  _enemyAttackSpeed: 0
   _bossesCount: 0
+  _bossAttackPower: 0
+  _bossHealth: 0
+  _bossAttackSpeed: 0
   _rannerEnemyCount: 0

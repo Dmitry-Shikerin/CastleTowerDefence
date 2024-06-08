@@ -9,7 +9,6 @@ namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.Presentatio
     public interface ITextView : IEnable, IDisable
     {
         bool IsHide { get; }
-        string Id { get; }
         
         void SetText(string text);
         void SetIsHide(bool isHide);

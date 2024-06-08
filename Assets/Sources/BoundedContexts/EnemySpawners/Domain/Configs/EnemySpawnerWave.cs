@@ -29,7 +29,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         [SerializeField] private int _bossAttackSpeed;
         [Header("Runners")]
         [SerializeField] private int _rannerEnemyCount;
-
         
         public int WaveId => _waveId;
         public int SpawnDelay => _spawnDelay;
