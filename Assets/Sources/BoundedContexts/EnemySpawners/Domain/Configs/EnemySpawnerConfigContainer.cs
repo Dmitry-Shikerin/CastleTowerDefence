@@ -20,12 +20,10 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         {
             AssetDatabase.RemoveObjectFromAsset(wave);
             _waves.Remove(wave);
+            RenameWaves();
             AssetDatabase.SaveAssets();
         }
         
-        [UsedImplicitly]
-        [ButtonGroup("Buttons")]
-        [ResponsiveButtonGroup("Buttons/Buttons")]
         private void RenameWaves()
         {
 #if UNITY_EDITOR
@@ -40,7 +38,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         }
         
         [UsedImplicitly]
-        [ResponsiveButtonGroup("Buttons/Buttons")]
+        [ResponsiveButtonGroup("Buttons")]
         private void CreateWave()
         {
 #if UNITY_EDITOR

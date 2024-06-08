@@ -8,6 +8,7 @@ using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Int
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
@@ -18,11 +19,13 @@ using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
+using Sources.Domain.Models.Constants;
 using Sources.Domain.Models.Data;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
@@ -94,7 +97,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _abilityApplierViewFactory.Create(flamethrowerAbility, _gameplayHud.FlamethrowerAbilityApplier);
 
             //Enemies
-            EnemySpawner enemySpawner = new EnemySpawner();
+            EnemySpawnerConfigContainer enemySpawnerConfig = 
+                Resources.Load<EnemySpawnerConfigContainer>(
+                PrefabPath.EnemySpawnerConfigContainer);
+            EnemySpawner enemySpawner = new EnemySpawner(enemySpawnerConfig);
             _rootGameObject.EnemySpawnerView.SetBunkerView(bunkerView);
             _enemySpawnerViewFactory.Create(
                 enemySpawner, 
