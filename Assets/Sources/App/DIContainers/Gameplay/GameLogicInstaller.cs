@@ -86,6 +86,9 @@ namespace Sources.App.DIContainers.Gameplay
             //EnemiesSpawners
             Container.Bind<EnemySpawnerPresenterFactory>().AsSingle();
             Container.Bind<EnemySpawnerViewFactory>().AsSingle();
+
+            Container.Bind<EnemySpawnerUiPresenterFactory>().AsSingle();
+            Container.Bind<EnemySpawnerUiFactory>().AsSingle();
             
             //Enemies
             Container.Bind<IEnemySpawnService>().To<EnemySpawnService>().AsSingle();

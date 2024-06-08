@@ -71,6 +71,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
                     for (int i = startWave; i < _enemySpawner.Waves.Count; i++)
                     {
+                        _enemySpawner.SpawnedEnemiesInCurrentWave = 0;
+                        
                         for (int j = 0; j < _enemySpawner.Waves[i].EnemyCount; j++)
                         {
                             int randomSpawnPoint = Random.Range(0, _view.SpawnPoints.Count);
@@ -99,7 +101,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             enemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
             enemyView.SetCharacterRangePoint(spawnPoint.CharacterRangedSpawnPoint);
 
-            _enemySpawner.SpawnedEnemies++;
+            _enemySpawner.SpawnedEnemiesInCurrentWave++;
         }
 
         private void SpawnBoss(Vector3 position, ICharacterMeleeView characterMeleeView)

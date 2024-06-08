@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rootGameObject: {fileID: 0}
+  _gameplayHud: {fileID: 0}
 --- !u!1 &2912915735585616967
 GameObject:
   m_ObjectHideFlags: 0

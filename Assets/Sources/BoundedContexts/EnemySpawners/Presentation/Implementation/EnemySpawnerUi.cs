@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using Doozy.Runtime.UIManager.Components;
+using Sirenix.OdinInspector;
 using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Texts;
@@ -11,7 +12,9 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation.Implementation
     public class EnemySpawnerUi : PresentableView<EnemySpawnerUiPresenter>, IEnemySpawnerUi
     {
         [Required] [SerializeField] private TextView _currentWaveText;
+        [Required] [SerializeField] private UISlider _spawnerProgressSlider;
 
         public ITextView CurrentWaveText => _currentWaveText;
+        public UISlider SpawnerProgressSlider => _spawnerProgressSlider;
     }
 }

@@ -41,6 +41,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly NukeAbilityViewFactory _nukeAbilityViewFactory;
         private readonly AbilityApplierViewFactory _abilityApplierViewFactory;
         private readonly FlamethrowerAbilityViewFactory _flamethrowerAbilityViewFactory;
+        private readonly EnemySpawnerUiFactory _enemySpawnerUiFactory;
         private readonly CharacterSpawnAbilityViewFactory _characterSpawnAbilityViewFactory;
         private readonly IEnemyViewFactory _enemyViewFactory;
 
@@ -56,7 +57,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             BunkerViewFactory bunkerViewFactory,
             NukeAbilityViewFactory nukeAbilityViewFactory,
             AbilityApplierViewFactory abilityApplierViewFactory,
-            FlamethrowerAbilityViewFactory flamethrowerAbilityViewFactory)
+            FlamethrowerAbilityViewFactory flamethrowerAbilityViewFactory,
+            EnemySpawnerUiFactory enemySpawnerUiFactory)
         {
             _gameplayHud = gameplayHud ?? throw new ArgumentNullException(nameof(gameplayHud));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
@@ -71,10 +73,14 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                                       throw new ArgumentNullException(nameof(nukeAbilityViewFactory));
             _abilityApplierViewFactory = abilityApplierViewFactory ?? 
                                          throw new ArgumentNullException(nameof(abilityApplierViewFactory));
-            _flamethrowerAbilityViewFactory = flamethrowerAbilityViewFactory ?? throw new ArgumentNullException(nameof(flamethrowerAbilityViewFactory));
+            _flamethrowerAbilityViewFactory = flamethrowerAbilityViewFactory ?? 
+                                              throw new ArgumentNullException(nameof(flamethrowerAbilityViewFactory));
+            _enemySpawnerUiFactory = enemySpawnerUiFactory ?? 
+                                     throw new ArgumentNullException(nameof(enemySpawnerUiFactory));
             _characterSpawnAbilityViewFactory = characterSpawnAbilityViewFactory ?? 
                                                 throw new ArgumentNullException(nameof(characterSpawnAbilityViewFactory));
-            _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
+            _enemyViewFactory = enemyViewFactory ?? 
+                                throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
         public void Create(IScenePayload payload)
@@ -106,6 +112,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                 enemySpawner, 
                 new KillEnemyCounter(new KillEnemyCounterDto()), 
                 _rootGameObject.EnemySpawnerView);
+            _enemySpawnerUiFactory.Create(enemySpawner, _gameplayHud.EnemySpawnerUi);
 
             //UiCollector
             _uiCollectorFactory.Create();
