@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
@@ -105,6 +106,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
 
         [UsedImplicitly]
         private List<string> GetDropdownValues() =>
-            LocalizationExtension.GetTranslateId();
+            LocalizationDataBase.Instance.Phrases.Select(phrase => phrase.LocalizationId).ToList();
     }
 }

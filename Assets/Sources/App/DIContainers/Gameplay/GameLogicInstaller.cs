@@ -102,10 +102,10 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<EnemyDependencyProviderFactory>().AsSingle();
             Container.Bind<IEnemyViewFactory>().To<EnemyViewFactory>().AsSingle();
 
-            Container.Bind<IBossEnemySpawnService>().To<BossEnemySpawnService>().AsSingle();
-            Container.Bind<IObjectPool<BossEnemyView>>().To<ObjectPool<BossEnemyView>>().AsSingle();
-            Container.Bind<BossEnemyDependencyProviderFactory>().AsSingle();
-            Container.Bind<IBossEnemyViewFactory>().To<BossEnemyViewFactory>().AsSingle();
+            Container.Bind<IEnemyBossSpawnService>().To<EnemyBossSpawnService>().AsSingle();
+            Container.Bind<IObjectPool<EnemyBossView>>().To<ObjectPool<EnemyBossView>>().AsSingle();
+            Container.Bind<EnemyBossDependencyProviderFactory>().AsSingle();
+            Container.Bind<IEnemyBossViewFactory>().To<EnemyBossViewFactory>().AsSingle();
 
             Container.Bind<IEnemyKamikazeSpawnService>().To<EnemyKamikazeSpawnService>().AsSingle();
             Container.Bind<IObjectPool<EnemyKamikazeView>>().To<ObjectPool<EnemyKamikazeView>>().AsSingle();

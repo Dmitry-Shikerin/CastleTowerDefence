@@ -10,17 +10,15 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 {
     [Category("Custom/Enemy")]
     [UsedImplicitly]
-    public class EnemyBossMoveToCharacterState : FSMState
+    public class EnemyBossInitializeState : FSMState
     {
+        private IEnemyBossAnimation _animation;
         private BossEnemy _enemy;
         private IEnemyBossView _view;
-        private IEnemyBossAnimation _animation;
 
         protected override void OnInit()
         {
-            EnemyBossDependencyProvider provider = 
-                graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-
+            var provider = graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
             _enemy = provider.BossEnemy;
             _view = provider.View;
             _animation = provider.Animation;
@@ -28,7 +26,8 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 
         protected override void OnEnter()
         {
-            base.OnEnter();
+            _enemy.IsInitialized = true;
+            _animation.PlayIdle();
         }
 
         protected override void OnUpdate()

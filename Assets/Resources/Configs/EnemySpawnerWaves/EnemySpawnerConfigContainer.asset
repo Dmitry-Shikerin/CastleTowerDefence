@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4822082337341720586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
-  m_Name: Wave_2
-  m_EditorClassIdentifier: 
-  _enable: 0
-  _parent: {fileID: 11400000}
-  _waveId: 2
-  _spawnDelay: 2
-  _enemyCount: 6
-  _moneyPerResilenceCharacters: 3
-  _enemyAttackPower: 0
-  _enemyHealth: 0
-  _enemyAttackSpeed: 0
-  _bossesCount: 0
-  _bossAttackPower: 0
-  _bossHealth: 0
-  _bossAttackSpeed: 0
-  _rannerEnemyCount: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,7 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - {fileID: 8948478608034842370}
-  - {fileID: -4822082337341720586}
+  - {fileID: 1743868595315663900}
+--- !u!114 &1743868595315663900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_2
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 2
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 0
+  _enemyCount: 0
+  _enemyAttackPower: 0
+  _enemyHealth: 0
+  _enemyAttackSpeed: 0
+  _bossesCount: 0
+  _bossAttackPower: 0
+  _bossMassAttackPower: 0
+  _bossHealth: 0
+  _bossAttackSpeed: 0
+  _kamikazeEnemyCount: 0
+  _kamikazeMassAttackPower: 0
 --- !u!114 &8948478608034842370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,14 +58,16 @@ MonoBehaviour:
   _enable: 0
   _parent: {fileID: 11400000}
   _waveId: 1
+  _moneyPerResilenceCharacters: 2
   _spawnDelay: 2
   _enemyCount: 5
-  _moneyPerResilenceCharacters: 2
   _enemyAttackPower: 0
   _enemyHealth: 0
   _enemyAttackSpeed: 0
   _bossesCount: 0
   _bossAttackPower: 0
+  _bossMassAttackPower: 0
   _bossHealth: 0
   _bossAttackSpeed: 0
-  _rannerEnemyCount: 0
+  _kamikazeEnemyCount: 0
+  _kamikazeMassAttackPower: 0

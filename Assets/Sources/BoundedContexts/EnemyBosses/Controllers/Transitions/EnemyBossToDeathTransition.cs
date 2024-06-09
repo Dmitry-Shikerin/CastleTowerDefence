@@ -3,13 +3,12 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
 {
     [Category("Custom/Enemy")]
     [UsedImplicitly]
-    public class EnemyBossMoveToCharacterTransition : ConditionTask
+    public class EnemyBossToDeathTransition : ConditionTask
     {
         private IEnemyBossView _view;
 
@@ -23,6 +22,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
         }
 
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth > 0;
+            _view.EnemyHealthView.CurrentHealth <= 0;
     }
 }

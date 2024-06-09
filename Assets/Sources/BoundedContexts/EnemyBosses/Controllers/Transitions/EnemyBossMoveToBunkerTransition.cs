@@ -9,13 +9,13 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
 {
     [Category("Custom/Enemy")]
     [UsedImplicitly]
-    public class EnemyBossMoveToCharacterTransition : ConditionTask
+    public class EnemyBossMoveToBunkerTransition : ConditionTask
     {
         private IEnemyBossView _view;
 
         protected override string OnInit()
         {
-            EnemyBossDependencyProvider provider = 
+            EnemyBossDependencyProvider provider =
                 blackboard.GetVariable<EnemyBossDependencyProvider>("_provider").value;
             _view = provider.View;
             
@@ -23,6 +23,8 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
         }
 
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth > 0;
+            Vector3.Distance(_view.Position, _view.CharacterMeleePoint.Position)
+            <= _view.StoppingDistance && _view.CharacterHealthView == null;
+
     }
 }
