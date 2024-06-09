@@ -4,6 +4,8 @@ using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
@@ -23,6 +25,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         private readonly IEnemySpawnerView _view;
         private readonly IEnemySpawnService _enemySpawnService;
         private readonly IEnemyKamikazeSpawnService _enemyKamikazeSpawnService;
+        private readonly IEnemyBossSpawnService _enemyBossSpawnService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
@@ -31,7 +34,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             KillEnemyCounter killEnemyCounter,
             IEnemySpawnerView enemySpawnerView,
             IEnemySpawnService enemySpawnService,
-            IEnemyKamikazeSpawnService enemyKamikazeSpawnService)
+            IEnemyKamikazeSpawnService enemyKamikazeSpawnService,
+            IEnemyBossSpawnService enemyBossSpawnService)
         {
             _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
             _killEnemyCounter = killEnemyCounter ?? throw new ArgumentNullException(nameof(killEnemyCounter));
@@ -39,6 +43,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             _enemySpawnService = enemySpawnService ?? throw new ArgumentNullException(nameof(enemySpawnService));
             _enemyKamikazeSpawnService = enemyKamikazeSpawnService ?? 
                                          throw new ArgumentNullException(nameof(enemyKamikazeSpawnService));
+            _enemyBossSpawnService = enemyBossSpawnService ??
+                                     throw new ArgumentNullException(nameof(enemyBossSpawnService));
 
             foreach (IEnemySpawnPoint spawnPoint in _view.SpawnPoints)
             {
@@ -82,7 +88,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
                         {
                             int randomSpawnPoint = Random.Range(0, _view.SpawnPoints.Count);
                             // SpawnEnemy(_view.SpawnPoints[randomSpawnPoint]);
-                            SpawnEnemyKamikaze(_view.SpawnPoints[randomSpawnPoint]);
+                            // SpawnEnemyKamikaze(_view.SpawnPoints[randomSpawnPoint]);
+                            SpawnBoss(_view.SpawnPoints[randomSpawnPoint]);
 
                             await UniTask.Delay(TimeSpan.FromSeconds(
                                     _enemySpawner.Waves[i].SpawnDelay),
@@ -117,14 +124,14 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             enemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
         }
 
-        private void SpawnBoss(Vector3 position, ICharacterMeleeView characterMeleeView)
+        private void SpawnBoss(IEnemySpawnPoint spawnPoint)
         {
-            if (_enemySpawner.IsSpawnBoss == false)
-                return;
-
-            // IBossEnemyView bossEnemyView = _bossEnemySpawnService.Spawn(_killEnemyCounter, position);
-            // bossEnemyView.SetCharacterHealth(characterView.CharacterHealthView);
-            // bossEnemyView.SetTargetFollow(characterView.CharacterMovementView);
+            // if (_enemySpawner.IsSpawnBoss == false)
+            //     return;
+            //
+            IEnemyBossView bossEnemyView = _enemyBossSpawnService.Spawn(_killEnemyCounter, spawnPoint.Position);
+            bossEnemyView.SetBunkerView(_view.BunkerView);
+            bossEnemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
 
             _enemySpawner.SpawnedBosses++;
             _cancellationTokenSource.Cancel();
