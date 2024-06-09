@@ -3,7 +3,6 @@ using Sources.BoundedContexts.ExplosionBodies.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation
@@ -20,6 +19,5 @@ namespace Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation
 
         private void OnParticleSystemStopped() =>
             _poDestroyerService.Destroy(this);
-
     }
 }

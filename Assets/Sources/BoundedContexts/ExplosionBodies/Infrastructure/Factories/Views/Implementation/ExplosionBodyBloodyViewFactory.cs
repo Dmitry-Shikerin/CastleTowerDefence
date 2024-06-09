@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Interfaces;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
+using Sources.BoundedContexts.Prefabs;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;

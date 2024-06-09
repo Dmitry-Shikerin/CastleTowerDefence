@@ -7,6 +7,7 @@ using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
+using Sources.BoundedContexts.Prefabs;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 

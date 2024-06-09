@@ -18174,11 +18174,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466746411}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &466801853 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-  m_PrefabInstance: {fileID: 693510949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &470378694
 GameObject:
   m_ObjectHideFlags: 0
@@ -29795,75 +29790,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543013454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &693510949
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 7025362271967975401}
-    m_Modifications:
-    - target: {fileID: 1815751844614860, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_Name
-      value: SM_Wep_Bomb_Propane_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.4999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.4999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.4999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.518109
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.50243276
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.055000305
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.518643
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.48063445
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.518643
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.48063445
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349112848991874, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cb9b700ba66c187448feac54a5ec8fb6, type: 3}
 --- !u!1 &694415905
 GameObject:
   m_ObjectHideFlags: 0
@@ -109501,16 +109427,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5426103212072906395, guid: b7780fbbb47819e45b377a5db9d3b934, type: 3}
+      propertyPath: _graph
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b0a3ebff86f9994dabf9466bd802980, type: 2}
     - target: {fileID: 6707473156591897942, guid: b7780fbbb47819e45b377a5db9d3b934, type: 3}
       propertyPath: m_Name
       value: EnemyKamikazeView
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5827841116809022051, guid: b7780fbbb47819e45b377a5db9d3b934, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 466801853}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7780fbbb47819e45b377a5db9d3b934, type: 3}
 --- !u!1001 &3809633469663243999
@@ -109701,11 +109628,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e260413833d7542a4078815bc4dc1d, type: 3}
---- !u!4 &7025362271967975401 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5827841116809022051, guid: b7780fbbb47819e45b377a5db9d3b934, type: 3}
-  m_PrefabInstance: {fileID: 1894542238675941493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7289551501237749110
 PrefabInstance:
   m_ObjectHideFlags: 0

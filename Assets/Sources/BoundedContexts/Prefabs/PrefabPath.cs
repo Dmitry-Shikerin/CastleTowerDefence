@@ -1,4 +1,4 @@
-﻿namespace Sources.Domain.Models.Constants
+﻿namespace Sources.BoundedContexts.Prefabs
 {
     public class PrefabPath
     {
@@ -7,6 +7,7 @@
         public const string Enemy = "Views/EnemyView";
         public const string BossEnemy = "Views/BossEnemyView";
         public const string ExplosionBodyBloody = "Views/ExplosionBodyBloodyView";
+        public const string ExplosionBody = "Views/ExplosionBodyView";
         public const string FirstAidKit = "Views/FirstAidKitView"; 
         public const string RewardItem = "Views/RewardItemView";
         public const string CharacterMeleeView = "Views/CharacterMeleeView";

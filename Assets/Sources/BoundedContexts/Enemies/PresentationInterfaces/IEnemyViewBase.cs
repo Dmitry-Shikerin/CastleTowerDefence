@@ -2,7 +2,7 @@
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
-using Sources.BoundedContexts.NavMeshAgents.PresentationInterfaces;
+using Sources.BoundedContexts.NavMeshAgents.Presentation.Interfaces;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;
 using Sources.BoundedContexts.TargetPoints.Presentation.Interfaces;
 using Sources.PresentationsInterfaces.Views;
