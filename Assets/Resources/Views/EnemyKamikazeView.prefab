@@ -9286,10 +9286,10 @@ GameObject:
   - component: {fileID: 4872002036032254921}
   - component: {fileID: 5426103212072906395}
   - component: {fileID: 4877260718447284623}
-  - component: {fileID: 8667647028829622376}
-  - component: {fileID: 1214422246905928996}
   - component: {fileID: 6848860841674804863}
   - component: {fileID: 6048778863018554100}
+  - component: {fileID: 7820214796603288509}
+  - component: {fileID: 313317816411522865}
   m_Layer: 8
   m_Name: EnemyKamikazeView
   m_TagString: Untagged
@@ -9437,7 +9437,7 @@ MonoBehaviour:
   _lockBoundGraphPrefabOverrides: 1
   _preInitializeSubGraphs: 0
   _updateMode: 0
-  _graph: {fileID: 11400000, guid: 55242b1a4b5e68544aab84830caf59f9, type: 2}
+  _graph: {fileID: 11400000, guid: 0b0a3ebff86f9994dabf9466bd802980, type: 2}
   _blackboard: {fileID: 4877260718447284623}
 --- !u!114 &4877260718447284623
 MonoBehaviour:
@@ -9452,14 +9452,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+  _serializedBlackboard: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation.EnemyKamikazeView.Provider","_name":"_provider","_id":"a01b3e40-a04b-4c96-a6bd-bafa61b7c5e5","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers.EnemyKamikazeDependencyProvider,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
   _serializedVariables:
-  - _json: '{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+  - _json: '{"_propertyPath":"Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation.EnemyKamikazeView.Provider","_name":"_provider","_id":"a01b3e40-a04b-4c96-a6bd-bafa61b7c5e5","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers.EnemyKamikazeDependencyProvider,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
---- !u!114 &8667647028829622376
+--- !u!114 &6848860841674804863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9468,10 +9468,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 6707473156591897942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da3251133364b8ea6fe56e948095c6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3284f09caa2e4234b8184b40b88110a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1214422246905928996
+  _animator: {fileID: 3666761945475307000}
+--- !u!136 &6048778863018554100
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707473156591897942}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.26
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.82, z: 0}
+--- !u!114 &7820214796603288509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9480,7 +9504,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6707473156591897942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750fc05afa5040d7a115467a2e1007f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 08454cf5e0324e80b9565837b5a9ab96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _navMeshAgentBase: {fileID: 4872002036032254921}
@@ -9538,10 +9562,10 @@ MonoBehaviour:
   - {fileID: 5448334190942043686}
   - {fileID: 4519383947423119779}
   _healthBarView: {fileID: 8330470946000662754}
-  _findRange: 3
-  _provider: {fileID: 8667647028829622376}
+  _provider: {fileID: 313317816411522865}
   _animation: {fileID: 6848860841674804863}
---- !u!114 &6848860841674804863
+  _findRange: 3
+--- !u!114 &313317816411522865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9550,33 +9574,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6707473156591897942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3284f09caa2e4234b8184b40b88110a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a54d986e89c418caf24f782326819b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 3666761945475307000}
---- !u!136 &6048778863018554100
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707473156591897942}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.26
-  m_Height: 1.9
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.82, z: 0}
 --- !u!1 &6790997009961830523
 GameObject:
   m_ObjectHideFlags: 0

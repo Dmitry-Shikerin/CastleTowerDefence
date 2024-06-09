@@ -27,7 +27,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawner
         {
             EnemyKamikaze enemy = new EnemyKamikaze(
                 new EnemyHealth(50), 
-                new EnemyAttacker(10));
+                new EnemyAttacker(10, 30));
             
             IEnemyKamikazeView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
                                    _enemyViewFactory.Create(enemy, killEnemyCounter);

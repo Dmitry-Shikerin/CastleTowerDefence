@@ -109427,10 +109427,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5426103212072906395, guid: b7780fbbb47819e45b377a5db9d3b934, type: 3}
-      propertyPath: _graph
-      value: 
-      objectReference: {fileID: 11400000, guid: 0b0a3ebff86f9994dabf9466bd802980, type: 2}
     - target: {fileID: 6707473156591897942, guid: b7780fbbb47819e45b377a5db9d3b934, type: 3}
       propertyPath: m_Name
       value: EnemyKamikazeView

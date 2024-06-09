@@ -29,7 +29,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
         {
             BossEnemy bossEnemy = new BossEnemy(
                 new EnemyHealth(200), 
-                new EnemyAttacker(10), 
+                new EnemyAttacker(10, 30), 
                 2f,
                 2f,
                 5f);

@@ -41,7 +41,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
         {
             Vector3 spawnPosition = _view.Position + Vector3.up;
             _explosionBodySpawnService.Spawn(spawnPosition);
-
+            Explode();
+            _view.Destroy();
         }
 
         private void Explode()
@@ -55,8 +56,10 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
             if (characterHealthViews.Count <= 0)
                 return;
 
+            Debug.Log($"{_enemy.EnemyAttacker.MassAttackDamage}");
+            
             foreach (CharacterHealthView characterHealthView in characterHealthViews)
-                characterHealthView.TakeDamage(_enemy.EnemyAttacker.Damage);
+                characterHealthView.TakeDamage(_enemy.EnemyAttacker.MassAttackDamage);
         }
     }
 }

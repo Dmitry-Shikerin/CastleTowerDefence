@@ -9,6 +9,7 @@ using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
+using Sources.BoundedContexts.Prefabs;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation
@@ -36,7 +37,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.
         
         public IEnemyKamikazeView Create(EnemyKamikaze enemy, KillEnemyCounter killEnemyCounter)
         {
-            EnemyKamikazeView enemyView = CreateView(EnemyConst.PrefabPath);
+            EnemyKamikazeView enemyView = CreateView(PrefabPath.EnemyKamikaze);
             
             return Create(enemy, killEnemyCounter, enemyView);
         }
