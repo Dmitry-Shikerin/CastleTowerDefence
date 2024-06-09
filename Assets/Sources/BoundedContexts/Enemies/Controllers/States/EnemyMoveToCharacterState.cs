@@ -32,6 +32,9 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnUpdate()
         {
+            if (_view.CharacterHealthView == null)
+                return;
+            
             if (_view.CharacterHealthView.CurrentHealth <= 0)
             {
                 _view.SetCharacterHealth(null);

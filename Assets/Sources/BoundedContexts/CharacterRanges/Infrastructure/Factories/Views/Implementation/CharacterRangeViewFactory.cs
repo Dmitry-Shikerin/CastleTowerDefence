@@ -9,6 +9,7 @@ using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
+using Sources.BoundedContexts.Prefabs;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 

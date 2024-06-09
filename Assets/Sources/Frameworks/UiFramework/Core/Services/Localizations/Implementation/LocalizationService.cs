@@ -63,12 +63,18 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
 
                 if (string.IsNullOrWhiteSpace(textView.Id))
                 {
-                    if (textView is MonoBehaviour concrete)
-                        throw new NullReferenceException(nameof(concrete.gameObject.name));
+                    if (textView is not MonoBehaviour concrete)
+                        throw new NullReferenceException();
+                    
+                    Debug.Log($"LocalizationService: {concrete.gameObject.name} has empty id");
                 }
-                
+
                 if (_currentLanguageDictionary.ContainsKey(textView.Id) == false)
-                    throw new KeyNotFoundException(nameof(textView.Id));
+                {
+                    Debug.Log($"LocalizationService: {textView.Id} not found in LocalizationData");
+                    
+                    continue;
+                }
 
                 textView.SetText(_currentLanguageDictionary[textView.Id]);
             }

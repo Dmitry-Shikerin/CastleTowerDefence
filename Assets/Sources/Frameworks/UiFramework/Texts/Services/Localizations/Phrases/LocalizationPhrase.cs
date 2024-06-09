@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
+using UnityEditor;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
@@ -91,12 +93,8 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
             if (localizationIds.Contains(_textId))
                 return;
 
-            //localizationIds.Add(_textId);
-            //localizationIds.Sort();
-
             _localizationId = _textId;
-
-            _textId = "";
+            AssetDatabase.SaveAssets();
         }
 
         [Button(ButtonSizes.Large)]
@@ -108,6 +106,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
 
         [UsedImplicitly]
         private List<string> GetDropdownValues() =>
-            LocalizationExtension.GetTranslateId();
+            LocalizationDataBase.Instance.Phrases.Select(phrase => phrase.LocalizationId).ToList();
     }
 }

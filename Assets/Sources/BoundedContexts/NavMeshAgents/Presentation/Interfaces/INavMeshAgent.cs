@@ -1,8 +1,7 @@
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
-using Sources.PresentationsInterfaces.Views;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.NavMeshAgents.PresentationInterfaces
+namespace Sources.BoundedContexts.NavMeshAgents.Presentation.Interfaces
 {
     public interface INavMeshAgent : IView
     {

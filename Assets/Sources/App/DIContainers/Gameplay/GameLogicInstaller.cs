@@ -34,8 +34,19 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Interfa
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
+using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Providers;
+using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawners.Implementation;
+using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Implementation;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
@@ -81,6 +92,9 @@ namespace Sources.App.DIContainers.Gameplay
             //EnemiesSpawners
             Container.Bind<EnemySpawnerPresenterFactory>().AsSingle();
             Container.Bind<EnemySpawnerViewFactory>().AsSingle();
+
+            Container.Bind<EnemySpawnerUiPresenterFactory>().AsSingle();
+            Container.Bind<EnemySpawnerUiFactory>().AsSingle();
             
             //Enemies
             Container.Bind<IEnemySpawnService>().To<EnemySpawnService>().AsSingle();
@@ -88,13 +102,27 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<EnemyDependencyProviderFactory>().AsSingle();
             Container.Bind<IEnemyViewFactory>().To<EnemyViewFactory>().AsSingle();
 
-            Container.Bind<IBossEnemySpawnService>().To<BossEnemySpawnService>().AsSingle();
-            Container.Bind<IObjectPool<BossEnemyView>>().To<ObjectPool<BossEnemyView>>().AsSingle();
-            Container.Bind<BossEnemyDependencyProviderFactory>().AsSingle();
-            Container.Bind<IBossEnemyViewFactory>().To<BossEnemyViewFactory>().AsSingle();
+            Container.Bind<IEnemyBossSpawnService>().To<EnemyBossSpawnService>().AsSingle();
+            Container.Bind<IObjectPool<EnemyBossView>>().To<ObjectPool<EnemyBossView>>().AsSingle();
+            Container.Bind<EnemyBossDependencyProviderFactory>().AsSingle();
+            Container.Bind<IEnemyBossViewFactory>().To<EnemyBossViewFactory>().AsSingle();
+
+            Container.Bind<IEnemyKamikazeSpawnService>().To<EnemyKamikazeSpawnService>().AsSingle();
+            Container.Bind<IObjectPool<EnemyKamikazeView>>().To<ObjectPool<EnemyKamikazeView>>().AsSingle();
+            Container.Bind<EnemyKamikazeDependencyProviderFactory>().AsSingle();
+            Container.Bind<IEnemyKamikazeViewFactory>().To<EnemyKamikazeViewFactory>().AsSingle();
             
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
+            
+            //ExplosionBodyBloody
+            Container.Bind<IObjectPool<ExplosionBodyBloodyView>>().To<ObjectPool<ExplosionBodyBloodyView>>().AsSingle();
+            Container.Bind<IExplosionBodyBloodyViewFactory>().To<ExplosionBodyBloodyViewFactory>().AsSingle();
+            Container.Bind<IExplosionBodyBloodySpawnService>().To<ExplosionBodyBloodySpawnService>().AsSingle();
+
+            Container.Bind<IObjectPool<ExplosionBodyView>>().To<ObjectPool<ExplosionBodyView>>().AsSingle();
+            Container.Bind<IExplosionBodyViewFactory>().To<ExplosionBodyViewFactory>().AsSingle();
+            Container.Bind<IExplosionBodySpawnService>().To<ExplosionBodySpawnService>().AsSingle();
             
             //Abilities
             Container.Bind<AbilityApplierPresenterFactory>().AsSingle();

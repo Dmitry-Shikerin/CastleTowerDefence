@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
+using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEditor;
 using UnityEngine;
@@ -16,9 +17,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         [DisplayAsString(false)] [HideLabel] [SerializeField]
         private string _headere = UiConstant.UiLocalizationDataBaseLabel;
 
-        [TabGroup("GetId", "Scopes")] 
-        [SerializeField] private string _scopeId;
-        
         [TabGroup("GetId", "DataBase")] [Space(10)] 
         [SerializeField] private List<LocalizationPhrase> _phrases;
         [TabGroup("GetId", "DataBase")] [Space(10)] 
@@ -83,32 +81,12 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         }
 
         public List<LocalizationPhrase> Phrases => _phrases;
-
+        
         public void RemovePhrase(LocalizationPhrase phrase)
         {
             AssetDatabase.RemoveObjectFromAsset(phrase);
             _phrases.Remove(phrase);
             AssetDatabase.SaveAssets();
-        }
-
-        [TabGroup("GetId", "Scopes")]
-        [Button(ButtonSizes.Large)]
-        public void CreateScope()
-        {
-#if UNITY_EDITOR
-            if (_scopes.Any(scope => scope.Id == _scopeId))
-                return;
-            
-            LocalizationScope scope = CreateInstance<LocalizationScope>();
-            scope.SetParent(this);
-            AssetDatabase.AddObjectToAsset(scope, this);
-            scope.SetId(_scopeId);
-            scope.name = _scopeId + "_Scope";
-            _scopes.Add(scope);
-            AssetDatabase.SaveAssets();
-#else
-            return null;
-#endif
         }
 
         public void RemoveScope(LocalizationScope localizationScope)
@@ -117,6 +95,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
             _scopes.Remove(localizationScope);
             AssetDatabase.SaveAssets();
         }
+
         
         [TabGroup("GetId", "CreatePhrase")]
         [Button(ButtonSizes.Large)]

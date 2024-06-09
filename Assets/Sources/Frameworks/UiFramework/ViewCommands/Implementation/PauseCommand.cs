@@ -3,7 +3,7 @@ using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Forms
+namespace Sources.Frameworks.UiFramework.ViewCommands.Implementation
 {
     public class PauseCommand : IViewCommand
     {

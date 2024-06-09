@@ -1,5 +1,844 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8977390905970973244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Level3_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Level3
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C3"
+  _editEnglish: 0
+  _english: Level3
+  _editTurkish: 0
+  _turkish: Seviye3
+--- !u!114 &-8837250491390849142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Warning_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Warning
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0415\u0441\u043B\u0438 \u0432\u044B \u043D\u0430\u0447\u043D\u0451\u0442\u0435
+    \u043D\u043E\u0432\u0443\u044E \u0438\u0433\u0440\u0443, \u0442\u043E \u043F\u0440\u043E\u0448\u043B\u044B\u0435
+    \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0441\u0431\u0440\u043E\u0441\u044F\u0442\u0441\u044F.
+    \u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B, \u0447\u0442\u043E \u0432\u044B
+    \u0445\u043E\u0442\u0438\u0442\u0435 \u043D\u0430\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u0443\u044E
+    \u0438\u0433\u0440\u0443?"
+  _editEnglish: 0
+  _english: If you start a new game, the previous saves will be reset. Are you sure
+    you want to start a new game?
+  _editTurkish: 0
+  _turkish: "Yeni bir oyuna baslarsan\u0131z, ge\xE7mis tasarruflar s\u0131f\u0131rlan\u0131r.
+    Yeni bir oyuna baslamak istedi\u011Finizden emin misiniz?"
+--- !u!114 &-8106710555367711880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: ShowAd_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: ShowAd
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430 \u043D\u0430\u0447\u043D\u0451\u0442\u0441\u044F
+    \u0447\u0435\u0440\u0435\u0437"
+  _editEnglish: 0
+  _english: Advertising will start after
+  _editTurkish: 0
+  _turkish: "Reklamlar \u015Fu yolla ba\u015Flayacak"
+--- !u!114 &-8016398887129667329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: BackToGame_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: BackToGame
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043A \u0438\u0433\u0440\u0435"
+  _editEnglish: 0
+  _english: Back to game
+  _editTurkish: 0
+  _turkish: "Oyuna geri d\xF6n"
+--- !u!114 &-7799275696723254838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: SawLauncherAbilityUpgrader_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: SawLauncherAbilityUpgrader
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+    \u0446\u0435\u0440\u043A\u0443\u043B\u044F\u0440\u043D\u044B\u0445 \u043F\u0438\u043B"
+  _editEnglish: 0
+  _english: Increases the number of circular saws
+  _editTurkish: 0
+  _turkish: "Daire testere say\u0131s\u0131n\u0131 art\u0131r\u0131r"
+--- !u!114 &-7710532514247107899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: GameOver_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: GameOver
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041A\u041E\u041D\u0415\u0426 \u0418\u0413\u0420\u042B"
+  _editEnglish: 0
+  _english: GAME OVER
+  _editTurkish: 0
+  _turkish: "\rOYUN B\u0130TT\u0130"
+--- !u!114 &-7489078748937483317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Level2_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Level2
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C2"
+  _editEnglish: 0
+  _english: Level2
+  _editTurkish: 0
+  _turkish: Seviye2
+--- !u!114 &-6638702788014974585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Gameplay_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Gameplay
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0418\u0433\u0440\u0430"
+  _editEnglish: 0
+  _english: Gameplay
+  _editTurkish: 0
+  _turkish: "\rOynan\u0131s"
+--- !u!114 &-6435351135959369604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Autosaving_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Autosaving
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0410\u0432\u0442\u043E\u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0435..."
+  _editEnglish: 0
+  _english: Autosaving...
+  _editTurkish: 0
+  _turkish: Otomatik kaydetme...
+--- !u!114 &-6368817302606658685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Settings_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Settings
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+  _editEnglish: 0
+  _english: SETTINGS
+  _editTurkish: 0
+  _turkish: AYARLAR
+--- !u!114 &-6256734255822034777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Tutorial_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Tutorial
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041E\u0431\u0443\u0447\u0435\u043D\u0438\u0435"
+  _editEnglish: 0
+  _english: Tutorial
+  _editTurkish: 0
+  _turkish: "\xD6\u011Fretici"
+--- !u!114 &-5973755270771653610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Audio_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Audio
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0410\u0443\u0434\u0438\u043E"
+  _editEnglish: 0
+  _english: Audio
+  _editTurkish: 0
+  _turkish: Ses
+--- !u!114 &-5829269529844609934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Level1_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Level1
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C1"
+  _editEnglish: 0
+  _english: Level1
+  _editTurkish: 0
+  _turkish: Seviye1
+--- !u!114 &-5748417609102489757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: KillEnemyCounterTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: KillEnemyCounterTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u0448\u043A\u0430\u043B\u0430, \u043A\u043E\u0442\u043E\u0440\u0430\u044F
+    \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442, \u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u0443\u0431\u0438\u0442\u044C
+    \u0437\u043E\u043C\u0431\u0438 \u0438 \u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0432\u044B \u0443\u0436\u0435 \u0443\u0431\u0438\u043B\u0438. \u0427\u0435\u0440\u0435\u043F\u0430
+    \u043D\u0430 \u044D\u0442\u043E\u0439 \u0448\u043A\u0430\u043B\u0435 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u044E\u0442
+    \"\u0432\u043E\u043B\u043D\u0443\". \u0412 \u043A\u0430\u0436\u0434\u043E\u0439
+    \"\u0432\u043E\u043B\u043D\u0435\" \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0451\u043D\u043D\u043E\u0435
+    \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0437\u043E\u043C\u0431\u0438.
+    \u0427\u0435\u043C \u0432\u044B\u0448\u0435 \u0432\u0430\u0448 \u0443\u0440\u043E\u0432\u0435\u043D\u044C,
+    \u0442\u0435\u043C \u0431\u043E\u043B\u044C\u0448\u0435 \u0437\u043E\u043C\u0431\u0438
+    \u0432\u0430\u043C \u043D\u0443\u0436\u043D\u043E \u0443\u0431\u0438\u0442\u044C."
+  _editEnglish: 0
+  _english: This is a scale that shows how many zombies you need to kill and how
+    many you have already killed. The skulls on this scale show a "wave". There are
+    a certain number of zombies in each "wave". The higher your level, the more zombies
+    you need to kill.
+  _editTurkish: 0
+  _turkish: "Bu, zombilerin ne kadar \xF6ld\xFCr\xFClmesi gerekti\u011Fini ve ne
+    kadar\u0131n\u0131 \xF6ld\xFCrd\xFC\u011F\xFCn\xFCz\xFC g\xF6steren bir \xF6l\xE7ektir.
+    Bu \xF6l\xE7ekteki kafataslar\u0131 bir \"dalga\" g\xF6steriyor. Her \"dalgada\"
+    belirli say\u0131da zombi vard\u0131r. Seviyeniz ne kadar y\xFCksek olursa, o
+    kadar \xE7ok zombiyi \xF6ld\xFCrmeniz gerekir."
+--- !u!114 &-5718483366672282658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: MainMenu_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: MainMenu
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0413\u041B\u0410\u0412\u041D\u041E\u0415 \u041C\u0415\u041D\u042E"
+  _editEnglish: 0
+  _english: MAIN MENU
+  _editTurkish: 0
+  _turkish: "\rANA MEN\xDC"
+--- !u!114 &-5658780043097037236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Apply_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Apply
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C"
+  _editEnglish: 0
+  _english: Apply
+  _editTurkish: 0
+  _turkish: Uygulamak
+--- !u!114 &-4956536571026282839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: LevelUp_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: LevelUp
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u043F\u043E\u0432\u044B\u0448\u0435\u043D"
+  _editEnglish: 0
+  _english: Level up
+  _editTurkish: 0
+  _turkish: Seviye atla
+--- !u!114 &-4243362043036841627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Loading_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Loading
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430"
+  _editEnglish: 0
+  _english: Loading
+  _editTurkish: 0
+  _turkish: "Y\xFCkleniyor"
+--- !u!114 &-4169823259303798984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Pause_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Pause
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0410\u0423\u0417\u0410"
+  _editEnglish: 0
+  _english: PAUSE
+  _editTurkish: 0
+  _turkish: "\rDURAKLAT"
+--- !u!114 &-3985417413785434233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Graphic_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Graphic
+  _textId: 
+  _editRussian: 0
+  _russian: 
+  _editEnglish: 0
+  _english: 
+  _editTurkish: 0
+  _turkish: 
+--- !u!114 &-3465262421581960423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: SettingsTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: SettingsTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0412 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0430\u0445
+    \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043E\u0442\u0440\u0435\u0433\u0443\u043B\u0438\u0440\u043E\u0432\u0430\u0442\u044C
+    \u0433\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0438
+    \u0438 \u0437\u0432\u0443\u043A\u043E\u0432."
+  _editEnglish: 0
+  _english: In the settings, you can adjust the volume of music and sounds.
+  _editTurkish: 0
+  _turkish: "Ayarlardan m\xFCzi\u011Fin ve seslerin sesini ayarlayabilirsiniz."
+--- !u!114 &-3166633869003568125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Level4_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Level4
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C4"
+  _editEnglish: 0
+  _english: Level4
+  _editTurkish: 0
+  _turkish: Seviye4
+--- !u!114 &-2896424986738387369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: GreetingTutorialTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: GreetingTutorialTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C
+    \u0432 \u0438\u0433\u0440\u0443!"
+  _editEnglish: 0
+  _english: Welcome to game!
+  _editTurkish: 0
+  _turkish: "Oyuna ho\u015F geldiniz!"
+--- !u!114 &-2852104507718271488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Score_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Score
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041E\u0427\u041A\u0418"
+  _editEnglish: 0
+  _english: SCORE
+  _editTurkish: 0
+  _turkish: PUAN
+--- !u!114 &-2739287444455331825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Music_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Music
+  _textId: 
+  _editRussian: 0
+  _russian: 
+  _editEnglish: 0
+  _english: 
+  _editTurkish: 0
+  _turkish: 
+--- !u!114 &-2340926341720809940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: CharacterHealthUpgrader_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: CharacterHealthUpgrader
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430"
+  _editEnglish: 0
+  _english: Increasing the amount of health of the character
+  _editTurkish: 0
+  _turkish: "Karakterin sa\u011Fl\u0131\u011F\u0131n\u0131 art\u0131rmak"
+--- !u!114 &-2153293106902727409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: On_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: On
+  _textId: 
+  _editRussian: 0
+  _russian: 
+  _editEnglish: 0
+  _english: 
+  _editTurkish: 0
+  _turkish: 
+--- !u!114 &-2145494215223797878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: SawLauncherUpgrader_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: SawLauncherUpgrader
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043E\u043D
+    \u043E\u0442 \u0446\u0435\u0440\u043A\u0443\u043B\u044F\u0440\u043D\u044B\u0445
+    \u043F\u0438\u043B"
+  _editEnglish: 0
+  _english: Increases the damage from circular saws
+  _editTurkish: 0
+  _turkish: "Daire testerelerden kaynaklanan hasar\u0131 art\u0131r\u0131r"
+--- !u!114 &-1169646632141698292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: UpgradeTopAbilitiesDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: UpgradeTopAbilitiesDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u0441\u043F\u0438\u0441\u043E\u043A \u0432\u0441\u0435\u0445
+    \u0432\u0430\u0448\u0438\u0445 \u0438\u043C\u0435\u044E\u0449\u0438\u0445\u0441\u044F
+    \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0439."
+  _editEnglish: 0
+  _english: This is a list of all your available improvements.
+  _editTurkish: 0
+  _turkish: "Bu, mevcut t\xFCm iyile\u015Ftirmelerinizin bir listesidir."
+--- !u!114 &-920647093419064292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: BearMassAttackUpgrader_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: BearMassAttackUpgrader
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0435 \u043C\u0430\u0441\u0441\u043E\u0432\u043E\u0439
+    \u0430\u0442\u0430\u043A\u0438 \u043C\u0435\u0434\u0432\u0435\u0434\u044F"
+  _editEnglish: 0
+  _english: Improving the bear's mass attack
+  _editTurkish: 0
+  _turkish: "Toplu ay\u0131 sald\u0131r\u0131s\u0131n\u0131n iyile\u015Ftirilmesi"
+--- !u!114 &-906205523627026144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: RewardedAd_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: RewardedAd
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0432\u0438\u0434\u0435\u043E."
+  _editEnglish: 0
+  _english: Watch the video.
+  _editTurkish: 0
+  _turkish: Videoyu izleyin.
+--- !u!114 &-275142669951691233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: GreetingTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: GreetingTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u043E\u0441\u043A\u043E\u043B\u044C\u043A\u0443 \u0432\u044B
+    \u0432\u043F\u0435\u0440\u0432\u044B\u0435 \u043F\u0440\u043E\u0445\u043E\u0434\u0438\u0442\u0435
+    \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435, \u043B\u0438\u0431\u043E \u043D\u0435
+    \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u043B\u0438 \u0435\u0433\u043E \u0432
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0439 \u0440\u0430\u0437,
+    \u043F\u0440\u043E\u0439\u0434\u0438\u0442\u0435 \u0435\u0433\u043E \u0434\u043E
+    \u043A\u043E\u043D\u0446\u0430, \u0447\u0442\u043E\u0431\u044B \u043E\u043D\u043E
+    \u0443 \u0432\u0430\u0441 \u0431\u043E\u043B\u044C\u0448\u0435 \u043D\u0435 \u043F\u043E\u044F\u0432\u043B\u044F\u043B\u043E\u0441\u044C."
+  _editEnglish: 0
+  _english: Since this is your first time taking the training, or you did not complete
+    it the previous time, go through it to the end so that you no longer have it.
+  _editTurkish: 0
+  _turkish: "E\u011Fitimi ilk kez ald\u0131\u011F\u0131n\u0131z veya bir \xF6nceki
+    sefer tamamlamad\u0131\u011F\u0131n\u0131z i\xE7in, bir daha size gelmemesi i\xE7in
+    sonuna kadar tamamlay\u0131n."
+--- !u!114 &-44179875279934328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: HealthBars_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: HealthBars
+  _textId: 
+  _editRussian: 0
+  _russian: 
+  _editEnglish: 0
+  _english: 
+  _editTurkish: 0
+  _turkish: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,70 +852,67 @@ MonoBehaviour:
   m_Name: LocalizationDataBase
   m_EditorClassIdentifier: 
   _headere: <size=18><b><color=#FF7F50><i>UiLocalizationDataBase</i></color></b></size>
-  _scopeId: Test
   _phrases:
-  - {fileID: 11400000, guid: 77528d783d4f1e0428aa6d0f5ed84b5f, type: 2}
-  - {fileID: 11400000, guid: 63876c74ea1de9d43994d7327ca8e399, type: 2}
-  - {fileID: 11400000, guid: 69de5ec067d1d704b822e44b57440ede, type: 2}
-  - {fileID: 11400000, guid: 179d29b7da1f27048ad3521d8b1f4d56, type: 2}
-  - {fileID: 11400000, guid: e50a30a444e22cd48b47437a48bf90b5, type: 2}
-  - {fileID: 11400000, guid: ca2a34ef17d6eae49911142cda188eeb, type: 2}
-  - {fileID: 11400000, guid: e38a39cf51c083549ae2722deb1d87cc, type: 2}
-  - {fileID: 11400000, guid: 662a6daab1a42c047bc0a9bab2c10caa, type: 2}
-  - {fileID: 11400000, guid: ffe6784ac738169498b327e4d203a934, type: 2}
-  - {fileID: 11400000, guid: 07cc5ec473b165341a4995f3aa5993f6, type: 2}
-  - {fileID: 11400000, guid: 1c302e1cb020bca4583d0901373e76c3, type: 2}
-  - {fileID: 11400000, guid: 8f0650560cbebec42848a2320d017587, type: 2}
-  - {fileID: 11400000, guid: 1c4ea06829c9cf549a33f5fce606e117, type: 2}
-  - {fileID: 11400000, guid: 1eb6e793e2556b44db4a751cac9efef8, type: 2}
-  - {fileID: 11400000, guid: 39aa15fb1c5dce0449ee1bacafac14da, type: 2}
-  - {fileID: 11400000, guid: d2d89215a676ccb48a4ed6a2e4d27dfb, type: 2}
-  - {fileID: 11400000, guid: f53a64aa283eb004399314159479c766, type: 2}
-  - {fileID: 11400000, guid: 615f5c29af8730c4981b7396864eb9df, type: 2}
-  - {fileID: 11400000, guid: d269a92c0f2042543bd429c6661e3899, type: 2}
-  - {fileID: 11400000, guid: 78cf9189f53ef894c8939ad02130f0b7, type: 2}
-  - {fileID: 11400000, guid: 0af2db2987b6433479caf46ec87176bd, type: 2}
-  - {fileID: 11400000, guid: 172694eecd6491d47b672c8153fe7073, type: 2}
-  - {fileID: 11400000, guid: 4a2a01c301c8a6c448faf41757420e01, type: 2}
-  - {fileID: 11400000, guid: f4fbfe3c3838ff244bd8041805400d14, type: 2}
-  - {fileID: 11400000, guid: f8dcec6b372c9694d8f964b791676210, type: 2}
-  - {fileID: 11400000, guid: 1f105cef603505349a9432df724b800a, type: 2}
-  - {fileID: 11400000, guid: 309411356de92cd4dbd66476f193f145, type: 2}
-  - {fileID: 11400000, guid: e74fdf88101c8bc4497df0b908688ca7, type: 2}
-  - {fileID: 11400000, guid: 45d9044cffdcf784da0d01220645e1ed, type: 2}
-  - {fileID: 11400000, guid: 78dd1bea5122a00409cd836f1ba7f27f, type: 2}
-  - {fileID: 11400000, guid: 7a3f9f19a26a746488461618e5dd894b, type: 2}
-  - {fileID: 11400000, guid: 4df6a4f67226fd240874ee7697617532, type: 2}
-  - {fileID: 11400000, guid: b900af3d3f998284ba87fe5b26c8ca40, type: 2}
-  - {fileID: 11400000, guid: 74d17935097955149a3131ea32f84042, type: 2}
-  - {fileID: 11400000, guid: e29e83f3b023fd047a6b8fb4a7c87348, type: 2}
-  - {fileID: 11400000, guid: 01570d1388375a349a33b991814d4dcb, type: 2}
-  - {fileID: 11400000, guid: 26659e615d198f2459a53720a088d683, type: 2}
-  - {fileID: 11400000, guid: 74424b1217dee604f9f9006920b77a8c, type: 2}
-  - {fileID: 11400000, guid: 296c2354aeda9ac4cba084ef76e7a4f0, type: 2}
-  - {fileID: 11400000, guid: c341409e63de21a4dabfcb392c4658b7, type: 2}
-  - {fileID: 11400000, guid: 56c468c6143498147b807cef26c4c63d, type: 2}
-  - {fileID: 11400000, guid: 7eacf3a1c21991d4f807d686c0daa77c, type: 2}
-  - {fileID: 11400000, guid: d037b93999631eb4a8ccf12c71be7066, type: 2}
-  - {fileID: 11400000, guid: 1ae1e141b65693140ab7a25854350afe, type: 2}
-  - {fileID: 11400000, guid: 4be68596362646c488cfcb47f3017e8d, type: 2}
-  - {fileID: 11400000, guid: e316c8286514cd648a287bbed8cf08d6, type: 2}
-  - {fileID: 11400000, guid: 8fda57a94d33105499128f084fcdc649, type: 2}
-  - {fileID: 11400000, guid: 19f322697e1460e478cde67c2e0e8db3, type: 2}
-  - {fileID: 11400000, guid: c799fe14f8c8a7949a8aebd191a10a34, type: 2}
-  - {fileID: 11400000, guid: fa4646c4ee12bbf41a2442aaf48d0698, type: 2}
-  - {fileID: 11400000, guid: 1d9cb63dbf2c7b042a65fc931ce4a00a, type: 2}
-  - {fileID: 11400000, guid: f6920de55251d0743807ef707b3dde24, type: 2}
-  - {fileID: 11400000, guid: a1e17ae18028f4c4fbda63c432d95e75, type: 2}
-  - {fileID: 11400000, guid: 2b37a3f8308fd574faf9d6e3d3ab7b82, type: 2}
-  - {fileID: 11400000, guid: 10f43d589fef64840a2a99a2fcea5899, type: 2}
-  - {fileID: 11400000, guid: 1dc538912806136468bd03548d3c90d2, type: 2}
-  - {fileID: 11400000, guid: a3f32a6004448cf47b33d89db96c47cf, type: 2}
-  - {fileID: 11400000, guid: b895b22072d1b8b41933c0a8624d245a, type: 2}
-  - {fileID: 11400000, guid: 8f83d01afedbd2544a6d56c95e230b7b, type: 2}
-  - {fileID: 11400000, guid: 90aaa6d14d0146840ac202cba1bf2c8e, type: 2}
-  - {fileID: 11400000, guid: d71805d7a77af3347821b13d87c438f1, type: 2}
-  - {fileID: 11400000, guid: f5d8e4744973f6d42ad95b6bb1fdf67b, type: 2}
+  - {fileID: 8224070170877804161}
+  - {fileID: 1246574901095727957}
+  - {fileID: -5658780043097037236}
+  - {fileID: -5973755270771653610}
+  - {fileID: -6435351135959369604}
+  - {fileID: 7090385843299365696}
+  - {fileID: -8016398887129667329}
+  - {fileID: 3148240805187373749}
+  - {fileID: -920647093419064292}
+  - {fileID: -2340926341720809940}
+  - {fileID: 1122561553406115891}
+  - {fileID: 3073514162943602889}
+  - {fileID: 5846583519601730132}
+  - {fileID: -7710532514247107899}
+  - {fileID: -6638702788014974585}
+  - {fileID: -3985417413785434233}
+  - {fileID: -275142669951691233}
+  - {fileID: -2896424986738387369}
+  - {fileID: -44179875279934328}
+  - {fileID: 5529956266888560464}
+  - {fileID: -5748417609102489757}
+  - {fileID: 2062490514707734419}
+  - {fileID: -5829269529844609934}
+  - {fileID: -7489078748937483317}
+  - {fileID: -8977390905970973244}
+  - {fileID: -3166633869003568125}
+  - {fileID: 3608724168722817644}
+  - {fileID: -4956536571026282839}
+  - {fileID: 6835082364301547020}
+  - {fileID: -4243362043036841627}
+  - {fileID: -5718483366672282658}
+  - {fileID: 3361585177844649299}
+  - {fileID: -2739287444455331825}
+  - {fileID: 2506591742304223981}
+  - {fileID: 5918407013494742060}
+  - {fileID: 8727284431849006686}
+  - {fileID: 2245398681066610470}
+  - {fileID: 6610014664543065953}
+  - {fileID: -2153293106902727409}
+  - {fileID: 7171604089684731652}
+  - {fileID: -4169823259303798984}
+  - {fileID: 3561057331734364861}
+  - {fileID: 562711224492482245}
+  - {fileID: 6072498139290405345}
+  - {fileID: -906205523627026144}
+  - {fileID: 1406614620130659177}
+  - {fileID: -7799275696723254838}
+  - {fileID: -2145494215223797878}
+  - {fileID: -2852104507718271488}
+  - {fileID: 7449828143545975863}
+  - {fileID: -6368817302606658685}
+  - {fileID: -3465262421581960423}
+  - {fileID: -8106710555367711880}
+  - {fileID: 2479459449794573606}
+  - {fileID: -6256734255822034777}
+  - {fileID: 6227071353628013496}
+  - {fileID: -1169646632141698292}
+  - {fileID: 4826722777252017251}
+  - {fileID: -8837250491390849142}
+  - {fileID: 783856341597308656}
   _scopes: []
   _enableTextId: 1
   _textId: ggggas
@@ -87,3 +923,738 @@ MonoBehaviour:
   _english: 
   _enableTurkish: 0
   _turkish: 
+--- !u!114 &562711224492482245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Rank_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Rank
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0420\u0430\u043D\u0433"
+  _editEnglish: 0
+  _english: Rank
+  _editTurkish: 0
+  _turkish: "R\xFCtbe"
+--- !u!114 &783856341597308656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Yes_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Yes
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0414\u0410"
+  _editEnglish: 0
+  _english: YES
+  _editTurkish: 0
+  _turkish: EVET
+--- !u!114 &1122561553406115891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Continue_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Continue
+  _textId: 
+  _editRussian: 0
+  _russian: 
+  _editEnglish: 0
+  _english: 
+  _editTurkish: 0
+  _turkish: 
+--- !u!114 &1246574901095727957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Anonymous_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Anonymous
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0410\u043D\u043E\u043D\u0438\u043C"
+  _editEnglish: 0
+  _english: Anonymous
+  _editTurkish: 0
+  _turkish: Anonim
+--- !u!114 &1406614620130659177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: SaveTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: SaveTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0412 \u0433\u043B\u0430\u0432\u043D\u043E\u043C \u043C\u0435\u043D\u044E
+    \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0432\u044B\u0431\u0440\u0430\u0442\u044C
+    \u043D\u043E\u0432\u0443\u044E \u0438\u0433\u0440\u0443 \u0438\u043B\u0438 \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C
+    \u0443\u0436\u0435 \u0438\u043C\u0435\u044E\u0449\u0443\u044E\u0441\u044F. \u041D\u043E\u0432\u0443\u044E
+    \u0438\u0433\u0440\u0443 \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043D\u0430\u0447\u0430\u0442\u044C
+    \u0432 \u043B\u044E\u0431\u043E\u0439 \u043E\u0442\u043A\u0440\u044B\u0442\u043E\u0439
+    \u043B\u043E\u043A\u0430\u0446\u0438\u0438."
+  _editEnglish: 0
+  _english: In the main menu, you can select a new game or download an existing one.
+    You can start a new game in any open location.
+  _editTurkish: 0
+  _turkish: "Ana men\xFCden yeni bir oyun se\xE7ebilir veya mevcut bir oyunu indirebilirsiniz.
+    Herhangi bir a\xE7\u0131k yerde yeni bir oyuna ba\u015Flayabilirsiniz."
+--- !u!114 &2062490514707734419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Leaderboard_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Leaderboard
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0422\u0410\u0411\u041B\u0418\u0426\u0410 \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
+  _editEnglish: 0
+  _english: LEADERBOARD
+  _editTurkish: 0
+  _turkish: "L\u0130DERLER SIRALAMASI"
+--- !u!114 &2245398681066610470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: No_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: No
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041D\u0415\u0422"
+  _editEnglish: 0
+  _english: NO
+  _editTurkish: 0
+  _turkish: HAYIR
+--- !u!114 &2479459449794573606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Sounds_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Sounds
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0417\u0432\u0443\u043A\u0438"
+  _editEnglish: 0
+  _english: Sounds
+  _editTurkish: 0
+  _turkish: Sesler
+--- !u!114 &2506591742304223981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Name_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Name
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0418\u043C\u044F"
+  _editEnglish: 0
+  _english: Name
+  _editTurkish: 0
+  _turkish: "\u0130sim"
+--- !u!114 &3073514162943602889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: EnemySpawnTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: EnemySpawnTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u043C\u0435\u0441\u0442\u0430, \u043E\u0442\u043A\u0443\u0434\u0430
+    \u0432\u044B\u0445\u043E\u0434\u044F\u0442 \u0437\u043E\u043C\u0431\u0438. \u0412\u044B
+    \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u0432 \u044D\u0442\u0438 \u043C\u0435\u0441\u0442\u0430."
+  _editEnglish: 0
+  _english: These are the places where zombies come out. You can't go to these places.
+  _editTurkish: 0
+  _turkish: "Bunlar zombilerin \xE7\u0131kt\u0131\u011F\u0131 yerler. Bu yerlere
+    gidemezsiniz."
+--- !u!114 &3148240805187373749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: BearAttackUpgrader_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: BearAttackUpgrader
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0435 \u0430\u0442\u0430\u043A\u0438
+    \u043C\u0435\u0434\u0432\u0435\u0434\u044F"
+  _editEnglish: 0
+  _english: Improved bear attack
+  _editTurkish: 0
+  _turkish: "Ay\u0131 sald\u0131r\u0131s\u0131n\u0131n iyile\u015Ftirilmesi"
+--- !u!114 &3361585177844649299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: MiniGunAttackUpgrader_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: MiniGunAttackUpgrader
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435 \u0430\u0442\u0430\u043A\u0438
+    \u043F\u0443\u043B\u0435\u043C\u0435\u0442\u0430"
+  _editEnglish: 0
+  _english: Minigun Attack Increase
+  _editTurkish: 0
+  _turkish: "Minigun sald\u0131r\u0131s\u0131n\u0131 art\u0131rmak"
+--- !u!114 &3561057331734364861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Previous_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Previous
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041D\u0430\u0437\u0430\u0434"
+  _editEnglish: 0
+  _english: Previous
+  _editTurkish: 0
+  _turkish: "\xD6nceki"
+--- !u!114 &3608724168722817644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: LevelCompleted_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: LevelCompleted
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0420\u041E\u0412\u0415\u041D\u042C \u0417\u0410\u0412\u0415\u0420\u0428\u0415\u041D!"
+  _editEnglish: 0
+  _english: LEVEL COMPLETED!
+  _editTurkish: 0
+  _turkish: "SEV\u0130YE TAMAMLANDI!"
+--- !u!114 &4826722777252017251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: WalletTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: WalletTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+    \u0432\u0430\u0448\u0438\u0445 \u0447\u0435\u0440\u0435\u043F\u043E\u0432. \u0417\u0430
+    \u043A\u0430\u0436\u0434\u043E\u0435 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u043E
+    \u0437\u043E\u043C\u0431\u0438 \u0432\u044B \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0435
+    \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0451\u043D\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+    \u0447\u0435\u0440\u0435\u043F\u043E\u0432, \u043A\u043E\u0442\u043E\u0440\u044B\u0435
+    \u0432 \u0434\u0430\u043B\u044C\u043D\u0435\u0439\u0448\u0435\u043C \u0432\u044B
+    \u043C\u043E\u0436\u0435\u0442\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
+    \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0439."
+  _editEnglish: 0
+  _english: This is the number of your skulls. For every zombie you kill, you receive
+    a certain number of skulls, which you can later use to purchase upgrades.
+  _editTurkish: 0
+  _turkish: "Bu sizin kafataslar\u0131n\u0131z\u0131n say\u0131s\u0131d\u0131r. \xD6ld\xFCrd\xFC\u011F\xFCn\xFCz
+    her zombi i\xE7in belirli say\u0131da kafatas\u0131 al\u0131rs\u0131n\u0131z
+    ve bunlar\u0131 daha sonra y\xFCkseltme sat\u0131n almak i\xE7in kullanabilirsiniz."
+--- !u!114 &5529956266888560464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: HealthBarTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: HealthBarTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u0448\u043A\u0430\u043B\u0430 \u0432\u0430\u0448\u0435\u0433\u043E
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F. \u0415\u0441\u043B\u0438 \u0448\u043A\u0430\u043B\u0430
+    \u043E\u043F\u0443\u0441\u0442\u0438\u0442\u0441\u044F \u0434\u043E \u043D\u0443\u043B\u044F,
+    \u0432\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u0435\u0442\u0435."
+  _editEnglish: 0
+  _english: This is the school of your health. If the scale drops to zero, you lose.
+  _editTurkish: 0
+  _turkish: "Buras\u0131 sizin sa\u011Fl\u0131k okulunuz. \xD6l\xE7ek s\u0131f\u0131ra
+    d\xFC\u015Ferse kaybedersiniz."
+--- !u!114 &5846583519601730132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstAidKitTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstAidKitTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u0441\u043F\u0430\u0432\u043D\u0435\u0440\u044B,
+    \u043D\u0430 \u043A\u043E\u0442\u043E\u0440\u044B\u0445 \u043C\u043E\u0436\u0435\u0442
+    \u0437\u0430\u0441\u043F\u0430\u0432\u043D\u0438\u0442\u044C\u0441\u044F \u0430\u043F\u0442\u0435\u0447\u043A\u0430.
+    \u041D\u0430 \u043E\u0434\u043D\u043E\u0439 \u043B\u043E\u043A\u0430\u0446\u0438\u0438
+    \u0438\u0445 \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E,
+    \u0442\u043E\u0433\u0434\u0430 \u0430\u043F\u0442\u0435\u0447\u043A\u0430 \u0431\u0443\u0434\u0435\u0442
+    \u0441\u043F\u0430\u0432\u043D\u0438\u0442\u044C\u0441\u044F \u0440\u0430\u043D\u0434\u043E\u043C\u043D\u043E.
+    \u041A\u0430\u0436\u0434\u0430\u044F \u0430\u043F\u0442\u0435\u0447\u043A\u0430
+    \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0432\u0430\u0448\u0435
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435."
+  _editEnglish: 0
+  _english: These are the spawners on which the first-aid kit can spawn. There may
+    be several of them at one location, then the first-aid kit will be spawned randomly.
+    Each first aid kit increases your health.
+  _editTurkish: 0
+  _turkish: "Bunlar, \xFCzerine ilk yard\u0131m \xE7antas\u0131n\u0131n uyuyabilece\u011Fi
+    yumurtlay\u0131c\u0131lard\u0131r. Bir yerde bunlardan birka\xE7\u0131 olabilir,
+    o zaman ilk yard\u0131m \xE7antas\u0131 rastgele do\u011Facakt\u0131r. Her ilk
+    yard\u0131m \xE7antas\u0131 sa\u011Fl\u0131\u011F\u0131n\u0131z\u0131 art\u0131r\u0131r."
+--- !u!114 &5918407013494742060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: NewGame_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: NewGame
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041D\u041E\u0412\u0410\u042F \u0418\u0413\u0420\u0410"
+  _editEnglish: 0
+  _english: NEW GAME
+  _editTurkish: 0
+  _turkish: "\rYEN\u0130 OYUN"
+--- !u!114 &6072498139290405345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Resume_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Resume
+  _textId: 
+  _editRussian: 0
+  _russian: 
+  _editEnglish: 0
+  _english: 
+  _editTurkish: 0
+  _turkish: 
+--- !u!114 &6227071353628013496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: UpgradeAvailableAbilitiesDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: UpgradeAvailableAbilitiesDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u0441\u043F\u0438\u0441\u043E\u043A \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0439,
+    \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+    \u043A\u0443\u043F\u0438\u0442\u044C \u0437\u0430 \u0432\u0430\u0448\u0438 \u0447\u0435\u0440\u0435\u043F\u0430."
+  _editEnglish: 0
+  _english: This is a list of upgrades that you can buy with your skulls.
+  _editTurkish: 0
+  _turkish: "Bu, kafataslar\u0131n\u0131z i\xE7in sat\u0131n alabilece\u011Finiz
+    iyile\u015Ftirmelerin bir listesidir."
+--- !u!114 &6610014664543065953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Off_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Off
+  _textId: 
+  _editRussian: 0
+  _russian: 
+  _editEnglish: 0
+  _english: 
+  _editTurkish: 0
+  _turkish: 
+--- !u!114 &6835082364301547020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: LoadGame_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: LoadGame
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0438\u0433\u0440\u0443"
+  _editEnglish: 0
+  _english: Load game
+  _editTurkish: 0
+  _turkish: "Oyunu y\xFCkle"
+--- !u!114 &7090385843299365696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: AutosavingDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: AutosavingDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0412 \u0433\u043B\u0430\u0432\u043D\u043E\u043C \u043C\u0435\u043D\u044E
+    \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0432\u044B\u0431\u0440\u0430\u0442\u044C
+    \u043D\u043E\u0432\u0443\u044E \u0438\u0433\u0440\u0443 \u0438\u043B\u0438 \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C
+    \u0443\u0436\u0435 \u0438\u043C\u0435\u044E\u0449\u0443\u044E\u0441\u044F. \u041D\u043E\u0432\u0443\u044E
+    \u0438\u0433\u0440\u0443 \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043D\u0430\u0447\u0430\u0442\u044C
+    \u0432 \u043B\u044E\u0431\u043E\u0439 \u043E\u0442\u043A\u0440\u044B\u0442\u043E\u0439
+    \u043B\u043E\u043A\u0430\u0446\u0438\u0438."
+  _editEnglish: 0
+  _english: In the main menu, you can select a new game or download an existing one.
+    You can start a new game in any open location.
+  _editTurkish: 0
+  _turkish: "Ana men\xFCden yeni bir oyun se\xE7ebilir veya mevcut bir oyunu indirebilirsiniz.
+    Herhangi bir a\xE7\u0131k yerde yeni bir oyuna ba\u015Flayabilirsiniz."
+--- !u!114 &7171604089684731652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: OpenLeaderboard_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: OpenLeaderboard
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0414\u043B\u044F \u0442\u043E\u0433\u043E, \u0447\u0442\u043E\u0431\u044B
+    \u043E\u0442\u043A\u0440\u044B\u0442\u044C \u0442\u0430\u0431\u043B\u0438\u0446\u0443
+    \u043B\u0438\u0434\u0435\u0440\u043E\u0432, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E
+    \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F.
+    \u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F?"
+  _editEnglish: 0
+  _english: To open the leaderboard, you need to log in. Do you want to log in?
+  _editTurkish: 0
+  _turkish: "Liderlik tablosunu a\xE7mak i\xE7in giris yapman\u0131z gerekir. Giris
+    yapmak ister misiniz?"
+--- !u!114 &7449828143545975863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: ScoreTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: ScoreTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u0432\u0430\u0448\u0438 \u043E\u0447\u043A\u0438,
+    \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0432\u044B \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0435
+    \u0437\u0430 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u043E \u0437\u043E\u043C\u0431\u0438.
+    \u0412\u0441\u0435 \u043E\u0447\u043A\u0438, \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u044B\u0435
+    \u0432\u043E \u0432\u0441\u0435\u0445 \u0432\u0430\u0448\u0438\u0445 \u0438\u0433\u0440\u0430\u0445,
+    \u0441\u0443\u043C\u043C\u0438\u0440\u0443\u044E\u0442\u0441\u044F. \u0417\u0430
+    \u0443\u0441\u043F\u0435\u0448\u043D\u043E\u0435 \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u0435
+    \u0443\u0440\u043E\u0432\u043D\u044F \u043E\u0447\u043A\u0438 \u0443\u0434\u0432\u0430\u0438\u0432\u0430\u044E\u0442\u0441\u044F."
+  _editEnglish: 0
+  _english: These are your points that you get for killing zombies. All points earned
+    in all your games are summed up. Points are doubled for successful completion
+    of the level.
+  _editTurkish: 0
+  _turkish: "Bunlar zombileri \xF6ld\xFCrd\xFC\u011F\xFCn\xFCz i\xE7in ald\u0131\u011F\u0131n\u0131z
+    puanlard\u0131r. T\xFCm oyunlar\u0131n\u0131zda kazan\u0131lan t\xFCm puanlar
+    toplan\u0131r. Seviyeyi ba\u015Far\u0131yla tamamlad\u0131\u011F\u0131n\u0131zda
+    puanlar ikiye katlan\u0131r."
+--- !u!114 &8224070170877804161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: AdTutorialDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: AdTutorialDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0440\u0438 \u043D\u0430\u0436\u0430\u0442\u0438\u0438 \u043D\u0430
+    \u044D\u0442\u0443 \u043A\u043D\u043E\u043F\u043A\u0443 \u0432 \u043E\u043A\u043D\u0435
+    \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0439 \u0438 \u0432 \u043E\u043A\u043D\u0435
+    \u043F\u0430\u0443\u0437\u044B \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+    \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
+    15 \u0447\u0435\u0440\u0435\u043F\u043E\u0432. \u0422\u0430\u043A\u0436\u0435
+    \u043E\u0431\u044B\u0447\u043D\u0430\u044F \u0440\u0435\u043A\u043B\u0430\u043C\u0430
+    \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F \u043C\u0435\u0436\u0434\u0443
+    \"\u0432\u043E\u043B\u043D\u0430\u043C\u0438\". \u0415\u0441\u043B\u0438 \u0443
+    \u0432\u0430\u0441 \u0432\u043A\u043B\u044E\u0447\u0435\u043D AdBlock, \u0442\u043E
+    \u0440\u0435\u043A\u043B\u0430\u043C\u0430 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C\u0441\u044F
+    \u043D\u0435 \u0431\u0443\u0434\u0435\u0442."
+  _editEnglish: 0
+  _english: By clicking on this button in the upgrade window and in the pause window,
+    you can get an additional 15 skulls. Also, regular ads are shown between the
+    "waves". If you have AdBlock enabled, then ads will not be displayed.
+  _editTurkish: 0
+  _turkish: "Iyile\u015Ftirmeler penceresinde ve duraklatma penceresinde bu d\xFC\u011Fmeye
+    t\u0131klad\u0131\u011F\u0131n\u0131zda fazladan 15 kafatas\u0131 alabilirsiniz.
+    Ayr\u0131ca normal reklamlar \"dalgalar\" aras\u0131nda g\xF6sterilir. Adblock'u
+    etkinle\u015Ftirdiyseniz, reklam g\xF6sterilmeyecektir."
+--- !u!114 &8727284431849006686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Next_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Next
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0414\u0430\u043B\u0435\u0435"
+  _editEnglish: 0
+  _english: Next
+  _editTurkish: 0
+  _turkish: Sonraki

@@ -16,7 +16,7 @@ using UnityEngine;
 namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public class UiLocalizationText : View, IUiLocalizationText
+    public class UiLocalizationText : View, IUiLocalizationText, ISelfValidator
     {
         [DisplayAsString(false)] [HideLabel] 
         [SerializeField] private string _label = UiConstant.UiLocalizationTextLabel;
@@ -43,6 +43,14 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
 
         public bool IsHide { get; private set; }
         public string Id => _localizationId;
+
+        public void Validate(SelfValidationResult result)
+        {
+            if (string.IsNullOrWhiteSpace(_localizationId))
+            {
+                result.AddError($"Localization Id is empty {gameObject.name}");
+            }
+        }
 
         private void Awake()
         {
@@ -84,11 +92,11 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
 
         public void Disable() =>
             _tmpText.enabled = false;
-        
+
         [OnInspectorGUI]
         public void SetTmpText() =>
             _tmpText = GetComponent<TextMeshProUGUI>();
-        
+
         [UsedImplicitly]
         private List<string> GetDropdownValues() =>
             LocalizationDataBase.Instance.Phrases.Select(phrase => phrase.LocalizationId).ToList();
@@ -121,9 +129,5 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
         [ResponsiveButtonGroup("GetId/Translations/Get")] [UsedImplicitly]
         private void GetTurkish() =>
             _tmpText.text = _turkishText;
-        
-        // [UsedImplicitly]
-        // private bool ValidateTextId(string textId) =>
-        //     LocalizationDataBase.Instance.LocalizationIds.Contains(textId) == false;
     }
 }

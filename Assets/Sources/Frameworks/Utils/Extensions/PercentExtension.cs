@@ -25,5 +25,8 @@ namespace Sources.Utils.Extentions
 
         public static float FloatPercentToUnitPercent(this float value) =>
             value * MathConst.UnitMultiplier;
+        
+        public static float IntPercentToUnitPercent(this int value) =>
+            value * MathConst.UnitMultiplier;
     }
 }
