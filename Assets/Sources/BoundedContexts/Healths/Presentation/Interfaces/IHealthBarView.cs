@@ -1,4 +1,4 @@
-using Sources.PresentationsInterfaces.UI.Images;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Images;
 
 namespace Sources.BoundedContexts.Healths.Presentation.Interfaces
 {

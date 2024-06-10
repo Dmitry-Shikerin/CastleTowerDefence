@@ -5,6 +5,7 @@ using Sources.BoundedContexts.EnemyBosses.Domain;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
+using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
@@ -25,11 +26,16 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
                                     ?? throw new ArgumentNullException(nameof(enemyBossViewFactory));
         }
 
-        public IEnemyBossView Spawn(KillEnemyCounter killEnemyCounter, Vector3 position)
+        public IEnemyBossView Spawn(
+            KillEnemyCounter killEnemyCounter,
+            EnemySpawner enemySpawner,
+            Vector3 position)
         {
             BossEnemy bossEnemy = new BossEnemy(
-                new EnemyHealth(200), 
-                new EnemyAttacker(10, 30), 
+                new EnemyHealth(enemySpawner.BossHealth), 
+                new EnemyAttacker(
+                    enemySpawner.BossAttackPower,
+                    enemySpawner.BossMassAttackPower),
                 2f,
                 2f,
                 5f);

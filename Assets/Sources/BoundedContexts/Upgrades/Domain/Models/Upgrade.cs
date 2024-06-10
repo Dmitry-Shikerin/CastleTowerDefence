@@ -1,42 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sources.BoundedContexts.Players.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
+using Sources.BoundedContexts.Upgrades.Domain.Configs;
 
 namespace Sources.BoundedContexts.Upgrades.Domain.Models
 {
     public class Upgrade
     {
-        public Upgrade(
-            float startAmount,
-            int currentLevel,
-            float addedAmount,
-            List<int> moneyPerUpgrades,
-            string id)
+        public Upgrade(UpgradeConfig config)
         {
-            StartAmount = startAmount;
-            CurrentLevel = currentLevel;
-            AddedAmount = addedAmount;
-            MoneyPerUpgrades = moneyPerUpgrades;
-            Id = id;
+            Levels = config.Levels;
+            Id = config.Id;
         }
 
         public event Action LevelChanged;
 
-        public IReadOnlyList<int> MoneyPerUpgrades { get; }
+        public IReadOnlyList<UpgradeLevel> Levels  { get; private set; }
         public string Id { get; }
         public Type Type => GetType();
-        public float CurrentAmount => StartAmount + CurrentLevel * AddedAmount;
-        public float StartAmount { get; }
+        public float CurrentAmount => Levels[CurrentLevel].CurrentAmount;
         public int CurrentLevel { get; private set; }
-        public int MaxLevel => MoneyPerUpgrades.Count;
-        public float AddedAmount { get; }
+        public int MaxLevel => Levels.Count;
         
         public void ApplyUpgrade(PlayerWallet wallet)
         {
             if (CurrentLevel >= MaxLevel)
                 return;
             
-            if(wallet.TryRemoveCoins(MoneyPerUpgrades[CurrentLevel]) == false)
+            if(wallet.TryRemoveCoins(Levels[CurrentLevel].MoneyPerUpgrade) == false)
                 return;
             
             CurrentLevel++;

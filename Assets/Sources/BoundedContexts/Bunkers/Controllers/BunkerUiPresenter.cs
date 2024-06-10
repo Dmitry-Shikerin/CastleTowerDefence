@@ -1,27 +1,31 @@
 ﻿using System;
 using Sources.BoundedContexts.Bunkers.Domain;
-using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
-using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
 namespace Sources.BoundedContexts.Bunkers.Controllers
 {
-    public class BunkerPresenter : PresenterBase
+    public class BunkerUiPresenter : PresenterBase
     {
         private readonly Bunker _bunker;
-        private readonly IBunkerView _view;
+        private readonly IBunkerUi _view;
 
-        public BunkerPresenter(Bunker bunker, IBunkerView view)
+        public BunkerUiPresenter(Bunker bunker, IBunkerUi view)
         {
             _bunker = bunker ?? throw new ArgumentNullException(nameof(bunker));
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
-        public void TakeDamage(IEnemyViewBase enemyView)
+        public override void Enable()
         {
-            _bunker.TakeDamage();
-            enemyView.Destroy();
+            OnHealthChanged();
+            _bunker.OnHealthChanged += OnHealthChanged;
         }
+
+        public override void Disable() =>
+            _bunker.OnHealthChanged += OnHealthChanged;
+
+        private void OnHealthChanged() =>
+            _view.HealthText.SetText(_bunker.Health.ToString());
     }
 }

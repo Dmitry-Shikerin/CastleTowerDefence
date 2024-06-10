@@ -1,62 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
-using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
-using Sources.BoundedContexts.KillEnemyCounters.Domain;
 
 namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
 {
     public class EnemySpawner
     {
-        private int _currentWave;
-        private int _spawnedEnemiesInCurrentWave;
+        private readonly EnemySpawnerConfig _enemySpawnerConfig;
+        private int _currentWaveNumber;
+        private int _spawnedAllEnemies;
 
-        public EnemySpawner(EnemySpawnerConfigContainer enemySpawnerConfig)
+        public EnemySpawner(EnemySpawnerConfig enemySpawnerConfig)
         {
             if (enemySpawnerConfig == null) 
                 throw new ArgumentNullException(nameof(enemySpawnerConfig));
             
+            _enemySpawnerConfig = enemySpawnerConfig;
+
             Waves = enemySpawnerConfig.Waves;
         }
 
         public event Action WaveChanged;
-        public event Action SpawnedEnemiesInCurrentWaveChanged;
+        public event Action SpawnedAllEnemiesChanged;
 
         public IReadOnlyList<EnemySpawnerWave> Waves { get; private set; }
+        public EnemySpawnerWave CurrentWave => Waves[CurrentWaveNumber];
+        
+        public int EnemyHealth => 
+            _enemySpawnerConfig.StartEnemyHealth + 
+            _enemySpawnerConfig.AddedEnemyHealth * 
+            CurrentWaveNumber;
+        public int EnemyAttackPower => 
+            _enemySpawnerConfig.StartEnemyAttackPower + 
+            _enemySpawnerConfig.AddedEnemyAttackPower * 
+            CurrentWaveNumber;
+        public int KamikazeHealth =>
+            _enemySpawnerConfig.StartKamikazeHealth + 
+            _enemySpawnerConfig.AddedKamikazeHealth * 
+            CurrentWaveNumber;
+        public int KamikazeAttackPower => 
+            _enemySpawnerConfig.StartKamikazeAttackPower + 
+            _enemySpawnerConfig.AddedKamikazeAttackPower * 
+            CurrentWaveNumber;
+        public int KamikazeMassAttackPower => 
+            _enemySpawnerConfig.StartKamikazeMassAttackPower + 
+            _enemySpawnerConfig.AddedKamikazeMassAttackPower * 
+            CurrentWaveNumber;
+        public int BossMassAttackPower => 
+            _enemySpawnerConfig.StartBossMassAttackPower + 
+            _enemySpawnerConfig.AddedBossMassAttackPower * 
+            CurrentWaveNumber;
+        public int BossAttackPower => 
+            _enemySpawnerConfig.StartBossAttackPower + 
+            _enemySpawnerConfig.AddedBossAttackPower * 
+            CurrentWaveNumber;
+        public float BossHealth => 
+            _enemySpawnerConfig.StartBossHealth + 
+            _enemySpawnerConfig.AddedBossHealth * 
+            CurrentWaveNumber;
 
-        public int CurrentWave
+        public int CurrentWaveNumber
         {
-            get => _currentWave;
+            get => _currentWaveNumber;
             set
             {
-                _currentWave = value;
+                _currentWaveNumber = value;
                 WaveChanged?.Invoke();
             }
         }
 
-        public int SpawnedEnemiesInCurrentWave
+        public int SpawnedAllEnemies
         {
-            get => _spawnedEnemiesInCurrentWave;
+            get => _spawnedAllEnemies;
             set
             {
-                _spawnedEnemiesInCurrentWave = value;
-                SpawnedEnemiesInCurrentWaveChanged?.Invoke();
+                _spawnedAllEnemies = value;
+                SpawnedAllEnemiesChanged?.Invoke();
             }
         }
 
-        public bool IsSpawnEnemy { get; set; } = true;
-        public bool IsSpawnBoss { get; set; }
-        public int SpawnedBosses { get; set; }
-
-        public UniTask WaitWave(KillEnemyCounter killEnemyCounter, CancellationToken cancellationToken)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void SetCurrentWave(int killZombies)
-        {
-            throw new System.NotImplementedException();
-        }
+        public int SpawnedEnemiesInCurrentWave { get; set; }
+        public int SpawnedBossesInCurrentWave { get; set; }
+        public int SpawnedKamikazeInCurrentWave { get; set; }
     }
 }

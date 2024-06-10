@@ -10,11 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bc13d9a0da84ff48e9713903fff4b9f, type: 3}
-  m_Name: EnemySpawnerConfigContainer
+  m_Name: EnemySpawnerConfig
   m_EditorClassIdentifier: 
   _waves:
   - {fileID: 8948478608034842370}
   - {fileID: 1743868595315663900}
+  _startEnemyAttackPower: 2
+  _addedEnemyAttackPower: 1
+  _startEnemyHealth: 30
+  _addedenemyHealth: 1
+  _startBossAttackPower: 3
+  _addedBossAttackPower: 1
+  _startbossMassAttackPower: 5
+  _addedBossMassAttackPower: 1
+  _startBossHealth: 100
+  _addedBossHealth: 2
+  _startKamikazeHealth: 30
+  _addedKamikazeHealth: 1
+  _startKamikazeAttackPower: 2
+  _addedKamikazeAttackPower: 1
+  _startKamikazeMassAttackPower: 10
+  _addedKamikazeMassAttackPower: 1
 --- !u!114 &1743868595315663900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,18 +47,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 2
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
+  _spawnDelay: 2
   _enemyCount: 0
-  _enemyAttackPower: 0
-  _enemyHealth: 0
-  _enemyAttackSpeed: 0
   _bossesCount: 0
-  _bossAttackPower: 0
-  _bossMassAttackPower: 0
-  _bossHealth: 0
-  _bossAttackSpeed: 0
   _kamikazeEnemyCount: 0
-  _kamikazeMassAttackPower: 0
 --- !u!114 &8948478608034842370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,13 +69,5 @@ MonoBehaviour:
   _moneyPerResilenceCharacters: 2
   _spawnDelay: 2
   _enemyCount: 5
-  _enemyAttackPower: 0
-  _enemyHealth: 0
-  _enemyAttackSpeed: 0
-  _bossesCount: 0
-  _bossAttackPower: 0
-  _bossMassAttackPower: 0
-  _bossHealth: 0
-  _bossAttackSpeed: 0
-  _kamikazeEnemyCount: 0
-  _kamikazeMassAttackPower: 0
+  _bossesCount: 2
+  _kamikazeEnemyCount: 3

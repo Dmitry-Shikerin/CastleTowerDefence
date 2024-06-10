@@ -1,6 +1,8 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Abilities.Presentation.Implementation;
+using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
+using Sources.BoundedContexts.Upgrades.Presentation.Implementation;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using UnityEngine;
@@ -21,7 +23,19 @@ namespace Sources.BoundedContexts.Huds.Presentations
 
         [FoldoutGroup("UiFramework")] 
         [Required] [SerializeField] private EnemySpawnerUi _enemySpawnerUi;
-
+        
+        [FoldoutGroup("Bunker")] 
+        [Required] [SerializeField] private BunkerUi _bunkerUi;
+        
+        [FoldoutGroup("Upgrades")]
+        [Required] [SerializeField] private UpgradeView _characterAttackUpgradeView;
+        [FoldoutGroup("Upgrades")]
+        [Required] [SerializeField] private UpgradeView _characterHealthUpgradeView;
+        [FoldoutGroup("Upgrades")]
+        [Required] [SerializeField] private UpgradeView _nukeAbilityUpgradeVieew;
+        [FoldoutGroup("Upgrades")]
+        [Required] [SerializeField] private UpgradeView _flamethrowerAbilityUpgradeView;
+        
         public UiCollector UiCollector => _uiCollector;
 
         public AbilityApplierView NukeAbilityApplier => _nukeAbilityApplier;
@@ -29,5 +43,12 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public AbilityApplierView FlamethrowerAbilityApplier => _flamethrowerAbilityApplier;
         
         public EnemySpawnerUi EnemySpawnerUi => _enemySpawnerUi;
+        
+        public BunkerUi BunkerUi => _bunkerUi;
+        
+        public UpgradeView CharacterHealthUpgradeView => _characterHealthUpgradeView;
+        public UpgradeView CharacterAttackUpgradeView => _characterAttackUpgradeView;
+        public UpgradeView NukeAbilityUpgradeView => _nukeAbilityUpgradeVieew;
+        public UpgradeView FlamethrowerAbilityUpgradeView => _flamethrowerAbilityUpgradeView;
     }
 }

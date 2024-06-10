@@ -1,4 +1,4 @@
-﻿using Sources.BoundedContexts.Players.Domain;
+﻿using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 using Sources.PresentationsInterfaces.Views.Constructors;
 

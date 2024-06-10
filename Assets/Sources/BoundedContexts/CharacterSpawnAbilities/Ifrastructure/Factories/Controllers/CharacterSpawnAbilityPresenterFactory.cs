@@ -5,6 +5,7 @@ using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
+using Sources.BoundedContexts.Upgrades.Domain.Models;
 
 namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers
 {
@@ -23,10 +24,14 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factorie
                                           throw new ArgumentNullException(nameof(characterRangeSpawnService));
         }
 
-        public CharacterSpawnAbilityPresenter Create(CharacterSpawnAbility characterSpawnAbility, ICharacterSpawnAbilityView view)
+        public CharacterSpawnAbilityPresenter Create(
+            CharacterSpawnAbility characterSpawnAbility, 
+            Upgrade characterHealthUpgrade,
+            ICharacterSpawnAbilityView view)
         {
             return new CharacterSpawnAbilityPresenter(
                 characterSpawnAbility,
+                characterHealthUpgrade,
                 view,
                 _characterMeleeSpawnService,
                 _characterRangeSpawnService);

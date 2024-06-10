@@ -1,5 +1,4 @@
 ﻿using System;
-using Sources.BoundedContexts.Enemies.Domain.Constants;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemyKamikazes.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Providers;
@@ -48,10 +47,10 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.
             EnemyKamikazeView view)
         {
             _dependencyProviderFactory.Create(enemy, view);
-            view.FsmOwner.StartBehaviour();
-            
             _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
             _healthBarViewFactory.Create(enemy.EnemyHealth, view.HealthBarView);
+            
+            view.StartFsm();
             
             return view;
         }

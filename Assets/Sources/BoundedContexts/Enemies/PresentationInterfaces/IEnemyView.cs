@@ -9,7 +9,6 @@ namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
     public interface IEnemyView : IEnemyViewBase
     {
         IEnemyAnimation Animation { get; }
-        FSMOwner FsmOwner { get; }
         EnemyDependencyProvider Provider { get; }
         ICharacterSpawnPoint CharacterMeleePoint { get; }
         ICharacterSpawnPoint CharacterRangePoint { get; }

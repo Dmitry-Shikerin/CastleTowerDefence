@@ -1,5 +1,5 @@
 ﻿using System;
-using Sources.BoundedContexts.Players.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Controllers;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;

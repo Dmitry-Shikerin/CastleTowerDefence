@@ -5,6 +5,7 @@ using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Co
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
+using Sources.BoundedContexts.Upgrades.Domain.Models;
 
 namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views
 {
@@ -18,9 +19,15 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factorie
                                 throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public ICharacterSpawnAbilityView Create(CharacterSpawnAbility characterSpawnAbility, CharacterSpawnAbilityView view)
+        public ICharacterSpawnAbilityView Create(
+            CharacterSpawnAbility characterSpawnAbility, 
+            Upgrade characterHealthUpgrade,
+            CharacterSpawnAbilityView view)
         {
-            CharacterSpawnAbilityPresenter presenter = _presenterFactory.Create(characterSpawnAbility, view);
+            CharacterSpawnAbilityPresenter presenter = _presenterFactory.Create(
+                characterSpawnAbility, 
+                characterHealthUpgrade,
+                view);
             view.Construct(presenter);
             
             return view;

@@ -13,6 +13,6 @@
         public const string RewardItem = "Views/RewardItemView";
         public const string CharacterMeleeView = "Views/CharacterMeleeView";
         public const string CharacterRangeView = "Views/CharacterRangeView";
-        public const string EnemySpawnerConfigContainer = "Configs/EnemySpawnerWaves/EnemySpawnerConfigContainer";
+        public const string EnemySpawnerConfigContainer = "Configs/EnemySpawnerWaves/EnemySpawnerConfig";
     }
 }

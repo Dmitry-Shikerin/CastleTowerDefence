@@ -20,6 +20,8 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Configs
         [SerializeField] private List<UpgradeLevel> _upgradeLevels;
 
         public string Id => _upgradeId;
+
+        public List<UpgradeLevel> Levels => _upgradeLevels;
         
         public void RemoveLevel(UpgradeLevel wave)
         {

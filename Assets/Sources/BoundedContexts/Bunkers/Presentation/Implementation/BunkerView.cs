@@ -20,7 +20,7 @@ namespace Sources.BoundedContexts.Bunkers.Presentation.Implementation
         protected override void OnAfterDisable() =>
             _enemyTrigger.Entered -= OnEntered;
 
-        private void OnEntered(IEnemyView enemyView)
+        private void OnEntered(IEnemyViewBase enemyView)
         {
             Presenter.TakeDamage(enemyView);
         }

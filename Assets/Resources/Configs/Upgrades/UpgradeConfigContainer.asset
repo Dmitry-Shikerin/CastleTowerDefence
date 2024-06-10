@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c8a8aff0416db204bad6e41d98f1352a, type: 2}
   - {fileID: 11400000, guid: bb17bf88688a6e44f8979b0c80851567, type: 2}
   - {fileID: 11400000, guid: 0624f209eac4ec248999a3fdfe732a1a, type: 2}
-  _upgradeId: Health
+  _upgradeId: 

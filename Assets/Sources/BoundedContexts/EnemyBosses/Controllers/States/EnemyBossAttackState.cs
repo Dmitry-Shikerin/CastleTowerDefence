@@ -1,11 +1,19 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
+using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.EnemyBosses.Domain;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
+using Sources.BoundedContexts.Layers.Domain;
+using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 {
@@ -17,7 +25,10 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         private EnemyAttacker _enemyAttacker;
         private IEnemyBossView _view;
         private IEnemyBossAnimation _animation;
-                
+        private IOverlapService _overlapService;
+
+        private CancellationTokenSource _cancellationTokenSource;
+
         protected override void OnInit()
         {
             EnemyBossDependencyProvider provider =
@@ -27,12 +38,15 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
             _enemyAttacker = _enemy.EnemyAttacker;
             _view = provider.View;
             _animation = provider.Animation;
+            _overlapService = provider.OverlapService;
         }
         
         protected override void OnEnter()
         {
+            _cancellationTokenSource = new CancellationTokenSource();
             _animation.Attacking += OnAttack;
             _animation.PlayAttack();
+            StartTimer(_cancellationTokenSource.Token);
         }
         
         protected override void OnUpdate() =>
@@ -42,6 +56,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         {
             _animation.Attacking -= OnAttack;
             _view.SetCharacterHealth(null);
+            _cancellationTokenSource.Cancel();
         }
         
         private void OnAttack()
@@ -63,6 +78,38 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
                 return;
         
             _view.SetCharacterHealth(null);
+        }
+        
+        private async void StartTimer(CancellationToken cancellationToken)
+        {
+            try
+            {
+                while (cancellationToken.IsCancellationRequested == false)
+                {
+                    await UniTask.Delay(TimeSpan.FromSeconds(5f), cancellationToken: cancellationToken);
+                    PlayMassAttack();
+                }
+            }
+            catch (OperationCanceledException)
+            {
+            }
+        }
+
+        private void PlayMassAttack()
+        {
+            IReadOnlyList<CharacterHealthView> characterHealthViews =
+                _overlapService.OverlapSphere<CharacterHealthView>(
+                        _view.Position, _view.FindRange,
+                        LayerConst.Character,
+                        LayerConst.Defaul);
+
+            _view.PlayMassAttackParticle();
+            
+            if (characterHealthViews.Count == 0)
+                return;
+
+            foreach (CharacterHealthView characterHealthView in characterHealthViews)
+                characterHealthView.TakeDamage(_enemyAttacker.MassAttackDamage);
         }
     }
 }

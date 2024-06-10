@@ -1,8 +1,9 @@
 ﻿using System;
-using Sources.BoundedContexts.Players.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Upgrades.Controllers
 {
@@ -22,13 +23,34 @@ namespace Sources.BoundedContexts.Upgrades.Controllers
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
-        public override void Enable() =>
+        public override void Enable()
+        {
+            UpdatePrice();
             _view.UpgradeButton.onClickEvent.AddListener(ApplyUpgrade);
+        }
 
-        public override void Disable() =>
+        public override void Disable()
+        {
             _view.UpgradeButton.onClickEvent.AddListener(ApplyUpgrade);
+        }
 
-        private void ApplyUpgrade() =>
+        private void ApplyUpgrade()
+        {
             _upgrade.ApplyUpgrade(_playerWallet);
+            UpdatePrice();
+        }
+
+        private void UpdatePrice()
+        {
+            if (_upgrade.CurrentLevel >= _upgrade.MaxLevel)
+            {
+                _view.PriseNextUpgrade.SetText("Max");
+                
+                return;
+            }
+            
+            string price = _upgrade.Levels[_upgrade.CurrentLevel].MoneyPerUpgrade.ToString();
+            _view.PriseNextUpgrade.SetText(price);
+        }
     }
 }
