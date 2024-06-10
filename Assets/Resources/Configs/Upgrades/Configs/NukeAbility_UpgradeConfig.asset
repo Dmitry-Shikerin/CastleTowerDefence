@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: NukeAbility_UpgradeConfig
   m_EditorClassIdentifier: 
   _enable: 0
-  _parent: {fileID: 0}
-  _upgradeId: 
+  _parent: {fileID: 11400000, guid: 7a1d9e10b11f9ef4484931c5e5f8eac1, type: 2}
+  _upgradeId: NukeAbility
   _upgradeLevels: []
