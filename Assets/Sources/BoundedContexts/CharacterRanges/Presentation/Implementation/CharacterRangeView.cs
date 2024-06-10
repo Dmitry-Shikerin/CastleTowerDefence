@@ -31,7 +31,6 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         public ICharacterRangeAnimation RangeAnimation => _rangeAnimation;
         public CharacterHealthView HealthView => _healthView;
         public CharacterRangeDependencyProvider Provider => _provider;
-        public FSMOwner FSMOwner => _fsmOwner;
         public float FindRange => _findRange;
         public Vector3 Position => transform.position;
         public ICharacterHealthView CharacterHealth => _healthView;
@@ -40,8 +39,8 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
 
         public override void Destroy()
         {
-            _poDestroyerService.Destroy(this);
             _fsmOwner.StopBehaviour();
+            _poDestroyerService.Destroy(this);
         }
         
         public void PlayShootParticle() =>
@@ -49,6 +48,12 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
 
         public void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint) =>
             CharacterSpawnPoint = spawnPoint;
+
+        public void StartFsm() =>
+            _fsmOwner.StartBehaviour();
+
+        public void StopFsm() =>
+            _fsmOwner.StopBehaviour();
 
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView) =>
             EnemyHealth = enemyHealthView;

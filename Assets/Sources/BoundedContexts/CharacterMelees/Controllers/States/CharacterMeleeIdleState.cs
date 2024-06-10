@@ -12,7 +12,6 @@ using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {

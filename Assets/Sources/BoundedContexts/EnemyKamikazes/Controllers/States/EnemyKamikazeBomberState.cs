@@ -56,8 +56,6 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
             if (characterHealthViews.Count <= 0)
                 return;
 
-            Debug.Log($"{_enemy.EnemyAttacker.MassAttackDamage}");
-            
             foreach (CharacterHealthView characterHealthView in characterHealthViews)
                 characterHealthView.TakeDamage(_enemy.EnemyAttacker.MassAttackDamage);
         }

@@ -31,6 +31,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawne
             ICharacterMeleeView characterMeleeView = SpawnFromPool(characterMelee) ?? 
                                             _characterViewFactory.Create(characterMelee);
             characterMeleeView.SetPosition(position);
+            characterMeleeView.Show();
             
             return characterMeleeView;
         }
@@ -41,6 +42,8 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawne
 
             if (characterMeleeView == null)
                 return null;
+            
+            Debug.Log($"Spawned from pool: {characterMeleeView}");
             
             return _characterViewFactory.Create(characterMelee, characterMeleeView);
         }

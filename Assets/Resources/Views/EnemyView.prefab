@@ -4578,13 +4578,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+  _serializedBlackboard: '{"_variables":{"_provider":{"_value":1,"_name":"_provider","_id":"0fe3a99e-01c6-4eef-9cb3-2a362dbd0498","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
-  _objectReferences: []
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 8472846847038663704}
   _serializedVariables:
-  - _json: '{"_propertyPath":"Sources.BoundedContexts.Enemies.Presentation.EnemyView.Provider","_name":"_provider","_id":"e494dea1-d4ac-4aec-bf8e-3e0bc4a9230b","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+  - _json: '{"_value":1,"_name":"_provider","_id":"0fe3a99e-01c6-4eef-9cb3-2a362dbd0498","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
+    _references:
+    - {fileID: 0}
+    - {fileID: 8472846847038663704}
 --- !u!114 &8472846847038663704
 MonoBehaviour:
   m_ObjectHideFlags: 0

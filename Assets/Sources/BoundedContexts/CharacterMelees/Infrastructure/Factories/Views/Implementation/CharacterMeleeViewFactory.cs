@@ -27,8 +27,10 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
             : base(meleePool)
         {
             _providerFactory = providerFactory ?? throw new ArgumentNullException(nameof(providerFactory));
-            _characterHealthViewFactory = characterHealthViewFactory ?? throw new ArgumentNullException(nameof(characterHealthViewFactory));
-            _healthBarViewFactory = healthBarViewFactory ?? throw new ArgumentNullException(nameof(healthBarViewFactory));
+            _characterHealthViewFactory = characterHealthViewFactory ?? 
+                                          throw new ArgumentNullException(nameof(characterHealthViewFactory));
+            _healthBarViewFactory = healthBarViewFactory ?? 
+                                    throw new ArgumentNullException(nameof(healthBarViewFactory));
         }
         
         public ICharacterMeleeView Create(CharacterMelee characterMelee)
@@ -41,10 +43,10 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
         public ICharacterMeleeView Create(CharacterMelee characterMelee, CharacterMeleeView view)
         {
             _providerFactory.Create(characterMelee, view);
-            view.FSMOwner.StartBehaviour();
-            
             _characterHealthViewFactory.Create(characterMelee.CharacterHealth, view.HealthView);
             _healthBarViewFactory.Create(characterMelee.CharacterHealth, view.HealthBarView);
+            
+            view.StartBehaviour();
             
             return view;
         }

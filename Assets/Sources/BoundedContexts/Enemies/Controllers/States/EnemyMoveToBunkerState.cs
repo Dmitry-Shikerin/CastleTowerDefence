@@ -20,6 +20,8 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     [UsedImplicitly]
     public class EnemyMoveToBunkerState : FSMState
     {
+        [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
+        
         private Enemy _enemy;
         private IEnemyView _view;
         private IEnemyAnimation _animation;
@@ -29,13 +31,10 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnInit()
         {
-            EnemyDependencyProvider provider =
-                graphBlackboard.parent.GetVariable<EnemyDependencyProvider>("_provider").value;
-
-            _enemy = provider.Enemy;
-            _view = provider.View;
-            _animation = provider.Animation;
-            _overlapService = provider.OverlapService;
+            _enemy = _provider.value.Enemy;
+            _view = _provider.value.View;
+            _animation = _provider.value.Animation;
+            _overlapService = _provider.value.OverlapService;
         }
 
         protected override void OnEnter()

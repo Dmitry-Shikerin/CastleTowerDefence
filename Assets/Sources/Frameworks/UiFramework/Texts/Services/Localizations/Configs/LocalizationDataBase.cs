@@ -30,9 +30,6 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         [EnableIf("_enableTextId", Enable.Enable)]
         [SerializeField] private string _textId;
         [Space(7)]
-        [TabGroup("GetId", "CreatePhrase")]
-        [ValueDropdown("GetScopes")]
-        [SerializeField] private string _scope;
         [TabGroup("GetId", "CreatePhrase")] 
         [EnumToggleButtons] [Space(10)] [LabelText("Russian")]
         [SerializeField] private Enable _enableRussian;

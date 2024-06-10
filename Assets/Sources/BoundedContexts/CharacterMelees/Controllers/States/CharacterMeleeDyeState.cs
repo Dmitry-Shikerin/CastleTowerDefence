@@ -12,28 +12,18 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     [UsedImplicitly]
     public class CharacterMeleeDyeState : FSMState
     {
-        private ICharacterMeleeView _view;
-        private ICharacterMeleeAnimation _animation;
-        private ICharacterRotationService _rotationService;
+        private CharacterMeleeDependencyProvider _provider;
+        private ICharacterMeleeView View => _provider.View;
 
         protected override void OnInit()
         {
-            CharacterMeleeDependencyProvider provider = 
+            _provider = 
                 graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
-
-            _view = provider.View;
-            _animation = provider.Animation;
-            _rotationService = provider.CharacterRotationService;
         }
 
         protected override void OnEnter()
         {
-            _view.Destroy();
-        }
-
-        protected override void OnExit()
-        {
-            base.OnExit();
+            View.Destroy();
         }
     }
 }

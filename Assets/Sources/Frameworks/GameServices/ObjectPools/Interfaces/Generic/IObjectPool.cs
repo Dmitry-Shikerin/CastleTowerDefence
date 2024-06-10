@@ -10,5 +10,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic
         IReadOnlyList<T> Collection { get; }
 
         void AddToCollection(T @object);
+        bool Contains(T @object);
     }
 }

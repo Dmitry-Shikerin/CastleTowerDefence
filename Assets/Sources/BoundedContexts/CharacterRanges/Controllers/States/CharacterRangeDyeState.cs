@@ -32,6 +32,5 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
         {
             _view.Destroy();
         }
-
     }
 }

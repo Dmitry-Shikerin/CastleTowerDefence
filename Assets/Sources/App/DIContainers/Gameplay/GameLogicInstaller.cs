@@ -58,6 +58,7 @@ using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
+using Sources.Utils.CustomCollections;
 using Zenject;
 
 namespace Sources.App.DIContainers.Gameplay

@@ -6,7 +6,6 @@ using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
@@ -14,6 +13,8 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     [UsedImplicitly]
     public class EnemyAttackState : FSMState
     {
+        [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
+        
         private Enemy _enemy;
         private EnemyAttacker _enemyAttacker;
         private IEnemyView _view;
@@ -21,13 +22,10 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnInit()
         {
-            EnemyDependencyProvider provider =
-                graphBlackboard.parent.GetVariable<EnemyDependencyProvider>("_provider").value;
-
-            _enemy = provider.Enemy;
+            _enemy = _provider.value.Enemy;
             _enemyAttacker = _enemy.EnemyAttacker;
-            _view = provider.View;
-            _animation = provider.Animation;
+            _view = _provider.value.View;
+            _animation = _provider.value.Animation;
         }
 
         protected override void OnEnter()

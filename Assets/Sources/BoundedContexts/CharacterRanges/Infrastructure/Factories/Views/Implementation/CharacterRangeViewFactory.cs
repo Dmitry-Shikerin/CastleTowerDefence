@@ -44,10 +44,10 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views
         public ICharacterRangeView Create(CharacterRange characterRange, CharacterRangeView view)
         {
             _providerFactory.Create(characterRange,view);
-            view.FSMOwner.StartBehaviour();
-            
             _characterHealthViewFactory.Create(characterRange.CharacterHealth, view.HealthView);
             _healthBarViewFactory.Create(characterRange.CharacterHealth, view.HealthBarView);
+            
+            view.StartFsm();
             
             return view;
         }
