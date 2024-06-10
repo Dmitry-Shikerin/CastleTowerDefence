@@ -12,36 +12,34 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
     [UsedImplicitly]
     public class EnemyBossMoveToCharacterState : FSMState
     {
-        private BossEnemy _enemy;
-        private IEnemyBossView _view;
-        private IEnemyBossAnimation _animation;
+        private EnemyBossDependencyProvider _provider;
+        
+        private BossEnemy Enemy => _provider.BossEnemy;
+        private IEnemyBossView View => _provider.View;
+        private IEnemyBossAnimation Animation => _provider.Animation;
 
         protected override void OnInit()
         {
-            EnemyBossDependencyProvider provider = 
+            _provider = 
                 graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-
-            _enemy = provider.BossEnemy;
-            _view = provider.View;
-            _animation = provider.Animation;
         }
 
         protected override void OnEnter() =>
-            _animation.PlayWalk();
+            Animation.PlayWalk();
 
         protected override void OnUpdate()
         {
-            if (_view.CharacterHealthView == null)
+            if (View.CharacterHealthView == null)
                 return;
             
-            if (_view.CharacterHealthView.CurrentHealth <= 0)
+            if (View.CharacterHealthView.CurrentHealth <= 0)
             {
-                _view.SetCharacterHealth(null);
+                View.SetCharacterHealth(null);
                 
                 return;
             }
             
-            _view.Move(_view.CharacterHealthView.Position);
+            View.Move(View.CharacterHealthView.Position);
         }
     }
 }

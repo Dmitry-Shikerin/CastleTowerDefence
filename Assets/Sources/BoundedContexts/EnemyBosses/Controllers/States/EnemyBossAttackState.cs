@@ -21,31 +21,27 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
     [UsedImplicitly]
     public class EnemyBossAttackState : FSMState
     {
-        private BossEnemy _enemy;
-        private EnemyAttacker _enemyAttacker;
-        private IEnemyBossView _view;
-        private IEnemyBossAnimation _animation;
-        private IOverlapService _overlapService;
+        private EnemyBossDependencyProvider _provider;
+        
+        private BossEnemy Enemy => _provider.BossEnemy;
+        private EnemyAttacker EnemyAttacker => _provider.BossEnemy.EnemyAttacker;
+        private IEnemyBossView View => _provider.View;
+        private IEnemyBossAnimation Animation => _provider.Animation;
+        private IOverlapService OverlapService => _provider.OverlapService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
         protected override void OnInit()
         {
-            EnemyBossDependencyProvider provider =
+            _provider =
                 graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-        
-            _enemy = provider.BossEnemy;
-            _enemyAttacker = _enemy.EnemyAttacker;
-            _view = provider.View;
-            _animation = provider.Animation;
-            _overlapService = provider.OverlapService;
         }
         
         protected override void OnEnter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            _animation.Attacking += OnAttack;
-            _animation.PlayAttack();
+            Animation.Attacking += OnAttack;
+            Animation.PlayAttack();
             StartTimer(_cancellationTokenSource.Token);
         }
         
@@ -54,8 +50,8 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         
         protected override void OnExit()
         {
-            _animation.Attacking -= OnAttack;
-            _view.SetCharacterHealth(null);
+            Animation.Attacking -= OnAttack;
+            View.SetCharacterHealth(null);
             _cancellationTokenSource.Cancel();
         }
         
@@ -63,21 +59,21 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         {
             SetCharacterHealth();
         
-            if (_view.CharacterHealthView == null)
+            if (View.CharacterHealthView == null)
                         return;
         
-            _view.CharacterHealthView.TakeDamage(_enemyAttacker.Damage);
+            View.CharacterHealthView.TakeDamage(EnemyAttacker.Damage);
         }
         
         private void SetCharacterHealth()
         {
-            if (_view.CharacterHealthView == null)
+            if (View.CharacterHealthView == null)
                 return;
                     
-            if (_view.CharacterHealthView.CurrentHealth > 0)
+            if (View.CharacterHealthView.CurrentHealth > 0)
                 return;
         
-            _view.SetCharacterHealth(null);
+            View.SetCharacterHealth(null);
         }
         
         private async void StartTimer(CancellationToken cancellationToken)
@@ -98,18 +94,18 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         private void PlayMassAttack()
         {
             IReadOnlyList<CharacterHealthView> characterHealthViews =
-                _overlapService.OverlapSphere<CharacterHealthView>(
-                        _view.Position, _view.FindRange,
+                OverlapService.OverlapSphere<CharacterHealthView>(
+                        View.Position, View.FindRange,
                         LayerConst.Character,
                         LayerConst.Defaul);
 
-            _view.PlayMassAttackParticle();
+            View.PlayMassAttackParticle();
             
             if (characterHealthViews.Count == 0)
                 return;
 
             foreach (CharacterHealthView characterHealthView in characterHealthViews)
-                characterHealthView.TakeDamage(_enemyAttacker.MassAttackDamage);
+                characterHealthView.TakeDamage(EnemyAttacker.MassAttackDamage);
         }
     }
 }

@@ -110538,6 +110538,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"_provider":{"_value":1,"_name":"_provider","_id":"0fe3a99e-01c6-4eef-9cb3-2a362dbd0498","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedVariables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647694516050573320, guid: 408caf03faf1a1a4e82dbe2cb3f6f759, type: 3}
+      propertyPath: _serializedVariables.Array.data[1]._json
+      value: '{"_propertyPath":"Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider.OverlapService","_name":"OverlapService","_id":"e994c479-50a3-4b99-9b52-d18fd3ec6d28","$type":"NodeCanvas.Framework.Variable`1[[Sources.Frameworks.GameServices.Overlaps.Interfaces.IOverlapService,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

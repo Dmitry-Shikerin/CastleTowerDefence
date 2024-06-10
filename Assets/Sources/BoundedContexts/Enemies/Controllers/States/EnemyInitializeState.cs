@@ -14,21 +14,14 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     {
         [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
         
-        private Enemy _enemy;
-        private IEnemyView _view;
-        private IEnemyAnimation _animation;
-
-        protected override void OnInit()
-        {
-            _enemy = _provider.value.Enemy;
-            _view = _provider.value.View;
-            _animation = _provider.value.Animation;
-        }
-
+        private Enemy Enemy => _provider.value.Enemy;
+        private IEnemyView View => _provider.value.View;
+        private IEnemyAnimation Animation => _provider.value.Animation;
+        
         protected override void OnEnter()
         {
-            _enemy.IsInitialized = true;
-            _animation.PlayIdle();
+            Enemy.IsInitialized = true;
+            Animation.PlayIdle();
         }
     }
 }

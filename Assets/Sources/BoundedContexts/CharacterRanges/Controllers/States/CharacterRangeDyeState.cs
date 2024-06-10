@@ -14,23 +14,21 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
     [UsedImplicitly]
     public class CharacterRangeDyeState : FSMState
     {
-        private ICharacterRangeView _view;
-        private ICharacterRangeAnimation _animation;
-        private ICharacterRotationService _rotationService;
+        private CharacterRangeDependencyProvider _provider;
+        
+        private ICharacterRangeView View => _provider.View;
+        private ICharacterRangeAnimation Animation => _provider.Animation;
+        private ICharacterRotationService RotationService => _provider.CharacterRotationService;
 
         protected override void OnInit()
         {
-            CharacterRangeDependencyProvider provider = 
+            _provider = 
                 graphBlackboard.parent.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
-
-            _view = provider.View;
-            _animation = provider.Animation;
-            _rotationService = provider.CharacterRotationService;
         }
 
         protected override void OnEnter()
         {
-            _view.Destroy();
+            View.Destroy();
         }
     }
 }

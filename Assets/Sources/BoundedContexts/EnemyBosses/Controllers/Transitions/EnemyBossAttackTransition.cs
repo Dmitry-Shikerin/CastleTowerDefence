@@ -12,23 +12,23 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyBossAttackTransition : ConditionTask
     {
-        private IEnemyBossView _view;
-        private BossEnemy _enemy;
+        private EnemyBossDependencyProvider _provider;
+        
+        private IEnemyBossView View => _provider.View;
+        private BossEnemy Enemy => _provider.BossEnemy;
 
         protected override string OnInit()
         {
-            EnemyBossDependencyProvider provider =
+            _provider =
                 blackboard.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-            _enemy = provider.BossEnemy;
-            _view = provider.View;
 
             return null;
         }
 
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null
-            && _view.CharacterHealthView.CurrentHealth > 0
-            && Vector3.Distance(_view.Position, _view.CharacterHealthView.Position)
-            <= _view.StoppingDistance + 0.15f;
+            View.CharacterHealthView != null
+            && View.CharacterHealthView.CurrentHealth > 0
+            && Vector3.Distance(View.Position, View.CharacterHealthView.Position)
+            <= View.StoppingDistance + 0.15f;
     }
 }

@@ -15,23 +15,15 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     {
         [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
         
-        private Enemy _enemy;
-        private EnemyAttacker _enemyAttacker;
-        private IEnemyView _view;
-        private IEnemyAnimation _animation;
-
-        protected override void OnInit()
-        {
-            _enemy = _provider.value.Enemy;
-            _enemyAttacker = _enemy.EnemyAttacker;
-            _view = _provider.value.View;
-            _animation = _provider.value.Animation;
-        }
-
+        private Enemy Enemy => _provider.value.Enemy;
+        private EnemyAttacker EnemyAttacker => Enemy.EnemyAttacker;
+        private IEnemyView View => _provider.value.View;
+        private IEnemyAnimation Animation => _provider.value.Animation;
+        
         protected override void OnEnter()
         {
-            _animation.Attacking += OnAttack;
-            _animation.PlayAttack();
+            Animation.Attacking += OnAttack;
+            Animation.PlayAttack();
         }
 
         protected override void OnUpdate() =>
@@ -39,29 +31,29 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnExit()
         {
-            _animation.Attacking -= OnAttack;
-            _view.SetCharacterHealth(null);
+            Animation.Attacking -= OnAttack;
+            View.SetCharacterHealth(null);
         }
 
         private void OnAttack()
         {
             SetCharacterHealth();
 
-            if (_view.CharacterHealthView == null)
+            if (View.CharacterHealthView == null)
                 return;
 
-            _view.CharacterHealthView.TakeDamage(_enemyAttacker.Damage);
+            View.CharacterHealthView.TakeDamage(EnemyAttacker.Damage);
         }
 
         private void SetCharacterHealth()
         {
-            if (_view.CharacterHealthView == null)
+            if (View.CharacterHealthView == null)
                 return;
             
-            if (_view.CharacterHealthView.CurrentHealth > 0)
+            if (View.CharacterHealthView.CurrentHealth > 0)
                 return;
 
-            _view.SetCharacterHealth(null);
+            View.SetCharacterHealth(null);
         }
     }
 }

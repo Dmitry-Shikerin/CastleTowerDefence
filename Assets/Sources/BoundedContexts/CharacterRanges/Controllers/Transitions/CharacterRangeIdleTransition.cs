@@ -1,8 +1,6 @@
 ﻿using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using UnityEngine;
@@ -13,18 +11,20 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.Transitions
     [UsedImplicitly]
     public class CharacterRangeIdleTransition : ConditionTask
     {
-        private ICharacterRangeView _view;
+        private CharacterRangeDependencyProvider _provider;
+        
+        private ICharacterRangeView View => _provider.View;
 
         protected override string OnInit()
         {
-            CharacterRangeDependencyProvider provider = 
+            _provider = 
                 blackboard.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
-            _view = provider.View;
+            
             return null;
         }
 
         protected override bool OnCheck() =>
-            _view.EnemyHealth == null || Vector3.Distance(
-                _view.Position, _view.EnemyHealth.Position) > _view.FindRange;
+            View.EnemyHealth == null || Vector3.Distance(
+                View.Position, View.EnemyHealth.Position) > View.FindRange;
     }
 }

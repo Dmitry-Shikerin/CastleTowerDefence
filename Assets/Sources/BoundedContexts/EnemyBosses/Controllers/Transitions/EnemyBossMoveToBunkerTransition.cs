@@ -11,20 +11,21 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyBossMoveToBunkerTransition : ConditionTask
     {
-        private IEnemyBossView _view;
+        private EnemyBossDependencyProvider _provider;
+        
+        private IEnemyBossView View;
 
         protected override string OnInit()
         {
-            EnemyBossDependencyProvider provider =
+            _provider =
                 blackboard.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-            _view = provider.View;
             
             return null;
         }
 
         protected override bool OnCheck() =>
-            Vector3.Distance(_view.Position, _view.CharacterMeleePoint.Position)
-            <= _view.StoppingDistance && _view.CharacterHealthView == null;
+            Vector3.Distance(View.Position, View.CharacterMeleePoint.Position)
+            <= View.StoppingDistance && View.CharacterHealthView == null;
 
     }
 }

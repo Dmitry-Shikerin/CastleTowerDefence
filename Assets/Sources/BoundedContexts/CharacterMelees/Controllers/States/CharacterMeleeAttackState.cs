@@ -12,61 +12,59 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     [UsedImplicitly]
     public class CharacterMeleeAttackState : FSMState
     {
-        private ICharacterMeleeView _view;
-        private ICharacterMeleeAnimation _animation;
-        private ICharacterRotationService _rotationService;
+        private CharacterMeleeDependencyProvider _provider;
+        
+        private ICharacterMeleeView View => _provider.View;
+        private ICharacterMeleeAnimation Animation => _provider.Animation;
+        private ICharacterRotationService RotationService => _provider.CharacterRotationService;
 
         protected override void OnInit()
         {
-            CharacterMeleeDependencyProvider provider = 
+            _provider = 
                 graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
-
-            _view = provider.View;
-            _animation = provider.Animation;
-            _rotationService = provider.CharacterRotationService;
         }
 
         protected override void OnEnter()
         {
-            _animation.Attacking += OnAttack;
-            _animation.PlayAttack();
+            Animation.Attacking += OnAttack;
+            Animation.PlayAttack();
         }
 
         protected override void OnUpdate()
         {
-            if (_view.EnemyHealth == null)
+            if (View.EnemyHealth == null)
                 return;
 
-            if (_view.EnemyHealth.CurrentHealth <= 0)
-                _view.SetEnemyHealth(null);
+            if (View.EnemyHealth.CurrentHealth <= 0)
+                View.SetEnemyHealth(null);
             
             ChangeLookDirection();
         }
 
         protected override void OnExit()
         {
-            _animation.Attacking -= OnAttack;
+            Animation.Attacking -= OnAttack;
         }
 
         private void OnAttack()
         {
-            if (_view.EnemyHealth == null)
+            if (View.EnemyHealth == null)
                 return;
 
-            if (_view.EnemyHealth.CurrentHealth <= 0)
-                _view.SetEnemyHealth(null);
+            if (View.EnemyHealth.CurrentHealth <= 0)
+                View.SetEnemyHealth(null);
             
-            _view.EnemyHealth.TakeDamage(10);
+            View.EnemyHealth.TakeDamage(10);
         }
         
         private void ChangeLookDirection()
         {
-            if (_view.EnemyHealth == null)
+            if (View.EnemyHealth == null)
                 return;
 
-            float angle = _rotationService.GetAngleRotation(
-                _view.EnemyHealth.Position, _view.Position);
-            _view.SetLookRotation(angle);
+            float angle = RotationService.GetAngleRotation(
+                View.EnemyHealth.Position, View.Position);
+            View.SetLookRotation(angle);
         }
     }
 }

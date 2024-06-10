@@ -12,32 +12,20 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
     [UsedImplicitly]
     public class EnemyBossInitializeState : FSMState
     {
-        private IEnemyBossAnimation _animation;
-        private BossEnemy _enemy;
-        private IEnemyBossView _view;
+        private EnemyBossDependencyProvider _provider;
+        
+        private IEnemyBossAnimation Animation => _provider.Animation;
+        private BossEnemy Enemy => _provider.BossEnemy;
 
         protected override void OnInit()
         {
-            var provider = graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-            _enemy = provider.BossEnemy;
-            _view = provider.View;
-            _animation = provider.Animation;
+            _provider = graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
         }
 
         protected override void OnEnter()
         {
-            _enemy.IsInitialized = true;
-            _animation.PlayIdle();
-        }
-
-        protected override void OnUpdate()
-        {
-            base.OnUpdate();
-        }
-
-        protected override void OnExit()
-        {
-            base.OnExit();
+            Enemy.IsInitialized = true;
+            Animation.PlayIdle();
         }
     }
 }

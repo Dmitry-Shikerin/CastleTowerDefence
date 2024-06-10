@@ -16,24 +16,15 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     {
         [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
         
-        private Enemy _enemy;
-        private IEnemyView _view;
-        private IEnemyAnimation _animation;
-        private IExplosionBodyBloodySpawnService _explosionBodyBloodySpawnService;
-
-        protected override void OnInit()
-        {
-            _enemy = _provider.value.Enemy;
-            _view = _provider.value.View;
-            _animation = _provider.value.Animation;
-            _explosionBodyBloodySpawnService = _provider.value.ExplosionBodyBloodySpawnService;
-        }
-
+        private IEnemyView View => _provider.value.View;
+        private IExplosionBodyBloodySpawnService ExplosionBodyBloodySpawnService => 
+            _provider.value.ExplosionBodyBloodySpawnService;
+        
         protected override void OnEnter()
         {
-            Vector3 spawnPosition = _view.Position + Vector3.up;
-            _explosionBodyBloodySpawnService.Spawn(spawnPosition);
-            _view.Destroy();
+            Vector3 spawnPosition = View.Position + Vector3.up;
+            ExplosionBodyBloodySpawnService.Spawn(spawnPosition);
+            View.Destroy();
         }
     }
 }

@@ -12,26 +12,23 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     [UsedImplicitly]
     public class CharacterMeleeInitializeState : FSMState
     {
-        private ICharacterMeleeView _view;
-        private ICharacterMeleeAnimation _animation;
-        private CharacterMelee _characterMelee;
+        private CharacterMeleeDependencyProvider _provider;
+        
+        private ICharacterMeleeView View => _provider.View;
+        private ICharacterMeleeAnimation Animation => _provider.Animation;
+        private CharacterMelee CharacterMelee => _provider.CharacterMelee;
 
         protected override void OnInit()
         {
-            CharacterMeleeDependencyProvider provider = 
+            _provider = 
                 graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
-
-            _view = provider.View;
-            _characterMelee = provider.CharacterMelee;
-            
-            _animation = provider.Animation;
         }
 
         protected override void OnEnter()
         {
-            _animation.PlayIdle();
-            _characterMelee.IsInitialized = true;
-            _view.CharacterSpawnPoint.SetCharacterHealth(_view.HealthView);
+            Animation.PlayIdle();
+            CharacterMelee.IsInitialized = true;
+            View.CharacterSpawnPoint.SetCharacterHealth(View.HealthView);
         }
     }
 }
