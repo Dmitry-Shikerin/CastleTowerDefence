@@ -2,12 +2,11 @@
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
-using Sources.PresentationsInterfaces.UI.Images;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Images;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sources.Presentations.UI.Images
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Images
 {
     public class ImageView : View, IImageView
     {

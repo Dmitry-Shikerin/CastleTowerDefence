@@ -5,6 +5,7 @@ using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.I
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
+using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
 namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
@@ -12,17 +13,22 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
     public class CharacterSpawnAbilityPresenter : PresenterBase
     {
         private readonly CharacterSpawnAbility _characterSpawnAbility;
+        private readonly Upgrade _characterHealthUpgrade;
         private readonly ICharacterSpawnAbilityView _view;
         private readonly ICharacterMeleeSpawnService _characterMeleeSpawnService;
         private readonly ICharacterRangeSpawnService _characterRangeSpawnService;
 
         public CharacterSpawnAbilityPresenter(
             CharacterSpawnAbility characterSpawnAbility,
+            Upgrade characterHealthUpgrade,
             ICharacterSpawnAbilityView view,
             ICharacterMeleeSpawnService characterMeleeSpawnService,
             ICharacterRangeSpawnService characterRangeSpawnService)
         {
-            _characterSpawnAbility = characterSpawnAbility ?? throw new ArgumentNullException(nameof(characterSpawnAbility));
+            _characterSpawnAbility = characterSpawnAbility ?? 
+                                     throw new ArgumentNullException(nameof(characterSpawnAbility));
+            _characterHealthUpgrade = characterHealthUpgrade ?? 
+                                      throw new ArgumentNullException(nameof(characterHealthUpgrade));
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _characterMeleeSpawnService = characterMeleeSpawnService ??
                                           throw new ArgumentNullException(nameof(characterMeleeSpawnService));
@@ -45,7 +51,9 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
             for (int i = 0; i < _view.MeleeSpawnPoints.Count; i++)
             {
                 var spawnPoint = _view.MeleeSpawnPoints[i];
-                ICharacterMeleeView view = _characterMeleeSpawnService.Spawn(spawnPoint.Position);
+                ICharacterMeleeView view = _characterMeleeSpawnService.Spawn(
+                    spawnPoint.Position,
+                    _characterHealthUpgrade);
                 view.SetCharacterSpawnPoint(spawnPoint);
             }
         }
@@ -55,7 +63,9 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
             for (int i = 0; i < _view.RangeSpawnPoints.Count; i++)
             {
                 var spawnPoint = _view.RangeSpawnPoints[i];
-                ICharacterRangeView view = _characterRangeSpawnService.Spawn(spawnPoint.Position);
+                ICharacterRangeView view = _characterRangeSpawnService.Spawn(
+                    spawnPoint.Position,
+                    _characterHealthUpgrade);
                 view.SetCharacterSpawnPoint(spawnPoint);
             }
         }

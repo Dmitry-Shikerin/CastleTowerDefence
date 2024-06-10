@@ -1,11 +1,11 @@
 ﻿using System;
 using Sources.BoundedContexts.Enemies.Domain;
-using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
@@ -23,11 +23,16 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
-        public IEnemyView Spawn(KillEnemyCounter killEnemyCounter, Vector3 position)
+        public IEnemyView Spawn(
+            KillEnemyCounter killEnemyCounter, 
+            EnemySpawner enemySpawner, 
+            Vector3 position)
         {
             Enemy enemy = new Enemy(
-                new EnemyHealth(50), 
-                new EnemyAttacker(10, 0));
+                new EnemyHealth(enemySpawner.EnemyHealth), 
+                new EnemyAttacker(
+                    enemySpawner.EnemyAttackPower, 
+                           0));
             
             IEnemyView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
                                    _enemyViewFactory.Create(enemy, killEnemyCounter);

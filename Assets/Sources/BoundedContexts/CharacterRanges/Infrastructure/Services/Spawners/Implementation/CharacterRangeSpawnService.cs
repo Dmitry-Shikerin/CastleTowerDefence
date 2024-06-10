@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using Sources.BoundedContexts.CharacterRanges.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
-using Sources.BoundedContexts.Upgrades.Domain;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
@@ -25,16 +23,10 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawne
             _characterViewFactory = characterViewFactory ?? throw new ArgumentNullException(nameof(characterViewFactory));
         }
 
-        public ICharacterRangeView Spawn(Vector3 position)
+        public ICharacterRangeView Spawn(Vector3 position, Upgrade characterHealthUpgrade)
         {
             CharacterRange characterMelee = new CharacterRange(
-                new CharacterHealths.Domain.CharacterHealth(
-                    new Upgrade(
-                        30,
-                        0,
-                        0, 
-                        new List<int>( ), "CharacterHealthUpgrade"))
-            );
+                new CharacterHealths.Domain.CharacterHealth(characterHealthUpgrade));
             
             ICharacterRangeView characterView = SpawnFromPool(characterMelee) ?? 
                                                      _characterViewFactory.Create(characterMelee);

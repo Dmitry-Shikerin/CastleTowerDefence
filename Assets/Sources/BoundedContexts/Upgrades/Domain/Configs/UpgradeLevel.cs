@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.Upgrades.Domain.Configs
 {
@@ -15,7 +16,11 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Configs
         [SerializeField] private UpgradeConfig _parent;
         [Space(10)]
         [SerializeField] private int _moneyPerUpgrade;
-        [SerializeField] private float _addedUpgradeAmount;
+        [SerializeField] private float _currentAmount;
+
+        public int MoneyPerUpgrade => _moneyPerUpgrade;
+        public float CurrentAmount => _currentAmount;
+        public int Id => _id;
 
         public void SetLevelId(int id) =>
             _id = id;

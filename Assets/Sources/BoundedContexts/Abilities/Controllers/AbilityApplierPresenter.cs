@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Abilities.Domain;
 using Sources.BoundedContexts.Abilities.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Abilities.Controllers
 {
@@ -45,11 +46,30 @@ namespace Sources.BoundedContexts.Abilities.Controllers
 
         private async void StartTimer(CancellationToken cancellationToken)
         {
-            _view.AbilityButton.enabled = false;
-            _abilityApplier.IsAvailable = false;
-            await UniTask.Delay(_cooldown, cancellationToken: cancellationToken);
-            _abilityApplier.IsAvailable = true;
-            _view.AbilityButton.enabled = true;
+            try
+            {
+                _view.AbilityButton.enabled = false;
+                _abilityApplier.IsAvailable = false;
+                _view.TimerImage.SetFillAmount(0);
+
+                while (cancellationToken.IsCancellationRequested == false && _view.TimerImage.FillAmount < 1)
+                {
+                    float fillAmount = Mathf.MoveTowards(
+                        _view.TimerImage.FillAmount,
+                        1,
+                        Time.deltaTime * _abilityApplier.Cooldown);
+
+                    _view.TimerImage.SetFillAmount(fillAmount);
+
+                    await UniTask.Yield(cancellationToken);
+                }
+
+                _abilityApplier.IsAvailable = true;
+                _view.AbilityButton.enabled = true;
+            }
+            catch (OperationCanceledException)
+            {
+            }
         }
     }
 }

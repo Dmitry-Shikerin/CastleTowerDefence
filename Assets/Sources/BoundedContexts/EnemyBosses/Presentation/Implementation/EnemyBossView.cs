@@ -11,17 +11,13 @@ namespace Sources.BoundedContexts.EnemyBosses.Presentation.Implementation
 {
     public class EnemyBossView : EnemyViewBase, IEnemyBossView
     {
-        [FormerlySerializedAs("bossEnemyAnimation")] [Required] [SerializeField] private EnemyBossAnimation enemyBossAnimation;
+        [Required] [SerializeField] private EnemyBossAnimation enemyBossAnimation;
         [Required] [SerializeField] private ParticleSystem _massAttackParticle;
         [Required] [SerializeField] private EnemyBossDependencyProvider _provider;
         [SerializeField] private float _findRange;
-        // [Required] [SerializeField] private FSMOwner _fsmOwner;
         
         public IEnemyBossAnimation Animation => enemyBossAnimation;
-
         public ICharacterSpawnPoint CharacterMeleePoint { get; set; }
-
-        // public FSMOwner FsmOwner => _fsmOwner;
         public EnemyBossDependencyProvider Provider => _provider;
 
         public float FindRange => _findRange;

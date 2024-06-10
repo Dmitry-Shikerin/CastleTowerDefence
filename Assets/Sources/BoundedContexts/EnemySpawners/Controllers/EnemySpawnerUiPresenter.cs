@@ -22,25 +22,25 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             OnWaveChanged();
             OnSpawnedEnemiesInCurrentWaveChanged();
             _enemySpawner.WaveChanged += OnWaveChanged;
-            _enemySpawner.SpawnedEnemiesInCurrentWaveChanged += OnSpawnedEnemiesInCurrentWaveChanged;
+            _enemySpawner.SpawnedAllEnemiesChanged += OnSpawnedEnemiesInCurrentWaveChanged;
         }
 
         public override void Disable()
         {
             _enemySpawner.WaveChanged -= OnWaveChanged;
-            _enemySpawner.SpawnedEnemiesInCurrentWaveChanged -= OnSpawnedEnemiesInCurrentWaveChanged;
+            _enemySpawner.SpawnedAllEnemiesChanged -= OnSpawnedEnemiesInCurrentWaveChanged;
         }
 
         private void OnWaveChanged()
         {
-            _view.CurrentWaveText.SetText(_enemySpawner.CurrentWave.ToString());   
+            _view.CurrentWaveText.SetText(_enemySpawner.CurrentWaveNumber.ToString());   
         }
 
         private void OnSpawnedEnemiesInCurrentWaveChanged()
         {
             int percent =
-                _enemySpawner.SpawnedEnemiesInCurrentWave.IntToPercent(
-                    _enemySpawner.Waves[_enemySpawner.CurrentWave].EnemyCount);
+                _enemySpawner.SpawnedAllEnemies.IntToPercent(
+                    _enemySpawner.Waves[_enemySpawner.CurrentWaveNumber].SumEnemies);
 
             float unitPercent = percent.IntPercentToUnitPercent();
 

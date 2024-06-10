@@ -2236,6 +2236,7 @@ GameObject:
   - component: {fileID: 7356655251733159986}
   - component: {fileID: 6066335486042126730}
   - component: {fileID: 6106732187483106532}
+  - component: {fileID: 8122484730840737286}
   m_Layer: 8
   m_Name: BossEnemyView
   m_TagString: Untagged
@@ -2406,6 +2407,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1448471831947258972}
+--- !u!136 &8122484730840737286
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3979446576400855832}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.49
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &4102221857692496643
 GameObject:
   m_ObjectHideFlags: 0

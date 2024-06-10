@@ -76,15 +76,12 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
                         LayerConst.Defaul)
                     .FirstOrDefault();
             
-            Debug.Log($"Find target: {characterHealthView}");
-            
             if (characterHealthView == null)
                 return;
             
             if (characterHealthView.CurrentHealth <= 0)
                 return;
 
-            Debug.Log($"Set target: {characterHealthView}");
             _view.SetCharacterHealth(characterHealthView);
         }
     }

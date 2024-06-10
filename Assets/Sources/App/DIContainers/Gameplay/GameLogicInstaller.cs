@@ -53,6 +53,7 @@ using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation;
@@ -68,6 +69,9 @@ namespace Sources.App.DIContainers.Gameplay
             //Bunkers
             Container.Bind<BunkerViewFactory>().AsSingle();
             Container.Bind<BunkerPresenterFactory>().AsSingle();
+
+            Container.Bind<BunkerUiPresenterFactory>().AsSingle();
+            Container.Bind<BunkerUiFactory>().AsSingle();
             
             //Healths
             Container.Bind<HealthBarPresenterFactory>().AsSingle();
@@ -140,6 +144,10 @@ namespace Sources.App.DIContainers.Gameplay
             //Upgrades
             Container.Bind<UpgradePresenterFactory>().AsSingle();
             Container.Bind<UpgradeViewFactory>().AsSingle();
+            Container
+                .Bind<UpgradeConfigContainer>()
+                .FromResources("Configs/Upgrades/UpgradeConfigContainer")
+                .AsSingle();
         }
     }
 }

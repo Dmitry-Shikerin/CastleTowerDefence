@@ -50,6 +50,12 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 
         private void OnAttack()
         {
+            if (_view.EnemyHealth == null)
+                return;
+
+            if (_view.EnemyHealth.CurrentHealth <= 0)
+                _view.SetEnemyHealth(null);
+            
             _view.EnemyHealth.TakeDamage(10);
         }
         

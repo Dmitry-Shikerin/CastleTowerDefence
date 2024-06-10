@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.Domain.Models.Data;
 
-namespace Sources.BoundedContexts.Players.Domain
+namespace Sources.BoundedContexts.PlayerWallets.Domain.Models
 {
     public class PlayerWallet
     {

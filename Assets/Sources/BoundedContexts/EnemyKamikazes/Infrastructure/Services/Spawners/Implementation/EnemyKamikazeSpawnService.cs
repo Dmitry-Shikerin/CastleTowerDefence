@@ -6,6 +6,7 @@ using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Inte
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
+using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
@@ -23,11 +24,16 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawner
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
-        public IEnemyKamikazeView Spawn(KillEnemyCounter killEnemyCounter, Vector3 position)
+        public IEnemyKamikazeView Spawn(
+            KillEnemyCounter killEnemyCounter, 
+            EnemySpawner enemySpawner,
+            Vector3 position)
         {
             EnemyKamikaze enemy = new EnemyKamikaze(
-                new EnemyHealth(50), 
-                new EnemyAttacker(10, 30));
+                new EnemyHealth(enemySpawner.KamikazeHealth), 
+                new EnemyAttacker(
+                    enemySpawner.KamikazeAttackPower,
+                    enemySpawner.KamikazeMassAttackPower));
             
             IEnemyKamikazeView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
                                    _enemyViewFactory.Create(enemy, killEnemyCounter);

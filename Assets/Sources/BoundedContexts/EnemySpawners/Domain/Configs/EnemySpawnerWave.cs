@@ -11,7 +11,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         [EnumToggleButtons] [HideLabel] [UsedImplicitly]
         [SerializeField] private Enable _enable = Enable.Disable;
         [EnableIf("_enable", Enable.Enable)]
-        [SerializeField] private EnemySpawnerConfigContainer _parent;
+        [SerializeField] private EnemySpawnerConfig _parent;
         [EnableIf("_enable", Enable.Enable)]
         [SerializeField] private int _waveId;
         [SerializeField] private int _moneyPerResilenceCharacters;
@@ -20,24 +20,30 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         [SerializeField] private int _spawnDelay;
         [Header("Enemy")]
         [SerializeField] private int _enemyCount;       
-        [SerializeField] private int _enemyAttackPower;
-        [SerializeField] private int _enemyHealth;
-        [SerializeField] private int _enemyAttackSpeed;
         [Header("Boss")]
         [SerializeField] private int _bossesCount;
-        [SerializeField] private int _bossAttackPower;
-        [SerializeField] private int _bossMassAttackPower;
-        [SerializeField] private int _bossHealth;
-        [SerializeField] private int _bossAttackSpeed;
         [Header("Kamikaze")]
         [SerializeField] private int _kamikazeEnemyCount;
-        [SerializeField] private int _kamikazeMassAttackPower;
+
         
+        //Enemys
         public int WaveId => _waveId;
         public int SpawnDelay => _spawnDelay;
         public int EnemyCount => _enemyCount;
+        
+        //Bosses
+        public int BossesCount => _bossesCount;
+        
+        //Kamikaze
+        public int KamikazeEnemyCount => _kamikazeEnemyCount;
+        
+        //Money
+        public int MoneyPerResilenceCharacters => _moneyPerResilenceCharacters;
+        
+        //Common
+        public int SumEnemies => _enemyCount + _bossesCount + _kamikazeEnemyCount;
 
-        public EnemySpawnerConfigContainer Parent
+        public EnemySpawnerConfig Parent
         {
             get => _parent; 
             set => _parent = value;
