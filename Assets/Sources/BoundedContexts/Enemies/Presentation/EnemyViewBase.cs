@@ -28,7 +28,6 @@ namespace Sources.BoundedContexts.Enemies.Presentation
             new PODestroyerService();
         
         public HealthBarView HealthBarView => _healthBarView;
-        public FSMOwner FsmOwner => _fsmOwner;
         public EnemyHealthView EnemyHealthView => _healthView;
         public IReadOnlyList<ISkinView> Skins => _skins;
         public ICharacterHealthView CharacterHealthView { get; private set; }
@@ -37,7 +36,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         public override void Destroy()
         {
             _poDestroyerService.Destroy(this);
-            _fsmOwner.StopBehaviour();
+            StopFsm();
         }
 
         public void SetBunkerView(IBunkerView bunkerView) =>
@@ -51,6 +50,12 @@ namespace Sources.BoundedContexts.Enemies.Presentation
 
         public void DisableNavmeshAgent() =>
             NavMeshAgent.enabled = false;
+
+        public void StartFsm() =>
+            _fsmOwner.StartBehaviour();
+
+        public void StopFsm() =>
+            _fsmOwner.StopBehaviour();
 
         [Button]
         private void AddAllSkins()

@@ -43,10 +43,10 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
         public IEnemyView Create(Enemy enemy, KillEnemyCounter killEnemyCounter, EnemyView view)
         {
             _providerFactory.Create(enemy, view);
-            view.FsmOwner.StartBehaviour();
-            
             _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
             _healthBarViewFactory.Create(enemy.EnemyHealth, view.HealthBarView);
+            
+            view.StartFsm();
             
             return view;
         }

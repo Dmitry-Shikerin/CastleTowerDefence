@@ -20,5 +20,7 @@ namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
         void SetCharacterHealth(ICharacterHealthView characterHealthView);
         void EnableNavmeshAgent();
         void DisableNavmeshAgent();
+        void StartFsm();
+        void StopFsm();
     }
 }

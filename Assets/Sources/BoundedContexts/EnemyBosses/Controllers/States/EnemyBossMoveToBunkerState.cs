@@ -12,6 +12,7 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 {
@@ -68,11 +69,14 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         private void FindTarget()
         {
             var characterHealthView =
-                _overlapService.OverlapSphere<CharacterHealthView>(
+                _overlapService
+                    .OverlapSphere<CharacterHealthView>(
                         _view.Position, _view.FindRange,
                         LayerConst.Character,
                         LayerConst.Defaul)
                     .FirstOrDefault();
+            
+            Debug.Log($"Find target: {characterHealthView}");
             
             if (characterHealthView == null)
                 return;
@@ -80,6 +84,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
             if (characterHealthView.CurrentHealth <= 0)
                 return;
 
+            Debug.Log($"Set target: {characterHealthView}");
             _view.SetCharacterHealth(characterHealthView);
         }
     }

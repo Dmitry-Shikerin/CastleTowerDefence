@@ -26,19 +26,22 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
             _animation = provider.Animation;
         }
 
-        protected override void OnEnter()
-        {
-            base.OnEnter();
-        }
+        protected override void OnEnter() =>
+            _animation.PlayWalk();
 
         protected override void OnUpdate()
         {
-            base.OnUpdate();
-        }
-
-        protected override void OnExit()
-        {
-            base.OnExit();
+            if (_view.CharacterHealthView == null)
+                return;
+            
+            if (_view.CharacterHealthView.CurrentHealth <= 0)
+            {
+                _view.SetCharacterHealth(null);
+                
+                return;
+            }
+            
+            _view.Move(_view.CharacterHealthView.Position);
         }
     }
 }

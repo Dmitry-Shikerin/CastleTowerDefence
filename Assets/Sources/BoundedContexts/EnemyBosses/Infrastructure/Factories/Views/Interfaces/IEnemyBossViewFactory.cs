@@ -8,6 +8,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Int
     {
         IEnemyBossView Create(BossEnemy bossEnemy, KillEnemyCounter killEnemyCounter);
         IEnemyBossView Create(BossEnemy bossEnemy, KillEnemyCounter killEnemyCounter, 
-            EnemyBosses.Presentation.Implementation.EnemyBossView enemyBossView);
+            EnemyBosses.Presentation.Implementation.EnemyBossView view);
     }
 }
