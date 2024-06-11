@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.EnemyHealths.Domain;
@@ -34,7 +35,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawner
                 new EnemyHealth(enemySpawner.KamikazeHealth), 
                 new EnemyAttacker(
                     enemySpawner.KamikazeAttackPower,
-                    enemySpawner.KamikazeMassAttackPower));
+                    enemySpawner.KamikazeMassAttackPower),
+                new BurnAbility());
             
             IEnemyKamikazeView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
                                    _enemyViewFactory.Create(enemy, killEnemyCounter);

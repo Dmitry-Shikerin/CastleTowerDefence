@@ -1,4 +1,6 @@
 ﻿using System;
+using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Domain.Constants;
 using Sources.BoundedContexts.Enemies.Domain.Models;
@@ -19,12 +21,14 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
         private readonly EnemyDependencyProviderFactory _providerFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;
         private readonly HealthBarViewFactory _healthBarViewFactory;
+        private readonly BurnAbilityViewFactory _burnAbilityViewFactory;
 
         public EnemyViewFactory(
             EnemyDependencyProviderFactory providerFactory,
             IObjectPool<EnemyView> enemyPool,
             EnemyHealthViewFactory enemyHealthViewFactory,
-            HealthBarViewFactory healthBarViewFactory) 
+            HealthBarViewFactory healthBarViewFactory,
+            BurnAbilityViewFactory burnAbilityViewFactory) 
             : base(enemyPool)
         {
             _providerFactory = providerFactory ?? throw new ArgumentNullException(nameof(providerFactory));
@@ -32,6 +36,8 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
                                       throw new ArgumentNullException(nameof(enemyHealthViewFactory));
             _healthBarViewFactory = healthBarViewFactory ?? 
                                     throw new ArgumentNullException(nameof(healthBarViewFactory));
+            _burnAbilityViewFactory = burnAbilityViewFactory ?? 
+                                      throw new ArgumentNullException(nameof(burnAbilityViewFactory));
         }
         
         public IEnemyView Create(Enemy enemy, KillEnemyCounter killEnemyCounter)
@@ -46,6 +52,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
             _providerFactory.Create(enemy, view);
             _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
             _healthBarViewFactory.Create(enemy.EnemyHealth, view.HealthBarView);
+            _burnAbilityViewFactory.Create(enemy.BurnAbility, view.BurnAbilityView);
             
             view.StartFsm();
             

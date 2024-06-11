@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.EnemyBosses.Domain;
@@ -37,6 +38,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
                 new EnemyAttacker(
                     enemySpawner.BossAttackPower,
                     enemySpawner.BossMassAttackPower),
+                new BurnAbility(),
                 2f,
                 2f,
                 5f);

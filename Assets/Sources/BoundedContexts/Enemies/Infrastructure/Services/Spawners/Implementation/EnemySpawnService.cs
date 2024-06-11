@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
@@ -34,7 +35,8 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
                 new EnemyHealth(enemySpawner.EnemyHealth), 
                 new EnemyAttacker(
                     enemySpawner.EnemyAttackPower, 
-                           0));
+                           0),
+                new BurnAbility());
             
             IEnemyView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
                                    _enemyViewFactory.Create(enemy, killEnemyCounter);

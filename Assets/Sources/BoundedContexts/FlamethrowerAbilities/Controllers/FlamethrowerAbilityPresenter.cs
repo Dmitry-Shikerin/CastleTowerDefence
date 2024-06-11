@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
+using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
@@ -65,6 +66,13 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
 
                 await UniTask.Yield(cancellationToken);
             }
+        }
+
+        public void DealDamage(IBurnable burnable)
+        {
+            int instantDamage = 5;
+            int overtimeDamage = 1;
+            burnable.Burn(instantDamage, overtimeDamage);
         }
     }
 }

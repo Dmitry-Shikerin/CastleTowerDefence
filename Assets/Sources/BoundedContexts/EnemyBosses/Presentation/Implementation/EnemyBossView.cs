@@ -1,5 +1,6 @@
 ﻿using System;
 using Sirenix.OdinInspector;
+using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
