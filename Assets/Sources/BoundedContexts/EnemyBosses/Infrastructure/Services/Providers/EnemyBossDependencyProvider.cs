@@ -2,9 +2,11 @@
 using Sources.BoundedContexts.EnemyBosses.Domain;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
-using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers
@@ -23,21 +25,23 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers
 
         public void Construct(
             BossEnemy bossEnemy, 
-            KillEnemyCounter killEnemyCounter, 
-            PlayerWallet playerWallet,
+            IEntityRepository entityRepository,
             IEnemyBossView enemyBossView, 
             IEnemyBossAnimation enemyBossAnimation,
             IOverlapService overlapService,
             IExplosionBodyBloodySpawnService explosionBodyBloodySpawnService)
         {
+            if (entityRepository == null) 
+                throw new ArgumentNullException(nameof(entityRepository));
+            
             BossEnemy = bossEnemy ?? throw new ArgumentNullException(nameof(bossEnemy));
-            KillEnemyCounter = killEnemyCounter ?? throw new ArgumentNullException(nameof(killEnemyCounter));
+            KillEnemyCounter = entityRepository.Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
+            PlayerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
             View = enemyBossView ?? throw new ArgumentNullException(nameof(enemyBossView));
             Animation = enemyBossAnimation ?? throw new ArgumentNullException(nameof(enemyBossAnimation));
             OverlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
             ExplosionBodyBloodySpawnService = explosionBodyBloodySpawnService ?? 
                                               throw new ArgumentNullException(nameof(explosionBodyBloodySpawnService));
-            PlayerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
             
             IsConstructed = true;
         }

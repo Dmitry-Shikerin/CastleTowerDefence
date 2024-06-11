@@ -1,7 +1,5 @@
 ﻿using System;
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
-using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Domain.Constants;
 using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
@@ -9,15 +7,13 @@ using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
-using Sources.BoundedContexts.PlayerWallets.Domain.Models;
-using Sources.Domain.Models.Constants;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation
 {
-    public class EnemyViewFactory : PoolableObjectFactory<EnemyView>,IEnemyViewFactory
+    public class EnemyViewFactory : PoolableObjectFactory<EnemyView>, IEnemyViewFactory
     {
         private readonly EnemyDependencyProviderFactory _providerFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;
@@ -41,23 +37,16 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
                                       throw new ArgumentNullException(nameof(burnAbilityViewFactory));
         }
         
-        public IEnemyView Create(
-            Enemy enemy, 
-            KillEnemyCounter killEnemyCounter,
-            PlayerWallet playerWallet)
+        public IEnemyView Create(Enemy enemy)
         {
             EnemyView enemyView = CreateView(EnemyConst.PrefabPath);
             
-            return Create(enemy, killEnemyCounter, playerWallet, enemyView);
+            return Create(enemy, enemyView);
         }
 
-        public IEnemyView Create(
-            Enemy enemy, 
-            KillEnemyCounter killEnemyCounter, 
-            PlayerWallet playerWallet,
-            EnemyView view)
+        public IEnemyView Create(Enemy enemy, EnemyView view)
         {
-            _providerFactory.Create(enemy, playerWallet, view);
+            _providerFactory.Create(enemy, view);
             _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
             _healthBarViewFactory.Create(enemy.EnemyHealth, view.HealthBarView);
             _burnAbilityViewFactory.Create(enemy.BurnAbility, view.BurnAbilityView);

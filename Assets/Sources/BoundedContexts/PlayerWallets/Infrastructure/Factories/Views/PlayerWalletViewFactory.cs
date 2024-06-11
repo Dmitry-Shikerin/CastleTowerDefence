@@ -17,9 +17,9 @@ namespace Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views
                                 throw new ArgumentNullException(nameof(presenterFactory));
         }
         
-        public IPlayerWalletView Create(PlayerWallet playerWallet, PlayerWalletView view)
+        public IPlayerWalletView Create(PlayerWalletView view)
         {
-            PlayerWalletPresenter presenter = _presenterFactory.Create(playerWallet, view);
+            PlayerWalletPresenter presenter = _presenterFactory.Create(view);
             view.Construct(presenter);
             
             return view;

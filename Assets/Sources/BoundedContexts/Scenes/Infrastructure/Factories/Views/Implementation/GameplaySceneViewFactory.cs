@@ -1,35 +1,22 @@
 ﻿using System;
-using System.Linq;
 using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Interfaces;
-using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
-using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
-using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
-using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Huds.Presentations;
-using Sources.BoundedContexts.KillEnemyCounters.Domain;
-using Sources.BoundedContexts.NukeAbilities.Domain.Models;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.PlayerWallets.Domain.Models;
-using Sources.BoundedContexts.Prefabs;
+using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
+using Sources.BoundedContexts.Scenes.Domain;
+using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
-using Sources.BoundedContexts.Upgrades.Domain.Configs;
-using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
-using Sources.Domain.Models.Data;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
-using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
@@ -39,7 +26,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly UiCollectorFactory _uiCollectorFactory;
         private readonly RootGameObject _rootGameObject;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
-        private readonly ICharacterMeleeViewFactory _characterMeleeViewFactory;
         private readonly IAudioService _audioService;
         private readonly BunkerViewFactory _bunkerViewFactory;
         private readonly NukeAbilityViewFactory _nukeAbilityViewFactory;
@@ -48,9 +34,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly EnemySpawnerUiFactory _enemySpawnerUiFactory;
         private readonly BunkerUiFactory _bunkerUiFactory;
         private readonly UpgradeViewFactory _upgradeViewFactory;
-        private readonly UpgradeConfigContainer _upgradeConfigContainer;
+        private readonly GameplayModelsCreatorService _gameplayModelsCreatorService;
+        private readonly GameplayModelsLoaderService _gameplayModelsLoaderService;
+        private readonly PlayerWalletViewFactory _playerWalletViewFactory;
         private readonly CharacterSpawnAbilityViewFactory _characterSpawnAbilityViewFactory;
-        private readonly IEnemyViewFactory _enemyViewFactory;
 
         public GameplaySceneViewFactory(
             GameplayHud gameplayHud,
@@ -58,8 +45,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             RootGameObject rootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             CharacterSpawnAbilityViewFactory characterSpawnAbilityViewFactory,
-            IEnemyViewFactory enemyViewFactory,
-            ICharacterMeleeViewFactory characterMeleeViewFactory,
             IAudioService audioService,
             BunkerViewFactory bunkerViewFactory,
             NukeAbilityViewFactory nukeAbilityViewFactory,
@@ -68,15 +53,15 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             EnemySpawnerUiFactory enemySpawnerUiFactory,
             BunkerUiFactory bunkerUiFactory,
             UpgradeViewFactory upgradeViewFactory,
-            UpgradeConfigContainer upgradeConfigContainer)
+            GameplayModelsCreatorService gameplayModelsCreatorService,
+            GameplayModelsLoaderService gameplayModelsLoaderService,
+            PlayerWalletViewFactory playerWalletViewFactory)
         {
             _gameplayHud = gameplayHud ?? throw new ArgumentNullException(nameof(gameplayHud));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _enemySpawnerViewFactory = enemySpawnerViewFactory ?? 
                                        throw new ArgumentNullException(nameof(enemySpawnerViewFactory));
-            _characterMeleeViewFactory = characterMeleeViewFactory ?? 
-                                         throw new ArgumentNullException(nameof(characterMeleeViewFactory));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _bunkerViewFactory = bunkerViewFactory ?? throw new ArgumentNullException(nameof(bunkerViewFactory));
             _nukeAbilityViewFactory = nukeAbilityViewFactory ?? 
@@ -89,84 +74,65 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                                      throw new ArgumentNullException(nameof(enemySpawnerUiFactory));
             _bunkerUiFactory = bunkerUiFactory ?? throw new ArgumentNullException(nameof(bunkerUiFactory));
             _upgradeViewFactory = upgradeViewFactory ?? throw new ArgumentNullException(nameof(upgradeViewFactory));
-            _upgradeConfigContainer = upgradeConfigContainer ?? throw new ArgumentNullException(nameof(upgradeConfigContainer));
+            _gameplayModelsCreatorService = gameplayModelsCreatorService ?? 
+                                            throw new ArgumentNullException(nameof(gameplayModelsCreatorService));
+            _gameplayModelsLoaderService = gameplayModelsLoaderService ?? 
+                                           throw new ArgumentNullException(nameof(gameplayModelsLoaderService));
+            _playerWalletViewFactory = playerWalletViewFactory ??
+                                       throw new ArgumentNullException(nameof(playerWalletViewFactory));
             _characterSpawnAbilityViewFactory = characterSpawnAbilityViewFactory ?? 
                                                 throw new ArgumentNullException(nameof(characterSpawnAbilityViewFactory));
-            _enemyViewFactory = enemyViewFactory ?? 
-                                throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
         public void Create(IScenePayload payload)
         {
+            GameplayModel gameplayModel = Load(payload);
+            
             //PlayerWallet
-            PlayerWallet playerWallet = new PlayerWallet(50, "PlayerWallet");
+            _playerWalletViewFactory.Create(_gameplayHud.PlayerWalletView);
             
             //Upgrades
-            Upgrade characterHealthUpgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == "Health"));
             _upgradeViewFactory.Create(
-                characterHealthUpgrade, 
-                playerWallet,
-                _gameplayHud.CharacterHealthUpgradeView);
-            Upgrade characterAttackUpgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == "Attack"));
+                ModelId.HealthUpgrade, _gameplayHud.CharacterHealthUpgradeView);
             _upgradeViewFactory.Create(
-                characterAttackUpgrade, 
-                playerWallet,
-                _gameplayHud.CharacterAttackUpgradeView);
-            Upgrade nukeAbilityUpgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == "NukeAbility"));
+                ModelId.AttackUpgrade, _gameplayHud.CharacterAttackUpgradeView);
             _upgradeViewFactory.Create(
-                nukeAbilityUpgrade, 
-                playerWallet,
-                _gameplayHud.NukeAbilityUpgradeView);
-            Upgrade flamethrowerAbilityUpgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == "Flamethrower"));
+                ModelId.NukeUpgrade, _gameplayHud.NukeAbilityUpgradeView);
             _upgradeViewFactory.Create(
-                flamethrowerAbilityUpgrade, 
-                playerWallet,
-                _gameplayHud.FlamethrowerAbilityUpgradeView);
+                ModelId.FlamethrowerUpgrade, _gameplayHud.FlamethrowerAbilityUpgradeView);
             
             //Bunker
-            Bunker bunker = new Bunker(15);
-            IBunkerView bunkerView = _bunkerViewFactory.Create(bunker, _rootGameObject.BunkerView);
-            _bunkerUiFactory.Create(bunker, _gameplayHud.BunkerUi);
+            IBunkerView bunkerView = _bunkerViewFactory.Create(_rootGameObject.BunkerView);
+            _bunkerUiFactory.Create(_gameplayHud.BunkerUi);
             
             //Abilities
-            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility();
-            _characterSpawnAbilityViewFactory.Create(
-                characterSpawnAbility, 
-                characterHealthUpgrade,
-                _rootGameObject.CharacterSpawnAbilityView);
-            _abilityApplierViewFactory.Create(characterSpawnAbility, _gameplayHud.SpawnAbilityApplier);
+            _characterSpawnAbilityViewFactory.Create(_rootGameObject.CharacterSpawnAbilityView);
+            _abilityApplierViewFactory.Create(ModelId.SpawnAbility, _gameplayHud.SpawnAbilityApplier);
             
-            NukeAbility nukeAbility = new NukeAbility(nukeAbilityUpgrade);
-            _nukeAbilityViewFactory.Create(nukeAbility, _rootGameObject.NukeAbilityView);
-            _abilityApplierViewFactory.Create(nukeAbility, _gameplayHud.NukeAbilityApplier);
+            _nukeAbilityViewFactory.Create(_rootGameObject.NukeAbilityView);
+            _abilityApplierViewFactory.Create(ModelId.NukeAbility, _gameplayHud.NukeAbilityApplier);
 
-            FlamethrowerAbility flamethrowerAbility = new FlamethrowerAbility(flamethrowerAbilityUpgrade);
-            _flamethrowerAbilityViewFactory.Create(flamethrowerAbility, _rootGameObject.FlamethrowerAbilityView);
-            _abilityApplierViewFactory.Create(flamethrowerAbility, _gameplayHud.FlamethrowerAbilityApplier);
+            _flamethrowerAbilityViewFactory.Create(_rootGameObject.FlamethrowerAbilityView);
+            _abilityApplierViewFactory.Create(ModelId.FlamethrowerAbility, _gameplayHud.FlamethrowerAbilityApplier);
 
             //Enemies
-            EnemySpawnerConfig enemySpawnerConfig = 
-                Resources.Load<EnemySpawnerConfig>(
-                PrefabPath.EnemySpawnerConfigContainer);
-            EnemySpawner enemySpawner = new EnemySpawner(enemySpawnerConfig);
             _rootGameObject.EnemySpawnerView.SetBunkerView(bunkerView);
-            _enemySpawnerViewFactory.Create(
-                enemySpawner, 
-                new KillEnemyCounter(new KillEnemyCounterDto()), 
-                playerWallet,
-                _rootGameObject.EnemySpawnerView);
-            _enemySpawnerUiFactory.Create(enemySpawner, _gameplayHud.EnemySpawnerUi);
+            _enemySpawnerViewFactory.Create(_rootGameObject.EnemySpawnerView);
+            _enemySpawnerUiFactory.Create(_gameplayHud.EnemySpawnerUi);
 
             //UiCollector
             _uiCollectorFactory.Create();
 
             //Volume
-            Volume volume = new Volume();
-            _audioService.Construct(volume);
+            _audioService.Construct(gameplayModel.Volume);
+        }
+
+        private GameplayModel Load(IScenePayload payload)
+        {
+            if (payload != null && payload.CanLoad)
+                return _gameplayModelsLoaderService.Load();
+            
+            return _gameplayModelsCreatorService.Load();
         }
     }
 }

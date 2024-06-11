@@ -1,7 +1,7 @@
 ﻿using Sources.Frameworks.GameServices.Loads.Services.Implementation.Collectors;
+using Sources.Frameworks.GameServices.Repositories.Services.Implementation;
 using Sources.Infrastructure.Services.LoadServices;
 using Sources.Infrastructure.Services.LoadServices.Data;
-using Sources.Infrastructure.Services.Repositories;
 using Sources.InfrastructureInterfaces.Services.LoadServices;
 using Sources.InfrastructureInterfaces.Services.LoadServices.Collectors;
 using Sources.InfrastructureInterfaces.Services.LoadServices.Data;

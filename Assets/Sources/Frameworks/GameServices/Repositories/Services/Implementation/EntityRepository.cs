@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.InfrastructureInterfaces.Services.Repositories;
-using UnityEngine;
 
-namespace Sources.Infrastructure.Services.Repositories
+namespace Sources.Frameworks.GameServices.Repositories.Services.Implementation
 {
     public class EntityRepository : IEntityRepository
     {

@@ -9,7 +9,7 @@ using Sources.ControllersInterfaces.Scenes;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Implementation;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
-using Sources.Infrastructure.Services.SceneServices;
+using Sources.Frameworks.GameServices.Scenes.Services.Implementation;
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
 using UnityEngine;
 using Zenject;

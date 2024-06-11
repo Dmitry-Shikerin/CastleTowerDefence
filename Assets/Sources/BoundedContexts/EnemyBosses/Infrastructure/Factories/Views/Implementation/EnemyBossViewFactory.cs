@@ -7,11 +7,8 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Interfa
 using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
-using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Prefabs;
-using Sources.Domain.Models.Constants;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
 namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Implementation
@@ -40,20 +37,16 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Imp
                                       throw new ArgumentNullException(nameof(burnAbilityViewFactory));
         }
 
-        public IEnemyBossView Create(BossEnemy bossEnemy, KillEnemyCounter killEnemyCounter, PlayerWallet playerWallet)
+        public IEnemyBossView Create(BossEnemy bossEnemy)
         {
             EnemyBossView view = CreateView(PrefabPath.BossEnemy);
             
-            return Create(bossEnemy, killEnemyCounter, playerWallet, view);
+            return Create(bossEnemy, view);
         }
         
-        public IEnemyBossView Create(
-            BossEnemy bossEnemy, 
-            KillEnemyCounter killEnemyCounter, 
-            PlayerWallet playerWallet,
-            EnemyBossView view)
+        public IEnemyBossView Create(BossEnemy bossEnemy, EnemyBossView view)
         {
-            _providerFactory.Create(bossEnemy, killEnemyCounter, playerWallet, view);
+            _providerFactory.Create(bossEnemy, view);
             _enemyHealthViewFactory.Create(bossEnemy.EnemyHealth, view.EnemyHealthView);            
             _healthBarViewFactory.Create(bossEnemy.EnemyHealth, view.HealthBarView);
             _burnAbilityViewFactory.Create(bossEnemy.BurnAbility, view.BurnAbilityView);

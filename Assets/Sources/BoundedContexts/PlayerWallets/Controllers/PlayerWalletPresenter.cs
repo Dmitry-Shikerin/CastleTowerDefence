@@ -1,7 +1,9 @@
 ﻿using System;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.PlayerWallets.Controllers
 {
@@ -10,9 +12,12 @@ namespace Sources.BoundedContexts.PlayerWallets.Controllers
         private readonly PlayerWallet _playerWallet;
         private readonly IPlayerWalletView _view;
 
-        public PlayerWalletPresenter(PlayerWallet playerWallet, IPlayerWalletView view)
+        public PlayerWalletPresenter(IEntityRepository entityRepository, IPlayerWalletView view)
         {
-            _playerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
+            if (entityRepository == null) 
+                throw new ArgumentNullException(nameof(entityRepository));
+            
+            _playerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 

@@ -9,22 +9,27 @@ using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers
 {
     public class CharacterSpawnAbilityPresenterFactory
     {
+        private readonly IEntityRepository _entityRepository;
         private readonly ICharacterMeleeSpawnService _characterMeleeSpawnService;
         private readonly ICharacterRangeSpawnService _characterRangeSpawnService;
         private readonly IObjectPool<CharacterMeleeView> _characterMeleePool;
         private readonly IObjectPool<CharacterRangeView> _characterRangePool;
 
         public CharacterSpawnAbilityPresenterFactory(
+            IEntityRepository entityRepository,
             ICharacterMeleeSpawnService characterMeleeSpawnService,
             ICharacterRangeSpawnService characterRangeSpawnService,
             IObjectPool<CharacterMeleeView> characterMeleePool,
             IObjectPool<CharacterRangeView> characterRangePool)
         {
+            _entityRepository = entityRepository ?? 
+                                throw new ArgumentNullException(nameof(entityRepository));
             _characterMeleeSpawnService = characterMeleeSpawnService ?? 
                                           throw new ArgumentNullException(nameof(characterMeleeSpawnService));
             _characterRangeSpawnService = characterRangeSpawnService ?? 
@@ -33,14 +38,10 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factorie
             _characterRangePool = characterRangePool ?? throw new ArgumentNullException(nameof(characterRangePool));
         }
 
-        public CharacterSpawnAbilityPresenter Create(
-            CharacterSpawnAbility characterSpawnAbility, 
-            Upgrade characterHealthUpgrade,
-            ICharacterSpawnAbilityView view)
+        public CharacterSpawnAbilityPresenter Create(ICharacterSpawnAbilityView view)
         {
             return new CharacterSpawnAbilityPresenter(
-                characterSpawnAbility,
-                characterHealthUpgrade,
+                _entityRepository,
                 view,
                 _characterMeleeSpawnService,
                 _characterRangeSpawnService,

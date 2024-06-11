@@ -1,9 +1,9 @@
 ﻿using System;
+using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
 using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
 using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
 using Sources.InfrastructureInterfaces.Services.Repositories;
-using Sources.InfrastructureInterfaces.Services.SceneServices;
 
 namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation
 {

@@ -3,6 +3,7 @@ using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
+using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.SignalCollectors.Controllers;
@@ -37,6 +38,10 @@ namespace Sources.App.DIContainers.Gameplay
             //CommandHandlers
             Container.Bind<IButtonCommandHandler>().To<GameplayButtonCommandHandler>().AsSingle();
             Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
+            
+            //ModelsLoader
+            Container.Bind<GameplayModelsCreatorService>().AsSingle();
+            Container.Bind<GameplayModelsLoaderService>().AsSingle();
         }
     }
 }

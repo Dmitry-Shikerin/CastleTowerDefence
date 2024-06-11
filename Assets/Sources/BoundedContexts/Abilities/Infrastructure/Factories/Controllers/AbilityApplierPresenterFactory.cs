@@ -1,14 +1,24 @@
-﻿using Sources.BoundedContexts.Abilities.Controllers;
+﻿using System;
+using Sources.BoundedContexts.Abilities.Controllers;
 using Sources.BoundedContexts.Abilities.Domain;
 using Sources.BoundedContexts.Abilities.Presentation.Interfaces;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.Abilities.Infrastructure.Factories.Controllers
 {
     public class AbilityApplierPresenterFactory
     {
-        public AbilityApplierPresenter Create(IAbilityApplier abilityApplier, IAbilityApplierView view)
+        private readonly IEntityRepository _entityRepository;
+
+        public AbilityApplierPresenterFactory(IEntityRepository entityRepository)
         {
-            return new AbilityApplierPresenter(abilityApplier, view);
+            _entityRepository = entityRepository ?? 
+                                throw new ArgumentNullException(nameof(entityRepository));
+        }
+
+        public AbilityApplierPresenter Create(string abilityId, IAbilityApplierView view)
+        {
+            return new AbilityApplierPresenter(_entityRepository, abilityId, view);
         }
     }
 }

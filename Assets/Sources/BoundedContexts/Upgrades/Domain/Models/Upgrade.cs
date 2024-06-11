@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
+using Sources.Frameworks.Domain.Interfaces.Entities;
 
 namespace Sources.BoundedContexts.Upgrades.Domain.Models
 {
-    public class Upgrade
+    public class Upgrade : IEntity
     {
         public Upgrade(UpgradeConfig config)
         {
@@ -15,9 +16,9 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Models
 
         public event Action LevelChanged;
 
-        public IReadOnlyList<UpgradeLevel> Levels  { get; private set; }
         public string Id { get; }
         public Type Type => GetType();
+        public IReadOnlyList<UpgradeLevel> Levels  { get; private set; }
         public float CurrentAmount => Levels[CurrentLevel].CurrentAmount;
         public int CurrentLevel { get; private set; }
         public int MaxLevel => Levels.Count;

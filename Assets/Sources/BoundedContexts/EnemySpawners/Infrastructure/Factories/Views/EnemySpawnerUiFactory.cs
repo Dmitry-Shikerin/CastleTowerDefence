@@ -17,9 +17,9 @@ namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views
                                 throw new ArgumentNullException(nameof(presenterFactory));
         }
         
-        public IEnemySpawnerUi Create(EnemySpawner enemySpawner, EnemySpawnerUi view)
+        public IEnemySpawnerUi Create(EnemySpawnerUi view)
         {
-            EnemySpawnerUiPresenter presenter = _presenterFactory.Create(enemySpawner, view);
+            EnemySpawnerUiPresenter presenter = _presenterFactory.Create(view);
             view.Construct(presenter);
             
             return view;

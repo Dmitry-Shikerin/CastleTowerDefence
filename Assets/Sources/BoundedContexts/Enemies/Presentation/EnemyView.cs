@@ -19,18 +19,9 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         public IEnemyAnimation Animation => _animation;
         public EnemyDependencyProvider Provider => _provider;
         public ICharacterSpawnPoint CharacterMeleePoint { get; private set; }
-        public ICharacterSpawnPoint CharacterRangePoint { get; private set; }
         public float FindRange => _findRange;
-
-        public void SetTargetFollow(ICharacterHealthView characterViewHealthView)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public void SetCharacterMeleePoint(ICharacterSpawnPoint spawnPoint) =>
             CharacterMeleePoint = spawnPoint ?? throw new ArgumentNullException(nameof(spawnPoint));
-
-        public void SetCharacterRangePoint(ICharacterSpawnPoint spawnPoint) =>
-            CharacterRangePoint = spawnPoint ?? throw new ArgumentNullException(nameof(spawnPoint));
     }
 }

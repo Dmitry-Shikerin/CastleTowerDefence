@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Abilities.Domain;
 using Sources.BoundedContexts.Abilities.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Abilities.Controllers
@@ -16,9 +17,15 @@ namespace Sources.BoundedContexts.Abilities.Controllers
         private CancellationTokenSource _tokenSource = new CancellationTokenSource();
         private TimeSpan _cooldown;
 
-        public AbilityApplierPresenter(IAbilityApplier abilityApplier, IAbilityApplierView view)
+        public AbilityApplierPresenter(
+            IEntityRepository entityRepository, 
+            string abilityId, 
+            IAbilityApplierView view)
         {
-            _abilityApplier = abilityApplier ?? throw new ArgumentNullException(nameof(abilityApplier));
+            if (entityRepository == null) 
+                throw new ArgumentNullException(nameof(entityRepository));
+            
+            _abilityApplier = entityRepository.Get<IAbilityApplier>(abilityId);
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 

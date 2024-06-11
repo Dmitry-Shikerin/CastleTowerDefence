@@ -9,9 +9,11 @@ using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 {
@@ -26,18 +28,18 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         private readonly IObjectPool<CharacterRangeView> _characterRangePool;
 
         public CharacterSpawnAbilityPresenter(
-            CharacterSpawnAbility characterSpawnAbility,
-            Upgrade characterHealthUpgrade,
+            IEntityRepository entityRepository,
             ICharacterSpawnAbilityView view,
             ICharacterMeleeSpawnService characterMeleeSpawnService,
             ICharacterRangeSpawnService characterRangeSpawnService,
             IObjectPool<CharacterMeleeView> characterMeleePool,
             IObjectPool<CharacterRangeView> characterRangePool)
         {
-            _characterSpawnAbility = characterSpawnAbility ?? 
-                                     throw new ArgumentNullException(nameof(characterSpawnAbility));
-            _characterHealthUpgrade = characterHealthUpgrade ?? 
-                                      throw new ArgumentNullException(nameof(characterHealthUpgrade));
+            if (entityRepository == null)
+                throw new ArgumentNullException(nameof(entityRepository));
+            
+            _characterSpawnAbility = entityRepository.Get<CharacterSpawnAbility>(ModelId.SpawnAbility);
+            _characterHealthUpgrade = entityRepository.Get<Upgrade>(ModelId.HealthUpgrade);
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _characterMeleeSpawnService = characterMeleeSpawnService ??
                                           throw new ArgumentNullException(nameof(characterMeleeSpawnService));

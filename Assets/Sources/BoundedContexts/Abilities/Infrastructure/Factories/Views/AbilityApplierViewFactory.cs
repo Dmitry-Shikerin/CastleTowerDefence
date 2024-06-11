@@ -16,9 +16,9 @@ namespace Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views
             _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public IAbilityApplierView Create(IAbilityApplier abilityApplier, AbilityApplierView view)
+        public IAbilityApplierView Create(string abilityId, AbilityApplierView view)
         {
-            AbilityApplierPresenter presenter = _presenterFactory.Create(abilityApplier, view);
+            AbilityApplierPresenter presenter = _presenterFactory.Create(abilityId, view);
             view.Construct(presenter);
             
             return view;

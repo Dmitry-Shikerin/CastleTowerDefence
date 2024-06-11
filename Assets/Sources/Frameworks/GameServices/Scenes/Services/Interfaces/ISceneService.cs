@@ -2,7 +2,7 @@
 using Sources.ControllersInterfaces.ControllerLifetimes;
 using Sources.InfrastructureInterfaces.Services.UpdateServices.Methods;
 
-namespace Sources.InfrastructureInterfaces.Services.SceneServices
+namespace Sources.Frameworks.GameServices.Scenes.Services.Interfaces
 {
     public interface ISceneService : IUpdatable, IFixedUpdatable, ILateUpdatable, IDisable
     {

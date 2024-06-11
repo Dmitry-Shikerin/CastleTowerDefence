@@ -1,8 +1,10 @@
 ﻿using System;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.Upgrades.Controllers
 {
@@ -13,12 +15,15 @@ namespace Sources.BoundedContexts.Upgrades.Controllers
         private readonly IUpgradeView _view;
 
         public UpgradePresenter(
-            Upgrade upgrade, 
-            PlayerWallet playerWallet, 
+            IEntityRepository entityRepository,
+            string upgradeId, 
             IUpgradeView view)
         {
-            _upgrade = upgrade ?? throw new ArgumentNullException(nameof(upgrade));
-            _playerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
+            if (entityRepository == null) 
+                throw new ArgumentNullException(nameof(entityRepository));
+            
+            _upgrade = entityRepository.Get<Upgrade>(upgradeId);
+            _playerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 

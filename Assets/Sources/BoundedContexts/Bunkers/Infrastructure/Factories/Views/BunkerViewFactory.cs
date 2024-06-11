@@ -16,9 +16,9 @@ namespace Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views
             _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public IBunkerView Create(Bunker bunker, BunkerView view)
+        public IBunkerView Create(BunkerView view)
         {
-            BunkerPresenter presenter = _presenterFactory.Create(bunker, view);
+            BunkerPresenter presenter = _presenterFactory.Create(view);
             view.Construct(presenter);
             
             return view;

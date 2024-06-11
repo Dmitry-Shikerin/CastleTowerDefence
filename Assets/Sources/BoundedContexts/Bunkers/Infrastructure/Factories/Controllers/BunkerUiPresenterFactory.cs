@@ -1,14 +1,24 @@
-﻿using Sources.BoundedContexts.Bunkers.Controllers;
+﻿using System;
+using Sources.BoundedContexts.Bunkers.Controllers;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers
 {
     public class BunkerUiPresenterFactory
     {
-        public BunkerUiPresenter Create(Bunker bunker, BunkerUi view)
+        private readonly IEntityRepository _entityRepository;
+
+        public BunkerUiPresenterFactory(IEntityRepository entityRepository)
         {
-            return new BunkerUiPresenter(bunker, view);
+            _entityRepository = entityRepository ?? 
+                                throw new ArgumentNullException(nameof(entityRepository));
+        }
+
+        public BunkerUiPresenter Create(BunkerUi view)
+        {
+            return new BunkerUiPresenter(_entityRepository, view);
         }
     }
 }

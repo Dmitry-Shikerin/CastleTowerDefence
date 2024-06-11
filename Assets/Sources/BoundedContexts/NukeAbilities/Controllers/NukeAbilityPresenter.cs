@@ -2,9 +2,11 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.NukeAbilities.Controllers
@@ -16,9 +18,12 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public NukeAbilityPresenter(NukeAbility nukeAbility, INukeAbilityView nukeAbilityView)
+        public NukeAbilityPresenter(IEntityRepository entityRepository, INukeAbilityView nukeAbilityView)
         {
-            _nukeAbility = nukeAbility ?? throw new ArgumentNullException(nameof(nukeAbility));
+            if (entityRepository == null) 
+                throw new ArgumentNullException(nameof(entityRepository));
+            
+            _nukeAbility = entityRepository.Get<NukeAbility>(ModelId.NukeAbility);
             _nukeAbilityView = nukeAbilityView ?? throw new ArgumentNullException(nameof(nukeAbilityView));
         }
 

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sources.ControllersInterfaces.Scenes;
+using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
 using Sources.Infrastructure.StateMachines.SceneStateMachines;
-using Sources.InfrastructureInterfaces.Services.SceneServices;
 using Zenject;
 using Object = UnityEngine.Object;
 
-namespace Sources.Infrastructure.Services.SceneServices
+namespace Sources.Frameworks.GameServices.Scenes.Services.Implementation
 {
     public class SceneService : ISceneService
     {
@@ -37,7 +37,6 @@ namespace Sources.Infrastructure.Services.SceneServices
 
         public async UniTask ChangeSceneAsync(string sceneName, object payload = null)
         {
-            //TODO это тоже обернул трай кетчем
             try
             {
                 if (_sceneFactories.TryGetValue(

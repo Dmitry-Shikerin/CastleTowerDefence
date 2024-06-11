@@ -10,6 +10,7 @@ using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.EnemyHealths.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
@@ -27,11 +28,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
-        public IEnemyView Spawn(
-            KillEnemyCounter killEnemyCounter, 
-            EnemySpawner enemySpawner, 
-            PlayerWallet playerWallet,
-            Vector3 position)
+        public IEnemyView Spawn(EnemySpawner enemySpawner, Vector3 position)
         {
             Enemy enemy = new Enemy(
                 new EnemyHealth(enemySpawner.EnemyHealth), 
@@ -40,8 +37,8 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
                            0),
                 new BurnAbility());
             
-            IEnemyView enemyView = SpawnFromPool(enemy, killEnemyCounter, playerWallet) ?? 
-                                   _enemyViewFactory.Create(enemy, killEnemyCounter, playerWallet);
+            IEnemyView enemyView = SpawnFromPool(enemy) ?? 
+                                   _enemyViewFactory.Create(enemy);
             
             enemyView.DisableNavmeshAgent();
             enemyView.SetPosition(position);
@@ -51,14 +48,14 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
             return enemyView;
         }
 
-        private IEnemyView SpawnFromPool(Enemy enemy, KillEnemyCounter killEnemyCounter, PlayerWallet playerWallet)
+        private IEnemyView SpawnFromPool(Enemy enemy)
         {
             EnemyView enemyView = _enemyPool.Get<EnemyView>();
 
             if (enemyView == null)
                 return null;
             
-            return _enemyViewFactory.Create(enemy, killEnemyCounter, playerWallet, enemyView);
+            return _enemyViewFactory.Create(enemy, enemyView);
         }
     }
 }

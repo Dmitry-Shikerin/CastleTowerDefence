@@ -17,9 +17,9 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories
             _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public IFlamethrowerAbilityView Create(FlamethrowerAbility flamethrowerAbility, FlamethrowerAbilityView view)
+        public IFlamethrowerAbilityView Create(FlamethrowerAbilityView view)
         {
-            FlamethrowerAbilityPresenter presenter = _presenterFactory.Create(flamethrowerAbility, view);
+            FlamethrowerAbilityPresenter presenter = _presenterFactory.Create(view);
             view.Construct(presenter);
 
             return view;

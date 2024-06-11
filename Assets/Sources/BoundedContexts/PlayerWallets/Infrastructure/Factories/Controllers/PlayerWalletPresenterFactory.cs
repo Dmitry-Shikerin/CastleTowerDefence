@@ -1,14 +1,24 @@
-﻿using Sources.BoundedContexts.PlayerWallets.Controllers;
+﻿using System;
+using Sources.BoundedContexts.PlayerWallets.Controllers;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Presentation.Interfaces;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Controllers
 {
     public class PlayerWalletPresenterFactory
     {
-        public PlayerWalletPresenter Create(PlayerWallet playerWallet, IPlayerWalletView view)
+        private readonly IEntityRepository _entityRepository;
+
+        public PlayerWalletPresenterFactory(IEntityRepository entityRepository)
         {
-            return new PlayerWalletPresenter(playerWallet, view);
+            _entityRepository = entityRepository ?? 
+                                throw new ArgumentNullException(nameof(entityRepository));
+        }
+
+        public PlayerWalletPresenter Create(IPlayerWalletView view)
+        {
+            return new PlayerWalletPresenter(_entityRepository, view);
         }
     }
 }

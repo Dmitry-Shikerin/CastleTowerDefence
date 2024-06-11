@@ -6,7 +6,9 @@ using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
@@ -18,9 +20,14 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public FlamethrowerAbilityPresenter(FlamethrowerAbility flamethrowerAbility, IFlamethrowerAbilityView view)
+        public FlamethrowerAbilityPresenter(
+            IEntityRepository entityRepository, 
+            IFlamethrowerAbilityView view)
         {
-            _flamethrowerAbility = flamethrowerAbility ?? throw new ArgumentNullException(nameof(flamethrowerAbility));
+            if (entityRepository == null) 
+                throw new ArgumentNullException(nameof(entityRepository));
+
+            _flamethrowerAbility = entityRepository.Get<FlamethrowerAbility>(ModelId.FlamethrowerAbility);
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
