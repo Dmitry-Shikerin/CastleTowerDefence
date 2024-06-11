@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using Sources.Frameworks.UiFramework.ButtonCommands.Interfaces.Handlers;
-using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
-using Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
 
-namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation.Handlers
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers
 {
     public class ButtonCommandHandler : IButtonCommandHandler
     {

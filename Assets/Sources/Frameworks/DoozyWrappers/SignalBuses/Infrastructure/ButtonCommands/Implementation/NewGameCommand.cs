@@ -1,13 +1,12 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
 using Sources.BoundedContexts.Ids.Domain.Constant;
-using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
 using Sources.InfrastructureInterfaces.Services.LoadServices;
 
-namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {
     public class NewGameCommand : IButtonCommand
     {

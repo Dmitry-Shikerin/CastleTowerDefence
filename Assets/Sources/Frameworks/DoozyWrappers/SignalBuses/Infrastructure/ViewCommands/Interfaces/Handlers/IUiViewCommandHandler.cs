@@ -1,6 +1,6 @@
 ﻿using Sources.Frameworks.UiFramework.Domain.Commands;
 
-namespace Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands.Views.Handlers
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers
 {
     public interface IUiViewCommandHandler
     {

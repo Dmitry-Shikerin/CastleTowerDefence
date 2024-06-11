@@ -2,9 +2,9 @@
 using Doozy.Runtime.Signals;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Signals;
-using Sources.Frameworks.UiFramework.ButtonCommands.Interfaces.Handlers;
-using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation
 {

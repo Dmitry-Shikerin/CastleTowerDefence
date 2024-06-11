@@ -1,7 +1,6 @@
-﻿using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+﻿using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 
-namespace Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces
 {
     public interface IButtonCommand
     {

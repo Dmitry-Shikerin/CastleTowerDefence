@@ -1,11 +1,10 @@
 ﻿using System;
-using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {
     public class PlayerAccountAuthorizeButtonCommand : IButtonCommand
     {

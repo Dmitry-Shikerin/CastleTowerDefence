@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Signals
 {

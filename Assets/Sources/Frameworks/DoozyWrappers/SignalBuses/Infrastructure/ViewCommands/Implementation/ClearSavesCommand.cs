@@ -1,9 +1,9 @@
 ﻿using System;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
-using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands;
 using Sources.InfrastructureInterfaces.Services.LoadServices;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Commands.Forms
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation
 {
     public class ClearSavesCommand : IViewCommand
     {

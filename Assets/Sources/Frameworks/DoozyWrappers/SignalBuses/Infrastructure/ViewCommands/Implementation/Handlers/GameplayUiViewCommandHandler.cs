@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
 using Sources.Frameworks.UiFramework.Domain.Commands;
-using Sources.Frameworks.UiFramework.Infrastructure.Commands.Forms;
-using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands;
-using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands.Views.Handlers;
-using Sources.Frameworks.UiFramework.Views.Commands.Implementation;
 
-namespace Sources.Frameworks.UiFramework.ViewCommands.Implementation.Handlers
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers
 {
     public class GameplayUiViewCommandHandler : IUiViewCommandHandler
     {

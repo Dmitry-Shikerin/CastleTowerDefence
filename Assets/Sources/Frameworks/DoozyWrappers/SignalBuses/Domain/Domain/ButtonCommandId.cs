@@ -1,4 +1,4 @@
-﻿namespace Sources.Frameworks.UiFramework.ButtonProviders.Domain
+﻿namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain
 {
     public enum ButtonCommandId
     {

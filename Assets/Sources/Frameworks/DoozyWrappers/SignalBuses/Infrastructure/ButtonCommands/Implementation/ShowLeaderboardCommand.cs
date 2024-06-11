@@ -1,12 +1,11 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
-using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Leaderboads;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
 
-namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {
     public class ShowLeaderboardCommand : IButtonCommand
     {

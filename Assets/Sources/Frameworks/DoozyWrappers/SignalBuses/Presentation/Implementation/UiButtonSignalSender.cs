@@ -3,8 +3,8 @@ using Doozy.Runtime.Signals;
 using Doozy.Runtime.UIManager.Components;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Signals;
-using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using UnityEngine;
 

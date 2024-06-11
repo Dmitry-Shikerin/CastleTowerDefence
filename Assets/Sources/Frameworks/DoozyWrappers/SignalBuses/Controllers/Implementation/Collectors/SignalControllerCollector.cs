@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 
-namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation.Collectors
 {
     public class SignalControllerCollector : ISignalControllersCollector
     {

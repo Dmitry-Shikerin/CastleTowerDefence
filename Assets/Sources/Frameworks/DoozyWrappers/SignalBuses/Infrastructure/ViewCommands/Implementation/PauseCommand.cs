@@ -1,9 +1,9 @@
 ﻿using System;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.UiFramework.Domain.Commands;
-using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands;
 
-namespace Sources.Frameworks.UiFramework.ViewCommands.Implementation
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation
 {
     public class PauseCommand : IViewCommand
     {

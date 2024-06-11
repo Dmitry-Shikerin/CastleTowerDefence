@@ -1,10 +1,9 @@
 ﻿using System;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
-using Sources.Frameworks.UiFramework.ButtonProviders.Domain;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Interfaces;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
 
-namespace Sources.Frameworks.UiFramework.ButtonCommands.Implementation
+namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {
     public class CompleteTutorialCommand : IButtonCommand
     {
