@@ -9,6 +9,7 @@ using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawners.In
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.Utils.Extentions;
@@ -20,6 +21,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
     {
         private readonly EnemySpawner _enemySpawner;
         private readonly KillEnemyCounter _killEnemyCounter;
+        private readonly PlayerWallet _playerWallet;
         private readonly IEnemySpawnerView _view;
         private readonly IEnemySpawnService _enemySpawnService;
         private readonly IEnemyKamikazeSpawnService _enemyKamikazeSpawnService;
@@ -30,6 +32,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         public EnemySpawnerPresenter(
             EnemySpawner enemySpawner,
             KillEnemyCounter killEnemyCounter,
+            PlayerWallet playerWallet,
             IEnemySpawnerView enemySpawnerView,
             IEnemySpawnService enemySpawnService,
             IEnemyKamikazeSpawnService enemyKamikazeSpawnService,
@@ -37,6 +40,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
             _killEnemyCounter = killEnemyCounter ?? throw new ArgumentNullException(nameof(killEnemyCounter));
+            _playerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
             _view = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
             _enemySpawnService = enemySpawnService ?? throw new ArgumentNullException(nameof(enemySpawnService));
             _enemyKamikazeSpawnService = enemyKamikazeSpawnService ?? 
@@ -137,6 +141,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             IEnemyView enemyView = _enemySpawnService.Spawn(
                 _killEnemyCounter, 
                 _enemySpawner, 
+                _playerWallet,
                 spawnPoint.Position);
             enemyView.SetBunkerView(_view.BunkerView);
             enemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
@@ -150,6 +155,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             var enemyView = _enemyKamikazeSpawnService.Spawn(
                 _killEnemyCounter, 
+                _playerWallet,
                 _enemySpawner,
                 spawnPoint.Position);
             enemyView.SetBunkerView(_view.BunkerView);
@@ -164,6 +170,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             IEnemyBossView bossEnemyView = _enemyBossSpawnService.Spawn(
                 _killEnemyCounter, 
                 _enemySpawner,
+                _playerWallet,
                 spawnPoint.Position);
             bossEnemyView.SetBunkerView(_view.BunkerView);
             bossEnemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);

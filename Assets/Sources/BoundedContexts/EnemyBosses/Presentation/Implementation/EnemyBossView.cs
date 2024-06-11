@@ -1,12 +1,10 @@
 ﻿using System;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.EnemyBosses.Presentation.Implementation
 {

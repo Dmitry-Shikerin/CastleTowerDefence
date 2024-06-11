@@ -7,6 +7,7 @@ using Sources.BoundedContexts.EnemySpawners.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 
 namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views
 {
@@ -22,9 +23,11 @@ namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views
         public IEnemySpawnerView Create(
             EnemySpawner enemySpawner, 
             KillEnemyCounter killEnemyCounter,
+            PlayerWallet playerWallet,
             EnemySpawnerView view)
         {
-            EnemySpawnerPresenter presenter = _presenterFactory.Create(enemySpawner, killEnemyCounter, view);
+            EnemySpawnerPresenter presenter = _presenterFactory.Create(
+                enemySpawner, killEnemyCounter, playerWallet, view);
             view.Construct(presenter);
             
             return view;

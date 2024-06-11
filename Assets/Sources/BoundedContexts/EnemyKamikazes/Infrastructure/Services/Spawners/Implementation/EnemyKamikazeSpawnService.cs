@@ -10,6 +10,7 @@ using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
@@ -27,7 +28,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawner
         }
 
         public IEnemyKamikazeView Spawn(
-            KillEnemyCounter killEnemyCounter, 
+            KillEnemyCounter killEnemyCounter,
+            PlayerWallet playerWallet,
             EnemySpawner enemySpawner,
             Vector3 position)
         {
@@ -38,8 +40,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawner
                     enemySpawner.KamikazeMassAttackPower),
                 new BurnAbility());
             
-            IEnemyKamikazeView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
-                                   _enemyViewFactory.Create(enemy, killEnemyCounter);
+            IEnemyKamikazeView enemyView = SpawnFromPool(enemy, killEnemyCounter, playerWallet) ?? 
+                                   _enemyViewFactory.Create(enemy, killEnemyCounter, playerWallet);
             
             enemyView.DisableNavmeshAgent();
             enemyView.SetPosition(position);
@@ -49,14 +51,14 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawner
             return enemyView;
         }
 
-        private IEnemyKamikazeView SpawnFromPool(EnemyKamikaze enemy, KillEnemyCounter killEnemyCounter)
+        private IEnemyKamikazeView SpawnFromPool(EnemyKamikaze enemy, KillEnemyCounter killEnemyCounter, PlayerWallet playerWallet)
         {
             EnemyKamikazeView enemyView = _enemyPool.Get<EnemyKamikazeView>();
 
             if (enemyView == null)
                 return null;
             
-            return _enemyViewFactory.Create(enemy, killEnemyCounter, enemyView);
+            return _enemyViewFactory.Create(enemy, killEnemyCounter, playerWallet, enemyView);
         }
     }
 }

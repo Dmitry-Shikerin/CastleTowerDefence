@@ -157,6 +157,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _enemySpawnerViewFactory.Create(
                 enemySpawner, 
                 new KillEnemyCounter(new KillEnemyCounterDto()), 
+                playerWallet,
                 _rootGameObject.EnemySpawnerView);
             _enemySpawnerUiFactory.Create(enemySpawner, _gameplayHud.EnemySpawnerUi);
 

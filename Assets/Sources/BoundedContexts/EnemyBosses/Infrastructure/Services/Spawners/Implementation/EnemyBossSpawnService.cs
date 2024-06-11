@@ -9,6 +9,7 @@ using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
@@ -31,6 +32,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
         public IEnemyBossView Spawn(
             KillEnemyCounter killEnemyCounter,
             EnemySpawner enemySpawner,
+            PlayerWallet playerWallet,
             Vector3 position)
         {
             BossEnemy bossEnemy = new BossEnemy(
@@ -42,8 +44,8 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
                 2f,
                 2f,
                 5f);
-            IEnemyBossView enemyBossView = SpawnFromPool(bossEnemy, killEnemyCounter) ?? 
-                                           _enemyBossViewFactory.Create(bossEnemy, killEnemyCounter);
+            IEnemyBossView enemyBossView = SpawnFromPool(bossEnemy, killEnemyCounter, playerWallet) ?? 
+                                           _enemyBossViewFactory.Create(bossEnemy, killEnemyCounter, playerWallet);
             enemyBossView.DisableNavmeshAgent();
             enemyBossView.SetPosition(position);
             enemyBossView.EnableNavmeshAgent();
@@ -52,7 +54,10 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
             return enemyBossView;
         }
         
-        private IEnemyBossView SpawnFromPool(BossEnemy bossEnemy, KillEnemyCounter killEnemyCounter)
+        private IEnemyBossView SpawnFromPool(
+            BossEnemy bossEnemy, 
+            KillEnemyCounter killEnemyCounter, 
+            PlayerWallet playerWallet)
         {
             Presentation.Implementation.EnemyBossView view = 
                 _bossEnemyPool.Get<Presentation.Implementation.EnemyBossView>();
@@ -60,7 +65,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
             if (view == null)
                 return null;
             
-            return _enemyBossViewFactory.Create(bossEnemy, killEnemyCounter, view);
+            return _enemyBossViewFactory.Create(bossEnemy, killEnemyCounter, playerWallet, view);
         }
     }
 }

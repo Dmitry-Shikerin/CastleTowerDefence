@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.Abilities.Presentation.Implementation;
 using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
+using Sources.BoundedContexts.PlayerWallets.Presentation.Implementation;
 using Sources.BoundedContexts.Upgrades.Presentation.Implementation;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
@@ -36,6 +37,9 @@ namespace Sources.BoundedContexts.Huds.Presentations
         [FoldoutGroup("Upgrades")]
         [Required] [SerializeField] private UpgradeView _flamethrowerAbilityUpgradeView;
         
+        [FoldoutGroup("Wallet")]
+        [Required] [SerializeField] private PlayerWalletView _playerWalletView;
+        
         public UiCollector UiCollector => _uiCollector;
 
         public AbilityApplierView NukeAbilityApplier => _nukeAbilityApplier;
@@ -50,5 +54,7 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public UpgradeView CharacterAttackUpgradeView => _characterAttackUpgradeView;
         public UpgradeView NukeAbilityUpgradeView => _nukeAbilityUpgradeVieew;
         public UpgradeView FlamethrowerAbilityUpgradeView => _flamethrowerAbilityUpgradeView;
+        
+        public PlayerWalletView PlayerWalletView => _playerWalletView;
     }
 }

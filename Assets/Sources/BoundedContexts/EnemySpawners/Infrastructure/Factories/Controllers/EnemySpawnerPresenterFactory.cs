@@ -6,6 +6,7 @@ using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 
 namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers
 {
@@ -30,11 +31,13 @@ namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Control
         public EnemySpawnerPresenter Create(
             EnemySpawner enemySpawner, 
             KillEnemyCounter killEnemyCounter,
+            PlayerWallet playerWallet,
             IEnemySpawnerView view)
         {
             return new EnemySpawnerPresenter(
                 enemySpawner, 
                 killEnemyCounter,
+                playerWallet,
                 view,
                 _enemySpawnService,
                 _enemyKamikazeSpawnService,

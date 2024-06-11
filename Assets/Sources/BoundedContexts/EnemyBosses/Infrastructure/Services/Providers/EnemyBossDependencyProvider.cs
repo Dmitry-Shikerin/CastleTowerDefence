@@ -3,6 +3,7 @@ using Sources.BoundedContexts.EnemyBosses.Domain;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using UnityEngine;
 
@@ -10,10 +11,11 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers
 {
     public class EnemyBossDependencyProvider : MonoBehaviour
     {
-        private bool _isConstructed;
+        public bool IsConstructed { get; private set; }
         
         public BossEnemy BossEnemy { get; private set; }
         public KillEnemyCounter KillEnemyCounter { get; private set; }
+        public PlayerWallet PlayerWallet { get; private set; }
         public IEnemyBossView View { get; private set; }
         public IEnemyBossAnimation Animation { get; private set; }
         public IOverlapService OverlapService { get; private set; }
@@ -22,6 +24,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers
         public void Construct(
             BossEnemy bossEnemy, 
             KillEnemyCounter killEnemyCounter, 
+            PlayerWallet playerWallet,
             IEnemyBossView enemyBossView, 
             IEnemyBossAnimation enemyBossAnimation,
             IOverlapService overlapService,
@@ -34,8 +37,9 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers
             OverlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
             ExplosionBodyBloodySpawnService = explosionBodyBloodySpawnService ?? 
                                               throw new ArgumentNullException(nameof(explosionBodyBloodySpawnService));
+            PlayerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
             
-            _isConstructed = true;
+            IsConstructed = true;
         }
     }
 }

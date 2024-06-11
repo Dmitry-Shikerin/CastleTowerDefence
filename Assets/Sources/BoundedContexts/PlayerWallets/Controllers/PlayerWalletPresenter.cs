@@ -18,12 +18,14 @@ namespace Sources.BoundedContexts.PlayerWallets.Controllers
 
         public override void Enable()
         {
-            
+            OnCoinsChanged();
+            _playerWallet.CoinsChanged += OnCoinsChanged;
         }
 
-        public override void Disable()
-        {
-            
-        }
+        public override void Disable() =>
+            _playerWallet.CoinsChanged -= OnCoinsChanged;
+
+        private void OnCoinsChanged() =>
+            _view.MoneyText.SetText(_playerWallet.Coins.ToString());
     }
 }

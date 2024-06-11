@@ -4,6 +4,7 @@ using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers
@@ -23,11 +24,15 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers
                 ?? throw new ArgumentNullException(nameof(explosionBodyBloodySpawnService));
         }
 
-        public EnemyDependencyProvider Create(Enemy enemy, EnemyView view)
+        public EnemyDependencyProvider Create(
+            Enemy enemy, 
+            PlayerWallet playerWallet, 
+            EnemyView view)
         {
             EnemyDependencyProvider provider = view.Provider;
             provider.Construct(
                 enemy, 
+                playerWallet,
                 view,
                 view.Animation,
                 _overlapService,

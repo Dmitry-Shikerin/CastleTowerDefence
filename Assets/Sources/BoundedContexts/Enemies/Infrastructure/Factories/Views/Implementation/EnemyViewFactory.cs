@@ -11,6 +11,7 @@ using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
@@ -40,16 +41,23 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
                                       throw new ArgumentNullException(nameof(burnAbilityViewFactory));
         }
         
-        public IEnemyView Create(Enemy enemy, KillEnemyCounter killEnemyCounter)
+        public IEnemyView Create(
+            Enemy enemy, 
+            KillEnemyCounter killEnemyCounter,
+            PlayerWallet playerWallet)
         {
             EnemyView enemyView = CreateView(EnemyConst.PrefabPath);
             
-            return Create(enemy, killEnemyCounter, enemyView);
+            return Create(enemy, killEnemyCounter, playerWallet, enemyView);
         }
 
-        public IEnemyView Create(Enemy enemy, KillEnemyCounter killEnemyCounter, EnemyView view)
+        public IEnemyView Create(
+            Enemy enemy, 
+            KillEnemyCounter killEnemyCounter, 
+            PlayerWallet playerWallet,
+            EnemyView view)
         {
-            _providerFactory.Create(enemy, view);
+            _providerFactory.Create(enemy, playerWallet, view);
             _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
             _healthBarViewFactory.Create(enemy.EnemyHealth, view.HealthBarView);
             _burnAbilityViewFactory.Create(enemy.BurnAbility, view.BurnAbilityView);

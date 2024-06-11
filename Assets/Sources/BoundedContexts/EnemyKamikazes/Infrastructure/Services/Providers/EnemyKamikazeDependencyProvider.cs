@@ -3,6 +3,8 @@ using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using UnityEngine;
 
@@ -11,6 +13,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Provide
     public class EnemyKamikazeDependencyProvider : MonoBehaviour
     {
         public EnemyKamikaze EnemyKamikaze { get; private set; }
+        public PlayerWallet PlayerWallet { get; private set; }
+        public KillEnemyCounter KillEnemyCounter { get; private set; }
         public IEnemyKamikazeView View { get; private set; }
         public IEnemyAnimation Animation { get; private set; }
         public IOverlapService OverlapService { get; private set; }
@@ -19,6 +23,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Provide
 
         public void Construct(
             EnemyKamikaze enemyKamikaze,
+            KillEnemyCounter killEnemyCounter,
+            PlayerWallet playerWallet,
             IEnemyKamikazeView view,
             IEnemyAnimation enemyAnimation,
             IOverlapService overlapService,
@@ -33,6 +39,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Provide
                                          throw new ArgumentNullException(nameof(explosionBodySpawnService));
             ExplosionBodyBloodySpawnService = explosionBodyBloodySpawnService ?? 
                                               throw new ArgumentNullException(nameof(explosionBodyBloodySpawnService));
+            KillEnemyCounter = killEnemyCounter ?? throw new ArgumentNullException(nameof(killEnemyCounter));
+            PlayerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
         }
     }
 }

@@ -63,7 +63,7 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         {
             DespawnMelee();
             DespawnRange();
-            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            await UniTask.Yield();
             SpawnMelee();
             SpawnRange();
         }
@@ -72,11 +72,10 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         {
             foreach (CharacterMeleeView meleeView in _characterMeleePool.Collection)
             {
-                // if (_characterMeleePool.Contains(meleeView))
-                //     continue;
-                //
-                // meleeView.Destroy();
-                meleeView.HealthView.TakeDamage(1000);
+                if (_characterMeleePool.Contains(meleeView))
+                    continue;
+                
+                meleeView.Destroy();
             }
         }
         
@@ -84,11 +83,10 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         {
             foreach (CharacterRangeView rangeView in _characterRangePool.Collection)
             {
-                // if (_characterRangePool.Contains(rangeView))
-                //     continue;
-                //
-                // rangeView.Destroy();
-                rangeView.HealthView.TakeDamage(1000);
+                if (_characterRangePool.Contains(rangeView))
+                    continue;
+                
+                rangeView.Destroy();
             }
         }
 

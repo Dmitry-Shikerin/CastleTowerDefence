@@ -4,6 +4,7 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 
 namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Services.Providers
@@ -25,12 +26,14 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Services.
         public EnemyBossDependencyProvider Create(
             BossEnemy bossEnemy, 
             KillEnemyCounter killEnemyCounter, 
+            PlayerWallet playerWallet,
             IEnemyBossView enemyBossView)
         {
             EnemyBossDependencyProvider provider = enemyBossView.Provider;
             provider.Construct(
                 bossEnemy, 
                 killEnemyCounter, 
+                playerWallet,
                 enemyBossView, 
                 enemyBossView.Animation,
                 _overlapService,

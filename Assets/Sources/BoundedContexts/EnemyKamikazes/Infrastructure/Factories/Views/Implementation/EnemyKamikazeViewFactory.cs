@@ -9,6 +9,7 @@ using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Prefabs;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 
@@ -39,19 +40,20 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.
                                       throw new ArgumentNullException(nameof(burnAbilityViewFactory));
         }
         
-        public IEnemyKamikazeView Create(EnemyKamikaze enemy, KillEnemyCounter killEnemyCounter)
+        public IEnemyKamikazeView Create(EnemyKamikaze enemy, KillEnemyCounter killEnemyCounter, PlayerWallet playerWallet)
         {
             EnemyKamikazeView enemyView = CreateView(PrefabPath.EnemyKamikaze);
             
-            return Create(enemy, killEnemyCounter, enemyView);
+            return Create(enemy, killEnemyCounter, playerWallet, enemyView);
         }
 
         public IEnemyKamikazeView Create(
             EnemyKamikaze enemy, 
             KillEnemyCounter killEnemyCounter, 
+            PlayerWallet playerWallet,
             EnemyKamikazeView view)
         {
-            _dependencyProviderFactory.Create(enemy, view);
+            _dependencyProviderFactory.Create(enemy, killEnemyCounter, playerWallet, view);
             _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
             _healthBarViewFactory.Create(enemy.EnemyHealth, view.HealthBarView);
             _burnAbilityViewFactory.Create(enemy.BurnAbility, view.BurnAbilityView);
