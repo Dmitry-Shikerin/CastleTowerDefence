@@ -21,7 +21,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
     {
         private EnemyBossDependencyProvider _provider;
         
-        private BossEnemy Enemy => _provider.BossEnemy;
         private IEnemyBossView View => _provider.View;
         private IEnemyBossAnimation Animation => _provider.Animation;
         private IOverlapService OverlapService => _provider.OverlapService;

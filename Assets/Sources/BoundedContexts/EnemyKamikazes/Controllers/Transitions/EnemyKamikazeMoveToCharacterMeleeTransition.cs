@@ -11,20 +11,19 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyKamikazeMoveToCharacterMeleeTransition : ConditionTask
     {
-        private IEnemyKamikazeView _view;
-        private EnemyKamikaze _enemy;
+        private EnemyKamikazeDependencyProvider _provider;
+        
+        private EnemyKamikaze Enemy => _provider.EnemyKamikaze;
 
         protected override string OnInit()
         {
-            EnemyKamikazeDependencyProvider provider =
+            _provider =
                 blackboard.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-            _enemy = provider.EnemyKamikaze;
-            _view = provider.View;
             
             return null;
         }
 
         protected override bool OnCheck() =>
-            _enemy.IsInitialized;
+            Enemy.IsInitialized;
     }
 }

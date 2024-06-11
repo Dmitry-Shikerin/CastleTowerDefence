@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.BoundedContexts.EnemyHealths.Domain;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Domain
 {

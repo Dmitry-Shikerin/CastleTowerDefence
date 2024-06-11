@@ -1,7 +1,9 @@
 ﻿using System;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.BoundedContexts.EnemyHealths.Domain;
+using UnityEngine;
 
-namespace Sources.BoundedContexts.Enemies.Domain
+namespace Sources.BoundedContexts.Enemies.Domain.Models
 {
     public class Enemy
     {

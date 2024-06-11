@@ -43,8 +43,6 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawne
             if (characterMeleeView == null)
                 return null;
             
-            Debug.Log($"Spawned from pool: {characterMeleeView}");
-            
             return _characterViewFactory.Create(characterMelee, characterMeleeView);
         }
     }

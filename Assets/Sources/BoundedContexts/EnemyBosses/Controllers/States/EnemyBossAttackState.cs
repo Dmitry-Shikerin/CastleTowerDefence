@@ -23,7 +23,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
     {
         private EnemyBossDependencyProvider _provider;
         
-        private BossEnemy Enemy => _provider.BossEnemy;
         private EnemyAttacker EnemyAttacker => _provider.BossEnemy.EnemyAttacker;
         private IEnemyBossView View => _provider.View;
         private IEnemyBossAnimation Animation => _provider.Animation;

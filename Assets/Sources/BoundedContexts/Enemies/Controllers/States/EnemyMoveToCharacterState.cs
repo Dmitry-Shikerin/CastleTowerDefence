@@ -15,33 +15,25 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     {
         [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
         
-        private Enemy _enemy;
-        private IEnemyView _view;
-        private IEnemyAnimation _animation;
-
-        protected override void OnInit()
-        {
-            _enemy = _provider.value.Enemy;
-            _view = _provider.value.View;
-            _animation = _provider.value.Animation;
-        }
-
+        private IEnemyView View => _provider.value.View;
+        private IEnemyAnimation Animation => _provider.value.Animation;
+        
         protected override void OnEnter() =>
-            _animation.PlayWalk();
+            Animation.PlayWalk();
 
         protected override void OnUpdate()
         {
-            if (_view.CharacterHealthView == null)
+            if (View.CharacterHealthView == null)
                 return;
             
-            if (_view.CharacterHealthView.CurrentHealth <= 0)
+            if (View.CharacterHealthView.CurrentHealth <= 0)
             {
-                _view.SetCharacterHealth(null);
+                View.SetCharacterHealth(null);
                 
                 return;
             }
             
-            _view.Move(_view.CharacterHealthView.Position);
+            View.Move(View.CharacterHealthView.Position);
         }
     }
 }

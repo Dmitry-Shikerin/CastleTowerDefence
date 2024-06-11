@@ -2,7 +2,7 @@
 using Sources.BoundedContexts.Healths.DomainInterfaces;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.Enemies.Domain
+namespace Sources.BoundedContexts.EnemyHealths.Domain
 {
     public class EnemyHealth : IHealth
     {

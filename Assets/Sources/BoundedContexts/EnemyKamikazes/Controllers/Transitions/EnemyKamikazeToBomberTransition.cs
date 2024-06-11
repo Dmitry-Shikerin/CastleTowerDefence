@@ -11,20 +11,21 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyKamikazeToBomberTransition : ConditionTask
     {
-        private IEnemyKamikazeView _view;
+        private EnemyKamikazeDependencyProvider _provider;
+        
+        private IEnemyKamikazeView View => _provider.View;
 
         protected override string OnInit()
         {
-            EnemyKamikazeDependencyProvider provider =
+            _provider =
                 blackboard.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-            _view = provider.View;
             
             return null;
         }
 
         protected override bool OnCheck() =>
-            Vector3.Distance(_view.Position, _view.CharacterMeleePoint.Position)
-            <= _view.StoppingDistance;
+            Vector3.Distance(View.Position, View.CharacterMeleePoint.Position)
+            <= View.StoppingDistance;
 
     }
 }

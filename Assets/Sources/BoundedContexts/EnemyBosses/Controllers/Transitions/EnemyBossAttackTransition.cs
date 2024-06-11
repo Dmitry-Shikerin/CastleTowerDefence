@@ -15,7 +15,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
         private EnemyBossDependencyProvider _provider;
         
         private IEnemyBossView View => _provider.View;
-        private BossEnemy Enemy => _provider.BossEnemy;
 
         protected override string OnInit()
         {

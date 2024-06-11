@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 1743868595315663900}
   _startEnemyAttackPower: 2
   _addedEnemyAttackPower: 1
-  _startEnemyHealth: 30
+  _startEnemyHealth: 25
   _addedenemyHealth: 1
   _startBossAttackPower: 3
   _addedBossAttackPower: 1

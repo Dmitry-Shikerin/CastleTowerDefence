@@ -11,20 +11,11 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyFromAttackToMoveTransition : ConditionTask
     {
-        private IEnemyView _view;
-        private Enemy _enemy;
-
-        protected override string OnInit()
-        {
-            EnemyDependencyProvider provider =
-                blackboard.GetVariable<EnemyDependencyProvider>("_provider").value;
-            _enemy = provider.Enemy;
-            _view = provider.View;
-
-            return null;
-        }
-
+        [RequiredField] public BBParameter<EnemyDependencyProvider> Provider;
+        
+        private IEnemyView View => Provider.value.View;
+        
         protected override bool OnCheck() =>
-            _view.CharacterHealthView == null;
+            View.CharacterHealthView == null;
     }
 }

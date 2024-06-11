@@ -9,19 +9,12 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
     [Category("Custom/Enemy")]
     [UsedImplicitly]
     public class EnemyMoveToCharacterTransition : ConditionTask
-    {
-        private IEnemyView _view;
-
-        protected override string OnInit()
-        {
-            EnemyDependencyProvider provider = 
-                blackboard.GetVariable<EnemyDependencyProvider>("_provider").value;
-            _view = provider.View;
-            
-            return null;
-        }
-
+    {        
+        [RequiredField] public BBParameter<EnemyDependencyProvider> Provider;
+        
+        private IEnemyView View => Provider.value.View;
+        
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth > 0;
+            View.CharacterHealthView != null && View.CharacterHealthView.CurrentHealth > 0;
     }
 }

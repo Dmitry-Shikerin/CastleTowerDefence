@@ -13,7 +13,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
     {
         private EnemyBossDependencyProvider _provider;
         
-        private IEnemyBossView View;
+        private IEnemyBossView View => _provider.View;
 
         protected override string OnInit()
         {

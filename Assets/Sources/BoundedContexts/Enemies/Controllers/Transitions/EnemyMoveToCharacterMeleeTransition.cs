@@ -2,8 +2,8 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
 {
@@ -11,20 +11,11 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyMoveToCharacterMeleeTransition : ConditionTask
     {
-        private IEnemyView _view;
-        private Enemy _enemy;
-
-        protected override string OnInit()
-        {
-            EnemyDependencyProvider provider =
-                blackboard.GetVariable<EnemyDependencyProvider>("_provider").value;
-            _enemy = provider.Enemy;
-            _view = provider.View;
-            
-            return null;
-        }
-
+        [RequiredField] public BBParameter<EnemyDependencyProvider> Provider;
+        
+        private Enemy Enemy => Provider.value.Enemy;
+        
         protected override bool OnCheck() =>
-            _enemy.IsInitialized;
+            Enemy.IsInitialized;
     }
 }
