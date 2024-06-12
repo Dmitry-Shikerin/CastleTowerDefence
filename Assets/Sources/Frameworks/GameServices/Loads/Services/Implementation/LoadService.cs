@@ -12,7 +12,6 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
     {
         private readonly IEntityRepository _entityRepository;
         private readonly IDataService _dataService;
-        // private readonly IMapperCollector _mapperCollector;
 
         public LoadService(
             IEntityRepository entityRepository,
@@ -20,16 +19,12 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
         {
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
-            // _mapperCollector = mapperCollector ?? throw new ArgumentNullException(nameof(mapperCollector));
         }
         
-        //todo лучше не придумал
         public T Load<T>(string id) 
             where T : class, IEntity
         {
-            object entity = _dataService.LoadData(id, typeof(IEntity));
-            // Func<IDto, IEntity> modelMapper = _mapperCollector.GetToModelMapper(ModelId.DtoTypes[id]);
-            // IEntity model = modelMapper.Invoke((IDto)dto);
+            object entity = _dataService.LoadData(id, ModelId.Types[id]);
 
             if (entity is not T concrete)
                 throw new InvalidCastException(nameof(T));
@@ -39,18 +34,12 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
             return concrete;
         }
 
-        public void Save(IEntity entity)
-        {
-            // Func<IEntity, IDto> dtoMapper = _mapperCollector.GetToDtoMapper(entity.Type);
-            // IDto dto = dtoMapper.Invoke(entity);
+        public void Save(IEntity entity) =>
             _dataService.SaveData(entity, entity.Id);
-        }
 
         public void Save(string id)
         {
             IEntity entity = _entityRepository.Get(id);
-            // Func<IEntity, IDto> dtoMapper = _mapperCollector.GetToDtoMapper(entity.Type);
-            // IDto dto = dtoMapper.Invoke(entity);
             _dataService.SaveData(entity, entity.Id);
         }
 
@@ -58,7 +47,7 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
         {
             foreach (string id in ids)
             {
-                object entity = _dataService.LoadData(id, typeof(IEntity));
+                object entity = _dataService.LoadData(id, ModelId.Types[id]);
                 _entityRepository.Add((IEntity)entity);
             }
         }
@@ -67,10 +56,8 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
         {
             foreach (string id in ModelId.ModelsIds)
             {
-                // Type dtoType = ModelId.DtoTypes[id];
-                object entity = _dataService.LoadData(id, typeof(IEntity));
-                // Func<IDto, IEntity> mapper = _mapperCollector.GetToModelMapper(dtoType);
-                // IEntity model = mapper.Invoke((IDto)dto);
+                Type type = ModelId.Types[id];
+                object entity = _dataService.LoadData(id, type);
                 _entityRepository.Add((IEntity)entity);
             }
         }
@@ -78,11 +65,7 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
         public void SaveAll()
         {
             foreach (IEntity entity in _entityRepository.Entities.Values)
-            {
-                // Func<IEntity, IDto> dtoMapper = _mapperCollector.GetToDtoMapper(dataModel.Type);
-                // IDto dto = dtoMapper.Invoke(dataModel);
                 _dataService.SaveData(entity, entity.Id);
-            }
         }
 
         public void Save(IEnumerable<string> ids)

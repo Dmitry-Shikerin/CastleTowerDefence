@@ -44,29 +44,29 @@ namespace Sources.App.DIContainers.Common
             
             //Audio
             Container.Bind<AudioServiceSignalController>().AsSingle();
-            
-            //CommandHandlers
-            Container.Bind<IButtonCommandHandler>().To<ButtonCommandHandler>().AsSingle();
-            Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
-            
+
             //SignalControllers
             Container.Bind<ISignalControllersCollector>().To<SignalControllerCollector>().AsSingle();
             Container.Bind<ButtonsCommandSignalController>().AsSingle();
-            
+
             //Buttons
             Container.Bind<UnPauseButtonCommand>().AsSingle();
             Container.Bind<ShowRewardedAdvertisingButtonCommand>().AsSingle();
             Container.Bind<NewGameCommand>().AsSingle();
-            Container.Bind<ShowLeaderboardCommand>().AsSingle();
+            Container.Bind<ShowLeaderboardCommand>().AsSingle().NonLazy();
             Container.Bind<CompleteTutorialCommand>().AsSingle();
             Container.Bind<LoadMainMenuSceneCommand>().AsSingle();
             Container.Bind<ClearSavesButtonCommand>().AsSingle();
-            
+
             //Views
             Container.Bind<UnPauseCommand>().AsSingle();
             Container.Bind<PauseCommand>().AsSingle();
             Container.Bind<SaveVolumeCommand>().AsSingle();
             Container.Bind<ClearSavesCommand>().AsSingle();
+            
+            //CommandHandlers
+            Container.Bind<IButtonCommandHandler>().To<ButtonCommandHandler>().AsSingle();
+            Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
         }
     }
 }
