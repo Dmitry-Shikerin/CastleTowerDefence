@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Sources.Frameworks.Domain.Interfaces.Data;
 using Sources.Frameworks.Domain.Interfaces.Entities;
-using Sources.InfrastructureInterfaces.Services.LoadServices.Collectors;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Collectors;
 
 namespace Sources.Frameworks.GameServices.Loads.Services.Implementation.Collectors
 {

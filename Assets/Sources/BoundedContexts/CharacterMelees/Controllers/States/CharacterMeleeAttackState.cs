@@ -52,7 +52,11 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
                 return;
 
             if (View.EnemyHealth.CurrentHealth <= 0)
+            {
                 View.SetEnemyHealth(null);
+                
+                return;
+            }
             
             View.EnemyHealth.TakeDamage(10);
         }

@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using Agava.WebUtility;
 using Agava.YandexGames;
-using Sources.BoundedContexts.Huds.Presentations;
 using Sources.Domain.Models.Constants;
 using Sources.Domain.Models.YandexSDK;
 using Sources.Frameworks.YandexSdcFramework.Presentations.Views;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Leaderboads;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
 using Sources.Infrastructure.Factories.Views.YandexSDK;
 
-namespace Sources.Frameworks.YandexSdcFramework.Services.Leaderboards
+namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementation
 {
     public class YandexLeaderboardInitializeService : ILeaderboardInitializeService
     {
@@ -17,20 +16,21 @@ namespace Sources.Frameworks.YandexSdcFramework.Services.Leaderboards
         private IReadOnlyList<LeaderBoardElementView> _leaderBoardElementViews;
         
         public YandexLeaderboardInitializeService(
-            MainMenuHud mainMenuHud,
             LeaderBoardElementViewFactory leaderBoardElementViewFactory)
         {
-            if (mainMenuHud == null)
-                throw new ArgumentNullException(nameof(mainMenuHud));
-
-            _leaderBoardElementViews = mainMenuHud.LeaderBoardElementViews;
             
             _leaderBoardElementViewFactory = leaderBoardElementViewFactory ??
                                              throw new ArgumentNullException(nameof(leaderBoardElementViewFactory));
         }
-        
+
+        public void Construct(IReadOnlyList<LeaderBoardElementView> views) =>
+            _leaderBoardElementViews = views ?? throw new ArgumentNullException(nameof(views));
+
         public void Fill()
         {
+            if(_leaderBoardElementViews == null)
+                throw new NullReferenceException(nameof(_leaderBoardElementViews));
+            
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 

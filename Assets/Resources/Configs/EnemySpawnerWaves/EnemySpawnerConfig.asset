@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8403183261691909033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_4
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 4
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 2
+  _enemyCount: 5
+  _bossesCount: 0
+  _kamikazeEnemyCount: 1
+--- !u!114 &-7328864950865445786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_3
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 3
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 2
+  _enemyCount: 5
+  _bossesCount: 1
+  _kamikazeEnemyCount: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,21 +55,24 @@ MonoBehaviour:
   _waves:
   - {fileID: 8948478608034842370}
   - {fileID: 1743868595315663900}
+  - {fileID: -7328864950865445786}
+  - {fileID: -8403183261691909033}
+  - {fileID: 5326304262265565895}
   _startEnemyAttackPower: 2
   _addedEnemyAttackPower: 1
-  _startEnemyHealth: 25
+  _startEnemyHealth: 20
   _addedenemyHealth: 1
   _startBossAttackPower: 3
   _addedBossAttackPower: 1
   _startbossMassAttackPower: 5
   _addedBossMassAttackPower: 1
-  _startBossHealth: 100
+  _startBossHealth: 80
   _addedBossHealth: 2
-  _startKamikazeHealth: 30
+  _startKamikazeHealth: 25
   _addedKamikazeHealth: 1
   _startKamikazeAttackPower: 2
   _addedKamikazeAttackPower: 1
-  _startKamikazeMassAttackPower: 10
+  _startKamikazeMassAttackPower: 4
   _addedKamikazeMassAttackPower: 1
 --- !u!114 &1743868595315663900
 MonoBehaviour:
@@ -48,9 +91,29 @@ MonoBehaviour:
   _waveId: 2
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 0
-  _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _enemyCount: 5
+  _bossesCount: 1
+  _kamikazeEnemyCount: 1
+--- !u!114 &5326304262265565895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_5
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 5
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 2
+  _enemyCount: 5
+  _bossesCount: 1
+  _kamikazeEnemyCount: 1
 --- !u!114 &8948478608034842370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,5 +132,5 @@ MonoBehaviour:
   _moneyPerResilenceCharacters: 2
   _spawnDelay: 2
   _enemyCount: 5
-  _bossesCount: 2
-  _kamikazeEnemyCount: 3
+  _bossesCount: 1
+  _kamikazeEnemyCount: 1

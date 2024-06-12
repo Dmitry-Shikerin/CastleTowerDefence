@@ -1,10 +1,10 @@
-﻿using Sources.Frameworks.GameServices.Loads.Services.Implementation.Collectors;
+﻿using Sources.Frameworks.GameServices.Loads.Services.Implementation;
+using Sources.Frameworks.GameServices.Loads.Services.Implementation.Collectors;
+using Sources.Frameworks.GameServices.Loads.Services.Implementation.Data;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Collectors;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Data;
 using Sources.Frameworks.GameServices.Repositories.Services.Implementation;
-using Sources.Infrastructure.Services.LoadServices;
-using Sources.Infrastructure.Services.LoadServices.Data;
-using Sources.InfrastructureInterfaces.Services.LoadServices;
-using Sources.InfrastructureInterfaces.Services.LoadServices.Collectors;
-using Sources.InfrastructureInterfaces.Services.LoadServices.Data;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using Zenject;
 

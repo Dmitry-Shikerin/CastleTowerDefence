@@ -3,8 +3,8 @@ using Doozy.Runtime.Signals;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
-using Sources.InfrastructureInterfaces.Services.LoadServices;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {

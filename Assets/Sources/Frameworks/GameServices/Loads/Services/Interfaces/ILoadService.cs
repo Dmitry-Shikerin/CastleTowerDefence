@@ -1,6 +1,7 @@
-﻿using Sources.Frameworks.Domain.Interfaces.Entities;
+﻿using System.Collections.Generic;
+using Sources.Frameworks.Domain.Interfaces.Entities;
 
-namespace Sources.InfrastructureInterfaces.Services.LoadServices
+namespace Sources.Frameworks.GameServices.Loads.Services.Interfaces
 {
     public interface ILoadService
     {
@@ -8,8 +9,10 @@ namespace Sources.InfrastructureInterfaces.Services.LoadServices
             where T : class, IEntity;
         void Save(IEntity entity);
         void Save(string id);
-        void LoadAll();
         void SaveAll();
+        void Save(IEnumerable<string> ids);
+        void Load(IEnumerable<string> ids);
+        void LoadAll();
         void Clear(IEntity entity);
         void Clear(string id);
         void ClearAll();

@@ -1,8 +1,8 @@
 ﻿using System;
 using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
-using Sources.InfrastructureInterfaces.Services.LoadServices;
 
 namespace Sources.BoundedContexts.Tutorials.Services.Implementation
 {

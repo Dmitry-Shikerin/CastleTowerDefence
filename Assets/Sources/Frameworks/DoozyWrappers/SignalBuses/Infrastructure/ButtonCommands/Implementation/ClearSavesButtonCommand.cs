@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
-using Sources.InfrastructureInterfaces.Services.LoadServices;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {

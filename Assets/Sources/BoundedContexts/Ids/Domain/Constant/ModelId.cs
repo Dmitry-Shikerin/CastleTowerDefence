@@ -50,17 +50,5 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             KillEnemyCounter,
             Tutorial,
         };
-
-        //TODO заменить такую запись на поиск из ассембли
-        public static IReadOnlyDictionary<string, Type> DtoTypes { get; } = new Dictionary<string, Type>()
-        {
-            [ScoreCounter] = typeof(ScoreCounterDto),
-            [KillEnemyCounter] = typeof(KillEnemyCounterDto),
-            [Tutorial] = typeof(TutorialDto),
-            [GameData] = typeof(GameDataDto),
-            [Volume] = typeof(VolumeDto),
-            [Gameplay] = typeof(LevelDto),
-            [PlayerWallet] = typeof(PlayerWalletDto),
-        };
     }
 }
