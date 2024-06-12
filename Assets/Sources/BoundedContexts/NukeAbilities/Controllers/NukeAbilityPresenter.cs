@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.BoundedContexts.Layers.Domain;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces;
+using Sources.Frameworks.Domain.Implementation.Constants;
+using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
@@ -15,16 +20,21 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
     {
         private readonly NukeAbility _nukeAbility;
         private readonly INukeAbilityView _nukeAbilityView;
+        private readonly IOverlapService _overlapService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public NukeAbilityPresenter(IEntityRepository entityRepository, INukeAbilityView nukeAbilityView)
+        public NukeAbilityPresenter(
+            IEntityRepository entityRepository, 
+            INukeAbilityView nukeAbilityView,
+            IOverlapService overlapService)
         {
             if (entityRepository == null) 
                 throw new ArgumentNullException(nameof(entityRepository));
             
             _nukeAbility = entityRepository.Get<NukeAbility>(ModelId.NukeAbility);
             _nukeAbilityView = nukeAbilityView ?? throw new ArgumentNullException(nameof(nukeAbilityView));
+            _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
         }
 
         public override void Enable()
@@ -55,7 +65,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
                 _nukeAbilityView.BombView.Show();
                 
                 while (Vector3.Distance(_nukeAbilityView.BombView.Position, _nukeAbilityView.BombView.ToPosition) >
-                       0.001f)
+                       MathConst.Epsilon)
                 {
                     _nukeAbilityView.BombView.Move();
 
@@ -64,11 +74,27 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
                 
                 _nukeAbilityView.BombView.Hide();
                 _nukeAbilityView.PlayNukeParticle();
+                DealDamage();
             }
             catch (OperationCanceledException)
             {
             }
+        }
 
+        private void DealDamage()
+        {
+            IReadOnlyList<EnemyHealthView> enemies = _overlapService.OverlapBox<EnemyHealthView>(
+                _nukeAbilityView.BombView.ToPosition, 
+                _nukeAbilityView.DamageSize,
+                LayerConst.Enemy);
+            
+            Debug.Log(enemies.Count);
+            
+            if(enemies.Count == 0)
+                return;
+            
+            foreach (EnemyHealthView enemy in enemies)
+                enemy.TakeDamage(_nukeAbility.Damage);
         }
     }
 }

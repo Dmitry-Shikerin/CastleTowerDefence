@@ -22,6 +22,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Domain.Models
         public Type Type => GetType();
         public float Cooldown => _nukeAbilityUpgrade.CurrentAmount;
         public bool IsAvailable { get; set; } = true;
+        public int Damage { get; } = 1000;
 
 
         public void ApplyAbility() =>

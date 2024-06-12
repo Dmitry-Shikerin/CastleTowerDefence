@@ -30164,7 +30164,6 @@ GameObject:
   m_Component:
   - component: {fileID: 696039908}
   - component: {fileID: 696039911}
-  - component: {fileID: 696039910}
   - component: {fileID: 696039909}
   m_Layer: 0
   m_Name: EnemyHealthTrigger
@@ -30200,33 +30199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37e23da6a9948738168c607a11a89c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &696039910
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696039907}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &696039911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30246,8 +30218,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 22.720104, y: 1, z: 25.276247}
-  m_Center: {x: 8.525894, y: 0, z: -4.536723}
+  m_Size: {x: 13.09672, y: 1, z: 24.551039}
+  m_Center: {x: 6.21465, y: 0, z: -4.8993273}
 --- !u!1 &697096044
 GameObject:
   m_ObjectHideFlags: 0

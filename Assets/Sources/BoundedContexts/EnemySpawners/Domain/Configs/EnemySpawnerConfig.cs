@@ -64,6 +64,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         
         public IReadOnlyList<EnemySpawnerWave> Waves => _waves;
 
+        //TODO добавить стратегии для спавна
         public void RemoveWave(EnemySpawnerWave wave)
         {
             AssetDatabase.RemoveObjectFromAsset(wave);

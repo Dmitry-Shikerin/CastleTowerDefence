@@ -31,7 +31,6 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string Tutorial = "Tutorial";
         public const string Gameplay = "Gameplay";
 
-
         public static IReadOnlyList<string> DeletedModelsIds { get; } = new List<string>()
         {
             PlayerWallet,
