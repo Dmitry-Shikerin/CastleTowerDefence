@@ -5,7 +5,6 @@ using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.EnemyBosses.Presentation.Implementation
 {

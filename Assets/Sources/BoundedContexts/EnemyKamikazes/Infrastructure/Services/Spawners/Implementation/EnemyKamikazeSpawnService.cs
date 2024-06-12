@@ -1,6 +1,8 @@
 ﻿using System;
+using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.BoundedContexts.EnemyHealths.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawners.Interfaces;
@@ -8,6 +10,8 @@ using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
@@ -24,19 +28,17 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawner
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
-        public IEnemyKamikazeView Spawn(
-            KillEnemyCounter killEnemyCounter, 
-            EnemySpawner enemySpawner,
-            Vector3 position)
+        public IEnemyKamikazeView Spawn(EnemySpawner enemySpawner, Vector3 position)
         {
             EnemyKamikaze enemy = new EnemyKamikaze(
                 new EnemyHealth(enemySpawner.KamikazeHealth), 
                 new EnemyAttacker(
                     enemySpawner.KamikazeAttackPower,
-                    enemySpawner.KamikazeMassAttackPower));
+                    enemySpawner.KamikazeMassAttackPower),
+                new BurnAbility());
             
-            IEnemyKamikazeView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
-                                   _enemyViewFactory.Create(enemy, killEnemyCounter);
+            IEnemyKamikazeView enemyView = SpawnFromPool(enemy) ?? 
+                                   _enemyViewFactory.Create(enemy);
             
             enemyView.DisableNavmeshAgent();
             enemyView.SetPosition(position);
@@ -46,14 +48,14 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawner
             return enemyView;
         }
 
-        private IEnemyKamikazeView SpawnFromPool(EnemyKamikaze enemy, KillEnemyCounter killEnemyCounter)
+        private IEnemyKamikazeView SpawnFromPool(EnemyKamikaze enemy)
         {
             EnemyKamikazeView enemyView = _enemyPool.Get<EnemyKamikazeView>();
 
             if (enemyView == null)
                 return null;
             
-            return _enemyViewFactory.Create(enemy, killEnemyCounter, enemyView);
+            return _enemyViewFactory.Create(enemy, enemyView);
         }
     }
 }

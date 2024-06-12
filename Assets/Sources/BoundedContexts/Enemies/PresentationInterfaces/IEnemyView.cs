@@ -11,12 +11,8 @@ namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
         IEnemyAnimation Animation { get; }
         EnemyDependencyProvider Provider { get; }
         ICharacterSpawnPoint CharacterMeleePoint { get; }
-        ICharacterSpawnPoint CharacterRangePoint { get; }
         float FindRange { get; }
 
-
-        void SetTargetFollow(ICharacterHealthView characterViewHealthView);
         void SetCharacterMeleePoint(ICharacterSpawnPoint spawnPoint);
-        void SetCharacterRangePoint(ICharacterSpawnPoint spawnPoint);
     }
 }

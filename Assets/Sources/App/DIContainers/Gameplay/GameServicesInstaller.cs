@@ -1,9 +1,9 @@
 ﻿using Sources.BoundedContexts.Tutorials.Services.Implementation;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
+using Sources.Frameworks.GameServices.Overlaps.Implementation;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.Services.Linecasts;
 using Sources.Frameworks.Services.Linecasts.Interfaces;
-using Sources.Frameworks.Services.Overlaps.Implementation;
 using Zenject;
 
 namespace Sources.App.DIContainers.Gameplay

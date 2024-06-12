@@ -1,10 +1,9 @@
 ﻿using System;
-using Sources.BoundedContexts.Enemies.Domain;
-using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.BoundedContexts.EnemyHealths.Domain;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
-namespace Sources.BoundedContexts.Enemies.Controllers
+namespace Sources.BoundedContexts.EnemyHealths.Controllers
 {
     public class EnemyHealthPresenter : PresenterBase
     {

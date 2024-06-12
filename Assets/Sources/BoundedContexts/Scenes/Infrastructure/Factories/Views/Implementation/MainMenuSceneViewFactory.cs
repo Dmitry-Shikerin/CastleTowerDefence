@@ -18,7 +18,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         public void Create(IScenePayload payload)
         {
             //Volume
-            Volume volume = new Volume();
+            Volume volume = new Volume("Volume");
             _audioService.Construct(volume);
         }
     }

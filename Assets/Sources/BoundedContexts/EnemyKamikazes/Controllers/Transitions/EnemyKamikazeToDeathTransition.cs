@@ -10,18 +10,19 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyKamikazeToDeathTransition : ConditionTask
     {
-        private IEnemyKamikazeView _view;
+        private EnemyKamikazeDependencyProvider _provider;
+        
+        private IEnemyKamikazeView View => _provider.View;
 
         protected override string OnInit()
         {
-            EnemyKamikazeDependencyProvider provider =
+            _provider =
                 blackboard.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-            _view = provider.View;
 
             return null;
         }
 
         protected override bool OnCheck() =>
-            _view.EnemyHealthView.CurrentHealth <= 0;
+            View.EnemyHealthView.CurrentHealth <= 0;
     }
 }

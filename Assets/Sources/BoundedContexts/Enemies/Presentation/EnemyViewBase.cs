@@ -4,6 +4,7 @@ using System.Linq;
 using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
+using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
@@ -23,10 +24,12 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         [Required] [SerializeField] private EnemyHealthView _healthView;
         [SerializeField] private List<SkinView> _skins;
         [Required] [SerializeField] private HealthBarView _healthBarView;
+        [Required] [SerializeField] private BurnAbilityView _burnAbilityView;
 
         private readonly IPODestroyerService _poDestroyerService = 
             new PODestroyerService();
         
+        public BurnAbilityView BurnAbilityView => _burnAbilityView;
         public HealthBarView HealthBarView => _healthBarView;
         public EnemyHealthView EnemyHealthView => _healthView;
         public IReadOnlyList<ISkinView> Skins => _skins;

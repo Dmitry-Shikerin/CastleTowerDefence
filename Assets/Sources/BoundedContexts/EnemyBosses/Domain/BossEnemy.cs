@@ -1,5 +1,8 @@
-﻿using Sources.BoundedContexts.Enemies.Domain;
+﻿using Sources.BoundedContexts.BurnAbilities.Domain;
+using Sources.BoundedContexts.Enemies.Domain;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.BoundedContexts.EnemyHealths.Domain;
 
 namespace Sources.BoundedContexts.EnemyBosses.Domain
 {
@@ -8,12 +11,14 @@ namespace Sources.BoundedContexts.EnemyBosses.Domain
         public BossEnemy(
             EnemyHealth enemyHealth,
             EnemyAttacker enemyAttacker,
+            BurnAbility burnAbility,
             float stunTime,
             float walkSpeed,
             float runSpeed) 
             : base(
                 enemyHealth, 
-                enemyAttacker)
+                enemyAttacker,
+                burnAbility)
         {
             StunTime = stunTime;
             WalkSpeed = walkSpeed;

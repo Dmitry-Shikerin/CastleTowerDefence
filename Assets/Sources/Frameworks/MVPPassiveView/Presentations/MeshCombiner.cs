@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Sources.Presentations
+namespace Sources.Frameworks.MVPPassiveView.Presentations
 {
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]

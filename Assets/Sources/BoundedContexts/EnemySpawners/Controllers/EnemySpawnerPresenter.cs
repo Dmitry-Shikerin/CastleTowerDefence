@@ -6,11 +6,13 @@ using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
-using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 using Sources.Utils.Extentions;
 using Random = UnityEngine.Random;
 
@@ -19,7 +21,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
     public class EnemySpawnerPresenter : PresenterBase
     {
         private readonly EnemySpawner _enemySpawner;
-        private readonly KillEnemyCounter _killEnemyCounter;
         private readonly IEnemySpawnerView _view;
         private readonly IEnemySpawnService _enemySpawnService;
         private readonly IEnemyKamikazeSpawnService _enemyKamikazeSpawnService;
@@ -28,15 +29,13 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         private CancellationTokenSource _cancellationTokenSource;
 
         public EnemySpawnerPresenter(
-            EnemySpawner enemySpawner,
-            KillEnemyCounter killEnemyCounter,
+            IEntityRepository entityRepository,
             IEnemySpawnerView enemySpawnerView,
             IEnemySpawnService enemySpawnService,
             IEnemyKamikazeSpawnService enemyKamikazeSpawnService,
             IEnemyBossSpawnService enemyBossSpawnService)
         {
-            _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
-            _killEnemyCounter = killEnemyCounter ?? throw new ArgumentNullException(nameof(killEnemyCounter));
+            _enemySpawner = entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner);
             _view = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
             _enemySpawnService = enemySpawnService ?? throw new ArgumentNullException(nameof(enemySpawnService));
             _enemyKamikazeSpawnService = enemyKamikazeSpawnService ?? 
@@ -79,9 +78,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
                     for (int i = startWave; i < _enemySpawner.Waves.Count; i++)
                     {
-                        _enemySpawner.SpawnedEnemiesInCurrentWave = 0;
-                        _enemySpawner.SpawnedBossesInCurrentWave = 0;
-                        _enemySpawner.SpawnedKamikazeInCurrentWave = 0;
+                        _enemySpawner.ClearSpawnedEnemies();
 
                         for (int j = 0; j < _enemySpawner.Waves[i].BossesCount; j++)
                         {
@@ -134,13 +131,9 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
         private void SpawnEnemy(IEnemySpawnPoint spawnPoint)
         {
-            IEnemyView enemyView = _enemySpawnService.Spawn(
-                _killEnemyCounter, 
-                _enemySpawner, 
-                spawnPoint.Position);
+            IEnemyView enemyView = _enemySpawnService.Spawn(_enemySpawner, spawnPoint.Position);
             enemyView.SetBunkerView(_view.BunkerView);
             enemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
-            enemyView.SetCharacterRangePoint(spawnPoint.CharacterRangedSpawnPoint);
 
             _enemySpawner.SpawnedEnemiesInCurrentWave++;
             _enemySpawner.SpawnedAllEnemies++;
@@ -148,10 +141,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
         private void SpawnEnemyKamikaze(IEnemySpawnPoint spawnPoint)
         {
-            var enemyView = _enemyKamikazeSpawnService.Spawn(
-                _killEnemyCounter, 
-                _enemySpawner,
-                spawnPoint.Position);
+            IEnemyKamikazeView enemyView = _enemyKamikazeSpawnService.Spawn(_enemySpawner, spawnPoint.Position);
             enemyView.SetBunkerView(_view.BunkerView);
             enemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
 
@@ -161,10 +151,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
         private void SpawnBoss(IEnemySpawnPoint spawnPoint)
         {
-            IEnemyBossView bossEnemyView = _enemyBossSpawnService.Spawn(
-                _killEnemyCounter, 
-                _enemySpawner,
-                spawnPoint.Position);
+            IEnemyBossView bossEnemyView = _enemyBossSpawnService.Spawn(_enemySpawner, spawnPoint.Position);
             bossEnemyView.SetBunkerView(_view.BunkerView);
             bossEnemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
 

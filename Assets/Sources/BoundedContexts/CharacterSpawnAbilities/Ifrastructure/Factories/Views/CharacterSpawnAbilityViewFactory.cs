@@ -19,15 +19,9 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factorie
                                 throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public ICharacterSpawnAbilityView Create(
-            CharacterSpawnAbility characterSpawnAbility, 
-            Upgrade characterHealthUpgrade,
-            CharacterSpawnAbilityView view)
+        public ICharacterSpawnAbilityView Create(CharacterSpawnAbilityView view)
         {
-            CharacterSpawnAbilityPresenter presenter = _presenterFactory.Create(
-                characterSpawnAbility, 
-                characterHealthUpgrade,
-                view);
+            CharacterSpawnAbilityPresenter presenter = _presenterFactory.Create(view);
             view.Construct(presenter);
             
             return view;

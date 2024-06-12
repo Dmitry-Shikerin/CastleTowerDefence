@@ -1,7 +1,9 @@
 ﻿using System;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 using Sources.Utils.Extentions;
 
 namespace Sources.BoundedContexts.EnemySpawners.Controllers
@@ -11,9 +13,12 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         private readonly EnemySpawner _enemySpawner;
         private readonly IEnemySpawnerUi _view;
 
-        public EnemySpawnerUiPresenter(EnemySpawner enemySpawner, IEnemySpawnerUi view)
+        public EnemySpawnerUiPresenter(IEntityRepository entityRepository, IEnemySpawnerUi view)
         {
-            _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
+            if (entityRepository == null) 
+                throw new ArgumentNullException(nameof(entityRepository));
+            
+            _enemySpawner = entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner);
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 

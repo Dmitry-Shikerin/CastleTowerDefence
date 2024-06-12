@@ -2,6 +2,8 @@
 using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers;
@@ -53,11 +55,14 @@ using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
+using Sources.Utils.CustomCollections;
 using Zenject;
 
 namespace Sources.App.DIContainers.Gameplay
@@ -66,6 +71,10 @@ namespace Sources.App.DIContainers.Gameplay
     {
         public override void InstallBindings()
         {
+            //PlayerWallet
+            Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
+            Container.Bind<PlayerWalletViewFactory>().AsSingle();
+            
             //Bunkers
             Container.Bind<BunkerViewFactory>().AsSingle();
             Container.Bind<BunkerPresenterFactory>().AsSingle();
@@ -128,7 +137,7 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<IExplosionBodyViewFactory>().To<ExplosionBodyViewFactory>().AsSingle();
             Container.Bind<IExplosionBodySpawnService>().To<ExplosionBodySpawnService>().AsSingle();
             
-            //Abilities
+            //ApplyAbilities
             Container.Bind<AbilityApplierPresenterFactory>().AsSingle();
             Container.Bind<AbilityApplierViewFactory>().AsSingle();
             
@@ -140,6 +149,10 @@ namespace Sources.App.DIContainers.Gameplay
 
             Container.Bind<FlamethrowerAbilityPresenterFactory>().AsSingle();
             Container.Bind<FlamethrowerAbilityViewFactory>().AsSingle();
+            
+            //Abilities
+            Container.Bind<BurnAbilityPresenterFactory>().AsSingle();
+            Container.Bind<BurnAbilityViewFactory>().AsSingle();
             
             //Upgrades
             Container.Bind<UpgradePresenterFactory>().AsSingle();

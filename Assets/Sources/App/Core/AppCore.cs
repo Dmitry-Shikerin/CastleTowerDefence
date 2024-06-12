@@ -1,6 +1,6 @@
 ﻿using System;
 using Sources.Frameworks.GameServices.Scenes.Domain.Implementation;
-using Sources.InfrastructureInterfaces.Services.SceneServices;
+using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

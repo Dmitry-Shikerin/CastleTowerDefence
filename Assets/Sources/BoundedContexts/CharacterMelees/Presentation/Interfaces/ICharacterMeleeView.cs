@@ -17,12 +17,13 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces
         public ICharacterMeleeAnimation MeleeAnimation { get; }
         public CharacterHealthView HealthView { get; }
         public CharacterMeleeDependencyProvider Provider { get; }
-        public FSMOwner FSMOwner { get; }
         public IEnemyHealthView EnemyHealth { get; }
         public ICharacterSpawnPoint CharacterSpawnPoint { get; }
         
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView);
         void SetLookRotation(float angle);
         void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint);
+        void StartBehaviour();
+        void StopBehaviour();
     }
 }

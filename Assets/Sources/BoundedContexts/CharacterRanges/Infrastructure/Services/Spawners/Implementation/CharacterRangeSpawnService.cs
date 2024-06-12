@@ -31,6 +31,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawne
             ICharacterRangeView characterView = SpawnFromPool(characterMelee) ?? 
                                                      _characterViewFactory.Create(characterMelee);
             characterView.SetPosition(position);
+            characterView.Show();
             
             return characterView;
         }

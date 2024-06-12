@@ -12,8 +12,16 @@ namespace Sources.BoundedContexts.Triggers.Presentation.Common
         private void OnParticleCollision(GameObject other)
         {
             if (other.TryGetComponent(out T component))
+            {
                 Entered?.Invoke(component);
-        }
+                
+                return;
+            }
 
+            T nextComponent = other.GetComponentInChildren<T>();
+            
+            if (nextComponent != null)
+                Entered?.Invoke(nextComponent);
+        }
     }
 }

@@ -12,21 +12,21 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.Transitions
     [UsedImplicitly]
     public class ToCharacterRangeDyeTransition : ConditionTask
     {
-        private ICharacterRangeView _view;
-        private CharacterRange _characterMelee;
+        private CharacterRangeDependencyProvider _provider;
+        
+        private ICharacterRangeView View => _provider.View;
+        private CharacterRange CharacterRange => _provider.CharacterRange;
 
         protected override string OnInit()
         {
-            CharacterRangeDependencyProvider provider =
+            _provider =
                 blackboard.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
-            _view = provider.View;
-            _characterMelee = provider.CharacterRange;
 
             return null;
         }
 
         protected override bool OnCheck() =>
-            _characterMelee.CharacterHealth.CurrentHealth <= 0;
+            CharacterRange.CharacterHealth.CurrentHealth <= 0;
 
     }
 }

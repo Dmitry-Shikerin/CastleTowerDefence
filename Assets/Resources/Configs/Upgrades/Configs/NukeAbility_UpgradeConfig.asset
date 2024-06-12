@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enable: 0
   _parent: {fileID: 11400000, guid: 7a1d9e10b11f9ef4484931c5e5f8eac1, type: 2}
-  _upgradeId: NukeAbility
+  _upgradeId: NukeUpgrade
   _upgradeLevels:
   - {fileID: -6593325635281052912}
   - {fileID: -8002683511663359002}

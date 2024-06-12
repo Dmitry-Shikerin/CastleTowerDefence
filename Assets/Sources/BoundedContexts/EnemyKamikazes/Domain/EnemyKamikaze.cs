@@ -1,21 +1,23 @@
 ﻿using System;
+using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.Enemies.Domain;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.BoundedContexts.EnemyHealths.Domain;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Domain
 {
-    public class EnemyKamikaze
+    public class EnemyKamikaze : Enemy
     {
         public EnemyKamikaze(
             EnemyHealth enemyHealth,
-            EnemyAttacker enemyAttacker)
+            EnemyAttacker enemyAttacker,
+            BurnAbility burnAbility) 
+            : base(
+                enemyHealth, 
+                enemyAttacker, 
+                burnAbility)
         {
-            EnemyHealth = enemyHealth ?? throw new ArgumentNullException(nameof(enemyHealth));
-            EnemyAttacker = enemyAttacker;
         }
-
-        public bool IsInitialized { get; set; }
-        public EnemyHealth EnemyHealth { get; set; }
-        public EnemyAttacker EnemyAttacker { get; }
     }
 }

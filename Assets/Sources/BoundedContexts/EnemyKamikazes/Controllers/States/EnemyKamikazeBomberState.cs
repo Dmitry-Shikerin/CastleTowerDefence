@@ -19,47 +19,41 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
     [UsedImplicitly]
     public class EnemyKamikazeBomberState : FSMState
     {
-        private EnemyKamikaze _enemy;
-        private IEnemyKamikazeView _view;
-        private IEnemyAnimation _animation;
-        private IOverlapService _overlapService;
-        private IExplosionBodySpawnService _explosionBodySpawnService;
+        private EnemyKamikazeDependencyProvider _provider;
+        
+        private EnemyKamikaze Enemy => _provider.EnemyKamikaze;
+        private IEnemyKamikazeView View => _provider.View;
+        private IOverlapService OverlapService => _provider.OverlapService;
+        private IExplosionBodySpawnService ExplosionBodySpawnService => 
+            _provider.ExplosionBodySpawnService;
 
         protected override void OnInit()
         {
-            EnemyKamikazeDependencyProvider provider =
+            _provider =
                 graphBlackboard.parent.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-
-            _enemy = provider.EnemyKamikaze;
-            _view = provider.View;
-            _animation = provider.Animation;
-            _overlapService = provider.OverlapService;
-            _explosionBodySpawnService = provider.ExplosionBodySpawnService;
         }
 
         protected override void OnEnter()
         {
-            Vector3 spawnPosition = _view.Position + Vector3.up;
-            _explosionBodySpawnService.Spawn(spawnPosition);
+            Vector3 spawnPosition = View.Position + Vector3.up;
+            ExplosionBodySpawnService.Spawn(spawnPosition);
             Explode();
-            _view.Destroy();
+            View.Destroy();
         }
 
         private void Explode()
         {
             IReadOnlyList<CharacterHealthView> characterHealthViews =
-                _overlapService.OverlapSphere<CharacterHealthView>(
-                    _view.Position, _view.FindRange,
+                OverlapService.OverlapSphere<CharacterHealthView>(
+                    View.Position, View.FindRange,
                     LayerConst.Character,
                     LayerConst.Defaul);
 
             if (characterHealthViews.Count <= 0)
                 return;
 
-            Debug.Log($"{_enemy.EnemyAttacker.MassAttackDamage}");
-            
             foreach (CharacterHealthView characterHealthView in characterHealthViews)
-                characterHealthView.TakeDamage(_enemy.EnemyAttacker.MassAttackDamage);
+                characterHealthView.TakeDamage(Enemy.EnemyAttacker.MassAttackDamage);
         }
     }
 }

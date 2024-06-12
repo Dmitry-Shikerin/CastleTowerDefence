@@ -11,20 +11,20 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.Transitions
     [UsedImplicitly]
     public class CharacterMeleeAttackTransition : ConditionTask
     {
-        private ICharacterMeleeView _meleeView;
+        private CharacterMeleeDependencyProvider _provider;
+        
+        private ICharacterMeleeView View => _provider.View;
 
         protected override string OnInit()
         {
-            CharacterMeleeDependencyProvider provider = 
+            _provider = 
                 blackboard.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
-            
-            _meleeView = provider.View;
             
             return null;
         }
 
         protected override bool OnCheck() =>
-            _meleeView.EnemyHealth != null && Vector3.Distance(
-                _meleeView.Position, _meleeView.EnemyHealth.Position) < _meleeView.FindRange;
+            View.EnemyHealth != null && Vector3.Distance(
+                View.Position, View.EnemyHealth.Position) < View.FindRange;
     }
 }

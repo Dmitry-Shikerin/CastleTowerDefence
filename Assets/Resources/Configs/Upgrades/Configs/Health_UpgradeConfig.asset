@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enable: 0
   _parent: {fileID: 11400000, guid: 7a1d9e10b11f9ef4484931c5e5f8eac1, type: 2}
-  _upgradeId: Health
+  _upgradeId: HealthUpgrade
   _upgradeLevels:
   - {fileID: 2163438401659524035}
   - {fileID: 3004995229721873969}

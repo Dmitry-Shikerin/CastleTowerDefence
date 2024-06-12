@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
 using Sources.Frameworks.UiFramework.Domain.Commands;
-using Sources.Frameworks.UiFramework.Infrastructure.Commands.Forms.Handlers;
-using Sources.Frameworks.UiFramework.InfrastructureInterfaces.Commands.Views.Handlers;
 using Sources.Frameworks.UiFramework.Views.Services.Interfaces;
 
 namespace Sources.Frameworks.UiFramework.Infrastructure.Services.Forms

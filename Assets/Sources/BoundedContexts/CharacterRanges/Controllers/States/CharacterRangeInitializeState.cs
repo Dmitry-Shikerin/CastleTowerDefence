@@ -12,26 +12,23 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
     [UsedImplicitly]
     public class CharacterRangeInitializeState : FSMState
     {
-        private ICharacterRangeView _view;
-        private ICharacterRangeAnimation _animation;
-        private CharacterRange _characterRange;
+        private CharacterRangeDependencyProvider _provider;
+        
+        private ICharacterRangeView View => _provider.View;
+        private ICharacterRangeAnimation Animation => _provider.Animation;
+        private CharacterRange CharacterRange => _provider.CharacterRange;
 
         protected override void OnInit()
         {
-            CharacterRangeDependencyProvider provider =
+            _provider =
                 graphBlackboard.parent.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
-
-            _view = provider.View;
-            _characterRange = provider.CharacterRange;
-
-            _animation = provider.Animation;
         }
 
         protected override void OnEnter()
         {
-            _animation.PlayIdle();
-            _characterRange.IsInitialized = true;
-            _view.CharacterSpawnPoint.SetCharacterHealth(_view.CharacterHealth);
+            Animation.PlayIdle();
+            CharacterRange.IsInitialized = true;
+            View.CharacterSpawnPoint.SetCharacterHealth(View.CharacterHealth);
         }
     }
 }

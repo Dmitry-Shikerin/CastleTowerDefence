@@ -1,12 +1,16 @@
 ﻿using System;
+using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.EnemyBosses.Domain;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
+using Sources.BoundedContexts.EnemyHealths.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
@@ -26,21 +30,19 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
                                     ?? throw new ArgumentNullException(nameof(enemyBossViewFactory));
         }
 
-        public IEnemyBossView Spawn(
-            KillEnemyCounter killEnemyCounter,
-            EnemySpawner enemySpawner,
-            Vector3 position)
+        public IEnemyBossView Spawn(EnemySpawner enemySpawner, Vector3 position)
         {
             BossEnemy bossEnemy = new BossEnemy(
                 new EnemyHealth(enemySpawner.BossHealth), 
                 new EnemyAttacker(
                     enemySpawner.BossAttackPower,
                     enemySpawner.BossMassAttackPower),
+                new BurnAbility(),
                 2f,
                 2f,
                 5f);
-            IEnemyBossView enemyBossView = SpawnFromPool(bossEnemy, killEnemyCounter) ?? 
-                                           _enemyBossViewFactory.Create(bossEnemy, killEnemyCounter);
+            IEnemyBossView enemyBossView = SpawnFromPool(bossEnemy) ?? 
+                                           _enemyBossViewFactory.Create(bossEnemy);
             enemyBossView.DisableNavmeshAgent();
             enemyBossView.SetPosition(position);
             enemyBossView.EnableNavmeshAgent();
@@ -49,7 +51,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
             return enemyBossView;
         }
         
-        private IEnemyBossView SpawnFromPool(BossEnemy bossEnemy, KillEnemyCounter killEnemyCounter)
+        private IEnemyBossView SpawnFromPool(BossEnemy bossEnemy)
         {
             Presentation.Implementation.EnemyBossView view = 
                 _bossEnemyPool.Get<Presentation.Implementation.EnemyBossView>();
@@ -57,7 +59,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Spawners.I
             if (view == null)
                 return null;
             
-            return _enemyBossViewFactory.Create(bossEnemy, killEnemyCounter, view);
+            return _enemyBossViewFactory.Create(bossEnemy, view);
         }
     }
 }

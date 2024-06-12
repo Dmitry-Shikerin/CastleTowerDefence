@@ -15,27 +15,23 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
     [UsedImplicitly]
     public class EnemyKamikazeDieState : FSMState
     {
-        private EnemyKamikaze _enemy;
-        private IEnemyKamikazeView _view;
-        private IEnemyAnimation _animation;
-        private IExplosionBodyBloodySpawnService _explosionBodyBloodySpawnService;
+        private EnemyKamikazeDependencyProvider _provider;
+        
+        private IEnemyKamikazeView View => _provider.View; 
+        private IExplosionBodyBloodySpawnService ExplosionBodyBloodySpawnService => 
+            _provider.ExplosionBodyBloodySpawnService;
 
         protected override void OnInit()
         {
-            EnemyKamikazeDependencyProvider provider = 
+            _provider = 
                 graphBlackboard.parent.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-
-            _enemy = provider.EnemyKamikaze;
-            _view = provider.View;
-            _animation = provider.Animation;
-            _explosionBodyBloodySpawnService = provider.ExplosionBodyBloodySpawnService;
         }
 
         protected override void OnEnter()
         {
-            Vector3 spawnPosition = _view.Position + Vector3.up;
-            _explosionBodyBloodySpawnService.Spawn(spawnPosition);
-            _view.Destroy();
+            Vector3 spawnPosition = View.Position + Vector3.up;
+            ExplosionBodyBloodySpawnService.Spawn(spawnPosition);
+            View.Destroy();
         }
     }
 }

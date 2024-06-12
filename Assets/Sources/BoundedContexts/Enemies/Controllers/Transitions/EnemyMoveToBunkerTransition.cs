@@ -11,19 +11,12 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyMoveToBunkerTransition : ConditionTask
     {
-        private IEnemyView _view;
-
-        protected override string OnInit()
-        {
-            EnemyDependencyProvider provider =
-                blackboard.GetVariable<EnemyDependencyProvider>("_provider").value;
-            _view = provider.View;
-            
-            return null;
-        }
-
+        [RequiredField] public BBParameter<EnemyDependencyProvider> Provider;
+        
+        private IEnemyView View => Provider.value.View;
+        
         protected override bool OnCheck() =>
-            Vector3.Distance(_view.Position, _view.CharacterMeleePoint.Position)
-            <= _view.StoppingDistance && _view.CharacterHealthView == null;
+            Vector3.Distance(View.Position, View.CharacterMeleePoint.Position)
+            <= View.StoppingDistance && View.CharacterHealthView == null;
     }
 }

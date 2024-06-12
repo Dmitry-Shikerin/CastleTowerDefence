@@ -52,6 +52,9 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             if (poolableObject.TryGetComponent(out T @object) == false)
                 return;
 
+            if (_objects.Contains(@object))
+                throw new InvalidOperationException(nameof(@object));
+
             if (_maxCount != -1)
             {
                 if (_collection.Count >= _maxCount)
@@ -76,10 +79,13 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
 
         public void AddToCollection(T @object)
         {
-            if (_objects.Contains(@object))
+            if (_collection.Contains(@object))
                 throw new InvalidOperationException(nameof(@object));
             
             _collection.Add(@object);
         }
+
+        public bool Contains(T @object) =>
+            _objects.Contains(@object);
     }
 }

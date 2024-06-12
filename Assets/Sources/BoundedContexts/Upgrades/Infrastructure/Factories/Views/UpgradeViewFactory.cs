@@ -17,9 +17,9 @@ namespace Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views
             _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public IUpgradeView Create(Upgrade upgrade, PlayerWallet playerWallet, UpgradeView view)
+        public IUpgradeView Create(string upgradeId, UpgradeView view)
         {
-            UpgradePresenter presenter = _presenterFactory.Create(upgrade, playerWallet, view);
+            UpgradePresenter presenter = _presenterFactory.Create(upgradeId, view);
             view.Construct(presenter);
             
             return view;

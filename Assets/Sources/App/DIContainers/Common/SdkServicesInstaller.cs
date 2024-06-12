@@ -2,10 +2,11 @@
 using Sources.Frameworks.YandexSdcFramework.Services.PlayerAccounts;
 using Sources.Frameworks.YandexSdcFramework.Services.SdcInitializeServices;
 using Sources.Frameworks.YandexSdcFramework.Services.Stickies;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.Leaderboads;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.SdcInitializeServices;
 using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementation;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementation;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
 using Sources.Infrastructure.Factories.Controllers.YandexSDK;
 using Sources.Infrastructure.Factories.Views.YandexSDK;
 using Sources.InfrastructureInterfaces.Services.YandexSDKServices;

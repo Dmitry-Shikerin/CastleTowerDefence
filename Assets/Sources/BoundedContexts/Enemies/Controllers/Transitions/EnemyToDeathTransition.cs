@@ -10,18 +10,11 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyToDeathTransition : ConditionTask
     {
-        private IEnemyView _view;
-
-        protected override string OnInit()
-        {
-            EnemyDependencyProvider provider = 
-                blackboard.GetVariable<EnemyDependencyProvider>("_provider").value;
-            _view = provider.View;
-            
-            return null;
-        }
-
+        [RequiredField] public BBParameter<EnemyDependencyProvider> Provider;
+        
+        private IEnemyView View => Provider.value.View;
+        
         protected override bool OnCheck() =>
-            _view.EnemyHealthView.CurrentHealth <= 0;
+            View.EnemyHealthView.CurrentHealth <= 0;
     }
 }

@@ -14,24 +14,21 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
     [UsedImplicitly]
     public class EnemyKamikazeInitializeState : FSMState
     {
-        private EnemyKamikaze _enemy;
-        private IEnemyKamikazeView _view;
-        private IEnemyAnimation _animation;
+        private EnemyKamikazeDependencyProvider _provider;
+        
+        private EnemyKamikaze Enemy => _provider.EnemyKamikaze;
+        private IEnemyAnimation Animation => _provider.Animation;
 
         protected override void OnInit()
         {
-            EnemyKamikazeDependencyProvider provider = 
+            _provider = 
                 graphBlackboard.parent.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-
-            _enemy = provider.EnemyKamikaze;
-            _view = provider.View;
-            _animation = provider.Animation;
         }
 
         protected override void OnEnter()
         {
-            _enemy.IsInitialized = true;
-            _animation.PlayIdle();
+            Enemy.IsInitialized = true;
+            Animation.PlayIdle();
         }
     }
 }

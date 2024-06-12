@@ -11,20 +11,19 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyBossMoveToCharacterMeleeTransition : ConditionTask
     {
-        private IEnemyBossView _view;
-        private BossEnemy _enemy;
+        private EnemyBossDependencyProvider _provider;
+        
+        private BossEnemy Enemy => _provider.BossEnemy;
 
         protected override string OnInit()
         {
-            EnemyBossDependencyProvider provider =
+            _provider =
                 blackboard.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-            _enemy = provider.BossEnemy;
-            _view = provider.View;
             
             return null;
         }
 
         protected override bool OnCheck() =>
-            _enemy.IsInitialized;
+            Enemy.IsInitialized;
     }
 }

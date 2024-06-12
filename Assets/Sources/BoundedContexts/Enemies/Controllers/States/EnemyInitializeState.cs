@@ -3,6 +3,7 @@ using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 
@@ -12,24 +13,15 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     [UsedImplicitly]
     public class EnemyInitializeState : FSMState
     {
-        private Enemy _enemy;
-        private IEnemyView _view;
-        private IEnemyAnimation _animation;
-
-        protected override void OnInit()
-        {
-            EnemyDependencyProvider provider = 
-                graphBlackboard.parent.GetVariable<EnemyDependencyProvider>("_provider").value;
-
-            _enemy = provider.Enemy;
-            _view = provider.View;
-            _animation = provider.Animation;
-        }
-
+        [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
+        
+        private Enemy Enemy => _provider.value.Enemy;
+        private IEnemyAnimation Animation => _provider.value.Animation;
+        
         protected override void OnEnter()
         {
-            _enemy.IsInitialized = true;
-            _animation.PlayIdle();
+            Enemy.IsInitialized = true;
+            Animation.PlayIdle();
         }
     }
 }

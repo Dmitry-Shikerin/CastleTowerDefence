@@ -11,20 +11,20 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.Transitions
     [UsedImplicitly]
     public class ToCharacterMeleeDyeTransition : ConditionTask
     {
-        private ICharacterMeleeView _view;
-        private CharacterMelee _characterMelee;
+        private CharacterMeleeDependencyProvider _provider;
+        
+        private ICharacterMeleeView View => _provider.View;
+        private CharacterMelee CharacterMelee => _provider.CharacterMelee;
 
         protected override string OnInit()
         {
-            CharacterMeleeDependencyProvider provider =
+            _provider =
                 blackboard.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
-            _view = provider.View;
-            _characterMelee = provider.CharacterMelee;
 
             return null;
         }
 
         protected override bool OnCheck() =>
-            _characterMelee.CharacterHealth.CurrentHealth <= 0;
+            CharacterMelee.CharacterHealth.CurrentHealth <= 0;
     }
 }

@@ -1,12 +1,17 @@
 ﻿using System;
+using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.Enemies.Domain;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Interfaces;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.BoundedContexts.EnemyHealths.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain;
+using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using UnityEngine;
 
@@ -23,19 +28,17 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
-        public IEnemyView Spawn(
-            KillEnemyCounter killEnemyCounter, 
-            EnemySpawner enemySpawner, 
-            Vector3 position)
+        public IEnemyView Spawn(EnemySpawner enemySpawner, Vector3 position)
         {
             Enemy enemy = new Enemy(
                 new EnemyHealth(enemySpawner.EnemyHealth), 
                 new EnemyAttacker(
                     enemySpawner.EnemyAttackPower, 
-                           0));
+                           0),
+                new BurnAbility());
             
-            IEnemyView enemyView = SpawnFromPool(enemy, killEnemyCounter) ?? 
-                                   _enemyViewFactory.Create(enemy, killEnemyCounter);
+            IEnemyView enemyView = SpawnFromPool(enemy) ?? 
+                                   _enemyViewFactory.Create(enemy);
             
             enemyView.DisableNavmeshAgent();
             enemyView.SetPosition(position);
@@ -45,14 +48,14 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Spawners.Imple
             return enemyView;
         }
 
-        private IEnemyView SpawnFromPool(Enemy enemy, KillEnemyCounter killEnemyCounter)
+        private IEnemyView SpawnFromPool(Enemy enemy)
         {
             EnemyView enemyView = _enemyPool.Get<EnemyView>();
 
             if (enemyView == null)
                 return null;
             
-            return _enemyViewFactory.Create(enemy, killEnemyCounter, enemyView);
+            return _enemyViewFactory.Create(enemy, enemyView);
         }
     }
 }

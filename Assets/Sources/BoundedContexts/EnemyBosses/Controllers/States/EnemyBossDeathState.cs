@@ -2,9 +2,6 @@
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.Enemies.Domain;
-using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyBosses.Domain;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
@@ -17,27 +14,24 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
     [UsedImplicitly]
     public class EnemyBossDeathState : FSMState
     {
-        private BossEnemy _enemy;
-        private IEnemyBossView _view;
-        private IEnemyBossAnimation _animation;
-        private IExplosionBodyBloodySpawnService _explosionBodyBloodySpawnService;
+        private EnemyBossDependencyProvider _provider;
+        
+        private IEnemyBossView View => _provider.View;
+        private IEnemyBossAnimation Animation => _provider.Animation;
+        private IExplosionBodyBloodySpawnService ExplosionBodyBloodySpawnService => 
+            _provider.ExplosionBodyBloodySpawnService;
 
         protected override void OnInit()
         {
-            EnemyBossDependencyProvider provider =
+            _provider =
                 graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-
-            _enemy = provider.BossEnemy;
-            _view = provider.View;
-            _animation = provider.Animation;
-            _explosionBodyBloodySpawnService = provider.ExplosionBodyBloodySpawnService;
         }
 
         protected override void OnEnter()
         {
-            Vector3 spawnPosition = _view.Position + Vector3.up;
-            _explosionBodyBloodySpawnService.Spawn(spawnPosition);
-            _view.Destroy();
+            Vector3 spawnPosition = View.Position + Vector3.up;
+            ExplosionBodyBloodySpawnService.Spawn(spawnPosition);
+            View.Destroy();
         }
     }
 }

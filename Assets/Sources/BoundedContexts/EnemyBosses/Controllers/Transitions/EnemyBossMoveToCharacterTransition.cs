@@ -11,18 +11,19 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyBossMoveToCharacterTransition : ConditionTask
     {
-        private IEnemyBossView _view;
+        private EnemyBossDependencyProvider _provider;
+        
+        private IEnemyBossView View => _provider.View;
 
         protected override string OnInit()
         {
-            EnemyBossDependencyProvider provider = 
+            _provider = 
                 blackboard.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-            _view = provider.View;
             
             return null;
         }
 
         protected override bool OnCheck() =>
-            _view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth > 0;
+            View.CharacterHealthView != null && View.CharacterHealthView.CurrentHealth > 0;
     }
 }

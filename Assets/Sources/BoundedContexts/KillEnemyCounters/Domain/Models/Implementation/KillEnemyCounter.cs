@@ -1,9 +1,10 @@
 ﻿using System;
 using Sources.Domain.Models.Data;
+using Sources.Frameworks.Domain.Interfaces.Entities;
 
-namespace Sources.BoundedContexts.KillEnemyCounters.Domain
+namespace Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation
 {
-    public class KillEnemyCounter
+    public class KillEnemyCounter : IEntity
     {
         public KillEnemyCounter(KillEnemyCounterDto dto)
         {
@@ -21,9 +22,9 @@ namespace Sources.BoundedContexts.KillEnemyCounters.Domain
 
         public event Action KillZombiesCountChanged;
 
-        public int KillZombies { get; private set; }
         public string Id { get; }
         public Type Type => GetType();
+        public int KillZombies { get; private set; }
 
         public void IncreaseKillCount()
         {

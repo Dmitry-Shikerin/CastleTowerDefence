@@ -1,24 +1,24 @@
 ﻿using Sirenix.OdinInspector;
-using Sources.BoundedContexts.SignalCollectors.Controllers;
 using Sources.Domain.Models.Constants;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation.Collectors;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Configs;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Implementation;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
-using Sources.Frameworks.UiFramework.ButtonCommands.Implementation;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Commands.Implementation;
-using Sources.Frameworks.UiFramework.ButtonProviders.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
 using Sources.Frameworks.UiFramework.Core.Services.Forms.Implementation;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementation;
-using Sources.Frameworks.UiFramework.Infrastructure.Commands.Buttons;
-using Sources.Frameworks.UiFramework.Infrastructure.Commands.Forms;
-using Sources.Frameworks.UiFramework.Services.Buttons;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
-using Sources.Frameworks.UiFramework.ViewCommands.Implementation;
-using Sources.Frameworks.UiFramework.Views.Commands.Implementation;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
-using Sources.Frameworks.YandexSdcFramework.Leaderboards.Controllers.Actions;
 using UnityEngine;
 using Zenject;
 
@@ -32,7 +32,6 @@ namespace Sources.App.DIContainers.Common
         {
             Container.Bind<UiCollector>().FromInstance(_uiCollector);
             Container.Bind<UiCollectorFactory>().AsSingle();
-            Container.Bind<IUiButtonService>().To<UiButtonService>().AsSingle();
             Container.BindInterfacesAndSelfTo<FormService>().AsSingle();
             Container.Bind<IAudioService>().To<AudioService>().AsSingle();
             Container
@@ -46,10 +45,15 @@ namespace Sources.App.DIContainers.Common
             //Audio
             Container.Bind<AudioServiceSignalController>().AsSingle();
             
-            //Buttons
-            Container.Bind<MainMenuButtonsCommandSignalController>().AsSingle();
-            Container.Bind<ShowLeaderboardSignalAction>().AsSingle();
+            //CommandHandlers
+            Container.Bind<IButtonCommandHandler>().To<ButtonCommandHandler>().AsSingle();
+            Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
             
+            //SignalControllers
+            Container.Bind<ISignalControllersCollector>().To<SignalControllerCollector>().AsSingle();
+            Container.Bind<ButtonsCommandSignalController>().AsSingle();
+            
+            //Buttons
             Container.Bind<UnPauseButtonCommand>().AsSingle();
             Container.Bind<ShowRewardedAdvertisingButtonCommand>().AsSingle();
             Container.Bind<NewGameCommand>().AsSingle();

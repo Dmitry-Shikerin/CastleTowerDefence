@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enable: 0
   _parent: {fileID: 11400000, guid: 7a1d9e10b11f9ef4484931c5e5f8eac1, type: 2}
-  _upgradeId: Flamethrower
+  _upgradeId: FlamethrowerUpgrade
   _upgradeLevels:
   - {fileID: -7539111467054433809}
   - {fileID: -2975710404832093024}

@@ -19,34 +19,31 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
     [Category("Custom/Enemy")]
     [UsedImplicitly]
     public class EnemyBossMoveToBunkerState : FSMState
-    { 
-        private BossEnemy _enemy;
-        private IEnemyBossView _view;
-        private IEnemyBossAnimation _animation;
-        private IOverlapService _overlapService;
+    {
+        private EnemyBossDependencyProvider _provider;
+        
+        private BossEnemy Enemy => _provider.BossEnemy;
+        private IEnemyBossView View => _provider.View;
+        private IEnemyBossAnimation Animation => _provider.Animation;
+        private IOverlapService OverlapService => _provider.OverlapService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
         protected override void OnInit()
         {
-            EnemyBossDependencyProvider provider =
+            _provider =
                 graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-
-            _enemy = provider.BossEnemy;
-            _view = provider.View;
-            _animation = provider.Animation;
-            _overlapService = provider.OverlapService;
         }
 
         protected override void OnEnter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            _animation.PlayWalk();
+            Animation.PlayWalk();
             StartFind(_cancellationTokenSource.Token);
         }
 
         protected override void OnUpdate() =>
-            _view.Move(_view.BunkerView.Position);
+            View.Move(View.BunkerView.Position);
 
         protected override void OnExit() =>
             _cancellationTokenSource.Cancel();
@@ -69,9 +66,9 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         private void FindTarget()
         {
             var characterHealthView =
-                _overlapService
+                OverlapService
                     .OverlapSphere<CharacterHealthView>(
-                        _view.Position, _view.FindRange,
+                        View.Position, View.FindRange,
                         LayerConst.Character,
                         LayerConst.Defaul)
                     .FirstOrDefault();
@@ -82,7 +79,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
             if (characterHealthView.CurrentHealth <= 0)
                 return;
 
-            _view.SetCharacterHealth(characterHealthView);
+            View.SetCharacterHealth(characterHealthView);
         }
     }
 }

@@ -14,27 +14,17 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
     [UsedImplicitly]
     public class EnemyDeathState : FSMState
     {
-        private Enemy _enemy;
-        private IEnemyView _view;
-        private IEnemyAnimation _animation;
-        private IExplosionBodyBloodySpawnService _explosionBodyBloodySpawnService;
-
-        protected override void OnInit()
-        {
-            EnemyDependencyProvider provider = 
-                graphBlackboard.parent.GetVariable<EnemyDependencyProvider>("_provider").value;
-
-            _enemy = provider.Enemy;
-            _view = provider.View;
-            _animation = provider.Animation;
-            _explosionBodyBloodySpawnService = provider.ExplosionBodyBloodySpawnService;
-        }
-
+        [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
+        
+        private IEnemyView View => _provider.value.View;
+        private IExplosionBodyBloodySpawnService ExplosionBodyBloodySpawnService => 
+            _provider.value.ExplosionBodyBloodySpawnService;
+        
         protected override void OnEnter()
         {
-            Vector3 spawnPosition = _view.Position + Vector3.up;
-            _explosionBodyBloodySpawnService.Spawn(spawnPosition);
-            _view.Destroy();
+            Vector3 spawnPosition = View.Position + Vector3.up;
+            ExplosionBodyBloodySpawnService.Spawn(spawnPosition);
+            View.Destroy();
         }
     }
 }

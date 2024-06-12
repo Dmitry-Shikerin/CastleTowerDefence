@@ -19,5 +19,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces
         void SetLookRotation(float angle);
         void PlayShootParticle();
         void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint);
+        void StartFsm();
+        void StopFsm();
     }
 }

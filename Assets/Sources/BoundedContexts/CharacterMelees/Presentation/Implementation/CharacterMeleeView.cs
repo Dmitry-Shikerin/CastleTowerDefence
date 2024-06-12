@@ -33,14 +33,13 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
         public ICharacterMeleeAnimation MeleeAnimation => meleeAnimation;
         public CharacterHealthView HealthView => _healthView;
         public CharacterMeleeDependencyProvider Provider => _provider;
-        public FSMOwner FSMOwner => _fsmOwner;
         public IEnemyHealthView EnemyHealth { get; private set; }
         public ICharacterSpawnPoint CharacterSpawnPoint { get; private set; }
 
         public override void Destroy()
         {
+            StopBehaviour();
             _poDestroyerService.Destroy(this);
-            _fsmOwner.StopBehaviour();
         }
 
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView) =>
@@ -54,5 +53,11 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
 
         public void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint) =>
             CharacterSpawnPoint = spawnPoint;
+
+        public void StartBehaviour() =>
+            _fsmOwner.StartBehaviour();
+
+        public void StopBehaviour() =>
+            _fsmOwner.StopBehaviour();
     }
 }
