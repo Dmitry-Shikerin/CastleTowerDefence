@@ -1,6 +1,8 @@
 ﻿using System;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
+using Sources.ECSBoundedContexts.StarUps;
+using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
@@ -15,6 +17,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
+        private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly ISceneViewFactory _gameplaySceneViewFactory;
         private readonly IFocusService _focusService;
         private readonly IAdvertisingService _advertisingService;
@@ -24,6 +27,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplayScene(
+            IEcsGameStartUp ecsGameStartUp,
             ISceneViewFactory gameplaySceneViewFactory,
             IFocusService focusService,
             IAdvertisingService advertisingService,
@@ -32,6 +36,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
             _gameplaySceneViewFactory = gameplaySceneViewFactory ?? 
                                         throw new ArgumentNullException(nameof(gameplaySceneViewFactory));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
@@ -54,11 +59,13 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _audioService.Initialize();
             _signalControllersCollector.Initialize();
             _audioService.Play(AudioGroupId.GameplayBackground);
+            _ecsGameStartUp.Initialize();
             // await _curtainView.HideAsync();
         }
 
         public void Exit()
         {
+            _ecsGameStartUp.Destroy();
             _signalControllersCollector.Destroy();
             _audioService.Stop(AudioGroupId.GameplayBackground);
             _audioService.Destroy();
@@ -66,6 +73,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 
         public void Update(float deltaTime)
         {
+            _ecsGameStartUp.Update(deltaTime);
         }
 
         public void UpdateLate(float deltaTime)

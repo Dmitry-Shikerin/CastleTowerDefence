@@ -1,17 +1,16 @@
-﻿using System;
-using Leopotam.Ecs;
-using Sources.ECSBoundedContexts.Systems;
-using UnityEngine;
+﻿using Leopotam.Ecs;
+using Sources.ECSBoundedContexts.SearchlightMoves.Systems;
+using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Voody.UniLeo;
 
-namespace Sources.ECSBoundedContexts.StarUps
+namespace Sources.ECSBoundedContexts.StarUps.Implementation
 {
-    public class EcsGameStartUp : MonoBehaviour
+    public class EcsGameStartUp : IEcsGameStartUp
     {
         private EcsWorld _ecsWorld;
         private EcsSystems _systems;
 
-        private void Start()
+        public void Initialize()
         {
             _ecsWorld = new EcsWorld();
             _systems = new EcsSystems(_ecsWorld);
@@ -22,10 +21,10 @@ namespace Sources.ECSBoundedContexts.StarUps
             _systems.Init();
         }
 
-        private void Update() =>
+        public void Update(float deltaTime) =>
             _systems.Run();
-        
-        private void OnDestroy()
+
+        public void Destroy()
         {
             _systems.Destroy();
             _systems = null;
@@ -36,7 +35,7 @@ namespace Sources.ECSBoundedContexts.StarUps
         private void AddSystems()
         {
             _systems
-                .Add(new MovementSystem());
+                .Add(new SearchlightMovementSystem());
         }
 
         private void AddInjections()

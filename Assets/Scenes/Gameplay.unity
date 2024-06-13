@@ -6349,7 +6349,7 @@ MonoBehaviour:
     Transform: {fileID: 69893961}
     FromAngle: {fileID: 1451282175}
     ToAngle: {fileID: 797152781}
-    Speed: 5
+    Speed: 6
     IsFromPosition: 1
 --- !u!114 &213763132
 MonoBehaviour:

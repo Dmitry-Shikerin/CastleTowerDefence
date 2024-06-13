@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Sources.ECSBoundedContexts.Components
+namespace Sources.ECSBoundedContexts.SearchlightMoves.Components
 {
     [Serializable]
-    public struct MoveComponent
+    public struct SearchlightMoveComponent
     {
         public Transform Transform;
         public Transform FromAngle;
