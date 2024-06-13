@@ -110898,6 +110898,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -4.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_Range
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_SpotAngle
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123562143773281903, guid: 2acccffa6a1ad6a41b7d759fe2ef165c, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

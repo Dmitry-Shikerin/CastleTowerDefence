@@ -2,7 +2,7 @@
 using Sources.ECSBoundedContexts.SearchlightMoves.Components;
 using UnityEngine;
 
-namespace Sources.ECSBoundedContexts.SearchlightMoves.Systems
+namespace Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Systems
 {
     public sealed class SearchlightMovementSystem : IEcsRunSystem
     {
@@ -27,6 +27,7 @@ namespace Sources.ECSBoundedContexts.SearchlightMoves.Systems
 
         private void Move(ref SearchlightMoveComponent moveComponent, float targetAngle, bool isFromPosition)
         {
+            //TODO как исправить ротейшн? чтобы не нулился x и y
             float xAngle = moveComponent.Transform.rotation.x;
             float yAngle = moveComponent.Transform.rotation.y;
             Quaternion targetRotation = Quaternion.Euler(xAngle, targetAngle, yAngle);

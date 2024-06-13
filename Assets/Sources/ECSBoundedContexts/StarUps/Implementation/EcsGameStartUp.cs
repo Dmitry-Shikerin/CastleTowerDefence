@@ -1,14 +1,22 @@
-﻿using Leopotam.Ecs;
-using Sources.ECSBoundedContexts.SearchlightMoves.Systems;
+﻿using System;
+using Leopotam.Ecs;
+using Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Features;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Voody.UniLeo;
+using Zenject;
 
 namespace Sources.ECSBoundedContexts.StarUps.Implementation
 {
     public class EcsGameStartUp : IEcsGameStartUp
     {
+        private readonly DiContainer _container;
         private EcsWorld _ecsWorld;
         private EcsSystems _systems;
+
+        public EcsGameStartUp(DiContainer container)
+        {
+            _container = container ?? throw new ArgumentNullException(nameof(container));
+        }
 
         public void Initialize()
         {
@@ -35,12 +43,12 @@ namespace Sources.ECSBoundedContexts.StarUps.Implementation
         private void AddSystems()
         {
             _systems
-                .Add(new SearchlightMovementSystem());
+                .Add(new SearchlightMovementFeature());
         }
 
         private void AddInjections()
         {
-            
+            _systems.Inject(_container, typeof(DiContainer));
         }
 
         private void AddOneFrame()

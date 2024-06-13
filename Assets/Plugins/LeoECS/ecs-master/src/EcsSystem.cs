@@ -12,6 +12,14 @@ namespace Leopotam.Ecs {
     /// Base interface for all systems.
     /// </summary>
     public interface IEcsSystem { }
+    
+    /// <summary>
+    /// Interface for Collected systems.
+    /// </summary>
+    public interface IEcsFeature : IEcsSystem
+    {
+        void Bind(EcsSystems systems);
+    }
 
     /// <summary>
     /// Interface for PreInit systems. PreInit() will be called before Init().
@@ -119,6 +127,13 @@ namespace Leopotam.Ecs {
             if (!string.IsNullOrEmpty (namedRunSystem) && !(system is IEcsRunSystem)) { throw new Exception ("Cant name non-IEcsRunSystem."); }
 #endif
             _allSystems.Add (system);
+            
+            //MyEcsFeatures
+            if (system is IEcsFeature feature)
+            {
+               feature.Bind(this);
+            }
+            
             if (system is IEcsRunSystem) {
                 if (namedRunSystem == null && system is EcsSystems ecsSystems) {
                     namedRunSystem = ecsSystems.Name;
