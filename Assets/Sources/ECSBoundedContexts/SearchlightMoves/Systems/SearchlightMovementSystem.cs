@@ -8,36 +8,38 @@ namespace Sources.ECSBoundedContexts.SearchlightMoves.Systems
     {
         private readonly EcsWorld _world = null;
         private readonly EcsFilter<SearchlightTag, SearchlightMoveComponent> _filter = null;
-        
+
         public void Run()
         {
             foreach (int entity in _filter)
             {
-                ref SearchlightMoveComponent searchlightMoveComponent = ref _filter.Get2(entity);
+                ref SearchlightMoveComponent moveComponent = ref _filter.Get2(entity);
 
-                Quaternion from = searchlightMoveComponent.FromAngle.rotation;
-                Quaternion to = searchlightMoveComponent.ToAngle.rotation;
-                
-                if (searchlightMoveComponent.IsFromPosition)
-                    Move(ref searchlightMoveComponent, from, false);
+                float from = moveComponent.Angle.x;
+                float to = moveComponent.Angle.y;
+
+                if (moveComponent.IsFromPosition)
+                    Move(ref moveComponent, from, false);
                 else
-                    Move(ref searchlightMoveComponent, to, true);
+                    Move(ref moveComponent, to, true);
             }
         }
 
-        private void Move(ref SearchlightMoveComponent searchlightMoveComponent, Quaternion target, bool isFromPosition)
+        private void Move(ref SearchlightMoveComponent moveComponent, float targetAngle, bool isFromPosition)
         {
-            float angle = Quaternion.Angle(
-                searchlightMoveComponent.Transform.rotation, target);
-                    
-            if (angle <= Quaternion.kEpsilon)
-                searchlightMoveComponent.IsFromPosition = isFromPosition;
+            float xAngle = moveComponent.Transform.rotation.x;
+            float yAngle = moveComponent.Transform.rotation.y;
+            Quaternion targetRotation = Quaternion.Euler(xAngle, targetAngle, yAngle);
+            Quaternion currentRotation = moveComponent.Transform.rotation;
+            float delta = Time.deltaTime * moveComponent.Speed;
             
-            searchlightMoveComponent.Transform.rotation =
-                Quaternion.RotateTowards(
-                    searchlightMoveComponent.Transform.rotation, 
-                    target, 
-                    Time.deltaTime * searchlightMoveComponent.Speed);
+            float angleDifference = Quaternion.Angle(currentRotation, targetRotation);
+
+            if (angleDifference <= Quaternion.kEpsilon)
+                moveComponent.IsFromPosition = isFromPosition;
+
+            moveComponent.Transform.rotation = Quaternion.RotateTowards(
+                    currentRotation, targetRotation, delta);
         }
     }
 }

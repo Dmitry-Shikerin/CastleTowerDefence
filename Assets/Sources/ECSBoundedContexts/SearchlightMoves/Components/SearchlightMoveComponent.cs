@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Sources.ECSBoundedContexts.SearchlightMoves.Components
@@ -7,8 +8,9 @@ namespace Sources.ECSBoundedContexts.SearchlightMoves.Components
     public struct SearchlightMoveComponent
     {
         public Transform Transform;
-        public Transform FromAngle;
-        public Transform ToAngle;
+        [MinMaxSlider(-180, 180, true)]
+        public Vector2 Angle;
+        [Range(2, 8)]
         public float Speed;
         public bool IsFromPosition;
     }
