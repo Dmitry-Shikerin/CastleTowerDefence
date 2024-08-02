@@ -3,7 +3,7 @@ using Sources.Frameworks.UiFramework.Domain.Commands;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Signals
 {
-    public class HideViewCommandSignal
+    public struct HideViewCommandSignal
     {
         public HideViewCommandSignal(IEnumerable<FormCommandId> hideCommands)
         {
