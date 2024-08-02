@@ -47,6 +47,7 @@ namespace Sources.App.DIContainers.Common
             
             //Buttons
             Container.Bind<UnPauseButtonCommand>().AsSingle();
+            Container.Bind<PauseButtonCommand>().AsSingle();
             Container.Bind<ShowRewardedAdvertisingButtonCommand>().AsSingle();
             Container.Bind<NewGameCommand>().AsSingle();
             Container.Bind<ShowLeaderboardCommand>().AsSingle().NonLazy();

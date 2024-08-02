@@ -12,5 +12,6 @@
         ShowRewardedAdvertising = 8,
         ClearSaves = 9,
         PlayerAccountAuthorize = 10,
+        Pause = 11,
     }
 }
