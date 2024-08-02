@@ -15,7 +15,11 @@ MonoBehaviour:
   Database:
     Items:
     - Category: Gameplay
+      Name: AbilitiesTutorial
+    - Category: Gameplay
       Name: Background
+    - Category: Gameplay
+      Name: EnemySpawnerTutorial
     - Category: Gameplay
       Name: GameOver
     - Category: Gameplay
@@ -27,9 +31,13 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Quit
     - Category: Gameplay
+      Name: ScoreTutorial
+    - Category: Gameplay
       Name: Settings
     - Category: Gameplay
       Name: Tutorial
+    - Category: Gameplay
+      Name: UpgradesTutorial
     - Category: MainMenu
       Name: Authorization
     - Category: MainMenu

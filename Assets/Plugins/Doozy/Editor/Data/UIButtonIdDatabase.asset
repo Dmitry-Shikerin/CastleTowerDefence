@@ -23,6 +23,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: MainMenu
     - Category: Gameplay
+      Name: Next
+    - Category: Gameplay
       Name: Pause
     - Category: Gameplay
       Name: Settings
