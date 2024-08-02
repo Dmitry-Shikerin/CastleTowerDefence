@@ -2,14 +2,9 @@
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation.Collectors;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Configs;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Implementation;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
@@ -43,12 +38,13 @@ namespace Sources.App.DIContainers.Common
                 .FromResources(LocalizationConst.LocalizationDataBaseAssetPath);
             
             //Audio
-            Container.Bind<AudioServiceSignalController>().AsSingle();
 
             //SignalControllers
             Container.Bind<ISignalControllersCollector>().To<SignalControllerCollector>().AsSingle();
             Container.Bind<ButtonsCommandSignalController>().AsSingle();
-
+            Container.Bind<AudioServiceSignalController>().AsSingle();
+            Container.Bind<ViewCommandSignalController>().AsSingle();
+            
             //Buttons
             Container.Bind<UnPauseButtonCommand>().AsSingle();
             Container.Bind<ShowRewardedAdvertisingButtonCommand>().AsSingle();
@@ -64,9 +60,9 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<SaveVolumeCommand>().AsSingle();
             Container.Bind<ClearSavesCommand>().AsSingle();
             
-            //CommandHandlers
-            Container.Bind<IButtonCommandHandler>().To<ButtonCommandHandler>().AsSingle();
-            Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
+            // //CommandHandlers
+            // Container.Bind<IButtonCommandHandler>().To<ButtonCommandHandler>().AsSingle();
+            // Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
         }
     }
 }

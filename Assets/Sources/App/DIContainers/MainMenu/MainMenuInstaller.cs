@@ -4,6 +4,10 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implem
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
 using UnityEngine;
 using Zenject;
 
@@ -18,6 +22,10 @@ namespace Sources.App.DIContainers.MainMenu
             Container.BindInterfacesAndSelfTo<MainMenuHud>().FromInstance(_mainMenuHud).AsSingle();
             Container.Bind<ISceneViewFactory>().To<MainMenuSceneViewFactory>().AsSingle();
             Container.Bind<ISceneFactory>().To<MainMenuSceneFactory>().AsSingle();
+            
+            //UiCommands
+            Container.Bind<IButtonCommandHandler>().To<MainMenuButtonCommandHandler>().AsSingle();
+            Container.Bind<IUiViewCommandHandler>().To<MainMenuViewCommandHandler>().AsSingle();
         }
     }
 }

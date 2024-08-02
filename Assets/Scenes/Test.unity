@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42702,6 +42702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilityButton: {fileID: 41848833}
+  _timerImage: {fileID: 0}
 --- !u!1 &808169345
 GameObject:
   m_ObjectHideFlags: 0
@@ -42862,6 +42863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilityButton: {fileID: 1519504113}
+  _timerImage: {fileID: 0}
 --- !u!4 &818589121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4151857057655756, guid: c9fe2f5580d589c48aa41beb0b82eb5c, type: 3}
@@ -46832,6 +46834,13 @@ MonoBehaviour:
   _nukeAbilityApplier: {fileID: 807137528}
   _spawnAbilityApplier: {fileID: 816319452}
   _flamethrowerAbilityApplier: {fileID: 1295157092}
+  _enemySpawnerUi: {fileID: 0}
+  _bunkerUi: {fileID: 0}
+  _characterAttackUpgradeView: {fileID: 0}
+  _characterHealthUpgradeView: {fileID: 0}
+  _nukeAbilityUpgradeVieew: {fileID: 0}
+  _flamethrowerAbilityUpgradeView: {fileID: 0}
+  _playerWalletView: {fileID: 0}
 --- !u!114 &907234199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67271,6 +67280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilityButton: {fileID: 1688665319}
+  _timerImage: {fileID: 0}
 --- !u!224 &1295157093
 RectTransform:
   m_ObjectHideFlags: 0
@@ -95403,6 +95413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 1937913290}
   _flamethrowerView: {fileID: 1313450332}
+  burnAbilityCollision: {fileID: 0}
 --- !u!4 &1764246244
 Transform:
   m_ObjectHideFlags: 0
