@@ -1,12 +1,12 @@
 ﻿using Leopotam.Ecs;
 using Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Systems;
+using UnityEngine;
 using Zenject;
 
 namespace Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Features
 {
     public class SearchlightMovementFeature : IEcsFeature
     {
-        private readonly DiContainer _diContainer = null;
         
         public void Bind(EcsSystems systems)
         {

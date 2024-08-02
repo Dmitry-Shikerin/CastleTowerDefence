@@ -14,8 +14,8 @@ namespace Sources.BoundedContexts.Bunkers.Domain
             Id = id;
         }
 
-        public event Action OnDead;
-        public event Action OnHealthChanged;
+        public event Action Death;
+        public event Action HealthChanged;
 
         public string Id { get; }
         public Type Type => GetType();
@@ -25,7 +25,7 @@ namespace Sources.BoundedContexts.Bunkers.Domain
         public void TakeDamage()
         {
             Health--;
-            OnHealthChanged?.Invoke();
+            HealthChanged?.Invoke();
 
             if (Health > 0)
                 return;
@@ -33,7 +33,7 @@ namespace Sources.BoundedContexts.Bunkers.Domain
             if(_isDead)
                 return;
 
-            OnDead?.Invoke();
+            Death?.Invoke();
             _isDead = true;
         }
     }

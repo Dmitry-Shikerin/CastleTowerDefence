@@ -9,7 +9,7 @@ namespace Sources.ECSBoundedContexts.StarUps.Implementation
 {
     public class EcsGameStartUp : IEcsGameStartUp
     {
-        private readonly DiContainer _container;
+        private DiContainer _container;
         private EcsWorld _ecsWorld;
         private EcsSystems _systems;
 
@@ -17,6 +17,9 @@ namespace Sources.ECSBoundedContexts.StarUps.Implementation
         {
             _container = container ?? throw new ArgumentNullException(nameof(container));
         }
+
+        public void Construct(DiContainer container) =>
+            _container = container ?? throw new ArgumentNullException(nameof(container));
 
         public void Initialize()
         {

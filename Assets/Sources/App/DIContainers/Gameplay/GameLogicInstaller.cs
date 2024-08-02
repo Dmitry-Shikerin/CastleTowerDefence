@@ -51,6 +51,8 @@ using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.I
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementation;
+using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
@@ -71,6 +73,8 @@ namespace Sources.App.DIContainers.Gameplay
     {
         public override void InstallBindings()
         {
+            //GameOvers
+            Container.Bind<IGameOverService>().To<GameOverService>().AsSingle();
             //PlayerWallet
             Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
             Container.Bind<PlayerWalletViewFactory>().AsSingle();

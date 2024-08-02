@@ -6,8 +6,6 @@ namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views
 {
     public class PresentableView<T> : View where T : IPresenter
     {
-        private bool _isInitialized;
-        
         protected T Presenter { get; private set; }
 
         private void OnEnable()
@@ -32,23 +30,16 @@ namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views
         
         protected void DestroyPresenter()
         {
-            Presenter.Disable();
+            Presenter.Destroy();
             Presenter = default;
-            _isInitialized = false;
         }
 
         public void Construct(T presenter)
         {
             Hide();
             Presenter = presenter ?? throw new ArgumentNullException(nameof(presenter));
-            InitializePresenter();
-            Show();
-        }
-
-        private void InitializePresenter()
-        {
-            _isInitialized = true;
             Presenter.Initialize();
+            Show();
         }
     }
 }

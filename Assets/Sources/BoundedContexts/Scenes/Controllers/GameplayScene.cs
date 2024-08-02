@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.ECSBoundedContexts.StarUps;
@@ -17,6 +18,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
+        private readonly IGameOverService _gameOverService;
         private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly ISceneViewFactory _gameplaySceneViewFactory;
         private readonly IFocusService _focusService;
@@ -27,6 +29,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplayScene(
+            IGameOverService gameOverService,
             IEcsGameStartUp ecsGameStartUp,
             ISceneViewFactory gameplaySceneViewFactory,
             IFocusService focusService,
@@ -36,6 +39,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
             _gameplaySceneViewFactory = gameplaySceneViewFactory ?? 
                                         throw new ArgumentNullException(nameof(gameplaySceneViewFactory));
@@ -50,7 +54,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
                                           throw new ArgumentNullException(nameof(signalControllersCollector));
         }
 
-        public async void Enter(object payload = null)
+        public void Enter(object payload = null)
         {
             _focusService.Initialize();
             _gameplaySceneViewFactory.Create((IScenePayload)payload);
@@ -60,6 +64,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _signalControllersCollector.Initialize();
             _audioService.Play(AudioGroupId.GameplayBackground);
             _ecsGameStartUp.Initialize();
+            _gameOverService.Initialize();
             // await _curtainView.HideAsync();
         }
 
@@ -69,6 +74,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _signalControllersCollector.Destroy();
             _audioService.Stop(AudioGroupId.GameplayBackground);
             _audioService.Destroy();
+            _gameOverService.Destroy();
         }
 
         public void Update(float deltaTime)

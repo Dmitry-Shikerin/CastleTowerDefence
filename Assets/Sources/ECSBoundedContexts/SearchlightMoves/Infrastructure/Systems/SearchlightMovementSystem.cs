@@ -1,11 +1,13 @@
 ﻿using Leopotam.Ecs;
 using Sources.ECSBoundedContexts.SearchlightMoves.Components;
 using UnityEngine;
+using Zenject;
 
 namespace Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Systems
 {
     public sealed class SearchlightMovementSystem : IEcsRunSystem
     {
+        private readonly DiContainer _diContainer = null;
         private readonly EcsWorld _world = null;
         private readonly EcsFilter<SearchlightTag, SearchlightMoveComponent> _filter = null;
 
@@ -40,7 +42,7 @@ namespace Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Systems
                 moveComponent.IsFromPosition = isFromPosition;
 
             moveComponent.Transform.rotation = Quaternion.RotateTowards(
-                    currentRotation, targetRotation, delta);
+                moveComponent.Transform.rotation, targetRotation, delta);
         }
     }
 }

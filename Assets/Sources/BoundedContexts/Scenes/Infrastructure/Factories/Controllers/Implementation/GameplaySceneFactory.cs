@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
@@ -18,6 +19,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class GameplaySceneFactory : ISceneFactory
     {
+        private readonly IGameOverService _gameOverService;
         private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly ISceneViewFactory _sceneViewFactory;
         private readonly IFocusService _focusService;
@@ -28,6 +30,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplaySceneFactory(
+            IGameOverService gameOverService,
             IEcsGameStartUp ecsGameStartUp,
             ISceneViewFactory gameplaySceneViewFactory,
             IFocusService focusService,
@@ -37,6 +40,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
             _sceneViewFactory = gameplaySceneViewFactory ?? 
                                 throw new ArgumentNullException(nameof(gameplaySceneViewFactory));
@@ -52,6 +56,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene gameplayScene = new GameplayScene(
+                _gameOverService,
                 _ecsGameStartUp,
                 _sceneViewFactory,
                 _focusService,

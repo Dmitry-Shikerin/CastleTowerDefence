@@ -14,6 +14,7 @@ using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
+using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
@@ -37,6 +38,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly GameplayModelsCreatorService _gameplayModelsCreatorService;
         private readonly GameplayModelsLoaderService _gameplayModelsLoaderService;
         private readonly PlayerWalletViewFactory _playerWalletViewFactory;
+        private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly CharacterSpawnAbilityViewFactory _characterSpawnAbilityViewFactory;
 
         public GameplaySceneViewFactory(
@@ -55,7 +57,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             UpgradeViewFactory upgradeViewFactory,
             GameplayModelsCreatorService gameplayModelsCreatorService,
             GameplayModelsLoaderService gameplayModelsLoaderService,
-            PlayerWalletViewFactory playerWalletViewFactory)
+            PlayerWalletViewFactory playerWalletViewFactory,
+            IEcsGameStartUp ecsGameStartUp)
         {
             _gameplayHud = gameplayHud ?? throw new ArgumentNullException(nameof(gameplayHud));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
@@ -80,6 +83,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                                            throw new ArgumentNullException(nameof(gameplayModelsLoaderService));
             _playerWalletViewFactory = playerWalletViewFactory ??
                                        throw new ArgumentNullException(nameof(playerWalletViewFactory));
+            _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
             _characterSpawnAbilityViewFactory = characterSpawnAbilityViewFactory ?? 
                                                 throw new ArgumentNullException(nameof(characterSpawnAbilityViewFactory));
         }
