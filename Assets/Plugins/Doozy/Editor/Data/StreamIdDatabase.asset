@@ -26,3 +26,7 @@ MonoBehaviour:
       Name: None
     - Category: SoundCommand
       Name: Play
+    - Category: ViewCommand
+      Name: HideViewCommand
+    - Category: ViewCommand
+      Name: ShowViewCommand

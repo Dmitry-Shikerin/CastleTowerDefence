@@ -38,7 +38,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementatio
                     .SetOnSignalCallback(HandleDisable);
             _disableSignalStream = SignalStream
                 .Get(StreamConst.ViewCommandCategory, StreamConst.HideViewCommand)
-                .ConnectReceiver(_enableSignalReceiver);
+                .ConnectReceiver(_disableSignalReceiver);
         }
 
         public void Destroy()
@@ -59,7 +59,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementatio
         private void HandleDisable(Signal signal)
         {
             if (signal.TryGetValue(out HideViewCommandSignal value) == false)
-                throw new InvalidOperationException("Signal valueAsObject is not ShowViewCommandSignal");
+                throw new InvalidOperationException("Signal valueAsObject is not HideViewCommandSignal");
 
             foreach (FormCommandId commandId in value.HideCommands)
                 _viewCommandHandler.Handle(commandId);
