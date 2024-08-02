@@ -8017,7 +8017,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 252682843}
     Selectable: {fileID: 252682845}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: None
@@ -12142,8 +12142,8 @@ MonoBehaviour:
   AutoRepeatWaitTime: 0.4
   AutoRepeatWaitTimeReduction: 0.4
   AutoRepeatMinWaitTime: 0.04
-  MinusButton: {fileID: 806206504}
-  PlusButton: {fileID: 1906352206}
+  MinusButton: {fileID: 0}
+  PlusButton: {fileID: 0}
   ResetButton: {fileID: 0}
   TargetLabel: {fileID: 0}
   MinValue: 0
@@ -40266,16 +40266,16 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   MultiplayerInfo: {fileID: 0}
   IsOn: 0
-  CurrentUISelectionState: 4
+  CurrentUISelectionState: 0
   DeselectAfterPress: 0
   OnSelectionStateChangedCallback:
     m_PersistentCalls:
       m_Calls: []
-  CurrentStateName: Disabled
+  CurrentStateName: Normal
   NormalState:
     StateType: 0
     StateEvent:
@@ -40320,7 +40320,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 806206502}
     Selectable: {fileID: 806206504}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: None
@@ -59119,7 +59119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1036674763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64640,6 +64640,8 @@ GameObject:
   - component: {fileID: 1145542416}
   - component: {fileID: 1145542415}
   - component: {fileID: 1145542414}
+  - component: {fileID: 1145542419}
+  - component: {fileID: 1145542418}
   m_Layer: 5
   m_Name: Audio_Container
   m_TagString: Untagged
@@ -64792,6 +64794,38 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!114 &1145542418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145542412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f24cbf31fe247d6ace13bb50deaa08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 331556776}
+  _toggle: {fileID: 1324039540}
+  _leftArrow: {fileID: 806206504}
+  _rightArrow: {fileID: 1906352206}
+--- !u!114 &1145542419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145542412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5ee2076734104bff273b4175e4455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 1201150582}
+  toggle: {fileID: 1291770555}
+  _leftArrow: {fileID: 1808674549}
+  _rightArrow: {fileID: 252682845}
 --- !u!1 &1149316922
 GameObject:
   m_ObjectHideFlags: 0
@@ -68539,8 +68573,8 @@ MonoBehaviour:
   AutoRepeatWaitTime: 0.4
   AutoRepeatWaitTimeReduction: 0.4
   AutoRepeatMinWaitTime: 0.04
-  MinusButton: {fileID: 1808674549}
-  PlusButton: {fileID: 252682845}
+  MinusButton: {fileID: 0}
+  PlusButton: {fileID: 0}
   ResetButton: {fileID: 0}
   TargetLabel: {fileID: 0}
   MinValue: 0
@@ -102351,6 +102385,8 @@ MonoBehaviour:
   _nukeAbilityUpgradeVieew: {fileID: 735869622}
   _flamethrowerAbilityUpgradeView: {fileID: 525957816}
   _playerWalletView: {fileID: 844606841}
+  _musicChangerView: {fileID: 1145542418}
+  _soundsChangerView: {fileID: 1145542419}
 --- !u!1 &1637762777
 GameObject:
   m_ObjectHideFlags: 0
@@ -110596,16 +110632,16 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   MultiplayerInfo: {fileID: 0}
   IsOn: 0
-  CurrentUISelectionState: 4
+  CurrentUISelectionState: 0
   DeselectAfterPress: 0
   OnSelectionStateChangedCallback:
     m_PersistentCalls:
       m_Calls: []
-  CurrentStateName: Disabled
+  CurrentStateName: Normal
   NormalState:
     StateType: 0
     StateEvent:
@@ -110650,7 +110686,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1808674547}
     Selectable: {fileID: 1808674549}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: None
@@ -116082,7 +116118,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1906352204}
     Selectable: {fileID: 1906352206}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: None

@@ -4,6 +4,7 @@ using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Presentation.Implementation;
 using Sources.BoundedContexts.Upgrades.Presentation.Implementation;
+using Sources.Frameworks.GameServices.Volumes.Presentations;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using UnityEngine;
@@ -40,6 +41,11 @@ namespace Sources.BoundedContexts.Huds.Presentations
         [FoldoutGroup("Wallet")]
         [Required] [SerializeField] private PlayerWalletView _playerWalletView;
         
+        [FoldoutGroup("Volume")]
+        [Required] [SerializeField] private MusicChangerView _musicChangerView;
+        [FoldoutGroup("Volume")]
+        [Required] [SerializeField] private SoundsChangerView _soundsChangerView;
+        
         public UiCollector UiCollector => _uiCollector;
 
         public AbilityApplierView NukeAbilityApplier => _nukeAbilityApplier;
@@ -56,5 +62,7 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public UpgradeView FlamethrowerAbilityUpgradeView => _flamethrowerAbilityUpgradeView;
         
         public PlayerWalletView PlayerWalletView => _playerWalletView;
+        public MusicChangerView MusicChangerView => _musicChangerView;
+        public SoundsChangerView SoundsChangerView => _soundsChangerView;
     }
 }
