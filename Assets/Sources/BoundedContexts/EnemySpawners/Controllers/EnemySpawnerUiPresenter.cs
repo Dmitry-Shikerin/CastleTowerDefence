@@ -5,6 +5,7 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using Sources.Utils.Extentions;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemySpawners.Controllers
 {
@@ -38,14 +39,16 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
         private void OnWaveChanged()
         {
-            _view.CurrentWaveText.SetText(_enemySpawner.CurrentWaveNumber.ToString());   
+            _view.CurrentWaveText.SetText(_enemySpawner.CurrentWaveNumber.ToString());
+            _view.SpawnerProgressSlider.value = 0;
+            Debug.Log($"slider value {_view.SpawnerProgressSlider.value}");
         }
 
         private void OnSpawnedEnemiesInCurrentWaveChanged()
         {
             int percent =
-                _enemySpawner.SpawnedAllEnemies.IntToPercent(
-                    _enemySpawner.Waves[_enemySpawner.CurrentWaveNumber].SumEnemies);
+                _enemySpawner.SpawnedEnemiesInCurrentWave.IntToPercent(
+                    _enemySpawner.CurrentWave.SumEnemies);
 
             float unitPercent = percent.IntPercentToUnitPercent();
 

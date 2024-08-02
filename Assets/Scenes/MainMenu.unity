@@ -44833,7 +44833,6 @@ MonoBehaviour:
   - {fileID: 150168378}
   - {fileID: 393309348}
   - {fileID: 1774921365}
-  _leaderBoardContainer: {fileID: 868480759}
   _uiCollector: {fileID: 2083160722}
 --- !u!114 &2083160722
 MonoBehaviour:

@@ -5,6 +5,7 @@ using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Upgrades.Controllers
 {
@@ -12,6 +13,7 @@ namespace Sources.BoundedContexts.Upgrades.Controllers
     {
         private readonly Upgrade _upgrade;
         private readonly PlayerWallet _playerWallet;
+        private readonly string _upgradeId;
         private readonly IUpgradeView _view;
 
         public UpgradePresenter(
@@ -24,6 +26,7 @@ namespace Sources.BoundedContexts.Upgrades.Controllers
             
             _upgrade = entityRepository.Get<Upgrade>(upgradeId);
             _playerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
+            _upgradeId = upgradeId;
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
@@ -31,17 +34,18 @@ namespace Sources.BoundedContexts.Upgrades.Controllers
         {
             UpdatePrice();
             _view.UpgradeButton.onClickEvent.AddListener(ApplyUpgrade);
+            _upgrade.LevelChanged += UpdatePrice;
         }
 
         public override void Disable()
         {
             _view.UpgradeButton.onClickEvent.AddListener(ApplyUpgrade);
+            _upgrade.LevelChanged -= UpdatePrice;
         }
 
         private void ApplyUpgrade()
         {
             _upgrade.ApplyUpgrade(_playerWallet);
-            UpdatePrice();
         }
 
         private void UpdatePrice()
@@ -53,6 +57,7 @@ namespace Sources.BoundedContexts.Upgrades.Controllers
                 return;
             }
             
+            // Debug.Log($"{_upgradeId} - {_upgrade.CurrentLevel}");
             string price = _upgrade.Levels[_upgrade.CurrentLevel].MoneyPerUpgrade.ToString();
             _view.PriseNextUpgrade.SetText(price);
         }
