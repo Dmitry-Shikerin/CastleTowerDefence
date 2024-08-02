@@ -631,6 +631,30 @@ MonoBehaviour:
   _english: Music
   _editTurkish: 0
   _turkish: "M\xFCzik"
+--- !u!114 &-2630032618137094329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Quit_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Quit
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
+  _editEnglish: 0
+  _english: Do you want to quit?
+  _editTurkish: 0
+  _turkish: "D\u0131\u015Far\u0131 \xE7\u0131kmak ister misiniz?"
 --- !u!114 &-2340926341720809940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,15 +937,16 @@ MonoBehaviour:
   - {fileID: 4826722777252017251}
   - {fileID: -8837250491390849142}
   - {fileID: 783856341597308656}
+  - {fileID: -2630032618137094329}
   _scopes: []
-  _enableTextId: 1
-  _textId: ggggas
+  _enableTextId: 0
+  _textId: Quit
   _enableRussian: 0
-  _russian: 
+  _russian: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
   _enableEnglish: 0
-  _english: 
+  _english: Do you want to quit?
   _enableTurkish: 0
-  _turkish: 
+  _turkish: "D\u0131\u015Far\u0131 \xE7\u0131kmak ister misiniz?"
 --- !u!114 &562711224492482245
 MonoBehaviour:
   m_ObjectHideFlags: 0

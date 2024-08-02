@@ -8017,7 +8017,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 252682843}
     Selectable: {fileID: 252682845}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: None
@@ -12142,8 +12142,8 @@ MonoBehaviour:
   AutoRepeatWaitTime: 0.4
   AutoRepeatWaitTimeReduction: 0.4
   AutoRepeatMinWaitTime: 0.04
-  MinusButton: {fileID: 806206504}
-  PlusButton: {fileID: 1906352206}
+  MinusButton: {fileID: 0}
+  PlusButton: {fileID: 0}
   ResetButton: {fileID: 0}
   TargetLabel: {fileID: 0}
   MinValue: 0
@@ -40266,16 +40266,16 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   MultiplayerInfo: {fileID: 0}
   IsOn: 0
-  CurrentUISelectionState: 4
+  CurrentUISelectionState: 0
   DeselectAfterPress: 0
   OnSelectionStateChangedCallback:
     m_PersistentCalls:
       m_Calls: []
-  CurrentStateName: Disabled
+  CurrentStateName: Normal
   NormalState:
     StateType: 0
     StateEvent:
@@ -40320,7 +40320,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 806206502}
     Selectable: {fileID: 806206504}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: None
@@ -64640,6 +64640,8 @@ GameObject:
   - component: {fileID: 1145542416}
   - component: {fileID: 1145542415}
   - component: {fileID: 1145542414}
+  - component: {fileID: 1145542419}
+  - component: {fileID: 1145542418}
   m_Layer: 5
   m_Name: Audio_Container
   m_TagString: Untagged
@@ -64792,6 +64794,38 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!114 &1145542418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145542412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f24cbf31fe247d6ace13bb50deaa08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 331556776}
+  _toggle: {fileID: 1324039540}
+  _leftArrow: {fileID: 806206504}
+  _rightArrow: {fileID: 1906352206}
+--- !u!114 &1145542419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145542412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5ee2076734104bff273b4175e4455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 1201150582}
+  toggle: {fileID: 1291770555}
+  _leftArrow: {fileID: 1808674549}
+  _rightArrow: {fileID: 252682845}
 --- !u!1 &1149316922
 GameObject:
   m_ObjectHideFlags: 0
@@ -66097,6 +66131,7 @@ GameObject:
   - component: {fileID: 1179321734}
   - component: {fileID: 1179321733}
   - component: {fileID: 1179321740}
+  - component: {fileID: 1179321741}
   m_Layer: 5
   m_Name: Resume_Button
   m_TagString: Untagged
@@ -68069,6 +68104,23 @@ MonoBehaviour:
   _labele: <size=18><b><color=#FFD700><i>UiButtonAudioService</i></color></b></size>
   _onClickAudioClip: 1
   _button: {fileID: 1179321737}
+--- !u!114 &1179321741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179321731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32a18db22984b7eb49fa15ac7395602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _labele: <size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>
+  _button: {fileID: 1179321737}
+  _onClickCommandId: 07000000
+  _enableCommandId: 
+  _disableCommandId: 
 --- !u!1 &1181634778
 GameObject:
   m_ObjectHideFlags: 0
@@ -68521,8 +68573,8 @@ MonoBehaviour:
   AutoRepeatWaitTime: 0.4
   AutoRepeatWaitTimeReduction: 0.4
   AutoRepeatMinWaitTime: 0.04
-  MinusButton: {fileID: 1808674549}
-  PlusButton: {fileID: 252682845}
+  MinusButton: {fileID: 0}
+  PlusButton: {fileID: 0}
   ResetButton: {fileID: 0}
   TargetLabel: {fileID: 0}
   MinValue: 0
@@ -71701,6 +71753,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 86733671063742267, guid: e95c9c85ce78bb745b6faa56d97143de, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1254722619}
+    - targetCorrespondingSourceObject: {fileID: 86733671063742267, guid: e95c9c85ce78bb745b6faa56d97143de, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1254722622}
   m_SourcePrefab: {fileID: 100100000, guid: e95c9c85ce78bb745b6faa56d97143de, type: 3}
 --- !u!224 &1254722612 stripped
 RectTransform:
@@ -71733,6 +71788,23 @@ MonoBehaviour:
   _labele: <size=18><b><color=#FFD700><i>UiButtonAudioService</i></color></b></size>
   _onClickAudioClip: 1
   _button: {fileID: 1254722613}
+--- !u!114 &1254722622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095383309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32a18db22984b7eb49fa15ac7395602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _labele: <size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>
+  _button: {fileID: 1254722613}
+  _onClickCommandId: 0b000000
+  _enableCommandId: 
+  _disableCommandId: 
 --- !u!1 &1256598308
 GameObject:
   m_ObjectHideFlags: 0
@@ -82823,6 +82895,7 @@ GameObject:
   - component: {fileID: 1413858087}
   - component: {fileID: 1413858091}
   - component: {fileID: 1413858090}
+  - component: {fileID: 1413858092}
   m_Layer: 5
   m_Name: Next_Button
   m_TagString: Untagged
@@ -84363,6 +84436,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1413858092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413858085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32a18db22984b7eb49fa15ac7395602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _labele: <size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>
+  _button: {fileID: 1413858087}
+  _onClickCommandId: 07000000
+  _enableCommandId: 
+  _disableCommandId: 
 --- !u!1 &1415390186
 GameObject:
   m_ObjectHideFlags: 0
@@ -92907,7 +92997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MultiplayerInfo: {fileID: 0}
-  OnStartBehaviour: 0
+  OnStartBehaviour: 3
   OnShowCallback:
     EventName: OnShowCallback
     Runners: []
@@ -92942,9 +93032,9 @@ MonoBehaviour:
   UseCustomStartPosition: 1
   AutoHideAfterShow: 0
   AutoHideAfterShowDelay: 0
-  DisableGameObjectWhenHidden: 1
-  DisableCanvasWhenHidden: 0
-  DisableGraphicRaycasterWhenHidden: 0
+  DisableGameObjectWhenHidden: 0
+  DisableCanvasWhenHidden: 1
+  DisableGraphicRaycasterWhenHidden: 1
   HandleCanvasGroupBlockRaycasts: 1
   ClearSelectedOnShow: 0
   ClearSelectedOnHide: 0
@@ -93009,7 +93099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _labele: <size=18><b><color=#0000FF><i>UiViewSignalSender</i></color></b></size>
   _view: {fileID: 1509541388}
-  _enableCommandId: 01000000
+  _enableCommandId: 
   _disableCommandId: 
 --- !u!1 &1511778725
 GameObject:
@@ -102295,6 +102385,8 @@ MonoBehaviour:
   _nukeAbilityUpgradeVieew: {fileID: 735869622}
   _flamethrowerAbilityUpgradeView: {fileID: 525957816}
   _playerWalletView: {fileID: 844606841}
+  _musicChangerView: {fileID: 1145542418}
+  _soundsChangerView: {fileID: 1145542419}
 --- !u!1 &1637762777
 GameObject:
   m_ObjectHideFlags: 0
@@ -106434,6 +106526,7 @@ GameObject:
   - component: {fileID: 1725608916}
   - component: {fileID: 1725608915}
   - component: {fileID: 1725608922}
+  - component: {fileID: 1725608923}
   m_Layer: 5
   m_Name: Yes_Button
   m_TagString: Untagged
@@ -108406,6 +108499,23 @@ MonoBehaviour:
   _labele: <size=18><b><color=#FFD700><i>UiButtonAudioService</i></color></b></size>
   _onClickAudioClip: 1
   _button: {fileID: 1725608919}
+--- !u!114 &1725608923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725608913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32a18db22984b7eb49fa15ac7395602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _labele: <size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>
+  _button: {fileID: 1725608919}
+  _onClickCommandId: 0700000002000000
+  _enableCommandId: 
+  _disableCommandId: 
 --- !u!1 &1727593656
 GameObject:
   m_ObjectHideFlags: 0
@@ -110522,16 +110632,16 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   MultiplayerInfo: {fileID: 0}
   IsOn: 0
-  CurrentUISelectionState: 4
+  CurrentUISelectionState: 0
   DeselectAfterPress: 0
   OnSelectionStateChangedCallback:
     m_PersistentCalls:
       m_Calls: []
-  CurrentStateName: Disabled
+  CurrentStateName: Normal
   NormalState:
     StateType: 0
     StateEvent:
@@ -110576,7 +110686,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1808674547}
     Selectable: {fileID: 1808674549}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: None
@@ -116008,7 +116118,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1906352204}
     Selectable: {fileID: 1906352206}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: None

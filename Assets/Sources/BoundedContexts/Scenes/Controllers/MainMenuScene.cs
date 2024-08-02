@@ -93,6 +93,9 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 
         private UniTask GameReady(IScenePayload payload)
         {
+            if (payload == null)
+                return UniTask.CompletedTask;
+            
             if (payload.CanFromGameplay)
                 return UniTask.CompletedTask;
 
