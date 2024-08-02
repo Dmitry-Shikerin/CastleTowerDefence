@@ -502,11 +502,11 @@ MonoBehaviour:
   _localizationId: Graphic
   _textId: 
   _editRussian: 0
-  _russian: 
+  _russian: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
   _editEnglish: 0
-  _english: 
+  _english: Graphic
   _editTurkish: 0
-  _turkish: 
+  _turkish: Grafik
 --- !u!114 &-3465262421581960423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,11 +626,11 @@ MonoBehaviour:
   _localizationId: Music
   _textId: 
   _editRussian: 0
-  _russian: 
+  _russian: "\u041C\u0443\u0437\u044B\u043A\u0430"
   _editEnglish: 0
-  _english: 
+  _english: Music
   _editTurkish: 0
-  _turkish: 
+  _turkish: "M\xFCzik"
 --- !u!114 &-2340926341720809940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,11 +675,11 @@ MonoBehaviour:
   _localizationId: On
   _textId: 
   _editRussian: 0
-  _russian: 
+  _russian: "\u0412\u041A\u041B"
   _editEnglish: 0
-  _english: 
+  _english: ON
   _editTurkish: 0
-  _turkish: 
+  _turkish: "A\xC7IK"
 --- !u!114 &-2145494215223797878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,11 +834,11 @@ MonoBehaviour:
   _localizationId: HealthBars
   _textId: 
   _editRussian: 0
-  _russian: 
+  _russian: "\u0428\u043A\u0430\u043B\u044B \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
   _editEnglish: 0
-  _english: 
+  _english: Health Bars
   _editTurkish: 0
-  _turkish: 
+  _turkish: "Sa\u011Fl\u0131k Barlar\u0131"
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,7 +916,6 @@ MonoBehaviour:
   _scopes: []
   _enableTextId: 1
   _textId: ggggas
-  _scope: Default
   _enableRussian: 0
   _russian: 
   _enableEnglish: 0
@@ -990,11 +989,11 @@ MonoBehaviour:
   _localizationId: Continue
   _textId: 
   _editRussian: 0
-  _russian: 
+  _russian: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
   _editEnglish: 0
-  _english: 
+  _english: Continue
   _editTurkish: 0
-  _turkish: 
+  _turkish: Devam et
 --- !u!114 &1246574901095727957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,11 +1416,11 @@ MonoBehaviour:
   _localizationId: Resume
   _textId: 
   _editRussian: 0
-  _russian: 
+  _russian: "\u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0418\u0422\u042C"
   _editEnglish: 0
-  _english: 
+  _english: RESUME
   _editTurkish: 0
-  _turkish: 
+  _turkish: DEVAM ET
 --- !u!114 &6227071353628013496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1468,11 +1467,11 @@ MonoBehaviour:
   _localizationId: Off
   _textId: 
   _editRussian: 0
-  _russian: 
+  _russian: "\u0412\u042B\u041A\u041B"
   _editEnglish: 0
-  _english: 
+  _english: OFF
   _editTurkish: 0
-  _turkish: 
+  _turkish: KAPALI
 --- !u!114 &6835082364301547020
 MonoBehaviour:
   m_ObjectHideFlags: 0
