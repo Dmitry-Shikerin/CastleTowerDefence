@@ -81,6 +81,9 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 
         private async UniTask InitializeAsync(IScenePayload payload)
         {
+            if (payload == null)
+                return;
+
             if (payload.CanFromGameplay)
                 return;
             
