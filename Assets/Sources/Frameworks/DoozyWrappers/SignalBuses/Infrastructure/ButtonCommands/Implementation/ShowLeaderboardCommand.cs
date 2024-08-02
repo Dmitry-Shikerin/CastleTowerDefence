@@ -26,14 +26,14 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
 
         public void Handle()
         {
-            if (_playerAccountAuthorizeService.IsAuthorized() == false)
-            {
-                Signal.Send(StreamId.MainMenu.Leaderboard, false);
-               
-                return;
-            }
-
-            _leaderboardInitializeService.Fill();
+           // if (_playerAccountAuthorizeService.IsAuthorized() == false)
+           // {
+           //     Signal.Send(StreamId.MainMenu.Leaderboard, false);
+           //    
+           //     return;
+           // }
+//
+           // _leaderboardInitializeService.Fill();
             Signal.Send(StreamId.MainMenu.Leaderboard, true);
         }
     }
