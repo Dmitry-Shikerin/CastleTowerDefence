@@ -88,8 +88,8 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
                 _nukeAbilityView.DamageSize,
                 LayerConst.Enemy);
             
-            Debug.Log(enemies.Count);
-            
+            // Debug.Log(enemies.Count);
+            //
             if(enemies.Count == 0)
                 return;
             

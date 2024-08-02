@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.Frameworks.Domain.Interfaces.Entities;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Upgrades.Domain.Models
 {
@@ -20,8 +21,9 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Models
         public Type Type => GetType();
         public IReadOnlyList<UpgradeLevel> Levels  { get; private set; }
         public float CurrentAmount => Levels[CurrentLevel].CurrentAmount;
+
         public int CurrentLevel { get; private set; }
-        public int MaxLevel => Levels.Count;
+        public int MaxLevel => Levels.Count - 1;
         
         public void ApplyUpgrade(PlayerWallet wallet)
         {
@@ -32,6 +34,7 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Models
                 return;
             
             CurrentLevel++;
+            Debug.Log($"{CurrentLevel}");
             LevelChanged?.Invoke();
         }
     }
