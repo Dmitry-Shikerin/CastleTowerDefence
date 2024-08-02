@@ -8,7 +8,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
     public class EnemySpawnStrategy : SerializedScriptableObject
     {
         [TableMatrix(DrawElementMethod = "Draw", ResizableColumns = false, RowHeight = 40)] 
-        [SerializeField] private bool[,] _spawnPoints ;
+        [SerializeField] private bool[,] _spawnPoints;
         
         private static bool Draw(Rect rect, bool value)
         {
@@ -30,7 +30,12 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         [OnInspectorInit]
         private void CreateData()
         {
+            if(_spawnPoints != null)
+                return;
+            
             _spawnPoints = new bool[4, 4];
+            
+            Debug.Log($"CreateData");
             
             for (int i = 0; i < _spawnPoints.GetLength(0); i++)
             {

@@ -6,5 +6,7 @@
         public const string OnClick = "OnClick";
         public const string SoundCommand = "SoundCommand";
         public const string Play = "Play";
+        public const string Gameplay = "Gameplay";
+        public const string GameOver = "GameOver";
     }
 }

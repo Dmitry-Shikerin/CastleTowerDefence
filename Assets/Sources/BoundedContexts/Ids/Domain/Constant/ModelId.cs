@@ -1,9 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using Doozy.Runtime.UIManager;
+using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Data;
+using Sources.BoundedContexts.EnemySpawners.Domain.Models;
+using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
+using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
+using Sources.BoundedContexts.NukeAbilities.Domain.Models;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Data;
+using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Domain.Models.Data;
 using Sources.Frameworks.Domain.Implementation.Data;
+using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 
 namespace Sources.BoundedContexts.Ids.Domain.Constant
 {
@@ -37,7 +46,6 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             KillEnemyCounter,
         };
         
-        //todo переделать
         public static IReadOnlyList<string> ModelsIds { get; } = new List<string>()
         {
             ScoreCounter,
@@ -48,6 +56,21 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             PlayerWallet,
             KillEnemyCounter,
             Tutorial,
+        };
+
+        public static IReadOnlyDictionary<string, Type> Types { get; } = new Dictionary<string, Type>()
+        {
+            [HealthUpgrade] = typeof(Upgrade),
+            [AttackUpgrade] = typeof(Upgrade),
+            [NukeUpgrade] = typeof(Upgrade),
+            [FlamethrowerUpgrade] = typeof(Upgrade),
+            [PlayerWallet] = typeof(PlayerWallet),
+            [Bunker] = typeof(Bunker),
+            [EnemySpawner] = typeof(EnemySpawner),
+            [NukeAbility] = typeof(NukeAbility),
+            [FlamethrowerAbility] = typeof(FlamethrowerAbility),
+            [KillEnemyCounter] = typeof(KillEnemyCounter),
+            [Volume] = typeof(Volume),
         };
     }
 }

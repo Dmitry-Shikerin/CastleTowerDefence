@@ -36,7 +36,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 0, y: 111.99999}
+  Position: {x: -0.000007390976, y: 79}
   Trigger: 1
   SignalPayload:
     StreamId:
@@ -198,7 +198,7 @@ MonoBehaviour:
     Mode: 0
   OnEnterHideAllViews: 1
   OnExitHideAllViews: 0
---- !u!114 &-4306633397784415953
+--- !u!114 &-4380906408791198067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,30 +207,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c43f2597bc48340b6a8f2909b66d09, type: 3}
-  m_Name: Signal
+  m_Script: {fileID: 11500000, guid: 7b2479a69f56cf54c96de81c44e8ad1a, type: 3}
+  m_Name: Portal
   m_EditorClassIdentifier: 
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
-  NodeId: 1bc1d492-34d4-4be7-a5fd-7ee076445689
-  NodeType: 0
-  NodeName: Signal
+  NodeId: 4b22f585-dcc4-4f19-aa37-595c4bd91d7a
+  NodeType: 1
+  NodeName: GameOver Portal
   NodeDescription: 
-  InputPorts:
-  - NodeId: 1bc1d492-34d4-4be7-a5fd-7ee076445689
-    PortId: ef40ad32-b13f-4884-88ae-dc9ebf4ee831
-    Direction: 0
-    Capacity: 1
-    Connections: []
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
+  InputPorts: []
   OutputPorts:
-  - NodeId: 1bc1d492-34d4-4be7-a5fd-7ee076445689
-    PortId: 32218e21-df24-4bd9-a7f9-d44fd1ba3c1b
+  - NodeId: 4b22f585-dcc4-4f19-aa37-595c4bd91d7a
+    PortId: 4f8d4010-b801-48ce-a12e-265ec6f2cb2d
     Direction: 1
     Capacity: 0
-    Connections: []
+    Connections:
+    - 0b7ec376-acae-46e3-9774-2a98fea8d522
     Value: 
     ValueTypeQualifiedName: 
     CanBeDeleted: 0
@@ -242,21 +234,36 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 61.00003, y: 259.99994}
-  Payload:
+  Position: {x: 200.99997, y: 212}
+  Trigger: 0
+  SignalPayload:
     StreamId:
-      Category: SoundCommand
-      Name: Play
+      Category: Gameplay
+      Name: GameOver
       Custom: 0
-    SignalValueType: 0
+    SignalValueType: 2
     IntegerValue: 0
-    BooleanValue: 0
+    BooleanValue: 1
     FloatValue: 0
     StringValue: 
     ColorValue: {r: 0, g: 0, b: 0, a: 0}
     Vector2Value: {x: 0, y: 0}
     Vector3Value: {x: 0, y: 0, z: 0}
     Vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  ButtonId:
+    Category: None
+    Name: None
+    Custom: 0
+  ToggleId:
+    Category: None
+    Name: None
+    Custom: 0
+  CommandToggle: 2
+  ViewId:
+    Category: None
+    Name: None
+    Custom: 0
+  CommandShowHide: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,8 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Gameplay
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 228.5, y: 26, z: 0}
-  EditorScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  EditorPosition: {x: 277.5, y: -16, z: 0}
+  EditorScale: {x: 0.57175326, y: 0.57175326, z: 1}
   Id: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   GraphName: Flow Graph
   GraphDescription: 
@@ -304,7 +311,7 @@ MonoBehaviour:
   - {fileID: 4121471602724331556}
   - {fileID: -5112003182343259946}
   - {fileID: 1790112325897617979}
-  - {fileID: -4306633397784415953}
+  - {fileID: -4380906408791198067}
   RootNode: {fileID: 5871047642016965581}
   ActiveNode: {fileID: 0}
 --- !u!114 &1755870790553109488
@@ -456,7 +463,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 247.2, y: 339.2}
+  Position: {x: 375.9999, y: 315}
   OnEnterShowViews: []
   OnEnterHideViews: []
   OnExitShowViews: []
@@ -549,7 +556,8 @@ MonoBehaviour:
     PortId: 0b7ec376-acae-46e3-9774-2a98fea8d522
     Direction: 0
     Capacity: 1
-    Connections: []
+    Connections:
+    - 4f8d4010-b801-48ce-a12e-265ec6f2cb2d
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -574,7 +582,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 247.19998, y: 212.00003}
+  Position: {x: 376, y: 211.99998}
   OnEnterShowViews:
   - Id:
       Category: Gameplay

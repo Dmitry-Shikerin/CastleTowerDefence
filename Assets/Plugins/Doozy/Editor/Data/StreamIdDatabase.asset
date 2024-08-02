@@ -16,6 +16,8 @@ MonoBehaviour:
     Items:
     - Category: ButtonCommand
       Name: OnClick
+    - Category: Gameplay
+      Name: GameOver
     - Category: MainMenu
       Name: Leaderboard
     - Category: MainMenu

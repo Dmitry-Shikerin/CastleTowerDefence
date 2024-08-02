@@ -23,14 +23,14 @@ namespace Sources.BoundedContexts.Bunkers.Controllers
 
         public override void Enable()
         {
-            OnHealthChanged();
-            _bunker.OnHealthChanged += OnHealthChanged;
+            HealthChanged();
+            _bunker.HealthChanged += HealthChanged;
         }
 
         public override void Disable() =>
-            _bunker.OnHealthChanged += OnHealthChanged;
+            _bunker.HealthChanged += HealthChanged;
 
-        private void OnHealthChanged() =>
+        private void HealthChanged() =>
             _view.HealthText.SetText(_bunker.Health.ToString());
     }
 }
