@@ -15,6 +15,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Presentation.Implementati
         [SerializeField] private AudioClipId _onClickAudioClip; 
         [Space(10)]
         [SerializeField] private UIButton _button;
+        
         protected override void OnAfterEnable() =>
             _button.onClickEvent.AddListener(PlayClickSound);
 

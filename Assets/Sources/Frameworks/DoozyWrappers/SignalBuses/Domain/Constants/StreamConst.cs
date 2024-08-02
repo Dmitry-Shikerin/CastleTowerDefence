@@ -2,6 +2,9 @@
 {
     public class StreamConst
     {
+        public const string ViewCommandCategory = "ViewCommand";
+        public const string ShowViewCommand = "ShowViewCommand";
+        public const string HideViewCommand = "HideViewCommand";
         public const string ButtonCommand = "ButtonCommand";
         public const string OnClick = "OnClick";
         public const string SoundCommand = "SoundCommand";

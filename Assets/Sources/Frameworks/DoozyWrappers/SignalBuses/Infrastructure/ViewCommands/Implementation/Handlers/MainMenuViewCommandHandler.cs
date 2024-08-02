@@ -5,12 +5,12 @@ using Sources.Frameworks.UiFramework.Domain.Commands;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers
 {
-    public class MainMenuUiViewCommandHandler : IUiViewCommandHandler
+    public class MainMenuViewCommandHandler : IUiViewCommandHandler
     {
         private readonly Dictionary<FormCommandId, IViewCommand> _commands = 
             new Dictionary<FormCommandId, IViewCommand>();
         
-        public MainMenuUiViewCommandHandler(
+        public MainMenuViewCommandHandler(
             PauseCommand pauseCommand,
             UnPauseCommand unPauseCommand,
             SaveVolumeCommand saveVolumeCommand,

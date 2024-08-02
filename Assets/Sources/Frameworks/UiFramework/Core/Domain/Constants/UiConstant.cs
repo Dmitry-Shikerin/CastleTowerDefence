@@ -3,6 +3,7 @@
     public static class UiConstant
     {
         public const string UiButtonSignalSenderLabel = "<size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>";
+        public const string UiViewSignalSenderLabel = "<size=18><b><color=#0000FF><i>UiViewSignalSender</i></color></b></size>";
         public const string UiContainerLabel = "<size=18><b><color=#9370DB><i>UiView</i></color></b></size>";
         public const string UiCollectorLabel = "<size=18><b><color=#3CB371><i>UiCollector</i></color></b></size>";
         public const string UiAudioSourceLabel = "<size=18><b><color=#FFD700><i>UiAudioSource</i></color></b></size>";

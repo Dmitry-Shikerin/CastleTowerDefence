@@ -6,9 +6,12 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interf
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
-using Sources.ECSBoundedContexts.StarUps;
 using Sources.ECSBoundedContexts.StarUps.Implementation;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
 using UnityEngine;
 using Zenject;
 
@@ -33,6 +36,10 @@ namespace Sources.App.DIContainers.Gameplay
             
             //ECS
             Container.Bind<IEcsGameStartUp>().To<EcsGameStartUp>().AsSingle();
+            
+            //UiCommands
+            Container.Bind<IButtonCommandHandler>().To<GameplayButtonCommandHandler>().AsSingle();
+            Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
         }
     }
 }
