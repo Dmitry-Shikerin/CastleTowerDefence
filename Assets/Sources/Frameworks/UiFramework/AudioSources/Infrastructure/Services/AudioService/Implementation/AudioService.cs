@@ -61,12 +61,12 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
             ClearStates();
             OnVolumeChanged();
             _audioServiceDataBase.Construct(_volume);
-            _volume.MusicVolumeChanged += OnVolumeChanged;
+            _volume.VolumeChanged += OnVolumeChanged;
         }
 
         public void Destroy()
         {
-            _volume.MusicVolumeChanged -= OnVolumeChanged;
+            _volume.VolumeChanged -= OnVolumeChanged;
             _audioCancellationTokenSource.Cancel();
             ClearStates();
         }
@@ -82,7 +82,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
         public IUiAudioSource Play(AudioClipId audioClipId)
         {
             UiAudioSource audioSource = _audioSourceSpawner.Spawn();
-            audioSource.SetVolume(_volume.MusicVolume);
+            audioSource.SetVolume(_volume.VolumeValue);
 
             if (_audioClips.ContainsKey(audioClipId) == false)
                 throw new KeyNotFoundException(audioClipId.ToString());
@@ -102,7 +102,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
                 throw new InvalidOperationException($"Group {audioGroupId} is already playing");
 
             IUiAudioSource audioSource = _audioSourceSpawner.Spawn();
-            audioSource.SetVolume(_volume.MusicVolume);
+            audioSource.SetVolume(_volume.VolumeValue);
             _audioGroups[audioGroupId].Play();
 
             try
@@ -145,7 +145,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
         }
 
         private void OnVolumeChanged() =>
-            ChangeVolume(_volume.MusicVolume);
+            ChangeVolume(_volume.VolumeValue);
 
         private void ChangeVolume(float volume)
         {

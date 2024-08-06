@@ -40,8 +40,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Configs
             if (_volumeModel == null)
                 return;
             
-            _volumeModel.MusicVolume = _volume;
-            _volumeModel.SoundsVolume = _volume;
+            _volumeModel.VolumeValue = _volume;
         }
     }
 }

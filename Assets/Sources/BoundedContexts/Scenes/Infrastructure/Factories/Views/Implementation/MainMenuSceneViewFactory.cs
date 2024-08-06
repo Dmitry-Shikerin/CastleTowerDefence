@@ -12,30 +12,27 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
     {
         private readonly MainMenuHud _mainMenuHud;
         private readonly IAudioService _audioService;
-        private readonly MusicChangerViewFactory _musicChangerViewFactory;
-        private readonly SoundsChangerViewFactory _soundsChangerViewFactory;
+        private readonly VolumeViewFactory _volumeViewFactory;
 
         public MainMenuSceneViewFactory(MainMenuHud hud,
             IAudioService audioService,
-            MusicChangerViewFactory musicChangerViewFactory,
-            SoundsChangerViewFactory soundsChangerViewFactory)
+            VolumeViewFactory volumeViewFactory)
         {
             _mainMenuHud = hud ?? throw new ArgumentNullException(nameof(hud));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            _musicChangerViewFactory = musicChangerViewFactory ??
-                                        throw new ArgumentNullException(nameof(musicChangerViewFactory));
-            _soundsChangerViewFactory = soundsChangerViewFactory ??
-                                        throw new ArgumentNullException(nameof(soundsChangerViewFactory));
+            _volumeViewFactory = volumeViewFactory ??
+                                        throw new ArgumentNullException(nameof(volumeViewFactory));
         }
     
         public void Create(IScenePayload payload)
         {
             //Volume
-            Volume volume = new Volume("Volume");
-            _audioService.Construct(volume);
+            Volume musicVolume = new Volume("Music");
+            Volume soundsVolume = new Volume("Sounds");
+            _audioService.Construct(musicVolume);
 
-            _musicChangerViewFactory.Create(volume, _mainMenuHud.MusicChangerView);
-            _soundsChangerViewFactory.Create(volume, _mainMenuHud.SoundsChangerView);
+            _volumeViewFactory.Create(musicVolume, _mainMenuHud.MusicVolumeView);
+            _volumeViewFactory.Create(soundsVolume, _mainMenuHud.SoundVolumeView);
         }
     }
 }

@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace Sources.Frameworks.GameServices.Volumes.Presentations
 {
-    public class SoundsChangerView : View
+    public class VolumeView : View
     {
         [SerializeField] private UISlider _slider;
-        [SerializeField] private UIToggle toggle;
+        [SerializeField] private UIToggle _toggle;
         [SerializeField] private UIButton _leftArrow;
         [SerializeField] private UIButton _rightArrow;
         
@@ -19,16 +19,16 @@ namespace Sources.Frameworks.GameServices.Volumes.Presentations
 
         private void OnEnable()
         {
-            toggle.OnToggleOnCallback.Event.AddListener(EnableSlider);
-            toggle.OnToggleOffCallback.Event.AddListener(DisableSlider);
+            _toggle.OnToggleOnCallback.Event.AddListener(EnableSlider);
+            _toggle.OnToggleOffCallback.Event.AddListener(DisableSlider);
             _leftArrow.onClickEvent.AddListener(ReduceSliderValue);
             _rightArrow.onClickEvent.AddListener(IncreaseSliderValue);
         }
 
         private void OnDisable()
         {
-            toggle.OnToggleOnCallback.Event.RemoveListener(EnableSlider);
-            toggle.OnToggleOffCallback.Event.RemoveListener(DisableSlider);
+            _toggle.OnToggleOnCallback.Event.RemoveListener(EnableSlider);
+            _toggle.OnToggleOffCallback.Event.RemoveListener(DisableSlider);
             _leftArrow.onClickEvent.RemoveListener(ReduceSliderValue);
             _rightArrow.onClickEvent.RemoveListener(IncreaseSliderValue);
         }
@@ -42,10 +42,10 @@ namespace Sources.Frameworks.GameServices.Volumes.Presentations
 
         private void SetSliderValue()
         {
-            if (_volume.SoundsVolume > 0)
+            if (_volume.VolumeValue > 0)
             {
-                _slider.value = _volume.SoundsVolume;
-                toggle.isOn = true;
+                _slider.value = _volume.VolumeValue;
+                _toggle.isOn = true;
                 
                 EnableSlider();
                 
@@ -53,21 +53,21 @@ namespace Sources.Frameworks.GameServices.Volumes.Presentations
             }
             
             DisableSlider();
-            toggle.isOn = false;
+            _toggle.isOn = false;
         }
 
         private void EnableSlider()
         {
             _slider.interactable = true;
             _isSliderEnabled = true;
-            _volume.IsSoundsMuted = false;
+            _volume.IsVolumeMuted = false;
         }
 
         private void DisableSlider()
         {
             _slider.interactable = false;
             _isSliderEnabled = false;
-            _volume.IsSoundsMuted = true;
+            _volume.IsVolumeMuted = true;
         }
 
         private void ReduceSliderValue()
@@ -76,7 +76,7 @@ namespace Sources.Frameworks.GameServices.Volumes.Presentations
                 return;
 
             _slider.value -= VolumeConst.VolumeValuePerStep;
-            _volume.SoundsVolume = _slider.value;
+            _volume.VolumeValue = _slider.value;
         }
 
         private void IncreaseSliderValue()
@@ -85,7 +85,7 @@ namespace Sources.Frameworks.GameServices.Volumes.Presentations
                 return;
 
             _slider.value += VolumeConst.VolumeValuePerStep;
-            _volume.SoundsVolume = _slider.value;
+            _volume.VolumeValue = _slider.value;
         }
     }
 }

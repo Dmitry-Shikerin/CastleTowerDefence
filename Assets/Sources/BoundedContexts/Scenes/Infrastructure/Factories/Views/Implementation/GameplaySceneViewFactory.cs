@@ -41,8 +41,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly PlayerWalletViewFactory _playerWalletViewFactory;
         private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly CharacterSpawnAbilityViewFactory _characterSpawnAbilityViewFactory;
-        private readonly MusicChangerViewFactory _musicChangerViewFactory;
-        private readonly SoundsChangerViewFactory _soundsChangerViewFactory;
+        private readonly VolumeViewFactory _volumeViewFactory;
 
         public GameplaySceneViewFactory(
             GameplayHud gameplayHud,
@@ -62,8 +61,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             GameplayModelsLoaderService gameplayModelsLoaderService,
             PlayerWalletViewFactory playerWalletViewFactory,
             IEcsGameStartUp ecsGameStartUp,
-            MusicChangerViewFactory musicChangerViewFactory,
-            SoundsChangerViewFactory soundsChangerViewFactory)
+            VolumeViewFactory volumeViewFactory)
         {
             _gameplayHud = gameplayHud ?? throw new ArgumentNullException(nameof(gameplayHud));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
@@ -91,10 +89,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
             _characterSpawnAbilityViewFactory = characterSpawnAbilityViewFactory ?? 
                                                 throw new ArgumentNullException(nameof(characterSpawnAbilityViewFactory));
-            _musicChangerViewFactory = musicChangerViewFactory ??
-                                       throw new ArgumentNullException(nameof(musicChangerViewFactory));
-            _soundsChangerViewFactory = soundsChangerViewFactory ??
-                                        throw new ArgumentNullException(nameof(soundsChangerViewFactory));
+            _volumeViewFactory = volumeViewFactory ??
+                                       throw new ArgumentNullException(nameof(volumeViewFactory));
         }
 
         public void Create(IScenePayload payload)
@@ -138,8 +134,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
             //Volume
             _audioService.Construct(gameplayModel.Volume);
-            _musicChangerViewFactory.Create(gameplayModel.Volume, _gameplayHud.MusicChangerView);
-            _soundsChangerViewFactory.Create(gameplayModel.Volume, _gameplayHud.SoundsChangerView);
+            _volumeViewFactory.Create(gameplayModel.Volume, _gameplayHud.MusicVolumeView);
+            _volumeViewFactory.Create(gameplayModel.Volume, _gameplayHud.SoundVolumeView);
         }
 
         private GameplayModel Load(IScenePayload payload)
