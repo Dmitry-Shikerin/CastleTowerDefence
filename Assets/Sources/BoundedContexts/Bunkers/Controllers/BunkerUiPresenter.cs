@@ -30,7 +30,10 @@ namespace Sources.BoundedContexts.Bunkers.Controllers
         public override void Disable() =>
             _bunker.HealthChanged += HealthChanged;
 
-        private void HealthChanged() =>
+        private void HealthChanged()
+        {
             _view.HealthText.SetText(_bunker.Health.ToString());
+            _view.HeartAnimator.Play();
+        }
     }
 }

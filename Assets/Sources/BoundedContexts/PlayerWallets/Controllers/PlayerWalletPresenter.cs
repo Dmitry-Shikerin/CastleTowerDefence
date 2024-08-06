@@ -30,7 +30,10 @@ namespace Sources.BoundedContexts.PlayerWallets.Controllers
         public override void Disable() =>
             _playerWallet.CoinsChanged -= OnCoinsChanged;
 
-        private void OnCoinsChanged() =>
+        private void OnCoinsChanged()
+        {
             _view.MoneyText.SetText(_playerWallet.Coins.ToString());
+            _view.ScullAnimator.Play();
+        }
     }
 }

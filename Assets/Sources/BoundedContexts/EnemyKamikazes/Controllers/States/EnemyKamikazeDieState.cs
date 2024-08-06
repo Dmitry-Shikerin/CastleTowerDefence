@@ -7,6 +7,7 @@ using Sources.BoundedContexts.EnemyKamikazes.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
@@ -16,6 +17,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
     public class EnemyKamikazeDieState : FSMState
     {
         private EnemyKamikazeDependencyProvider _provider;
+        private PlayerWallet _playerWallet;
         
         private IEnemyKamikazeView View => _provider.View; 
         private IExplosionBodyBloodySpawnService ExplosionBodyBloodySpawnService => 
@@ -25,6 +27,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
         {
             _provider = 
                 graphBlackboard.parent.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
+            _playerWallet = _provider.PlayerWallet;
         }
 
         protected override void OnEnter()
@@ -32,6 +35,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
             Vector3 spawnPosition = View.Position + Vector3.up;
             ExplosionBodyBloodySpawnService.Spawn(spawnPosition);
             View.Destroy();
+            _playerWallet.AddCoins(1);
         }
     }
 }
