@@ -16,7 +16,8 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
             ClearSavesButtonCommand clearSavesButtonCommand,
             NewGameCommand newGameCommand,
-            ShowLeaderboardCommand showLeaderBoardCommand)
+            ShowLeaderboardCommand showLeaderBoardCommand,
+            SaveVolumeButtonCommand saveVolumeButtonCommand)
         {
             _commands[loadMainMenuSceneCommand.Id] = loadMainMenuSceneCommand;
             _commands[unPauseButtonCommand.Id] = unPauseButtonCommand;
@@ -24,6 +25,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             _commands[clearSavesButtonCommand.Id] = clearSavesButtonCommand;
             _commands[newGameCommand.Id] = newGameCommand;
             _commands[showLeaderBoardCommand.Id] = showLeaderBoardCommand;
+            _commands[saveVolumeButtonCommand.Id] = saveVolumeButtonCommand;
         }
 
         public void Handle(ButtonCommandId buttonCommandId)

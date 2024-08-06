@@ -22731,6 +22731,7 @@ GameObject:
   - component: {fileID: 783880109}
   - component: {fileID: 783880108}
   - component: {fileID: 783880107}
+  - component: {fileID: 783880110}
   m_Layer: 5
   m_Name: Settings_View
   m_TagString: Untagged
@@ -22859,6 +22860,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &783880110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783880105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09d3f64890e417bbd9effd91eb04f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _labele: <size=18><b><color=#0000FF><i>UiViewSignalSender</i></color></b></size>
+  _view: {fileID: 783880107}
+  _enableCommandId: 
+  _disableCommandId: 
 --- !u!1 &787860730
 GameObject:
   m_ObjectHideFlags: 0
@@ -37333,8 +37350,6 @@ GameObject:
   - component: {fileID: 1465298361}
   - component: {fileID: 1465298360}
   - component: {fileID: 1465298359}
-  - component: {fileID: 1465298363}
-  - component: {fileID: 1465298364}
   m_Layer: 5
   m_Name: Audio_Container
   m_TagString: Untagged
@@ -37487,38 +37502,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!114 &1465298363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465298357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f24cbf31fe247d6ace13bb50deaa08f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slider: {fileID: 29650821}
-  _toggle: {fileID: 2120287727}
-  _leftArrow: {fileID: 579623262}
-  _rightArrow: {fileID: 912522645}
---- !u!114 &1465298364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465298357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a5ee2076734104bff273b4175e4455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slider: {fileID: 1605345931}
-  toggle: {fileID: 2112322692}
-  _leftArrow: {fileID: 437090579}
-  _rightArrow: {fileID: 144752487}
 --- !u!1 &1480765266
 GameObject:
   m_ObjectHideFlags: 0
@@ -44901,8 +44884,8 @@ MonoBehaviour:
   - {fileID: 150168378}
   - {fileID: 393309348}
   - {fileID: 1774921365}
-  _musicVolumeView: {fileID: 0}
-  _soundVolumeView: {fileID: 0}
+  _musicVolumeView: {fileID: 560892442}
+  _soundVolumeView: {fileID: 1881578619}
   _uiCollector: {fileID: 2083160722}
 --- !u!114 &2083160722
 MonoBehaviour:
@@ -49999,6 +49982,7 @@ GameObject:
   - component: {fileID: 38528786620464149}
   - component: {fileID: 2126038689405599592}
   - component: {fileID: 8823242882456334076}
+  - component: {fileID: 8823242882456334077}
   m_Layer: 5
   m_Name: Back_Button
   m_TagString: Untagged
@@ -50021,6 +50005,23 @@ MonoBehaviour:
   _labele: <size=18><b><color=#FFD700><i>UiButtonAudioService</i></color></b></size>
   _onClickAudioClip: 1
   _button: {fileID: 38528786620464149}
+--- !u!114 &8823242882456334077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823242882456334075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32a18db22984b7eb49fa15ac7395602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _labele: <size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>
+  _button: {fileID: 38528786620464149}
+  _onClickCommandId: 0c000000
+  _enableCommandId: 
+  _disableCommandId: 
 --- !u!1001 &9029514730166099885
 PrefabInstance:
   m_ObjectHideFlags: 0

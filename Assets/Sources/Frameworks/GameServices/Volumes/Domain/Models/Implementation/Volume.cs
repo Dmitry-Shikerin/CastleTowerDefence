@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Interfaces;
 

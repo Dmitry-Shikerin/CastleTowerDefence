@@ -13,5 +13,6 @@
         ClearSaves = 9,
         PlayerAccountAuthorize = 10,
         Pause = 11,
+        SaveVolume = 12,
     }
 }

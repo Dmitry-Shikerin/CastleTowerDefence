@@ -2,9 +2,7 @@
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
-using Sources.ECSBoundedContexts.StarUps;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
