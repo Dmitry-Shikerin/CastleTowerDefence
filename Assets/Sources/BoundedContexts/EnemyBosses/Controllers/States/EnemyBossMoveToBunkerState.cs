@@ -65,7 +65,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 
         private void FindTarget()
         {
-            var characterHealthView =
+            CharacterHealthView characterHealthView =
                 OverlapService
                     .OverlapSphere<CharacterHealthView>(
                         View.Position, View.FindRange,
