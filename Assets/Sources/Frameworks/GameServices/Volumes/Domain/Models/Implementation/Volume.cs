@@ -4,64 +4,39 @@ using Sources.Frameworks.GameServices.Volumes.Domain.Models.Interfaces;
 
 namespace Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation
 {
-    //todo разбить на две модели дубляэ в вольюме, а и вьшки фабрики объединить
     public class Volume : IVolume, IEntity
     {
-        private float _musicVolume = 0.2f;
-        private float _soundsVolume = 0.2f;
-        private bool _isMusicMuted;
-        private bool _isSoundMuted;
+        private float _volumeValue = 0.2f;
+        private bool _isVolumeMuted;
 
         public Volume(string id)
         {
             Id = id;
         }
 
-        public event Action MusicVolumeChanged;
-        public event Action SoundsVolumeChanged;
-        public event Action MusicMuted;
-        public event Action SoundMuted;
+        public event Action VolumeChanged;
+        public event Action VolumeMuted;
 
         public string Id { get; }
         public Type Type => GetType();
 
-        public float SoundsVolume
+        public float VolumeValue
         {
-            get => _soundsVolume;
+            get => _volumeValue;
             set
             {
-                _soundsVolume = value;
-                SoundsVolumeChanged?.Invoke();
+                _volumeValue = value;
+                VolumeChanged?.Invoke();
             }
         }
 
-        public float MusicVolume
+        public bool IsVolumeMuted
         {
-            get => _musicVolume;
+            get => _isVolumeMuted;
             set
             {
-                _musicVolume = value;
-                MusicVolumeChanged?.Invoke();
-            }
-        }
-
-        public bool IsSoundsMuted
-        {
-            get => _isSoundMuted;
-            set
-            {
-                _isSoundMuted = value;
-                SoundMuted?.Invoke();
-            }
-        }
-
-        public bool IsMusicMuted
-        {
-            get => _isMusicMuted;
-            set
-            {
-                _isMusicMuted = value;
-                MusicMuted?.Invoke();
+                _isVolumeMuted = value;
+                VolumeMuted?.Invoke();
             }
         }
     }

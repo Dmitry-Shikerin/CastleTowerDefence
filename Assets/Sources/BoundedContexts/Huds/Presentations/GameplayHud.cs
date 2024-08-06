@@ -42,9 +42,9 @@ namespace Sources.BoundedContexts.Huds.Presentations
         [Required] [SerializeField] private PlayerWalletView _playerWalletView;
         
         [FoldoutGroup("Volume")]
-        [Required] [SerializeField] private MusicChangerView _musicChangerView;
+        [Required] [SerializeField] private VolumeView _musicVolumeView;
         [FoldoutGroup("Volume")]
-        [Required] [SerializeField] private SoundsChangerView _soundsChangerView;
+        [Required] [SerializeField] private VolumeView _soundVolumeView;
         
         public UiCollector UiCollector => _uiCollector;
 
@@ -62,7 +62,7 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public UpgradeView FlamethrowerAbilityUpgradeView => _flamethrowerAbilityUpgradeView;
         
         public PlayerWalletView PlayerWalletView => _playerWalletView;
-        public MusicChangerView MusicChangerView => _musicChangerView;
-        public SoundsChangerView SoundsChangerView => _soundsChangerView;
+        public VolumeView MusicVolumeView => _musicVolumeView;
+        public VolumeView SoundVolumeView => _soundVolumeView;
     }
 }
