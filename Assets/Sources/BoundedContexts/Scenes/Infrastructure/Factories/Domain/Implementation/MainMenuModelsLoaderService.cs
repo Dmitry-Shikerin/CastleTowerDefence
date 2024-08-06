@@ -5,6 +5,7 @@ using Sources.BoundedContexts.Scenes.Domain;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
 {
@@ -27,6 +28,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             
             Volume musicVolume = _entityRepository.Get<Volume>(ModelId.MusicVolume);
             Volume soundsVolume = _entityRepository.Get<Volume>(ModelId.SoundsVolume);
+            
+            Debug.Log($"Load models");
             
             return new MainMenuModel(
                 musicVolume, 

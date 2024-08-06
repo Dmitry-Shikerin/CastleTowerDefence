@@ -8,6 +8,7 @@ using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
@@ -51,7 +52,11 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private MainMenuModel Load(IScenePayload payload)
         {
             if (_loadService.HasKey(ModelId.SoundsVolume))
+            {
+                Debug.Log(_loadService.HasKey(ModelId.SoundsVolume));
+                Debug.Log($"Load models");
                 return _mainMenuModelsLoaderService.Load();
+            }
             
             return _mainMenuModelsCreatorService.Load();
         }

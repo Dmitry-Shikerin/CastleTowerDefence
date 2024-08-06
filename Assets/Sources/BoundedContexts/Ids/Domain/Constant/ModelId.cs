@@ -59,10 +59,11 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             SavedLevel,
             GameData,
             Gameplay,
-            MusicVolume,
             PlayerWallet,
             KillEnemyCounter,
             Tutorial,
+            SoundsVolume,
+            MusicVolume
         };
 
         public static IReadOnlyDictionary<string, Type> Types { get; } = new Dictionary<string, Type>()
@@ -78,6 +79,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             [FlamethrowerAbility] = typeof(FlamethrowerAbility),
             [KillEnemyCounter] = typeof(KillEnemyCounter),
             [MusicVolume] = typeof(Volume),
+            [SoundsVolume] = typeof(Volume),
         };
     }
 }
