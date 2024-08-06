@@ -2,7 +2,6 @@
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
@@ -24,6 +23,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         protected override void OnEnter()
         {
             Animation.Attacking += OnAttack;
+            View.Move(View.CharacterHealthView.Position);
             Animation.PlayAttack();
         }
 
