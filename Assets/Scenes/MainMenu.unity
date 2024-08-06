@@ -15204,6 +15204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 560892441}
+  - component: {fileID: 560892442}
   m_Layer: 5
   m_Name: Music_Container
   m_TagString: Untagged
@@ -15233,6 +15234,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &560892442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560892440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f24cbf31fe247d6ace13bb50deaa08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 29650821}
+  _toggle: {fileID: 2120287727}
+  _leftArrow: {fileID: 579623262}
+  _rightArrow: {fileID: 912522645}
 --- !u!1 &565302961
 GameObject:
   m_ObjectHideFlags: 0
@@ -42017,6 +42034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1881578618}
+  - component: {fileID: 1881578619}
   m_Layer: 5
   m_Name: Sound_Container
   m_TagString: Untagged
@@ -42046,6 +42064,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1881578619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881578617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f24cbf31fe247d6ace13bb50deaa08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 1605345931}
+  _toggle: {fileID: 2112322692}
+  _leftArrow: {fileID: 437090579}
+  _rightArrow: {fileID: 144752487}
 --- !u!1 &1891574417
 GameObject:
   m_ObjectHideFlags: 0
@@ -44867,8 +44901,8 @@ MonoBehaviour:
   - {fileID: 150168378}
   - {fileID: 393309348}
   - {fileID: 1774921365}
-  _musicChangerView: {fileID: 1465298363}
-  _soundsChangerView: {fileID: 1465298364}
+  _musicVolumeView: {fileID: 0}
+  _soundVolumeView: {fileID: 0}
   _uiCollector: {fileID: 2083160722}
 --- !u!114 &2083160722
 MonoBehaviour:

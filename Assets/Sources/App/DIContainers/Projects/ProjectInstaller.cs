@@ -17,8 +17,7 @@ namespace Sources.App.DIContainers.Projects
             Container.Bind<IPauseService>().To<PauseService>().AsSingle();
             Container.Bind<IFocusService>().To<FocusService>().AsSingle();
 
-            Container.Bind<MusicChangerViewFactory>().AsSingle();
-            Container.Bind<SoundsChangerViewFactory>().AsSingle();
+            Container.Bind<VolumeViewFactory>().AsSingle();
         }
     }
 }
