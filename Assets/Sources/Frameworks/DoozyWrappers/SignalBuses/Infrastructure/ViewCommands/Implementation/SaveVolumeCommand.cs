@@ -19,7 +19,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewComman
         
         public void Handle()
         {
-            _loadService.Save(ModelId.Volume);
+            _loadService.Save(ModelId.MusicVolume);
         }
     }
 }

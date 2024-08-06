@@ -25,7 +25,8 @@ namespace Sources.BoundedContexts.Scenes.Domain
             FlamethrowerAbility flamethrowerAbility,
             KillEnemyCounter killEnemyCounter,
             PlayerWallet playerWallet,
-            Volume volume)
+            Volume musicVolume,
+            Volume soundsVolume)
         {
             CharacterHealthUpgrade = characterHealthUpgrade;
             CharacterAttackUpgrade = characterAttackUpgrade;
@@ -38,7 +39,7 @@ namespace Sources.BoundedContexts.Scenes.Domain
             FlamethrowerAbility = flamethrowerAbility;
             KillEnemyCounter = killEnemyCounter;
             PlayerWallet = playerWallet;
-            Volume = volume;
+            MusicVolume = musicVolume;
         }
 
         public Upgrade CharacterHealthUpgrade { get; }
@@ -52,6 +53,6 @@ namespace Sources.BoundedContexts.Scenes.Domain
         public FlamethrowerAbility FlamethrowerAbility { get; }
         public KillEnemyCounter KillEnemyCounter { get; }
         public PlayerWallet PlayerWallet { get; }
-        public Volume Volume { get; }
+        public Volume MusicVolume { get; }
     }
 }

@@ -133,9 +133,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _uiCollectorFactory.Create();
 
             //Volume
-            _audioService.Construct(gameplayModel.Volume);
-            _volumeViewFactory.Create(gameplayModel.Volume, _gameplayHud.MusicVolumeView);
-            _volumeViewFactory.Create(gameplayModel.Volume, _gameplayHud.SoundVolumeView);
+            _audioService.Construct(gameplayModel.MusicVolume);
+            _volumeViewFactory.Create(gameplayModel.MusicVolume, _gameplayHud.MusicVolumeView);
+            _volumeViewFactory.Create(gameplayModel.MusicVolume, _gameplayHud.SoundVolumeView);
         }
 
         private GameplayModel Load(IScenePayload payload)

@@ -35,11 +35,18 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string ScoreCounter = "ScoreCounter";
         public const string MainMenu = "MainMenu";
         public const string SavedLevel = "SavedLevel";
-        public const string Volume = "Volume";
+        public const string MusicVolume = "MusicVolume";
+        public const string SoundsVolume = "SoundVolume";
         public const string GameData = "GameData";
         public const string Tutorial = "Tutorial";
         public const string Gameplay = "Gameplay";
 
+        public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()
+        {
+            SoundsVolume,
+            MusicVolume,
+        };
+        
         public static IReadOnlyList<string> DeletedModelsIds { get; } = new List<string>()
         {
             PlayerWallet,
@@ -52,7 +59,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             SavedLevel,
             GameData,
             Gameplay,
-            Volume,
+            MusicVolume,
             PlayerWallet,
             KillEnemyCounter,
             Tutorial,
@@ -70,7 +77,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             [NukeAbility] = typeof(NukeAbility),
             [FlamethrowerAbility] = typeof(FlamethrowerAbility),
             [KillEnemyCounter] = typeof(KillEnemyCounter),
-            [Volume] = typeof(Volume),
+            [MusicVolume] = typeof(Volume),
         };
     }
 }

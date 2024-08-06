@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
@@ -14,6 +15,7 @@ using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
@@ -23,14 +25,17 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
     public class GameplayModelsCreatorService : IGameplayModelsLoaderService
     {
         private readonly IEntityRepository _entityRepository;
+        private readonly ILoadService _loadService;
         private readonly UpgradeConfigContainer _upgradeConfigContainer;
 
         public GameplayModelsCreatorService(
             IEntityRepository entityRepository,
+            ILoadService loadService,
             UpgradeConfigContainer upgradeConfigContainer)
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
+            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _upgradeConfigContainer = upgradeConfigContainer ?? 
                                       throw new ArgumentNullException(nameof(upgradeConfigContainer));
         }
@@ -38,21 +43,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
         public GameplayModel Load()
         {
             //Upgrades
-            Upgrade characterHealthUpgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == ModelId.HealthUpgrade));
-            _entityRepository.Add(characterHealthUpgrade);
-            
-            Upgrade characterAttackUpgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == ModelId.AttackUpgrade));
-            _entityRepository.Add(characterAttackUpgrade);
-            
-            Upgrade nukeAbilityUpgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == ModelId.NukeUpgrade));
-            _entityRepository.Add(nukeAbilityUpgrade);
-            
-            Upgrade flamethrowerAbilityUpgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == ModelId.FlamethrowerUpgrade));
-            _entityRepository.Add(flamethrowerAbilityUpgrade);
+            Upgrade characterHealthUpgrade = CreateUpgrade(ModelId.HealthUpgrade);
+            Upgrade characterAttackUpgrade = CreateUpgrade(ModelId.AttackUpgrade);
+            Upgrade nukeAbilityUpgrade = CreateUpgrade(ModelId.NukeUpgrade);
+            Upgrade flamethrowerAbilityUpgrade = CreateUpgrade(ModelId.FlamethrowerAbility);
             
             //Bunker
             Bunker bunker = new Bunker(15, ModelId.Bunker);
@@ -85,8 +79,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(playerWallet);
             
             //Volume
-            Volume volume = new Volume(ModelId.Volume);
-            _entityRepository.Add(volume);
+            Volume musicVolume = LoadVolume(ModelId.MusicVolume);
+            Volume soundsVolume = LoadVolume(ModelId.SoundsVolume);
             
             return new GameplayModel(
                 characterHealthUpgrade,
@@ -100,7 +94,28 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 flamethrowerAbility,
                 killEnemyCounter,
                 playerWallet,
-                volume);
+                musicVolume,
+                soundsVolume);
+        }
+
+        private Volume LoadVolume(string key)
+        {
+            if (_loadService.HasKey(key))
+                return _loadService.Load<Volume>(key);
+
+            Volume volume = new Volume(key);
+            _entityRepository.Add(volume);
+            
+            return volume;
+        }
+
+        private Upgrade CreateUpgrade(string id)
+        {
+            Upgrade upgrade = new Upgrade(
+                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == id));
+            _entityRepository.Add(upgrade);
+
+            return upgrade;
         }
     }
 }
