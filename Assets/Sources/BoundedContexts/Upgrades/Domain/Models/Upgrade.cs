@@ -21,12 +21,12 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Models
         public string Id { get; }
         public Type Type => GetType();
         public IReadOnlyList<UpgradeLevel> Levels  { get; private set; }
-        [JsonIgnore]
-        public float CurrentAmount => Levels[CurrentLevel].CurrentAmount;
         public int CurrentLevel { get; private set; }
         [JsonIgnore]
+        public float CurrentAmount => Levels[CurrentLevel].CurrentAmount;
+        [JsonIgnore]
         public int MaxLevel => Levels.Count - 1;
-        
+
         public void ApplyUpgrade(PlayerWallet wallet)
         {
             if (CurrentLevel >= MaxLevel)

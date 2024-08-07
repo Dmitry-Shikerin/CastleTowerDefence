@@ -41,7 +41,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _view.CurrentWaveText.SetText(_enemySpawner.CurrentWaveNumber.ToString());
             _view.SpawnerProgressSlider.value = 0;
-            Debug.Log($"slider value {_view.SpawnerProgressSlider.value}");
+            // Debug.Log($"slider value {_view.SpawnerProgressSlider.value}");
         }
 
         private void OnSpawnedEnemiesInCurrentWaveChanged()
