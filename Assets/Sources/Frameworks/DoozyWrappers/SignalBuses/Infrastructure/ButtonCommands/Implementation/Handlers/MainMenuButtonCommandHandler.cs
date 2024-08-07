@@ -5,33 +5,24 @@ using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers
 {
-    public class MainMenuButtonCommandHandler : IButtonCommandHandler
+    public class MainMenuButtonCommandHandler : ButtonCommandHandler
     {
-        private readonly Dictionary<ButtonCommandId, IButtonCommand> _commands =
-            new Dictionary<ButtonCommandId, IButtonCommand>();
-
         public MainMenuButtonCommandHandler(
             LoadMainMenuSceneCommand loadMainMenuSceneCommand,
             UnPauseButtonCommand unPauseButtonCommand,
             ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
             ClearSavesButtonCommand clearSavesButtonCommand,
             NewGameCommand newGameCommand,
-            ShowLeaderboardCommand showLeaderBoardCommand)
+            ShowLeaderboardCommand showLeaderBoardCommand,
+            SaveVolumeButtonCommand saveVolumeButtonCommand)
         {
-            _commands[loadMainMenuSceneCommand.Id] = loadMainMenuSceneCommand;
-            _commands[unPauseButtonCommand.Id] = unPauseButtonCommand;
-            _commands[showRewardedAdvertisingButtonCommand.Id] = showRewardedAdvertisingButtonCommand;
-            _commands[clearSavesButtonCommand.Id] = clearSavesButtonCommand;
-            _commands[newGameCommand.Id] = newGameCommand;
-            _commands[showLeaderBoardCommand.Id] = showLeaderBoardCommand;
-        }
-
-        public void Handle(ButtonCommandId buttonCommandId)
-        {
-            if (_commands.ContainsKey(buttonCommandId) == false)
-                throw new KeyNotFoundException(nameof(buttonCommandId));
-
-            _commands[buttonCommandId].Handle();
+            Add(loadMainMenuSceneCommand);
+            Add(unPauseButtonCommand);
+            Add(showRewardedAdvertisingButtonCommand);
+            Add(clearSavesButtonCommand);
+            Add(newGameCommand);
+            Add(showLeaderBoardCommand);
+            Add(saveVolumeButtonCommand);
         }
     }
 }

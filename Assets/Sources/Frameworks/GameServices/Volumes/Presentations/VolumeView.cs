@@ -36,7 +36,6 @@ namespace Sources.Frameworks.GameServices.Volumes.Presentations
         public void Construct(Volume volume)
         {
             _volume = volume ?? throw new ArgumentNullException(nameof(volume));
-            
             SetSliderValue();
         }
 

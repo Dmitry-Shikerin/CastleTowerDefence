@@ -5,22 +5,13 @@ using Sources.Frameworks.UiFramework.Domain.Commands;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers
 {
-    public class GameplayUiViewCommandHandler : IUiViewCommandHandler
+    public abstract class ViewCommandHandler : IViewCommandHandler
     {
         private readonly Dictionary<FormCommandId, IViewCommand> _commands = 
             new Dictionary<FormCommandId, IViewCommand>();
-        
-        public GameplayUiViewCommandHandler(
-            PauseCommand pauseCommand,
-            UnPauseCommand unPauseCommand,
-            SaveVolumeCommand saveVolumeCommand,
-            ClearSavesCommand clearSavesCommand)
-        {
-            _commands[pauseCommand.Id] = pauseCommand;
-            _commands[unPauseCommand.Id] = unPauseCommand;
-            _commands[saveVolumeCommand.Id] = saveVolumeCommand;
-            _commands[clearSavesCommand.Id] = clearSavesCommand;
-        }
+
+        protected void Add(IViewCommand viewCommand) =>
+            _commands[viewCommand.Id] = viewCommand;
 
         public void Handle(FormCommandId formCommandId)
         {

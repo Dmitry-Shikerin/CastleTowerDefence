@@ -7,18 +7,18 @@ namespace Sources.Frameworks.UiFramework.Infrastructure.Services.Forms
 {
     public class UiViewService : IUiViewService
     {
-        private readonly IUiViewCommandHandler _uiViewCommandHandler;
+        private readonly IViewCommandHandler _viewCommandHandler;
 
-        public UiViewService(IUiViewCommandHandler uiViewCommandHandler)
+        public UiViewService(IViewCommandHandler viewCommandHandler)
         {
-            _uiViewCommandHandler = uiViewCommandHandler;
+            _viewCommandHandler = viewCommandHandler;
         }
 
         public void Handle(IEnumerable<FormCommandId> commandIds)
         {
             foreach (FormCommandId commandId in commandIds)
             {
-                _uiViewCommandHandler.Handle(commandId);
+                _viewCommandHandler.Handle(commandId);
             }
         }
     }

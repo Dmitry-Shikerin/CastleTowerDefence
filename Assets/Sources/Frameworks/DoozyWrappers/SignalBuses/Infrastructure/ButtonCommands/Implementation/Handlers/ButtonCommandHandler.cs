@@ -5,28 +5,13 @@ using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers
 {
-    public class ButtonCommandHandler : IButtonCommandHandler
+    public abstract class ButtonCommandHandler : IButtonCommandHandler
     {
         private readonly Dictionary<ButtonCommandId, IButtonCommand> _commands =
             new Dictionary<ButtonCommandId, IButtonCommand>();
 
-        public ButtonCommandHandler(
-            CompleteTutorialCommand completeTutorialCommand,
-            LoadMainMenuSceneCommand loadMainMenuSceneCommand,
-            UnPauseButtonCommand unPauseButtonCommand,
-            ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
-            ClearSavesButtonCommand clearSavesButtonCommand,
-            NewGameCommand newGameCommand,
-            ShowLeaderboardCommand showLeaderBoardCommand)
-        {
-            _commands[completeTutorialCommand.Id] = completeTutorialCommand;
-            _commands[loadMainMenuSceneCommand.Id] = loadMainMenuSceneCommand;
-            _commands[unPauseButtonCommand.Id] = unPauseButtonCommand;
-            _commands[showRewardedAdvertisingButtonCommand.Id] = showRewardedAdvertisingButtonCommand;
-            _commands[clearSavesButtonCommand.Id] = clearSavesButtonCommand;
-            _commands[newGameCommand.Id] = newGameCommand;
-            _commands[showLeaderBoardCommand.Id] = showLeaderBoardCommand;
-        }
+        protected void Add(IButtonCommand buttonCommand) =>
+            _commands[buttonCommand.Id] = buttonCommand;
 
         public void Handle(ButtonCommandId buttonCommandId)
         {
