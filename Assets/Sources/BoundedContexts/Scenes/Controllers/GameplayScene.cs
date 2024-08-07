@@ -61,14 +61,14 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _audioService.Initialize();
             _signalControllersCollector.Initialize();
             _audioService.Play(AudioGroupId.GameplayBackground);
-            _ecsGameStartUp.Initialize();
+            // _ecsGameStartUp.Initialize();
             _gameOverService.Initialize();
             // await _curtainView.HideAsync();
         }
 
         public void Exit()
         {
-            _ecsGameStartUp.Destroy();
+            // _ecsGameStartUp.Destroy();
             _signalControllersCollector.Destroy();
             _audioService.Stop(AudioGroupId.GameplayBackground);
             _audioService.Destroy();
@@ -77,7 +77,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 
         public void Update(float deltaTime)
         {
-            _ecsGameStartUp.Update(deltaTime);
+            // _ecsGameStartUp.Update(deltaTime);
         }
 
         public void UpdateLate(float deltaTime)
