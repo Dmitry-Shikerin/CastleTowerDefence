@@ -1,4 +1,5 @@
-﻿using Doozy.Engine.Soundy;
+﻿using System.Collections;
+using Doozy.Engine.Soundy;
 using MyAudios.MyUiFramework.Utils;
 using MyAudios.Soundy.Sources.AudioControllers.Controllers;
 using MyAudios.Soundy.Sources.AudioPoolers.Controllers;
@@ -142,16 +143,12 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         }
 
         /// <summary> Stop all SoundyControllers from playing and destroys the GameObjects they are attached to </summary>
-        public static void KillAllControllers()
-        {
+        public static void KillAllControllers() =>
             SoundyController.KillAll();
-        }
 
         /// <summary> Mute all the SoundyControllers </summary>
-        public static void MuteAllControllers()
-        {
+        public static void MuteAllControllers() =>
             SoundyController.MuteAll();
-        }
 
         /// <summary> Mute all sound sources (including MasterAudio) </summary>
         public static void MuteAllSounds()
@@ -163,10 +160,8 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         }
 
         /// <summary> Pause all the SoundyControllers that are currently playing </summary>
-        public static void PauseAllControllers()
-        {
+        public static void PauseAllControllers() =>
             SoundyController.PauseAll();
-        }
 
         /// <summary> Pause all sound sources (including MasterAudio) </summary>
         public static void PauseAllSounds()
@@ -176,6 +171,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             DarkTonic.MasterAudio.MasterAudio.PauseEverything();
 #endif
         }
+
+        public static void SetVolume(string soundName, float volume) =>
+            SoundyController.SetVolume(soundName, volume);
 
         /// <summary>
         /// Play the specified sound at the given position.
@@ -260,7 +258,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             
             return Play(audioClip, null, followTarget);
         }
-
+        
         /// <summary>
         /// Play the specified sound with the given category, name and type.
         /// Returns a reference to the SoundyController that is playing the sound.
@@ -268,7 +266,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         /// </summary>
         /// <param name="databaseName"> The sound category </param>
         /// <param name="soundName"> Sound Name of the sound </param>
-        public static SoundyController Play(string databaseName, string soundName)
+        public static SoundyController  Play(string databaseName, string soundName)
         {
             if (s_initialized == false)
                 s_instance = Instance;
@@ -295,7 +293,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             if (soundGroupData == null) 
                 return null;
             
-            Debug.Log($"SoundyManager: Play {soundName} from {databaseName}");
             return soundGroupData.Play(Pooler.transform, soundDatabase.OutputAudioMixerGroup);
         }
 
@@ -348,6 +345,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             controller.SetOutputAudioMixerGroup(outputAudioMixerGroup);
             controller.SetPosition(position);
             controller.gameObject.name = "[AudioClip]-(" + audioClip.name + ")";
+            controller.Name = audioClip.name;
             controller.Play();
             
             return controller;
@@ -398,6 +396,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             }
 
             controller.gameObject.name = "[AudioClip]-(" + audioClip.name + ")";
+            controller.Name = audioClip.name;
             controller.Play();
             
             return controller;
@@ -431,6 +430,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
 
             return null;
         }
+
+        public static void Stop(string databaseName, string soundName) =>
+            SoundyController.Stop(databaseName, soundName);
 
         /// <summary> Stop all the SoundyControllers that are currently playing </summary>
         public static void StopAllControllers() =>

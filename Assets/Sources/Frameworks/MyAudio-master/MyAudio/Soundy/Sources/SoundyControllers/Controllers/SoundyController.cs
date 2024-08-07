@@ -2,6 +2,7 @@
 using System.Linq;
 using MyAudios.MyUiFramework.Utils;
 using MyAudios.Soundy.Sources.AudioPoolers.Controllers;
+using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -98,11 +99,19 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
 
         private bool _muted;
         private bool _paused;
+        
+        private string _name;
 
         #endregion
         
         #region Properties
 
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
+        
         /// <summary> Target AudioSource component </summary>
         public AudioSource AudioSource
         {
@@ -408,5 +417,19 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             PauseAllControllers = false;
 
         #endregion
+
+        public static void Stop(string databaseName, string soundName)
+        {
+            s_database
+                .Where(controller => controller.Name == soundName)
+                .ForEach(controller => controller.Stop());
+        }
+        
+        public static void SetVolume(string soundName, float volume)
+        {
+            s_database
+                .Where(controller => controller.Name == soundName)
+                .ForEach(controller => controller.AudioSource.volume = volume);
+        }
     }
 }

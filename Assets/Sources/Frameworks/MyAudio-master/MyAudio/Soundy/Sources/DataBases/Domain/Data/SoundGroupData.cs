@@ -236,7 +236,10 @@ namespace Doozy.Engine.Soundy
                 return controller;
             
             controller.gameObject.name = "[" + SoundName + "]-(" + m_lastPlayedAudioData.AudioClip.name + ")";
+            controller.Name = SoundName;
+            Debug.Log(SoundName);
             controller.Play();
+            
             return controller;
         }
 
@@ -349,6 +352,7 @@ namespace Doozy.Engine.Soundy
 
                     m_playedSounds.Add(Sounds[m_lastPlayedSoundsIndex]); //add the played sound to the playedSounds list
                     m_lastPlayedSoundTime = Time.realtimeSinceStartup;   //save the last played sound time
+                    
                     return Sounds[m_lastPlayedSoundsIndex];              //return the sound that will get played
             }
 

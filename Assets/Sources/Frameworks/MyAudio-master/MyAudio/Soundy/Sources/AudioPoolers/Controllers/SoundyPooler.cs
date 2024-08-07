@@ -110,7 +110,9 @@ namespace MyAudios.Soundy.Sources.AudioPoolers.Controllers
         public static SoundyController GetControllerFromPool()
         {
             RemoveNullControllersFromThePool();
-            if (Pool.Count <= 0) PutControllerInPool(SoundyController.GetController()); //the pool does not have any controllers in it -> create and return a new controller
+            if (Pool.Count <= 0)
+                PutControllerInPool(SoundyController.GetController()); //the pool does not have any controllers in it -> create and return a new controller
+            
             SoundyController controller = Pool[0];                        //assign the first found controller
             Pool.Remove(controller);                                      //remove the assigned controller from the pool
             controller.gameObject.SetActive(true);
