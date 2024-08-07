@@ -1,8 +1,8 @@
 ﻿namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers
 {
-    public class MainMenuViewCommandHandler : ViewCommandHandler
+    public class GameplayViewCommandHandler : ViewCommandHandler
     {
-        public MainMenuViewCommandHandler(
+        public GameplayViewCommandHandler(
             PauseCommand pauseCommand,
             UnPauseCommand unPauseCommand,
             SaveVolumeCommand saveVolumeCommand,

@@ -2,7 +2,7 @@
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers
 {
-    public interface IUiViewCommandHandler
+    public interface IViewCommandHandler
     {
         void Handle(FormCommandId formCommandId);
     }

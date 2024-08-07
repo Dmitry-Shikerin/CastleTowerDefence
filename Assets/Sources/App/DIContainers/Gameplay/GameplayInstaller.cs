@@ -39,7 +39,7 @@ namespace Sources.App.DIContainers.Gameplay
             
             //UiCommands
             Container.Bind<IButtonCommandHandler>().To<GameplayButtonCommandHandler>().AsSingle();
-            Container.Bind<IUiViewCommandHandler>().To<GameplayUiViewCommandHandler>().AsSingle();
+            Container.Bind<IViewCommandHandler>().To<GameplayViewCommandHandler>().AsSingle();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementatio
 {
     public class ViewCommandSignalController : ISignalController
     {
-        private readonly IUiViewCommandHandler _viewCommandHandler;
+        private readonly IViewCommandHandler _viewCommandHandler;
 
         private SignalReceiver _enableSignalReceiver;
         private SignalStream _enableSignalStream;
@@ -19,7 +19,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementatio
         
 
         public ViewCommandSignalController(
-            IUiViewCommandHandler viewCommandHandler)
+            IViewCommandHandler viewCommandHandler)
         {
             _viewCommandHandler = viewCommandHandler ??
                                     throw new ArgumentNullException(nameof(viewCommandHandler));

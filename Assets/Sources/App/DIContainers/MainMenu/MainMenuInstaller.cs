@@ -30,7 +30,7 @@ namespace Sources.App.DIContainers.MainMenu
             
             //UiCommands
             Container.Bind<IButtonCommandHandler>().To<MainMenuButtonCommandHandler>().AsSingle();
-            Container.Bind<IUiViewCommandHandler>().To<MainMenuViewCommandHandler>().AsSingle();
+            Container.Bind<IViewCommandHandler>().To<MainMenuViewCommandHandler>().AsSingle();
         }
     }
 }
