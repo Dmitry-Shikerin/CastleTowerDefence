@@ -1,0 +1,23 @@
+﻿{
+  "name": "com.dmitry_shikerin.my_audio",
+  "version": "0.0.12",
+  "displayName": "MyAudio",
+  "description": "Plug-in for sound management",
+  "unity": "2022.3",
+  "unityRelease": "13f1",
+  "documentationUrl": "https://github.com/Dmitry-Shikerin/MyAudio",
+  "changelogUrl": "https://github.com/Dmitry-Shikerin/MyAudio",
+  "licensesUrl": "https://github.com/Dmitry-Shikerin/MyAudio",
+  "dependencies": {
+  },
+  "author": {
+    "name": "Dmitry Shikerin"
+  },
+  "samples": [
+    {
+      "displayName": "MyAudio",
+      "description": "Plug-in for sound management",
+      "path": "Samples~/MyAudio"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7f8656eab62141a68b150d201c332179
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - Database: {fileID: 11400000, guid: 5c0ecab924cded742bc93c832911e0eb, type: 2}
+  - PlugAudio: {fileID: 8300000, guid: 2c45a3a99668da74d9ff7a4010e1c39a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
