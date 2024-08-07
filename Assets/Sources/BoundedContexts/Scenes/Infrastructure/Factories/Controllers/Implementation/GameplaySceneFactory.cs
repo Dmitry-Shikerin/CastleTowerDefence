@@ -1,5 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
@@ -17,6 +19,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class GameplaySceneFactory : ISceneFactory
     {
+        private readonly ISoundyService _soundyService;
         private readonly IGameOverService _gameOverService;
         private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly ISceneViewFactory _sceneViewFactory;
@@ -28,6 +31,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplaySceneFactory(
+            ISoundyService soundyService,
             IGameOverService gameOverService,
             IEcsGameStartUp ecsGameStartUp,
             ISceneViewFactory gameplaySceneViewFactory,
@@ -38,6 +42,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
             _sceneViewFactory = gameplaySceneViewFactory ?? 
@@ -54,6 +59,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene gameplayScene = new GameplayScene(
+                _soundyService,
                 _gameOverService,
                 _ecsGameStartUp,
                 _sceneViewFactory,

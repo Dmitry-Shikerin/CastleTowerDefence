@@ -295,6 +295,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             if (soundGroupData == null) 
                 return null;
             
+            Debug.Log($"SoundyManager: Play {soundName} from {databaseName}");
             return soundGroupData.Play(Pooler.transform, soundDatabase.OutputAudioMixerGroup);
         }
 
