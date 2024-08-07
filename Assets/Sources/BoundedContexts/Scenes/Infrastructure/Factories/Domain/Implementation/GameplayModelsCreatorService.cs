@@ -46,7 +46,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             Upgrade characterHealthUpgrade = CreateUpgrade(ModelId.HealthUpgrade);
             Upgrade characterAttackUpgrade = CreateUpgrade(ModelId.AttackUpgrade);
             Upgrade nukeAbilityUpgrade = CreateUpgrade(ModelId.NukeUpgrade);
-            Upgrade flamethrowerAbilityUpgrade = CreateUpgrade(ModelId.FlamethrowerAbility);
+            Upgrade flamethrowerAbilityUpgrade = CreateUpgrade(ModelId.FlamethrowerUpgrade);
             
             //Bunker
             Bunker bunker = new Bunker(15, ModelId.Bunker);
@@ -111,8 +111,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
         private Upgrade CreateUpgrade(string id)
         {
-            Upgrade upgrade = new Upgrade(
-                _upgradeConfigContainer.UpgradeConfigs.First(config => config.Id == id));
+            UpgradeConfig config = _upgradeConfigContainer.UpgradeConfigs
+                .First(config => config.Id == id);
+            Upgrade upgrade = new Upgrade(config);
             _entityRepository.Add(upgrade);
 
             return upgrade;
