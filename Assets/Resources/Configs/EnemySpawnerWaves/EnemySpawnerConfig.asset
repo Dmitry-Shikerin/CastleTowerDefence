@@ -40,6 +40,126 @@ MonoBehaviour:
   _enemyCount: 5
   _bossesCount: 1
   _kamikazeEnemyCount: 0
+--- !u!114 &-6606785429831717406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_8
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 8
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 0
+  _enemyCount: 0
+  _bossesCount: 0
+  _kamikazeEnemyCount: 0
+--- !u!114 &-6286932152814063673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_11
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 11
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 0
+  _enemyCount: 0
+  _bossesCount: 0
+  _kamikazeEnemyCount: 0
+--- !u!114 &-5298965352021156579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_9
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 9
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 0
+  _enemyCount: 0
+  _bossesCount: 0
+  _kamikazeEnemyCount: 0
+--- !u!114 &-5298096508376789568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_10
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 10
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 0
+  _enemyCount: 0
+  _bossesCount: 0
+  _kamikazeEnemyCount: 0
+--- !u!114 &-3497566403805953450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_13
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 13
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 0
+  _enemyCount: 0
+  _bossesCount: 0
+  _kamikazeEnemyCount: 0
+--- !u!114 &-1109636579973074604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_6
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 6
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 0
+  _enemyCount: 0
+  _bossesCount: 0
+  _kamikazeEnemyCount: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,13 +178,21 @@ MonoBehaviour:
   - {fileID: -7328864950865445786}
   - {fileID: -8403183261691909033}
   - {fileID: 5326304262265565895}
-  _startEnemyAttackPower: 2
+  - {fileID: -1109636579973074604}
+  - {fileID: -1109636579973074604}
+  - {fileID: -6606785429831717406}
+  - {fileID: -5298965352021156579}
+  - {fileID: -5298096508376789568}
+  - {fileID: -6286932152814063673}
+  - {fileID: 1485793479507170223}
+  - {fileID: -3497566403805953450}
+  _startEnemyAttackPower: 5
   _addedEnemyAttackPower: 1
   _startEnemyHealth: 20
   _addedenemyHealth: 1
-  _startBossAttackPower: 3
+  _startBossAttackPower: 5
   _addedBossAttackPower: 1
-  _startbossMassAttackPower: 5
+  _startbossMassAttackPower: 10
   _addedBossMassAttackPower: 1
   _startBossHealth: 80
   _addedBossHealth: 2
@@ -74,6 +202,26 @@ MonoBehaviour:
   _addedKamikazeAttackPower: 1
   _startKamikazeMassAttackPower: 4
   _addedKamikazeMassAttackPower: 1
+--- !u!114 &1485793479507170223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae65f28e7748c89372ee3daf918978, type: 3}
+  m_Name: Wave_12
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _parent: {fileID: 11400000}
+  _waveId: 12
+  _moneyPerResilenceCharacters: 0
+  _spawnDelay: 0
+  _enemyCount: 0
+  _bossesCount: 0
+  _kamikazeEnemyCount: 0
 --- !u!114 &1743868595315663900
 MonoBehaviour:
   m_ObjectHideFlags: 0
