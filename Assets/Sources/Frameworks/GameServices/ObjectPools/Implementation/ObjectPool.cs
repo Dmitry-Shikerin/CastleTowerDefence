@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
@@ -14,6 +15,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private readonly Queue<T> _objects = new Queue<T>();
         private readonly List<T> _collection = new List<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
+        private readonly IPoolBaker<T> _poolBaker = new PoolBaker<T>();
 
         private int _maxCount = -1;
         
@@ -41,7 +43,8 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             if (@object == null)
                 return null;
 
-            @object.SetParent(null);
+            // @object.SetParent(null);
+            _poolBaker.Add(@object);
             ObjectCountChanged?.Invoke(_objects.Count);
 
             return @object;

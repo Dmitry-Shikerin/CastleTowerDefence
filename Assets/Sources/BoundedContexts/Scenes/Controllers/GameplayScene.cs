@@ -1,4 +1,6 @@
 ﻿using System;
+using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
@@ -16,6 +18,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
+        private readonly ISoundyService _soundyService;
         private readonly IGameOverService _gameOverService;
         private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly ISceneViewFactory _gameplaySceneViewFactory;
@@ -27,6 +30,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplayScene(
+            ISoundyService soundyService,
             IGameOverService gameOverService,
             IEcsGameStartUp ecsGameStartUp,
             ISceneViewFactory gameplaySceneViewFactory,
@@ -37,6 +41,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
             _gameplaySceneViewFactory = gameplaySceneViewFactory ?? 
@@ -60,24 +65,21 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _localizationService.Translate();
             _audioService.Initialize();
             _signalControllersCollector.Initialize();
-            _audioService.Play(AudioGroupId.GameplayBackground);
-            // _ecsGameStartUp.Initialize();
+            _soundyService.PlaySequence("BackgroundMusic", "Gameplay");
             _gameOverService.Initialize();
             // await _curtainView.HideAsync();
         }
 
         public void Exit()
         {
-            // _ecsGameStartUp.Destroy();
             _signalControllersCollector.Destroy();
-            _audioService.Stop(AudioGroupId.GameplayBackground);
+            _soundyService.StopSequence("BackgroundMusic", "Gameplay");
             _audioService.Destroy();
             _gameOverService.Destroy();
         }
 
         public void Update(float deltaTime)
         {
-            // _ecsGameStartUp.Update(deltaTime);
         }
 
         public void UpdateLate(float deltaTime)

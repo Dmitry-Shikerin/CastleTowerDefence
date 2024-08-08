@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
+using Sirenix.OdinInspector;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation.Collectors;
@@ -37,7 +38,8 @@ namespace Sources.App.DIContainers.Common
                 .Bind<LocalizationDataBase>()
                 .FromResources(LocalizationConst.LocalizationDataBaseAssetPath);
             
-            //Audio
+            //Soundy
+            Container.Bind<ISoundyService>().To<SoundyService>().AsSingle();
 
             //SignalControllers
             Container.Bind<ISignalControllersCollector>().To<SignalControllerCollector>().AsSingle();
