@@ -1,52 +1,42 @@
 ﻿using System;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces;
-using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
-using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
+using JetBrains.Annotations;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
-using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
-using Sources.BoundedContexts.Upgrades.Domain.Models;
-using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers
 {
     public class CharacterSpawnAbilityPresenterFactory
     {
+        private readonly IPoolManager _poolManager;
         private readonly IEntityRepository _entityRepository;
-        private readonly ICharacterMeleeSpawnService _characterMeleeSpawnService;
-        private readonly ICharacterRangeSpawnService _characterRangeSpawnService;
-        private readonly IObjectPool<CharacterMeleeView> _characterMeleePool;
-        private readonly IObjectPool<CharacterRangeView> _characterRangePool;
+        private readonly CharacterMeleeViewFactory _characterMeleeViewFactory;
+        private readonly CharacterRangeViewFactory _characterRangeViewFactory;
 
         public CharacterSpawnAbilityPresenterFactory(
+            IPoolManager poolManager,
             IEntityRepository entityRepository,
-            ICharacterMeleeSpawnService characterMeleeSpawnService,
-            ICharacterRangeSpawnService characterRangeSpawnService,
-            IObjectPool<CharacterMeleeView> characterMeleePool,
-            IObjectPool<CharacterRangeView> characterRangePool)
+            CharacterMeleeViewFactory characterMeleeViewFactory,
+            CharacterRangeViewFactory characterRangeViewFactory)
         {
+            _poolManager = poolManager ?? throw new ArgumentNullException(nameof(poolManager));
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
-            _characterMeleeSpawnService = characterMeleeSpawnService ?? 
-                                          throw new ArgumentNullException(nameof(characterMeleeSpawnService));
-            _characterRangeSpawnService = characterRangeSpawnService ?? 
-                                          throw new ArgumentNullException(nameof(characterRangeSpawnService));
-            _characterMeleePool = characterMeleePool ?? throw new ArgumentNullException(nameof(characterMeleePool));
-            _characterRangePool = characterRangePool ?? throw new ArgumentNullException(nameof(characterRangePool));
+            _characterMeleeViewFactory = characterMeleeViewFactory ?? throw new ArgumentNullException(nameof(characterMeleeViewFactory));
+            _characterRangeViewFactory = characterRangeViewFactory ?? throw new ArgumentNullException(nameof(characterRangeViewFactory));
         }
 
         public CharacterSpawnAbilityPresenter Create(ICharacterSpawnAbilityView view)
         {
             return new CharacterSpawnAbilityPresenter(
+                _poolManager,
                 _entityRepository,
                 view,
-                _characterMeleeSpawnService,
-                _characterRangeSpawnService,
-                _characterMeleePool,
-                _characterRangePool);
+                _characterMeleeViewFactory,
+                _characterRangeViewFactory);
         }
     }
 }

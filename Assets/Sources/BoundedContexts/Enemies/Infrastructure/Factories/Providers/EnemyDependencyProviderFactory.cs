@@ -1,10 +1,8 @@
 ﻿using System;
-using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.Presentation;
-using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
-using Sources.BoundedContexts.PlayerWallets.Domain.Models;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 
@@ -14,19 +12,19 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers
     {
         private readonly IEntityRepository _entityRepository;
         private readonly IOverlapService _overlapService;
-        private readonly IExplosionBodyBloodySpawnService _explosionBodyBloodySpawnService;
+        private readonly ExplosionBodyBloodyViewFactory _explosionBodyBloodyViewFactory;
 
         public EnemyDependencyProviderFactory(
             IEntityRepository entityRepository,
             IOverlapService overlapService,
-            IExplosionBodyBloodySpawnService explosionBodyBloodySpawnService)
+            ExplosionBodyBloodyViewFactory explosionBodyBloodyViewFactory)
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
             _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
-            _explosionBodyBloodySpawnService = 
-                explosionBodyBloodySpawnService 
-                ?? throw new ArgumentNullException(nameof(explosionBodyBloodySpawnService));
+            _explosionBodyBloodyViewFactory = 
+                explosionBodyBloodyViewFactory 
+                ?? throw new ArgumentNullException(nameof(explosionBodyBloodyViewFactory));
         }
 
         public EnemyDependencyProvider Create(Enemy enemy, EnemyView view)
@@ -38,7 +36,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers
                 view,
                 view.Animation,
                 _overlapService,
-                _explosionBodyBloodySpawnService);
+                _explosionBodyBloodyViewFactory);
             
             return provider;
         }
