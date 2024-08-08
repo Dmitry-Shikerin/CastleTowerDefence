@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 189e8ded68c547009b4afc7f91302c02
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Target: {fileID: 11400000, guid: 5c0ecab924cded742bc93c832911e0eb, type: 2}
+  - PlugAudio: {fileID: 8300000, guid: 2f2b6766a8b064c4e9fe3661b8b50665, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

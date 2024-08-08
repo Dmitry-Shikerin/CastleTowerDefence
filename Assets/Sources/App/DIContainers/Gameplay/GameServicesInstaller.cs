@@ -1,5 +1,6 @@
 ﻿using Sources.BoundedContexts.Tutorials.Services.Implementation;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.Overlaps.Implementation;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.Services.Linecasts;
@@ -15,6 +16,7 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<ITutorialService>().To<TutorialService>().AsSingle();
             Container.Bind<IOverlapService>().To<OverlapService>().AsSingle();
             Container.Bind<ILinecastService>().To<LinecastService>().AsSingle();
+            Container.Bind<IPoolManager>().To<PoolManager>().AsSingle();
         }
     }
 }

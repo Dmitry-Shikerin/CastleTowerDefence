@@ -4,7 +4,7 @@ namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.Presentatio
 {
     public interface IView
     {
-        void Show();
+        IView Show();
         void Hide();
         void SetParent(Transform parent);
         void SetLocalePosition(Vector3 position);

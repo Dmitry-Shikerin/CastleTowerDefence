@@ -6,8 +6,11 @@ namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views
 {
     public abstract class View : MonoBehaviour, IView
     {
-        public void Show() =>
+        public IView Show()
+        {
             gameObject.SetActive(true);
+            return this;
+        }
 
         public void Hide() =>
             gameObject.SetActive(false);

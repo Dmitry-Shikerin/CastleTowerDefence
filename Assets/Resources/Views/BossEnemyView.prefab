@@ -3006,6 +3006,7 @@ GameObject:
   - component: {fileID: 6119777975705401954}
   - component: {fileID: 2306707759956599064}
   - component: {fileID: 5485547633374444984}
+  - component: {fileID: 7526499695697182789}
   m_Layer: 8
   m_Name: SM_Chr_ZombieBoss_Slobber_01
   m_TagString: Untagged
@@ -3144,6 +3145,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a668b32adcc41b98f1413aa3f2a5a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7526499695697182789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5795392906897173953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 6119777975705401954}
+    materials:
+    - {fileID: 2100000, guid: 68021691667e41745913058504a1d954, type: 2}
+    renderer: {fileID: 2306707759956599064}
+    mesh: {fileID: 4300002, guid: 7933c903cd8e81a4592f32062ab6883f, type: 3}
+    isSkinnedMesh: 1
+    meshRenderer: {fileID: 0}
+    meshFilter: {fileID: 0}
+    skinnedMeshRenderer: {fileID: 2306707759956599064}
+    isCached: 1
+    isCorrectionRequired: 0
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &5818745151742851079
 GameObject:
   m_ObjectHideFlags: 0

@@ -2590,6 +2590,7 @@ GameObject:
   - component: {fileID: 3476988315897674163}
   - component: {fileID: 6791969257454292960}
   - component: {fileID: 6262614585315681159}
+  - component: {fileID: 4812147645041716826}
   m_Layer: 8
   m_Name: Zombie_Father_Male_01
   m_TagString: Untagged
@@ -2727,6 +2728,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a668b32adcc41b98f1413aa3f2a5a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4812147645041716826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638381629014002462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 3476988315897674163}
+    materials:
+    - {fileID: 2100000, guid: 5545c89bb0a75004bbe217d139a97e89, type: 2}
+    renderer: {fileID: 6791969257454292960}
+    mesh: {fileID: 4300058, guid: b20a3c10714a6ac439af479e3273de65, type: 3}
+    isSkinnedMesh: 1
+    meshRenderer: {fileID: 0}
+    meshFilter: {fileID: 0}
+    skinnedMeshRenderer: {fileID: 6791969257454292960}
+    isCached: 1
+    isCorrectionRequired: 0
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &2658194981923223545
 GameObject:
   m_ObjectHideFlags: 0
