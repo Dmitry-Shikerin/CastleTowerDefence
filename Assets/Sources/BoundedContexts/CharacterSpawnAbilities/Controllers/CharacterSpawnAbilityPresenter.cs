@@ -1,9 +1,9 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
@@ -11,7 +11,7 @@ using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
-using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 
@@ -21,32 +21,27 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
     {
         private readonly CharacterSpawnAbility _characterSpawnAbility;
         private readonly Upgrade _characterHealthUpgrade;
+        private readonly IPoolManager _poolManager;
         private readonly ICharacterSpawnAbilityView _view;
-        private readonly ICharacterMeleeSpawnService _characterMeleeSpawnService;
-        private readonly ICharacterRangeSpawnService _characterRangeSpawnService;
-        private readonly IObjectPool<CharacterMeleeView> _characterMeleePool;
-        private readonly IObjectPool<CharacterRangeView> _characterRangePool;
+        private readonly CharacterMeleeViewFactory _characterMeleeViewFactory;
+        private readonly CharacterRangeViewFactory _characterRangeViewFactory;
 
         public CharacterSpawnAbilityPresenter(
+            IPoolManager poolManager, 
             IEntityRepository entityRepository,
             ICharacterSpawnAbilityView view,
-            ICharacterMeleeSpawnService characterMeleeSpawnService,
-            ICharacterRangeSpawnService characterRangeSpawnService,
-            IObjectPool<CharacterMeleeView> characterMeleePool,
-            IObjectPool<CharacterRangeView> characterRangePool)
+            CharacterMeleeViewFactory characterMeleeViewFactory,
+            CharacterRangeViewFactory characterRangeViewFactory)
         {
             if (entityRepository == null)
                 throw new ArgumentNullException(nameof(entityRepository));
             
             _characterSpawnAbility = entityRepository.Get<CharacterSpawnAbility>(ModelId.SpawnAbility);
             _characterHealthUpgrade = entityRepository.Get<Upgrade>(ModelId.HealthUpgrade);
+            _poolManager = poolManager ?? throw new ArgumentNullException(nameof(poolManager));
             _view = view ?? throw new ArgumentNullException(nameof(view));
-            _characterMeleeSpawnService = characterMeleeSpawnService ??
-                                          throw new ArgumentNullException(nameof(characterMeleeSpawnService));
-            _characterRangeSpawnService = characterRangeSpawnService ??
-                                          throw new ArgumentNullException(nameof(characterRangeSpawnService));
-            _characterMeleePool = characterMeleePool ?? throw new ArgumentNullException(nameof(characterMeleePool));
-            _characterRangePool = characterRangePool ?? throw new ArgumentNullException(nameof(characterRangePool));
+            _characterMeleeViewFactory = characterMeleeViewFactory ?? throw new ArgumentNullException(nameof(characterMeleeViewFactory));
+            _characterRangeViewFactory = characterRangeViewFactory ?? throw new ArgumentNullException(nameof(characterRangeViewFactory));
         }
 
         public override void Enable()
@@ -72,9 +67,9 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 
         private void DespawnMelee()
         {
-            foreach (CharacterMeleeView meleeView in _characterMeleePool.Collection)
+            foreach (CharacterMeleeView meleeView in _poolManager.GetPool<CharacterMeleeView>().Collection)
             {
-                if (_characterMeleePool.Contains(meleeView))
+                if (_poolManager.Contains(meleeView))
                     continue;
                 
                 meleeView.Destroy();
@@ -83,9 +78,9 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         
         private void DespawnRange()
         {
-            foreach (CharacterRangeView rangeView in _characterRangePool.Collection)
+            foreach (CharacterRangeView rangeView in _poolManager.GetPool<CharacterRangeView>().Collection)
             {
-                if (_characterRangePool.Contains(rangeView))
+                if (_poolManager.Contains(rangeView))
                     continue;
                 
                 rangeView.Destroy();
@@ -96,9 +91,9 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         {
             foreach (ICharacterSpawnPoint spawnPoint in _view.MeleeSpawnPoints)
             {
-                ICharacterMeleeView view = _characterMeleeSpawnService.Spawn(
-                    spawnPoint.Position,
-                    _characterHealthUpgrade);
+                ICharacterMeleeView view = _characterMeleeViewFactory.Create(
+                    _characterHealthUpgrade,
+                    spawnPoint.Position);
                 view.SetCharacterSpawnPoint(spawnPoint);
             }
         }
@@ -107,9 +102,9 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
         {
             foreach (var spawnPoint in _view.RangeSpawnPoints)
             {
-                ICharacterRangeView view = _characterRangeSpawnService.Spawn(
-                    spawnPoint.Position,
-                    _characterHealthUpgrade);
+                ICharacterRangeView view = _characterRangeViewFactory.Create(
+                    _characterHealthUpgrade,
+                    spawnPoint.Position);
                 view.SetCharacterSpawnPoint(spawnPoint);
             }
         }

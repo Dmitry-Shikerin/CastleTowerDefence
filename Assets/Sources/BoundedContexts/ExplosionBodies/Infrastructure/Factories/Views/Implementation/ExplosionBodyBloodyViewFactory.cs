@@ -1,33 +1,33 @@
-﻿using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Interfaces;
+﻿using System;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Interfaces;
-using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.BoundedContexts.Prefabs;
-using Sources.Domain.Models.Constants;
-using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation
 {
-    public class ExplosionBodyBloodyViewFactory : PoolableObjectFactory<ExplosionBodyBloodyView>, IExplosionBodyBloodyViewFactory
+    public class ExplosionBodyBloodyViewFactory
     {
-        public ExplosionBodyBloodyViewFactory(IObjectPool<ExplosionBodyBloodyView> pool) 
-            : base(pool)
+        private readonly IPoolManager _poolManager;
+
+        public ExplosionBodyBloodyViewFactory(IPoolManager poolManager)
         {
-        }
-        
-        public IExplosionBodyBloodyView Create(
-            ExplosionBodyBloodyView explosionBodyBloodyView, 
-            Vector3 position)
-        {
-            return explosionBodyBloodyView;
+            _poolManager = poolManager ?? throw new ArgumentNullException(nameof(poolManager));
         }
         
         public IExplosionBodyBloodyView Create(Vector3 position)
         {
-            ExplosionBodyBloodyView explosionBodyBloodyView = CreateView(PrefabPath.ExplosionBodyBloody);
+            ExplosionBodyBloodyView view = _poolManager
+                .Get<ExplosionBodyBloodyView>(PrefabPath.ExplosionBodyBloody);
             
-            return explosionBodyBloodyView;
+            view.SetPosition(position);
+            view.Show();
+            
+            view.SetPosition(position);
+            view.Show();
+            
+            return view;
         }
     }
 }

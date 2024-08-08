@@ -4,11 +4,10 @@ using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
-using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
-using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using UnityEngine;
@@ -24,8 +23,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
         private EnemyKamikaze Enemy => _provider.EnemyKamikaze;
         private IEnemyKamikazeView View => _provider.View;
         private IOverlapService OverlapService => _provider.OverlapService;
-        private IExplosionBodySpawnService ExplosionBodySpawnService => 
-            _provider.ExplosionBodySpawnService;
+        private ExplosionBodyViewFactory ExplosionBodyViewFactory => 
+            _provider.ExplosionBodyViewFactory;
 
         protected override void OnInit()
         {
@@ -36,7 +35,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
         protected override void OnEnter()
         {
             Vector3 spawnPosition = View.Position + Vector3.up;
-            ExplosionBodySpawnService.Spawn(spawnPosition);
+            ExplosionBodyViewFactory.Create(spawnPosition);
             Explode();
             View.Destroy();
         }

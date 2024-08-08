@@ -16,8 +16,9 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private readonly List<T> _collection = new List<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
         private readonly IPoolBaker<T> _poolBaker = new PoolBaker<T>();
-
         private int _maxCount = -1;
+
+        public IPoolBaker<T> PoolBaker => _poolBaker;
         
         public event Action<int> ObjectCountChanged;
         

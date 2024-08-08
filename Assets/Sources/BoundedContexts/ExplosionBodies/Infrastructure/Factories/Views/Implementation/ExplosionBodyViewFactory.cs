@@ -1,19 +1,19 @@
-﻿using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Interfaces;
+﻿using System;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Interfaces;
-using Sources.BoundedContexts.ObjectPools.Infrastructure.Factories;
 using Sources.BoundedContexts.Prefabs;
-using Sources.Domain.Models.Constants;
-using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation
 {
-    public class ExplosionBodyViewFactory : PoolableObjectFactory<ExplosionBodyView>, IExplosionBodyViewFactory
+    public class ExplosionBodyViewFactory
     {
-        public ExplosionBodyViewFactory(IObjectPool<ExplosionBodyView> pool) 
-            : base(pool)
+        private readonly IPoolManager _poolManager;
+
+        public ExplosionBodyViewFactory(IPoolManager poolManager)
         {
+            _poolManager = poolManager ?? throw new ArgumentNullException(nameof(poolManager));
         }
         
         public IExplosionBodyView Create(
@@ -25,7 +25,7 @@ namespace Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views
         
         public IExplosionBodyView Create(Vector3 position)
         {
-            ExplosionBodyView view = CreateView(PrefabPath.ExplosionBody);
+            ExplosionBodyView view = _poolManager.Get<ExplosionBodyView>(PrefabPath.ExplosionBody);
             
             return view;
         }
