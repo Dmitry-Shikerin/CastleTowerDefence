@@ -2474,6 +2474,7 @@ GameObject:
   - component: {fileID: 3702811277601714802}
   - component: {fileID: 140072075114522191}
   - component: {fileID: 4852240029596378531}
+  - component: {fileID: 8375897562113010227}
   m_Layer: 8
   m_Name: SM_Chr_Attach_Brute_Bandana_01
   m_TagString: Untagged
@@ -2546,6 +2547,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8375897562113010227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159480246950888213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 3702811277601714802}
+    materials:
+    - {fileID: 2100000, guid: 68021691667e41745913058504a1d954, type: 2}
+    renderer: {fileID: 4852240029596378531}
+    mesh: {fileID: 4300000, guid: 283bb8c83e58bbb469090dd3422ecdfb, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 4852240029596378531}
+    meshFilter: {fileID: 140072075114522191}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &5587331145776607641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,6 +2623,7 @@ GameObject:
   - component: {fileID: 7782050146354310465}
   - component: {fileID: 4533074239713696165}
   - component: {fileID: 7376744953881566300}
+  - component: {fileID: 5820940424227533863}
   m_Layer: 8
   m_Name: SM_Chr_Attach_Brute_Hair_01
   m_TagString: Untagged
@@ -2661,6 +2696,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5820940424227533863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615655128522199610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 7782050146354310465}
+    materials:
+    - {fileID: 2100000, guid: 68021691667e41745913058504a1d954, type: 2}
+    renderer: {fileID: 7376744953881566300}
+    mesh: {fileID: 4300000, guid: 851e198ed62ac4f4c869b1906792c773, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 7376744953881566300}
+    meshFilter: {fileID: 4533074239713696165}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &5774509095491047582
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,89 +3306,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7063820593916982864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6156401120547783626
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6980666240595957833}
-  - component: {fileID: 4935080722919909779}
-  - component: {fileID: 5868646547286249031}
-  m_Layer: 8
-  m_Name: SM_Chr_Attach_Brute_Hair_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6980666240595957833
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6156401120547783626}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.14701577, y: -0.6916548, z: 0.14701577, w: 0.6916548}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1936961018466539425}
-  m_LocalEulerAnglesHint: {x: 24, y: -90.00001, z: 0}
---- !u!33 &4935080722919909779
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6156401120547783626}
-  m_Mesh: {fileID: 4300000, guid: 994433f9fa9bea84194d50d8af74aa33, type: 3}
---- !u!23 &5868646547286249031
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6156401120547783626}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 68021691667e41745913058504a1d954, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6215151768341619309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,6 +3514,7 @@ GameObject:
   - component: {fileID: 1290041300748464695}
   - component: {fileID: 4339431419887218714}
   - component: {fileID: 4425312081644003380}
+  - component: {fileID: 8605882557506273214}
   m_Layer: 8
   m_Name: SM_Chr_Attach_Brute_Extra_01
   m_TagString: Untagged
@@ -3601,6 +3587,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8605882557506273214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368096666880091331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 1290041300748464695}
+    materials:
+    - {fileID: 2100000, guid: 68021691667e41745913058504a1d954, type: 2}
+    renderer: {fileID: 4425312081644003380}
+    mesh: {fileID: 4300000, guid: c87eabe799579cd40aa5b3f2eb771b46, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 4425312081644003380}
+    meshFilter: {fileID: 4339431419887218714}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &6383970364237893204
 GameObject:
   m_ObjectHideFlags: 0
@@ -4669,7 +4688,6 @@ Transform:
   - {fileID: 8818919658984152597}
   - {fileID: 3702811277601714802}
   - {fileID: 7782050146354310465}
-  - {fileID: 6980666240595957833}
   m_Father: {fileID: 6702646901167340414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7968882628385714114
