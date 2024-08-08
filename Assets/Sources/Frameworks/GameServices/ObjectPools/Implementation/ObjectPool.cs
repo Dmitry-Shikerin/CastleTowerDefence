@@ -16,14 +16,28 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private readonly List<T> _collection = new List<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
         private readonly IPoolBaker<T> _poolBaker = new PoolBaker<T>();
+        
+        private Transform _root;
         private int _maxCount = -1;
-
-        public IPoolBaker<T> PoolBaker => _poolBaker;
+        private bool _isInitialized;
         
         public event Action<int> ObjectCountChanged;
         
+        public IPoolBaker<T> PoolBaker => _poolBaker;
         public IReadOnlyList<T> Collection => _collection;
 
+        public IObjectPool<T> SetRootParent(Transform parent)
+        {
+            if (_isInitialized)
+                return this;
+            
+            _root = parent;
+            _parent.SetParent(parent);
+            _isInitialized = true;
+            
+            return this;
+        }
+        
         public void SetPoolCount(int count)
         {
             if (count <= 0)
