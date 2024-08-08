@@ -1,8 +1,7 @@
 ﻿using System;
-using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
-using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Services.Spawners.Interfaces;
+using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
@@ -18,7 +17,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers
         public IEnemyView View { get; private set; }
         public IEnemyAnimation Animation { get; private set; }
         public IOverlapService OverlapService { get; private set; }
-        public IExplosionBodyBloodySpawnService ExplosionBodyBloodySpawnService { get; private set; }
+        public ExplosionBodyBloodyViewFactory ExplosionBodyBloodyViewFactory { get; private set; }
         
         public void Construct(
             Enemy enemy, 
@@ -26,7 +25,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers
             IEnemyView view, 
             IEnemyAnimation enemyAnimation,
             IOverlapService overlapService,
-            IExplosionBodyBloodySpawnService explosionBodyBloodySpawnService)
+            ExplosionBodyBloodyViewFactory explosionBodyBloodySpawnService)
         {
             if (entityRepository == null) 
                 throw new ArgumentNullException(nameof(entityRepository));
@@ -36,7 +35,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers
             View = view ?? throw new ArgumentNullException(nameof(view));
             Animation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));
             OverlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
-            ExplosionBodyBloodySpawnService = 
+            ExplosionBodyBloodyViewFactory = 
                 explosionBodyBloodySpawnService ?? 
                 throw new ArgumentNullException(nameof(explosionBodyBloodySpawnService));
         }

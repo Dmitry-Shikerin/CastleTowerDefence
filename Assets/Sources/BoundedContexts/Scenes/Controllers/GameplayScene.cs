@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Domain.Constant;
 using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
@@ -65,7 +66,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _localizationService.Translate();
             _audioService.Initialize();
             _signalControllersCollector.Initialize();
-            _soundyService.PlaySequence("BackgroundMusic", "Gameplay");
+            _soundyService.PlaySequence(
+                SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
             _gameOverService.Initialize();
             // await _curtainView.HideAsync();
         }
@@ -73,7 +75,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         public void Exit()
         {
             _signalControllersCollector.Destroy();
-            _soundyService.StopSequence("BackgroundMusic", "Gameplay");
+            _soundyService.StopSequence(
+                SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
             _audioService.Destroy();
             _gameOverService.Destroy();
         }
