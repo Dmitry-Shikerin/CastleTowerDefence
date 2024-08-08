@@ -88,6 +88,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         [ResponsiveButtonGroup]
         private void AddTextId()
         {
+#if UNITY_EDITOR
             var localizationIds = LocalizationExtension.GetTranslateId();
 
             if (localizationIds.Contains(_textId))
@@ -95,6 +96,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
 
             _localizationId = _textId;
             AssetDatabase.SaveAssets();
+#endif
         }
 
         [Button(ButtonSizes.Large)]

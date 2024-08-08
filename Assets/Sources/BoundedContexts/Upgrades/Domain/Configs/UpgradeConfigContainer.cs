@@ -27,10 +27,12 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Configs
 
         public void RemoveUpgradeConfig(UpgradeConfig upgradeConfig)
         {
+#if UNITY_EDITOR
             string path = AssetDatabase.GetAssetPath(upgradeConfig);
             _upgradeConfigs.Remove(upgradeConfig);
             AssetDatabase.DeleteAsset(path);
             AssetDatabase.SaveAssets();
+#endif
         }
         
         [UsedImplicitly]

@@ -81,16 +81,20 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
         
         public void RemovePhrase(LocalizationPhrase phrase)
         {
+#if UNITY_EDITOR
             AssetDatabase.RemoveObjectFromAsset(phrase);
             _phrases.Remove(phrase);
             AssetDatabase.SaveAssets();
+#endif
         }
 
         public void RemoveScope(LocalizationScope localizationScope)
         {
+#if UNITY_EDITOR
             AssetDatabase.RemoveObjectFromAsset(localizationScope);
             _scopes.Remove(localizationScope);
             AssetDatabase.SaveAssets();
+#endif
         }
 
         

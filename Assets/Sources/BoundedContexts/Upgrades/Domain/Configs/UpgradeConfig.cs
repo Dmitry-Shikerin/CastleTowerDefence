@@ -25,10 +25,12 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Configs
         
         public void RemoveLevel(UpgradeLevel wave)
         {
+#if UNITY_EDITOR
             AssetDatabase.RemoveObjectFromAsset(wave);
             _upgradeLevels.Remove(wave);
             RenameWaves();
             AssetDatabase.SaveAssets();
+#endif
         }
 
         public void SetParent(UpgradeConfigContainer upgradeConfigContainer) =>

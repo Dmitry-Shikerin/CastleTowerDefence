@@ -67,10 +67,12 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         //TODO добавить стратегии для спавна
         public void RemoveWave(EnemySpawnerWave wave)
         {
+#if UNITY_EDITOR
             AssetDatabase.RemoveObjectFromAsset(wave);
             _waves.Remove(wave);
             RenameWaves();
             AssetDatabase.SaveAssets();
+#endif
         }
         
         private void RenameWaves()

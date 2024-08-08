@@ -55,11 +55,15 @@ namespace Sources.Frameworks.UiFramework.Texts.Extensions
 
         public static List<T> FindAssets<T>(string assetName) where T : Object
         {
+#if UNITY_EDITOR
             return AssetDatabase
                 .FindAssets(assetName)
                 .Select(path => AssetDatabase.GUIDToAssetPath(path))
                 .Select(path => AssetDatabase.LoadAssetAtPath<T>(path))
                 .ToList();
+#else
+            return new List<T>();
+#endif
         }
     }
 }

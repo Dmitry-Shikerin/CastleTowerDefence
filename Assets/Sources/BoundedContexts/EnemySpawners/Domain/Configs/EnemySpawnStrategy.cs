@@ -12,6 +12,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         
         private static bool Draw(Rect rect, bool value)
         {
+#if UNITY_EDITOR
             if (Event.current.type == EventType.MouseDown && rect.Contains(Event.current.mousePosition))
             {
                 value = !value;
@@ -25,6 +26,9 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
                     : new Color(0, 0, 0, 0.5f));
             
             return value;
+#else
+            return false;
+#endif
         }
 
         [OnInspectorInit]
