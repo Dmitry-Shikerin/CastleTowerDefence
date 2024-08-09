@@ -33817,6 +33817,50 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1161256479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1161256481}
+  - component: {fileID: 1161256480}
+  m_Layer: 0
+  m_Name: AchievementsInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1161256480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161256479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffc7813bb8b472fa12622d70c314653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1161256481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161256479}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9029514730166099886}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218551518
 GameObject:
   m_ObjectHideFlags: 0
@@ -50256,11 +50300,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuSceneContext
       objectReference: {fileID: 0}
+    - target: {fileID: 8230683219575574316, guid: 552026ce82f746941a017bf7221c348c, type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230683219575574316, guid: 552026ce82f746941a017bf7221c348c, type: 3}
+      propertyPath: _monoInstallers.Array.data[4]
+      value: 
+      objectReference: {fileID: 1161256480}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1030793049345565378, guid: 552026ce82f746941a017bf7221c348c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1161256481}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552026ce82f746941a017bf7221c348c, type: 3}
+--- !u!4 &9029514730166099886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1030793049345565378, guid: 552026ce82f746941a017bf7221c348c, type: 3}
+  m_PrefabInstance: {fileID: 9029514730166099885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

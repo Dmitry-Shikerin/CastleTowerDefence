@@ -1,6 +1,5 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Controllers;
@@ -10,6 +9,7 @@ using Sources.ControllersInterfaces.Scenes;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
+using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
@@ -19,6 +19,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class GameplaySceneFactory : ISceneFactory
     {
+        private readonly IAchievementService _achievementService;
         private readonly ISoundyService _soundyService;
         private readonly IGameOverService _gameOverService;
         private readonly IEcsGameStartUp _ecsGameStartUp;
@@ -31,6 +32,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplaySceneFactory(
+            IAchievementService achievementService,
             ISoundyService soundyService,
             IGameOverService gameOverService,
             IEcsGameStartUp ecsGameStartUp,
@@ -42,6 +44,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _achievementService = achievementService ?? throw new ArgumentNullException(nameof(achievementService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
@@ -59,6 +62,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene gameplayScene = new GameplayScene(
+                _achievementService,
                 _soundyService,
                 _gameOverService,
                 _ecsGameStartUp,

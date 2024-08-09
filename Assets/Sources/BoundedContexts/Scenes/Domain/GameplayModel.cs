@@ -1,13 +1,15 @@
-﻿using Sources.BoundedContexts.Bunkers.Domain;
+﻿using System.Collections.Generic;
+using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
-using Sources.BoundedContexts.KillEnemyCounters.Domain;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 
 namespace Sources.BoundedContexts.Scenes.Domain
 {
@@ -26,7 +28,8 @@ namespace Sources.BoundedContexts.Scenes.Domain
             KillEnemyCounter killEnemyCounter,
             PlayerWallet playerWallet,
             Volume musicVolume,
-            Volume soundsVolume)
+            Volume soundsVolume,
+            IEnumerable<Achievement> achievements)
         {
             CharacterHealthUpgrade = characterHealthUpgrade;
             CharacterAttackUpgrade = characterAttackUpgrade;
@@ -40,6 +43,7 @@ namespace Sources.BoundedContexts.Scenes.Domain
             KillEnemyCounter = killEnemyCounter;
             PlayerWallet = playerWallet;
             MusicVolume = musicVolume;
+            SoundsVolume = soundsVolume;
         }
 
         public Upgrade CharacterHealthUpgrade { get; }
@@ -54,5 +58,6 @@ namespace Sources.BoundedContexts.Scenes.Domain
         public KillEnemyCounter KillEnemyCounter { get; }
         public PlayerWallet PlayerWallet { get; }
         public Volume MusicVolume { get; }
+        public Volume SoundsVolume { get; }
     }
 }

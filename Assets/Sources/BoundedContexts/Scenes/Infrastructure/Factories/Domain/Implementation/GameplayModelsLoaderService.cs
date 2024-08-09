@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Sirenix.Utilities;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
@@ -12,6 +14,8 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
@@ -63,6 +67,15 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             Volume musicVolume = _loadService.Load<Volume>(ModelId.MusicVolume);
             Volume soundsVolume = _loadService.Load<Volume>(ModelId.SoundsVolume);
             
+            //Achievements
+            List<Achievement> achievements = new List<Achievement>();
+            
+            foreach (string id in ModelId.AchievementModels)
+            {
+                Achievement achievement = _loadService.Load<Achievement>(id);
+                achievements.Add(achievement);
+            }
+            
             return new GameplayModel(
                 characterHealthUpgrade,
                 characterAttackUpgrade,
@@ -76,7 +89,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 killEnemyCounter,
                 playerWallet,
                 musicVolume,
-                soundsVolume);
+                soundsVolume,
+                achievements);
         }
     }
 }

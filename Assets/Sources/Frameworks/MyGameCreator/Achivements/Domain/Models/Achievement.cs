@@ -1,12 +1,12 @@
 ﻿using System;
 using Sources.Frameworks.Domain.Interfaces.Entities;
+using UnityEngine;
 
-namespace Sources.Frameworks.MyGameCreator.Achivements.Domain
+namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Models
 {
     public class Achievement : IEntity
     {
         private bool _isCompleted;
-        private bool _isCompleted1;
 
         public Achievement(string id)
         {
@@ -20,14 +20,15 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain
 
         public bool IsCompleted
         {
-            get => _isCompleted1;
+            get => _isCompleted;
             set
             {
                 if (_isCompleted)
                     return;
                 
-                _isCompleted1 = value;
+                _isCompleted = value;
                 Completed?.Invoke();
+                Debug.Log($"Completed {Id}");
             }
         }
     }

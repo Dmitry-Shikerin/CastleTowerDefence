@@ -21,6 +21,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers
         public IEnemyBossView View { get; private set; }
         public IEnemyBossAnimation Animation { get; private set; }
         public IOverlapService OverlapService { get; private set; }
+        public IEntityRepository EntityRepository { get; private set; }
         public ExplosionBodyBloodyViewFactory ExplosionBodyBloodyViewFactory { get; private set; }
 
         public void Construct(
@@ -31,9 +32,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers
             IOverlapService overlapService,
             ExplosionBodyBloodyViewFactory explosionBodyBloodyViewFactory)
         {
-            if (entityRepository == null) 
-                throw new ArgumentNullException(nameof(entityRepository));
-            
+            EntityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             BossEnemy = bossEnemy ?? throw new ArgumentNullException(nameof(bossEnemy));
             KillEnemyCounter = entityRepository.Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
             PlayerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
