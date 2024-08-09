@@ -1,11 +1,13 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
+using Sources.Frameworks.MyGameCreator.DailyRewards.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
@@ -16,6 +18,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class MainMenuScene : IScene
     {
+        private readonly IDailyRewardService _dailyRewardService;
         private readonly ISceneViewFactory _sceneViewFactory;
         private readonly ISignalControllersCollector _signalControllersCollector;
         private readonly ISdkInitializeService _sdkInitializeService;
@@ -26,6 +29,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly IStickyService _stickyService;
 
         public MainMenuScene(
+            IDailyRewardService dailyRewardService,
             ISceneViewFactory mainMenuSceneViewFactory,
             ISignalControllersCollector signalControllersCollector,
             ISdkInitializeService sdkInitializeService,
@@ -35,8 +39,9 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             IStickyService stickyService)
         {
+            _dailyRewardService = dailyRewardService ?? throw new ArgumentNullException(nameof(dailyRewardService));
             _sceneViewFactory = mainMenuSceneViewFactory ??
-                                        throw new ArgumentNullException(nameof(mainMenuSceneViewFactory));
+                                throw new ArgumentNullException(nameof(mainMenuSceneViewFactory));
             _signalControllersCollector = signalControllersCollector ?? 
                                           throw new ArgumentNullException(nameof(signalControllersCollector));
             _sdkInitializeService = sdkInitializeService ?? 
@@ -55,7 +60,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _sceneViewFactory.Create(null);
             _signalControllersCollector.Initialize();
             _localizationService.Translate();
-            _audioService.Initialize();
+            // _audioService.Initialize();
+            _dailyRewardService.Initialize();
             // await _curtainView.HideAsync();
             await GameReady((IScenePayload)payload);
         }
@@ -63,7 +69,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         public void Exit()
         {
             _signalControllersCollector.Destroy();
-            _audioService.Destroy();
+            _dailyRewardService.Destroy();
+            // _audioService.Destroy();
             _focusService.Destroy();
         }
 

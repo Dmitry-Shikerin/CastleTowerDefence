@@ -8,10 +8,6 @@ using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
 {
-    [CreateAssetMenu(
-        fileName = "AchievementConfig", 
-        menuName = "Configs/Achievements/AchievementConfig", 
-        order = 51)]
     public class AchievementConfig : ScriptableObject
     {
         [ValueDropdown("GetId")]

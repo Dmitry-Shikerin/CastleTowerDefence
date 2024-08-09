@@ -1,7 +1,6 @@
 ﻿using System;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 

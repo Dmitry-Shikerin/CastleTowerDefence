@@ -18,11 +18,13 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
 {
     public static class ModelId
     {
-        //gameModels
+        //upgrades
         public const string HealthUpgrade = "HealthUpgrade";
         public const string AttackUpgrade = "AttackUpgrade";
         public const string NukeUpgrade = "NukeUpgrade";
         public const string FlamethrowerUpgrade = "FlamethrowerUpgrade";
+        
+        //gameModels
         public const string PlayerWallet = "PlayerWallet";
         public const string Bunker = "Bunker";
         public const string EnemySpawner = "EnemySpawner";
@@ -43,12 +45,14 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         
         //Achievements
         public const string FirstEnemyKillAchievement = "FirstEnemyKillAchievement";
-        public const string FirstHealthRemoved = "FirstHealthRemoved";
+        public const string FirstHealthRemovedAchievement = "FirstHealthRemovedAchievement";
+        public const string FirstUpgradeAchievement = "FirstUpgradeAchievement";
 
         public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
         {
             FirstEnemyKillAchievement,
-            FirstHealthRemoved
+            FirstHealthRemovedAchievement,
+            FirstUpgradeAchievement,
         };
 
         public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()
