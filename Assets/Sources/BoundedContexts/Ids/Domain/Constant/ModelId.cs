@@ -43,10 +43,12 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         
         //Achievements
         public const string FirstEnemyKillAchievement = "FirstEnemyKillAchievement";
+        public const string FirstHealthRemoved = "FirstHealthRemoved";
 
         public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
         {
             FirstEnemyKillAchievement,
+            FirstHealthRemoved
         };
 
         public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()

@@ -5,8 +5,6 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Image = UnityEngine.UI.Image;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
 {
@@ -23,6 +21,8 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
         [ValueDropdown("GetLocalisationId")]
         public string DescriptionId;
         public Sprite Sprite;
+        
+        public AchievementConfigCollector Parent { get; set; }
 
         private IReadOnlyList<string> GetId() =>
             ModelId.AchievementModels;
@@ -38,11 +38,15 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
             if (string.IsNullOrWhiteSpace(Id))
                 return;
             
-            string path = AssetDatabase.GetAssetPath(this);
-            AssetDatabase.RenameAsset(path, Id);
-            AssetDatabase.SaveAssets();
+            Parent.CreateConfig(Id, TitleId, DescriptionId, Sprite);
+            Parent.RemoveConfig(this);
         }
-        
+
+        [PropertySpace(10)]
+        [Button(ButtonSizes.Medium)]
+        private void Remove() =>
+            Parent.RemoveConfig(this);
+
         private List<string> GetLocalisationId() =>
             LocalizationDataBase.Instance.Phrases
                 .Select(phrase => phrase.LocalizationId)
