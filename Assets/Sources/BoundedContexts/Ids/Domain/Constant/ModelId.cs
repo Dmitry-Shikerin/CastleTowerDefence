@@ -40,6 +40,14 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string GameData = "GameData";
         public const string Tutorial = "Tutorial";
         public const string Gameplay = "Gameplay";
+        
+        //Achievements
+        public const string FirstEnemyKillAchievement = "FirstEnemyKillAchievement";
+
+        public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
+        {
+            FirstEnemyKillAchievement,
+        };
 
         public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()
         {
