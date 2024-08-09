@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 1637832589798942576}
   - component: {fileID: 3075412513563214110}
   - component: {fileID: 7340524053926791227}
+  - component: {fileID: 9137027301626053089}
   m_Layer: 0
   m_Name: Floodlights
   m_TagString: Untagged
@@ -201,3 +202,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e44939c0b0393f146a78ac1160576b54, type: 3}
+--- !u!114 &9137027301626053089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196564737081322492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 2320414561244452117}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 3075412513563214110}
+    mesh: {fileID: 4300000, guid: e44939c0b0393f146a78ac1160576b54, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 3075412513563214110}
+    meshFilter: {fileID: 1637832589798942576}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 1
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
