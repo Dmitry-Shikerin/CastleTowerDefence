@@ -5,6 +5,7 @@ using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
+using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
@@ -76,6 +77,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 achievements.Add(achievement);
             }
             
+            //HealthBooster
+            HealthBooster healthBooster = _loadService.Load<HealthBooster>(ModelId.HealthBooster);
+            
             return new GameplayModel(
                 characterHealthUpgrade,
                 characterAttackUpgrade,
@@ -90,7 +94,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 playerWallet,
                 musicVolume,
                 soundsVolume,
-                achievements);
+                achievements,
+                healthBooster);
         }
     }
 }

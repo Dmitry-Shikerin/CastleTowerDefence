@@ -36,5 +36,11 @@ namespace Sources.BoundedContexts.Bunkers.Domain
             Death?.Invoke();
             _isDead = true;
         }
+
+        public void ApplyBoost()
+        {
+            Health += 2;
+            HealthChanged?.Invoke();
+        }
     }
 }

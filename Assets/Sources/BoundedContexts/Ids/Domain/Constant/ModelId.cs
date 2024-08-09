@@ -34,6 +34,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string KillEnemyCounter = "KillEnemyCounter";
 
         //commonModels
+        public const string HealthBooster = "HealthBooster";
         public const string ScoreCounter = "ScoreCounter";
         public const string MainMenu = "MainMenu";
         public const string SavedLevel = "SavedLevel";
@@ -47,12 +48,14 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string FirstEnemyKillAchievement = "FirstEnemyKillAchievement";
         public const string FirstHealthRemovedAchievement = "FirstHealthRemovedAchievement";
         public const string FirstUpgradeAchievement = "FirstUpgradeAchievement";
+        public const string FirstHealthBoosterUsageAchievement = "FirstHealthBoosterUsageAchievement";
 
         public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
         {
             FirstEnemyKillAchievement,
             FirstHealthRemovedAchievement,
             FirstUpgradeAchievement,
+            FirstHealthBoosterUsageAchievement,
         };
 
         public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()

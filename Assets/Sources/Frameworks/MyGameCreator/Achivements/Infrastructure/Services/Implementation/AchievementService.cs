@@ -24,7 +24,8 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
             IEntityRepository entityRepository,
             AchievementConfigCollector achievementConfigCollector,
             FirstKillEnemyAchievementCommand firstKillEnemyAchievementCommand,
-            FirstUpgradeAchievementCommand firstUpgradeAchievementCommand)
+            FirstUpgradeAchievementCommand firstUpgradeAchievementCommand,
+            FirstHealthBoosterUsageAchievementCommand firstHealthBoosterUsageAchievementCommand)
         {
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _achievements = new Dictionary<string, Achievement>();
@@ -34,6 +35,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
             {
                 firstKillEnemyAchievementCommand,
                 firstUpgradeAchievementCommand,
+                firstHealthBoosterUsageAchievementCommand,
             };
         }
 

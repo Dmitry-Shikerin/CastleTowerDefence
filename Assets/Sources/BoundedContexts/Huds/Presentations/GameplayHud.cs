@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.Abilities.Presentation.Implementation;
 using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
+using Sources.BoundedContexts.HealthBoosters.Views;
 using Sources.BoundedContexts.PlayerWallets.Presentation.Implementation;
 using Sources.BoundedContexts.Upgrades.Presentation.Implementation;
 using Sources.Frameworks.GameServices.Volumes.Presentations;
@@ -46,6 +47,9 @@ namespace Sources.BoundedContexts.Huds.Presentations
         [FoldoutGroup("Volume")]
         [Required] [SerializeField] private VolumeView _soundVolumeView;
         
+        [FoldoutGroup("HealthBooster")]
+        [Required] [SerializeField] private HealthBoosterView _healthBoosterView;
+        
         public UiCollector UiCollector => _uiCollector;
 
         public AbilityApplierView NukeAbilityApplier => _nukeAbilityApplier;
@@ -64,5 +68,7 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public PlayerWalletView PlayerWalletView => _playerWalletView;
         public VolumeView MusicVolumeView => _musicVolumeView;
         public VolumeView SoundVolumeView => _soundVolumeView;
+        
+        public HealthBoosterView HealthBoosterView => _healthBoosterView;
     }
 }

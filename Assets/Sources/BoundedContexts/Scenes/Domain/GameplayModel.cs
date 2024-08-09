@@ -3,6 +3,7 @@ using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
+using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
@@ -29,7 +30,8 @@ namespace Sources.BoundedContexts.Scenes.Domain
             PlayerWallet playerWallet,
             Volume musicVolume,
             Volume soundsVolume,
-            IEnumerable<Achievement> achievements)
+            IEnumerable<Achievement> achievements,
+            HealthBooster healthBooster)
         {
             CharacterHealthUpgrade = characterHealthUpgrade;
             CharacterAttackUpgrade = characterAttackUpgrade;
@@ -44,6 +46,7 @@ namespace Sources.BoundedContexts.Scenes.Domain
             PlayerWallet = playerWallet;
             MusicVolume = musicVolume;
             SoundsVolume = soundsVolume;
+            Achievements = achievements;
         }
 
         public Upgrade CharacterHealthUpgrade { get; }
@@ -59,5 +62,6 @@ namespace Sources.BoundedContexts.Scenes.Domain
         public PlayerWallet PlayerWallet { get; }
         public Volume MusicVolume { get; }
         public Volume SoundsVolume { get; }
+        public IEnumerable<Achievement> Achievements { get; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
@@ -19,11 +20,13 @@ using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
     public class GameplaySceneViewFactory : ISceneViewFactory
     {
+        private readonly IEntityRepository _entityRepository;
         private readonly GameplayHud _gameplayHud;
         private readonly UiCollectorFactory _uiCollectorFactory;
         private readonly RootGameObject _rootGameObject;
@@ -44,6 +47,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly VolumeViewFactory _volumeViewFactory;
 
         public GameplaySceneViewFactory(
+            IEntityRepository entityRepository,
             GameplayHud gameplayHud,
             UiCollectorFactory uiCollectorFactory,
             RootGameObject rootGameObject,
@@ -63,6 +67,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             IEcsGameStartUp ecsGameStartUp,
             VolumeViewFactory volumeViewFactory)
         {
+            _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _gameplayHud = gameplayHud ?? throw new ArgumentNullException(nameof(gameplayHud));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
@@ -136,6 +141,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _audioService.Construct(gameplayModel.MusicVolume);
             _volumeViewFactory.Create(gameplayModel.MusicVolume, _gameplayHud.MusicVolumeView);
             _volumeViewFactory.Create(gameplayModel.MusicVolume, _gameplayHud.SoundVolumeView);
+            
+            //HealthBooster
+            _gameplayHud.HealthBoosterView.Construct(_entityRepository);
         }
 
         private GameplayModel Load(IScenePayload payload)
