@@ -1,8 +1,10 @@
-﻿using Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types;
+﻿using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
+using Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
 {
+    [Icon("Assets/Sources/Frameworks/MyGameCreator/Stats/Editor/Gizmos/GizmoTable.png")]
     [CreateAssetMenu(fileName = "Table", menuName = "Configs/Stats/Tables", order = 51)]
     public class Table : ScriptableObject
     {

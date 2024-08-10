@@ -1,9 +1,13 @@
 ﻿using System;
-using System.ComponentModel;
+using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
+using Sources.Frameworks.MyGameCreator.Stats.Runtime.Tables;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
 {
+    [Image(typeof(IconTable), ColorTheme.Type.Green)]
+    [Title("Linear Progression")]
+    [Category("Linear Progression")]
     [Description(
         "The experience needed to reach the next level is equal to the previous level " +
         "multiplied by a constant increment"

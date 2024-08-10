@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a9866b54f0496aa4926fdefcde0958, type: 3}
   m_Name: Table
   m_EditorClassIdentifier: 
-  _tableType:
-    rid: 4755881706163535873
+  m_Table:
+    rid: 4755881706163535888
   references:
     version: 2
     RefIds:
-    - rid: 4755881706163535873
+    - rid: 4755881706163535888
       type: {class: TableConstantProgression, ns: Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types, asm: Assembly-CSharp}
       data:
         m_MaxLevel: 99

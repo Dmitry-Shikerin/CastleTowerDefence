@@ -1,7 +1,6 @@
 ﻿using System;
-using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
 
-namespace Sources.Frameworks.MyGameCreator.Core.Editor.Common
+namespace Sources.Frameworks.MyGameCreator.Core.Runtime.Common
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
     public class DescriptionAttribute : Attribute, ISearchable

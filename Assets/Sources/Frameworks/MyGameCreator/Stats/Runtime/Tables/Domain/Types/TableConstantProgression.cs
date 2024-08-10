@@ -1,9 +1,13 @@
 ﻿using System;
-using System.ComponentModel;
+using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
+using Sources.Frameworks.MyGameCreator.Stats.Runtime.Tables;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
 {
+    [Image(typeof(IconTable), ColorTheme.Type.Blue)]
+    [Title("Constant Progression")]
+    [Category("Constant Progression")]
     [Description("Each level requires the same amount of experience to reach the next one")]
     [Serializable] 
     public class TableConstantProgression : TTable

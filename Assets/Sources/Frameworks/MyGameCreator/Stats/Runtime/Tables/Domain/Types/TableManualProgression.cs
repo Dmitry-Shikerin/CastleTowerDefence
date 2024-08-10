@@ -1,9 +1,13 @@
 ﻿using System;
-using System.ComponentModel;
+using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
+using Sources.Frameworks.MyGameCreator.Stats.Runtime.Tables;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
 {
+    [Image(typeof(IconTable), ColorTheme.Type.Yellow)]
+    [Title("Manual Progression")]
+    [Category("Manual Progression")]
     [Description("Manually defines the amount of experience needed to reach the next level")]
     [Serializable]
     public class TableManualProgression : TTable

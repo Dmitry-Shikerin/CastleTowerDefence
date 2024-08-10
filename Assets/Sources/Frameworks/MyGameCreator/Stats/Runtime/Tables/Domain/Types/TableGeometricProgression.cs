@@ -1,9 +1,13 @@
 ﻿using System;
-using System.ComponentModel;
+using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
+using Sources.Frameworks.MyGameCreator.Stats.Runtime.Tables;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
 {
+    [Image(typeof(IconTable), ColorTheme.Type.Red)]
+    [Title("Geometric Progression")]
+    [Category("Geometric Progression")]
     [Description(
         "The experience in each level after the first is calculated by multiplying the previous " +
         "one by a fixed coefficient rate"
