@@ -40,28 +40,29 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
         {
             get
             {
-                double value = this.m_Formula != null && this.m_Formula.Exists
-                    ? this.m_Formula.Calculate(this.m_Self, this.m_Self)
-                    : this.m_Base;
+                // double value = this.m_Formula != null && this.m_Formula.Exists
+                //     ? this.m_Formula.Calculate(this.m_Self, this.m_Self)
+                //     : this.m_Base;
 
-                return this.m_Modifiers.Calculate(value);
+                // return this.m_Modifiers.Calculate(value);
+                return Value;
             }
         }
 
         /// <summary>
         /// The amount modifiers contribute to the resulting stat value. 
         /// </summary>
-        public double ModifiersValue
-        {
-            get
-            {
-                double value = this.m_Formula != null && this.m_Formula.Exists
-                    ? this.m_Formula.Calculate(this.m_Self, this.m_Self)
-                    : this.m_Base;
-
-                return this.m_Modifiers.Calculate(value) - value;
-            }
-        }
+        // public double ModifiersValue
+        // {
+        //     get
+        //     {
+        //         double value = this.m_Formula != null && this.m_Formula.Exists
+        //             ? this.m_Formula.Calculate(this.m_Self, this.m_Self)
+        //             : this.m_Base;
+        //
+        //         return this.m_Modifiers.Calculate(value) - value;
+        //     }
+        // }
 
         public bool HasModifiers => this.m_Modifiers.Count > 0;
 
@@ -78,7 +79,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
             this.m_Modifiers = new Modifiers(stat.Stat.ID.Hash);
             
             this.m_Base = stat.Base;
-            this.m_Formula = stat.Formula;
+            // this.m_Formula = stat.Formula;
         }
         
         // PUBLIC METHODS: ------------------------------------------------------------------------

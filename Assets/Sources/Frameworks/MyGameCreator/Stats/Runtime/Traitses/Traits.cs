@@ -67,7 +67,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Traitses
 
         private void Update()
         {
-            this.RuntimeStatusEffects.Update();
+            // this.RuntimeStatusEffects.Update();
         }
 
         // INITIALIZERS: --------------------------------------------------------------------------
@@ -90,7 +90,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Traitses
                 return;
             }
             
-            this.m_RuntimeStats = new RuntimeStats(this, this.m_OverrideStats);
+            // this.m_RuntimeStats = new RuntimeStats(this, this.m_OverrideStats);
             this.m_RuntimeStats.EventChange += _ => this.EventChange?.Invoke();
         }
         
@@ -119,19 +119,19 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Traitses
         
         // STATIC METHODS: ------------------------------------------------------------------------
 
-        public static Traits SetTraitsWithClass(GameObject target, Class assetClass)
-        {
-            Traits traits = target.Add<Traits>();
-            traits.m_Class = assetClass;
-
-            traits.m_RuntimeStats = null;
-            traits.m_RuntimeAttributes = null;
-            
-            traits.RuntimeInitStats();
-            traits.RuntimeInitAttributes();
-
-            return traits;
-        }
+        // public static Traits SetTraitsWithClass(GameObject target, Class assetClass)
+        // {
+        //     Traits traits = target.Add<Traits>();
+        //     traits.m_Class = assetClass;
+        //
+        //     traits.m_RuntimeStats = null;
+        //     traits.m_RuntimeAttributes = null;
+        //     
+        //     traits.RuntimeInitStats();
+        //     traits.RuntimeInitAttributes();
+        //
+        //     return traits;
+        // }
 
         // SERIALIZATION CALLBACKS: ---------------------------------------------------------------
 
@@ -144,7 +144,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Traitses
             if (this.m_Class == null) return;
 
             this.m_OverrideAttributes.SyncWithClass(this.m_Class);
-            this.m_OverrideStats.SyncWithClass(this.m_Class);
+            // this.m_OverrideStats.SyncWithClass(this.m_Class);
         }
     }
 }

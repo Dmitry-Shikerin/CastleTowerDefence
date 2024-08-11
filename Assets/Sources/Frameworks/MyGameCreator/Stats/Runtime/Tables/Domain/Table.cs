@@ -1,6 +1,7 @@
 ﻿using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
 using Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
 {
@@ -27,21 +28,16 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
         //   +--+--+--+--+--+--+
         //   |1 |2 |3 |4 |5 |6 | <- Each number represents a Level
         
-        // MEMBERS: -------------------------------------------------------------------------------
+        [SerializeReference] private TTable _table = new TableLinearProgression();
 
-        [SerializeReference] private TTable m_Table = new TableLinearProgression();
-
-        // PUBLIC METHODS: ------------------------------------------------------------------------
 
         /// <summary>
         /// Returns the level from the cumulative experience value provided.
         /// </summary>
         /// <param name="experience"></param>
         /// <returns></returns>
-        public int CurrentLevel(int experience)
-        {
-            return this.m_Table?.GetLevelForCumulativeExperience(experience) ?? 0;
-        }
+        public int CurrentLevel(int experience) =>
+            this._table?.GetLevelForCumulativeExperience(experience) ?? 0;
 
         /// <summary>
         /// Returns the step-experience value between the the current and the next level.
@@ -50,7 +46,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
         /// <returns></returns>
         public int ExperienceForLevel(int level)
         {
-            return this.m_Table?.GetLevelExperienceForLevel(level) ?? 0;
+            return this._table?.GetLevelExperienceForLevel(level) ?? 0;
         }
 
         /// <summary>
@@ -60,7 +56,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
         /// <returns></returns>
         public int CumulativeExperienceForLevel(int level)
         {
-            return this.m_Table?.GetCumulativeExperienceForLevel(level) ?? 0;
+            return this._table?.GetCumulativeExperienceForLevel(level) ?? 0;
         }
 
         /// <summary>
@@ -71,7 +67,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
         /// <returns></returns>
         public int ExperienceForCurrentLevel(int cumulative)
         {
-            return this.m_Table?.GetLevelExperienceAtCurrentLevel(cumulative) ?? 0;
+            return this._table?.GetLevelExperienceAtCurrentLevel(cumulative) ?? 0;
         }
         
         /// <summary>
@@ -82,7 +78,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
         /// <returns></returns>
         public int ExperienceToNextLevel(int cumulative)
         {
-            return this.m_Table?.GetLevelExperienceToNextLevel(cumulative) ?? 0;
+            return this._table?.GetLevelExperienceToNextLevel(cumulative) ?? 0;
         }
         
         /// <summary>
@@ -93,7 +89,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
         /// <returns></returns>
         public float RatioFromCurrentLevel(int experience)
         {
-            return this.m_Table?.GetRatioAtCurrentLevel(experience) ?? 0f;
+            return this._table?.GetRatioAtCurrentLevel(experience) ?? 0f;
         }
 
         /// <summary>
@@ -104,7 +100,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain
         /// <returns></returns>
         public float RatioForNextLevel(int experience)
         {
-            return this.m_Table?.GetRatioForNextLevel(experience) ?? 0f;
+            return this._table?.GetRatioForNextLevel(experience) ?? 0f;
         }
     }
 }

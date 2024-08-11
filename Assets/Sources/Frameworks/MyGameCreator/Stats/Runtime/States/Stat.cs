@@ -27,7 +27,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
         public Color Color => this.m_Info.Color;
 
         public double Value => this.m_Data.Base;
-        public Formula Formula => this.m_Data.Formula;
+        // public Formula Formula => this.m_Data.Formula;
 
         // METHODS: -------------------------------------------------------------------------------
 

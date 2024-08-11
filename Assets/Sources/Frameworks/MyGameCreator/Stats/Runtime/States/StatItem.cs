@@ -38,15 +38,15 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
             }
         }
 
-        public Formula Formula
-        {
-            get
-            {
-                if (this.m_Stat == null) return null;
-                return this.m_ChangeFormula.IsEnabled
-                    ? this.m_ChangeFormula.Value
-                    : this.m_Stat.Formula;
-            }
-        }
+        // public Formula Formula
+        // {
+        //     get
+        //     {
+        //         if (this.m_Stat == null) return null;
+        //         return this.m_ChangeFormula.IsEnabled
+        //             ? this.m_ChangeFormula.Value
+        //             : this.m_Stat.Formula;
+        //     }
+        // }
     }
 }

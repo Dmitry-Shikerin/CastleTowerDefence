@@ -6,21 +6,18 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
     [Serializable]
     public abstract class TTable
     {
-        // PROPERTIES: ----------------------------------------------------------------------------
         public virtual int MinLevel => 1;
         public virtual int MaxLevel => 99;
 
-        // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public int GetLevelForCumulativeExperience(int cumulative)
-        {
-            return this.LevelFromCumulative(cumulative);
-        }
+        public int GetLevelForCumulativeExperience(int cumulative) =>
+            LevelFromCumulative(cumulative);
 
         public int GetCumulativeExperienceForLevel(int level)
         {
             level = Mathf.Clamp(level, this.MinLevel, this.MaxLevel + 1);
-            return this.CumulativeFromLevel(level);
+            
+            return CumulativeFromLevel(level);
         }
 
         public int GetLevelExperienceForLevel(int level)
@@ -28,52 +25,46 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
             int currLevel = Mathf.Clamp(level + 0, this.MinLevel, this.MaxLevel + 1);
             int nextLevel = Mathf.Clamp(level + 1, this.MinLevel, this.MaxLevel + 1);
 
-            int cumulativeCurrent = this.CumulativeFromLevel(currLevel);
-            int cumulativeNext = this.CumulativeFromLevel(nextLevel);
+            int cumulativeCurrent = CumulativeFromLevel(currLevel);
+            int cumulativeNext = CumulativeFromLevel(nextLevel);
 
             return cumulativeNext - cumulativeCurrent;
         }
 
         public int GetLevelExperienceAtCurrentLevel(int cumulative)
         {
-            int currentLevel = this.GetLevelForCumulativeExperience(cumulative);
-            return cumulative - this.CumulativeFromLevel(currentLevel);
+            int currentLevel = GetLevelForCumulativeExperience(cumulative);
+            return cumulative - CumulativeFromLevel(currentLevel);
         }
 
         public int GetLevelExperienceToNextLevel(int cumulative)
         {
-            int nextLevel = this.GetNextLevel(cumulative);
-            return this.CumulativeFromLevel(nextLevel) - cumulative;
+            int nextLevel = GetNextLevel(cumulative);
+            return CumulativeFromLevel(nextLevel) - cumulative;
         }
 
         public float GetRatioAtCurrentLevel(int cumulative)
         {
-            int experienceFrom = this.GetLevelExperienceAtCurrentLevel(cumulative);
-            int experienceTo = this.GetLevelExperienceToNextLevel(cumulative);
+            int experienceFrom = GetLevelExperienceAtCurrentLevel(cumulative);
+            int experienceTo = GetLevelExperienceToNextLevel(cumulative);
             return (float)experienceFrom / (experienceFrom + experienceTo);
         }
 
-        public float GetRatioForNextLevel(int cumulative)
-        {
-            return 1f - this.GetRatioAtCurrentLevel(cumulative);
-        }
-
-        // PROTECTED METHODS: ---------------------------------------------------------------------
-
+        public float GetRatioForNextLevel(int cumulative) =>
+            1f - GetRatioAtCurrentLevel(cumulative);
+        
         protected int GetPreviousLevel(int cumulative)
         {
-            int currentLevel = this.LevelFromCumulative(cumulative);
-            return Math.Max(this.MinLevel, currentLevel - 1);
+            int currentLevel = LevelFromCumulative(cumulative);
+            return Math.Max(MinLevel, currentLevel - 1);
         }
 
         protected int GetNextLevel(int cumulative)
         {
-            int currentLevel = this.LevelFromCumulative(cumulative);
-            return Math.Min(this.MaxLevel, currentLevel + 1);
+            int currentLevel = LevelFromCumulative(cumulative);
+            return Math.Min(MaxLevel, currentLevel + 1);
         }
-
-        // ABSTRACT METHODS: ----------------------------------------------------------------------
-
+        
         protected abstract int LevelFromCumulative(int cumulative);
         protected abstract int CumulativeFromLevel(int level);
     }

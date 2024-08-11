@@ -2,6 +2,7 @@
 using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
 using Sources.Frameworks.MyGameCreator.Stats.Runtime.Tables;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
 {
@@ -12,33 +13,29 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
     [Serializable]
     public class TableManualProgression : TTable
     {
-                // +--------------------------------------------------------------------------------------+
+        // +--------------------------------------------------------------------------------------+
         // | EXP_Level(n) = X(n)                                                                  |
         // |                                                                                      |
         // | n: is the current level.                                                             |
         // | X(n): is the n-th variable from the experience table                                 |
         // +--------------------------------------------------------------------------------------+
         
-        [SerializeField] private int[] m_Increments = new int[99];
+        [SerializeField] private int[] _increments = new int[99];
         
-        // PROPERTIES: ----------------------------------------------------------------------------
-
         public override int MinLevel => 1;
-        public override int MaxLevel => this.m_Increments.Length - 1;
-
-        // CONSTRUCTORS: --------------------------------------------------------------------------
+        public override int MaxLevel => _increments.Length - 1;
 
         public TableManualProgression() : base()
         {
-            for (int i = 0; i < this.m_Increments.Length; ++i)
+            for (int i = 0; i < _increments.Length; ++i)
             {
-                this.m_Increments[i] = 10 + 5 * i;
+                _increments[i] = 10 + 5 * i;
             }
         }
 
         public TableManualProgression(int[] increments) : this()
         {
-            this.m_Increments = increments;
+            _increments = increments;
         }
         
         // IMPLEMENT METHODS: ---------------------------------------------------------------------
@@ -47,13 +44,13 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
         {
             int sum = 0;
             
-            for (int i = 0; i < this.m_Increments.Length; ++i)
+            for (int i = 0; i < _increments.Length; ++i)
             {
                 if (cumulative < sum) return i;
-                sum += this.m_Increments[i];
+                sum += _increments[i];
             }
 
-            return this.MaxLevel;
+            return MaxLevel;
         }
 
         protected override int CumulativeFromLevel(int level)
@@ -61,7 +58,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
             int sum = 0;
             for (int i = 0; i < level - 1; ++i)
             {
-                sum += this.m_Increments[i];
+                sum += _increments[i];
             }
 
             return sum;

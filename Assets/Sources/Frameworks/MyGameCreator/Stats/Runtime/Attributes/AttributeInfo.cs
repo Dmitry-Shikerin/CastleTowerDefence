@@ -1,8 +1,10 @@
-﻿using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
+﻿using System;
+using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
 using Sources.Frameworks.MyGameCreator.Stats.Runtime.StatusEffects;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
 {
+    [Serializable]
     public class AttributeInfo : TInfo
     {
         // CONSTRUCTOR: ---------------------------------------------------------------------------

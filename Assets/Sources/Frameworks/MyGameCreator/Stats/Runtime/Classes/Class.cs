@@ -19,13 +19,13 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Classes
         [SerializeField] private PropertyGetSprite m_Sprite = GetSpriteNone.Create;
         [SerializeField] private PropertyGetColor m_Color = GetColorColorsWhite.Create;
         
-        [SerializeField] private AttributeList m_Attributes = new AttributeList();
-        [SerializeField] private StatList m_Stats = new StatList();
+        // [SerializeField] private AttributeList m_Attributes = new AttributeList();
+        // [SerializeField] private StatList m_Stats = new StatList();
 
         // PROPERTIES: ----------------------------------------------------------------------------
 
-        public int AttributesLength => this.m_Attributes.Length;
-        public int StatsLength => this.m_Stats.Length;
+        // public int AttributesLength => this.m_Attributes.Length;
+        // public int StatsLength => this.m_Stats.Length;
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Classes
         public Sprite GetSprite(Args args) => this.m_Sprite.Get(args);
         public Color GetColor(Args args) => this.m_Color.Get(args);
         
-        public AttributeItem GetAttribute(int index) => this.m_Attributes.Get(index);
-        public StatItem GetStat(int index) => this.m_Stats.Get(index);
+        // public AttributeItem GetAttribute(int index) => this.m_Attributes.Get(index);
+        // public StatItem GetStat(int index) => this.m_Stats.Get(index);
     }
 }

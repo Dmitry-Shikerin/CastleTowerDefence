@@ -8,12 +8,12 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.StatusEffects
     [Serializable]
     public class TInfo
     {
-        [SerializeField] [FormerlySerializedAs("name")] public PropertyGetString m_Name;
-        [SerializeField] [FormerlySerializedAs("acronym")] public PropertyGetString m_Acronym;
-        [SerializeField] [FormerlySerializedAs("description")] public PropertyGetString m_Description;
+        [SerializeField] public PropertyGetString m_Name;
+        [SerializeField] public PropertyGetString m_Acronym;
+        [SerializeField] public PropertyGetString m_Description;
         
-        [SerializeField] [FormerlySerializedAs("icon")] public PropertyGetSprite m_Icon;
-        [SerializeField] [FormerlySerializedAs("color")] public Color m_Color;
+        [SerializeField] public PropertyGetSprite m_Icon;
+        [SerializeField] public Color m_Color;
 
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 

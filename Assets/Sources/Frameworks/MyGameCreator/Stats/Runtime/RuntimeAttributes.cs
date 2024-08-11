@@ -1,8 +1,9 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using Sources.Frameworks.MyGameCreator.Core.Editor.Common;
+using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
 using Sources.Frameworks.MyGameCreator.Stats.Runtime.Traitses;
-using UnityEditor;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
 {
@@ -40,41 +41,41 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
         
         internal RuntimeAttributes(Traits traits, OverrideAttributes overrideAttributes) : this(traits)
         {
-            for (int i = 0; i < this.m_Traits.Class.AttributesLength; ++i)
-            {
-                AttributeItem attribute = this.m_Traits.Class.GetAttribute(i);
-                if (attribute == null || attribute.Attribute == null)
-                {
-                    const string error = "No Attribute reference found";
-                    throw new NullReferenceException(error);
-                }
-
-                IdString attributeID = attribute.Attribute.ID;
-                if (this.m_Attributes.ContainsKey(attributeID.Hash))
-                {
-                    string error = $"Duplicate Attribute '{attributeID.String}' has already been defined";
-                    throw new Exception(error);
-                }
-                
-                RuntimeAttributeData data = new RuntimeAttributeData(this.m_Traits, attribute);
-                if (!attribute.IsHidden && 
-                    overrideAttributes.TryGetValue(attributeID, out OverrideAttributeData overrideData))
-                {
-                    if (overrideData.ChangeStartPercent) 
-                    {
-                        double value = MathUtils.Lerp(
-                            data.MinValue,
-                            data.MaxValue,
-                            overrideData.StartPercent
-                        );
-                        
-                        data.SetValueWithoutNotify(value);
-                    }
-                }
-                
-                data.EventChange += this.ExecuteEventChange;
-                this.m_Attributes[attributeID.Hash] = data;
-            }
+            // for (int i = 0; i < this.m_Traits.Class.AttributesLength; ++i)
+            // {
+            //     AttributeItem attribute = this.m_Traits.Class.GetAttribute(i);
+            //     if (attribute == null || attribute.Attribute == null)
+            //     {
+            //         const string error = "No Attribute reference found";
+            //         throw new NullReferenceException(error);
+            //     }
+            //
+            //     IdString attributeID = attribute.Attribute.ID;
+            //     if (this.m_Attributes.ContainsKey(attributeID.Hash))
+            //     {
+            //         string error = $"Duplicate Attribute '{attributeID.String}' has already been defined";
+            //         throw new Exception(error);
+            //     }
+            //     
+            //     RuntimeAttributeData data = new RuntimeAttributeData(this.m_Traits, attribute);
+            //     if (!attribute.IsHidden && 
+            //         overrideAttributes.TryGetValue(attributeID, out OverrideAttributeData overrideData))
+            //     {
+            //         if (overrideData.ChangeStartPercent) 
+            //         {
+            //             double value = MathUtils.Lerp(
+            //                 data.MinValue,
+            //                 data.MaxValue,
+            //                 overrideData.StartPercent
+            //             );
+            //             
+            //             data.SetValueWithoutNotify(value);
+            //         }
+            //     }
+            //     
+            //     data.EventChange += this.ExecuteEventChange;
+            //     this.m_Attributes[attributeID.Hash] = data;
+            // }
         }
         
         // PRIVATE METHODS: -----------------------------------------------------------------------

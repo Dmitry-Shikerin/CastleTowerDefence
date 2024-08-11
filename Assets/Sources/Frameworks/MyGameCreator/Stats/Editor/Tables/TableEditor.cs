@@ -78,7 +78,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Editor.Tables
             StyleSheet[] sheets = StyleSheetUtils.Load(USS_PATH);
             foreach (StyleSheet sheet in sheets) this.m_Root.styleSheets.Add(sheet);
 
-            this.m_PropertyTable = this.serializedObject.FindProperty("m_Table");
+            this.m_PropertyTable = this.serializedObject.FindProperty("_table");
 
             this.InitializeData();
             this.InitializePlot();

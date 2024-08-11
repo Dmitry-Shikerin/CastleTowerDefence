@@ -1,7 +1,7 @@
-﻿
+﻿using System;
 using Sources.Frameworks.MyGameCreator.Core.Editor.Common;
+using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
 using Sources.Frameworks.MyGameCreator.Stats.Runtime.Traitses;
-using UnityEditor;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
 {

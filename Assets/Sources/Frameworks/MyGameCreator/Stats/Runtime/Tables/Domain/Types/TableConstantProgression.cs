@@ -2,6 +2,7 @@
 using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
 using Sources.Frameworks.MyGameCreator.Stats.Runtime.Tables;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
 {
@@ -19,36 +20,30 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Tables.Domain.Types
         // | experience: is the amount of experience required per level.                          |
         // +--------------------------------------------------------------------------------------+
         
-        [SerializeField] private int m_MaxLevel = 99;
-        [SerializeField] private int m_Increment = 50;
+        [SerializeField] private int _maxLevel = 99;
+        [SerializeField] private int _increment = 50;
         
-        // PROPERTIES: ----------------------------------------------------------------------------
-
         public override int MinLevel => 1;
-        public override int MaxLevel => this.m_MaxLevel;
-
-        // CONSTRUCTORS: --------------------------------------------------------------------------
+        public override int MaxLevel => _maxLevel;
 
         public TableConstantProgression() : base()
         { }
 
         public TableConstantProgression(int maxLevel, int increment) : this()
         {
-            this.m_MaxLevel = maxLevel;
-            this.m_Increment = increment;
+            _maxLevel = maxLevel;
+            _increment = increment;
         }
         
-        // IMPLEMENT METHODS: ---------------------------------------------------------------------
-
         protected override int LevelFromCumulative(int cumulative)
         {
-            float level = (float) (cumulative + this.m_Increment) / this.m_Increment;
-            return Mathf.Clamp(Mathf.FloorToInt(level), this.MinLevel, this.MaxLevel + 1);
+            float level = (float) (cumulative + _increment) / _increment;
+            return Mathf.Clamp(Mathf.FloorToInt(level), MinLevel, MaxLevel + 1);
         }
 
         protected override int CumulativeFromLevel(int level)
         {
-            return level * this.m_Increment - this.m_Increment;
+            return level * _increment - _increment;
         }
     }
 }
