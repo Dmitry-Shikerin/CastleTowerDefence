@@ -37,36 +37,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
             this.m_Stats = new Dictionary<int, RuntimeStatData>();
         }
         
-        // internal RuntimeStats(Traits traits, OverrideStats overrideStats) : this(traits)
-        // {
-        //     for (int i = 0; i < this.m_Traits.Class.StatsLength; ++i)
-        //     {
-        //         StatItem stat = this.m_Traits.Class.GetStat(i);
-        //         if (stat == null || stat.Stat == null)
-        //         {
-        //             const string error = "No Stat reference found";
-        //             throw new NullReferenceException(error);
-        //         }
-        //
-        //         IdString statID = stat.Stat.ID;
-        //         if (this.m_Stats.ContainsKey(statID.Hash))
-        //         {
-        //             string error = $"Duplicate Stat '{statID.String}' has already been defined";
-        //             throw new Exception(error);
-        //         }
-        //
-        //         RuntimeStatData data = new RuntimeStatData(this.m_Traits.gameObject, stat);
-        //         if (!stat.IsHidden && 
-        //             overrideStats.TryGetValue(statID, out OverrideStatData overrideData))
-        //         {
-        //             if (overrideData.ChangeBase) data.SetBaseWithoutNotify(overrideData.Base);
-        //         }
-        //
-        //         data.EventChange += this.ExecuteEventChange;
-        //         this.m_Stats[statID.Hash] = data;
-        //     }
-        // }
-        
+         
         // PRIVATE METHODS: -----------------------------------------------------------------------
 
         private void ExecuteEventChange(IdString statID, double change)

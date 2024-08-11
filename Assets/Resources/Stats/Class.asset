@@ -12,32 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12aefe905ec944d7b01e1a0755674baa, type: 3}
   m_Name: Class
   m_EditorClassIdentifier: 
-  m_Class:
-    m_Property:
-      rid: 4755881729310326803
-  m_Description:
-    m_Property:
-      rid: 4755881729310326804
-  m_Sprite:
-    m_Property:
-      rid: 4755881729310326805
-  m_Color:
-    m_Property:
-      rid: 4755881729310326806
-  references:
-    version: 2
-    RefIds:
-    - rid: 4755881729310326803
-      type: {class: GetStringSelfName, ns: Sources.Frameworks.MyGameCreator.Core.Editor.Common, asm: Assembly-CSharp}
-      data: 
-    - rid: 4755881729310326804
-      type: {class: GetStringTextArea, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
-      data:
-        m_Text:
-          m_Text: 
-    - rid: 4755881729310326805
-      type: {class: GetSpriteNone, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
-      data: 
-    - rid: 4755881729310326806
-      type: {class: GetColorColorsWhite, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
-      data: 
+  _id: ID
+  _description: Description
+  _sprite: {fileID: 0}
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _attributes:
+  - {fileID: 11400000, guid: cdd61e0c565558e4eb7c9c8f18d28d9f, type: 2}
+  _stats:
+  - {fileID: 11400000, guid: 1c9ec6f0829242b46b2f68482462f734, type: 2}

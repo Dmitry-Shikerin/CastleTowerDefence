@@ -2,7 +2,7 @@
 {
     public enum ModifierType
     {
-            Constant = 0,
-            Percent  = 1,
+        Constant = 0,
+        Percent  = 1,
     }
 }

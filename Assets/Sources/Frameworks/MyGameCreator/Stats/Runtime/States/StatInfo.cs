@@ -1,19 +1,19 @@
 ﻿using System;
 using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
 using Sources.Frameworks.MyGameCreator.Stats.Runtime.StatusEffects;
+using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
 {
     [Serializable]
-    public class StatInfo : TInfo
+    public class StatInfo
     {
-        // CONSTRUCTOR: ---------------------------------------------------------------------------
+        [SerializeField] private string _acronym;
+        [SerializeField] private string _name;
+        [SerializeField] private string _description;
 
-        public StatInfo() : base()
-        {
-            this.m_Acronym = new PropertyGetString("STA");
-            this.m_Name = new PropertyGetString("Stat Name");
-            this.m_Description = new PropertyGetString("Description...");
-        }
+        public string Acronym => _acronym;
+        public string Name => _name;
+        public string Description => _description;
     }
 }

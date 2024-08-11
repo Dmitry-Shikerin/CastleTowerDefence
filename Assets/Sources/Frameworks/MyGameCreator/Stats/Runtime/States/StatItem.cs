@@ -23,9 +23,10 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
         public bool IsHidden => m_IsHidden;
         public Stat Stat => this.m_Stat;
 
-        public override string Title => this.m_Stat != null 
-            ? TextUtils.Humanize(this.m_Stat.ID.String) 
-            : "(none)";
+        public override string Title => null;
+        // public override string Title => this.m_Stat != null 
+            // ? TextUtils.Humanize(this.m_Stat.ID.String) 
+            // : "(none)";
 
         public double Base
         {

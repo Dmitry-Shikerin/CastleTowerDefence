@@ -5,7 +5,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Tables
 {
     public class IconTable : TIcon
     {
-                public IconTable(ColorTheme.Type color, IIcon overlay = null) 
+        public IconTable(ColorTheme.Type color, IIcon overlay = null) 
             : this(ColorTheme.Get(color), overlay)
         { }
         

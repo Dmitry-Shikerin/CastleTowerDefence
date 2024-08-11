@@ -29,7 +29,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
                 double prevValue = this.Value;
                 this.m_Base = value;
 
-                this.EventChange?.Invoke(this.m_Stat.ID, this.Value - prevValue);
+                // this.EventChange?.Invoke(this.m_Stat.ID, this.Value - prevValue);
             }
         }
 
@@ -76,7 +76,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
         {
             this.m_Self = self;
             this.m_Stat = stat.Stat;
-            this.m_Modifiers = new Modifiers(stat.Stat.ID.Hash);
+            // this.m_Modifiers = new Modifiers(stat.Stat.ID.Hash);
             
             this.m_Base = stat.Base;
             // this.m_Formula = stat.Formula;
@@ -101,7 +101,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
                 default: throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
             
-            this.EventChange?.Invoke(this.m_Stat.ID, 0f);
+            // this.EventChange?.Invoke(this.m_Stat.ID, 0f);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
             
-            if (success) this.EventChange?.Invoke(this.m_Stat.ID, 0f);
+            // if (success) this.EventChange?.Invoke(this.m_Stat.ID, 0f);
             return success;
         }
 

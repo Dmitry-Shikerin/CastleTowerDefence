@@ -1,18 +1,18 @@
 ﻿using System;
+using Sources.Frameworks.MyGameCreator.Stats.Tables.Domain;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
 {
     [Serializable]
     public class StatData
     {
-        [SerializeField] private double m_Base = 0;
-        [SerializeField] private Formula m_Formula = null;
+       [SerializeField] private double _baseValue = 0;
+       [SerializeField] private Table _table;
         
-        // PROPERTIES: ----------------------------------------------------------------------------
-        
-        public double Base => this.m_Base;
-        public Formula Formula => this.m_Formula;
+        public double BaseValue => _baseValue;
+        public Table Table => _table != null ? _table : throw new NullReferenceException();
     }
 }
