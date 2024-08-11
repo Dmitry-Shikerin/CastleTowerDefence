@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc3259e5edb45019e730c9d65438bbe, type: 3}
+  m_Name: Status Effect
+  m_EditorClassIdentifier: 
+  m_Data:
+    m_Type: 1
+    m_MaxStack:
+      m_Property:
+        rid: 4755881729310326790
+    m_HasDuration: 0
+    m_IsHidden: 0
+    m_Duration:
+      m_Property:
+        rid: 4755881729310326791
+  m_Info:
+    m_Name:
+      m_Property:
+        rid: 4755881729310326792
+    m_Acronym:
+      m_Property:
+        rid: 4755881729310326793
+    m_Description:
+      m_Property:
+        rid: 4755881729310326794
+    m_Icon:
+      m_Property:
+        rid: 4755881729310326795
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4755881729310326790
+      type: {class: GetDecimalInteger, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
+      data:
+        m_Value: 1
+    - rid: 4755881729310326791
+      type: {class: GetDecimalDecimal, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
+      data:
+        m_Value: 60
+    - rid: 4755881729310326792
+      type: {class: GetStringString, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
+      data:
+        m_Value: Status Effect Name
+    - rid: 4755881729310326793
+      type: {class: GetStringString, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
+      data:
+        m_Value: SE
+    - rid: 4755881729310326794
+      type: {class: GetStringString, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
+      data:
+        m_Value: Description...
+    - rid: 4755881729310326795
+      type: {class: GetSpriteNone, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
+      data: 
