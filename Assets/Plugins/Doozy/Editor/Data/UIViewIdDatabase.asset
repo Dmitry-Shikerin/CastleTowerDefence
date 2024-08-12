@@ -17,6 +17,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: AbilitiesTutorial
     - Category: Gameplay
+      Name: Achievements
+    - Category: Gameplay
       Name: Background
     - Category: Gameplay
       Name: EnemySpawnerTutorial
