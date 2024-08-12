@@ -12,5 +12,7 @@ namespace Sources.InfrastructureInterfaces.Services.Repositories
         T Get<T>(string id) 
             where T : class, IEntity;
         void Release();
+        IEnumerable<T> GetAll<T>(IEnumerable<string> ids) 
+            where T : class, IEntity;
     }
 }

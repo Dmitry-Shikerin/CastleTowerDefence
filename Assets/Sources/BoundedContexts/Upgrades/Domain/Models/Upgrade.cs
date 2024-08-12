@@ -36,7 +36,7 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Models
                 return;
             
             CurrentLevel++;
-            Debug.Log($"{CurrentLevel}");
+            // Debug.Log($"{CurrentLevel}");
             LevelChanged?.Invoke();
         }
     }

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 using Sources.PresentationsInterfaces.Views;
+using UnityEngine;
 
 namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic
 {
@@ -11,6 +13,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic
         IReadOnlyList<T> Collection { get; }
         IPoolBaker<T> PoolBaker { get; }
 
+        IObjectPool<T> SetRootParent(Transform parent);
         void AddToCollection(T @object);
         bool Contains(T @object);
     }

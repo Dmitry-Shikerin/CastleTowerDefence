@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1942077023782439486}
   - component: {fileID: 1915393240690994708}
   - component: {fileID: 1923554028495511694}
-  m_Layer: 0
+  - component: {fileID: 6203462127343001662}
+  m_Layer: 9
   m_Name: SM_Wep_AssaultRifle_02_Handle_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +84,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6203462127343001662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936844496211373824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 1942077023782439486}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 1923554028495511694}
+    mesh: {fileID: 4300002, guid: 872ce386d126d4b4b8a039f7a77c7894, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 1923554028495511694}
+    meshFilter: {fileID: 1915393240690994708}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &1937734037180225556
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +128,8 @@ GameObject:
   - component: {fileID: 1941947156771407392}
   - component: {fileID: 1916936761571163984}
   - component: {fileID: 1923139247207487910}
-  m_Layer: 0
+  - component: {fileID: 3211270267314290739}
+  m_Layer: 9
   m_Name: SM_Wep_AssaultRifle_02_Magazine_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +201,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3211270267314290739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937734037180225556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 1941947156771407392}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 1923139247207487910}
+    mesh: {fileID: 4300006, guid: 872ce386d126d4b4b8a039f7a77c7894, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 1923139247207487910}
+    meshFilter: {fileID: 1916936761571163984}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &1938243326988769222
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +245,8 @@ GameObject:
   - component: {fileID: 1940416166115980094}
   - component: {fileID: 1916098076675784900}
   - component: {fileID: 1923159264146156806}
-  m_Layer: 0
+  - component: {fileID: 997799766256155662}
+  m_Layer: 9
   m_Name: SM_Wep_AssaultRifle_02_Slide_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,6 +318,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &997799766256155662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938243326988769222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 1940416166115980094}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 1923159264146156806}
+    mesh: {fileID: 4300004, guid: 872ce386d126d4b4b8a039f7a77c7894, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 1923159264146156806}
+    meshFilter: {fileID: 1916098076675784900}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &1938372767771224260
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +362,8 @@ GameObject:
   - component: {fileID: 1940086659125408352}
   - component: {fileID: 1916081635230487242}
   - component: {fileID: 1924863253998776810}
-  m_Layer: 0
+  - component: {fileID: 2242794285734996408}
+  m_Layer: 9
   m_Name: SM_Wep_AssaultRifle_02_Trigger_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,6 +435,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2242794285734996408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938372767771224260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 1940086659125408352}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 1924863253998776810}
+    mesh: {fileID: 4300008, guid: 872ce386d126d4b4b8a039f7a77c7894, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 1924863253998776810}
+    meshFilter: {fileID: 1916081635230487242}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &1938395668113074172
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +479,8 @@ GameObject:
   - component: {fileID: 1940469733901838558}
   - component: {fileID: 1916160552983537954}
   - component: {fileID: 1923564464197291404}
-  m_Layer: 0
+  - component: {fileID: 3661822088657595507}
+  m_Layer: 9
   m_Name: AssaultRifleView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,6 +500,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8869491123167912466}
   - {fileID: 1942077023782439486}
   - {fileID: 1941947156771407392}
   - {fileID: 1940416166115980094}
@@ -419,3 +557,126 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3661822088657595507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938395668113074172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 1940469733901838558}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 1923564464197291404}
+    mesh: {fileID: 4300000, guid: 872ce386d126d4b4b8a039f7a77c7894, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 1923564464197291404}
+    meshFilter: {fileID: 1916160552983537954}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
+--- !u!1001 &8865050086976224288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1940469733901838558}
+    m_Modifications:
+    - target: {fileID: 1199387749997026, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792092052645256, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_Name
+      value: FX_Gunshot_Shotgun_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792092052645256, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880413776039800, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.091
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.725
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198586439706424864, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198994897263029524, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199066132636078472, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199115488141885032, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+--- !u!4 &8869491123167912466 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4573121468440114, guid: 0e56aef02a6fcc6408400ea7c75e13a7, type: 3}
+  m_PrefabInstance: {fileID: 8865050086976224288}
+  m_PrefabAsset: {fileID: 0}

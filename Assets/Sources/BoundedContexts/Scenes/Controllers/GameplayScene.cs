@@ -9,6 +9,7 @@ using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
+using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
@@ -19,6 +20,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
+        private readonly IAchievementService _achievementService;
         private readonly ISoundyService _soundyService;
         private readonly IGameOverService _gameOverService;
         private readonly IEcsGameStartUp _ecsGameStartUp;
@@ -31,6 +33,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplayScene(
+            IAchievementService achievementService,
             ISoundyService soundyService,
             IGameOverService gameOverService,
             IEcsGameStartUp ecsGameStartUp,
@@ -42,6 +45,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _achievementService = achievementService ?? throw new ArgumentNullException(nameof(achievementService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
@@ -64,7 +68,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _gameplaySceneViewFactory.Create((IScenePayload)payload);
             _advertisingService.Initialize();
             _localizationService.Translate();
-            _audioService.Initialize();
+            _achievementService.Initialize();
             _signalControllersCollector.Initialize();
             _soundyService.PlaySequence(
                 SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
@@ -77,7 +81,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _signalControllersCollector.Destroy();
             _soundyService.StopSequence(
                 SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
-            _audioService.Destroy();
+            _achievementService.Destroy();
             _gameOverService.Destroy();
         }
 

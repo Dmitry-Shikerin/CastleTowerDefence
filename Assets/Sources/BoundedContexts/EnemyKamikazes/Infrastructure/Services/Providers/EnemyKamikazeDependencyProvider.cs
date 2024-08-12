@@ -20,6 +20,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Provide
         public IEnemyKamikazeView View { get; private set; }
         public IEnemyAnimation Animation { get; private set; }
         public IOverlapService OverlapService { get; private set; }
+        public IEntityRepository EntityRepository { get; private set; }
         public ExplosionBodyViewFactory ExplosionBodyViewFactory { get; private set; }
         public ExplosionBodyBloodyViewFactory ExplosionBodyBloodyViewFactory { get; private set; }
 
@@ -32,9 +33,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Provide
             ExplosionBodyViewFactory explosionBodySpawnService,
             ExplosionBodyBloodyViewFactory explosionBodyBloodyViewFactory)
         {
-            if (entityRepository == null) 
-                throw new ArgumentNullException(nameof(entityRepository));
-            
+            EntityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             EnemyKamikaze = enemyKamikaze ?? throw new ArgumentNullException(nameof(enemyKamikaze));
             View = view ?? throw new ArgumentNullException(nameof(view));
             Animation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));

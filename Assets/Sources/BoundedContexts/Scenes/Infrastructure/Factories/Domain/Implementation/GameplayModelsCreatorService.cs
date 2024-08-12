@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
+using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
@@ -17,6 +18,8 @@ using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
+using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
@@ -29,6 +32,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
         private readonly UpgradeConfigContainer _upgradeConfigContainer;
 
         public GameplayModelsCreatorService(
+            IAchievementService achievementService,
             IEntityRepository entityRepository,
             ILoadService loadService,
             UpgradeConfigContainer upgradeConfigContainer)
@@ -82,6 +86,21 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             Volume musicVolume = LoadVolume(ModelId.MusicVolume);
             Volume soundsVolume = LoadVolume(ModelId.SoundsVolume);
             
+            //Achievements
+            List<Achievement> achievements = new List<Achievement>();
+            
+            foreach (string id in ModelId.AchievementModels)
+            {
+                Achievement achievement = new Achievement(id);
+                _entityRepository.Add(achievement);
+                achievements.Add(achievement);
+            }
+            
+            //HealthBooster
+            HealthBooster healthBooster = new HealthBooster(ModelId.HealthBooster);
+            healthBooster.Amount++;
+            _entityRepository.Add(healthBooster);
+            
             return new GameplayModel(
                 characterHealthUpgrade,
                 characterAttackUpgrade,
@@ -95,7 +114,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 killEnemyCounter,
                 playerWallet,
                 musicVolume,
-                soundsVolume);
+                soundsVolume,
+                achievements,
+                healthBooster);
         }
 
         private Volume LoadVolume(string key)

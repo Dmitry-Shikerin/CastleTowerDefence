@@ -18,6 +18,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers
         public IEnemyAnimation Animation { get; private set; }
         public IOverlapService OverlapService { get; private set; }
         public ExplosionBodyBloodyViewFactory ExplosionBodyBloodyViewFactory { get; private set; }
+        public IEntityRepository EntityRepository { get; private set; }
         
         public void Construct(
             Enemy enemy, 
@@ -27,9 +28,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers
             IOverlapService overlapService,
             ExplosionBodyBloodyViewFactory explosionBodyBloodySpawnService)
         {
-            if (entityRepository == null) 
-                throw new ArgumentNullException(nameof(entityRepository));
-            
+            EntityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             Enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             PlayerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
             View = view ?? throw new ArgumentNullException(nameof(view));

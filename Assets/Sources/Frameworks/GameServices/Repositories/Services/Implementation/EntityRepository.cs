@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.Utilities;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 
@@ -40,5 +41,24 @@ namespace Sources.Frameworks.GameServices.Repositories.Services.Implementation
 
         public void Release() =>
             _entities.Clear();
+
+        public IEnumerable<T> GetAll<T>(IEnumerable<string> ids) 
+            where T : class, IEntity
+        {
+            List<T> result = new List<T>();
+            
+            foreach (string id in ids)
+            {
+                if (_entities.ContainsKey(id) == false)
+                    throw new KeyNotFoundException(id);
+                
+                if (_entities[id] is not T concreteEntity)
+                    throw new InvalidCastException($"Entity {id} with this Id does not exist");
+                
+                result.Add(concreteEntity);
+            }
+
+            return result;
+        }
     }
 }

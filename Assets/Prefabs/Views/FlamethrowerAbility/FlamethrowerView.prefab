@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8615324252441840310}
   - component: {fileID: 3284480177850966056}
   - component: {fileID: 7612801006166270614}
+  - component: {fileID: 8965018600997407818}
   m_Layer: 0
   m_Name: SM_Wep_FlameThrower_01_Handle_01
   m_TagString: Untagged
@@ -83,6 +84,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8965018600997407818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168926030629090232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 8615324252441840310}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 7612801006166270614}
+    mesh: {fileID: 4300004, guid: c60c430e4a17d854197a94e555745aea, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 7612801006166270614}
+    meshFilter: {fileID: 3284480177850966056}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &5608016549615963108
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +128,7 @@ GameObject:
   - component: {fileID: 536224587979038017}
   - component: {fileID: 2791008839319525592}
   - component: {fileID: 1119364366397242192}
+  - component: {fileID: 8527199729669427282}
   m_Layer: 0
   m_Name: SM_Wep_FlameThrower_01_Trigger_01
   m_TagString: Untagged
@@ -166,6 +201,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8527199729669427282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608016549615963108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 536224587979038017}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 1119364366397242192}
+    mesh: {fileID: 4300002, guid: c60c430e4a17d854197a94e555745aea, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 1119364366397242192}
+    meshFilter: {fileID: 2791008839319525592}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1 &6501700725467368259
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +277,7 @@ GameObject:
   - component: {fileID: 8013380348480901875}
   - component: {fileID: 7295851482632914864}
   - component: {fileID: 8238118618572731087}
+  - component: {fileID: 2614378122432226233}
   m_Layer: 0
   m_Name: FlamethrowerView
   m_TagString: Untagged
@@ -301,6 +370,39 @@ MonoBehaviour:
   _from: {fileID: 0}
   _to: {fileID: 0}
   _speed: 3.04
+--- !u!114 &2614378122432226233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841904388179512955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 6100711022610237187}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 7295851482632914864}
+    mesh: {fileID: 4300000, guid: c60c430e4a17d854197a94e555745aea, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 7295851482632914864}
+    meshFilter: {fileID: 8013380348480901875}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1001 &4181356152648366793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -612,10 +714,61 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 1545088820577214, guid: e10c556d4d4596f40b7d9dbc793c966d, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1638244575166490, guid: e10c556d4d4596f40b7d9dbc793c966d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3417447144672465051}
   m_SourcePrefab: {fileID: 100100000, guid: e10c556d4d4596f40b7d9dbc793c966d, type: 3}
 --- !u!4 &7142962084871832530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4567244561358264, guid: e10c556d4d4596f40b7d9dbc793c966d, type: 3}
+  m_PrefabInstance: {fileID: 7147458665928203882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7148635583454469744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1638244575166490, guid: e10c556d4d4596f40b7d9dbc793c966d, type: 3}
+  m_PrefabInstance: {fileID: 7147458665928203882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3417447144672465051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148635583454469744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 7142962084871832530}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 7162126267282115336}
+    mesh: {fileID: 4300000, guid: e0f77c55d23bfba45a716e163098d918, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 7162126267282115336}
+    meshFilter: {fileID: 7153206723470246860}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 0
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
+--- !u!33 &7153206723470246860 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 33095661579754918, guid: e10c556d4d4596f40b7d9dbc793c966d, type: 3}
+  m_PrefabInstance: {fileID: 7147458665928203882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7162126267282115336 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23683674015290722, guid: e10c556d4d4596f40b7d9dbc793c966d, type: 3}
   m_PrefabInstance: {fileID: 7147458665928203882}
   m_PrefabAsset: {fileID: 0}

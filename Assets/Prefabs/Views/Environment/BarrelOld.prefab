@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2352729798634280476}
   - component: {fileID: 6635006262984203473}
   - component: {fileID: 8478474645429906511}
+  - component: {fileID: 5211486529612867982}
   m_Layer: 0
   m_Name: BarrelOld
   m_TagString: Untagged
@@ -107,6 +108,39 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 86fd2e3beacd5da46a740ce3fa1f11f0, type: 3}
+--- !u!114 &5211486529612867982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781117429890717976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cache:
+    transform: {fileID: 2658421513416518000}
+    materials:
+    - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+    renderer: {fileID: 6635006262984203473}
+    mesh: {fileID: 4300000, guid: 86fd2e3beacd5da46a740ce3fa1f11f0, type: 3}
+    isSkinnedMesh: 0
+    meshRenderer: {fileID: 6635006262984203473}
+    meshFilter: {fileID: 2352729798634280476}
+    skinnedMeshRenderer: {fileID: 0}
+    isCached: 1
+    isCorrectionRequired: 1
+    blendShape:
+      enabled: 0
+      merge: 0
+      liveSync: []
+  key: 
+  isStatic: 1
+  disableRenderer: 1
+  removeMaterials: 0
+  combinerSource: 3
 --- !u!1001 &4906974603331991299
 PrefabInstance:
   m_ObjectHideFlags: 0
