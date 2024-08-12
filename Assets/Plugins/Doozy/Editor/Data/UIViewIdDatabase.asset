@@ -41,6 +41,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: UpgradesTutorial
     - Category: MainMenu
+      Name: Achievements
+    - Category: MainMenu
       Name: Authorization
     - Category: MainMenu
       Name: Background

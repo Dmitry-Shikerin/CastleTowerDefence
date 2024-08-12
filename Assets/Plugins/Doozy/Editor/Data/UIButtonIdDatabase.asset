@@ -15,7 +15,7 @@ MonoBehaviour:
   Database:
     Items:
     - Category: Gameplay
-      Name: Achievements
+      Name: Achievemnts
     - Category: Gameplay
       Name: Back
     - Category: Gameplay
@@ -32,6 +32,8 @@ MonoBehaviour:
       Name: Settings
     - Category: Gameplay
       Name: Tutorial
+    - Category: MainMenu
+      Name: Achievements
     - Category: MainMenu
       Name: Authorization
     - Category: MainMenu
