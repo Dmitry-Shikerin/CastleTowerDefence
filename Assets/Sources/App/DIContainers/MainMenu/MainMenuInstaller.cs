@@ -9,7 +9,7 @@ using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
-using Sources.Frameworks.MyGameCreator.DailyRewards.Infrastructure.Services.Implementation;
+using Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Services.Implementation;
 using Sources.Frameworks.MyGameCreator.DailyRewards.Infrastructure.Services.Interfaces;
 using UnityEngine;
 using Zenject;
