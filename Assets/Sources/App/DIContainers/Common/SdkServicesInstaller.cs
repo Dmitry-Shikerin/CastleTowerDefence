@@ -1,4 +1,5 @@
-﻿using Sources.Frameworks.YandexSdcFramework.Services.Leaderboards;
+﻿using Sources.Frameworks.GameServices.ServerTimes.Services;
+using Sources.Frameworks.YandexSdcFramework.Services.Leaderboards;
 using Sources.Frameworks.YandexSdcFramework.Services.PlayerAccounts;
 using Sources.Frameworks.YandexSdcFramework.Services.SdcInitializeServices;
 using Sources.Frameworks.YandexSdcFramework.Services.Stickies;
@@ -26,6 +27,7 @@ namespace Sources.App.DIContainers.Common
             Container.BindInterfacesTo<AdvertisingService>().AsSingle();
             Container.Bind<LeaderBoardElementViewFactory>().AsSingle();
             Container.Bind<LeaderBoardElementPresenterFactory>().AsSingle();
+            Container.Bind<IServerTimeService>().To<ServerTimeService>().AsSingle();
         }
     }
 }

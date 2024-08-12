@@ -23,7 +23,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string AttackUpgrade = "AttackUpgrade";
         public const string NukeUpgrade = "NukeUpgrade";
         public const string FlamethrowerUpgrade = "FlamethrowerUpgrade";
-        
+
         //gameModels
         public const string PlayerWallet = "PlayerWallet";
         public const string Bunker = "Bunker";
@@ -34,6 +34,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string KillEnemyCounter = "KillEnemyCounter";
 
         //commonModels
+        public const string DailyReward = "DailyReward";
         public const string HealthBooster = "HealthBooster";
         public const string ScoreCounter = "ScoreCounter";
         public const string MainMenu = "MainMenu";
@@ -43,12 +44,14 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string GameData = "GameData";
         public const string Tutorial = "Tutorial";
         public const string Gameplay = "Gameplay";
-        
+
+
         //Achievements
         public const string FirstEnemyKillAchievement = "FirstEnemyKillAchievement";
         public const string FirstHealthRemovedAchievement = "FirstHealthRemovedAchievement";
         public const string FirstUpgradeAchievement = "FirstUpgradeAchievement";
         public const string FirstHealthBoosterUsageAchievement = "FirstHealthBoosterUsageAchievement";
+
 
         public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
         {
@@ -63,13 +66,13 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             SoundsVolume,
             MusicVolume,
         };
-        
+
         public static IReadOnlyList<string> DeletedModelsIds { get; } = new List<string>()
         {
             PlayerWallet,
             KillEnemyCounter,
         };
-        
+
         public static IReadOnlyList<string> ModelsIds { get; } = new List<string>()
         {
             ScoreCounter,
