@@ -1,4 +1,6 @@
-﻿using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
+﻿using System;
+using Sources.Frameworks.MyGameCreator.Core.Runtime.Common;
+using Sources.Frameworks.MyGameCreator.Stats.Runtime.Classes;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Traitses
@@ -9,5 +11,14 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Traitses
     public class Traits : MonoBehaviour
     {
         private const string ERR_NO_CLASS = "Traits component has no Class reference";
+
+        [SerializeField] private Class _class;
+
+        private RuntimeClass _runtimeClass;
+
+        private void Awake()
+        {
+            _runtimeClass = new RuntimeClass(_class);
+        }
     }
 }

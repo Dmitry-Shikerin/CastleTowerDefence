@@ -1,4 +1,3 @@
-using Sources.App;
 using Sources.App.Core;
 using Sources.App.Factories;
 using UnityEngine;

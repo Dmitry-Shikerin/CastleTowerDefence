@@ -12,41 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04aa237446745fb98432c32296abc6e, type: 3}
   m_Name: Attribute
   m_EditorClassIdentifier: 
-  m_ID:
-    m_String: attribute-id
-  m_Data:
-    m_MinValue: 0
-    m_MaxValue: {fileID: 11400000, guid: 1c9ec6f0829242b46b2f68482462f734, type: 2}
-    m_StartPercent: 1
-  m_Info:
-    m_Name:
-      m_Property:
-        rid: 4755881729310326808
-    m_Acronym:
-      m_Property:
-        rid: 4755881729310326809
-    m_Description:
-      m_Property:
-        rid: 4755881729310326810
-    m_Icon:
-      m_Property:
-        rid: 4755881729310326811
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-  references:
-    version: 2
-    RefIds:
-    - rid: 4755881729310326808
-      type: {class: GetStringString, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
-      data:
-        m_Value: Attribute Name
-    - rid: 4755881729310326809
-      type: {class: GetStringString, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
-      data:
-        m_Value: ATT
-    - rid: 4755881729310326810
-      type: {class: GetStringString, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
-      data:
-        m_Value: Description...
-    - rid: 4755881729310326811
-      type: {class: GetSpriteNone, ns: Sources.Frameworks.MyGameCreator.Core.Runtime.Common, asm: Assembly-CSharp}
-      data: 
+  _id: attribute-id
+  _data:
+    _minValue: 0
+    _maxValue: {fileID: 11400000, guid: 1c9ec6f0829242b46b2f68482462f734, type: 2}
+    _startPercent: 1
+  _info:
+    _acronym: 
+    _name: 
+    _description: 
