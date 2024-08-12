@@ -24,14 +24,15 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Domain
         public void SetCurrentTime() =>
             CurrentTime = TargetRewardTime - ServerTime;
         
-        public void SetTargetRewardTime()
+        public bool TrySetTargetRewardTime()
         {
             if (IsAvailable == false)
-                return;
+                return false;
             
             LastRewardTime = ServerTime;
             TargetRewardTime = LastRewardTime + TimeSpan.FromDays(1);
             Debug.Log($"SetTargetRewardTime: {TargetRewardTime}");
+            return true;
         }
         
         private string GetText()

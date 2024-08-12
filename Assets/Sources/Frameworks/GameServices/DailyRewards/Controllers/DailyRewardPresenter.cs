@@ -2,9 +2,11 @@
 using System.Net.Sockets;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.DailyRewards.Presentation;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.ServerTimes.Services;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
@@ -16,6 +18,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
     {
         private readonly DailyRewardView _view;
         private readonly IServerTimeService _serverTimeService;
+        private readonly ILoadService _loadService;
         private readonly DailyReward _dailyReward;
         
         private CancellationTokenSource _tokenSource;
@@ -23,10 +26,12 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         public DailyRewardPresenter(
             IEntityRepository entityRepository, 
             DailyRewardView view,
-            IServerTimeService serverTimeService)
+            IServerTimeService serverTimeService,
+            ILoadService loadService)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _serverTimeService = serverTimeService ?? throw new ArgumentNullException(nameof(serverTimeService));
+            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _dailyReward = entityRepository.Get<DailyReward>(ModelId.DailyReward);
         }
 
@@ -70,16 +75,17 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             }
             catch (SocketException)
             {
-                Debug.Log($"SocketException: {_dailyReward.ServerTime}");
                 _tokenSource.Cancel();
                 StartTimer();
             }
         }
-        
 
         private void OnClick()
         {
-            _dailyReward.SetTargetRewardTime();
+            if (_dailyReward.TrySetTargetRewardTime() == false)
+                return;
+            
+            _loadService.Save(ModelId.DailyReward);
         }
     }
 }
