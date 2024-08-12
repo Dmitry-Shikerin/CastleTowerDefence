@@ -9,8 +9,7 @@ using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
-using Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Services.Implementation;
-using Sources.Frameworks.MyGameCreator.DailyRewards.Infrastructure.Services.Interfaces;
+using Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Factories;
 using UnityEngine;
 using Zenject;
 
@@ -35,7 +34,7 @@ namespace Sources.App.DIContainers.MainMenu
             Container.Bind<IViewCommandHandler>().To<MainMenuViewCommandHandler>().AsSingle();
             
             //daily
-            Container.Bind<IDailyRewardService>().To<DailyRewardService>().AsSingle();
+            Container.Bind<DailyRewardViewFactory>().AsSingle();
         }
     }
 }

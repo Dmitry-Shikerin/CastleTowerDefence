@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Ids.Domain.Constant;
@@ -31,32 +32,54 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
 
         public override void Enable()
         {
-            _tokenSource = new CancellationTokenSource();
+            _view.Button.onClickEvent.AddListener(OnClick);
             StartTimer();
         }
 
         public override void Disable()
         {
             _tokenSource.Cancel();
+            _view.Button.onClickEvent.RemoveListener(OnClick);
         }
-        
+
         private async void StartTimer()
         {
             try
             {
+                _tokenSource = new CancellationTokenSource();
+                _dailyReward.ServerTime = _serverTimeService.GetNetworkTime();
+                await UniTask.Delay(
+                    _dailyReward.Delay, 
+                    cancellationToken: _tokenSource.Token, 
+                    ignoreTimeScale: true);
+                
                 while (_tokenSource.Token.IsCancellationRequested == false)
                 {
-                    _dailyReward.ServerTime = _serverTimeService.GetNetworkTime();
+                    _dailyReward.ServerTime += TimeSpan.FromSeconds(1);
                     _dailyReward.SetCurrentTime();
-                    _view.TimerText.SetText(_dailyReward.CurrentTime.ToString());
-                    Debug.Log($"{_dailyReward.ServerTime}");
+                    _view.TimerText.SetText(_dailyReward.TimerText);
 
-                    await UniTask.Delay(_dailyReward.Delay, cancellationToken: _tokenSource.Token);
+                    await UniTask.Delay(
+                        _dailyReward.Delay, 
+                        cancellationToken: _tokenSource.Token, 
+                        ignoreTimeScale: true);
                 }
             }
             catch (OperationCanceledException)
             {
             }
+            catch (SocketException)
+            {
+                Debug.Log($"SocketException: {_dailyReward.ServerTime}");
+                _tokenSource.Cancel();
+                StartTimer();
+            }
+        }
+        
+
+        private void OnClick()
+        {
+            _dailyReward.SetTargetRewardTime();
         }
     }
 }

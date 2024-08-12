@@ -1,9 +1,11 @@
 using System;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
+using Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Factories;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
@@ -20,6 +22,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly MainMenuModelsLoaderService _mainMenuModelsLoaderService;
         private readonly MainMenuModelsCreatorService _mainMenuModelsCreatorService;
         private readonly VolumeViewFactory _volumeViewFactory;
+        private readonly DailyRewardViewFactory _dailyRewardViewFactory;
 
         public MainMenuSceneViewFactory(
             MainMenuHud hud,
@@ -27,7 +30,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             IAudioService audioService,
             MainMenuModelsLoaderService mainMenuModelsLoaderService,
             MainMenuModelsCreatorService mainMenuModelsCreatorService,
-            VolumeViewFactory volumeViewFactory)
+            VolumeViewFactory volumeViewFactory,
+            DailyRewardViewFactory dailyRewardViewFactory)
         {
             _mainMenuHud = hud ?? throw new ArgumentNullException(nameof(hud));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
@@ -36,6 +40,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _mainMenuModelsCreatorService = mainMenuModelsCreatorService ?? throw new ArgumentNullException(nameof(mainMenuModelsCreatorService));
             _volumeViewFactory = volumeViewFactory ??
                                  throw new ArgumentNullException(nameof(volumeViewFactory));
+            _dailyRewardViewFactory = dailyRewardViewFactory ?? 
+                                      throw new ArgumentNullException(nameof(dailyRewardViewFactory));
         }
     
         public void Create(IScenePayload payload)
@@ -44,9 +50,11 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //Volume
             _audioService.Construct(mainMenuModel.MusicVolume);
-
             _volumeViewFactory.Create(mainMenuModel.MusicVolume, _mainMenuHud.MusicVolumeView);
             _volumeViewFactory.Create(mainMenuModel.SoundsVolume, _mainMenuHud.SoundVolumeView);
+            
+            //DailyReward
+            _dailyRewardViewFactory.Create(_mainMenuHud.DailyRewardView);
         }
         
         private MainMenuModel Load(IScenePayload payload)

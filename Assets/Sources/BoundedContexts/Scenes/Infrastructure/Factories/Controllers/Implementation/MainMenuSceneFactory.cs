@@ -1,13 +1,11 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.Scenes.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
-using Sources.Frameworks.MyGameCreator.DailyRewards.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
@@ -18,7 +16,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class MainMenuSceneFactory : ISceneFactory
     {
-        private readonly IDailyRewardService _dailyRewardService;
         private readonly ISceneViewFactory _sceneViewFactory;
         private readonly ISignalControllersCollector _signalControllersCollector;
         private readonly ISdkInitializeService _sdkInitializeService;
@@ -29,7 +26,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly IStickyService _stickyService;
 
         public MainMenuSceneFactory(
-            IDailyRewardService dailyRewardService,
             ISceneViewFactory sceneViewFactory,
             ISignalControllersCollector signalControllersCollector,
             ISdkInitializeService sdkInitializeService,
@@ -39,7 +35,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ICurtainView curtainView,
             IStickyService stickyService)
         {
-            _dailyRewardService = dailyRewardService ?? throw new ArgumentNullException(nameof(dailyRewardService));
             _sceneViewFactory = sceneViewFactory ??
                                 throw new ArgumentNullException(nameof(sceneViewFactory));
             _signalControllersCollector = signalControllersCollector ?? 
@@ -57,7 +52,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene mainMenuScene = new MainMenuScene(
-                _dailyRewardService,
                 _sceneViewFactory,
                 _signalControllersCollector,
                 _sdkInitializeService,
