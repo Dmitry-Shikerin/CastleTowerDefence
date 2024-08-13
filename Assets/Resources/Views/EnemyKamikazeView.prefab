@@ -3359,6 +3359,7 @@ GameObject:
   - component: {fileID: 6048778863018554100}
   - component: {fileID: 7820214796603288509}
   - component: {fileID: 313317816411522865}
+  - component: {fileID: 3478143857309219900}
   m_Layer: 8
   m_Name: EnemyKamikazeView
   m_TagString: Untagged
@@ -3551,6 +3552,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a54d986e89c418caf24f782326819b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3478143857309219900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707473156591897942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcaa2654553522b40a999b5592606439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeSkinWeights: 1
+  TrackedAnimatorComponent: {fileID: 3666761945475307000}
+  TrackedTransform: {fileID: 1983668880578308163}
+  SkinnedMeshRenderers: []
 --- !u!1 &6826629055901634073
 GameObject:
   m_ObjectHideFlags: 0
