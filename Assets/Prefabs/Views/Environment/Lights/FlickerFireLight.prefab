@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6083631832936498466}
   - component: {fileID: 7656968107068529210}
+  - component: {fileID: 2473808370263310606}
+  - component: {fileID: 2605497479507975674}
   m_Layer: 0
   m_Name: BarrelLight
   m_TagString: Untagged
@@ -50,7 +52,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -94,6 +96,47 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2473808370263310606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103644880868137773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e341036e74bf1104c85f68ea8d112279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Importance: 1
+  m_Priority: 0
+  m_DistanceMode: 0
+  m_LightRangeShadowDistanceCoeff: 2
+  m_CustomMaxShadowDistance: 100
+  m_IntensityReductionMode: 1
+  m_CustomIntensityReductionCoeff: 1
+  m_RangeReductionMode: 1
+  m_CustomRangeReductionCoeff: 1
+--- !u!114 &2605497479507975674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103644880868137773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614061a96fc402e4982ed494213e3e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Light: {fileID: 0}
+  m_Range: 0
+  m_Intensity: 0
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RequestShadow: 0
+  m_ShadowStrength: 0
+  m_ShadowMode: 0
+  m_ShadowResolution: 0
 --- !u!1 &6803804204552386033
 GameObject:
   m_ObjectHideFlags: 0
