@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.DailyRewards.Presentation;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.ServerTimes.Services;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
@@ -15,6 +18,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
     {
         private readonly DailyRewardView _view;
         private readonly IServerTimeService _serverTimeService;
+        private readonly ILoadService _loadService;
         private readonly DailyReward _dailyReward;
         
         private CancellationTokenSource _tokenSource;
@@ -22,41 +26,66 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         public DailyRewardPresenter(
             IEntityRepository entityRepository, 
             DailyRewardView view,
-            IServerTimeService serverTimeService)
+            IServerTimeService serverTimeService,
+            ILoadService loadService)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _serverTimeService = serverTimeService ?? throw new ArgumentNullException(nameof(serverTimeService));
+            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _dailyReward = entityRepository.Get<DailyReward>(ModelId.DailyReward);
         }
 
         public override void Enable()
         {
-            _tokenSource = new CancellationTokenSource();
+            _view.Button.onClickEvent.AddListener(OnClick);
             StartTimer();
         }
 
         public override void Disable()
         {
             _tokenSource.Cancel();
+            _view.Button.onClickEvent.RemoveListener(OnClick);
         }
-        
+
         private async void StartTimer()
         {
             try
             {
+                _tokenSource = new CancellationTokenSource();
+                _dailyReward.ServerTime = _serverTimeService.GetNetworkTime();
+                await UniTask.Delay(
+                    _dailyReward.Delay, 
+                    cancellationToken: _tokenSource.Token, 
+                    ignoreTimeScale: true);
+                
                 while (_tokenSource.Token.IsCancellationRequested == false)
                 {
-                    _dailyReward.ServerTime = _serverTimeService.GetNetworkTime();
+                    _dailyReward.ServerTime += TimeSpan.FromSeconds(1);
                     _dailyReward.SetCurrentTime();
-                    _view.TimerText.SetText(_dailyReward.CurrentTime.ToString());
-                    Debug.Log($"{_dailyReward.ServerTime}");
+                    _view.TimerText.SetText(_dailyReward.TimerText);
 
-                    await UniTask.Delay(_dailyReward.Delay, cancellationToken: _tokenSource.Token);
+                    await UniTask.Delay(
+                        _dailyReward.Delay, 
+                        cancellationToken: _tokenSource.Token, 
+                        ignoreTimeScale: true);
                 }
             }
             catch (OperationCanceledException)
             {
             }
+            catch (SocketException)
+            {
+                _tokenSource.Cancel();
+                StartTimer();
+            }
+        }
+
+        private void OnClick()
+        {
+            if (_dailyReward.TrySetTargetRewardTime() == false)
+                return;
+            
+            _loadService.Save(ModelId.DailyReward);
         }
     }
 }

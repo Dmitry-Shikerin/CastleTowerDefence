@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
+using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
@@ -24,17 +25,23 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
         public MainMenuModel Load()
         {
+            //Volume
             Volume musicVolume = new Volume(ModelId.MusicVolume);
             _entityRepository.Add(musicVolume);
             Volume soundsVolume = new Volume(ModelId.SoundsVolume);
             _entityRepository.Add(soundsVolume);
+            
+            //DailyReward
+            DailyReward dailyReward = new DailyReward(ModelId.DailyReward);
+            _entityRepository.Add(dailyReward);
             
             _loadService.Save(ModelId.MainMenuModels);
             Debug.Log($"Create models");
             
             return new MainMenuModel(
                 musicVolume, 
-                soundsVolume);
+                soundsVolume,
+                dailyReward);
         }
     }
 }

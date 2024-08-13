@@ -48,7 +48,9 @@ namespace Sources.Frameworks.GameServices.ServerTimes.Services
             ulong milliseconds = (intPart * 1000) + ((fractPart * 1000) / 0x100000000L);
  
             //**UTC** time
-            DateTime networkDateTime = (new DateTime(1900, 1, 1, 0, 0, 0, DateTimeKind.Utc)).AddMilliseconds((long)milliseconds);
+            DateTime networkDateTime = 
+                new DateTime(1900, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                .AddMilliseconds((long)milliseconds);
  
             return networkDateTime.ToLocalTime();
         }

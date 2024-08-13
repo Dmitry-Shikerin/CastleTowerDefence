@@ -12,6 +12,7 @@ using Sources.BoundedContexts.Upgrades.Domain.Data;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Domain.Models.Data;
 using Sources.Frameworks.Domain.Implementation.Data;
+using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 
 namespace Sources.BoundedContexts.Ids.Domain.Constant
@@ -65,6 +66,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         {
             SoundsVolume,
             MusicVolume,
+            DailyReward,
         };
 
         public static IReadOnlyList<string> DeletedModelsIds { get; } = new List<string>()
@@ -100,6 +102,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             [KillEnemyCounter] = typeof(KillEnemyCounter),
             [MusicVolume] = typeof(Volume),
             [SoundsVolume] = typeof(Volume),
+            [DailyReward] = typeof(DailyReward),
         };
     }
 }
