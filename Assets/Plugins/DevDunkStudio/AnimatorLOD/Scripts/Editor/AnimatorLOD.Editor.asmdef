@@ -1,0 +1,18 @@
+{
+    "name": "AnimatorLOD.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cfe999d97e165e540a5b98e9b9479c22"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
