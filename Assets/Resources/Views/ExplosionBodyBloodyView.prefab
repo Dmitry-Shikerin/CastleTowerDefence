@@ -14064,6 +14064,7 @@ GameObject:
   - component: {fileID: 1354652600407233003}
   - component: {fileID: 8586165009338670697}
   - component: {fileID: 4682859587089951861}
+  - component: {fileID: 3912396405461827980}
   m_Layer: 0
   m_Name: ExplosionBodyBloodyView
   m_TagString: Untagged
@@ -18726,3 +18727,1741 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 1354652600407233003}
+--- !u!114 &3912396405461827980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225771000673335334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3b3d20dd42f61408784f700d9e5f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddToContainer: 1
+  _editor_DrawSetup: 1
+  _editor_DrawOptimizeList: 1
+  _editor_DrawAddFeatures: 0
+  _editor_DrawLODLevelsSetup: 1
+  _editor_DrawExtra: 0
+  _editor_horizontal: 1
+  _editor_category: 0
+  Editor_InIsolatedScene: 1
+  Editor_JustCreated: 1
+  UseDOTS: 0
+  DOTSObstacleType: 2
+  DOTSDetection: 0
+  DOTSMeshData: []
+  DOTSOffset: {x: 0, y: 0, z: 0}
+  DOTSSize: {x: 1, y: 1, z: 1}
+  DOTSRadius: 1
+  UseMultiShape: 0
+  AutoPrecision: 0.25
+  AutoReferenceMesh: {fileID: 0}
+  DrawPositionHandles: 1
+  ScalingHandles: 1
+  Shapes: []
+  ShapePos: []
+  ShapeRadius: []
+  UseObstacleDetection: 0
+  CoveragePrecision: 1
+  CoverageScale: 1
+  CoverageMask:
+    serializedVersion: 2
+    m_Bits: 1
+  CustomCoveragePoints: 0
+  CoverageOffsets: []
+  ignoredObstacleColliders: []
+  OnlyCamCollLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  LODLevels: 3
+  preLODLevels: 3
+  MaxDistance: 379.5
+  OptimizingMethod: 2
+  CullIfNotSee: 1
+  DetectionRadius: 0.00006
+  DetectionBounds: {x: 0.00006928203, y: 0.00006928203, z: 0.00006928203}
+  Hideable: 0
+  DetectionOffset: {x: 0, y: 0, z: 0}
+  GizmosAlpha: 1
+  DrawGizmos: 1
+  FadeDuration: 0
+  FadeViewVisibility: 0
+  DeactivateObject: 0
+  LODPercent:
+  - 0.23513718
+  - 0.48027572
+  - 1
+  AutoDistance: 0
+  AutoDistanceFactor: 0
+  DrawAutoDistanceToggle: 1
+  HiddenCullAt: -1
+  LimitLODLevels: 0
+  UnlockFirstLOD: 0
+  DrawGeneratedPrefabInfo: 0
+  DrawDeactivateToggle: 1
+  OptimizationTypes: {fileID: 11400000, guid: 7a69a055546ad2a4493cb04046c3803c, type: 2}
+  ToOptimize:
+  - constructed: 1
+    ToOptimizeIndex: 1
+    optimizer: {fileID: 3912396405461827980}
+    Component: {fileID: 1354652600407233003}
+    Version: 0
+    lockFirstLOD: 1
+    editorHeader: Optim
+    drawProperties: 0
+    ToOptimizes: []
+    ToOptimize: {fileID: 1354652600407233003}
+    LODInitial:
+      rid: -2
+    LODInstances:
+    - rid: 4755881772978012555
+    - rid: 4755881772978012556
+    - rid: 4755881772978012557
+    - rid: 4755881772978012558
+    - rid: 4755881772978012559
+    eOptimizer: {fileID: 3912396405461827980}
+  - constructed: 1
+    ToOptimizeIndex: 2
+    optimizer: {fileID: 3912396405461827980}
+    Component: {fileID: 8347289408126144943}
+    Version: 0
+    lockFirstLOD: 1
+    editorHeader: Optim
+    drawProperties: 0
+    ToOptimizes: []
+    ToOptimize: {fileID: 8347289408126144943}
+    LODInitial:
+      rid: -2
+    LODInstances:
+    - rid: 4755881772978012560
+    - rid: 4755881772978012561
+    - rid: 4755881772978012562
+    - rid: 4755881772978012563
+    - rid: 4755881772978012564
+    eOptimizer: {fileID: 3912396405461827980}
+  - constructed: 1
+    ToOptimizeIndex: 3
+    optimizer: {fileID: 3912396405461827980}
+    Component: {fileID: 6538098311876488613}
+    Version: 0
+    lockFirstLOD: 1
+    editorHeader: Optim
+    drawProperties: 0
+    ToOptimizes: []
+    ToOptimize: {fileID: 6538098311876488613}
+    LODInitial:
+      rid: -2
+    LODInstances:
+    - rid: 4755881772978012565
+    - rid: 4755881772978012566
+    - rid: 4755881772978012567
+    - rid: 4755881772978012568
+    - rid: 4755881772978012569
+    eOptimizer: {fileID: 3912396405461827980}
+  - constructed: 1
+    ToOptimizeIndex: 4
+    optimizer: {fileID: 3912396405461827980}
+    Component: {fileID: 3166753180704433720}
+    Version: 0
+    lockFirstLOD: 1
+    editorHeader: Optim
+    drawProperties: 0
+    ToOptimizes: []
+    ToOptimize: {fileID: 3166753180704433720}
+    LODInitial:
+      rid: -2
+    LODInstances:
+    - rid: 4755881772978012570
+    - rid: 4755881772978012571
+    - rid: 4755881772978012572
+    - rid: 4755881772978012573
+    - rid: 4755881772978012574
+    eOptimizer: {fileID: 3912396405461827980}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4755881772978012555
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 0}
+        EmmissionAmount: 1
+        BurstsAmount: 1
+        ParticleSizeMul: 1
+        MaxParticlAmount: 1
+        OverDistanceMul: 1
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012556
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 1354652600407233003}
+        EmmissionAmount: 0.6666666
+        BurstsAmount: 0.6666666
+        ParticleSizeMul: 1.25
+        MaxParticlAmount: 0.99999994
+        OverDistanceMul: 0.6666666
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012557
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 1354652600407233003}
+        EmmissionAmount: 0.3333333
+        BurstsAmount: 0.3333333
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0.49999997
+        OverDistanceMul: 0.3333333
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012558
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 1
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 0}
+        EmmissionAmount: 0
+        BurstsAmount: 0
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0
+        OverDistanceMul: 0
+        LifetimeAlpha: 0
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012559
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 1
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 1354652600407233003}
+        EmmissionAmount: 0.3333333
+        BurstsAmount: 0.3333333
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0.1
+        OverDistanceMul: 0.3333333
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012560
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 0}
+        EmmissionAmount: 1
+        BurstsAmount: 1
+        ParticleSizeMul: 1
+        MaxParticlAmount: 1
+        OverDistanceMul: 1
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012561
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 8347289408126144943}
+        EmmissionAmount: 0.6666666
+        BurstsAmount: 0.6666666
+        ParticleSizeMul: 1.25
+        MaxParticlAmount: 0.99999994
+        OverDistanceMul: 0.6666666
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012562
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 8347289408126144943}
+        EmmissionAmount: 0.3333333
+        BurstsAmount: 0.3333333
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0.49999997
+        OverDistanceMul: 0.3333333
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012563
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 1
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 0}
+        EmmissionAmount: 0
+        BurstsAmount: 0
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0
+        OverDistanceMul: 0
+        LifetimeAlpha: 0
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012564
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 1
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 8347289408126144943}
+        EmmissionAmount: 0.3333333
+        BurstsAmount: 0.3333333
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0.1
+        OverDistanceMul: 0.3333333
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012565
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 0}
+        EmmissionAmount: 1
+        BurstsAmount: 1
+        ParticleSizeMul: 1
+        MaxParticlAmount: 1
+        OverDistanceMul: 1
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012566
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 6538098311876488613}
+        EmmissionAmount: 0.6666666
+        BurstsAmount: 0.6666666
+        ParticleSizeMul: 1.25
+        MaxParticlAmount: 0.99999994
+        OverDistanceMul: 0.6666666
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012567
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 6538098311876488613}
+        EmmissionAmount: 0.3333333
+        BurstsAmount: 0.3333333
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0.49999997
+        OverDistanceMul: 0.3333333
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012568
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 1
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 0}
+        EmmissionAmount: 0
+        BurstsAmount: 0
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0
+        OverDistanceMul: 0
+        LifetimeAlpha: 0
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012569
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 1
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 6538098311876488613}
+        EmmissionAmount: 0.3333333
+        BurstsAmount: 0.3333333
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0.1
+        OverDistanceMul: 0.3333333
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012570
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 0}
+        EmmissionAmount: 1
+        BurstsAmount: 1
+        ParticleSizeMul: 1
+        MaxParticlAmount: 1
+        OverDistanceMul: 1
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012571
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 3166753180704433720}
+        EmmissionAmount: 0.6666666
+        BurstsAmount: 0.6666666
+        ParticleSizeMul: 1.25
+        MaxParticlAmount: 0.99999994
+        OverDistanceMul: 0.6666666
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012572
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 0
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 3166753180704433720}
+        EmmissionAmount: 0.3333333
+        BurstsAmount: 0.3333333
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0.49999997
+        OverDistanceMul: 0.3333333
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012573
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 1
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 0}
+        EmmissionAmount: 0
+        BurstsAmount: 0
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0
+        OverDistanceMul: 0
+        LifetimeAlpha: 0
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 4755881772978012574
+      type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
+      data:
+        SetDisabled: 1
+        QLowerer: 1
+        _Locked: 0
+        cmp: {fileID: 3166753180704433720}
+        EmmissionAmount: 0.3333333
+        BurstsAmount: 0.3333333
+        ParticleSizeMul: 1.5
+        MaxParticlAmount: 0.1
+        OverDistanceMul: 0.3333333
+        LifetimeAlpha: 1
+        ChangeBursts: 1
+        ChangeGradients: 1
+        ColorOverLifetime:
+          m_Mode: 0
+          m_GradientMin:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_GradientMax:
+            serializedVersion: 2
+            key0: {r: 1, g: 1, b: 1, a: 1}
+            key1: {r: 1, g: 1, b: 1, a: 1}
+            key2: {r: 0, g: 0, b: 0, a: 0}
+            key3: {r: 0, g: 0, b: 0, a: 0}
+            key4: {r: 0, g: 0, b: 0, a: 0}
+            key5: {r: 0, g: 0, b: 0, a: 0}
+            key6: {r: 0, g: 0, b: 0, a: 0}
+            key7: {r: 0, g: 0, b: 0, a: 0}
+            ctime0: 0
+            ctime1: 65535
+            ctime2: 0
+            ctime3: 0
+            ctime4: 0
+            ctime5: 0
+            ctime6: 0
+            ctime7: 0
+            atime0: 0
+            atime1: 65535
+            atime2: 0
+            atime3: 0
+            atime4: 0
+            atime5: 0
+            atime6: 0
+            atime7: 0
+            m_Mode: 0
+            m_ColorSpace: -1
+            m_NumColorKeys: 2
+            m_NumAlphaKeys: 2
+          m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
+          m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
