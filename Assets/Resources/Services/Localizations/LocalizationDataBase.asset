@@ -153,6 +153,32 @@ MonoBehaviour:
   _english: GAME OVER
   _editTurkish: 0
   _turkish: "\rOYUN B\u0130TT\u0130"
+--- !u!114 &-7571267352467008962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: ReveiceReward_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: ReveiceReward
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C\n\u041D\u0410\u0413\u0420\u0410\u0414\u0423"
+  _editEnglish: 0
+  _english: 'RECEIVE
+
+    REWARD'
+  _editTurkish: 0
+  _turkish: "ALMAK\n\xD6D\xDCL\xDC"
 --- !u!114 &-7489078748937483317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +437,30 @@ MonoBehaviour:
   _english: Apply
   _editTurkish: 0
   _turkish: Uygulamak
+--- !u!114 &-5578634930156736870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Achievements_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Achievements
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0414\u041E\u0421\u0422\u0418\u0416\u0415\u041D\u0418\u042F"
+  _editEnglish: 0
+  _english: ACHIEVEMENTS
+  _editTurkish: 0
+  _turkish: "BA\u015EARILAR"
 --- !u!114 &-4956536571026282839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -938,15 +988,19 @@ MonoBehaviour:
   - {fileID: -8837250491390849142}
   - {fileID: 783856341597308656}
   - {fileID: -2630032618137094329}
+  - {fileID: -7571267352467008962}
+  - {fileID: -5578634930156736870}
+  - {fileID: 5619570895773535235}
+  - {fileID: 6466202604613630519}
   _scopes: []
   _enableTextId: 0
-  _textId: Quit
+  _textId: Accept the award
   _enableRussian: 0
-  _russian: "\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
+  _russian: "\u041F\u0440\u0438\u043D\u044F\u0442\u044C \u043D\u0430\u0433\u0440\u0430\u0434\u0443"
   _enableEnglish: 0
-  _english: Do you want to quit?
+  _english: Accept the award
   _enableTurkish: 0
-  _turkish: "D\u0131\u015Far\u0131 \xE7\u0131kmak ister misiniz?"
+  _turkish: "\xD6d\xFCl\xFC kabul et"
 --- !u!114 &562711224492482245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,6 +1414,31 @@ MonoBehaviour:
   _editTurkish: 0
   _turkish: "Buras\u0131 sizin sa\u011Fl\u0131k okulunuz. \xD6l\xE7ek s\u0131f\u0131ra
     d\xFC\u015Ferse kaybedersiniz."
+--- !u!114 &5619570895773535235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: You received daily reward_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: You received daily reward
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u0435\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u0443\u044E
+    \u043D\u0430\u0433\u0440\u0430\u0434\u0443!"
+  _editEnglish: 0
+  _english: You have received daily reward!
+  _editTurkish: 0
+  _turkish: "G\xFCnl\xFCk bir \xF6d\xFCl ald\u0131n\u0131z!"
 --- !u!114 &5846583519601730132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1473,6 +1552,30 @@ MonoBehaviour:
   _editTurkish: 0
   _turkish: "Bu, kafataslar\u0131n\u0131z i\xE7in sat\u0131n alabilece\u011Finiz
     iyile\u015Ftirmelerin bir listesidir."
+--- !u!114 &6466202604613630519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: Accept the award_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: Accept the award
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0440\u0438\u043D\u044F\u0442\u044C \u043D\u0430\u0433\u0440\u0430\u0434\u0443"
+  _editEnglish: 0
+  _english: Accept the award
+  _editTurkish: 0
+  _turkish: "\xD6d\xFCl\xFC kabul et"
 --- !u!114 &6610014664543065953
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,9 +16,11 @@ MonoBehaviour:
   _poolCount: 5
   _volume: 0.022
   _audioClips:
-    _keys: 01000000
+    _keys: 010000000200000003000000
     _values:
     - {fileID: 8300000, guid: dc682e1f543c77847b62a1aceb8e0a0f, type: 3}
+    - {fileID: 8300000, guid: 3283e2706c86cfd42bb13373a1bd8e76, type: 3}
+    - {fileID: 8300000, guid: 9bad9158799bf69419b6ada7af571d2e, type: 3}
   _audioClipGroups:
     _keys: 0000000001000000
     _values:
