@@ -19,6 +19,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: GameOver
     - Category: MainMenu
+      Name: DailyReward
+    - Category: MainMenu
       Name: Leaderboard
     - Category: MainMenu
       Name: NewGame

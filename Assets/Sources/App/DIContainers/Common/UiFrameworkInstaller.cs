@@ -57,6 +57,7 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<LoadMainMenuSceneCommand>().AsSingle();
             Container.Bind<ClearSavesButtonCommand>().AsSingle();
             Container.Bind<SaveVolumeButtonCommand>().AsSingle();
+            Container.Bind<ShowDailyRewardViewCommand>().AsSingle();
 
             //Views
             Container.Bind<UnPauseCommand>().AsSingle();

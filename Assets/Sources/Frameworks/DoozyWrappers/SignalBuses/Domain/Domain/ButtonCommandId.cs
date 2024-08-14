@@ -14,5 +14,6 @@
         PlayerAccountAuthorize = 10,
         Pause = 11,
         SaveVolume = 12,
+        ShowDailyReward = 13,
     }
 }
