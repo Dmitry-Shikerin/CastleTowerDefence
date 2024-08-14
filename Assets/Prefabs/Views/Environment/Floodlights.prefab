@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2785020256227825890}
   - component: {fileID: 8126794454869927001}
+  - component: {fileID: 2730263914949822545}
+  - component: {fileID: 2682885294270578032}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 303304678422526262}
   serializedVersion: 2
   m_LocalRotation: {x: 0.26675943, y: -0.019394277, z: 0.10247402, w: 0.95810354}
-  m_LocalPosition: {x: -0.014, y: 3.66, z: 0.646}
+  m_LocalPosition: {x: 0.11, y: 3.66, z: 0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,6 +96,47 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2730263914949822545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303304678422526262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e341036e74bf1104c85f68ea8d112279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Importance: 1
+  m_Priority: 0
+  m_DistanceMode: 0
+  m_LightRangeShadowDistanceCoeff: 2
+  m_CustomMaxShadowDistance: 100
+  m_IntensityReductionMode: 1
+  m_CustomIntensityReductionCoeff: 1
+  m_RangeReductionMode: 1
+  m_CustomRangeReductionCoeff: 1
+--- !u!114 &2682885294270578032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303304678422526262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614061a96fc402e4982ed494213e3e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Light: {fileID: 0}
+  m_Range: 0
+  m_Intensity: 0
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RequestShadow: 0
+  m_ShadowStrength: 0
+  m_ShadowMode: 0
+  m_ShadowResolution: 0
 --- !u!1 &2196564737081322492
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +150,8 @@ GameObject:
   - component: {fileID: 3075412513563214110}
   - component: {fileID: 7340524053926791227}
   - component: {fileID: 9137027301626053089}
+  - component: {fileID: 8079319029535485367}
+  - component: {fileID: 6752251545697386141}
   m_Layer: 0
   m_Name: Floodlights
   m_TagString: Untagged
@@ -145,7 +190,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2196564737081322492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -209,7 +254,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2196564737081322492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee741afc4564f5f99593e321d817497, type: 3}
   m_Name: 
@@ -235,3 +280,27 @@ MonoBehaviour:
   disableRenderer: 1
   removeMaterials: 0
   combinerSource: 3
+--- !u!114 &8079319029535485367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196564737081322492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efb779eab16a3c4a83bf33be550ebdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6752251545697386141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196564737081322492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efb779eab16a3c4a83bf33be550ebdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
