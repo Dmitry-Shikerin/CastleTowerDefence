@@ -2,6 +2,7 @@
 using System.Net.Sockets;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Doozy.Runtime.UIManager;
 using JetBrains.Annotations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
@@ -39,6 +40,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         {
             _view.Button.onClickEvent.AddListener(OnClick);
             StartTimer();
+            ActivateButton();
         }
 
         public override void Disable()
@@ -82,10 +84,27 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
 
         private void OnClick()
         {
+            ActivateButton();
+            
             if (_dailyReward.TrySetTargetRewardTime() == false)
                 return;
             
             _loadService.Save(ModelId.DailyReward);
+        }
+
+        private void ActivateButton()
+        {
+            if (_dailyReward.TrySetTargetRewardTime() == false)
+            {
+                _view.LockImage.ShowImage();
+                _view.Button.interactable = false;
+                _view.Button.SetState(UISelectionState.Disabled);
+                return;
+            }
+            
+            _view.LockImage.HideImage();
+            _view.Button.interactable = true;
+            _view.Button.SetState(UISelectionState.Normal);
         }
     }
 }
