@@ -50,6 +50,7 @@ namespace Doozy.Runtime.UIManager
             Achievements,
             Authorization,
             Background,
+            DailyReward,
             Hud,
             Leaderboard,
             Settings,

@@ -47,6 +47,8 @@ MonoBehaviour:
     - Category: MainMenu
       Name: Background
     - Category: MainMenu
+      Name: DailyReward
+    - Category: MainMenu
       Name: Hud
     - Category: MainMenu
       Name: Leaderboard

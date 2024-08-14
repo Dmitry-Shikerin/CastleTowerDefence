@@ -84,11 +84,13 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
 
         private void OnClick()
         {
+            _view.Animator.Play();
             ActivateButton();
             
             if (_dailyReward.TrySetTargetRewardTime() == false)
                 return;
             
+            _view.Animator.Play();
             _loadService.Save(ModelId.DailyReward);
         }
 
@@ -99,12 +101,15 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
                 _view.LockImage.ShowImage();
                 _view.Button.interactable = false;
                 _view.Button.SetState(UISelectionState.Disabled);
+                _view.TimerView.alpha = 1;
+                
                 return;
             }
             
             _view.LockImage.HideImage();
             _view.Button.interactable = true;
             _view.Button.SetState(UISelectionState.Normal);
+            _view.TimerView.alpha = 0;
         }
     }
 }
