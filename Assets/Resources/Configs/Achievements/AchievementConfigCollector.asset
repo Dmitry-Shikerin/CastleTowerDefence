@@ -64,7 +64,24 @@ MonoBehaviour:
   - {fileID: -1157887684297482197}
   - {fileID: -2040669159365068795}
   - {fileID: -2636934900728648217}
-  _configId: FirstUpgradeAchievement
-  _titleId: FirstUpgradeTitle
-  _descriptionId: FirstUpgradeDescription
-  _sprite: {fileID: 21300000, guid: bbbae4e1093bb5f469d2e7e8d406f9aa, type: 3}
+  - {fileID: 8117248046270597191}
+  _configId: FirstWaveCompletedAchievement
+  _titleId: FirstWaveCompletedTitle
+  _descriptionId: FirstWaveCompletedDescription
+  _sprite: {fileID: 21300000, guid: 231744dac124bc64daf7303148825099, type: 3}
+--- !u!114 &8117248046270597191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
+  m_Name: FirstWaveCompletedAchievement_AchievementConfig
+  m_EditorClassIdentifier: 
+  Id: FirstWaveCompletedAchievement
+  TitleId: FirstWaveCompletedTitle
+  DescriptionId: FirstWaveCompletedDescription
+  Sprite: {fileID: 21300000, guid: 231744dac124bc64daf7303148825099, type: 3}

@@ -52,6 +52,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string FirstHealthRemovedAchievement = "FirstHealthRemovedAchievement";
         public const string FirstUpgradeAchievement = "FirstUpgradeAchievement";
         public const string FirstHealthBoosterUsageAchievement = "FirstHealthBoosterUsageAchievement";
+        public const string FirstWaveCompletedAchievement = "FirstWaveCompletedAchievement";
 
 
         public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
@@ -60,6 +61,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             FirstHealthRemovedAchievement,
             FirstUpgradeAchievement,
             FirstHealthBoosterUsageAchievement,
+            FirstWaveCompletedAchievement,
         };
 
         public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()

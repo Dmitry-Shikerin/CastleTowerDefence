@@ -28,7 +28,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Models
                 
                 _isCompleted = value;
                 Completed?.Invoke();
-                Debug.Log($"Completed {Id}");
             }
         }
     }

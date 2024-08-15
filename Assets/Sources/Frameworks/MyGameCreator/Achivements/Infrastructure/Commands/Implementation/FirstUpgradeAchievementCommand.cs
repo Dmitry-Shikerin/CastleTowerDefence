@@ -5,29 +5,28 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
+using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base;
 using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
-using UnityEngine;
 using Zenject;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation
 {
-    public class FirstUpgradeAchievementCommand : IAchievementCommand
+    public class FirstUpgradeAchievementCommand : AchievementCommandBase
     {
         private readonly IEntityRepository _entityRepository;
-        private readonly DiContainer _container;
+
         private Upgrade _healthUpgrade;
         private Upgrade _attackUpgrade;
         private Upgrade _flamethrowerUpgrade;
         private Upgrade _nukeUpgrade;
         private Achievement _achievement;
         private AchievementView _achievementView;
-        private SignalStream _stream;
 
         public FirstUpgradeAchievementCommand(
             IEntityRepository entityRepository,
             GameplayHud hud,
-            DiContainer container)
+            DiContainer container) : base(hud, container)
         {
             if (hud == null)
                 throw new ArgumentNullException(nameof(hud));
@@ -36,11 +35,12 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
                                throw new ArgumentNullException(nameof(_achievementView));
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
-            _container = container ?? throw new ArgumentNullException(nameof(container));
         }
 
-        public void Initialize()
+        public override void Initialize()
         {
+            base.Initialize();
+            
             _healthUpgrade = _entityRepository
                 .Get<Upgrade>(ModelId.HealthUpgrade);
             _attackUpgrade = _entityRepository
@@ -55,22 +55,17 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             _attackUpgrade.LevelChanged += Execute;
             _flamethrowerUpgrade.LevelChanged += Execute;
             _nukeUpgrade.LevelChanged += Execute;
-            
-            _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ReceivedAchievement);
         }
 
-        public void Execute()
+        public override void Execute()
         {
             _achievement.IsCompleted = true;
-            
-            _container.Inject(_achievementView);
             _achievementView.Construct(_achievement);
-            _stream.SendSignal(true);
             
-            Destroy();
+            base.Execute();
         }
 
-        public void Destroy()
+        public override void Destroy()
         {
             _healthUpgrade.LevelChanged -= Execute;
             _attackUpgrade.LevelChanged -= Execute;

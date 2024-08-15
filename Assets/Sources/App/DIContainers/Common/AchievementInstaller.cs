@@ -19,6 +19,7 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<FirstKillEnemyAchievementCommand>().AsSingle();
             Container.Bind<FirstUpgradeAchievementCommand>().AsSingle();
             Container.Bind<FirstHealthBoosterUsageAchievementCommand>().AsSingle();
+            Container.Bind<FirstWaveCompletedAchievement>().AsSingle();
         }
     }
 }
