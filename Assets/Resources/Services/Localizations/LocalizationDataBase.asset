@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9048194127727216226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstUpgradeTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstUpgradeTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0415\u0420\u0412\u041E\u0415 \u0423\u041B\u0423\u0427\u0428\u0415\u041D\u0418\u0415!"
+  _editEnglish: 0
+  _english: FIRST UPGRADE!
+  _editTurkish: 0
+  _turkish: "\u0130LK Y\xDCKSELTME!"
 --- !u!114 &-8977390905970973244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +227,30 @@ MonoBehaviour:
   _english: Level2
   _editTurkish: 0
   _turkish: Seviye2
+--- !u!114 &-7053270886841528775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: MaxUpgradeAchievementTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: MaxUpgradeAchievementTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0410\u0411\u0421\u041E\u041B\u042E\u0422\u041D\u0410\u042F \u041C\u041E\u0429\u042C!"
+  _editEnglish: 0
+  _english: ABSOLUTE POWER!
+  _editTurkish: 0
+  _turkish: "MUTLAK G\xDC\xC7!"
 --- !u!114 &-6638702788014974585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +656,56 @@ MonoBehaviour:
   _english: Level4
   _editTurkish: 0
   _turkish: Seviye4
+--- !u!114 &-3045387330775180738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: MaxUpgradeAchievementDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: MaxUpgradeAchievementDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u0435 \u0432\u0430\u0448\u0438
+    \u043D\u0430\u0432\u044B\u043A\u0438 \u0434\u043E \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0433\u043E
+    \u0443\u0440\u043E\u0432\u043D\u044F."
+  _editEnglish: 0
+  _english: Upgrade your abilities to max level.
+  _editTurkish: 0
+  _turkish: "Becerilerinizi maksimum seviyeye y\xFCkseltin."
+--- !u!114 &-3000961370085052042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstHealthBoosterTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstHealthBoosterTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0415\u0420\u0412\u042B\u0419 \u0411\u0423\u0421\u0422!"
+  _editEnglish: 0
+  _english: FIRST BOOST!
+  _editTurkish: 0
+  _turkish: "\u0130LK DESTEK!"
 --- !u!114 &-2896424986738387369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,6 +878,31 @@ MonoBehaviour:
   _english: Increases the damage from circular saws
   _editTurkish: 0
   _turkish: "Daire testerelerden kaynaklanan hasar\u0131 art\u0131r\u0131r"
+--- !u!114 &-1622143211485411810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstWaveCompletedDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstWaveCompletedDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0441\u043F\u0435\u0448\u043D\u043E \u043F\u0440\u043E\u0439\u0434\u0438\u0442\u0435
+    \u043F\u0435\u0440\u0432\u0443\u044E \u0432\u043E\u043B\u043D\u0443."
+  _editEnglish: 0
+  _english: First wave successfully completed.
+  _editTurkish: 0
+  _turkish: "\u0130lk dalga ba\u015Far\u0131yla ge\xE7ti."
 --- !u!114 &-1169646632141698292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,15 +1115,53 @@ MonoBehaviour:
   - {fileID: -5578634930156736870}
   - {fileID: 5619570895773535235}
   - {fileID: 6466202604613630519}
+  - {fileID: 526446998994294440}
+  - {fileID: 6950433725313819436}
+  - {fileID: -9048194127727216226}
+  - {fileID: 1856019762363947377}
+  - {fileID: -3000961370085052042}
+  - {fileID: 677502031337852352}
+  - {fileID: 1726259522283929421}
+  - {fileID: -1622143211485411810}
+  - {fileID: 859398636186213785}
+  - {fileID: 7968120111115877996}
+  - {fileID: -7053270886841528775}
+  - {fileID: -3045387330775180738}
   _scopes: []
   _enableTextId: 0
-  _textId: Accept the award
+  _textId: MaxUpgradeAchievementDescription
   _enableRussian: 0
-  _russian: "\u041F\u0440\u0438\u043D\u044F\u0442\u044C \u043D\u0430\u0433\u0440\u0430\u0434\u0443"
+  _russian: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u0435 \u0432\u0430\u0448\u0438
+    \u043D\u0430\u0432\u044B\u043A\u0438 \u0434\u043E \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0433\u043E
+    \u0443\u0440\u043E\u0432\u043D\u044F."
   _enableEnglish: 0
-  _english: Accept the award
+  _english: Upgrade your abilities to max level.
   _enableTurkish: 0
-  _turkish: "\xD6d\xFCl\xFC kabul et"
+  _turkish: "Becerilerinizi maksimum seviyeye y\xFCkseltin."
+--- !u!114 &526446998994294440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstEnemyKillTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstEnemyKillTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0415\u0420\u0412\u041E\u0415 \u0423\u0411\u0418\u0419\u0421\u0422\u0412\u041E!"
+  _editEnglish: 0
+  _english: FIRST KILL!
+  _editTurkish: 0
+  _turkish: "\u0130LK C\u0130NAYET!"
 --- !u!114 &562711224492482245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,6 +1186,32 @@ MonoBehaviour:
   _english: Rank
   _editTurkish: 0
   _turkish: "R\xFCtbe"
+--- !u!114 &677502031337852352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstHealthBoosterDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstHealthBoosterDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u0435 \u043F\u0435\u0440\u0432\u043E\u0435
+    \u043F\u043E\u0432\u044B\u0448\u0435\u043D\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u044F
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F."
+  _editEnglish: 0
+  _english: First health boost was applied.
+  _editTurkish: 0
+  _turkish: "\u0130lk sa\u011Fl\u0131k deste\u011Fi uyguland\u0131."
 --- !u!114 &783856341597308656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,6 +1236,30 @@ MonoBehaviour:
   _english: YES
   _editTurkish: 0
   _turkish: EVET
+--- !u!114 &859398636186213785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: ScullsDiggerTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: ScullsDiggerTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0417\u041E\u041B\u041E\u0422\u0410\u042F \u0416\u0418\u041B\u0410!"
+  _editEnglish: 0
+  _english: SCULLS DIGGER!
+  _editTurkish: 0
+  _turkish: SCULLS KAZICI!
 --- !u!114 &1122561553406115891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,6 +1340,55 @@ MonoBehaviour:
   _editTurkish: 0
   _turkish: "Ana men\xFCden yeni bir oyun se\xE7ebilir veya mevcut bir oyunu indirebilirsiniz.
     Herhangi bir a\xE7\u0131k yerde yeni bir oyuna ba\u015Flayabilirsiniz."
+--- !u!114 &1726259522283929421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstWaveCompletedTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstWaveCompletedTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0415\u0420\u0412\u0410\u042F \u0412\u041E\u041B\u041D\u0410!"
+  _editEnglish: 0
+  _english: FIRST WAVE!
+  _editTurkish: 0
+  _turkish: "\u0130LK DALGA!"
+--- !u!114 &1856019762363947377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstUpgradeDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstUpgradeDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u0435 \u043F\u0435\u0440\u0432\u043E\u0435
+    \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0435."
+  _editEnglish: 0
+  _english: You have applied the first improvement.
+  _editTurkish: 0
+  _turkish: "\u0130lk iyile\u015Ftirmeyi uygulad\u0131n\u0131z."
 --- !u!114 &2062490514707734419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,6 +1884,31 @@ MonoBehaviour:
   _english: Load game
   _editTurkish: 0
   _turkish: "Oyunu y\xFCkle"
+--- !u!114 &6950433725313819436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FirstEnemyKillDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FirstEnemyKillDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0423\u0431\u0435\u0439\u0442\u0435 \u043F\u0435\u0440\u0432\u043E\u0433\u043E
+    \u0432\u0440\u0430\u0433\u0430."
+  _editEnglish: 0
+  _english: The first enemy has been killed.
+  _editTurkish: 0
+  _turkish: "\u0130lk d\xFC\u015Fman \xF6ld\xFCr\xFCld\xFC."
 --- !u!114 &7090385843299365696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,6 +2006,31 @@ MonoBehaviour:
     puanlard\u0131r. T\xFCm oyunlar\u0131n\u0131zda kazan\u0131lan t\xFCm puanlar
     toplan\u0131r. Seviyeyi ba\u015Far\u0131yla tamamlad\u0131\u011F\u0131n\u0131zda
     puanlar ikiye katlan\u0131r."
+--- !u!114 &7968120111115877996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: ScullsDiggerDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: ScullsDiggerDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041D\u0430\u043A\u043E\u043F\u0438\u0442\u0435 100 \u0447\u0435\u0440\u0435\u043F\u043E\u0432
+    \u0432 \u0438\u0433\u0440\u0435."
+  _editEnglish: 0
+  _english: Collect 100 skulls in the game.
+  _editTurkish: 0
+  _turkish: "Oyunda 100 kafatas\u0131 biriktirin."
 --- !u!114 &8224070170877804161
 MonoBehaviour:
   m_ObjectHideFlags: 0

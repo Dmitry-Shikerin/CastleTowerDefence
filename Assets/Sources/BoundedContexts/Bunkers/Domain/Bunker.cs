@@ -39,7 +39,7 @@ namespace Sources.BoundedContexts.Bunkers.Domain
 
         public void ApplyBoost()
         {
-            Health += 2;
+            Health ++;
             HealthChanged?.Invoke();
         }
     }

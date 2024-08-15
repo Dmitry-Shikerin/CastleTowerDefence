@@ -70,7 +70,8 @@ namespace Doozy.Runtime.Signals
 
         public enum Gameplay
         {
-            GameOver
+            GameOver,
+            ReceivedAchievement
         }
 
         public enum MainMenu

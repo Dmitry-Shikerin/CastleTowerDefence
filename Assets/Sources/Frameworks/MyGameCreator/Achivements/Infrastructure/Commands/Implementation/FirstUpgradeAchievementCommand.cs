@@ -1,28 +1,44 @@
 ﻿using System;
+using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
+using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base;
+using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
+using Zenject;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation
 {
-    public class FirstUpgradeAchievementCommand : IAchievementCommand
+    public class FirstUpgradeAchievementCommand : AchievementCommandBase
     {
         private readonly IEntityRepository _entityRepository;
+
         private Upgrade _healthUpgrade;
         private Upgrade _attackUpgrade;
         private Upgrade _flamethrowerUpgrade;
         private Upgrade _nukeUpgrade;
         private Achievement _achievement;
+        private AchievementView _achievementView;
 
         public FirstUpgradeAchievementCommand(
-            IEntityRepository entityRepository)
+            IEntityRepository entityRepository,
+            GameplayHud hud,
+            DiContainer container) : base(hud, container)
         {
-            _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
+            if (hud == null)
+                throw new ArgumentNullException(nameof(hud));
+            
+            _achievementView = hud.PopUpAchievementView ?? 
+                               throw new ArgumentNullException(nameof(_achievementView));
+            _entityRepository = entityRepository ?? 
+                                throw new ArgumentNullException(nameof(entityRepository));
         }
 
-        public void Initialize()
+        public override void Initialize()
         {
+            base.Initialize();
+            
             _healthUpgrade = _entityRepository
                 .Get<Upgrade>(ModelId.HealthUpgrade);
             _attackUpgrade = _entityRepository
@@ -39,12 +55,15 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             _nukeUpgrade.LevelChanged += Execute;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             _achievement.IsCompleted = true;
+            _achievementView.Construct(_achievement);
+            
+            base.Execute();
         }
 
-        public void Destroy()
+        public override void Destroy()
         {
             _healthUpgrade.LevelChanged -= Execute;
             _attackUpgrade.LevelChanged -= Execute;

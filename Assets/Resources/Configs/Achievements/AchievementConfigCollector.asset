@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6443727763871793310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
+  m_Name: MaxUpgradeAchievement_AchievementConfig
+  m_EditorClassIdentifier: 
+  Id: MaxUpgradeAchievement
+  TitleId: MaxUpgradeAchievementTitle
+  DescriptionId: MaxUpgradeAchievementDescription
+  Sprite: {fileID: 21300000, guid: ecead377269c042598485062f9ba484a, type: 3}
+--- !u!114 &-2636934900728648217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
+  m_Name: FirstUpgradeAchievement_AchievementConfig
+  m_EditorClassIdentifier: 
+  Id: FirstUpgradeAchievement
+  TitleId: FirstUpgradeTitle
+  DescriptionId: FirstUpgradeDescription
+  Sprite: {fileID: 21300000, guid: 7fabb650ab174ee42b39b420f93c024b, type: 3}
 --- !u!114 &-2040669159365068795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,9 +45,9 @@ MonoBehaviour:
   m_Name: FirstEnemyKillAchievement_AchievementConfig
   m_EditorClassIdentifier: 
   Id: FirstEnemyKillAchievement
-  TitleId: 
-  DescriptionId: 
-  Sprite: {fileID: 0}
+  TitleId: FirstEnemyKillTitle
+  DescriptionId: FirstEnemyKillDescription
+  Sprite: {fileID: 21300000, guid: 0356273a93872f64094372c0fd751c4e, type: 3}
 --- !u!114 &-1157887684297482197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,10 +60,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
   m_Name: FirstHealthRemoved_AchievementConfig
   m_EditorClassIdentifier: 
-  Id: FirstHealthRemoved
-  TitleId: 
-  DescriptionId: 
-  Sprite: {fileID: 0}
+  Id: FirstHealthBoosterUsageAchievement
+  TitleId: FirstHealthBoosterTitle
+  DescriptionId: FirstHealthBoosterDescription
+  Sprite: {fileID: 21300000, guid: 32b0ac8e485bed64f9f66a962a2b7b79, type: 3}
+--- !u!114 &-739643554893237154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
+  m_Name: ScullsDiggerAchievement_AchievementConfig
+  m_EditorClassIdentifier: 
+  Id: ScullsDiggerAchievement
+  TitleId: ScullsDiggerTitle
+  DescriptionId: ScullsDiggerDescription
+  Sprite: {fileID: 21300000, guid: ecead377269c042598485062f9ba484a, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +95,27 @@ MonoBehaviour:
   <Configs>k__BackingField:
   - {fileID: -1157887684297482197}
   - {fileID: -2040669159365068795}
-  _configId: FirstEnemyKillAchievement
-  _titleId: 
-  _descriptionId: 
-  _sprite: {fileID: 0}
+  - {fileID: -2636934900728648217}
+  - {fileID: 8117248046270597191}
+  - {fileID: -739643554893237154}
+  - {fileID: -6443727763871793310}
+  _configId: MaxUpgradeAchievement
+  _titleId: MaxUpgradeAchievementTitle
+  _descriptionId: MaxUpgradeAchievementDescription
+  _sprite: {fileID: 21300000, guid: ecead377269c042598485062f9ba484a, type: 3}
+--- !u!114 &8117248046270597191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
+  m_Name: FirstWaveCompletedAchievement_AchievementConfig
+  m_EditorClassIdentifier: 
+  Id: FirstWaveCompletedAchievement
+  TitleId: FirstWaveCompletedTitle
+  DescriptionId: FirstWaveCompletedDescription
+  Sprite: {fileID: 21300000, guid: 231744dac124bc64daf7303148825099, type: 3}

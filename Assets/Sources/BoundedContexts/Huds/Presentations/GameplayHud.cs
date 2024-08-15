@@ -7,6 +7,7 @@ using Sources.BoundedContexts.PlayerWallets.Presentation.Implementation;
 using Sources.BoundedContexts.Upgrades.Presentation.Implementation;
 using Sources.Frameworks.GameServices.Volumes.Presentations;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds;
+using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using UnityEngine;
 
@@ -49,6 +50,9 @@ namespace Sources.BoundedContexts.Huds.Presentations
         
         [FoldoutGroup("HealthBooster")]
         [Required] [SerializeField] private HealthBoosterView _healthBoosterView;
+
+        [FoldoutGroup("Achievements")]
+        [Required] [SerializeField] private AchievementView _popUpAchievementView;
         
         public UiCollector UiCollector => _uiCollector;
 
@@ -68,7 +72,7 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public PlayerWalletView PlayerWalletView => _playerWalletView;
         public VolumeView MusicVolumeView => _musicVolumeView;
         public VolumeView SoundVolumeView => _soundVolumeView;
-        
         public HealthBoosterView HealthBoosterView => _healthBoosterView;
+        public AchievementView PopUpAchievementView => _popUpAchievementView;
     }
 }

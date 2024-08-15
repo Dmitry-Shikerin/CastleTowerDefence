@@ -18,6 +18,8 @@ MonoBehaviour:
       Name: OnClick
     - Category: Gameplay
       Name: GameOver
+    - Category: Gameplay
+      Name: ReceivedAchievement
     - Category: MainMenu
       Name: DailyReward
     - Category: MainMenu

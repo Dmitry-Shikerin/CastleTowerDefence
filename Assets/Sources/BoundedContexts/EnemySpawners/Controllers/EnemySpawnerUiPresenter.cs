@@ -25,7 +25,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
         public override void Enable()
         {
-            OnWaveChanged();
+            SetWaveProgress();
             OnSpawnedEnemiesInCurrentWaveChanged();
             _enemySpawner.WaveChanged += OnWaveChanged;
             _enemySpawner.SpawnedAllEnemiesChanged += OnSpawnedEnemiesInCurrentWaveChanged;
@@ -39,8 +39,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
         private void OnWaveChanged()
         {
-            _view.CurrentWaveText.SetText(_enemySpawner.CurrentWaveNumber.ToString());
-            _view.SpawnerProgressSlider.value = 0;
+            SetWaveProgress();
+            _view.PopUpAnimator.Play();
             // Debug.Log($"slider value {_view.SpawnerProgressSlider.value}");
         }
 
@@ -53,6 +53,12 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             float unitPercent = percent.IntPercentToUnitPercent();
 
             _view.SpawnerProgressSlider.value = unitPercent;
+        }
+
+        private void SetWaveProgress()
+        {
+            _view.CurrentWaveText.SetText(_enemySpawner.CurrentWaveNumber.ToString());
+            _view.SpawnerProgressSlider.value = 0;
         }
     }
 }

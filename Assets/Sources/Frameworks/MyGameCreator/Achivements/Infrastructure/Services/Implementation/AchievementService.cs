@@ -25,7 +25,10 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
             AchievementConfigCollector achievementConfigCollector,
             FirstKillEnemyAchievementCommand firstKillEnemyAchievementCommand,
             FirstUpgradeAchievementCommand firstUpgradeAchievementCommand,
-            FirstHealthBoosterUsageAchievementCommand firstHealthBoosterUsageAchievementCommand)
+            FirstHealthBoosterUsageAchievementCommand firstHealthBoosterUsageAchievementCommand,
+            FirstWaveCompletedAchievementCommand firstWaveCompletedAchievementCommand,
+            ScullsDiggerAchievementCommand scullsDiggerAchievementCommand,
+            MaxUpgradeAchievementCommand maxUpgradeAchievementCommand)
         {
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _achievements = new Dictionary<string, Achievement>();
@@ -36,6 +39,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
                 firstKillEnemyAchievementCommand,
                 firstUpgradeAchievementCommand,
                 firstHealthBoosterUsageAchievementCommand,
+                firstWaveCompletedAchievementCommand,
+                scullsDiggerAchievementCommand,
+                maxUpgradeAchievementCommand,
             };
         }
 
