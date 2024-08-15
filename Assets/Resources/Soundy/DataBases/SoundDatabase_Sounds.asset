@@ -59,6 +59,37 @@ MonoBehaviour:
     Weight: 1
     IsPlaying: 0
   IsPlaying: 0
+--- !u!114 &-256546740430324994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6c631d933489d4ca7328a2a5983e10, type: 3}
+  m_Name: Bunker
+  m_EditorClassIdentifier: 
+  DatabaseName: Sounds
+  SoundName: Bunker
+  IgnoreListenerPause: 1
+  Volume:
+    MinValue: 0
+    MaxValue: 0
+  Pitch:
+    MinValue: 0
+    MaxValue: 0
+  SpatialBlend: 0
+  Loop: 0
+  Mode: 1
+  ResetSequenceAfterInactiveTime: 0
+  SequenceResetTime: 5
+  Sounds:
+  - AudioClip: {fileID: 8300000, guid: c408b97815aa513438d6ef56ec23a3a5, type: 3}
+    Weight: 1
+    IsPlaying: 0
+  IsPlaying: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,3 +111,4 @@ MonoBehaviour:
   Database:
   - {fileID: -1792238423782617974}
   - {fileID: -8623361904322625226}
+  - {fileID: -256546740430324994}
