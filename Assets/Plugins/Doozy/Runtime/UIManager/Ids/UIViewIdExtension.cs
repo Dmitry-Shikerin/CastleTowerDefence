@@ -31,6 +31,7 @@ namespace Doozy.Runtime.UIManager
         public enum Gameplay
         {
             AbilitiesTutorial,
+            AchievementFrame,
             Achievements,
             Background,
             EnemySpawnerTutorial,

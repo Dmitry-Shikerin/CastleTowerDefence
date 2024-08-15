@@ -1,7 +1,9 @@
 ﻿using System;
+using Doozy.Runtime.Signals;
 using JetBrains.Annotations;
 using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 
@@ -13,6 +15,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         
         private HealthBooster _healthBooster;
         private Achievement _achievement;
+        private SignalStream _stream;
 
         public FirstHealthBoosterUsageAchievementCommand(IEntityRepository entityRepository)
         {
@@ -23,12 +26,14 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         {
             _healthBooster = _entityRepository.Get<HealthBooster>(ModelId.HealthBooster);
             _achievement = _entityRepository.Get<Achievement>(ModelId.FirstHealthBoosterUsageAchievement);
+            _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ReceivedAchievement);
             _healthBooster.CountRemoved += Execute;
         }
 
         public void Execute()
         {
             _achievement.IsCompleted = true;
+            _stream.SendSignal(true);
         }
 
         public void Destroy()
