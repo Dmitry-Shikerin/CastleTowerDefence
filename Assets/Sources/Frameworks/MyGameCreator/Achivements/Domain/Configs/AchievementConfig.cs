@@ -10,13 +10,23 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
 {
     public class AchievementConfig : ScriptableObject
     {
+        [HorizontalGroup("Split",0.17f, LabelWidth = 30)]
+        [BoxGroup("Split/Left", ShowLabel = false)] 
+        [HideLabel]
+        [PreviewField(58, ObjectFieldAlignment.Center)]
+        public Sprite Sprite;
+        [BoxGroup("Split/Right", ShowLabel = false)]
+        [LabelWidth(80)]
         [ValueDropdown("GetId")]
         public string Id;
+        [BoxGroup("Split/Right")]
+        [LabelWidth(80)]
         [ValueDropdown("GetLocalisationId")]
         public string TitleId;
+        [BoxGroup("Split/Right")]
+        [LabelWidth(80)]
         [ValueDropdown("GetLocalisationId")]
         public string DescriptionId;
-        public Sprite Sprite;
         
         public AchievementConfigCollector Parent { get; set; }
 
@@ -24,7 +34,8 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
             ModelId.AchievementModels;
 
 #if UNITY_EDITOR
-        [PropertySpace(10)]
+        [BoxGroup("Buttons")]
+        [ResponsiveButtonGroup("Buttons/Buttons")]
         [Button(ButtonSizes.Medium)]
         private void Rename()
         {
@@ -38,7 +49,8 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
             Parent.RemoveConfig(this);
         }
 
-        [PropertySpace(10)]
+        [BoxGroup("Buttons")]
+        [ResponsiveButtonGroup("Buttons/Buttons")]
         [Button(ButtonSizes.Medium)]
         private void Remove() =>
             Parent.RemoveConfig(this);
