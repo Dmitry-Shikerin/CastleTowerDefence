@@ -16,14 +16,17 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
         [PreviewField(58, ObjectFieldAlignment.Center)]
         public Sprite Sprite;
         [BoxGroup("Split/Right", ShowLabel = false)]
+        [HorizontalGroup("Split/Right/Id", 0.93f)]
         [LabelWidth(80)]
         [ValueDropdown("GetId")]
         public string Id;
         [BoxGroup("Split/Right")]
+        [HorizontalGroup("Split/Right/TitleId", 0.93f)]
         [LabelWidth(80)]
         [ValueDropdown("GetLocalisationId")]
         public string TitleId;
         [BoxGroup("Split/Right")]
+        [HorizontalGroup("Split/Right/DescriptionId", 0.93f)]
         [LabelWidth(80)]
         [ValueDropdown("GetLocalisationId")]
         public string DescriptionId;
@@ -32,6 +35,26 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
 
         private IReadOnlyList<string> GetId() =>
             ModelId.AchievementModels;
+
+        [HideLabel]
+        [HorizontalGroup("Split/Right/Id")]
+        [Button(SdfIconType.Search)]
+        private void PingId()
+        {
+            // Selection.activeObject = LocalizationDataBase.Instance.GetPhrase(Id);
+        }
+
+        [HideLabel]
+        [HorizontalGroup("Split/Right/TitleId")]
+        [Button(SdfIconType.Search)]
+        private void PingTitleId() =>
+            Selection.activeObject = LocalizationDataBase.Instance.GetPhrase(TitleId);
+
+        [HideLabel]
+        [HorizontalGroup("Split/Right/DescriptionId")]
+        [Button(SdfIconType.Search)]
+        private void PingDescriptionId() =>
+            Selection.activeObject = LocalizationDataBase.Instance.GetPhrase(DescriptionId);
 
 #if UNITY_EDITOR
         [BoxGroup("Buttons")]
