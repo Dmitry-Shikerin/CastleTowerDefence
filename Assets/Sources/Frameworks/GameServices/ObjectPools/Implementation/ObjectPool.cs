@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
@@ -15,7 +16,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
     public class ObjectPool<T> : IObjectPool<T>
         where T : View
     {
-        private readonly Queue<T> _objects = new Queue<T>();
+        private readonly List<T> _objects = new List<T>();
         private readonly List<T> _collection = new List<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
         private readonly IPoolBaker<T> _poolBaker;
@@ -23,6 +24,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private readonly Transform _root;
 
         private int _maxCount = -1;
+        private bool _isCountLimit;
         private bool _isInitialized;
         private PoolManagerConfig _config;
         private string _resourcesPath;
@@ -39,11 +41,15 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             _parent.SetParent(parent);
             _poolBaker = new PoolBaker<T>(_root);
             _config = poolManagerConfig;
-            
+
             if (_config != null)
+            {
                 _maxCount = _config.MaxPoolCount;
-            
+                _isCountLimit = _config.IsCountLimit;
+            }
+
             _resourcesPath = resourcesPath;
+            DeleteAfterTime = _config?.DeleteAfterTime ?? 0;
 
             if (_config != null && _config.IsWarmUp)
             {
@@ -75,13 +81,15 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             if (_objects.Count == 0)
                 return CreateObject(_resourcesPath) as TType;
 
-            if (_objects.Dequeue() is not TType @object)
+            if (_objects.FirstOrDefault() is not TType @object)
                 return null;
 
             if (@object == null)
-                return null;
+                return CreateObject(_resourcesPath) as TType;
 
             // @object.SetParent(null);
+            _objects.Remove(_objects.First());
+            @object.GetComponent<PoolableObject>().Cancel();
             _poolBaker.Add(@object);
             ObjectCountChanged?.Invoke(_objects.Count);
 
@@ -95,21 +103,44 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
 
             if (_objects.Contains(@object))
                 throw new InvalidOperationException(nameof(@object));
-
-            if (_maxCount != -1)
+            
+            if (_isCountLimit)
             {
-                if (_collection.Count >= _maxCount)
+                if (_objects.Count >= _maxCount)
                 {
                     _collection.Remove(@object);
-                    Object.Destroy(poolableObject);
+                    poolableObject.StartTimer();
+                    // Object.Destroy(poolableObject);
+                    poolableObject.transform.SetParent(_parent);
+                    _objects.Add(@object);
+                    poolableObject.Hide();
+                    ObjectCountChanged?.Invoke(_objects.Count);
 
                     return;
                 }
             }
 
             poolableObject.transform.SetParent(_parent);
-            _objects.Enqueue(@object);
+            _objects.Add(@object);
             poolableObject.Hide();
+            ObjectCountChanged?.Invoke(_objects.Count);
+        }
+
+        public float DeleteAfterTime { get; }
+
+        public void RemoveFromPool(PoolableObject poolableObject)
+        {
+            if (_maxCount > _objects.Count)
+                return;
+            
+            if (poolableObject.TryGetComponent(out T @object) == false)
+                return;
+            
+            Debug.Log($"Objects count before remove: {_objects.Count}");
+            
+            _collection.Remove(@object);
+            _objects.Remove(@object);
+            Object.Destroy(poolableObject.gameObject);
             ObjectCountChanged?.Invoke(_objects.Count);
         }
 

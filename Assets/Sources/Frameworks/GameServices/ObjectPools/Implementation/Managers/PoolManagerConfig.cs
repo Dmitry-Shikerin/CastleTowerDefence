@@ -13,20 +13,27 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
         [ValueDropdown(nameof(GetFilteredNames))]
         [SerializeReference] private string _type;
         [SerializeField] private bool _isWarmUp;
+        [EnableIf(nameof(_isWarmUp))]
         [Range(0, 5)]
         [SerializeField] private int _warmUpTime;
+        [EnableIf(nameof(_isWarmUp))]
         [Range(0, 100)]
         [SerializeField] private int _warmUpCount;
+        [SerializeField] private bool _isCountLimit;
+        [EnableIf(nameof(_isCountLimit))]
         [MinMaxSlider(-1, 100, true)]
         [SerializeField] private Vector2Int _minMaxPoolCount = new Vector2Int(-1, 0);
+        [EnableIf(nameof(_isCountLimit))]
         [Range(0, 20)]
         [SerializeField] private float _deleteAfterTime;
         
         public bool IsWarmUp => _isWarmUp;
         public int WarmUpCount => _warmUpCount;
-        public int MinPoolCount => _minMaxPoolCount.y;
-        public int MaxPoolCount => _minMaxPoolCount.x;
+        public bool IsCountLimit => _isCountLimit;
+        public int MinPoolCount => _minMaxPoolCount.x;
+        public int MaxPoolCount => _minMaxPoolCount.y;
         public float WarmUpTime => _warmUpTime;
+        public float DeleteAfterTime => _deleteAfterTime;
         public Type Type => GetTypeByName();
         
         private Type GetTypeByName() =>

@@ -8,7 +8,10 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces
     public interface IObjectPool
     {
         event Action<int> ObjectCountChanged;
+        
+        float DeleteAfterTime { get; }
 
+        void RemoveFromPool(PoolableObject poolableObject);
         T Get<T>()
             where T : View;
         void Return(PoolableObject poolableObject);

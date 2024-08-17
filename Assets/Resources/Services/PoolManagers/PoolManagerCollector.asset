@@ -18,9 +18,10 @@ MonoBehaviour:
   _type: CharacterMeleeView
   _isWarmUp: 1
   _warmUpTime: 0
-  _warmUpCount: 10
-  _minMaxPoolCount: {x: -1, y: 10}
-  _deleteAfterTime: 0
+  _warmUpCount: 19
+  _isCountLimit: 1
+  _minMaxPoolCount: {x: 0, y: 4}
+  _deleteAfterTime: 4.1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
