@@ -22,6 +22,7 @@ MonoBehaviour:
   _isCountLimit: 1
   _minMaxPoolCount: {x: 0, y: 4}
   _deleteAfterTime: 4.1
+  _prefab: {fileID: 3388632552365605048, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
