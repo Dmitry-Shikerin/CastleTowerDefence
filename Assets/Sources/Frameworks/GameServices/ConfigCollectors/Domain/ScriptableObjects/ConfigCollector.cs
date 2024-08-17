@@ -17,7 +17,7 @@ namespace Sources.Frameworks.GameServices.ConfigCollectors
         [EnableIf(nameof(_enable), Enable.Enable)]
         [SerializeField] private string _id;
         [EnableIf(nameof(_enable), Enable.Enable)]
-        [SerializeField] private List<Config> _configs = new List<Config>();
+        [SerializeField] private List<T> _configs = new List<T>();
         [TabGroup("Create")]
         [ValidateInput("ValidateId")]
         [SerializeField] private string _addedConfigId;
@@ -25,7 +25,7 @@ namespace Sources.Frameworks.GameServices.ConfigCollectors
         [ValueDropdown(nameof(GetRemovedId))]
         [SerializeField] private string _removedConfigId;
 
-        public List<Config> Configs => _configs;
+        public List<T> Configs => _configs;
         public string Id => _id;
         
         public void SetId(string id) =>
@@ -38,7 +38,7 @@ namespace Sources.Frameworks.GameServices.ConfigCollectors
         [Button]
         public void RemoveConfig()
         {
-            Config config = Configs.FirstOrDefault(config => config.Id == _removedConfigId);
+            T config = Configs.FirstOrDefault(config => config.Id == _removedConfigId);
             AssetDatabase.RemoveObjectFromAsset(config);
             Configs.Remove(config);
             AssetDatabase.SaveAssets();

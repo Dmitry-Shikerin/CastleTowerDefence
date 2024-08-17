@@ -13,7 +13,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic
         IReadOnlyList<T> Collection { get; }
         IPoolBaker<T> PoolBaker { get; }
 
-        IObjectPool<T> SetRootParent(Transform parent);
         void AddToCollection(T @object);
         bool Contains(T @object);
     }

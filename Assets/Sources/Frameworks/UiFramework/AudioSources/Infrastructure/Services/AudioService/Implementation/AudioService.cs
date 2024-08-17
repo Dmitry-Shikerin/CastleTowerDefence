@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Configs;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Groups;
@@ -43,7 +44,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
 
             _audioClips = audioServiceDataBase.AudioClips;
             _audioGroups = audioServiceDataBase.AudioGroups;
-            _audioSourcePool = new ObjectPool<UiAudioSource>();
+            _audioSourcePool = new ObjectPool<UiAudioSource>(new ResourcesPrefabLoader());
             _audioSourcePool.SetPoolCount(_audioServiceDataBase.PoolCount);
             IAudioContainerFactory audioContainerFactory = new AudioContainerFactory(_audioSourcePool);
             _audioSourceSpawner = new AudioSourceSpawner(_audioSourcePool, audioContainerFactory);
