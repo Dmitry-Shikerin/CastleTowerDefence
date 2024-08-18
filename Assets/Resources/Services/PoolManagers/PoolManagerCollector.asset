@@ -16,7 +16,7 @@ MonoBehaviour:
   _id: CharacterMelee
   _parent: {fileID: 11400000}
   _type: CharacterMeleeView
-  _isWarmUp: 1
+  _isWarmUp: 0
   _warmUpTime: 0
   _warmUpCount: 19
   _isCountLimit: 1

@@ -58,7 +58,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
                     CreateObject(_resourcesPath)
                         .GetComponent<PoolableObject>()
                         .ReturnToPool();
-                    Debug.Log(i);
                 }
             }
         }
@@ -87,7 +86,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             if (@object == null)
                 return CreateObject(_resourcesPath) as TType;
 
-            // @object.SetParent(null);
             _objects.Remove(_objects.First());
             @object.GetComponent<PoolableObject>().Cancel();
             _poolBaker.Add(@object);
@@ -110,7 +108,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
                 {
                     _collection.Remove(@object);
                     poolableObject.StartTimer();
-                    // Object.Destroy(poolableObject);
                     poolableObject.transform.SetParent(_parent);
                     _objects.Add(@object);
                     poolableObject.Hide();
@@ -135,8 +132,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             
             if (poolableObject.TryGetComponent(out T @object) == false)
                 return;
-            
-            Debug.Log($"Objects count before remove: {_objects.Count}");
             
             _collection.Remove(@object);
             _objects.Remove(@object);

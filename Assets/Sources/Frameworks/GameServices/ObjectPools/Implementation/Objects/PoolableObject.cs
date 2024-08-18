@@ -38,10 +38,8 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects
             
             try
             {
-                Debug.Log($"StartTimer: {name}");
                 await UniTask.Delay(_timeSpan, cancellationToken: _token.Token);
                 _pool.RemoveFromPool(this);
-                Debug.Log($"EndTimer: {name}");
             }
             catch (OperationCanceledException)
             {
@@ -50,7 +48,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects
 
         public void Cancel()
         {
-            Debug.Log($"Cancel: {name}");
             _token.Cancel();
         }
     }
