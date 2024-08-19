@@ -8,6 +8,7 @@ using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Prefabs;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation

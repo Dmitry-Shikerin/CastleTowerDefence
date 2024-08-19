@@ -39,14 +39,13 @@ namespace Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Service
         {
             SkyAndWeatherConfig day = _skyWeatherCollector.Configs.First(config => config.Id == "Day");
             SkyAndWeatherConfig night = _skyWeatherCollector.Configs.First(config => config.Id == "Night");
-            _skyAndWeatherView.Light.color = day.UpperColor;
 
             try
             {
                 while (_token.IsCancellationRequested == false)
                 {
-                    await ChangePartColor(day, _token.Token);
-                    await ChangePartColor(night, _token.Token);
+                    await ChangePartColor(day, _token.Token, _skyWeatherCollector.IsDay);
+                    await ChangePartColor(night, _token.Token, _skyWeatherCollector.IsNight);
                 }
             }
             catch (OperationCanceledException)
@@ -54,8 +53,17 @@ namespace Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Service
             }
         }
 
-        private async UniTask ChangePartColor(SkyAndWeatherConfig skyAndWeatherConfig, CancellationToken token)
+        private async UniTask ChangePartColor(
+            SkyAndWeatherConfig skyAndWeatherConfig, 
+            CancellationToken token,
+            bool isUse)
         {
+            if (isUse == false)
+            {
+                await UniTask.Yield(token);
+                return;
+            }
+            
             await ChangeColor(skyAndWeatherConfig.UpperColor, token);
             await ChangeColor(skyAndWeatherConfig.MiddleColor, token);
             await ChangeColor(skyAndWeatherConfig.LowerColor, token);

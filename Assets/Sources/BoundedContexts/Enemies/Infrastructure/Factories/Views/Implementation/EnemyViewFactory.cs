@@ -11,6 +11,7 @@ using Sources.BoundedContexts.EnemyHealths.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation

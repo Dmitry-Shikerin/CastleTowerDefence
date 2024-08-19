@@ -2,7 +2,7 @@ using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 
-namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
+namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers
 {
     public interface IPoolManager
     {

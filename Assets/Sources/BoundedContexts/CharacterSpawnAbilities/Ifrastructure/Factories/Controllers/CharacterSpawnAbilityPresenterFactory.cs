@@ -5,6 +5,7 @@ using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Imp
 using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers

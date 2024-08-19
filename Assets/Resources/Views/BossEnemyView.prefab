@@ -2227,20 +2227,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3979446576400855832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba3b3d20dd42f61408784f700d9e5f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AddToContainer: 1
   _editor_DrawSetup: 1
-  _editor_DrawOptimizeList: 1
+  _editor_DrawOptimizeList: 0
   _editor_DrawAddFeatures: 0
   _editor_DrawLODLevelsSetup: 1
   _editor_DrawExtra: 0
   _editor_horizontal: 1
   _editor_category: 0
-  Editor_InIsolatedScene: 1
+  Editor_InIsolatedScene: 0
   Editor_JustCreated: 1
   UseDOTS: 0
   DOTSObstacleType: 2

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using Doozy.Engine.Soundy;
 using MyAudios.Soundy.Sources.Managers.Controllers;
 using MyAudios.Soundy.Sources.Managers.Domain.Constants;
 using MyAudios.Soundy.Sources.Settings.Domain.Configs;
 using MyAudios.Soundy.Sources.SoundSources.Enums;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -21,9 +23,11 @@ namespace MyAudios.Soundy.Sources.DataBases.Domain.Data
         public SoundSource SoundSource;
 
         /// <summary> SoundDatabase database name that contains the sound name (enabled only for SoundSource.Soundy) </summary>
+        [ValueDropdown(nameof(GetDataBases))]
         public string DatabaseName;
         
         /// <summary> Sound name of a SoundGroupData that holds settings and references to one or more audio clips (enabled only for SoundSource.Soundy and SoundSource.MasterAudio) </summary>
+        [ValueDropdown(nameof(GetSoundNames))]
         public string SoundName;
 
         /// <summary> Direct reference to an AudioClip (enabled only for SoundSource.AudioClip) </summary>
@@ -106,6 +110,12 @@ namespace MyAudios.Soundy.Sources.DataBases.Domain.Data
             
             return this;
         }
+
+        private List<string> GetDataBases() =>
+            SoundySettings.Database.DatabaseNames;
+        
+        private List<string> GetSoundNames() =>
+            SoundySettings.Database.GetSoundDatabase(DatabaseName).SoundNames;
 
         #endregion
     }
