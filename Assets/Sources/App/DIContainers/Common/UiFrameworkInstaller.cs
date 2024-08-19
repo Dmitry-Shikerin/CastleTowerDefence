@@ -29,10 +29,6 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<UiCollector>().FromInstance(_uiCollector);
             Container.Bind<UiCollectorFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<FormService>().AsSingle();
-            Container.Bind<IAudioService>().To<AudioService>().AsSingle();
-            Container
-                .Bind<AudioServiceDataBase>()
-                .FromResources("Services/AudioServices/AudioServiceDataBase");
             Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
             Container
                 .Bind<LocalizationDataBase>()

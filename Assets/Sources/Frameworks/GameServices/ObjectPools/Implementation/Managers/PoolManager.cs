@@ -4,6 +4,7 @@ using System.Linq;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;

@@ -1,5 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.Scenes.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
@@ -16,25 +18,26 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class MainMenuSceneFactory : ISceneFactory
     {
+        private readonly ISoundyService _soundyService;
         private readonly ISceneViewFactory _sceneViewFactory;
         private readonly ISignalControllersCollector _signalControllersCollector;
         private readonly ISdkInitializeService _sdkInitializeService;
         private readonly IFocusService _focusService;
         private readonly ILocalizationService _localizationService;
-        private readonly IAudioService _audioService;
         private readonly ICurtainView _curtainView;
         private readonly IStickyService _stickyService;
 
         public MainMenuSceneFactory(
+            ISoundyService soundyService,
             ISceneViewFactory sceneViewFactory,
             ISignalControllersCollector signalControllersCollector,
             ISdkInitializeService sdkInitializeService,
             IFocusService focusService,
             ILocalizationService localizationService,
-            IAudioService audioService,
             ICurtainView curtainView,
             IStickyService stickyService)
         {
+            _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _sceneViewFactory = sceneViewFactory ??
                                 throw new ArgumentNullException(nameof(sceneViewFactory));
             _signalControllersCollector = signalControllersCollector ?? 
@@ -44,7 +47,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _localizationService = localizationService ?? 
                                    throw new ArgumentNullException(nameof(localizationService));
-            _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _curtainView = curtainView ?? throw new ArgumentNullException(nameof(curtainView));
             _stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
         }
@@ -52,12 +54,12 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene mainMenuScene = new MainMenuScene(
+                _soundyService,
                 _sceneViewFactory,
                 _signalControllersCollector,
                 _sdkInitializeService,
                 _focusService,
                 _localizationService,
-                _audioService,
                 _curtainView,
                 _stickyService);
             

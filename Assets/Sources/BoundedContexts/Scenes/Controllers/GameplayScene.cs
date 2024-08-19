@@ -30,7 +30,6 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly IFocusService _focusService;
         private readonly IAdvertisingService _advertisingService;
         private readonly ILocalizationService _localizationService;
-        private readonly IAudioService _audioService;
         private readonly ICurtainView _curtainView;
         private readonly ISignalControllersCollector _signalControllersCollector;
 
@@ -44,7 +43,6 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             IFocusService focusService,
             IAdvertisingService advertisingService,
             ILocalizationService localizationService,
-            IAudioService audioService,
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
@@ -60,7 +58,6 @@ namespace Sources.BoundedContexts.Scenes.Controllers
                                   throw new ArgumentNullException(nameof(advertisingService));
             _localizationService = localizationService ?? 
                                    throw new ArgumentNullException(nameof(localizationService));
-            _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _curtainView = curtainView ?? throw new ArgumentNullException(nameof(curtainView));
             _signalControllersCollector = signalControllersCollector ?? 
                                           throw new ArgumentNullException(nameof(signalControllersCollector));
