@@ -34,6 +34,7 @@ namespace Doozy.Runtime.UIManager
             AchievementFrame,
             Achievements,
             Background,
+            Damage,
             EnemySpawnerTutorial,
             GameOver,
             Hud,

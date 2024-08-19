@@ -23,6 +23,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Background
     - Category: Gameplay
+      Name: Damage
+    - Category: Gameplay
       Name: EnemySpawnerTutorial
     - Category: Gameplay
       Name: GameOver
