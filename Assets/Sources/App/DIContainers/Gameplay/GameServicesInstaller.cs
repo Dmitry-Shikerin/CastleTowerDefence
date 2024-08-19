@@ -43,6 +43,7 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<ISkyAndWeatherService>().To<SkyAndWeatherService>().AsSingle();
             
             //Addressables
+            Container.Bind<IAssetProvider>().To<AddressablesAssetLoader>().AsSingle();
             Container.Bind<ICompositeAssetService>().To<CompositeAssetService>().AsSingle();
         }
     }

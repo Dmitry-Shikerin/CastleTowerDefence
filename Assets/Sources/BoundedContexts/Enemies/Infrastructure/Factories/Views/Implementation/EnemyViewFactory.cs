@@ -50,7 +50,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
                     0),
                 new BurnAbility());
             
-            EnemyView view = _poolManager.Get<EnemyView>(EnemyConst.PrefabPath);
+            EnemyView view = _poolManager.Get<EnemyView>();
             
             _providerFactory.Create(enemy, view);
             _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);

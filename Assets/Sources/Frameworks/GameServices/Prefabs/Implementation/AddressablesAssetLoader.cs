@@ -19,7 +19,8 @@ namespace Sources.Frameworks.GameServices.Addressables.Implementation
             _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
         }
 
-        public async UniTask<T> LoadAsset<T>(string address) where T : MonoBehaviour
+        public async UniTask<T> LoadAsset<T>(string address)
+            where T : MonoBehaviour
         {
             GameObject asset = await UnityEngine.AddressableAssets.Addressables
                 .LoadAssetAsync<GameObject>(address).Task;
@@ -33,7 +34,8 @@ namespace Sources.Frameworks.GameServices.Addressables.Implementation
             return component;
         }
         
-        public async UniTask<T> LoadObject<T>(string address) where T : Object
+        public async UniTask<T> LoadObject<T>(string address)
+            where T : Object
         {
             Object asset = await UnityEngine.AddressableAssets.Addressables
                 .LoadAssetAsync<Object>(address).Task;
@@ -54,8 +56,10 @@ namespace Sources.Frameworks.GameServices.Addressables.Implementation
         {
             _gameObjects.ForEach(_prefabCollector.Remove);
             _gameObjects.ForEach(UnityEngine.AddressableAssets.Addressables.Release);
+            _gameObjects.Clear();
             _objects.ForEach(_prefabCollector.Remove);
             _objects.ForEach(UnityEngine.AddressableAssets.Addressables.Release);
+            _objects.Clear();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
         public async UniTask<T> LoadAsset<T>(string address) where T : MonoBehaviour
         {
             Object assetResult = await Resources
-                .LoadAsync<GameObject>(address);
+                .LoadAsync<T>(address);
 
             GameObject asset = assetResult.GameObject();
             
@@ -37,13 +37,13 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
         public async UniTask<T> LoadObject<T>(string address) where T : Object
         {
             Object asset = await Resources
-                .LoadAsync<Object>(address);
+                .LoadAsync<T>(address);
             
             if(asset == null)
                 throw new InvalidOperationException(nameof(asset));
             
             if(asset is not T component)
-                throw new InvalidOperationException(nameof(asset));
+                throw new InvalidOperationException(typeof(T).Name);
             
             _objects.Add(asset);
             _prefabCollector.Add(typeof(T), component);
@@ -54,9 +54,11 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
         public void Release()
         {
             _gameObjects.ForEach(_prefabCollector.Remove);
-            _gameObjects.ForEach(Resources.UnloadAsset);
+            _gameObjects.Clear();
+            // _gameObjects.ForEach(Resources.UnloadAsset);
             _objects.ForEach(_prefabCollector.Remove);
-            _objects.ForEach(Resources.UnloadAsset);
+            _objects.Clear();
+            // _objects.ForEach(Resources.UnloadAsset);
         }
     }
 }

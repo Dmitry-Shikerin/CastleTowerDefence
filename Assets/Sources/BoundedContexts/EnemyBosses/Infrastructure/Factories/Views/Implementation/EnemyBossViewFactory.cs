@@ -55,7 +55,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Imp
                 2f,
                 5f);
 
-            EnemyBossView view = _poolManager.Get<EnemyBossView>(PrefabPath.BossEnemy);
+            EnemyBossView view = _poolManager.Get<EnemyBossView>();
 
             _providerFactory.Create(bossEnemy, view);
             _enemyHealthViewFactory.Create(bossEnemy.EnemyHealth, view.EnemyHealthView);
