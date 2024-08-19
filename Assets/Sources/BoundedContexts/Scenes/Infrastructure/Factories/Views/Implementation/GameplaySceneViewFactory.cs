@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
@@ -18,6 +20,7 @@ using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
 using Sources.InfrastructureInterfaces.Services.Repositories;
@@ -140,6 +143,15 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //HealthBooster
             _gameplayHud.HealthBoosterView.Construct(_entityRepository);
+            
+            //Achievements
+            List<Achievement> achievements = _entityRepository.GetAll<Achievement>(ModelId.AchievementModels).ToList();
+
+            if (achievements.Count != _gameplayHud.AchievementViews.Count)
+                throw new IndexOutOfRangeException(nameof(achievements));
+
+            for (int i = 0; i < achievements.Count; i++) 
+                _gameplayHud.AchievementViews[i].Construct(achievements[i]);
         }
 
         private GameplayModel Load(IScenePayload payload)

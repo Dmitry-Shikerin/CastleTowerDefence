@@ -37,7 +37,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         {
             _container.Inject(_achievementView);
             _stream.SendSignal(true);
-            Destroy();
         }
 
         public virtual void Destroy()

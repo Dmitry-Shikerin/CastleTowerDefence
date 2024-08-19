@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Abilities.Presentation.Implementation;
 using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
@@ -53,6 +54,8 @@ namespace Sources.BoundedContexts.Huds.Presentations
 
         [FoldoutGroup("Achievements")]
         [Required] [SerializeField] private AchievementView _popUpAchievementView;
+        [FoldoutGroup("Achievements")]
+        [Required] [SerializeField] private List<AchievementView> _achievementViews;
         
         public UiCollector UiCollector => _uiCollector;
 
@@ -74,5 +77,6 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public VolumeView SoundVolumeView => _soundVolumeView;
         public HealthBoosterView HealthBoosterView => _healthBoosterView;
         public AchievementView PopUpAchievementView => _popUpAchievementView;
+        public IReadOnlyList<AchievementView> AchievementViews => _achievementViews;
     }
 }
