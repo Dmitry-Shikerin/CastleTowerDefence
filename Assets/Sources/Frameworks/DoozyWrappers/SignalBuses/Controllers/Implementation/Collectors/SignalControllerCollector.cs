@@ -10,13 +10,11 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementatio
         
         public SignalControllerCollector(
             ButtonsCommandSignalController buttonsCommandSignalController,
-            AudioServiceSignalController audioServiceSignalController,
             ViewCommandSignalController viewCommandSignalController)
         {
             _signalControllers = new List<ISignalController>()
             {
                 buttonsCommandSignalController,
-                audioServiceSignalController,
                 viewCommandSignalController,
             };
         }

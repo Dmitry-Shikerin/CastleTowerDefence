@@ -40,7 +40,6 @@ namespace Sources.App.DIContainers.Common
             //SignalControllers
             Container.Bind<ISignalControllersCollector>().To<SignalControllerCollector>().AsSingle();
             Container.Bind<ButtonsCommandSignalController>().AsSingle();
-            Container.Bind<AudioServiceSignalController>().AsSingle();
             Container.Bind<ViewCommandSignalController>().AsSingle();
             
             //Buttons
