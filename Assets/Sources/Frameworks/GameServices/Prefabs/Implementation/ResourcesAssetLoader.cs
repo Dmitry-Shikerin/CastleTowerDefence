@@ -1,34 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Sources.Frameworks.GameServices.Addressables.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
+using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Sources.Frameworks.GameServices.Prefabs.Implementation
 {
-    public class AddressablesAssetLoader : IAddressablesAssetLoader
+    public class ResourcesAssetLoader : IResourcesAssetLoader
     {
         private readonly IPrefabCollector _prefabCollector;
         private readonly List<Object> _objects;
 
-        public AddressablesAssetLoader(IPrefabCollector prefabCollector)
+        public ResourcesAssetLoader(IPrefabCollector prefabCollector)
         {
             _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
             _objects = new List<Object>();
         }
         
-        public async UniTask<T> LoadAsset<T>(string address)
-            where T : Object
+        public async UniTask<T> LoadAsset<T>(string address) where T : Object
         {
-            T asset = await UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<T>(address).Task;
+            Object asset = await Resources.LoadAsync<T>(address);
             
             if(asset == null)
                 throw new InvalidOperationException(nameof(asset));
             
             if(asset is not T component)
-                throw new InvalidOperationException(nameof(asset));
+                throw new InvalidOperationException(typeof(T).Name);
             
             _objects.Add(asset);
             _prefabCollector.Add(typeof(T), component);
@@ -39,7 +38,6 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
         public void ReleaseAll()
         {
             _objects.ForEach(_prefabCollector.Remove);
-            _objects.ForEach(UnityEngine.AddressableAssets.Addressables.Release);
             _objects.Clear();
         }
     }

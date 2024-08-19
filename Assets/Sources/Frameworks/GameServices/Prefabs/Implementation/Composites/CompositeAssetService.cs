@@ -10,30 +10,29 @@ using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.Prefabs;
 using Sources.Frameworks.GameServices.Addressables.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
-using Sources.Frameworks.GameServices.Prefabs.Implementation;
-using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Domain;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.MyGameCreator.SkyAndWeawers.Domain;
 
-namespace Sources.Frameworks.GameServices.Addressables.Implementation
+namespace Sources.Frameworks.GameServices.Prefabs.Implementation.Composites
 {
     public class CompositeAssetService : ICompositeAssetService
     {
-        private readonly IAssetProvider _assetProvider;
+        private readonly IAddressablesAssetLoader _addressablesAssetLoader;
         private readonly IPrefabLoader _prefabLoader;
-        private readonly IAssetProvider[] _assetServices;
+        private readonly IAddressablesAssetLoader[] _assetServices;
         
         public CompositeAssetService(
-            IAssetProvider assetProvider,
+            IAddressablesAssetLoader addressablesAssetLoader,
             IPrefabLoader prefabLoader)
         {
-            _assetProvider = assetProvider ?? throw new ArgumentNullException(nameof(assetProvider));
+            _addressablesAssetLoader = addressablesAssetLoader ?? throw new ArgumentNullException(nameof(addressablesAssetLoader));
             _prefabLoader = prefabLoader ?? throw new ArgumentNullException(nameof(prefabLoader));
         }
         
         public async UniTask LoadAsync()
         {
-            await _prefabLoader.LoadObject<SkyAndWeatherCollector>("Configs/SkyAndWeathers/SkyAndWeatherCollector");
-            await _prefabLoader.LoadObject<PoolManagerCollector>("Services/PoolManagers/PoolManagerCollector");
+            await _prefabLoader.LoadAsset<SkyAndWeatherCollector>(PrefabPath .SkyAndWeatherCollector);
+            await _prefabLoader.LoadAsset<PoolManagerCollector>(PrefabPath.PoolManagerCollector);
             await _prefabLoader.LoadAsset<ExplosionBodyBloodyView>(PrefabPath.ExplosionBodyBloody);
             await _prefabLoader.LoadAsset<ExplosionBodyView>(PrefabPath.ExplosionBody);
             await _prefabLoader.LoadAsset<CharacterMeleeView>(PrefabPath.CharacterMeleeView);
@@ -45,8 +44,8 @@ namespace Sources.Frameworks.GameServices.Addressables.Implementation
 
         public void Release()
         {
-            _prefabLoader.Release();
-            _assetProvider.Release();
+            _prefabLoader.ReleaseAll();
+            _addressablesAssetLoader.ReleaseAll();
         }
     }
 }
