@@ -31,7 +31,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly UiCollectorFactory _uiCollectorFactory;
         private readonly RootGameObject _rootGameObject;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
-        private readonly IAudioService _audioService;
         private readonly BunkerViewFactory _bunkerViewFactory;
         private readonly NukeAbilityViewFactory _nukeAbilityViewFactory;
         private readonly AbilityApplierViewFactory _abilityApplierViewFactory;
@@ -53,7 +52,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             RootGameObject rootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             CharacterSpawnAbilityViewFactory characterSpawnAbilityViewFactory,
-            IAudioService audioService,
             BunkerViewFactory bunkerViewFactory,
             NukeAbilityViewFactory nukeAbilityViewFactory,
             AbilityApplierViewFactory abilityApplierViewFactory,
@@ -73,7 +71,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _enemySpawnerViewFactory = enemySpawnerViewFactory ?? 
                                        throw new ArgumentNullException(nameof(enemySpawnerViewFactory));
-            _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _bunkerViewFactory = bunkerViewFactory ?? throw new ArgumentNullException(nameof(bunkerViewFactory));
             _nukeAbilityViewFactory = nukeAbilityViewFactory ?? 
                                       throw new ArgumentNullException(nameof(nukeAbilityViewFactory));
@@ -138,7 +135,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _uiCollectorFactory.Create();
 
             //Volume
-            _audioService.Construct(gameplayModel.MusicVolume);
             _volumeViewFactory.Create(gameplayModel.MusicVolume, _gameplayHud.MusicVolumeView);
             _volumeViewFactory.Create(gameplayModel.MusicVolume, _gameplayHud.SoundVolumeView);
             

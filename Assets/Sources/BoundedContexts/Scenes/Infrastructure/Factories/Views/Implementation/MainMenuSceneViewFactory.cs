@@ -18,7 +18,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
     {
         private readonly MainMenuHud _mainMenuHud;
         private readonly ILoadService _loadService;
-        private readonly IAudioService _audioService;
         private readonly MainMenuModelsLoaderService _mainMenuModelsLoaderService;
         private readonly MainMenuModelsCreatorService _mainMenuModelsCreatorService;
         private readonly VolumeViewFactory _volumeViewFactory;
@@ -27,7 +26,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         public MainMenuSceneViewFactory(
             MainMenuHud hud,
             ILoadService loadService,
-            IAudioService audioService,
             MainMenuModelsLoaderService mainMenuModelsLoaderService,
             MainMenuModelsCreatorService mainMenuModelsCreatorService,
             VolumeViewFactory volumeViewFactory,
@@ -35,7 +33,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         {
             _mainMenuHud = hud ?? throw new ArgumentNullException(nameof(hud));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _mainMenuModelsLoaderService = mainMenuModelsLoaderService ?? throw new ArgumentNullException(nameof(mainMenuModelsLoaderService));
             _mainMenuModelsCreatorService = mainMenuModelsCreatorService ?? throw new ArgumentNullException(nameof(mainMenuModelsCreatorService));
             _volumeViewFactory = volumeViewFactory ??
@@ -49,7 +46,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             MainMenuModel mainMenuModel = Load(payload);
             
             //Volume
-            _audioService.Construct(mainMenuModel.MusicVolume);
             _volumeViewFactory.Create(mainMenuModel.MusicVolume, _mainMenuHud.MusicVolumeView);
             _volumeViewFactory.Create(mainMenuModel.SoundsVolume, _mainMenuHud.SoundVolumeView);
             
