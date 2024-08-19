@@ -12,6 +12,7 @@ using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Prefabs;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation

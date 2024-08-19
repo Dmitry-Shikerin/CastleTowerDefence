@@ -1,5 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
@@ -15,25 +17,26 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class MainMenuScene : IScene
     {
+        private readonly ISoundyService _soundyService;
         private readonly ISceneViewFactory _sceneViewFactory;
         private readonly ISignalControllersCollector _signalControllersCollector;
         private readonly ISdkInitializeService _sdkInitializeService;
         private readonly IFocusService _focusService;
         private readonly ILocalizationService _localizationService;
-        private readonly IAudioService _audioService;
         private readonly ICurtainView _curtainView;
         private readonly IStickyService _stickyService;
 
         public MainMenuScene(
+            ISoundyService soundyService,
             ISceneViewFactory mainMenuSceneViewFactory,
             ISignalControllersCollector signalControllersCollector,
             ISdkInitializeService sdkInitializeService,
             IFocusService focusService,
             ILocalizationService localizationService,
-            IAudioService audioService,
             ICurtainView curtainView,
             IStickyService stickyService)
         {
+            _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _sceneViewFactory = mainMenuSceneViewFactory ??
                                 throw new ArgumentNullException(nameof(mainMenuSceneViewFactory));
             _signalControllersCollector = signalControllersCollector ?? 
@@ -42,7 +45,6 @@ namespace Sources.BoundedContexts.Scenes.Controllers
                                     throw new ArgumentNullException(nameof(sdkInitializeService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _localizationService = localizationService ?? throw new ArgumentNullException(nameof(localizationService));
-            _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _curtainView = curtainView ?? throw new ArgumentNullException(nameof(curtainView));
             _stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
         }
@@ -53,8 +55,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _focusService.Initialize();
             _sceneViewFactory.Create(null);
             _signalControllersCollector.Initialize();
+            _soundyService.PlaySequence("BackgroundMusic", "MainMenu");
             _localizationService.Translate();
-            // _audioService.Initialize();
             // await _curtainView.HideAsync();
             await GameReady((IScenePayload)payload);
         }
@@ -62,7 +64,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         public void Exit()
         {
             _signalControllersCollector.Destroy();
-            // _audioService.Destroy();
+            _soundyService.StopSequence("BackgroundMusic", "MainMenu");
             _focusService.Destroy();
         }
 

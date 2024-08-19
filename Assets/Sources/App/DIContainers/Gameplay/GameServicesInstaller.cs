@@ -4,6 +4,7 @@ using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Implementation;
 using Sources.Frameworks.GameServices.Cameras.Presentation.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using Sources.Frameworks.GameServices.Overlaps.Implementation;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;

@@ -191,7 +191,7 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
                 if (IsPaused && AudioSource.isPlaying)
                     AudioSource.Pause();
                 
-                if (!IsPaused) 
+                if (IsPaused == false) 
                     AudioSource.UnPause();
                 
                 _paused = IsPaused;

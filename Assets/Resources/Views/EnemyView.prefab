@@ -2055,7 +2055,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3391113285427405577}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba3b3d20dd42f61408784f700d9e5f5b, type: 3}
   m_Name: 
@@ -2068,7 +2068,7 @@ MonoBehaviour:
   _editor_DrawExtra: 0
   _editor_horizontal: 1
   _editor_category: 0
-  Editor_InIsolatedScene: 1
+  Editor_InIsolatedScene: 0
   Editor_JustCreated: 1
   UseDOTS: 0
   DOTSObstacleType: 2
@@ -2200,25 +2200,6 @@ MonoBehaviour:
     - rid: 4755881772978012297
     - rid: 4755881772978012298
     - rid: 4755881772978012299
-    eOptimizer: {fileID: 7544342734218310712}
-  - constructed: 1
-    ToOptimizeIndex: 6
-    optimizer: {fileID: 7544342734218310712}
-    Component: {fileID: 6791969257454292960}
-    Version: 0
-    lockFirstLOD: 1
-    editorHeader: Optim
-    drawProperties: 0
-    ToOptimizes: []
-    ToOptimize: {fileID: 6791969257454292960}
-    LODInitial:
-      rid: -2
-    LODInstances:
-    - rid: 4755881772978012300
-    - rid: 4755881772978012301
-    - rid: 4755881772978012302
-    - rid: 4755881772978012303
-    - rid: 4755881772978012304
     eOptimizer: {fileID: 7544342734218310712}
   references:
     version: 2
@@ -3475,71 +3456,6 @@ MonoBehaviour:
             m_NumAlphaKeys: 2
           m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
           m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
-    - rid: 4755881772978012300
-      type: {class: LODI_Renderer, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 0
-        _version: 0
-        _Locked: 0
-        cmp: {fileID: 0}
-        UseShadows: 1
-        MotionVectors: 1
-        SkinnedQuality: 0
-        shaderParam: _Transparency
-        ColorParameter: 0
-        targetParamValue: 1
-    - rid: 4755881772978012301
-      type: {class: LODI_Renderer, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 0
-        _version: 0
-        _Locked: 0
-        cmp: {fileID: 0}
-        UseShadows: 1
-        MotionVectors: 0
-        SkinnedQuality: 0
-        shaderParam: _Transparency
-        ColorParameter: 0
-        targetParamValue: 1
-    - rid: 4755881772978012302
-      type: {class: LODI_Renderer, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 0
-        _version: 0
-        _Locked: 0
-        cmp: {fileID: 0}
-        UseShadows: 0
-        MotionVectors: 2
-        SkinnedQuality: 1
-        shaderParam: _Transparency
-        ColorParameter: 0
-        targetParamValue: 1
-    - rid: 4755881772978012303
-      type: {class: LODI_Renderer, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 1
-        _version: 0
-        _Locked: 0
-        cmp: {fileID: 0}
-        UseShadows: 0
-        MotionVectors: 2
-        SkinnedQuality: 1
-        shaderParam: _Transparency
-        ColorParameter: 0
-        targetParamValue: 0
-    - rid: 4755881772978012304
-      type: {class: LODI_Renderer, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 1
-        _version: 0
-        _Locked: 0
-        cmp: {fileID: 0}
-        UseShadows: 0
-        MotionVectors: 2
-        SkinnedQuality: 1
-        shaderParam: _Transparency
-        ColorParameter: 0
-        targetParamValue: 0
 --- !u!1 &3402315619859024065
 GameObject:
   m_ObjectHideFlags: 0
