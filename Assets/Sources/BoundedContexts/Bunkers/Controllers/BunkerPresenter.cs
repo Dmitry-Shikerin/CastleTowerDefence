@@ -29,6 +29,7 @@ namespace Sources.BoundedContexts.Bunkers.Controllers
         public void TakeDamage(IEnemyViewBase enemyView)
         {
             _bunker.TakeDamage();
+            _view.DamageAnimator.Play();
             enemyView.Destroy();
             _soundyService.Play("Sounds", "Bunker");
         }
