@@ -13,22 +13,12 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers
         private SkinnedMeshRenderer _skinnedMeshRenderer;
         private bool _isInitialize;
 
-        public PoolBaker()
+        public PoolBaker(Transform parent)
         {
             _meshCombiner = new GameObject($"MeshCombiner of {typeof(T).Name}")
                 .AddComponent<MeshCombiner>();
-        }
-
-        public IPoolBaker<T> SetRootParent(Transform parent)
-        {
-            if (_isInitialize)
-                return this;
-            
-            _meshCombiner.transform.SetParent(parent.transform);
             _meshCombiner.bakeMaterials = true;
-            _isInitialize = true;
-            
-            return this;
+            _meshCombiner.transform.SetParent(parent);
         }
 
         public void Bake()

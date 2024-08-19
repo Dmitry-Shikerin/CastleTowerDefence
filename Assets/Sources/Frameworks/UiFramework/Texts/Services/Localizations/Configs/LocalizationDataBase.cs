@@ -97,7 +97,10 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs
 #endif
         }
 
-        
+        public LocalizationPhrase GetPhrase(string textId) =>
+            _phrases.First(phrase => phrase.LocalizationId == textId);
+
+
         [TabGroup("GetId", "CreatePhrase")]
         [Button(ButtonSizes.Large)]
         private void CreatePhrase()

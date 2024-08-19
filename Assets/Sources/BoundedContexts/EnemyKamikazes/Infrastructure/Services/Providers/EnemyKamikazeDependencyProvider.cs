@@ -7,6 +7,7 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.InfrastructureInterfaces.Services.Cameras;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Provide
         public IEntityRepository EntityRepository { get; private set; }
         public ExplosionBodyViewFactory ExplosionBodyViewFactory { get; private set; }
         public ExplosionBodyBloodyViewFactory ExplosionBodyBloodyViewFactory { get; private set; }
+        public ICameraService CameraService { get; private set; }
 
         public void Construct(
             EnemyKamikaze enemyKamikaze,
@@ -31,7 +33,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Provide
             IEnemyAnimation enemyAnimation,
             IOverlapService overlapService,
             ExplosionBodyViewFactory explosionBodySpawnService,
-            ExplosionBodyBloodyViewFactory explosionBodyBloodyViewFactory)
+            ExplosionBodyBloodyViewFactory explosionBodyBloodyViewFactory,
+            ICameraService cameraService)
         {
             EntityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             EnemyKamikaze = enemyKamikaze ?? throw new ArgumentNullException(nameof(enemyKamikaze));
@@ -44,6 +47,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Provide
                                               throw new ArgumentNullException(nameof(explosionBodyBloodyViewFactory));
             KillEnemyCounter = entityRepository.Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
             PlayerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
+            CameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         }
     }
 }

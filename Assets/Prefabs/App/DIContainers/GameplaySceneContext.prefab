@@ -215,6 +215,7 @@ Transform:
   - {fileID: 1486291991840734509}
   - {fileID: 5845064911211270817}
   - {fileID: 7371459811482249737}
+  - {fileID: 6450795852269363195}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7297242183344371743
@@ -237,6 +238,7 @@ MonoBehaviour:
   - {fileID: 6450696359204655777}
   - {fileID: 4030954068653670955}
   - {fileID: 3757243988897486615}
+  - {fileID: 5407139681347344726}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -340,5 +342,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f4848f3f0584a178e522cdb30911a5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraView: {fileID: 0}
+--- !u!1 &9191055901966186739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6450795852269363195}
+  - component: {fileID: 5407139681347344726}
+  m_Layer: 0
+  m_Name: AchievementInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6450795852269363195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191055901966186739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1038929029405357112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5407139681347344726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191055901966186739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffc7813bb8b472fa12622d70c314653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

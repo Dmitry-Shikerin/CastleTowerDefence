@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 
@@ -8,6 +9,9 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces
     {
         event Action<int> ObjectCountChanged;
         
+        float DeleteAfterTime { get; }
+
+        void RemoveFromPool(PoolableObject poolableObject);
         T Get<T>()
             where T : View;
         void Return(PoolableObject poolableObject);
