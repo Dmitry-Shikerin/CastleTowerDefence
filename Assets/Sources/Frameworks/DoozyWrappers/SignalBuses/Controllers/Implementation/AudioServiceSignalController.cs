@@ -9,14 +9,11 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementatio
 {
     public class AudioServiceSignalController : ISignalController
     {
-        private readonly IAudioService _audioService;
-
         private SignalReceiver _signalReceiver;
         private SignalStream _signalStream;
 
-        public AudioServiceSignalController(IAudioService audioService)
+        public AudioServiceSignalController()
         {
-            _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
         }
 
         public void Initialize()
@@ -36,8 +33,6 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementatio
         {
             if (signal.TryGetValue(out AudioSignal value) == false)
                 throw new InvalidOperationException("Signal valueAsObject is not AudioSignal");
-
-            _audioService.Play(value.AudioClipId);
         }
     }
 }
