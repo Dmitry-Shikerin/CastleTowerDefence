@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -7,17 +9,54 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
 {
     public class ResourcesPrefabLoader : IPrefabLoader
     {
-        private readonly Dictionary<Type, Object> _prefabs = new Dictionary<Type, Object>();
-        
-        public T Load<T>(string path) where T : Object
+        private readonly IPrefabCollector _prefabCollector;
+        private List<GameObject> _gameObjects = new List<GameObject>();
+        private List<Object> _objects = new List<Object>();
+
+        public ResourcesPrefabLoader(IPrefabCollector prefabCollector)
         {
-            if (_prefabs.ContainsKey(typeof(T)))
-                return (T)_prefabs[typeof(T)];
+            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+        }
+
+        public async UniTask<T> LoadAsset<T>(string address) where T : MonoBehaviour
+        {
+            Object assetResult = await Resources
+                .LoadAsync<GameObject>(address);
+
+            GameObject asset = assetResult.GameObject();
             
-            T prefab = Resources.Load<T>(path);
-            _prefabs.Add(typeof(T), prefab);
+            if(asset.TryGetComponent(out T component) == false)
+                throw new InvalidOperationException(nameof(component));
             
-            return prefab;
+            _gameObjects.Add(asset);
+            _prefabCollector.Add(typeof(T), component);
+            
+            return component;
+        }
+        
+        public async UniTask<T> LoadObject<T>(string address) where T : Object
+        {
+            Object asset = await Resources
+                .LoadAsync<Object>(address);
+            
+            if(asset == null)
+                throw new InvalidOperationException(nameof(asset));
+            
+            if(asset is not T component)
+                throw new InvalidOperationException(nameof(asset));
+            
+            _objects.Add(asset);
+            _prefabCollector.Add(typeof(T), component);
+            
+            return component;
+        }
+
+        public void Release()
+        {
+            _gameObjects.ForEach(_prefabCollector.Remove);
+            _gameObjects.ForEach(Resources.UnloadAsset);
+            _objects.ForEach(_prefabCollector.Remove);
+            _objects.ForEach(Resources.UnloadAsset);
         }
     }
 }

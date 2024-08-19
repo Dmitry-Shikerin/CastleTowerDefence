@@ -6,7 +6,10 @@ namespace Sources.Frameworks.GameServices.SceneLoaderServices.Implementation
 {
     public class SceneLoaderService : ISceneLoaderService
     {
-        public async UniTask LoadSceneAsync(string sceneName) =>
+        public async UniTask Load(string sceneName) =>
             await SceneManager.LoadSceneAsync(sceneName);
+
+        public UniTask Unload() =>
+            UniTask.CompletedTask;
     }
 }

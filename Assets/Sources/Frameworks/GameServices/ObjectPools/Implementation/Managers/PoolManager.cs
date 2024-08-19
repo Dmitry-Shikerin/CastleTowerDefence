@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
@@ -16,26 +17,25 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
 {
     public class PoolManager : IPoolManager
     {
+        private readonly IPrefabCollector _prefabCollector;
         private readonly Transform _root = new GameObject("Root of Pools").transform;
         private readonly Dictionary<Type, IObjectPool> _pools = new Dictionary<Type, IObjectPool>();
-        private readonly IPrefabLoader _prefabLoader;
         private readonly PoolManagerCollector _poolManagerCollector;
 
-        public PoolManager(IPrefabLoader prefabLoader)
+        public PoolManager(IPrefabCollector prefabCollector)
         {
-            _prefabLoader = prefabLoader ?? throw new ArgumentNullException(nameof(prefabLoader));
-            _poolManagerCollector = _prefabLoader.Load<PoolManagerCollector>(
-                "Services/PoolManagers/PoolManagerCollector");
+            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _poolManagerCollector = _prefabCollector.Get<PoolManagerCollector>();
         }
 
-        public T Get<T>(string resourcesPath) where T : View
+        public T Get<T>() where T : View
         {
             if (_pools.ContainsKey(typeof(T)) == false)
             {
                 PoolManagerConfig config = _poolManagerCollector.Configs
                     .FirstOrDefault(config => config.Type == typeof(T));
                 _pools[typeof(T)] = new ObjectPool<T>(
-                    _prefabLoader, _root, config, resourcesPath);
+                    _prefabCollector, _root, config);
             }
 
             return (T)_pools[typeof(T)].Get<T>()?.Show();

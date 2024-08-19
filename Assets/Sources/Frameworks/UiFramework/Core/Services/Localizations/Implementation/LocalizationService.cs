@@ -60,7 +60,6 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
 
             foreach (IUiLocalizationText textView in _textViews)
             {
-
                 if (string.IsNullOrWhiteSpace(textView.Id))
                 {
                     if (textView is not MonoBehaviour concrete)

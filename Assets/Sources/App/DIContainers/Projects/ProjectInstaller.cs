@@ -14,6 +14,7 @@ namespace Sources.App.DIContainers.Projects
         public override void InstallBindings()
         {
             Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
+            // Container.Bind<ISceneLoaderService>().To<AddressableSceneLoaderService>().AsSingle();
             Container.Bind<IPauseService>().To<PauseService>().AsSingle();
             Container.Bind<IFocusService>().To<FocusService>().AsSingle();
 

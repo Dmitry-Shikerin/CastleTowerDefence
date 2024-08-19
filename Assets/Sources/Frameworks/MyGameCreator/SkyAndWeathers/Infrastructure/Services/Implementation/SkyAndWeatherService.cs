@@ -20,11 +20,10 @@ namespace Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Service
 
         public SkyAndWeatherService(
             SkyAndWeatherView skyAndWeatherView,
-            IPrefabLoader prefabLoader)
+            IPrefabCollector prefabCollector)
         {
             _skyAndWeatherView = skyAndWeatherView ?? throw new ArgumentNullException(nameof(skyAndWeatherView));
-            _skyWeatherCollector = prefabLoader.Load<SkyAndWeatherCollector>(
-                "Configs/SkyAndWeathers/SkyAndWeatherCollector");
+            _skyWeatherCollector = prefabCollector.Get<SkyAndWeatherCollector>();
         }
 
         private float Duration => _skyWeatherCollector.DayTime / 1000;

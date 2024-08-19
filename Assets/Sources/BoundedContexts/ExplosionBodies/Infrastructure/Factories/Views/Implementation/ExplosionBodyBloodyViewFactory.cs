@@ -20,7 +20,7 @@ namespace Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views
         public IExplosionBodyBloodyView Create(Vector3 position)
         {
             ExplosionBodyBloodyView view = _poolManager
-                .Get<ExplosionBodyBloodyView>(PrefabPath.ExplosionBodyBloody);
+                .Get<ExplosionBodyBloodyView>();
             
             view.SetPosition(position);
             view.Show();
