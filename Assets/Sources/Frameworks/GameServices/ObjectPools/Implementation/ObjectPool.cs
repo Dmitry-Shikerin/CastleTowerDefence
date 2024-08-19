@@ -20,7 +20,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private readonly List<T> _collection = new List<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
         private readonly IPoolBaker<T> _poolBaker;
-        private readonly ResourcesPrefabLoader _resourcesPrefabLoader;
+        private readonly IPrefabLoader _prefabLoader;
         private readonly Transform _root;
 
         private int _maxCount = -1;
@@ -30,12 +30,12 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private string _resourcesPath;
 
         public ObjectPool(
-            ResourcesPrefabLoader resourcesPrefabLoader,
+            IPrefabLoader resourcesPrefabLoader,
             Transform parent = null,
             PoolManagerConfig poolManagerConfig = null,
             string resourcesPath = null)
         {
-            _resourcesPrefabLoader = resourcesPrefabLoader ??
+            _prefabLoader = resourcesPrefabLoader ??
                                      throw new ArgumentNullException(nameof(resourcesPrefabLoader));
             _root = parent;
             _parent.SetParent(parent);
@@ -155,7 +155,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
 
         private T CreateObject(string resourcesPath)
         {
-            T resourceObject = _resourcesPrefabLoader.Load<T>(resourcesPath);
+            T resourceObject = _prefabLoader.Load<T>(resourcesPath);
             T gameObject = Object.Instantiate(resourceObject);
             PoolableObject poolableObject = gameObject.AddComponent<PoolableObject>();
             PoolBaker.Add(gameObject);

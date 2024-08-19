@@ -17,12 +17,13 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
     {
         private readonly Transform _root = new GameObject("Root of Pools").transform;
         private readonly Dictionary<Type, IObjectPool> _pools = new Dictionary<Type, IObjectPool>();
-        private readonly ResourcesPrefabLoader _resourcesPrefabLoader = new ResourcesPrefabLoader();
+        private readonly IPrefabLoader _prefabLoader;
         private readonly PoolManagerCollector _poolManagerCollector;
 
-        public PoolManager()
+        public PoolManager(IPrefabLoader prefabLoader)
         {
-            _poolManagerCollector = _resourcesPrefabLoader.Load<PoolManagerCollector>(
+            _prefabLoader = prefabLoader ?? throw new ArgumentNullException(nameof(prefabLoader));
+            _poolManagerCollector = _prefabLoader.Load<PoolManagerCollector>(
                 "Services/PoolManagers/PoolManagerCollector");
         }
 
@@ -33,7 +34,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
                 PoolManagerConfig config = _poolManagerCollector.Configs
                     .FirstOrDefault(config => config.Type == typeof(T));
                 _pools[typeof(T)] = new ObjectPool<T>(
-                    _resourcesPrefabLoader, _root, config, resourcesPath);
+                    _prefabLoader, _root, config, resourcesPath);
             }
 
             return (T)_pools[typeof(T)].Get<T>()?.Show();
@@ -50,18 +51,5 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
         public bool Contains<T>(T @object) 
             where T : View =>
             (_pools[typeof(T)] as IObjectPool<T>).Contains(@object);
-
-        // private T CreateObject<T>(string resourcesPath) where T : View
-        // {
-        //     T resourceObject =_resourcesPrefabLoader.Load<T>(resourcesPath);
-        //     T gameObject = Object.Instantiate(resourceObject);
-        //     PoolableObject poolableObject = gameObject.AddComponent<PoolableObject>();
-        //     ObjectPool<T> pool = _pools[typeof(T)] as ObjectPool<T>;
-        //     pool.PoolBaker.Add(gameObject);
-        //     pool.AddToCollection(gameObject);
-        //     poolableObject.SetPool(pool);
-        //
-        //     return gameObject;
-        // }        
     }
 }

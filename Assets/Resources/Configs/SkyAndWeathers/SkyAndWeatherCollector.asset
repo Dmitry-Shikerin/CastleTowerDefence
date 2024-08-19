@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3174103724356907371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1978c219ff442cfb67263e0856d21ab, type: 3}
+  m_Name: Night_SkyAndWeatherConfig
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: Night
+  _parent: {fileID: 11400000}
+  _upperColor: {r: 0.2924528, g: 0.28257492, b: 0.27727836, a: 1}
+  _middleColor: {r: 0.11587753, g: 0.12357495, b: 0.1462264, a: 1}
+  _lowerColor: {r: 0.2264151, g: 0.2023867, b: 0.19117124, a: 1}
+--- !u!114 &-1271085407478436495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1978c219ff442cfb67263e0856d21ab, type: 3}
+  m_Name: Day_SkyAndWeatherConfig
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: Day
+  _parent: {fileID: 11400000}
+  _upperColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+  _middleColor: {r: 0.4198113, g: 0.38020647, b: 0.38020647, a: 1}
+  _lowerColor: {r: 0.3443396, g: 0.300143, b: 0.26800016, a: 1}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e46c22e65d8410a8a1d4cb557cd40d1, type: 3}
+  m_Name: SkyAndWeatherCollector
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: 
+  _configs:
+  - {fileID: -1271085407478436495}
+  - {fileID: -3174103724356907371}
+  - {fileID: 7624478893295919382}
+  _addedConfigId: Rain
+  _removedConfigId: 
+  _dayTime: 24
+--- !u!114 &7624478893295919382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1978c219ff442cfb67263e0856d21ab, type: 3}
+  m_Name: Rain_SkyAndWeatherConfig
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: Rain
+  _parent: {fileID: 11400000}
+  _upperColor: {r: 0, g: 0, b: 0, a: 0}
+  _middleColor: {r: 0, g: 0, b: 0, a: 0}
+  _lowerColor: {r: 0, g: 0, b: 0, a: 0}
