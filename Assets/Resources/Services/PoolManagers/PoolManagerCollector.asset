@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1511878623633390599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 085c70298d53484cacfa7d78810c1d90, type: 3}
+  m_Name: CharacterMelee_ManagerConfig
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: CharacterMelee
+  _parent: {fileID: 11400000}
+  _type: CharacterMeleeView
+  _isWarmUp: 0
+  _warmUpTime: 0
+  _warmUpCount: 19
+  _isCountLimit: 1
+  _minMaxPoolCount: {x: 0, y: 4}
+  _deleteAfterTime: 4.1
+  _prefab: {fileID: 3388632552365605048, guid: 92da35ec1f024874bab1460d9d53a0db, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3bdef65f23345e89c003261d79ce479, type: 3}
+  m_Name: PoolManagerCollector
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: 
+  _configs:
+  - {fileID: -1511878623633390599}
+  _addedConfigId: CharacterMelee
+  _removedConfigId: 

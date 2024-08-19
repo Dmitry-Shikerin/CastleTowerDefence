@@ -3589,7 +3589,7 @@ MonoBehaviour:
   _editor_DrawExtra: 0
   _editor_horizontal: 1
   _editor_category: 0
-  Editor_InIsolatedScene: 0
+  Editor_InIsolatedScene: 1
   Editor_JustCreated: 1
   UseDOTS: 0
   DOTSObstacleType: 2
@@ -3646,25 +3646,6 @@ MonoBehaviour:
   DrawDeactivateToggle: 1
   OptimizationTypes: {fileID: 11400000, guid: 7a69a055546ad2a4493cb04046c3803c, type: 2}
   ToOptimize:
-  - constructed: 1
-    ToOptimizeIndex: 1
-    optimizer: {fileID: 5944256979920236366}
-    Component: {fileID: 4872002036032254921}
-    Version: 0
-    lockFirstLOD: 1
-    editorHeader: Optim
-    drawProperties: 0
-    ToOptimizes: []
-    ToOptimize: {fileID: 4872002036032254921}
-    LODInitial:
-      rid: -2
-    LODInstances:
-    - rid: 4755881772978012305
-    - rid: 4755881772978012306
-    - rid: 4755881772978012307
-    - rid: 4755881772978012308
-    - rid: 4755881772978012309
-    eOptimizer: {fileID: 5944256979920236366}
   - constructed: 1
     ToOptimizeIndex: 2
     optimizer: {fileID: 5944256979920236366}
@@ -3784,46 +3765,6 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 4755881772978012305
-      type: {class: LODI_NavMeshAgent, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 0
-        _Locked: 0
-        cmp: {fileID: 0}
-        Priority: 1
-        Quality: 4
-    - rid: 4755881772978012306
-      type: {class: LODI_NavMeshAgent, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 0
-        _Locked: 0
-        cmp: {fileID: 0}
-        Priority: 0.6666666
-        Quality: 1
-    - rid: 4755881772978012307
-      type: {class: LODI_NavMeshAgent, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 0
-        _Locked: 0
-        cmp: {fileID: 0}
-        Priority: 0.3333333
-        Quality: 0
-    - rid: 4755881772978012308
-      type: {class: LODI_NavMeshAgent, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 1
-        _Locked: 0
-        cmp: {fileID: 0}
-        Priority: 0
-        Quality: 0
-    - rid: 4755881772978012309
-      type: {class: LODI_NavMeshAgent, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        SetDisabled: 1
-        _Locked: 0
-        cmp: {fileID: 0}
-        Priority: 0.2
-        Quality: 1
     - rid: 4755881772978012310
       type: {class: LODI_ParticleSystem, ns: FIMSpace.FOptimizing, asm: Assembly-CSharp-firstpass}
       data:

@@ -8,6 +8,8 @@ using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Imp
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
+using Sources.Frameworks.GameServices.Cameras.Domain;
+using Sources.InfrastructureInterfaces.Services.Cameras;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
@@ -18,7 +20,8 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
     {
         private EnemyKamikazeDependencyProvider _provider;
         private PlayerWallet _playerWallet;
-        
+        private ICameraService _cameraService;
+
         private IEnemyKamikazeView View => _provider.View; 
         private ExplosionBodyBloodyViewFactory ExplosionBodyBloodyViewFactory => 
             _provider.ExplosionBodyBloodyViewFactory;
@@ -28,6 +31,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
             _provider = 
                 graphBlackboard.parent.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
             _playerWallet = _provider.PlayerWallet;
+            _cameraService = _provider.CameraService;
         }
 
         protected override void OnEnter()

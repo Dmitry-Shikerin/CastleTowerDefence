@@ -9,7 +9,6 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime.Tables.Presentation
 
         private void Awake()
         {
-            Debug.Log(_table.ExperienceForLevel(4));
         }
     }
 }

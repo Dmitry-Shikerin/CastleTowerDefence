@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
   m_Name: MaxUpgradeAchievement_AchievementConfig
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: ecead377269c042598485062f9ba484a, type: 3}
   Id: MaxUpgradeAchievement
   TitleId: MaxUpgradeAchievementTitle
   DescriptionId: MaxUpgradeAchievementDescription
-  Sprite: {fileID: 21300000, guid: 1cced0cf12448e941b06983abb08633c, type: 3}
 --- !u!114 &-2636934900728648217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,10 +28,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
   m_Name: FirstUpgradeAchievement_AchievementConfig
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 7fabb650ab174ee42b39b420f93c024b, type: 3}
   Id: FirstUpgradeAchievement
   TitleId: FirstUpgradeTitle
   DescriptionId: FirstUpgradeDescription
-  Sprite: {fileID: 21300000, guid: 792981c0fd188134298b3026e1d753f4, type: 3}
 --- !u!114 &-2040669159365068795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
   m_Name: FirstEnemyKillAchievement_AchievementConfig
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 0356273a93872f64094372c0fd751c4e, type: 3}
   Id: FirstEnemyKillAchievement
   TitleId: FirstEnemyKillTitle
   DescriptionId: FirstEnemyKillDescription
-  Sprite: {fileID: 21300000, guid: 0356273a93872f64094372c0fd751c4e, type: 3}
 --- !u!114 &-1157887684297482197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,10 +60,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
   m_Name: FirstHealthRemoved_AchievementConfig
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 32b0ac8e485bed64f9f66a962a2b7b79, type: 3}
   Id: FirstHealthBoosterUsageAchievement
   TitleId: FirstHealthBoosterTitle
   DescriptionId: FirstHealthBoosterDescription
-  Sprite: {fileID: 21300000, guid: 77e0a9fd396d38f4ca51ea805814fb96, type: 3}
 --- !u!114 &-739643554893237154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,10 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
   m_Name: ScullsDiggerAchievement_AchievementConfig
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: ecead377269c042598485062f9ba484a, type: 3}
   Id: ScullsDiggerAchievement
   TitleId: ScullsDiggerTitle
   DescriptionId: ScullsDiggerDescription
-  Sprite: {fileID: 21300000, guid: a77b58d30300f2c46adc6f28ec0e4109, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd27638a099480b960ae84beadf1641, type: 3}
   m_Name: FirstWaveCompletedAchievement_AchievementConfig
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 231744dac124bc64daf7303148825099, type: 3}
   Id: FirstWaveCompletedAchievement
   TitleId: FirstWaveCompletedTitle
   DescriptionId: FirstWaveCompletedDescription
-  Sprite: {fileID: 21300000, guid: 7fabb650ab174ee42b39b420f93c024b, type: 3}

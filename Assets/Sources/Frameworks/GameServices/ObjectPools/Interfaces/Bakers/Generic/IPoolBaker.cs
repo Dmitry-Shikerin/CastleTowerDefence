@@ -8,6 +8,5 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers
     public interface IPoolBaker<T> : IPoolBaker
         where T : IView
     {
-        IPoolBaker<T> SetRootParent(Transform parent);
     }
 }
