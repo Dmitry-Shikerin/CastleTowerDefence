@@ -66,9 +66,9 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         public void Enter(object payload = null)
         {
             _focusService.Initialize();
+            _localizationService.Translate();
             _gameplaySceneViewFactory.Create((IScenePayload)payload);
             _advertisingService.Initialize();
-            _localizationService.Translate();
             _achievementService.Initialize();
             _signalControllersCollector.Initialize();
             _soundyService.PlaySequence(

@@ -53,10 +53,10 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         {
             await InitializeAsync((IScenePayload)payload);
             _focusService.Initialize();
+            _localizationService.Translate();
             _sceneViewFactory.Create(null);
             _signalControllersCollector.Initialize();
             _soundyService.PlaySequence("BackgroundMusic", "MainMenu");
-            _localizationService.Translate();
             // await _curtainView.HideAsync();
             await GameReady((IScenePayload)payload);
         }

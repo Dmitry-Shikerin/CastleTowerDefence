@@ -13,10 +13,11 @@ using Zenject;
 namespace Sources.Frameworks.MyGameCreator.Achivements.Presentation
 {
     public class AchievementView : View
-    {
-        [SerializeField] private ImageView _imageView;
+    { 
+        [SerializeField] private ImageView _iconImage;
         [SerializeField] private TextView _titleTextView;
         [SerializeField] private TextView _discriptionTextView;
+        [SerializeField] private ImageView _uncompletedImage;
 
         private Achievement _achievement;
         private IAchievementService _achievementService;
@@ -24,9 +25,12 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Presentation
 
         private void OnEnable()
         {
-            //UpdateView();
-            //OnCompleted();
-            //_achievement.Completed += OnCompleted;
+            if (_achievement == null)
+                return;
+            
+            UpdateView();
+            OnCompleted();
+            _achievement.Completed += OnCompleted;
         }
 
         private void OnCompleted()
@@ -34,28 +38,44 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Presentation
             if (_achievement.IsCompleted == false)
                 return;
             
+            _uncompletedImage.HideImage();
+            
             //Todo сделать вьюшку цветной
         }
 
         private void OnDisable()
         {
-            //_achievement.Completed += OnCompleted;
+            if (_achievement == null)
+                return;
+            
+            _achievement.Completed -= OnCompleted;
         }
 
         public void Construct(Achievement achievement)
         {
             _achievement = achievement ?? throw new ArgumentNullException(nameof(achievement));
+
+            Subscribe();
             
             UpdateView();
             OnCompleted();
         }
 
+        private void Subscribe()
+        {
+            _achievement.Completed -= OnCompleted;
+            _achievement.Completed += OnCompleted;
+        }
+
         private void UpdateView()
         {
+            if (_achievement == null)
+                return;
+            
             string achievementId = _achievement.Id;
             AchievementConfig config = _achievementService.GetConfig(achievementId);
             Sprite sprite = config.Sprite;
-            _imageView.SetSprite(sprite);
+            _iconImage.SetSprite(sprite);
             string title = _localizationService.GetText(config.TitleId);
             _titleTextView.SetText(title);
             string description = _localizationService.GetText(config.DescriptionId);

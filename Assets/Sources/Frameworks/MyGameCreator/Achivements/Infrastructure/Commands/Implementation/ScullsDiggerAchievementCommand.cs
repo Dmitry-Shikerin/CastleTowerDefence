@@ -46,6 +46,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public override void Execute()
         {
+            if (_achievement.IsCompleted)
+                return;
+            
             if (_playerWallet.Coins < 100)
                 return;
             

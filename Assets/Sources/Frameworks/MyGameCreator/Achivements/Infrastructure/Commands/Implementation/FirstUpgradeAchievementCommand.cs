@@ -57,6 +57,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public override void Execute()
         {
+            if (_achievement.IsCompleted)
+                return;
+            
             _achievement.IsCompleted = true;
             _achievementView.Construct(_achievement);
             
