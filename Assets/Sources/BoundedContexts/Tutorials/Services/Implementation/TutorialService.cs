@@ -22,12 +22,12 @@ namespace Sources.BoundedContexts.Tutorials.Services.Implementation
 
         public void Initialize()
         {
-            _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ShowTutorial);
+            //_stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ShowTutorial);
             
-            if (_tutorial.HasCompleted)
-                return;
+            //if (_tutorial.HasCompleted)
+            //    return;
             
-            _stream.SendSignal(true);
+            //_stream.SendSignal(true);
 
             // if (_savedLevel.SavedLevelId != ModelId.Gameplay)
             //     return;

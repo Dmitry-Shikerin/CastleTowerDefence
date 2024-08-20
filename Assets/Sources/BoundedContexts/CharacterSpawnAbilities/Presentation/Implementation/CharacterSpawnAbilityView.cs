@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Doozy.Runtime.Reactor.Animators;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
@@ -15,9 +16,11 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implement
     {
         [SerializeField] private List<CharacterSpawnPoint> _meleeSpawnPoints;
         [SerializeField] private List<CharacterSpawnPoint> _rangeSpawnPoints;
+        [SerializeField] private UIAnimator _healAnimator;
 
         public IReadOnlyList<ICharacterSpawnPoint> MeleeSpawnPoints => _meleeSpawnPoints;
         public IReadOnlyList<ICharacterSpawnPoint> RangeSpawnPoints => _rangeSpawnPoints;
+        public UIAnimator HealAnimator => _healAnimator;
 
         public void Validate(SelfValidationResult result)
         {
