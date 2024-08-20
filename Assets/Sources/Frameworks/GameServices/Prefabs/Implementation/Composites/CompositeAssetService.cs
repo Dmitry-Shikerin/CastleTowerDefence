@@ -18,33 +18,33 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation.Composites
     public class CompositeAssetService : ICompositeAssetService
     {
         private readonly IAddressablesAssetLoader _addressablesAssetLoader;
-        private readonly IPrefabLoader _prefabLoader;
+        private readonly IResourcesAssetLoader _resourcesAssetLoader;
         private readonly IAddressablesAssetLoader[] _assetServices;
         
         public CompositeAssetService(
             IAddressablesAssetLoader addressablesAssetLoader,
-            IPrefabLoader prefabLoader)
+            IResourcesAssetLoader resourcesAssetLoader)
         {
             _addressablesAssetLoader = addressablesAssetLoader ?? throw new ArgumentNullException(nameof(addressablesAssetLoader));
-            _prefabLoader = prefabLoader ?? throw new ArgumentNullException(nameof(prefabLoader));
+            _resourcesAssetLoader = resourcesAssetLoader ?? throw new ArgumentNullException(nameof(resourcesAssetLoader));
         }
         
         public async UniTask LoadAsync()
         {
-            await _prefabLoader.LoadAsset<SkyAndWeatherCollector>(PrefabPath .SkyAndWeatherCollector);
-            await _prefabLoader.LoadAsset<PoolManagerCollector>(PrefabPath.PoolManagerCollector);
-            await _prefabLoader.LoadAsset<ExplosionBodyBloodyView>(PrefabPath.ExplosionBodyBloody);
-            await _prefabLoader.LoadAsset<ExplosionBodyView>(PrefabPath.ExplosionBody);
-            await _prefabLoader.LoadAsset<CharacterMeleeView>(PrefabPath.CharacterMeleeView);
-            await _prefabLoader.LoadAsset<CharacterRangeView>(PrefabPath.CharacterRangeView);
-            await _prefabLoader.LoadAsset<EnemyView>(EnemyConst.PrefabPath);
-            await _prefabLoader.LoadAsset<EnemyBossView>(PrefabPath.BossEnemy);
-            await _prefabLoader.LoadAsset<EnemyKamikazeView>(PrefabPath.EnemyKamikaze);
+            await _resourcesAssetLoader.LoadAsset<SkyAndWeatherCollector>(PrefabPath .SkyAndWeatherCollector);
+            await _resourcesAssetLoader.LoadAsset<PoolManagerCollector>(PrefabPath.PoolManagerCollector);
+            await _resourcesAssetLoader.LoadAsset<ExplosionBodyBloodyView>(PrefabPath.ExplosionBodyBloody);
+            await _resourcesAssetLoader.LoadAsset<ExplosionBodyView>(PrefabPath.ExplosionBody);
+            await _resourcesAssetLoader.LoadAsset<CharacterMeleeView>(PrefabPath.CharacterMeleeView);
+            await _resourcesAssetLoader.LoadAsset<CharacterRangeView>(PrefabPath.CharacterRangeView);
+            await _resourcesAssetLoader.LoadAsset<EnemyView>(EnemyConst.PrefabPath);
+            await _resourcesAssetLoader.LoadAsset<EnemyBossView>(PrefabPath.BossEnemy);
+            await _resourcesAssetLoader.LoadAsset<EnemyKamikazeView>(PrefabPath.EnemyKamikaze);
         }
 
         public void Release()
         {
-            _prefabLoader.ReleaseAll();
+            _resourcesAssetLoader.ReleaseAll();
             _addressablesAssetLoader.ReleaseAll();
         }
     }

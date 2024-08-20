@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using MyAudios.MyUiFramework.Utils.Soundies.Domain.Constant;
 using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
@@ -12,8 +11,6 @@ using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Services.Implementation;
-using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
-using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
@@ -70,6 +67,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         public async void Enter(object payload = null)
         {
             _focusService.Initialize();
+            await _compositeAssetService.LoadAsync();
             _localizationService.Translate();
             _gameplaySceneViewFactory.Create((IScenePayload)payload);
             _advertisingService.Initialize();
