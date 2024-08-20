@@ -10,6 +10,7 @@ using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
 using Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Factories;
+using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
 using UnityEngine;
 using Zenject;
 
@@ -35,6 +36,9 @@ namespace Sources.App.DIContainers.MainMenu
             
             //daily
             Container.Bind<DailyRewardViewFactory>().AsSingle();
+            
+            //achievements
+            Container.Bind<AchievementView>().FromInstance(_mainMenuHud.EmptyAchievementView).AsSingle();
         }
     }
 }

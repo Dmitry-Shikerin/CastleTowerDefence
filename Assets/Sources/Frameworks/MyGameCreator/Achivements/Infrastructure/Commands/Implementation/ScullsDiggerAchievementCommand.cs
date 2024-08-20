@@ -20,14 +20,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public ScullsDiggerAchievementCommand(
             IEntityRepository entityRepository,
-            GameplayHud hud,
-            DiContainer container) : base(hud, container)
+            AchievementView achievementView,
+            DiContainer container) : base(achievementView, container)
         {
-            if (hud == null)
-                throw new ArgumentNullException(nameof(hud));
-            
-            _achievementView = hud.PopUpAchievementView ?? 
-                               throw new ArgumentNullException(nameof(_achievementView));
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
         }
@@ -41,10 +36,10 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             _achievement = _entityRepository
                 .Get<Achievement>(ModelId.ScullsDiggerAchievement);
 
-            _playerWallet.CoinsChanged += Execute;
+            _playerWallet.CoinsChanged += OnCompleted;
         }
 
-        public override void Execute()
+        private void OnCompleted()
         {
             if (_achievement.IsCompleted)
                 return;
@@ -53,14 +48,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
                 return;
             
             _achievement.IsCompleted = true;
-            _achievementView.Construct(_achievement);
             
-            base.Execute();
+            Execute(_achievement);
         }
 
         public override void Destroy()
         {
-            _playerWallet.CoinsChanged -= Execute;
+            _playerWallet.CoinsChanged -= OnCompleted;
         }
     }
 }

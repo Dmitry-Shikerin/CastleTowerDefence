@@ -20,14 +20,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public FirstKillEnemyAchievementCommand(
             IEntityRepository entityRepository,
-            GameplayHud hud,
-            DiContainer container) : base(hud, container)
+            AchievementView achievementView,
+            DiContainer container) : base(achievementView, container)
         {
-            if (hud == null)
-                throw new ArgumentNullException(nameof(hud));
-            
-            _achievementView = hud.PopUpAchievementView ?? 
-                               throw new ArgumentNullException(nameof(_achievementView));
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
         }
@@ -40,10 +35,10 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
                 .Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
             _achievement = _entityRepository
                 .Get<Achievement>(ModelId.FirstEnemyKillAchievement);
-            _killEnemyCounter.KillZombiesCountChanged += Execute;
+            _killEnemyCounter.KillZombiesCountChanged += OnCompleted;
         }
 
-        public override void Execute()
+        private void OnCompleted()
         {
             if (_achievement.IsCompleted)
                 return;
@@ -52,14 +47,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
                 return;
             
             _achievement.IsCompleted = true;
-            _achievementView.Construct(_achievement);
             
-            base.Execute();
+            Execute(_achievement);
         }
 
         public override void Destroy()
         {
-            _killEnemyCounter.KillZombiesCountChanged -= Execute;
+            _killEnemyCounter.KillZombiesCountChanged -= OnCompleted;
         }
     }
 }

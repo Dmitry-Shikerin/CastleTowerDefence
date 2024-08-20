@@ -23,14 +23,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public FirstHealthBoosterUsageAchievementCommand(
             IEntityRepository entityRepository,
-            GameplayHud hud,
-            DiContainer container) : base(hud, container)
+            AchievementView achievementView,
+            DiContainer container) : base(achievementView, container)
         {
-            if (hud == null)
-                throw new ArgumentNullException(nameof(hud));
-            
-            _achievementView = hud.PopUpAchievementView ?? 
-                               throw new ArgumentNullException(nameof(_achievementView));
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
         }
@@ -41,23 +36,22 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             
             _healthBooster = _entityRepository.Get<HealthBooster>(ModelId.HealthBooster);
             _achievement = _entityRepository.Get<Achievement>(ModelId.FirstHealthBoosterUsageAchievement);
-            _healthBooster.CountRemoved += Execute;
+            _healthBooster.CountRemoved += OnCompleted;
         }
 
-        public override void Execute()
+        private void OnCompleted()
         {
             if (_achievement.IsCompleted)
                 return;
             
             _achievement.IsCompleted = true;
-            _achievementView.Construct(_achievement);
             
-            base.Execute();
+            Execute(_achievement);
         }
 
         public override void Destroy()
         {
-            _healthBooster.CountRemoved -= Execute;
+            _healthBooster.CountRemoved -= OnCompleted;
         }
     }
 }
