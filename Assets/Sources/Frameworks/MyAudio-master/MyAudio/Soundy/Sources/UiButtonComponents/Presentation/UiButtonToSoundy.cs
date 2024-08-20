@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Doozy.Engine.Soundy;
-using Doozy.Runtime.UIManager.Components;
+﻿using Doozy.Runtime.UIManager.Components;
 using MyAudios.Soundy.Sources.DataBases.Domain.Data;
 using MyAudios.Soundy.Sources.Managers.Controllers;
-using MyAudios.Soundy.Sources.Settings.Domain.Configs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -27,7 +23,7 @@ namespace MyAudios.MyUiFramework.Utils.UiButtonComponents.Presentation
         }
 
         private void OnClick() =>
-            SoundyManager.Play(_soundyData);
+            SoundyManager.Play(_soundyData, true);
         
         [OnInspectorInit]
         private void SetButton() =>

@@ -37,9 +37,11 @@ namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
         {
             _musicVolume = _entityRepository.Get<Volume>(ModelId.MusicVolume);
             _soundsVolume = _entityRepository.Get<Volume>(ModelId.SoundsVolume);
+            OnSoundsVolumeChanged();
             _pauseService.PauseSoundActivated += OnPauseSoundActivated;
             _pauseService.ContinueSoundActivated += OnContinueSoundActivated;
             _musicVolume.VolumeChanged += OnMusicVolumeChanged;
+            _soundsVolume.VolumeChanged += OnSoundsVolumeChanged;
         }
 
         public void Destroy()
@@ -72,6 +74,13 @@ namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
 
         private void OnContinueSoundActivated() =>
             SoundyManager.UnpauseAllControllers();
+
+        private void OnSoundsVolumeChanged()
+        {
+            SoundyManager.SetVolumes(
+                _musicVolume.VolumeValue,
+                _soundsVolume.VolumeValue);   
+        }
 
         private void OnMusicVolumeChanged()
         {

@@ -49,6 +49,8 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         }
 
         private static SoundyManager s_instance;
+        private static float s_musicVolume;
+        private static float s_soundVolume;
 
         /// <summary> Returns a reference to the SoundyManager in the Scene. If one does not exist, it gets created. </summary>
         public static SoundyManager Instance
@@ -154,6 +156,12 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                 SoundyPooler.GetControllerFromPool().Stop();
         }
 
+        public static void SetVolumes(float musicVolume, float soundVolume)
+        {
+            s_musicVolume = musicVolume;
+            s_soundVolume = soundVolume;
+        }
+        
         /// <summary> Stop all SoundyControllers from playing and destroys the GameObjects they are attached to </summary>
         public static void KillAllControllers() =>
             SoundyController.KillAll();
@@ -479,6 +487,14 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             }
 
             return null;
+        } 
+        
+        public static SoundyController Play(SoundyData data, bool isSound)
+        {
+            SoundyController controller = Play(data);
+            controller.AudioSource.volume = isSound ? s_soundVolume : s_musicVolume;
+            
+            return controller;
         }
 
         public static void Stop(string databaseName, string soundName) =>

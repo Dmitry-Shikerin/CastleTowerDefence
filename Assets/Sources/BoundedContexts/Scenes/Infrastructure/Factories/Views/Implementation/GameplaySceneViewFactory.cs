@@ -144,7 +144,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
             //Volume
             _volumeViewFactory.Create(gameplayModel.MusicVolume, _gameplayHud.MusicVolumeView);
-            _volumeViewFactory.Create(gameplayModel.MusicVolume, _gameplayHud.SoundVolumeView);
+            _volumeViewFactory.Create(gameplayModel.SoundsVolume, _gameplayHud.SoundVolumeView);
             
             //HealthBooster
             _gameplayHud.HealthBoosterView.Construct(_entityRepository);
