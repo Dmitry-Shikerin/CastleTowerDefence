@@ -11,6 +11,7 @@ using MyAudios.Soundy.Sources.DataBases.Domain.Data;
 using MyAudios.Soundy.Sources.Managers.Domain.Constants;
 using MyAudios.Soundy.Sources.Settings.Domain.Configs;
 using MyAudios.Soundy.Sources.SoundSources.Enums;
+using Sirenix.Utilities;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using UnityEditor;
 using UnityEngine;
@@ -156,6 +157,14 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
 
             for (int i = 0; i < SoundyPooler.MinimumNumberOfControllers + 1; i++)
                 SoundyPooler.GetControllerFromPool().Stop();
+        }
+
+        public static void ClearTokens()
+        {
+            _tokens.Values
+                .ForEach(collection => collection.Values
+                    .ForEach(token => token.Cancel()));
+            _tokens.Clear();
         }
 
         public static void SetVolumes(float musicVolume, float soundVolume)

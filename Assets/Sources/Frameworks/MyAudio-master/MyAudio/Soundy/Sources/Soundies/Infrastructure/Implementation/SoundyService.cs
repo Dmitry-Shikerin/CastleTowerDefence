@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using MyAudios.Soundy.Sources.AudioControllers.Controllers;
 using MyAudios.Soundy.Sources.Managers.Controllers;
 using Sources.BoundedContexts.Ids.Domain.Constant;
@@ -11,7 +10,7 @@ using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
-namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
+namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Implementation
 {
     public class SoundyService : ISoundyService
     {
@@ -54,6 +53,7 @@ namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
             _soundsVolume.VolumeChanged -= OnSoundsVolumeChanged;
             _musicVolume.VolumeMuted -= OnMusicVolumeMuted;
             _soundsVolume.VolumeMuted -= OnSoundsVolumeMuted;
+            SoundyManager.ClearTokens();
         }
 
         public void Play(string databaseName, string soundName, Vector3 position) =>
