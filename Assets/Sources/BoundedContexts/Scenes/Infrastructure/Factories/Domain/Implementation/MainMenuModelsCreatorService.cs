@@ -48,6 +48,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(dailyReward);
             
             _loadService.Save(ModelId.MainMenuModels);
+            _loadService.Save(ModelId.AchievementModels);
             Debug.Log($"Create models");
             
             return new MainMenuModel(

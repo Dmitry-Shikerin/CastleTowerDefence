@@ -61,6 +61,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _localizationService.Translate();
             _sceneViewFactory.Create(null);
             _signalControllersCollector.Initialize();
+            _soundyService.Initialize();
             _soundyService.PlaySequence("BackgroundMusic", "MainMenu");
             // await _curtainView.HideAsync();
             await GameReady((IScenePayload)payload);
@@ -70,6 +71,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         {
             _signalControllersCollector.Destroy();
             _soundyService.StopSequence("BackgroundMusic", "MainMenu");
+            _soundyService.Destroy();
             _focusService.Destroy();
         }
 
