@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base;
@@ -22,11 +23,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         public ScullsDiggerAchievementCommand(
             IEntityRepository entityRepository,
             IPrefabCollector prefabCollector,
+            ILoadService loadService,
             AchievementView achievementView,
             DiContainer container) 
             : base(
                 achievementView, 
                 prefabCollector,
+                loadService,
                 container)
         {
             _entityRepository = entityRepository ?? 

@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base;
@@ -26,10 +27,12 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             IEntityRepository entityRepository,
             IPrefabCollector prefabCollector,
             AchievementView achievementView,
+            ILoadService loadService,
             DiContainer container) 
             : base(
                 achievementView, 
                 prefabCollector,
+                loadService,
                 container)
         {
             _entityRepository = entityRepository ?? 

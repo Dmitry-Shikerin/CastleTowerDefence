@@ -96,7 +96,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(healthBooster);
             
             //Tutorial
-            Tutorial tutorial = new Tutorial();
+            Tutorial tutorial = CreateTutorial(ModelId.Tutorial);
             
             return new GameplayModel(
                 characterHealthUpgrade,
@@ -163,6 +163,17 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _loadService.Save(ModelId.AchievementModels);
             
             return achievements;
+        }
+
+        private Tutorial CreateTutorial(string key)
+        {
+            if (_loadService.HasKey(key))
+                return _loadService.Load<Tutorial>(key);
+
+            Tutorial tutorial = new Tutorial();
+            _entityRepository.Add(tutorial);
+            
+            return tutorial;
         }
     }
 }

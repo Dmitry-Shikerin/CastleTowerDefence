@@ -8,6 +8,7 @@ using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
+using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Upgrades.Domain.Data;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Domain.Models.Data;
@@ -116,6 +117,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             [FirstWaveCompletedAchievement] = typeof(Achievement),
             [ScullsDiggerAchievement] = typeof(Achievement),
             [MaxUpgradeAchievement] = typeof(Achievement),
+            [Tutorial] = typeof(Tutorial),
         };
     }
 }

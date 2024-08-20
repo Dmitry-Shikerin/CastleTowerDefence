@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base;
@@ -22,11 +23,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         public FirstKillEnemyAchievementCommand(
             IEntityRepository entityRepository,
             IPrefabCollector prefabCollector,
+            ILoadService loadService,
             AchievementView achievementView,
             DiContainer container) 
             : base(
                 achievementView, 
-                prefabCollector, 
+                prefabCollector,
+                loadService,
                 container)
         {
             _entityRepository = entityRepository ?? 
