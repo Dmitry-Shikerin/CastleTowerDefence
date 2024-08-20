@@ -14,6 +14,7 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 {
@@ -81,7 +82,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
             {
                 while (cancellationToken.IsCancellationRequested == false)
                 {
-                    await UniTask.Delay(TimeSpan.FromSeconds(5f), cancellationToken: cancellationToken);
+                    await UniTask.Delay(TimeSpan.FromSeconds(4f), cancellationToken: cancellationToken);
                     PlayMassAttack();
                 }
             }

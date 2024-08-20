@@ -70,6 +70,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             await _compositeAssetService.LoadAsync();
             _localizationService.Translate();
             _gameplaySceneViewFactory.Create((IScenePayload)payload);
+            _soundyService.Initialize();
             _advertisingService.Initialize();
             _achievementService.Initialize();
             _signalControllersCollector.Initialize();
@@ -85,6 +86,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _signalControllersCollector.Destroy();
             _soundyService.StopSequence(
                 SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
+            _soundyService.Destroy();
             _skyAndWeatherService.Destroy();
             _achievementService.Destroy();
             _gameOverService.Destroy();

@@ -11,6 +11,7 @@ using MyAudios.Soundy.Sources.DataBases.Domain.Data;
 using MyAudios.Soundy.Sources.Managers.Domain.Constants;
 using MyAudios.Soundy.Sources.Settings.Domain.Configs;
 using MyAudios.Soundy.Sources.SoundSources.Enums;
+using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -186,7 +187,10 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         public static void SetVolume(string soundName, float volume) =>
             SoundyController.SetVolume(soundName, volume);
 
-        public static async void PlaySequence(string databaseName, string soundName)
+        public static async void PlaySequence(
+            string databaseName, 
+            string soundName,
+            Volume musicVolume)
         {
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
@@ -200,7 +204,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                 while (cancellationTokenSource.Token.IsCancellationRequested == false)
                 {
                     SoundyController soundyManager = Play(databaseName, soundName);
-                    SetVolume(soundName, 0.2f);
+                    SetVolume(soundName, musicVolume.VolumeValue);
                     AudioSource audioSource = soundyManager.AudioSource;
 
                     await UniTask.WaitUntil(

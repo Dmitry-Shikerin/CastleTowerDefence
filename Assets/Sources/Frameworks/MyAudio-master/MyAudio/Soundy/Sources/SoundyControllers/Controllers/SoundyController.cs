@@ -364,6 +364,9 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             return controller;
         }
 
+        public static SoundyController GetControllerByName(string name) =>
+            s_database.First(controller => controller.Name == name);
+
         /// <summary> Stop all controllers from playing and destroy the GameObjects they are attached to </summary>
         public static void KillAll()
         {
