@@ -14,6 +14,7 @@ using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Prefabs;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
+using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
@@ -101,6 +102,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             healthBooster.Amount++;
             _entityRepository.Add(healthBooster);
             
+            //Tutorial
+            Tutorial tutorial = new Tutorial();
+            
             return new GameplayModel(
                 characterHealthUpgrade,
                 characterAttackUpgrade,
@@ -116,7 +120,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 musicVolume,
                 soundsVolume,
                 achievements,
-                healthBooster);
+                healthBooster,
+                tutorial);
         }
 
         private Volume LoadVolume(string key)
