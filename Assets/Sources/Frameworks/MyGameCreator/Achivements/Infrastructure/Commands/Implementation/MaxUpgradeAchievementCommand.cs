@@ -23,14 +23,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public MaxUpgradeAchievementCommand(
             IEntityRepository entityRepository,
-            GameplayHud hud,
-            DiContainer container) : base(hud, container)
+            AchievementView achievementView,
+            DiContainer container) : base(achievementView, container)
         {
-            if (hud == null)
-                throw new ArgumentNullException(nameof(hud));
-            
-            _achievementView = hud.PopUpAchievementView ?? 
-                               throw new ArgumentNullException(nameof(_achievementView));
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
         }
@@ -50,13 +45,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             _achievement = _entityRepository
                 .Get<Achievement>(ModelId.MaxUpgradeAchievement);
             
-            _healthUpgrade.LevelChanged += Execute;
-            _attackUpgrade.LevelChanged += Execute;
-            _flamethrowerUpgrade.LevelChanged += Execute;
-            _nukeUpgrade.LevelChanged += Execute;
+            _healthUpgrade.LevelChanged += OnCompleted;
+            _attackUpgrade.LevelChanged += OnCompleted;
+            _flamethrowerUpgrade.LevelChanged += OnCompleted;
+            _nukeUpgrade.LevelChanged += OnCompleted;
         }
 
-        public override void Execute()
+        private void OnCompleted()
         {
             if (_achievement.IsCompleted)
                 return;
@@ -74,17 +69,16 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
                 return;
             
             _achievement.IsCompleted = true;
-            _achievementView.Construct(_achievement);
             
-            base.Execute();
+            Execute(_achievement);
         }
 
         public override void Destroy()
         {
-            _healthUpgrade.LevelChanged -= Execute;
-            _attackUpgrade.LevelChanged -= Execute;
-            _flamethrowerUpgrade.LevelChanged -= Execute;
-            _nukeUpgrade.LevelChanged -= Execute;
+            _healthUpgrade.LevelChanged -= OnCompleted;
+            _attackUpgrade.LevelChanged -= OnCompleted;
+            _flamethrowerUpgrade.LevelChanged -= OnCompleted;
+            _nukeUpgrade.LevelChanged -= OnCompleted;
         }
     }
 }

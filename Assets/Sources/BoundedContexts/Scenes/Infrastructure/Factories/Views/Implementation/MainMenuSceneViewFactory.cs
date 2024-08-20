@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
@@ -12,12 +13,14 @@ using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
+using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
     public class MainMenuSceneViewFactory : ISceneViewFactory
     {
+        private readonly IEntityRepository _entityRepository;
         private readonly MainMenuHud _mainMenuHud;
         private readonly ILoadService _loadService;
         private readonly MainMenuModelsLoaderService _mainMenuModelsLoaderService;
@@ -26,6 +29,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly DailyRewardViewFactory _dailyRewardViewFactory;
 
         public MainMenuSceneViewFactory(
+            IEntityRepository entityRepository,
             MainMenuHud hud,
             ILoadService loadService,
             MainMenuModelsLoaderService mainMenuModelsLoaderService,
@@ -33,6 +37,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             VolumeViewFactory volumeViewFactory,
             DailyRewardViewFactory dailyRewardViewFactory)
         {
+            _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _mainMenuHud = hud ?? throw new ArgumentNullException(nameof(hud));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _mainMenuModelsLoaderService = mainMenuModelsLoaderService ?? throw new ArgumentNullException(nameof(mainMenuModelsLoaderService));
@@ -53,6 +58,15 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //DailyReward
             _dailyRewardViewFactory.Create(_mainMenuHud.DailyRewardView);
+            
+            //Achievements
+            List<Achievement> achievements = _entityRepository.GetAll<Achievement>(ModelId.AchievementModels).ToList();
+
+            if (achievements.Count != _mainMenuHud.AchievementViews.Count)
+                throw new IndexOutOfRangeException(nameof(achievements));
+
+            for (int i = 0; i < achievements.Count; i++) 
+                _mainMenuHud.AchievementViews[i].Construct(achievements[i]);
         }
         
         private MainMenuModel Load(IScenePayload payload)

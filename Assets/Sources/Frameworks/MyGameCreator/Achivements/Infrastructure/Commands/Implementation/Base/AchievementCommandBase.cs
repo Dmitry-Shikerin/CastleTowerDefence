@@ -1,10 +1,8 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
-using Sources.BoundedContexts.Huds.Presentations;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using Zenject;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base
@@ -17,14 +15,11 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         private AchievementView _achievementView;
 
         public AchievementCommandBase(
-            GameplayHud hud,
+            AchievementView achievementView,
             DiContainer container)
         {
-            if (hud == null)
-                throw new ArgumentNullException(nameof(hud));
-            
-            _achievementView = hud.PopUpAchievementView ?? 
-                               throw new ArgumentNullException(nameof(_achievementView));
+            _achievementView = achievementView ?? 
+                               throw new ArgumentNullException(nameof(achievementView));
             _container = container ?? throw new ArgumentNullException(nameof(container));
         }
 
@@ -33,10 +28,11 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ReceivedAchievement);
         }
 
-        public virtual void Execute()
+        public virtual void Execute(Achievement achievement)
         {
             _container.Inject(_achievementView);
             _stream.SendSignal(true);
+            _achievementView.Construct(achievement);
         }
 
         public virtual void Destroy()

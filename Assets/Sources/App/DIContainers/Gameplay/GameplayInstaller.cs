@@ -12,6 +12,7 @@ using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation.Handlers;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
+using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
 using UnityEngine;
 using Zenject;
 
@@ -40,6 +41,9 @@ namespace Sources.App.DIContainers.Gameplay
             //UiCommands
             Container.Bind<IButtonCommandHandler>().To<GameplayButtonCommandHandler>().AsSingle();
             Container.Bind<IViewCommandHandler>().To<GameplayViewCommandHandler>().AsSingle();
+            
+            //AchievementPopUp
+            Container.Bind<AchievementView>().FromInstance(_gameplayHud.PopUpAchievementView).AsSingle();
         }
     }
 }
