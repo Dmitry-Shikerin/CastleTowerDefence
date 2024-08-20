@@ -50,7 +50,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
 
         private static SoundyManager s_instance;
         private static float s_musicVolume;
-        private static float s_soundVolume;
+        private static float s_soundVolume;        
+        private static bool s_isMusicVolumeMuted;
+        private static bool s_isSoundVolumeMuted;
 
         /// <summary> Returns a reference to the SoundyManager in the Scene. If one does not exist, it gets created. </summary>
         public static SoundyManager Instance
@@ -161,6 +163,12 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             s_musicVolume = musicVolume;
             s_soundVolume = soundVolume;
         }
+
+        public static void SetMutes(bool isMusicMuted, bool isSoundMuted)
+        {
+            s_isMusicVolumeMuted = isMusicMuted;
+            s_isSoundVolumeMuted = isSoundMuted;
+        }
         
         /// <summary> Stop all SoundyControllers from playing and destroys the GameObjects they are attached to </summary>
         public static void KillAllControllers() =>
@@ -214,6 +222,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                     SoundyController soundyManager = Play(databaseName, soundName);
                     SetVolume(soundName, musicVolume.VolumeValue);
                     AudioSource audioSource = soundyManager.AudioSource;
+                    audioSource.mute = musicVolume.IsVolumeMuted;
 
                     await UniTask.WaitUntil(
                         () => audioSource.time + 0.1f > audioSource.clip.length,
@@ -493,6 +502,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         {
             SoundyController controller = Play(data);
             controller.AudioSource.volume = isSound ? s_soundVolume : s_musicVolume;
+            controller.AudioSource.mute = isSound ? s_isSoundVolumeMuted : s_isMusicVolumeMuted;
             
             return controller;
         }

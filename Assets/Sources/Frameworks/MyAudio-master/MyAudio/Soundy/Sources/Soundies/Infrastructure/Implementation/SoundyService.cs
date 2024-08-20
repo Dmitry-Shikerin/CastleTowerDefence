@@ -42,6 +42,8 @@ namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
             _pauseService.ContinueSoundActivated += OnContinueSoundActivated;
             _musicVolume.VolumeChanged += OnMusicVolumeChanged;
             _soundsVolume.VolumeChanged += OnSoundsVolumeChanged;
+            _musicVolume.VolumeMuted += OnMusicVolumeMuted;
+            _soundsVolume.VolumeMuted += OnSoundsVolumeMuted;
         }
 
         public void Destroy()
@@ -49,6 +51,9 @@ namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
             _pauseService.PauseSoundActivated -= OnPauseSoundActivated;
             _pauseService.ContinueSoundActivated -= OnContinueSoundActivated;
             _musicVolume.VolumeChanged -= OnMusicVolumeChanged;
+            _soundsVolume.VolumeChanged -= OnSoundsVolumeChanged;
+            _musicVolume.VolumeMuted -= OnMusicVolumeMuted;
+            _soundsVolume.VolumeMuted -= OnSoundsVolumeMuted;
         }
 
         public void Play(string databaseName, string soundName, Vector3 position) =>
@@ -87,6 +92,21 @@ namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
             SoundyController
                 .GetControllerByName(_musicSoundName)
                 .AudioSource.volume = _musicVolume.VolumeValue;
+        }
+
+        private void OnSoundsVolumeMuted()
+        {
+            SoundyManager.SetMutes(
+                _musicVolume.IsVolumeMuted,
+                _soundsVolume.IsVolumeMuted);
+        }
+
+        private void OnMusicVolumeMuted()
+        {
+            SoundyController
+                .GetControllerByName(_musicSoundName)
+                .AudioSource.mute = _musicVolume.IsVolumeMuted;
+            OnSoundsVolumeMuted();
         }
     }
 }
