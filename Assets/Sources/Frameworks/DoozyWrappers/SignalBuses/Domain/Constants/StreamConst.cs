@@ -12,5 +12,6 @@
         public const string Gameplay = "Gameplay";
         public const string GameOver = "GameOver";
         public const string ReceivedAchievement = "ReceivedAchievement";
+        public const string ShowTutorial = "ShowTutorial";
     }
 }

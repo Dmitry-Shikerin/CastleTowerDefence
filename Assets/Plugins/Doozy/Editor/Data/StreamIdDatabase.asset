@@ -20,6 +20,8 @@ MonoBehaviour:
       Name: GameOver
     - Category: Gameplay
       Name: ReceivedAchievement
+    - Category: Gameplay
+      Name: ShowTutorial
     - Category: MainMenu
       Name: DailyReward
     - Category: MainMenu
