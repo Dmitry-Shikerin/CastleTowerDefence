@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
@@ -9,8 +10,10 @@ using Sources.BoundedContexts.Layers.Domain;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces;
 using Sources.Frameworks.Domain.Implementation.Constants;
+using Sources.Frameworks.GameServices.Cameras.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.InfrastructureInterfaces.Services.Cameras;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
@@ -21,13 +24,15 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
         private readonly NukeAbility _nukeAbility;
         private readonly INukeAbilityView _nukeAbilityView;
         private readonly IOverlapService _overlapService;
+        private readonly ICameraService _cameraService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
         public NukeAbilityPresenter(
             IEntityRepository entityRepository, 
             INukeAbilityView nukeAbilityView,
-            IOverlapService overlapService)
+            IOverlapService overlapService,
+            ICameraService cameraService)
         {
             if (entityRepository == null) 
                 throw new ArgumentNullException(nameof(entityRepository));
@@ -35,6 +40,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
             _nukeAbility = entityRepository.Get<NukeAbility>(ModelId.NukeAbility);
             _nukeAbilityView = nukeAbilityView ?? throw new ArgumentNullException(nameof(nukeAbilityView));
             _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
+            _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         }
 
         public override void Enable()
@@ -72,6 +78,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
                     await UniTask.Yield(_cancellationTokenSource.Token);
                 }
                 
+                _cameraService.SetOnTimeCamera(CameraId.Explosion, 2f);
                 _nukeAbilityView.BombView.Hide();
                 _nukeAbilityView.PlayNukeParticle();
                 DealDamage();

@@ -11,6 +11,7 @@ using MyAudios.Soundy.Sources.DataBases.Domain.Data;
 using MyAudios.Soundy.Sources.Managers.Domain.Constants;
 using MyAudios.Soundy.Sources.Settings.Domain.Configs;
 using MyAudios.Soundy.Sources.SoundSources.Enums;
+using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -48,6 +49,10 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         }
 
         private static SoundyManager s_instance;
+        private static float s_musicVolume;
+        private static float s_soundVolume;        
+        private static bool s_isMusicVolumeMuted;
+        private static bool s_isSoundVolumeMuted;
 
         /// <summary> Returns a reference to the SoundyManager in the Scene. If one does not exist, it gets created. </summary>
         public static SoundyManager Instance
@@ -153,6 +158,18 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                 SoundyPooler.GetControllerFromPool().Stop();
         }
 
+        public static void SetVolumes(float musicVolume, float soundVolume)
+        {
+            s_musicVolume = musicVolume;
+            s_soundVolume = soundVolume;
+        }
+
+        public static void SetMutes(bool isMusicMuted, bool isSoundMuted)
+        {
+            s_isMusicVolumeMuted = isMusicMuted;
+            s_isSoundVolumeMuted = isSoundMuted;
+        }
+        
         /// <summary> Stop all SoundyControllers from playing and destroys the GameObjects they are attached to </summary>
         public static void KillAllControllers() =>
             SoundyController.KillAll();
@@ -186,7 +203,10 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         public static void SetVolume(string soundName, float volume) =>
             SoundyController.SetVolume(soundName, volume);
 
-        public static async void PlaySequence(string databaseName, string soundName)
+        public static async void PlaySequence(
+            string databaseName, 
+            string soundName,
+            Volume musicVolume)
         {
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
@@ -200,8 +220,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                 while (cancellationTokenSource.Token.IsCancellationRequested == false)
                 {
                     SoundyController soundyManager = Play(databaseName, soundName);
-                    SetVolume(soundName, 0.2f);
+                    SetVolume(soundName, musicVolume.VolumeValue);
                     AudioSource audioSource = soundyManager.AudioSource;
+                    audioSource.mute = musicVolume.IsVolumeMuted;
 
                     await UniTask.WaitUntil(
                         () => audioSource.time + 0.1f > audioSource.clip.length,
@@ -475,6 +496,15 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             }
 
             return null;
+        } 
+        
+        public static SoundyController Play(SoundyData data, bool isSound)
+        {
+            SoundyController controller = Play(data);
+            controller.AudioSource.volume = isSound ? s_soundVolume : s_musicVolume;
+            controller.AudioSource.mute = isSound ? s_isSoundVolumeMuted : s_isMusicVolumeMuted;
+            
+            return controller;
         }
 
         public static void Stop(string databaseName, string soundName) =>

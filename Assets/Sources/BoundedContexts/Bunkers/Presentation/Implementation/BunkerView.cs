@@ -1,4 +1,5 @@
 ﻿using Doozy.Runtime.Reactor.Animators;
+using HighlightPlus;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Bunkers.Controllers;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
@@ -13,9 +14,14 @@ namespace Sources.BoundedContexts.Bunkers.Presentation.Implementation
     {
         [Required] [SerializeField] private EnemyTrigger _enemyTrigger;
         [Required] [SerializeField] private UIAnimator _damageAnimator;
-        
+        [Required] [SerializeField] private HighlightEffect _highlightEffect;
+        [Range(0.1f, 2)]
+        [SerializeField] private float _highlightDelta = 0.13f;
+
+        public float HighlightDelta => _highlightDelta;
         public Vector3 Position => transform.position;
         public UIAnimator DamageAnimator => _damageAnimator;
+        public HighlightEffect HighlightEffect => _highlightEffect;
 
         protected override void OnAfterEnable() =>
             _enemyTrigger.Entered += OnEntered;
@@ -23,9 +29,7 @@ namespace Sources.BoundedContexts.Bunkers.Presentation.Implementation
         protected override void OnAfterDisable() =>
             _enemyTrigger.Entered -= OnEntered;
 
-        private void OnEntered(IEnemyViewBase enemyView)
-        {
+        private void OnEntered(IEnemyViewBase enemyView) =>
             Presenter.TakeDamage(enemyView);
-        }
     }
 }

@@ -88,14 +88,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             Volume soundsVolume = LoadVolume(ModelId.SoundsVolume);
             
             //Achievements
-            List<Achievement> achievements = new List<Achievement>();
-            
-            foreach (string id in ModelId.AchievementModels)
-            {
-                Achievement achievement = new Achievement(id);
-                _entityRepository.Add(achievement);
-                achievements.Add(achievement);
-            }
+            List<Achievement> achievements = LoadAchievements();
             
             //HealthBooster
             HealthBooster healthBooster = new HealthBooster(ModelId.HealthBooster);
@@ -143,6 +136,33 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(upgrade);
 
             return upgrade;
+        }
+        
+        private List<Achievement> LoadAchievements()
+        {
+            List<Achievement> achievements = new List<Achievement>();
+
+            if (_loadService.HasKey(ModelId.FirstUpgradeAchievement))
+            {
+                foreach (string id in ModelId.AchievementModels)
+                {
+                    Achievement achievement = _loadService.Load<Achievement>(id);
+                    achievements.Add(achievement);
+                }
+                
+                return achievements;
+            }
+            
+            foreach (string id in ModelId.AchievementModels)
+            {
+                Achievement achievement = new Achievement(id);
+                _entityRepository.Add(achievement);
+                achievements.Add(achievement);
+            }
+            
+            _loadService.Save(ModelId.AchievementModels);
+            
+            return achievements;
         }
     }
 }

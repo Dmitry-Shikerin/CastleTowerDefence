@@ -14,6 +14,7 @@ using Sources.Domain.Models.Data;
 using Sources.Frameworks.Domain.Implementation.Data;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 
 namespace Sources.BoundedContexts.Ids.Domain.Constant
 {
@@ -109,6 +110,12 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             [MusicVolume] = typeof(Volume),
             [SoundsVolume] = typeof(Volume),
             [DailyReward] = typeof(DailyReward),
+            [FirstEnemyKillAchievement] = typeof(Achievement),
+            [FirstUpgradeAchievement] = typeof(Achievement),
+            [FirstHealthBoosterUsageAchievement] = typeof(Achievement),
+            [FirstWaveCompletedAchievement] = typeof(Achievement),
+            [ScullsDiggerAchievement] = typeof(Achievement),
+            [MaxUpgradeAchievement] = typeof(Achievement),
         };
     }
 }
