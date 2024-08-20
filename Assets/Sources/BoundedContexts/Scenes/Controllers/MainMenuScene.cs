@@ -6,6 +6,7 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
@@ -17,6 +18,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class MainMenuScene : IScene
     {
+        private readonly ICompositeAssetService _compositeAssetService;
         private readonly ISoundyService _soundyService;
         private readonly ISceneViewFactory _sceneViewFactory;
         private readonly ISignalControllersCollector _signalControllersCollector;
@@ -27,6 +29,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly IStickyService _stickyService;
 
         public MainMenuScene(
+            ICompositeAssetService compositeAssetService,
             ISoundyService soundyService,
             ISceneViewFactory mainMenuSceneViewFactory,
             ISignalControllersCollector signalControllersCollector,
@@ -36,6 +39,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             IStickyService stickyService)
         {
+            _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _sceneViewFactory = mainMenuSceneViewFactory ??
                                 throw new ArgumentNullException(nameof(mainMenuSceneViewFactory));
@@ -52,6 +56,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         public async void Enter(object payload = null)
         {
             await InitializeAsync((IScenePayload)payload);
+            await _compositeAssetService.LoadAsync();
             _focusService.Initialize();
             _localizationService.Translate();
             _sceneViewFactory.Create(null);

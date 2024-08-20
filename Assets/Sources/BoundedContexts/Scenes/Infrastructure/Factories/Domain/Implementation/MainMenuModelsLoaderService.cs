@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
@@ -27,6 +29,15 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
         {
             _loadService.Load(ModelId.MainMenuModels);
             
+            //Achievements
+            List<Achievement> achievements = new List<Achievement>();
+            
+            foreach (string id in ModelId.AchievementModels)
+            {
+                Achievement achievement = _loadService.Load<Achievement>(id);
+                achievements.Add(achievement);
+            }
+            
             //Volumes
             Volume musicVolume = _entityRepository.Get<Volume>(ModelId.MusicVolume);
             Volume soundsVolume = _entityRepository.Get<Volume>(ModelId.SoundsVolume);
@@ -39,7 +50,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             return new MainMenuModel(
                 musicVolume, 
                 soundsVolume,
-                dailyReward);
+                dailyReward,
+                achievements);
         }
     }
 }

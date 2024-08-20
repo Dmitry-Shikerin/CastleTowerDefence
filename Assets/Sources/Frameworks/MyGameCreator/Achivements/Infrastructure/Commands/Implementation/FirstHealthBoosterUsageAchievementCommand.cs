@@ -5,6 +5,7 @@ using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
+using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base;
 using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
@@ -23,8 +24,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public FirstHealthBoosterUsageAchievementCommand(
             IEntityRepository entityRepository,
+            IPrefabCollector prefabCollector,
             AchievementView achievementView,
-            DiContainer container) : base(achievementView, container)
+            DiContainer container) : base(achievementView, prefabCollector, container)
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));

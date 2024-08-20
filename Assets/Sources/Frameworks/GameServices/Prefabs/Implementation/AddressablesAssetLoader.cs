@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Sources.Frameworks.GameServices.Addressables.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using UnityEngine;
 using Object = UnityEngine.Object;

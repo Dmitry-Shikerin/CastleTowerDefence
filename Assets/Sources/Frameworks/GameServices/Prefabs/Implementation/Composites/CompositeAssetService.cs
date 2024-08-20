@@ -8,9 +8,10 @@ using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.Prefabs;
-using Sources.Frameworks.GameServices.Addressables.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.SkyAndWeawers.Domain;
 
 namespace Sources.Frameworks.GameServices.Prefabs.Implementation.Composites
@@ -31,6 +32,7 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation.Composites
         
         public async UniTask LoadAsync()
         {
+            await _resourcesAssetLoader.LoadAsset<AchievementConfigCollector>(PrefabPath.AchievementConfigCollector);
             await _resourcesAssetLoader.LoadAsset<SkyAndWeatherCollector>(PrefabPath .SkyAndWeatherCollector);
             await _resourcesAssetLoader.LoadAsset<PoolManagerCollector>(PrefabPath.PoolManagerCollector);
             await _resourcesAssetLoader.LoadAsset<ExplosionBodyBloodyView>(PrefabPath.ExplosionBodyBloody);
