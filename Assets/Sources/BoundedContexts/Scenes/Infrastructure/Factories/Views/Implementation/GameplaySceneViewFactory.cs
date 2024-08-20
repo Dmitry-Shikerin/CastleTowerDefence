@@ -18,8 +18,10 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementat
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
+using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
@@ -29,6 +31,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 {
     public class GameplaySceneViewFactory : ISceneViewFactory
     {
+        private readonly IPrefabCollector _prefabCollector;
         private readonly IEntityRepository _entityRepository;
         private readonly GameplayHud _gameplayHud;
         private readonly UiCollectorFactory _uiCollectorFactory;
@@ -49,6 +52,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly VolumeViewFactory _volumeViewFactory;
 
         public GameplaySceneViewFactory(
+            IPrefabCollector prefabCollector,
             IEntityRepository entityRepository,
             GameplayHud gameplayHud,
             UiCollectorFactory uiCollectorFactory,
@@ -68,6 +72,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             IEcsGameStartUp ecsGameStartUp,
             VolumeViewFactory volumeViewFactory)
         {
+            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _gameplayHud = gameplayHud ?? throw new ArgumentNullException(nameof(gameplayHud));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
@@ -150,8 +155,14 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             if (achievements.Count != _gameplayHud.AchievementViews.Count)
                 throw new IndexOutOfRangeException(nameof(achievements));
 
-            for (int i = 0; i < achievements.Count; i++) 
-                _gameplayHud.AchievementViews[i].Construct(achievements[i]);
+            for (int i = 0; i < achievements.Count; i++)
+            {
+                AchievementConfig config = _prefabCollector
+                    .Get<AchievementConfigCollector>()
+                    .Configs
+                    .First(config => config.Id == achievements[i].Id);
+                _gameplayHud.AchievementViews[i].Construct(achievements[i], config);
+            }
         }
 
         private GameplayModel Load(IScenePayload payload)
