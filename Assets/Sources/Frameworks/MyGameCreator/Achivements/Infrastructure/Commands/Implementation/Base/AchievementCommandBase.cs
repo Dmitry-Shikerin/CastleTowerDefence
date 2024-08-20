@@ -3,6 +3,7 @@ using System.Linq;
 using Doozy.Runtime.Signals;
 using JetBrains.Annotations;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
@@ -19,15 +20,18 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         private SignalStream _stream;
         private AchievementView _achievementView;
         private readonly IPrefabCollector _prefabCollector;
+        private readonly ILoadService _loadService;
 
         public AchievementCommandBase(
             AchievementView achievementView,
             IPrefabCollector prefabCollector,
+            ILoadService loadService,
             DiContainer container)
         {
             _achievementView = achievementView ?? 
                                throw new ArgumentNullException(nameof(achievementView));
             _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _container = container ?? throw new ArgumentNullException(nameof(container));
         }
 
@@ -45,6 +49,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             _container.Inject(_achievementView);
             _stream.SendSignal(true);
             _achievementView.Construct(achievement, config);
+            _loadService.Save(achievement);
         }
 
         public virtual void Destroy()
