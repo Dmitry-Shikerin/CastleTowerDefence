@@ -9,8 +9,10 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementat
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Factories;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
+using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Repositories;
@@ -20,6 +22,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 {
     public class MainMenuSceneViewFactory : ISceneViewFactory
     {
+        private readonly IPrefabCollector _prefabCollector;
         private readonly IEntityRepository _entityRepository;
         private readonly MainMenuHud _mainMenuHud;
         private readonly ILoadService _loadService;
@@ -29,6 +32,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly DailyRewardViewFactory _dailyRewardViewFactory;
 
         public MainMenuSceneViewFactory(
+            IPrefabCollector prefabCollector,
             IEntityRepository entityRepository,
             MainMenuHud hud,
             ILoadService loadService,
@@ -37,6 +41,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             VolumeViewFactory volumeViewFactory,
             DailyRewardViewFactory dailyRewardViewFactory)
         {
+            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _mainMenuHud = hud ?? throw new ArgumentNullException(nameof(hud));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
@@ -60,13 +65,20 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _dailyRewardViewFactory.Create(_mainMenuHud.DailyRewardView);
             
             //Achievements
-            List<Achievement> achievements = _entityRepository.GetAll<Achievement>(ModelId.AchievementModels).ToList();
+            List<Achievement> achievements = _entityRepository
+                .GetAll<Achievement>(ModelId.AchievementModels).ToList();
 
             if (achievements.Count != _mainMenuHud.AchievementViews.Count)
                 throw new IndexOutOfRangeException(nameof(achievements));
 
-            for (int i = 0; i < achievements.Count; i++) 
-                _mainMenuHud.AchievementViews[i].Construct(achievements[i]);
+            for (int i = 0; i < achievements.Count; i++)
+            {
+                AchievementConfig config = _prefabCollector
+                    .Get<AchievementConfigCollector>()
+                    .Configs
+                    .First(config => config.Id == achievements[i].Id);
+                _mainMenuHud.AchievementViews[i].Construct(achievements[i], config);
+            }
         }
         
         private MainMenuModel Load(IScenePayload payload)

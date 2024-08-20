@@ -4,6 +4,10 @@ using Sources.Frameworks.GameServices.Loads.Services.Implementation.Data;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Data;
+using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Implementation.Composites;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
 using Sources.Frameworks.GameServices.Repositories.Services.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using Zenject;
@@ -18,6 +22,12 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<IEntityRepository>().To<EntityRepository>().AsSingle();
             Container.Bind<IDataService>().To<PlayerPrefsDataService>().AsSingle();
             Container.Bind<IMapperCollector>().To<MapperCollector>().AsSingle();
+            
+            //Assets
+            Container.Bind<IPrefabCollector>().To<PrefabCollector>().AsSingle();
+            Container.Bind<IResourcesAssetLoader>().To<ResourcesAssetLoader>().AsSingle();
+            Container.Bind<IAddressablesAssetLoader>().To<AddressablesAssetLoader>().AsSingle();
+            Container.Bind<ICompositeAssetService>().To<CompositeAssetService>().AsSingle();
         }
     }
 }

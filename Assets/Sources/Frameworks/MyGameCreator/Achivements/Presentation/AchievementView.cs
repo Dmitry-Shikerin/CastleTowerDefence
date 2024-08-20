@@ -20,8 +20,8 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Presentation
         [SerializeField] private ImageView _uncompletedImage;
 
         private Achievement _achievement;
-        private IAchievementService _achievementService;
         private ILocalizationService _localizationService;
+        private AchievementConfig _achievementConfig;
 
         private void OnEnable()
         {
@@ -51,12 +51,11 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Presentation
             _achievement.Completed -= OnCompleted;
         }
 
-        public void Construct(Achievement achievement)
+        public void Construct(Achievement achievement, AchievementConfig config)
         {
+            _achievementConfig = config ?? throw new ArgumentNullException(nameof(config));
             _achievement = achievement ?? throw new ArgumentNullException(nameof(achievement));
-
             Subscribe();
-            
             UpdateView();
             OnCompleted();
         }
@@ -72,21 +71,17 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Presentation
             if (_achievement == null)
                 return;
             
-            string achievementId = _achievement.Id;
-            AchievementConfig config = _achievementService.GetConfig(achievementId);
-            Sprite sprite = config.Sprite;
+            Sprite sprite = _achievementConfig.Sprite;
             _iconImage.SetSprite(sprite);
-            string title = _localizationService.GetText(config.TitleId);
+            string title = _localizationService.GetText(_achievementConfig.TitleId);
             _titleTextView.SetText(title);
-            string description = _localizationService.GetText(config.DescriptionId);
+            string description = _localizationService.GetText(_achievementConfig.DescriptionId);
             _discriptionTextView.SetText(description);
         }
 
         [Inject]
-        private void OnBeforeConstruct(IAchievementService achievementService, ILocalizationService localizationService)
+        private void OnBeforeConstruct(ILocalizationService localizationService)
         {
-            _achievementService = achievementService ??
-                                  throw new ArgumentNullException(nameof(achievementService));
             _localizationService = localizationService ??
                                    throw new ArgumentNullException(nameof(localizationService));
         }

@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base;
 using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
@@ -20,8 +21,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public FirstWaveCompletedAchievementCommand(
             IEntityRepository entityRepository,
+            IPrefabCollector prefabCollector,
             AchievementView achievementView,
-            DiContainer container) : base(achievementView, container)
+            DiContainer container) 
+            : base(
+                achievementView, 
+                prefabCollector,
+                container)
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));

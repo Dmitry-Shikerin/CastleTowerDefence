@@ -8,6 +8,7 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
@@ -18,6 +19,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class MainMenuSceneFactory : ISceneFactory
     {
+        private readonly ICompositeAssetService _compositeAssetService;
         private readonly ISoundyService _soundyService;
         private readonly ISceneViewFactory _sceneViewFactory;
         private readonly ISignalControllersCollector _signalControllersCollector;
@@ -28,6 +30,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly IStickyService _stickyService;
 
         public MainMenuSceneFactory(
+            ICompositeAssetService compositeAssetService,
             ISoundyService soundyService,
             ISceneViewFactory sceneViewFactory,
             ISignalControllersCollector signalControllersCollector,
@@ -37,6 +40,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ICurtainView curtainView,
             IStickyService stickyService)
         {
+            _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _sceneViewFactory = sceneViewFactory ??
                                 throw new ArgumentNullException(nameof(sceneViewFactory));
@@ -54,6 +58,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene mainMenuScene = new MainMenuScene(
+                _compositeAssetService,
                 _soundyService,
                 _sceneViewFactory,
                 _signalControllersCollector,

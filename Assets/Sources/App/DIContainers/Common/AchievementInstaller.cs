@@ -10,9 +10,6 @@ namespace Sources.App.DIContainers.Common
     {
         public override void InstallBindings()
         {
-            Container.Bind<AchievementConfigCollector>()
-                .FromResource("Configs/Achievements/AchievementConfigCollector")
-                .AsSingle();
             Container.Bind<IAchievementService>().To<AchievementService>().AsSingle();
             
             //Commands

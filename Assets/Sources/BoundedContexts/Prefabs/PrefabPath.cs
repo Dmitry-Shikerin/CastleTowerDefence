@@ -16,5 +16,6 @@
         public const string EnemySpawnerConfigContainer = "Configs/EnemySpawnerWaves/EnemySpawnerConfig";
         public const string SkyAndWeatherCollector = "Configs/SkyAndWeathers/SkyAndWeatherCollector";
         public const string PoolManagerCollector = "Services/PoolManagers/PoolManagerCollector";
+        public const string AchievementConfigCollector = "Configs/Achievements/AchievementConfigCollector";
     }
 }
