@@ -49,9 +49,8 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
         {
             _entityRepository
                 .GetAll<Achievement>(ModelId.AchievementModels)
-                .ToList()
-                .ForEach(achievement => _achievements.Add(achievement.Id, achievement));
-
+                .ToDictionary(achievement => achievement.Id, achievement => achievement);
+            
             _achievementCommands.ForEach(command => command.Initialize());
         }
 

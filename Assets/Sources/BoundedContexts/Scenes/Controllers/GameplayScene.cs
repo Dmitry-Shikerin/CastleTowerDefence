@@ -70,10 +70,9 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         public async void Enter(object payload = null)
         {
             _focusService.Initialize();
-            await _compositeAssetService.LoadAsync();
+            _localizationService.Translate();
             _gameplaySceneViewFactory.Create((IScenePayload)payload);
             _advertisingService.Initialize();
-            _localizationService.Translate();
             _achievementService.Initialize();
             _signalControllersCollector.Initialize();
             _soundyService.PlaySequence(

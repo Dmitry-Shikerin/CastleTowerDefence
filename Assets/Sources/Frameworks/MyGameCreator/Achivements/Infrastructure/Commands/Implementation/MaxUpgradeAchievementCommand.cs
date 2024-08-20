@@ -58,6 +58,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public override void Execute()
         {
+            if (_achievement.IsCompleted)
+                return;
+            
             if (_healthUpgrade.CurrentLevel != _healthUpgrade.MaxLevel)
                 return;
             
