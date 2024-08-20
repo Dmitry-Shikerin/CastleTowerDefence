@@ -1,10 +1,12 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Sources.Frameworks.GameServices.Prefabs.Implementation
+namespace Sources.Frameworks.GameServices.Prefabs.Interfaces
 {
     public interface IPrefabLoader
     {
-        T Load<T>(string path) 
+        UniTask<T> LoadAsset<T>(string address) 
             where T : Object;
+        void ReleaseAll();
     }
 }

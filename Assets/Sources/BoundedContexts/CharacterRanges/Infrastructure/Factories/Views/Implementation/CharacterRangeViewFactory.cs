@@ -38,7 +38,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views
             CharacterRange characterRange = new CharacterRange(
                 new CharacterHealths.Domain.CharacterHealth(characterHealthUpgrade));
             
-            CharacterRangeView view = _poolManager.Get<CharacterRangeView>(PrefabPath.CharacterRangeView);
+            CharacterRangeView view = _poolManager.Get<CharacterRangeView>();
             
             _characterHealthViewFactory.Create(characterRange.CharacterHealth, view.HealthView);
             _healthBarViewFactory.Create(characterRange.CharacterHealth, view.HealthBarView);

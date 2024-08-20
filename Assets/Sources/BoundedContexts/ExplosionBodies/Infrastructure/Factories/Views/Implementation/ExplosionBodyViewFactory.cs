@@ -26,7 +26,7 @@ namespace Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views
         
         public IExplosionBodyView Create(Vector3 position)
         {
-            ExplosionBodyView view = _poolManager.Get<ExplosionBodyView>(PrefabPath.ExplosionBody);
+            ExplosionBodyView view = _poolManager.Get<ExplosionBodyView>();
             view.SetPosition(position);
             
             return view;

@@ -6,7 +6,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers
 {
     public interface IPoolManager
     {
-        T Get<T>(string resourcesPath) 
+        T Get<T>() 
             where T : View;
         IObjectPool<T> GetPool<T>() 
             where T : IView;

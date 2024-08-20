@@ -20,23 +20,21 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private readonly List<T> _collection = new List<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
         private readonly IPoolBaker<T> _poolBaker;
-        private readonly IPrefabLoader _prefabLoader;
+        private readonly IPrefabCollector _prefabCollector;
         private readonly Transform _root;
 
         private int _maxCount = -1;
         private bool _isCountLimit;
         private bool _isInitialized;
         private PoolManagerConfig _config;
-        private string _resourcesPath;
 
         public ObjectPool(
-            IPrefabLoader resourcesPrefabLoader,
+            IPrefabCollector prefabCollector,
             Transform parent = null,
-            PoolManagerConfig poolManagerConfig = null,
-            string resourcesPath = null)
+            PoolManagerConfig poolManagerConfig = null)
         {
-            _prefabLoader = resourcesPrefabLoader ??
-                                     throw new ArgumentNullException(nameof(resourcesPrefabLoader));
+            _prefabCollector = prefabCollector ??
+                                     throw new ArgumentNullException(nameof(prefabCollector));
             _root = parent;
             _parent.SetParent(parent);
             _poolBaker = new PoolBaker<T>(_root);
@@ -47,15 +45,14 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
                 _maxCount = _config.MaxPoolCount;
                 _isCountLimit = _config.IsCountLimit;
             }
-
-            _resourcesPath = resourcesPath;
+            
             DeleteAfterTime = _config?.DeleteAfterTime ?? 0;
 
             if (_config != null && _config.IsWarmUp)
             {
                 for (int i = 0; i < _config.WarmUpCount; i++)
                 {
-                    CreateObject(_resourcesPath)
+                    CreateObject()
                         .GetComponent<PoolableObject>()
                         .ReturnToPool();
                 }
@@ -78,13 +75,13 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             where TType : View
         {
             if (_objects.Count == 0)
-                return CreateObject(_resourcesPath) as TType;
+                return CreateObject() as TType;
 
             if (_objects.FirstOrDefault() is not TType @object)
                 return null;
 
             if (@object == null)
-                return CreateObject(_resourcesPath) as TType;
+                return CreateObject() as TType;
 
             _objects.Remove(_objects.First());
             @object.GetComponent<PoolableObject>().Cancel();
@@ -153,9 +150,9 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
             _collection.Add(@object);
         }
 
-        private T CreateObject(string resourcesPath)
+        private T CreateObject()
         {
-            T resourceObject = _prefabLoader.Load<T>(resourcesPath);
+            T resourceObject = _prefabCollector.Get<T>();
             T gameObject = Object.Instantiate(resourceObject);
             PoolableObject poolableObject = gameObject.AddComponent<PoolableObject>();
             PoolBaker.Add(gameObject);

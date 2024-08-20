@@ -4,6 +4,7 @@ namespace Sources.InfrastructureInterfaces.Services.SceneLoaderService
 {
     public interface ISceneLoaderService
     {
-        UniTask LoadSceneAsync(string sceneName);
+        UniTask Load(string sceneName);
+        UniTask Unload();
     }
 }

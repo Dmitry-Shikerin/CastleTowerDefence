@@ -39,7 +39,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
             CharacterMelee characterMelee = new CharacterMelee(
                 new CharacterHealths.Domain.CharacterHealth(characterHealthUpgrade));
             
-            CharacterMeleeView view = _poolManager.Get<CharacterMeleeView>(PrefabPath.CharacterMeleeView);
+            CharacterMeleeView view = _poolManager.Get<CharacterMeleeView>();
 
             _providerFactory.Create(characterMelee, view);
             _characterHealthViewFactory.Create(characterMelee.CharacterHealth, view.HealthView);

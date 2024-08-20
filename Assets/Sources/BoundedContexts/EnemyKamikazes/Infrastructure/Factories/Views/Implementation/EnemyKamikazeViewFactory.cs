@@ -52,7 +52,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.
                     enemySpawner.KamikazeMassAttackPower),
                 new BurnAbility());
             
-            EnemyKamikazeView enemyView = _poolManager.Get<EnemyKamikazeView>(PrefabPath.EnemyKamikaze);
+            EnemyKamikazeView enemyView = _poolManager.Get<EnemyKamikazeView>();
             
             enemyView.DisableNavmeshAgent();
             enemyView.SetPosition(position);

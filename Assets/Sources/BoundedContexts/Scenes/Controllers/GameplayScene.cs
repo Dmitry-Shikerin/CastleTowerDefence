@@ -7,6 +7,7 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
+using Sources.Frameworks.GameServices.Addressables.Interfaces;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
@@ -21,6 +22,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
+        private readonly ICompositeAssetService _compositeAssetService;
         private readonly ISkyAndWeatherService _skyAndWeatherService;
         private readonly IAchievementService _achievementService;
         private readonly ISoundyService _soundyService;
@@ -34,6 +36,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplayScene(
+            ICompositeAssetService compositeAssetService,
             ISkyAndWeatherService skyAndWeatherService,
             IAchievementService achievementService,
             ISoundyService soundyService,
@@ -46,6 +49,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _skyAndWeatherService = skyAndWeatherService ?? throw new ArgumentNullException(nameof(skyAndWeatherService));
             _achievementService = achievementService ?? throw new ArgumentNullException(nameof(achievementService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
@@ -63,7 +67,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
                                           throw new ArgumentNullException(nameof(signalControllersCollector));
         }
 
-        public void Enter(object payload = null)
+        public async void Enter(object payload = null)
         {
             _focusService.Initialize();
             _localizationService.Translate();
@@ -86,6 +90,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _skyAndWeatherService.Destroy();
             _achievementService.Destroy();
             _gameOverService.Destroy();
+            _compositeAssetService.Release();
         }
 
         public void Update(float deltaTime)
