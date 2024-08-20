@@ -74,7 +74,6 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
                        MathConst.Epsilon)
                 {
                     _nukeAbilityView.BombView.Move();
-
                     await UniTask.Yield(_cancellationTokenSource.Token);
                 }
                 
