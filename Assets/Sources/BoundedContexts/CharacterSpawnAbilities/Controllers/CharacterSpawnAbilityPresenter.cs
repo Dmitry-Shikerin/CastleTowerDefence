@@ -59,6 +59,7 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 
         private async void OnAbilityApplied()
         {
+            _view.HealAnimator.Play();
             DespawnMelee();
             DespawnRange();
             await UniTask.Yield();

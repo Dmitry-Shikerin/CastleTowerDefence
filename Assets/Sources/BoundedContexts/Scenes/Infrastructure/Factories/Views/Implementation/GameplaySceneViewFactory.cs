@@ -16,6 +16,7 @@ using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
@@ -50,6 +51,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly CharacterSpawnAbilityViewFactory _characterSpawnAbilityViewFactory;
         private readonly VolumeViewFactory _volumeViewFactory;
+        private readonly ITutorialService _tutorialService;
 
         public GameplaySceneViewFactory(
             IPrefabCollector prefabCollector,
@@ -70,7 +72,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             GameplayModelsLoaderService gameplayModelsLoaderService,
             PlayerWalletViewFactory playerWalletViewFactory,
             IEcsGameStartUp ecsGameStartUp,
-            VolumeViewFactory volumeViewFactory)
+            VolumeViewFactory volumeViewFactory,
+            ITutorialService tutorialService)
         {
             _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
@@ -101,6 +104,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                                                 throw new ArgumentNullException(nameof(characterSpawnAbilityViewFactory));
             _volumeViewFactory = volumeViewFactory ??
                                        throw new ArgumentNullException(nameof(volumeViewFactory));
+            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
         }
 
         public void Create(IScenePayload payload)
@@ -163,6 +167,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                     .First(config => config.Id == achievements[i].Id);
                 _gameplayHud.AchievementViews[i].Construct(achievements[i], config);
             }
+            
+            //Tutorial
+            _tutorialService.Construct(gameplayModel.Tutorial);
         }
 
         private GameplayModel Load(IScenePayload payload)

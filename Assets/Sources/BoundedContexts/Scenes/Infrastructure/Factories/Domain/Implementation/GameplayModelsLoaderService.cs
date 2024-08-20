@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sirenix.Utilities;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
@@ -12,10 +11,10 @@ using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
+using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 
@@ -80,6 +79,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             //HealthBooster
             HealthBooster healthBooster = _loadService.Load<HealthBooster>(ModelId.HealthBooster);
             
+            //Tutorial
+            Tutorial tutorial = _loadService.Load<Tutorial>(ModelId.Tutorial);
+            
             return new GameplayModel(
                 characterHealthUpgrade,
                 characterAttackUpgrade,
@@ -95,7 +97,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 musicVolume,
                 soundsVolume,
                 achievements,
-                healthBooster);
+                healthBooster,
+                tutorial);
         }
     }
 }

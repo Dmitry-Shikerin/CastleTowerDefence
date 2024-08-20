@@ -3,6 +3,7 @@ using MyAudios.MyUiFramework.Utils.Soundies.Domain.Constant;
 using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
@@ -29,6 +30,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly IFocusService _focusService;
         private readonly IAdvertisingService _advertisingService;
         private readonly ILocalizationService _localizationService;
+        private readonly ITutorialService _tutorialService;
         private readonly ICurtainView _curtainView;
         private readonly ISignalControllersCollector _signalControllersCollector;
 
@@ -43,12 +45,14 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             IFocusService focusService,
             IAdvertisingService advertisingService,
             ILocalizationService localizationService,
+            ITutorialService tutorialService,
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
             _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _skyAndWeatherService = skyAndWeatherService ?? throw new ArgumentNullException(nameof(skyAndWeatherService));
             _achievementService = achievementService ?? throw new ArgumentNullException(nameof(achievementService));
+            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
@@ -77,6 +81,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
                 SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
             _skyAndWeatherService.Initialize();
             _gameOverService.Initialize();
+            _tutorialService.Initialize();
             // await _curtainView.HideAsync();
         }
 

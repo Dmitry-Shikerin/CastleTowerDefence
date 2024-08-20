@@ -5,6 +5,7 @@ using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
+using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
@@ -30,6 +31,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly IFocusService _focusService;
         private readonly IAdvertisingService _advertisingService;
         private readonly ILocalizationService _localizationService;
+        private readonly ITutorialService _tutorialService;
         private readonly ICurtainView _curtainView;
         private readonly ISignalControllersCollector _signalControllersCollector;
 
@@ -44,12 +46,14 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             IFocusService focusService,
             IAdvertisingService advertisingService,
             ILocalizationService localizationService,
+            ITutorialService tutorialService,
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
             _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _skyAndWeatherService = skyAndWeatherService ?? throw new ArgumentNullException(nameof(skyAndWeatherService));
             _achievementService = achievementService ?? throw new ArgumentNullException(nameof(achievementService));
+            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
@@ -76,6 +80,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
                 _focusService,
                 _advertisingService,
                 _localizationService,
+                _tutorialService,
                 _curtainView,
                 _signalControllersCollector);
 

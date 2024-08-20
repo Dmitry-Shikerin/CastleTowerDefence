@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Doozy.Runtime.Reactor.Animators;
 using Doozy.Runtime.UIManager.Components;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 
@@ -6,8 +7,9 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interface
 {
     public interface ICharacterSpawnAbilityView
     {
-        public IReadOnlyList<ICharacterSpawnPoint> MeleeSpawnPoints { get; }
-        public IReadOnlyList<ICharacterSpawnPoint> RangeSpawnPoints { get; }
+        UIAnimator HealAnimator { get; }
+        IReadOnlyList<ICharacterSpawnPoint> MeleeSpawnPoints { get; }
+        IReadOnlyList<ICharacterSpawnPoint> RangeSpawnPoints { get; }
     
     }
 }
