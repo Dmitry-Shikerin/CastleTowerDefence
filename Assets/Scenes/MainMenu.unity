@@ -1137,7 +1137,7 @@ RectTransform:
   m_Father: {fileID: 1696783851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22770,7 +22770,7 @@ GameObject:
   - component: {fileID: 678874813}
   - component: {fileID: 678874812}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Effect_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30146,8 +30146,8 @@ GameObject:
   - component: {fileID: 872628225}
   - component: {fileID: 872628223}
   - component: {fileID: 872628224}
-  - component: {fileID: 872628226}
   - component: {fileID: 872628227}
+  - component: {fileID: 872628228}
   m_Layer: 5
   m_Name: DailyReward_Button
   m_TagString: Untagged
@@ -30162,7 +30162,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872628221}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -30301,7 +30301,7 @@ MonoBehaviour:
     OnFinishCallback:
       m_PersistentCalls:
         m_Calls: []
-    AnimationType: 5
+    AnimationType: 4
     Move:
       Settings:
         PlayMode: 0
@@ -30355,12 +30355,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 11.282, y: 40.4837, z: 0}
-      ToValue: {x: 11.282, y: 40.4837, z: 0}
-      CurrentValue: {x: 11.282, y: 40.4837, z: 0}
+      FromValue: {x: 25.408, y: 14.4, z: 0}
+      ToValue: {x: 25.408, y: 14.4, z: 0}
+      CurrentValue: {x: 25.408, y: 14.4, z: 0}
       Enabled: 0
-      AnimationType: 5
-      StartPosition: {x: 11.282, y: 40.4837, z: 0}
+      AnimationType: 4
+      StartPosition: {x: 25.408, y: 14.4, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -30487,10 +30487,10 @@ MonoBehaviour:
         Elasticity: 1
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
-      ToValue: {x: 1, y: 1, z: 1}
-      CurrentValue: {x: 0.9534595, y: 0.9534595, z: 1}
+      ToValue: {x: 0.8, y: 0.8, z: 0.8}
+      CurrentValue: {x: 0.8000297, y: 0.8000297, z: 0.8000297}
       Enabled: 1
-      StartScale: {x: 0.9534595, y: 0.9534595, z: 1}
+      StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 2
       ToReferenceValue: 2
       FromCustomValue: {x: 1, y: 1, z: 1}
@@ -30625,12 +30625,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 11.282, y: 40.4837, z: 0}
-      ToValue: {x: 11.282, y: 40.4837, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: 25.408, y: 14.4, z: 0}
+      ToValue: {x: 25.408, y: 14.4, z: 0}
+      CurrentValue: {x: 25.408, y: 14.4, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: 11.282, y: 40.4837, z: 0}
+      StartPosition: {x: 25.408, y: 14.4, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -30694,7 +30694,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 0, y: 0, z: 0}
       ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: -0, y: 0, z: 0}
       Enabled: 0
       StartRotation: {x: -0, y: 0, z: 0}
       FromReferenceValue: 1
@@ -30756,11 +30756,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 0.9534595, y: 0.9534595, z: 1}
-      ToValue: {x: 0.9534595, y: 0.9534595, z: 1}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: 1, y: 1, z: 1}
+      ToValue: {x: 1, y: 1, z: 1}
+      CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 1
-      StartScale: {x: 0.9534595, y: 0.9534595, z: 1}
+      StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 2
       ToReferenceValue: 2
       FromCustomValue: {x: 1, y: 1, z: 1}
@@ -30822,7 +30822,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: 1
       ToValue: 1
-      CurrentValue: 0
+      CurrentValue: 1
       Enabled: 0
       StartAlpha: 1
       FromReferenceValue: 1
@@ -30895,12 +30895,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 11.282, y: 40.4837, z: 0}
-      ToValue: {x: 11.282, y: 40.4837, z: 0}
-      CurrentValue: {x: -530, y: -84.746, z: 0}
+      FromValue: {x: 25.408, y: 14.4, z: 0}
+      ToValue: {x: 25.408, y: 14.4, z: 0}
+      CurrentValue: {x: 25.408, y: 14.4, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: 11.282, y: 40.4837, z: 0}
+      StartPosition: {x: 25.408, y: 14.4, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -31030,7 +31030,7 @@ MonoBehaviour:
       ToValue: {x: 0.8, y: 0.8, z: 0}
       CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 1
-      StartScale: {x: 0.9534595, y: 0.9534595, z: 1}
+      StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 2
       ToReferenceValue: 2
       FromCustomValue: {x: 1, y: 1, z: 1}
@@ -31165,12 +31165,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 11.282, y: 40.4837, z: 0}
-      ToValue: {x: 11.282, y: 40.4837, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: 25.408, y: 14.4, z: 0}
+      ToValue: {x: 25.408, y: 14.4, z: 0}
+      CurrentValue: {x: 25.408, y: 14.4, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: 11.282, y: 40.4837, z: 0}
+      StartPosition: {x: 25.408, y: 14.4, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -31234,7 +31234,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 0, y: 0, z: 0}
       ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: -0, y: 0, z: 0}
       Enabled: 0
       StartRotation: {x: -0, y: 0, z: 0}
       FromReferenceValue: 1
@@ -31296,11 +31296,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 0.9534595, y: 0.9534595, z: 1}
-      ToValue: {x: 0.9534595, y: 0.9534595, z: 1}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: 1, y: 1, z: 1}
+      ToValue: {x: 1, y: 1, z: 1}
+      CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 0
-      StartScale: {x: 0.9534595, y: 0.9534595, z: 1}
+      StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 1, y: 1, z: 1}
@@ -31362,7 +31362,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: 1
       ToValue: 1
-      CurrentValue: 0
+      CurrentValue: 1
       Enabled: 0
       StartAlpha: 1
       FromReferenceValue: 1
@@ -31435,12 +31435,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 11.282, y: 40.4837, z: 0}
-      ToValue: {x: 11.282, y: 40.4837, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: 25.408, y: 14.4, z: 0}
+      ToValue: {x: 25.408, y: 14.4, z: 0}
+      CurrentValue: {x: 25.408, y: 14.4, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: 11.282, y: 40.4837, z: 0}
+      StartPosition: {x: 25.408, y: 14.4, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -31504,7 +31504,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 0, y: 0, z: 0}
       ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: -0, y: 0, z: 0}
       Enabled: 0
       StartRotation: {x: -0, y: 0, z: 0}
       FromReferenceValue: 1
@@ -31566,11 +31566,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 0.9534595, y: 0.9534595, z: 1}
-      ToValue: {x: 0.9534595, y: 0.9534595, z: 1}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: 1, y: 1, z: 1}
+      ToValue: {x: 1, y: 1, z: 1}
+      CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 1
-      StartScale: {x: 0.9534595, y: 0.9534595, z: 1}
+      StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 2
       ToReferenceValue: 2
       FromCustomValue: {x: 1, y: 1, z: 1}
@@ -31632,7 +31632,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: 1
       ToValue: 1
-      CurrentValue: 0
+      CurrentValue: 1
       Enabled: 0
       StartAlpha: 1
       FromReferenceValue: 1
@@ -31653,21 +31653,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &872628226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872628221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e804103e8d4989a760178ddd2df799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _labele: <size=18><b><color=#FFD700><i>UiButtonAudioService</i></color></b></size>
-  _onClickAudioClip: 2
-  _button: {fileID: 872628223}
 --- !u!114 &872628227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31685,6 +31670,25 @@ MonoBehaviour:
   _onClickCommandId: 0d000000
   _enableCommandId: 
   _disableCommandId: 
+--- !u!114 &872628228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872628221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2074f46c2d4ecab9faae3397594058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 872628223}
+  _soundyData:
+    SoundSource: 0
+    DatabaseName: Sounds
+    SoundName: Click
+    AudioClip: {fileID: 0}
+    OutputAudioMixerGroup: {fileID: 0}
 --- !u!1 &884613421
 GameObject:
   m_ObjectHideFlags: 0
@@ -40012,7 +40016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1227414936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46526,7 +46530,7 @@ RectTransform:
   m_Father: {fileID: 1383691318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -49323,7 +49327,7 @@ RectTransform:
   m_Father: {fileID: 677544057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -60191,7 +60195,7 @@ GameObject:
   - component: {fileID: 6981484807463541475}
   - component: {fileID: 6981484807463541485}
   - component: {fileID: 6981484807463541487}
-  - component: {fileID: 6981484807463541486}
+  - component: {fileID: 6981484807463541488}
   m_Layer: 5
   m_Name: RewardVideo_Button
   m_TagString: Untagged
@@ -61675,21 +61679,6 @@ MonoBehaviour:
       ToCustomValue: 1
       FromOffset: 0
       ToOffset: 0
---- !u!114 &6981484807463541486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6981484807463541473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e804103e8d4989a760178ddd2df799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _labele: <size=18><b><color=#FFD700><i>UiButtonAudioService</i></color></b></size>
-  _onClickAudioClip: 1
-  _button: {fileID: 6981484807463541475}
 --- !u!114 &6981484807463541487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61707,6 +61696,25 @@ MonoBehaviour:
   _onClickCommandId: 08000000
   _enableCommandId: 
   _disableCommandId: 
+--- !u!114 &6981484807463541488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981484807463541473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2074f46c2d4ecab9faae3397594058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 6981484807463541475}
+  _soundyData:
+    SoundSource: 0
+    DatabaseName: Sounds
+    SoundName: Click
+    AudioClip: {fileID: 0}
+    OutputAudioMixerGroup: {fileID: 0}
 --- !u!114 &7340733733001335752
 MonoBehaviour:
   m_ObjectHideFlags: 0

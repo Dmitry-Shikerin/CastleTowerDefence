@@ -108,8 +108,8 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             
             _view.LockImage.HideImage();
             _view.Button.interactable = true;
-            _view.Button.SetState(UISelectionState.Normal);
             _view.TimerView.alpha = 0;
+            _view.Button.SetState(UISelectionState.Normal);
         }
     }
 }
