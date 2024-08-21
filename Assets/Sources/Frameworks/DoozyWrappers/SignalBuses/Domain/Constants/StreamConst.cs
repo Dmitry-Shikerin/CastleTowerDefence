@@ -13,5 +13,8 @@
         public const string GameOver = "GameOver";
         public const string ReceivedAchievement = "ReceivedAchievement";
         public const string ShowTutorial = "ShowTutorial";
+        public const string ShowBossEnemyTutorial = "ShowBossEnemyTutorial";
+        public const string ShowKamikazeEnemyTutorial = "ShowKamikazeEnemyTutorial";
+        public const string ShowSimpleEnemyTutorial = "ShowSimpleEnemyTutorial";
     }
 }

@@ -63,7 +63,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _signalControllersCollector.Initialize();
             _soundyService.Initialize();
             _soundyService.PlaySequence("BackgroundMusic", "MainMenu");
-            // await _curtainView.HideAsync();
+            await _curtainView.HideAsync();
             await GameReady((IScenePayload)payload);
         }
 

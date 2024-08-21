@@ -34,15 +34,18 @@ namespace Doozy.Runtime.UIManager
             AchievementFrame,
             Achievements,
             Background,
+            BossEnemyTutorial,
             Damage,
             EnemySpawnerTutorial,
             GameOver,
             Hud,
+            KamikazeEnemyTutorial,
             LevelCompleted,
             Pause,
             Quit,
             ScoreTutorial,
             Settings,
+            SimpleEnemyTutorial,
             Tutorial,
             UpgradesTutorial
         }

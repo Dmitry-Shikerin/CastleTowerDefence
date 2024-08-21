@@ -21,6 +21,12 @@ MonoBehaviour:
     - Category: Gameplay
       Name: ReceivedAchievement
     - Category: Gameplay
+      Name: ShowBossEnemyTutorial
+    - Category: Gameplay
+      Name: ShowKamikazeEnemyTutorial
+    - Category: Gameplay
+      Name: ShowSimpleEnemyTutorial
+    - Category: Gameplay
       Name: ShowTutorial
     - Category: MainMenu
       Name: DailyReward

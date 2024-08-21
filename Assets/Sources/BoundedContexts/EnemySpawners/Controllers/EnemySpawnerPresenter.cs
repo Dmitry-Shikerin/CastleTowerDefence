@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Doozy.Runtime.Signals;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Implementation;
@@ -12,6 +14,8 @@ using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
+using Sources.BoundedContexts.Tutorials.Services.Interfaces;
+using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using Sources.Utils.Extentions;
@@ -27,7 +31,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         private readonly IEnemySpawnerView _view;
         private readonly EnemyViewFactory _enemyViewFactory;
         private readonly EnemyKamikazeViewFactory _enemyKamikazeViewFactory;
-
+        private readonly ITutorialService _tutorialService;
         private readonly EnemyBossViewFactory _enemyBossViewFactory;
 
         private CancellationTokenSource _cancellationTokenSource;
@@ -37,15 +41,18 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             IEnemySpawnerView enemySpawnerView,
             EnemyViewFactory enemyViewFactory,
             EnemyKamikazeViewFactory enemyKamikazeViewFactory,
-            EnemyBossViewFactory enemyBossViewFactory)
+            EnemyBossViewFactory enemyBossViewFactory,
+            ITutorialService tutorialService)
         {
             _enemySpawner = entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner);
             _killEnemyCounter = entityRepository.Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
             _view = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
-            _enemyKamikazeViewFactory = enemyKamikazeViewFactory ?? throw new ArgumentNullException(nameof(enemyKamikazeViewFactory));
+            _enemyKamikazeViewFactory = enemyKamikazeViewFactory ??
+                                        throw new ArgumentNullException(nameof(enemyKamikazeViewFactory));
             _enemyBossViewFactory = enemyBossViewFactory ??
                                     throw new ArgumentNullException(nameof(enemyBossViewFactory));
+            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
 
             foreach (IEnemySpawnPoint spawnPoint in _view.SpawnPoints)
             {

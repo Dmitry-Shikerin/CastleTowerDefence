@@ -23,6 +23,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: Background
     - Category: Gameplay
+      Name: BossEnemyTutorial
+    - Category: Gameplay
       Name: Damage
     - Category: Gameplay
       Name: EnemySpawnerTutorial
@@ -30,6 +32,8 @@ MonoBehaviour:
       Name: GameOver
     - Category: Gameplay
       Name: Hud
+    - Category: Gameplay
+      Name: KamikazeEnemyTutorial
     - Category: Gameplay
       Name: LevelCompleted
     - Category: Gameplay
@@ -40,6 +44,8 @@ MonoBehaviour:
       Name: ScoreTutorial
     - Category: Gameplay
       Name: Settings
+    - Category: Gameplay
+      Name: SimpleEnemyTutorial
     - Category: Gameplay
       Name: Tutorial
     - Category: Gameplay

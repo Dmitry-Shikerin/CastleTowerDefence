@@ -82,8 +82,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
                 SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
             _skyAndWeatherService.Initialize();
             _gameOverService.Initialize();
+            await _curtainView.HideAsync();
             _tutorialService.Initialize();
-            // await _curtainView.HideAsync();
         }
 
         public void Exit()
