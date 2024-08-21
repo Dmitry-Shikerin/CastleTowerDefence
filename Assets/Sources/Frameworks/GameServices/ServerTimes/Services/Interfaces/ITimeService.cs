@@ -2,8 +2,8 @@
 
 namespace Sources.Frameworks.GameServices.ServerTimes.Services
 {
-    public interface IServerTimeService
+    public interface ITimeService
     {
-        public DateTime GetNetworkTime();
+        public DateTime GetTime();
     }
 }

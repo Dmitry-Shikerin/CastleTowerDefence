@@ -86,30 +86,7 @@ MonoBehaviour:
     Weight: 1
     IsPlaying: 0
   IsPlaying: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b400ee936d64d0e93e3892c7c321e09, type: 3}
-  m_Name: SoundDatabase_BackgroundMusic
-  m_EditorClassIdentifier: 
-  DatabaseName: BackgroundMusic
-  OutputAudioMixerGroup: {fileID: 0}
-  SoundNames:
-  - No Sound
-  - Gameplay
-  - MainMenu
-  - No Sound
-  Database:
-  - {fileID: 4350365310841810632}
-  - {fileID: -1116535824625035310}
-  - {fileID: -8874988620019500336}
---- !u!114 &4350365310841810632
+--- !u!114 &-957268726710076099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +109,39 @@ MonoBehaviour:
     MaxValue: 0
   SpatialBlend: 0
   Loop: 0
-  Mode: 1
+  Mode: 0
   ResetSequenceAfterInactiveTime: 0
   SequenceResetTime: 5
-  Sounds: []
+  Sounds:
+  - AudioClip: {fileID: 8300000, guid: 08a78d26d7a81df4aad95ff61eb80dad, type: 3}
+    Weight: 1
+    IsPlaying: 0
+  - AudioClip: {fileID: 8300000, guid: 0c61c20e65bd4c64093f29ca0f293bed, type: 3}
+    Weight: 1
+    IsPlaying: 0
+  - AudioClip: {fileID: 8300000, guid: 5f83cc59a45f12648be569746d5ea88c, type: 3}
+    Weight: 1
+    IsPlaying: 0
   IsPlaying: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b400ee936d64d0e93e3892c7c321e09, type: 3}
+  m_Name: SoundDatabase_BackgroundMusic
+  m_EditorClassIdentifier: 
+  DatabaseName: BackgroundMusic
+  OutputAudioMixerGroup: {fileID: 0}
+  SoundNames:
+  - No Sound
+  - Gameplay
+  - No Sound
+  Database:
+  - {fileID: -1116535824625035310}
+  - {fileID: -8874988620019500336}
+  - {fileID: -957268726710076099}
