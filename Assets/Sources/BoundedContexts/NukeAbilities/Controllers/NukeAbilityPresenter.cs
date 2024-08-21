@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
@@ -24,6 +25,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
         private readonly NukeAbility _nukeAbility;
         private readonly INukeAbilityView _nukeAbilityView;
         private readonly IOverlapService _overlapService;
+        private readonly ISoundyService _soundyService;
         private readonly ICameraService _cameraService;
 
         private CancellationTokenSource _cancellationTokenSource;
@@ -32,6 +34,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
             IEntityRepository entityRepository, 
             INukeAbilityView nukeAbilityView,
             IOverlapService overlapService,
+            ISoundyService soundyService,
             ICameraService cameraService)
         {
             if (entityRepository == null) 
@@ -40,6 +43,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
             _nukeAbility = entityRepository.Get<NukeAbility>(ModelId.NukeAbility);
             _nukeAbilityView = nukeAbilityView ?? throw new ArgumentNullException(nameof(nukeAbilityView));
             _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
+            _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         }
 
@@ -69,6 +73,7 @@ namespace Sources.BoundedContexts.NukeAbilities.Controllers
             {
                 _nukeAbilityView.BombView.SetPosition(_nukeAbilityView.BombView.FromPosition);
                 _nukeAbilityView.BombView.Show();
+                _soundyService.Play("Sounds", "Nuke");
                 
                 while (Vector3.Distance(_nukeAbilityView.BombView.Position, _nukeAbilityView.BombView.ToPosition) >
                        MathConst.Epsilon)

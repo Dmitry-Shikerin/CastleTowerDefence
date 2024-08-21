@@ -28,6 +28,37 @@ MonoBehaviour:
   SequenceResetTime: 5
   Sounds: []
   IsPlaying: 0
+--- !u!114 &-7397226857142560686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6c631d933489d4ca7328a2a5983e10, type: 3}
+  m_Name: Nuke
+  m_EditorClassIdentifier: 
+  DatabaseName: Sounds
+  SoundName: Nuke
+  IgnoreListenerPause: 1
+  Volume:
+    MinValue: 0
+    MaxValue: 0
+  Pitch:
+    MinValue: 0
+    MaxValue: 0
+  SpatialBlend: 0
+  Loop: 0
+  Mode: 0
+  ResetSequenceAfterInactiveTime: 0
+  SequenceResetTime: 5
+  Sounds:
+  - AudioClip: {fileID: 8300000, guid: a3948c42a4da99b4cb64a7581ce60213, type: 3}
+    Weight: 1
+    IsPlaying: 0
+  IsPlaying: 0
 --- !u!114 &-1792238423782617974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,9 +137,44 @@ MonoBehaviour:
   OutputAudioMixerGroup: {fileID: 0}
   SoundNames:
   - No Sound
+  - Bunker
   - Click
+  - Flamethrower
   - No Sound
   Database:
   - {fileID: -1792238423782617974}
   - {fileID: -8623361904322625226}
   - {fileID: -256546740430324994}
+  - {fileID: 709446125093106844}
+  - {fileID: -7397226857142560686}
+--- !u!114 &709446125093106844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6c631d933489d4ca7328a2a5983e10, type: 3}
+  m_Name: Flamethrower
+  m_EditorClassIdentifier: 
+  DatabaseName: Sounds
+  SoundName: Flamethrower
+  IgnoreListenerPause: 1
+  Volume:
+    MinValue: 0
+    MaxValue: 0
+  Pitch:
+    MinValue: 0
+    MaxValue: 0
+  SpatialBlend: 0
+  Loop: 0
+  Mode: 0
+  ResetSequenceAfterInactiveTime: 0
+  SequenceResetTime: 5
+  Sounds:
+  - AudioClip: {fileID: 8300000, guid: 00943b067a9a4a54285ad8c572e4649e, type: 3}
+    Weight: 1
+    IsPlaying: 0
+  IsPlaying: 0

@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation;
@@ -16,18 +17,21 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
     public class FlamethrowerAbilityPresenter : PresenterBase
     {
         private readonly FlamethrowerAbility _flamethrowerAbility;
+        private readonly ISoundyService _soundyService;
         private readonly IFlamethrowerAbilityView _view;
 
         private CancellationTokenSource _cancellationTokenSource;
 
         public FlamethrowerAbilityPresenter(
-            IEntityRepository entityRepository, 
+            IEntityRepository entityRepository,
+            ISoundyService soundyService,
             IFlamethrowerAbilityView view)
         {
             if (entityRepository == null) 
                 throw new ArgumentNullException(nameof(entityRepository));
 
             _flamethrowerAbility = entityRepository.Get<FlamethrowerAbility>(ModelId.FlamethrowerAbility);
+            _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
@@ -55,6 +59,7 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
                 view.SetPosition(from);
                 view.Show();
                 _view.PlayParticle();
+                _soundyService.Play("Sounds", "Flamethrower");
                 await MoveAsync(to, token);
                 await MoveAsync(from, token);
                 _view.StopParticle();
