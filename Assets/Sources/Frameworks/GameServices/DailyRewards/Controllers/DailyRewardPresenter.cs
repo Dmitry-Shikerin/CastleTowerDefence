@@ -93,7 +93,6 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             
             Debug.Log($"4daily reward {_dailyReward.IsAvailable}");
             _view.Animator.Play();
-            _soundyService.Play("Sounds","DailyReward");
             _loadService.Save(ModelId.DailyReward);
         }
 
