@@ -1137,7 +1137,7 @@ RectTransform:
   m_Father: {fileID: 1696783851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -28645,13 +28645,13 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 0.995283, g: 0.985849, b: 0.985849, a: 0.5}
-      ToValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
+      FromValue: {r: 1, g: 1, b: 1, a: 1}
+      ToValue: {r: 1, g: 1, b: 1, a: 1}
       CurrentValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
-      Enabled: 1
+      Enabled: 0
       StartColor: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
-      FromReferenceValue: 1
-      ToReferenceValue: 0
+      FromReferenceValue: 2
+      ToReferenceValue: 2
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
       ToCustomValue: {r: 1, g: 1, b: 1, a: 1}
       FromHueOffset: 0
@@ -28730,7 +28730,7 @@ MonoBehaviour:
       FromValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
       ToValue: {r: 1, g: 1, b: 1, a: 1}
       CurrentValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
-      Enabled: 1
+      Enabled: 0
       StartColor: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
       FromReferenceValue: 1
       ToReferenceValue: 0
@@ -28809,10 +28809,10 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 1}
+      FromValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
       ToValue: {r: 1, g: 0.781132, b: 0.781132, a: 1}
       CurrentValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
-      Enabled: 1
+      Enabled: 0
       StartColor: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
       FromReferenceValue: 1
       ToReferenceValue: 0
@@ -28891,10 +28891,10 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 0.781132, b: 0.781132, a: 1}
+      FromValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
       ToValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
       CurrentValue: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
-      Enabled: 1
+      Enabled: 0
       StartColor: {r: 1, g: 0.9811321, b: 0.9811321, a: 1}
       FromReferenceValue: 1
       ToReferenceValue: 0
@@ -30488,7 +30488,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 0.8, y: 0.8, z: 0.8}
-      CurrentValue: {x: 0.8000297, y: 0.8000297, z: 0.8000297}
+      CurrentValue: {x: 0.8219498, y: 0.8219498, z: 0.8219498}
       Enabled: 1
       StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 2
@@ -46530,7 +46530,7 @@ RectTransform:
   m_Father: {fileID: 1383691318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -49327,7 +49327,7 @@ RectTransform:
   m_Father: {fileID: 677544057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
