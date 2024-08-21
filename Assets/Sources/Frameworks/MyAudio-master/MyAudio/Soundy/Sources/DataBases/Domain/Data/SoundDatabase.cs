@@ -197,8 +197,10 @@ namespace MyAudios.Soundy.Sources.DataBases.Domain.Data
                 {
                     if (data != null)
                     {
+#if UNITY_EDITOR
                         AssetDatabase.RemoveObjectFromAsset(data);
                         DestroyImmediate(data, true);
+#endif
                     }
 
                     Database.RemoveAt(i);
