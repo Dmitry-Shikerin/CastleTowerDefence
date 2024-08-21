@@ -20,9 +20,13 @@ namespace MyAudios.Soundy.Sources.Settings.Domain.Configs
             {
                 if (s_instance != null)
                     return s_instance;
-                
+#if UNITY_EDITOR
                 s_instance = AssetDatabase.LoadAssetAtPath<SoundySettings>(
                     "Assets/Resources/Soundy/Settings/SoundySettings.asset");
+#else
+                s_instance = Resources.Load<SoundySettings>(
+                    "Assets/Resources/Soundy/Settings/SoundySettings.asset");
+#endif          
                 
                 if (s_instance != null)
                     return s_instance;

@@ -66,9 +66,10 @@ namespace MyAudios.MyUiFramework.Utils
             if (string.IsNullOrEmpty(fileName))
                 return null;
 
-            T asset = AssetDatabase.LoadAssetAtPath<T>($"{resourcesPath}/{fileName}");
-            Debug.Log($"{resourcesPath}/{fileName}");
-
+            // T asset = AssetDatabase.LoadAssetAtPath<T>($"{resourcesPath}/{fileName}");
+            T asset = (T)Resources.Load($"{resourcesPath}/{fileName}", typeof(T));
+            
+#if UNITY_EDITOR
             if (asset == null)
             {
                 asset = ScriptableObject.CreateInstance<T>();
@@ -77,6 +78,7 @@ namespace MyAudios.MyUiFramework.Utils
             
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+#endif
             
             return asset;
         }
