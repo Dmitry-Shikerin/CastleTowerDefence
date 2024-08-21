@@ -4,6 +4,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Doozy.Runtime.UIManager;
 using JetBrains.Annotations;
+using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.DailyRewards.Presentation;
@@ -84,19 +85,22 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
 
         private void OnClick()
         {
-            _view.Animator.Play();
+            Debug.Log($"3daily reward {_dailyReward.IsAvailable}");
             ActivateButton();
             
             if (_dailyReward.TrySetTargetRewardTime() == false)
                 return;
             
+            Debug.Log($"4daily reward {_dailyReward.IsAvailable}");
             _view.Animator.Play();
+            _soundyService.Play("Sounds","DailyReward");
             _loadService.Save(ModelId.DailyReward);
         }
 
         private void ActivateButton()
         {
-            if (_dailyReward.TrySetTargetRewardTime() == false)
+            Debug.Log($"1daily reward {_dailyReward.IsAvailable}");
+            if (_dailyReward.IsAvailable == false)
             {
                 _view.LockImage.ShowImage();
                 _view.Button.interactable = false;
@@ -110,6 +114,8 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             _view.Button.interactable = true;
             _view.TimerView.alpha = 0;
             _view.Button.SetState(UISelectionState.Normal);
+            
+            Debug.Log($"2daily reward {_dailyReward.IsAvailable}");
         }
     }
 }

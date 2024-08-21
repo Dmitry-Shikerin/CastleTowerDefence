@@ -59,6 +59,37 @@ MonoBehaviour:
     Weight: 1
     IsPlaying: 0
   IsPlaying: 0
+--- !u!114 &-3511334419600876646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6c631d933489d4ca7328a2a5983e10, type: 3}
+  m_Name: DailyReward
+  m_EditorClassIdentifier: 
+  DatabaseName: Sounds
+  SoundName: DailyReward
+  IgnoreListenerPause: 1
+  Volume:
+    MinValue: 0
+    MaxValue: 0
+  Pitch:
+    MinValue: 0
+    MaxValue: 0
+  SpatialBlend: 0
+  Loop: 0
+  Mode: 0
+  ResetSequenceAfterInactiveTime: 0
+  SequenceResetTime: 5
+  Sounds:
+  - AudioClip: {fileID: 8300000, guid: 3283e2706c86cfd42bb13373a1bd8e76, type: 3}
+    Weight: 1
+    IsPlaying: 0
+  IsPlaying: 0
 --- !u!114 &-1792238423782617974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +178,7 @@ MonoBehaviour:
   - {fileID: -256546740430324994}
   - {fileID: 709446125093106844}
   - {fileID: -7397226857142560686}
+  - {fileID: -3511334419600876646}
 --- !u!114 &709446125093106844
 MonoBehaviour:
   m_ObjectHideFlags: 0
