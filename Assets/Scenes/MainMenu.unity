@@ -1251,7 +1251,7 @@ MonoBehaviour:
   TargetProgressor: {fileID: 0}
   InstantProgressorUpdate: 1
   ResetValueOnEnable: 1
-  ValuePrecision: 2
+  ValuePrecision: 1
   DragEnabled: 0
   DragHandle: {fileID: 0}
   DragDirection: 0
@@ -30488,7 +30488,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 0.8, y: 0.8, z: 0.8}
-      CurrentValue: {x: 0.8219498, y: 0.8219498, z: 0.8219498}
+      CurrentValue: {x: 0.9187295, y: 0.9187295, z: 0.9187295}
       Enabled: 1
       StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 2
@@ -46644,7 +46644,7 @@ MonoBehaviour:
   TargetProgressor: {fileID: 0}
   InstantProgressorUpdate: 1
   ResetValueOnEnable: 1
-  ValuePrecision: 2
+  ValuePrecision: 1
   DragEnabled: 0
   DragHandle: {fileID: 0}
   DragDirection: 0
