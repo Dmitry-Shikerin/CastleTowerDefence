@@ -10,10 +10,12 @@ using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using Sources.Utils.Extentions;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Sources.BoundedContexts.EnemySpawners.Controllers
@@ -21,6 +23,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
     public class EnemySpawnerPresenter : PresenterBase
     {
         private readonly EnemySpawner _enemySpawner;
+        private readonly KillEnemyCounter _killEnemyCounter;
         private readonly IEnemySpawnerView _view;
         private readonly EnemyViewFactory _enemyViewFactory;
         private readonly EnemyKamikazeViewFactory _enemyKamikazeViewFactory;
@@ -37,6 +40,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             EnemyBossViewFactory enemyBossViewFactory)
         {
             _enemySpawner = entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner);
+            _killEnemyCounter = entityRepository.Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
             _view = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
             _enemyKamikazeViewFactory = enemyKamikazeViewFactory ?? throw new ArgumentNullException(nameof(enemyKamikazeViewFactory));
@@ -63,11 +67,21 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _cancellationTokenSource = new CancellationTokenSource();
             Spawn(_cancellationTokenSource.Token);
+            _killEnemyCounter.KillZombiesCountChanged += OnKillZombiesCountChanged;
         }
 
         public override void Disable()
         {
+            _killEnemyCounter.KillZombiesCountChanged -= OnKillZombiesCountChanged;
             _cancellationTokenSource.Cancel();
+        }
+
+        private void OnKillZombiesCountChanged()
+        {
+            if (_killEnemyCounter.KillZombies < _enemySpawner.GetSumEnemiesInWave(_enemySpawner.KilledWaves))
+                return;
+
+            _enemySpawner.KilledWaves++;
         }
 
         private async void Spawn(CancellationToken cancellationToken)

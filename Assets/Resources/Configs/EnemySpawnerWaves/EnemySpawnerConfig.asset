@@ -56,10 +56,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 8
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 4
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 2
 --- !u!114 &-6286932152814063673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,8 +76,8 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 11
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 6
   _bossesCount: 0
   _kamikazeEnemyCount: 0
 --- !u!114 &-5298965352021156579
@@ -96,10 +96,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 9
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
-  _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 4
+  _bossesCount: 1
+  _kamikazeEnemyCount: 1
 --- !u!114 &-5298096508376789568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,10 +116,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 10
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
-  _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 6
+  _bossesCount: 2
+  _kamikazeEnemyCount: 1
 --- !u!114 &-3497566403805953450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,10 +136,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 13
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
-  _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 6
+  _bossesCount: 1
+  _kamikazeEnemyCount: 1
 --- !u!114 &-1109636579973074604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,9 +156,9 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 6
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
-  _bossesCount: 0
+  _spawnDelay: 2
+  _enemyCount: 4
+  _bossesCount: 1
   _kamikazeEnemyCount: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -218,9 +218,9 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 12
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
-  _bossesCount: 0
+  _spawnDelay: 2
+  _enemyCount: 3
+  _bossesCount: 2
   _kamikazeEnemyCount: 0
 --- !u!114 &1743868595315663900
 MonoBehaviour:
