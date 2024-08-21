@@ -16,7 +16,12 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewComman
 
         public FormCommandId Id => FormCommandId.UnPause;
         
-        public void Handle() =>
+        public void Handle()
+        {
+            if (_pauseService.IsPaused == false)
+                return;
+            
             _pauseService.Continue();
+        }
     }
 }

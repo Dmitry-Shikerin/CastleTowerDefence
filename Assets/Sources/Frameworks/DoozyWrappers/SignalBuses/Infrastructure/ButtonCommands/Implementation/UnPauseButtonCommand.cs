@@ -16,7 +16,12 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
 
         public ButtonCommandId Id => ButtonCommandId.UnPause;
 
-        public void Handle() =>
+        public void Handle()
+        {
+            if (_pauseService.IsPaused == false)
+                return;
+            
             _pauseService.Continue();
+        }
     }
 }
