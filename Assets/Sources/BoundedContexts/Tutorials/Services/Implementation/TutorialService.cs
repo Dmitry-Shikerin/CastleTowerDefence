@@ -4,40 +4,31 @@ using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
-using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Tutorials.Services.Implementation
 {
     public class TutorialService : ITutorialService
     {
         private readonly ILoadService _loadService;
-        private readonly IPauseService _pauseService;
         
         private Tutorial _tutorial;
         private SignalStream _stream;
+        private bool _simpleEnemyTutorialShowed;
+        private bool _kamikazeEnemyTutorialShowed;
+        private bool _bossEnemyTutorialShowed;
 
-        public TutorialService(ILoadService loadService, IPauseService pauseService)
+        public TutorialService(ILoadService loadService)
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            _pauseService = pauseService ?? throw new ArgumentNullException(nameof(pauseService));
         }
 
         public void Initialize()
         {
-            _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ShowTutorial);
-            
             if (_tutorial.HasCompleted)
                 return;
             
+            _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ShowTutorial);
             _stream.SendSignal(true);
-            _pauseService.Pause();
-
-            // if (_savedLevel.SavedLevelId != ModelId.Gameplay)
-            //     return;
-            //
-            // _formService.Show(FormId.GreetingTutorial);
         }
 
         public void Construct(Tutorial tutorial)
@@ -49,6 +40,37 @@ namespace Sources.BoundedContexts.Tutorials.Services.Implementation
         {
             _tutorial.HasCompleted = true;
             _loadService.Save(_tutorial);
+        }
+
+        public void ShowSimpleEnemyTutorial()
+        {
+            if (_simpleEnemyTutorialShowed)
+                return;
+            
+            _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ShowSimpleEnemyTutorial);
+            _stream.SendSignal(true);
+            _simpleEnemyTutorialShowed = true;
+        }
+
+        public void ShowKamikazeEnemyTutorial()
+        {
+            if (_kamikazeEnemyTutorialShowed)
+                return;
+            
+            _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ShowKamikazeEnemyTutorial);
+            _stream.SendSignal(true);
+            _kamikazeEnemyTutorialShowed = true;
+        }
+
+        public void ShowBossEnemyTutorial()
+        {
+            if ( _bossEnemyTutorialShowed)
+                return;
+            
+            _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.ShowBossEnemyTutorial);
+            _stream.SendSignal(true);
+
+            _bossEnemyTutorialShowed = true;
         }
     }
 }
