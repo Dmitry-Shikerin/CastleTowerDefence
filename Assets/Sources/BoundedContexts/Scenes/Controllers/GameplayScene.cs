@@ -1,6 +1,8 @@
 ﻿using System;
+using JetBrains.Annotations;
 using MyAudios.MyUiFramework.Utils.Soundies.Domain.Constant;
 using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
+using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
@@ -20,6 +22,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
+        private readonly AdvertisingAfterWaveService _advertisingAfterWaveService;
         private readonly ICompositeAssetService _compositeAssetService;
         private readonly ISkyAndWeatherService _skyAndWeatherService;
         private readonly IAchievementService _achievementService;
@@ -35,6 +38,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplayScene(
+            AdvertisingAfterWaveService advertisingAfterWaveService,
             ICompositeAssetService compositeAssetService,
             ISkyAndWeatherService skyAndWeatherService,
             IAchievementService achievementService,
@@ -49,6 +53,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _advertisingAfterWaveService = advertisingAfterWaveService ?? throw new ArgumentNullException(nameof(advertisingAfterWaveService));
             _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _skyAndWeatherService = skyAndWeatherService ?? throw new ArgumentNullException(nameof(skyAndWeatherService));
             _achievementService = achievementService ?? throw new ArgumentNullException(nameof(achievementService));
@@ -80,6 +85,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _soundyService.Initialize();
             _soundyService.PlaySequence(
                 SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
+            _advertisingAfterWaveService.Initialize();
             _skyAndWeatherService.Initialize();
             _gameOverService.Initialize();
             _tutorialService.Initialize();
@@ -95,6 +101,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _skyAndWeatherService.Destroy();
             _achievementService.Destroy();
             _gameOverService.Destroy();
+            _advertisingAfterWaveService.Destroy();
             _compositeAssetService.Release();
         }
 
