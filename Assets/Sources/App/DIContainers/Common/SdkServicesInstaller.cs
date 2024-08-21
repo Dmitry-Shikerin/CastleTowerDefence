@@ -27,7 +27,9 @@ namespace Sources.App.DIContainers.Common
             Container.BindInterfacesTo<AdvertisingService>().AsSingle();
             Container.Bind<LeaderBoardElementViewFactory>().AsSingle();
             Container.Bind<LeaderBoardElementPresenterFactory>().AsSingle();
-            Container.Bind<IServerTimeService>().To<ServerTimeService>().AsSingle();
+            //Todo раскоментировать после релиза
+            // Container.Bind<ITimeService>().To<NetworkTimeService>().AsSingle();
+            Container.Bind<ITimeService>().To<DayTimeService>().AsSingle();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
     public class DailyRewardPresenter : PresenterBase
     {
         private readonly DailyRewardView _view;
-        private readonly IServerTimeService _serverTimeService;
+        private readonly ITimeService _timeService;
         private readonly ILoadService _loadService;
         private readonly DailyReward _dailyReward;
         
@@ -27,11 +27,11 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         public DailyRewardPresenter(
             IEntityRepository entityRepository, 
             DailyRewardView view,
-            IServerTimeService serverTimeService,
+            ITimeService timeService,
             ILoadService loadService)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
-            _serverTimeService = serverTimeService ?? throw new ArgumentNullException(nameof(serverTimeService));
+            _timeService = timeService ?? throw new ArgumentNullException(nameof(timeService));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _dailyReward = entityRepository.Get<DailyReward>(ModelId.DailyReward);
         }
@@ -54,7 +54,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             try
             {
                 _tokenSource = new CancellationTokenSource();
-                _dailyReward.ServerTime = _serverTimeService.GetNetworkTime();
+                _dailyReward.ServerTime = _timeService.GetTime();
                 await UniTask.Delay(
                     _dailyReward.Delay, 
                     cancellationToken: _tokenSource.Token, 

@@ -4,9 +4,9 @@ using System.Net.Sockets;
 
 namespace Sources.Frameworks.GameServices.ServerTimes.Services
 {
-    public class ServerTimeService : IServerTimeService
+    public class NetworkTimeService : ITimeService
     {
-        public DateTime GetNetworkTime()
+        public DateTime GetTime()
         {
             const string ntpServer = "pool.ntp.org";
             // NTP message size - 16 bytes of the digest (RFC 2030)
