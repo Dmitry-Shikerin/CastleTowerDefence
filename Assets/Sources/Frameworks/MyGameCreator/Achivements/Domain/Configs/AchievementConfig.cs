@@ -47,14 +47,24 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
         [HideLabel]
         [HorizontalGroup("Split/Right/TitleId")]
         [Button(SdfIconType.Search)]
-        private void PingTitleId() =>
+        private void PingTitleId()
+        {
+#if UNITY_EDITOR
+            
             Selection.activeObject = LocalizationDataBase.Instance.GetPhrase(TitleId);
+#endif
+        }
 
         [HideLabel]
         [HorizontalGroup("Split/Right/DescriptionId")]
         [Button(SdfIconType.Search)]
-        private void PingDescriptionId() =>
+        private void PingDescriptionId()
+        {
+#if UNITY_EDITOR
+            
             Selection.activeObject = LocalizationDataBase.Instance.GetPhrase(DescriptionId);
+#endif
+        }
 
 #if UNITY_EDITOR
         [BoxGroup("Buttons")]

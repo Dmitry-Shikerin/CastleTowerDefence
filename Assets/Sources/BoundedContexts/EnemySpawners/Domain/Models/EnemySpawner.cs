@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 
@@ -10,6 +11,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
         private readonly EnemySpawnerConfig _enemySpawnerConfig;
         private int _currentWaveNumber;
         private int _spawnedAllEnemies;
+        private int _killedWaves;
 
         public EnemySpawner(EnemySpawnerConfig enemySpawnerConfig, string id)
         {
@@ -24,6 +26,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
 
         public event Action WaveChanged;
         public event Action SpawnedAllEnemiesChanged;
+        public event Action WaveKilled;
 
         public string Id { get; }
         public Type Type => GetType();
@@ -70,6 +73,16 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
             _enemySpawnerConfig.AddedBossHealth * 
             CurrentWaveNumber;
 
+        public int KilledWaves
+        {
+            get => _killedWaves;
+            set
+            {
+                _killedWaves = value;
+                WaveKilled?.Invoke();
+            }
+        }
+
         public int CurrentWaveNumber
         {
             get => _currentWaveNumber;
@@ -99,6 +112,16 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
             SpawnedKamikazeInCurrentWave = 0;
             SpawnedBossesInCurrentWave = 0;
             SpawnedEnemiesInCurrentWave = 0;
+        }
+        
+        public int GetSumEnemiesInWave(int waveNumber)
+        {
+            int sum = 0;
+            
+            for (int i = 0; i < waveNumber; i++)
+                sum += Waves[i].SumEnemies;
+            
+            return sum;
         }
     }
 }

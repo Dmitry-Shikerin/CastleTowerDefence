@@ -27,7 +27,10 @@ namespace Sources.Frameworks.GameServices.ConfigCollectors
 
         public List<T> Configs => _configs;
         public string Id => _id;
-        
+
+        private bool ValidateId() =>
+            _configs.Any(collector => collector.Id == _addedConfigId) == false;
+
         public void SetId(string id) =>
             _id = id;
 
@@ -43,12 +46,6 @@ namespace Sources.Frameworks.GameServices.ConfigCollectors
             Configs.Remove(config);
             AssetDatabase.SaveAssets();
         }
-
-        private bool ValidateId() =>
-            _configs.Any(collector => collector.Id == _addedConfigId) == false;
-        
-        private List<string> GetRemovedId() =>
-            _configs.Select(config => config.Id).ToList();
 
         [TabGroup("Create")]
         [PropertySpace(10)] 
@@ -79,5 +76,13 @@ namespace Sources.Frameworks.GameServices.ConfigCollectors
             AssetDatabase.SaveAssets();
         }
 #endif
+        private List<string> GetRemovedId()
+        {
+#if UNITY_EDITOR
+            return _configs.Select(config => config.Id).ToList();
+#else
+            return new List<string>();
+#endif
+        }
     }
 }
