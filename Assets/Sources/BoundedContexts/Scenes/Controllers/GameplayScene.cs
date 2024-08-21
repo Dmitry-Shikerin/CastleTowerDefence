@@ -74,10 +74,10 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             await _compositeAssetService.LoadAsync();
             _localizationService.Translate();
             _gameplaySceneViewFactory.Create((IScenePayload)payload);
-            _soundyService.Initialize();
             _advertisingService.Initialize();
             _achievementService.Initialize();
             _signalControllersCollector.Initialize();
+            _soundyService.Initialize();
             _soundyService.PlaySequence(
                 SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
             _skyAndWeatherService.Initialize();
