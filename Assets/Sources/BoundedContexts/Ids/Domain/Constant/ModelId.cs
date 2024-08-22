@@ -57,6 +57,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string FirstWaveCompletedAchievement = "FirstWaveCompletedAchievement";
         public const string ScullsDiggerAchievement = "ScullsDiggerAchievement";
         public const string MaxUpgradeAchievement = "MaxUpgradeAchievement";
+        public const string FirtyWaveCompletedAchievement = "FirtyWaveCompletedAchievement";
 
 
         public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
@@ -68,6 +69,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             FirstWaveCompletedAchievement,
             ScullsDiggerAchievement,
             MaxUpgradeAchievement,
+            FirtyWaveCompletedAchievement,
         };
 
         public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()
@@ -117,6 +119,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             [FirstWaveCompletedAchievement] = typeof(Achievement),
             [ScullsDiggerAchievement] = typeof(Achievement),
             [MaxUpgradeAchievement] = typeof(Achievement),
+            [FirtyWaveCompletedAchievement] = typeof(Achievement),
             [Tutorial] = typeof(Tutorial),
         };
     }
