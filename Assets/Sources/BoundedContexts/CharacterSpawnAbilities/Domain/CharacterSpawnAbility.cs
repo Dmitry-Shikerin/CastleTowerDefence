@@ -14,9 +14,13 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Domain
         public event Action AbilityApplied;
         public float Cooldown { get; } = 0.04f;
         public bool IsAvailable { get; set; } = true;
+        public bool IsApplied { get; private set; }
         
-        public void ApplyAbility() =>
+        public void ApplyAbility()
+        {
             AbilityApplied?.Invoke();
+            IsApplied = true;
+        }
 
         public string Id { get; }
         public Type Type => GetType();

@@ -1,6 +1,6 @@
 ﻿using System;
+using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Ids.Domain.Constant;
-using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
@@ -11,15 +11,15 @@ using Zenject;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation
 {
-    public class FirstKillEnemyAchievementCommand : AchievementCommandBase
+    public class FiftyWaveCompletedAchievementCommand : AchievementCommandBase
     {
         private readonly IEntityRepository _entityRepository;
         
-        private KillEnemyCounter _killEnemyCounter;
         private Achievement _achievement;
         private AchievementView _achievementView;
+        private EnemySpawner _enemySpawner;
 
-        public FirstKillEnemyAchievementCommand(
+        public FiftyWaveCompletedAchievementCommand(
             IEntityRepository entityRepository,
             IPrefabCollector prefabCollector,
             ILoadService loadService,
@@ -38,20 +38,21 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         public override void Initialize()
         {
             base.Initialize();
-            
-            _killEnemyCounter = _entityRepository
-                .Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
+
+            _enemySpawner = _entityRepository.
+                Get<EnemySpawner>(ModelId.EnemySpawner);
             _achievement = _entityRepository
-                .Get<Achievement>(ModelId.FirstEnemyKillAchievement);
-            _killEnemyCounter.KillZombiesCountChanged += OnCompleted;
+                .Get<Achievement>(ModelId.FiftyWaveCompletedAchievement);
+
+            _enemySpawner.WaveChanged += OnCompleted;
         }
 
         private void OnCompleted()
         {
             if (_achievement.IsCompleted)
                 return;
-            
-            if (_killEnemyCounter.KillZombies <= 0)
+
+            if (_enemySpawner.CurrentWaveNumber != 50)
                 return;
             
             _achievement.IsCompleted = true;
@@ -59,9 +60,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             Execute(_achievement);
         }
 
-        public override void Destroy()
-        {
-            _killEnemyCounter.KillZombiesCountChanged -= OnCompleted;
-        }
+        public override void Destroy() => 
+            _enemySpawner.WaveChanged -= OnCompleted;
     }
 }

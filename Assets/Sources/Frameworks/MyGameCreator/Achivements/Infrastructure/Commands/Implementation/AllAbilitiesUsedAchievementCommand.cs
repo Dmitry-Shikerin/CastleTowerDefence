@@ -1,6 +1,8 @@
 ﻿using System;
-using Sources.BoundedContexts.EnemySpawners.Domain.Models;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
+using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
@@ -11,15 +13,17 @@ using Zenject;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation
 {
-    public class ThirtyWaveCompletedAchievementCommand : AchievementCommandBase
+    public class AllAbilitiesUsedAchievementCommand : AchievementCommandBase
     {
         private readonly IEntityRepository _entityRepository;
-        
+
+        private NukeAbility _nukeAbility;
+        private FlamethrowerAbility _flamethrowerAbility;
+        private CharacterSpawnAbility _characterSpawnAbility;
         private Achievement _achievement;
         private AchievementView _achievementView;
-        private EnemySpawner _enemySpawner;
 
-        public ThirtyWaveCompletedAchievementCommand(
+        public AllAbilitiesUsedAchievementCommand(
             IEntityRepository entityRepository,
             IPrefabCollector prefabCollector,
             ILoadService loadService,
@@ -38,13 +42,19 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         public override void Initialize()
         {
             base.Initialize();
-
-            _enemySpawner = _entityRepository.
-                Get<EnemySpawner>(ModelId.EnemySpawner);
+            
+            _nukeAbility = _entityRepository
+                .Get<NukeAbility>(ModelId.NukeAbility);
+            _flamethrowerAbility = _entityRepository
+                .Get<FlamethrowerAbility>(ModelId.FlamethrowerAbility);
+            _characterSpawnAbility = _entityRepository
+                .Get<CharacterSpawnAbility>(ModelId.SpawnAbility);
             _achievement = _entityRepository
-                .Get<Achievement>(ModelId.FirtyWaveCompletedAchievement);
+                .Get<Achievement>(ModelId.AllAbilitiesUsedAchievementCommand);
 
-            _enemySpawner.WaveChanged += OnCompleted;
+            _nukeAbility.AbilityApplied += OnCompleted;
+            _flamethrowerAbility.AbilityApplied += OnCompleted;
+            _characterSpawnAbility.AbilityApplied += OnCompleted;
         }
 
         private void OnCompleted()
@@ -52,7 +62,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             if (_achievement.IsCompleted)
                 return;
 
-            if (_enemySpawner.CurrentWaveNumber != 30)
+            if (_nukeAbility.IsApplied == false)
+                return;
+            
+            if (_flamethrowerAbility.IsApplied == false)
+                return;
+            
+            if (_characterSpawnAbility.IsApplied == false)
                 return;
             
             _achievement.IsCompleted = true;
@@ -60,7 +76,11 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             Execute(_achievement);
         }
 
-        public override void Destroy() => 
-            _enemySpawner.WaveChanged -= OnCompleted;
+        public override void Destroy()
+        {
+            _nukeAbility.AbilityApplied -= OnCompleted;
+            _flamethrowerAbility.AbilityApplied -= OnCompleted;
+            _characterSpawnAbility.AbilityApplied -= OnCompleted;
+        }
     }
 }
