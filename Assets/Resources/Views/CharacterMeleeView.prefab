@@ -5976,7 +5976,6 @@ GameObject:
   - component: {fileID: 3755755198892554804}
   - component: {fileID: 14657073937353269}
   - component: {fileID: 4130873234004890325}
-  - component: {fileID: 5586510660625519743}
   - component: {fileID: 4476541095687359964}
   - component: {fileID: 6126525677090142937}
   - component: {fileID: 7097962244618847759}
@@ -6092,21 +6091,9 @@ MonoBehaviour:
   _findRange: 2.2
   meleeAnimation: {fileID: 4476541095687359964}
   _healthView: {fileID: 6934783632022637132}
-  _provider: {fileID: 5586510660625519743}
+  _provider: {fileID: 0}
   _fsmOwner: {fileID: 3755755198892554804}
   _healthBarView: {fileID: 5824879900162487103}
---- !u!114 &5586510660625519743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3388632552365605048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4ce2ee2aec49dab606d55d3400febb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4476541095687359964
 MonoBehaviour:
   m_ObjectHideFlags: 0

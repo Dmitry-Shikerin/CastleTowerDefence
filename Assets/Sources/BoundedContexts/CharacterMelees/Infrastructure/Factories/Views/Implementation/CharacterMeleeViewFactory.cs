@@ -1,8 +1,6 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterMelees.Domain;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
@@ -18,20 +16,17 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
     public class CharacterMeleeViewFactory
     {
         private readonly IPoolManager _poolManager;
-        private readonly CharacterMeleeDependencyProviderFactory _providerFactory;
         private readonly CharacterHealthViewFactory _characterHealthViewFactory;
         private readonly HealthBarViewFactory _healthBarViewFactory;
         private readonly DiContainer _container;
 
         public CharacterMeleeViewFactory(
             IPoolManager poolManager,
-            CharacterMeleeDependencyProviderFactory providerFactory,
             CharacterHealthViewFactory characterHealthViewFactory,
             HealthBarViewFactory healthBarViewFactory,
             DiContainer container)
         {
             _poolManager = poolManager ?? throw new ArgumentNullException(nameof(poolManager));
-            _providerFactory = providerFactory ?? throw new ArgumentNullException(nameof(providerFactory));
             _characterHealthViewFactory = characterHealthViewFactory ?? 
                                           throw new ArgumentNullException(nameof(characterHealthViewFactory));
             _healthBarViewFactory = healthBarViewFactory ?? 
@@ -46,7 +41,6 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
             
             CharacterMeleeView view = _poolManager.Get<CharacterMeleeView>();
 
-            _providerFactory.Create(characterMelee, view);
             _characterHealthViewFactory.Create(characterMelee.CharacterHealth, view.HealthView);
             _healthBarViewFactory.Create(characterMelee.CharacterHealth, view.HealthBarView);
             

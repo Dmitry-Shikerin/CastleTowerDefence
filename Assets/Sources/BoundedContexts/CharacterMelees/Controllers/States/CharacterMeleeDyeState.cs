@@ -10,7 +10,6 @@ using Sources.Frameworks.Utils.Reflections.Attributes;
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterMeleeDyeState : FSMState
     {
         private ICharacterMeleeView _view;

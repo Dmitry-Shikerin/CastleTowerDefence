@@ -6,7 +6,6 @@ using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Controllers
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Services;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
@@ -37,7 +36,6 @@ using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Zenject;
@@ -72,7 +70,6 @@ namespace Sources.App.DIContainers.Gameplay
             //Characters
             Container.Bind<ICharacterRotationService>().To<CharacterRotationService>().AsSingle();
             
-            Container.Bind<CharacterMeleeDependencyProviderFactory>().AsSingle();
             Container.Bind<CharacterMeleeViewFactory>().AsSingle();
 
             Container.Bind<CharacterRangeDependencyProviderFactory>().AsSingle();

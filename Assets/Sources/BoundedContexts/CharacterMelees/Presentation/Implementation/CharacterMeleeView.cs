@@ -1,7 +1,6 @@
 ﻿using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
@@ -19,7 +18,6 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
         [SerializeField] private float _findRange = 1.2f;
         [Required] [SerializeField] private CharacterMeleeAnimation meleeAnimation;
         [Required] [SerializeField] private CharacterHealthView _healthView;
-        [Required] [SerializeField] private CharacterMeleeDependencyProvider _provider;
         [Required] [SerializeField] private FSMOwner _fsmOwner;
         [Required] [SerializeField] private HealthBarView _healthBarView;
 
@@ -31,7 +29,6 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
         public Vector3 Position => transform.position;
         public ICharacterMeleeAnimation MeleeAnimation => meleeAnimation;
         public CharacterHealthView HealthView => _healthView;
-        public CharacterMeleeDependencyProvider Provider => _provider;
         public IEnemyHealthView EnemyHealth { get; private set; }
         public ICharacterSpawnPoint CharacterSpawnPoint { get; private set; }
 

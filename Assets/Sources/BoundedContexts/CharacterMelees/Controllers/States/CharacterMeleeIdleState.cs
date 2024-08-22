@@ -2,12 +2,9 @@
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
-using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Domain;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
@@ -20,11 +17,8 @@ using Zenject;
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterMeleeIdleState : FSMState
     {
-        private CharacterMeleeDependencyProvider _provider;
-        
         private ICharacterMeleeView _view;
         private CharacterMelee _characterMelee;
         private ICharacterMeleeAnimation _animation;

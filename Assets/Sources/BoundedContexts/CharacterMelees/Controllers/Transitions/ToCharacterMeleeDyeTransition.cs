@@ -1,30 +1,27 @@
-﻿using JetBrains.Annotations;
+﻿using System;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Domain;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.Transitions
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class ToCharacterMeleeDyeTransition : ConditionTask
     {
-        private CharacterMeleeDependencyProvider _provider;
-        
-        private ICharacterMeleeView View => _provider.View;
-        private CharacterMelee CharacterMelee => _provider.CharacterMelee;
+        private ICharacterMeleeView _view;
+        private CharacterMelee _characterMelee;
 
-        protected override string OnInit()
+        [Construct]
+        private void Construct(CharacterMelee characterMelee, CharacterMeleeView view)
         {
-            _provider =
-                blackboard.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
-
-            return null;
+            _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
         protected override bool OnCheck() =>
-            CharacterMelee.CharacterHealth.CurrentHealth <= 0;
+            _characterMelee.CharacterHealth.CurrentHealth <= 0;
     }
 }

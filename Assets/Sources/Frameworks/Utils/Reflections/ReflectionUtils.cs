@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 using UnityEngine;
@@ -11,9 +12,17 @@ namespace Sources.Frameworks.Utils.Reflections
     {
         public static void ConstructFsm<T, T2>(this FSMOwner owner, T target, T2 target2)
         {
-            IEnumerable<FSMState> states = owner.behaviour.GetAllNodesOfType<FSMState>();
+            owner.behaviour
+                .GetAllNodesOfType<FSMState>()
+                .CheckAttributes(target, target2);
+            owner.behaviour
+                .GetAllTasksOfType<ConditionTask>()
+                .CheckAttributes(target, target2);
+        }
 
-            foreach (FSMState state in states)
+        private static void CheckAttributes<T, T2>(this IEnumerable<object> objects, T target, T2 target2)
+        {
+            foreach (object state in objects)
             {
                 Type type = state.GetType();
                 BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;

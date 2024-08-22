@@ -1,10 +1,7 @@
 ﻿using System;
-using JetBrains.Annotations;
-using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Domain;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
@@ -14,7 +11,6 @@ using Zenject;
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterMeleeAttackState : FSMState
     {
         private CharacterMeleeView _view;
