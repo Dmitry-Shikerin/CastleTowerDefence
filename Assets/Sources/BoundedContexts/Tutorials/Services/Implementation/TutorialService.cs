@@ -41,6 +41,21 @@ namespace Sources.BoundedContexts.Tutorials.Services.Implementation
             _tutorial = tutorial ?? throw new ArgumentNullException(nameof(tutorial));
         }
 
+        public void ShowSimpleEnemyTutorial()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowKamikazeEnemyTutorial()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowBossEnemyTutorial()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Complete()
         {
             _tutorial.HasCompleted = true;
