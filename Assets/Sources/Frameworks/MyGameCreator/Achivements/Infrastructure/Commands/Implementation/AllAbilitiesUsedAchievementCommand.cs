@@ -71,8 +71,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             if (_characterSpawnAbility.IsApplied == false)
                 return;
             
-            _achievement.IsCompleted = true;
-            
             Execute(_achievement);
         }
 

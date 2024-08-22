@@ -54,8 +54,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             if (_killEnemyCounter.KillZombies <= 0)
                 return;
             
-            _achievement.IsCompleted = true;
-            
             Execute(_achievement);
         }
 

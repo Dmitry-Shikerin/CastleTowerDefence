@@ -44,8 +44,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             if (_achievement.IsCompleted)
                 return;
             
-            _achievement.IsCompleted = true;
-            
             Execute(_achievement);
         }
 

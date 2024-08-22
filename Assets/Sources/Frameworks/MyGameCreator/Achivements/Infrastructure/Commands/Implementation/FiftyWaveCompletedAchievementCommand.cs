@@ -55,8 +55,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             if (_enemySpawner.CurrentWaveNumber != 50)
                 return;
             
-            _achievement.IsCompleted = true;
-            
             Execute(_achievement);
         }
 

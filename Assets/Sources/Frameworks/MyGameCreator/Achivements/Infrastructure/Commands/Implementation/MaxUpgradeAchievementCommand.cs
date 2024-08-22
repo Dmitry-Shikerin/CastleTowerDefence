@@ -77,8 +77,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             if (_nukeUpgrade.CurrentLevel != _nukeUpgrade.MaxLevel)
                 return;
             
-            _achievement.IsCompleted = true;
-            
             Execute(_achievement);
         }
 

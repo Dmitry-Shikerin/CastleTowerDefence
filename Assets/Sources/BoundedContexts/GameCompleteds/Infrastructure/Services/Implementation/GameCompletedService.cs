@@ -21,6 +21,8 @@ namespace Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Impleme
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
         }
 
+        public event Action GameCompleted;
+
         public void Initialize()
         {
             _enemySpawner = _entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner) ?? 
@@ -45,6 +47,7 @@ namespace Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Impleme
 
             _signalStream.SendSignal(true);
             _isCompleted = true;
+            GameCompleted?.Invoke();
         }
     }
 }
