@@ -11,6 +11,7 @@
         public const string Play = "Play";
         public const string Gameplay = "Gameplay";
         public const string GameOver = "GameOver";
+        public const string GameCompleted = "GameCompleted";
         public const string ReceivedAchievement = "ReceivedAchievement";
         public const string ShowTutorial = "ShowTutorial";
         public const string ShowBossEnemyTutorial = "ShowBossEnemyTutorial";

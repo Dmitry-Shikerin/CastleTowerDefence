@@ -9,6 +9,7 @@ namespace Sources.BoundedContexts.Abilities.Domain
         
         float Cooldown { get; }
         bool IsAvailable { get; set; }
+        bool IsApplied { get; }
         
         void ApplyAbility();
     }

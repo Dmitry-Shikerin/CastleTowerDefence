@@ -22,8 +22,12 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models
         public Type Type => GetType();
         public float Cooldown => _flamethrowerAbilityUpgrade.CurrentAmount;
         public bool IsAvailable { get; set; } = true;
+        public bool IsApplied { get; private set; }
 
-        public void ApplyAbility() => 
+        public void ApplyAbility()
+        {
             AbilityApplied?.Invoke();
+            IsApplied = true;
+        }
     }
 }

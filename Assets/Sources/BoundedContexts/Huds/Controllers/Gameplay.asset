@@ -752,8 +752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Gameplay
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 238, y: -210, z: 0}
-  EditorScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  EditorPosition: {x: 90, y: -8, z: 0}
+  EditorScale: {x: 0.57175326, y: 0.57175326, z: 1}
   Id: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   GraphName: Flow Graph
   GraphDescription: 
@@ -800,6 +800,7 @@ MonoBehaviour:
   - {fileID: 8435374892195102592}
   - {fileID: 7351118287566199674}
   - {fileID: -3131963228776842325}
+  - {fileID: 3877983053790301302}
   RootNode: {fileID: 5871047642016965581}
   ActiveNode: {fileID: 0}
 --- !u!114 &1755870790553109488
@@ -924,14 +925,15 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 385eaa44-6d0e-4025-8696-79a06ac09330
   NodeType: 0
-  NodeName: LevelCompleted View
+  NodeName: GameCompleted View
   NodeDescription: 
   InputPorts:
   - NodeId: 385eaa44-6d0e-4025-8696-79a06ac09330
     PortId: 798e0fb4-1bc5-4d78-a823-a9d5c91c9639
     Direction: 0
     Capacity: 1
-    Connections: []
+    Connections:
+    - 595e5938-6917-4ae2-9f91-b48ab572c091
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -957,10 +959,20 @@ MonoBehaviour:
   Passthrough: 0
   ClearGraphHistory: 0
   Position: {x: 376, y: 307.54074}
-  OnEnterShowViews: []
+  OnEnterShowViews:
+  - Id:
+      Category: Gameplay
+      Name: GameCompleted
+      Custom: 0
+    Mode: 0
   OnEnterHideViews: []
   OnExitShowViews: []
-  OnExitHideViews: []
+  OnExitHideViews:
+  - Id:
+      Category: Gameplay
+      Name: GameCompleted
+      Custom: 0
+    Mode: 0
   OnEnterHideAllViews: 0
   OnExitHideAllViews: 0
 --- !u!114 &2220427662571499849
@@ -978,7 +990,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 8fbd8c2c-4d23-400c-80ef-7fa6a453c3e5
   NodeType: 1
-  NodeName: Portal
+  NodeName: Tutorial Portal
   NodeDescription: 
   InputPorts: []
   OutputPorts:
@@ -999,12 +1011,78 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 34.980114, y: 335.80917}
+  Position: {x: 35.000046, y: 435}
   Trigger: 0
   SignalPayload:
     StreamId:
       Category: Gameplay
       Name: ShowTutorial
+      Custom: 0
+    SignalValueType: 2
+    IntegerValue: 0
+    BooleanValue: 1
+    FloatValue: 0
+    StringValue: 
+    ColorValue: {r: 0, g: 0, b: 0, a: 0}
+    Vector2Value: {x: 0, y: 0}
+    Vector3Value: {x: 0, y: 0, z: 0}
+    Vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  ButtonId:
+    Category: None
+    Name: None
+    Custom: 0
+  ToggleId:
+    Category: None
+    Name: None
+    Custom: 0
+  CommandToggle: 2
+  ViewId:
+    Category: None
+    Name: None
+    Custom: 0
+  CommandShowHide: 0
+--- !u!114 &3877983053790301302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2479a69f56cf54c96de81c44e8ad1a, type: 3}
+  m_Name: Portal
+  m_EditorClassIdentifier: 
+  FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
+  NodeId: 3292cf3d-8749-4e05-99ed-e2814ffbc634
+  NodeType: 1
+  NodeName: GameCompleted Portal
+  NodeDescription: 
+  InputPorts: []
+  OutputPorts:
+  - NodeId: 3292cf3d-8749-4e05-99ed-e2814ffbc634
+    PortId: 595e5938-6917-4ae2-9f91-b48ab572c091
+    Direction: 1
+    Capacity: 0
+    Connections:
+    - 798e0fb4-1bc5-4d78-a823-a9d5c91c9639
+    Value: 
+    ValueTypeQualifiedName: 
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  RunUpdate: 0
+  RunFixedUpdate: 0
+  RunLateUpdate: 0
+  NodeState: 0
+  CanBeDeleted: 1
+  Passthrough: 1
+  ClearGraphHistory: 0
+  Position: {x: 163.00003, y: 291}
+  Trigger: 0
+  SignalPayload:
+    StreamId:
+      Category: Gameplay
+      Name: GameCompleted
       Custom: 0
     SignalValueType: 2
     IntegerValue: 0

@@ -79,6 +79,30 @@ MonoBehaviour:
   _editTurkish: 0
   _turkish: "Yeni bir oyuna baslarsan\u0131z, ge\xE7mis tasarruflar s\u0131f\u0131rlan\u0131r.
     Yeni bir oyuna baslamak istedi\u011Finizden emin misiniz?"
+--- !u!114 &-8714490712518705117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FiftyWavesAchievementDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FiftyWavesAchievementDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0414\u043E\u0439\u0434\u0438\u0442\u0435 \u0434\u043E 50 \u0432\u043E\u043B\u043D\u044B."
+  _editEnglish: 0
+  _english: Reach 50th wave.
+  _editTurkish: 0
+  _turkish: "50 dalgaya ula\u015F\u0131n."
 --- !u!114 &-8106710555367711880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +371,31 @@ MonoBehaviour:
   _english: Tutorial
   _editTurkish: 0
   _turkish: "\xD6\u011Fretici"
+--- !u!114 &-6245651734904918740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: GameCompletedWithOneHealthDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: GameCompletedWithOneHealthDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u0435 \u0438\u0433\u0440\u0443
+    \u0441 \u043E\u0434\u043D\u043E\u0439 \u0436\u0438\u0437\u043D\u044C\u044E."
+  _editEnglish: 0
+  _english: Complete game with one health.
+  _editTurkish: 0
+  _turkish: "Bir sa\u011Fl\u0131kla oyunu tamamlay\u0131n."
 --- !u!114 &-5973755270771653610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,6 +731,31 @@ MonoBehaviour:
   _english: Upgrade your abilities to max level.
   _editTurkish: 0
   _turkish: "Becerilerinizi maksimum seviyeye y\xFCkseltin."
+--- !u!114 &-3037633570474741760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: AllAbilitiesUsedDescription_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: AllAbilitiesUsedDescription
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0432\u0441\u0435
+    \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438."
+  _editEnglish: 0
+  _english: Use all abilities.
+  _editTurkish: 0
+  _turkish: "T\xFCm yeteneklerini kullan."
 --- !u!114 &-3000961370085052042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,17 +1201,22 @@ MonoBehaviour:
   - {fileID: 7968120111115877996}
   - {fileID: -7053270886841528775}
   - {fileID: -3045387330775180738}
+  - {fileID: 6521264734291905314}
+  - {fileID: -8714490712518705117}
+  - {fileID: 1035089316193388343}
+  - {fileID: -3037633570474741760}
+  - {fileID: 3338106259852463986}
+  - {fileID: -6245651734904918740}
   _scopes: []
-  _enableTextId: 0
-  _textId: MaxUpgradeAchievementDescription
-  _enableRussian: 0
-  _russian: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u0435 \u0432\u0430\u0448\u0438
-    \u043D\u0430\u0432\u044B\u043A\u0438 \u0434\u043E \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0433\u043E
-    \u0443\u0440\u043E\u0432\u043D\u044F."
-  _enableEnglish: 0
-  _english: Upgrade your abilities to max level.
-  _enableTurkish: 0
-  _turkish: "Becerilerinizi maksimum seviyeye y\xFCkseltin."
+  _enableTextId: 1
+  _textId: GameCompletedWithOneHealthDescription
+  _enableRussian: 1
+  _russian: "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u0435 \u0438\u0433\u0440\u0443
+    \u0441 \u043E\u0434\u043D\u043E\u0439 \u0436\u0438\u0437\u043D\u044C\u044E."
+  _enableEnglish: 1
+  _english: Complete game with one health.
+  _enableTurkish: 1
+  _turkish: "Bir sa\u011Fl\u0131kla oyunu tamamlay\u0131n."
 --- !u!114 &526446998994294440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,6 +1339,30 @@ MonoBehaviour:
   _english: SCULLS DIGGER!
   _editTurkish: 0
   _turkish: SCULLS KAZICI!
+--- !u!114 &1035089316193388343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: AllAbilitiesUsedTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: AllAbilitiesUsedTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041D\u0415\u0423\u0414\u0415\u0420\u0416\u0418\u041C\u042B\u0419!"
+  _editEnglish: 0
+  _english: UNSTOPPABLE!
+  _editTurkish: 0
+  _turkish: DURDURULAMAZ!
 --- !u!114 &1122561553406115891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,6 +1641,30 @@ MonoBehaviour:
   _english: Improved bear attack
   _editTurkish: 0
   _turkish: "Ay\u0131 sald\u0131r\u0131s\u0131n\u0131n iyile\u015Ftirilmesi"
+--- !u!114 &3338106259852463986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: GameCompletedWithOneHealthTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: GameCompletedWithOneHealthTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041D\u0410 \u0413\u0420\u0410\u041D\u0418!"
+  _editEnglish: 0
+  _english: ON THE EDGE!
+  _editTurkish: 0
+  _turkish: SINIRDA!
 --- !u!114 &3361585177844649299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,6 +1963,30 @@ MonoBehaviour:
   _english: Accept the award
   _editTurkish: 0
   _turkish: "\xD6d\xFCl\xFC kabul et"
+--- !u!114 &6521264734291905314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: FiftyWavesAchievementTitle_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: FiftyWavesAchievementTitle
+  _textId: 
+  _editRussian: 0
+  _russian: "\u0411\u0415\u0413\u0420\u0410\u041D\u0418\u0427\u041D\u0410\u042F \u041C\u041E\u0429\u042C!"
+  _editEnglish: 0
+  _english: BOUNDLESS POWER!
+  _editTurkish: 0
+  _turkish: "SINIRSIZ G\xDC\xC7!"
 --- !u!114 &6610014664543065953
 MonoBehaviour:
   m_ObjectHideFlags: 0

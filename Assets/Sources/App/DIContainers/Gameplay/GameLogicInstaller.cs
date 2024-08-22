@@ -27,6 +27,8 @@ using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Implementation;
+using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementation;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
@@ -48,6 +50,10 @@ namespace Sources.App.DIContainers.Gameplay
         {
             //GameOvers
             Container.Bind<IGameOverService>().To<GameOverService>().AsSingle();
+            
+            //GameCompleted
+            Container.Bind<IGameCompletedService>().To<GameCompletedService>().AsSingle();
+            
             //PlayerWallet
             Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
             Container.Bind<PlayerWalletViewFactory>().AsSingle();

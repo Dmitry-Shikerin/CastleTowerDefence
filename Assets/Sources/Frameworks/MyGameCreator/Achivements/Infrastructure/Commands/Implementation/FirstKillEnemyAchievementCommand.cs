@@ -1,5 +1,4 @@
 ﻿using System;
-using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
@@ -54,8 +53,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             
             if (_killEnemyCounter.KillZombies <= 0)
                 return;
-            
-            _achievement.IsCompleted = true;
             
             Execute(_achievement);
         }

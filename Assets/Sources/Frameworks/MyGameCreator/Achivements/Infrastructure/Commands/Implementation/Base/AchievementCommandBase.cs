@@ -47,10 +47,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
                 .Get<AchievementConfigCollector>()
                 .Configs
                 .First(config => config.Id == achievement.Id);
+
+            achievement.IsCompleted = true;
             _container.Inject(_achievementView);
             _loadService.Save(achievement);
             _stream.SendSignal(true);
             _achievementView.Construct(achievement, config);
+            
         }
 
         public virtual void Destroy()
