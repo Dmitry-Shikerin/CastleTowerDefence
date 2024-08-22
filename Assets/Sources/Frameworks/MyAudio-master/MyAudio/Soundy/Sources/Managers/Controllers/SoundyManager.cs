@@ -30,8 +30,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
     [DefaultExecutionOrder(SoundyExecutionOrder.SoundyManager)]
     public class SoundyManager : MonoBehaviour
     {
-        #region UNITY_EDITOR
-
 #if UNITY_EDITOR
         [MenuItem(SoundyManagerConstant.SoundyManagerMenuItemItemName, false,
             SoundyManagerConstant.SoundyManagerMenuItemPriority)]
@@ -40,11 +38,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             SoundyManager addToScene = AddToScene(true);
         }
 #endif
-
-        #endregion
-
-        #region Singleton
-
         protected SoundyManager()
         {
         }
@@ -74,10 +67,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                 return s_instance;
             }
         }
-
-        #endregion
-
-        #region Static Properties
 
         private static Dictionary<string, Dictionary<string, CancellationTokenSource>> _tokens =
             new Dictionary<string, Dictionary<string, CancellationTokenSource>>();
@@ -111,8 +100,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
 
         /// <summary> Direct reference to the SoundyDatabase asset </summary>
         public static SoundyDatabase Database => SoundySettings.Database;
-
-        #endregion
 
         #region Unity Methods
 
