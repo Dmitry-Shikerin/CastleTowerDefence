@@ -30,7 +30,6 @@ namespace MyAudios.Soundy.Sources.Settings.Domain.Configs
                 
                 s_instance = Resources.Load<SoundySettings>(
                     "Soundy/Settings/SoundySettings");
-                Debug.Log($"Loaded SoundySettings: is null? {s_instance == null}");
                 
                 if (s_instance != null)
                     return s_instance;

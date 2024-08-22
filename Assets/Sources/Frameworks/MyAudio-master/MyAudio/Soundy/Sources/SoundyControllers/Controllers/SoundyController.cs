@@ -353,8 +353,7 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
 
         #region Static Methods
 
-        /// <summary> Create a new SoundyController in the current scene and get a reference to it </summary>
-        public static SoundyController GetController()
+        public static SoundyController CreateController()
         {
             SoundyController controller = new GameObject(
                 "SoundyController", 

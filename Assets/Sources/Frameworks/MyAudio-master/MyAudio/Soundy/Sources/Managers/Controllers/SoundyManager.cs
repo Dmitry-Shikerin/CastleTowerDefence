@@ -48,7 +48,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         private static bool s_isMusicVolumeMuted;
         private static bool s_isSoundVolumeMuted;
 
-        /// <summary> Returns a reference to the SoundyManager in the Scene. If one does not exist, it gets created. </summary>
         public static SoundyManager Instance
         {
             get
@@ -60,7 +59,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                     return null;
 
                 s_instance = FindObjectOfType<SoundyManager>();
-                // ReSharper disable once RedundantArgumentDefaultValue
                 if (s_instance == null)
                     DontDestroyOnLoad(AddToScene(false).gameObject);
 
@@ -97,13 +95,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                 return s_pooler;
             }
         }
-
-        /// <summary> Direct reference to the SoundyDatabase asset </summary>
+        
         public static SoundyDatabase Database => SoundySettings.Database;
-
-        #region Unity Methods
-
-#if UNITY_2019_3_OR_NEWER
+        
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void RunOnStart()
         {
@@ -111,30 +105,20 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             s_initialized = false;
             s_pooler = null;
         }
-#endif
 
         private void Awake() =>
             s_initialized = true;
-
-        #endregion
-
-        #region Static Methods
-
-        /// <summary> Add SoundyManager to scene and returns a reference to it </summary>
+        
         public static SoundyManager AddToScene(bool selectGameObjectAfterCreation = false) =>
             MyUtils.AddToScene<SoundyManager>(
                 SoundyManagerConstant.SoundyManagerGameObjectName, true, selectGameObjectAfterCreation);
 
-        /// <summary> Create a new SoundyController in the current scene and get a reference to it </summary>
-        public static SoundyController GetController() =>
-            SoundyController.GetController();
+        public static SoundyController CreateController() =>
+            SoundyController.CreateController();
 
-        /// <summary> Returns a proper formatted filename for a given database name </summary>
-        /// <param name="databaseName"> Database name </param>
         public static string GetSoundDatabaseFilename(string databaseName) =>
             "SoundDatabase_" + databaseName.Trim();
 
-        /// <summary> Initializes the SoundyManager Instance </summary>
         public static void Init()
         {
             if (s_initialized || s_instance != null)
@@ -166,15 +150,12 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             s_isSoundVolumeMuted = isSoundMuted;
         }
         
-        /// <summary> Stop all SoundyControllers from playing and destroys the GameObjects they are attached to </summary>
         public static void KillAllControllers() =>
             SoundyController.KillAll();
 
-        /// <summary> Mute all the SoundyControllers </summary>
         public static void MuteAllControllers() =>
             SoundyController.MuteAll();
 
-        /// <summary> Mute all sound sources (including MasterAudio) </summary>
         public static void MuteAllSounds()
         {
             MuteAllControllers();
@@ -183,11 +164,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
 #endif
         }
 
-        /// <summary> Pause all the SoundyControllers that are currently playing </summary>
         public static void PauseAllControllers() =>
             SoundyController.PauseAll();
 
-        /// <summary> Pause all sound sources (including MasterAudio) </summary>
         public static void PauseAllSounds()
         {
             PauseAllControllers();
@@ -238,14 +217,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             Stop(databaseName, soundName);
         }
 
-        /// <summary>
-        /// Play the specified sound at the given position.
-        /// Returns a reference to the SoundyController that is playing the sound.
-        /// Returns null if no sound is found.
-        /// </summary>
-        /// <param name="databaseName"> The sound category </param>
-        /// <param name="soundName"> Sound Name of the sound </param>
-        /// <param name="position"> The position from where this sound will play from </param>
         public static SoundyController Play(string databaseName, string soundName, Vector3 position)
         {
             if (s_initialized == false)
@@ -265,13 +236,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             return soundGroupData.Play(position, Database.GetSoundDatabase(databaseName).OutputAudioMixerGroup);
         }
 
-        /// <summary>
-        /// Play the specified sound, at the given position.
-        /// Returns a reference to the SoundyController that is playing the sound.
-        /// Returns null if the AudioClip is null.
-        /// </summary>
-        /// <param name="audioClip"> The AudioClip to play </param>
-        /// <param name="position"> The position from where this sound will play from </param>
         public static SoundyController Play(AudioClip audioClip, Vector3 position)
         {
             if (s_initialized == false)
@@ -280,14 +244,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             return Play(audioClip, null, position);
         }
 
-        /// <summary>
-        /// Play the specified sound and follow a given target Transform while playing.
-        /// Returns a reference to the SoundyController that is playing the sound.
-        /// Returns null if no sound is found.
-        /// </summary>
-        /// <param name="databaseName"> The sound category </param>
-        /// <param name="soundName"> Sound Name of the sound </param>
-        /// <param name="followTarget"> The target transform that the sound will follow while playing </param>
         public static SoundyController Play(string databaseName, string soundName, Transform followTarget)
         {
             if (s_initialized == false)
@@ -307,13 +263,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             return soundGroupData.Play(followTarget, Database.GetSoundDatabase(databaseName).OutputAudioMixerGroup);
         }
 
-        /// <summary>
-        /// Play the specified sound, at the set position.
-        /// Returns a reference to the SoundyController that is playing the sound.
-        /// Returns null if the AudioClip is null.
-        /// </summary>
-        /// <param name="audioClip"> The AudioClip to play </param>
-        /// <param name="followTarget"> The target transform that the sound will follow while playing </param>
         public static SoundyController Play(AudioClip audioClip, Transform followTarget)
         {
             if (s_initialized == false)
@@ -322,13 +271,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             return Play(audioClip, null, followTarget);
         }
 
-        /// <summary>
-        /// Play the specified sound with the given category, name and type.
-        /// Returns a reference to the SoundyController that is playing the sound.
-        /// Returns null if no sound is found.
-        /// </summary>
-        /// <param name="databaseName"> The sound category </param>
-        /// <param name="soundName"> Sound Name of the sound </param>
         public static SoundyController Play(string databaseName, string soundName)
         {
             if (s_initialized == false)
@@ -359,12 +301,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             return soundGroupData.Play(Pooler.transform, soundDatabase.OutputAudioMixerGroup);
         }
 
-        /// <summary>
-        /// Play the passed AudioClip.
-        /// Returns a reference to the SoundyController that is playing the sound.
-        /// Returns null if the AudioClip is null.
-        /// </summary>
-        /// <param name="audioClip"> The AudioClip to play </param>
         public static SoundyController Play(AudioClip audioClip)
         {
             if (s_initialized == false)
@@ -373,21 +309,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             return Play(audioClip, null, Pooler.transform);
         }
 
-        /// <summary>
-        /// Play the specified audio clip with the given parameters, at the set position.
-        /// Returns a reference to the SoundyController that is playing the sound.
-        /// Returns null if the AudioClip is null.
-        /// </summary>
-        /// <param name="audioClip"> The AudioClip to play </param>
-        /// <param name="outputAudioMixerGroup"> The output audio mixer group that this sound will get routed through </param>
-        /// <param name="position"> The position from where this sound will play from </param>
-        /// <param name="volume"> The volume of the audio source (0.0 to 1.0) </param>
-        /// <param name="pitch"> The pitch of the audio source </param>
-        /// <param name="loop"> Is the audio clip looping? </param>
-        /// <param name="spatialBlend">
-        ///     Sets how much this AudioSource is affected by 3D space calculations (attenuation,
-        ///     doppler etc). 0.0 makes the sound full 2D, 1.0 makes it full 3D
-        /// </param>
         public static SoundyController Play(
             AudioClip audioClip,
             AudioMixerGroup outputAudioMixerGroup,
@@ -414,21 +335,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             return controller;
         }
 
-        /// <summary>
-        /// Play the specified audio clip with the given parameters (and follow a given Transform while playing).
-        /// Returns a reference to the SoundyController that is playing the sound.
-        /// Returns null if the AudioClip is null.
-        /// </summary>
-        /// <param name="audioClip"> The AudioClip to play </param>
-        /// <param name="outputAudioMixerGroup"> The output audio mixer group that this sound will get routed through </param>
-        /// <param name="followTarget"> The target transform that the sound will follow while playing </param>
-        /// <param name="volume"> The volume of the audio source (0.0 to 1.0) </param>
-        /// <param name="pitch"> The pitch of the audio source </param>
-        /// <param name="loop"> Is the audio clip looping? </param>
-        /// <param name="spatialBlend">
-        ///     Sets how much this AudioSource is affected by 3D space calculations (attenuation,
-        ///     doppler etc). 0.0 makes the sound full 2D, 1.0 makes it full 3D
-        /// </param>
         public static SoundyController Play(
             AudioClip audioClip,
             AudioMixerGroup outputAudioMixerGroup,
@@ -465,11 +371,6 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             return controller;
         }
 
-        /// <summary>
-        /// Play a sound according to the settings in the SoundyData reference.
-        /// Returns a reference to the SoundyController that is playing the sound if data.SoundSource is set to either Soundy or AudioClip.
-        /// If data is null or data.SoundSource is set to MasterAudio, it will always return null because MasterAudio is the one playing the sound and not a SoundyController </summary>
-        /// <param name="data"> Sound settings </param>
         public static SoundyController Play(SoundyData data)
         {
             if (data == null)
@@ -506,11 +407,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
         public static void Stop(string databaseName, string soundName) =>
             SoundyController.Stop(databaseName, soundName);
 
-        /// <summary> Stop all the SoundyControllers that are currently playing </summary>
         public static void StopAllControllers() =>
             SoundyController.StopAll();
 
-        /// <summary> Stop all sound sources (including MasterAudio) </summary>
         public static void StopAllSounds()
         {
             StopAllControllers();
@@ -519,11 +418,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
 #endif
         }
 
-        /// <summary> Unmute all the SoundyControllers that were previously muted </summary>
         public static void UnmuteAllControllers() =>
             SoundyController.UnmuteAll();
 
-        /// <summary> Unmute all sound sources (including MasterAudio) </summary>
         public static void UnmuteAllSounds()
         {
             UnmuteAllControllers();
@@ -532,11 +429,9 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
 #endif
         }
 
-        /// <summary> Unpause all the SoundyControllers that were previously paused </summary>
         public static void UnpauseAllControllers() =>
             SoundyController.UnpauseAll();
 
-        /// <summary> Unpause all sound sources (including MasterAudio) </summary>
         public static void UnpauseAllSounds()
         {
             UnpauseAllControllers();
@@ -544,7 +439,5 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             DarkTonic.MasterAudio.MasterAudio.UnpauseEverything();
 #endif
         }
-
-        #endregion
     }
 }

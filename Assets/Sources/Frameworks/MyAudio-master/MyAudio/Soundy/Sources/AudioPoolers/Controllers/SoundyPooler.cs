@@ -111,7 +111,7 @@ namespace MyAudios.Soundy.Sources.AudioPoolers.Controllers
         {
             RemoveNullControllersFromThePool();
             if (Pool.Count <= 0)
-                PutControllerInPool(SoundyController.GetController()); //the pool does not have any controllers in it -> create and return a new controller
+                PutControllerInPool(SoundyController.CreateController()); //the pool does not have any controllers in it -> create and return a new controller
             
             SoundyController controller = Pool[0];                        //assign the first found controller
             Pool.Remove(controller);                                      //remove the assigned controller from the pool
@@ -130,7 +130,7 @@ namespace MyAudios.Soundy.Sources.AudioPoolers.Controllers
                 return; //sanity check
             
             for (int i = 0; i < numberOfControllers; i++)
-                PutControllerInPool(SoundyController.GetController());
+                PutControllerInPool(SoundyController.CreateController());
             // if (Instance.DebugComponent) DDebug.Log("Populate Pool - Added " + numberOfControllers + " Controllers to the Pool - " + Pool.Count + " Controllers Available", Instance);
         }
 
