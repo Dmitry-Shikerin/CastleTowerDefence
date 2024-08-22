@@ -9,5 +9,9 @@ namespace Sources.BoundedContexts.Tutorials.Services.Interfaces
         void Complete();
 
         void Construct(Tutorial tutorial);
+
+        void ShowSimpleEnemyTutorial();
+        void ShowKamikazeEnemyTutorial();
+        void ShowBossEnemyTutorial();
     }
 }
