@@ -2,8 +2,8 @@
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services

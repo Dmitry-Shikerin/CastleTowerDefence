@@ -5,8 +5,8 @@ using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Cameras;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Providers
 {

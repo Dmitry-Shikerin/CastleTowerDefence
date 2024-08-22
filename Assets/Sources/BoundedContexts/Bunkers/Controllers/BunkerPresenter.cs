@@ -6,8 +6,8 @@ using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Bunkers.Controllers

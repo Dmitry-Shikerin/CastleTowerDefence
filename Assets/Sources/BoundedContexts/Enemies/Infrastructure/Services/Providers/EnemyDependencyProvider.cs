@@ -5,7 +5,7 @@ using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Imp
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers

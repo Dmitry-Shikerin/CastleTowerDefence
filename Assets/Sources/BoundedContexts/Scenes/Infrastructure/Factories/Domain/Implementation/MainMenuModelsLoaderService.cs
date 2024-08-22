@@ -5,9 +5,9 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation

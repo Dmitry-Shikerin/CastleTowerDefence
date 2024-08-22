@@ -9,7 +9,7 @@ using Sources.Frameworks.GameServices.Prefabs.Implementation.Composites;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
 using Sources.Frameworks.GameServices.Repositories.Services.Implementation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Zenject;
 
 namespace Sources.App.DIContainers.Common

@@ -5,7 +5,7 @@ using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Impl
 using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers
 {

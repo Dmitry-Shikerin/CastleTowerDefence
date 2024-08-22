@@ -5,13 +5,13 @@ using JetBrains.Annotations;
 using Sirenix.Utilities;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Implementation
 {

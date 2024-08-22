@@ -19,19 +19,21 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
     public class GameplaySceneViewFactory : ISceneViewFactory
     {
+        private readonly ILoadService _loadService;
         private readonly IPrefabCollector _prefabCollector;
         private readonly IEntityRepository _entityRepository;
         private readonly GameplayHud _gameplayHud;
@@ -54,6 +56,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly ITutorialService _tutorialService;
 
         public GameplaySceneViewFactory(
+            ILoadService loadService,
             IPrefabCollector prefabCollector,
             IEntityRepository entityRepository,
             GameplayHud gameplayHud,
@@ -75,6 +78,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             VolumeViewFactory volumeViewFactory,
             ITutorialService tutorialService)
         {
+            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _gameplayHud = gameplayHud ?? throw new ArgumentNullException(nameof(gameplayHud));
@@ -174,7 +178,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
         private GameplayModel Load(IScenePayload payload)
         {
-            if (payload != null && payload.CanLoad)
+            // if (payload != null && payload.CanLoad)
+            //     return _gameplayModelsLoaderService.Load();
+            if (_loadService.HasKey(ModelId.PlayerWallet))
                 return _gameplayModelsLoaderService.Load();
             
             return _gameplayModelsCreatorService.Load();

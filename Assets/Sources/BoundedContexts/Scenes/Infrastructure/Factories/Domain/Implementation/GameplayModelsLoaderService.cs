@@ -15,9 +15,10 @@ using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
 {
@@ -40,7 +41,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             Upgrade characterHealthUpgrade = _loadService.Load<Upgrade>(ModelId.HealthUpgrade);
             Upgrade characterAttackUpgrade = _loadService.Load<Upgrade>(ModelId.AttackUpgrade);
             Upgrade nukeAbilityUpgrade = _loadService.Load<Upgrade>(ModelId.NukeUpgrade);
-            Upgrade flamethrowerAbilityUpgrade = _loadService.Load<Upgrade>(ModelId.FlamethrowerAbility);
+            Upgrade flamethrowerAbilityUpgrade = _loadService.Load<Upgrade>(ModelId.FlamethrowerUpgrade);
             
             //Bunker
             Bunker bunker = _loadService.Load<Bunker>(ModelId.Bunker);
@@ -50,8 +51,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             KillEnemyCounter killEnemyCounter = _loadService.Load<KillEnemyCounter>(ModelId.KillEnemyCounter);
             
             //Characters
-            CharacterSpawnAbility characterSpawnAbility = 
-                _loadService.Load<CharacterSpawnAbility>(ModelId.SpawnAbility);
+            // CharacterSpawnAbility characterSpawnAbility = 
+            //     _loadService.Load<CharacterSpawnAbility>(ModelId.SpawnAbility);
+            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility(ModelId.SpawnAbility);
+            _entityRepository.Add(characterSpawnAbility);
             
             //Abilities
             NukeAbility nukeAbility = new NukeAbility(nukeAbilityUpgrade, ModelId.NukeAbility);
@@ -82,6 +85,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             
             //Tutorial
             Tutorial tutorial = _loadService.Load<Tutorial>(ModelId.Tutorial);
+            
+            Debug.Log($"Load models");
             
             return new GameplayModel(
                 characterHealthUpgrade,

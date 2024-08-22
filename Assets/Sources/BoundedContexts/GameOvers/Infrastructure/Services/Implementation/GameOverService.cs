@@ -4,7 +4,7 @@ using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementation
 {

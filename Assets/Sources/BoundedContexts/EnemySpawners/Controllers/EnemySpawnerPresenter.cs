@@ -13,8 +13,8 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using Sources.Utils.Extentions;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -68,6 +68,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
         public override void Enable()
         {
+            Debug.Log($"Current wave: {_enemySpawner.CurrentWaveNumber}");
             _cancellationTokenSource = new CancellationTokenSource();
             _killEnemyCounter.KillZombiesCountChanged += OnKillZombiesCountChanged;
             OnStartSpawn();

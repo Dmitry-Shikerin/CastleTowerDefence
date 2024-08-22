@@ -4,7 +4,7 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Data;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
 {
@@ -26,6 +26,9 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
         {
             object entity = _dataService.LoadData(id, ModelId.Types[id]);
 
+            if (entity == null)
+                throw new NullReferenceException(id);
+            
             if (entity is not T concrete)
                 throw new InvalidCastException(nameof(T));
             

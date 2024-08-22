@@ -2,8 +2,8 @@
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using Sources.Utils.Extentions;
 using UnityEngine;
 
@@ -41,7 +41,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             SetWaveProgress();
             _view.PopUpAnimator.Play();
-            // Debug.Log($"slider value {_view.SpawnerProgressSlider.value}");
         }
 
         private void OnSpawnedEnemiesInCurrentWaveChanged()

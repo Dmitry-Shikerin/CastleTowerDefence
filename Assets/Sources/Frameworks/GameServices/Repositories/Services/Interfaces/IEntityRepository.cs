@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 
-namespace Sources.InfrastructureInterfaces.Services.Repositories
+namespace Sources.Frameworks.GameServices.Repositories.Services.Interfaces
 {
     public interface IEntityRepository
     {

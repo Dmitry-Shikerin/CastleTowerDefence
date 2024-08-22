@@ -6,16 +6,16 @@ namespace Sources.BoundedContexts.HealthBoosters.Domain
     public class HealthBooster : IEntity
     {
         private int _amount;
-
-        public HealthBooster(string id)
-        {
-            Id = id;
-        }
+        //
+        // public HealthBooster(string id)
+        // {
+        //     Id = id;
+        // }
 
         public event Action CountChanged;
         public event Action CountRemoved;
 
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
 
         public int Amount

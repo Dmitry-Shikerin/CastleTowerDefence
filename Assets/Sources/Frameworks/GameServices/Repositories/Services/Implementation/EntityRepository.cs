@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using Sirenix.Utilities;
 using Sources.Frameworks.Domain.Interfaces.Entities;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using UnityEngine;
 
 namespace Sources.Frameworks.GameServices.Repositories.Services.Implementation
 {
@@ -14,6 +15,9 @@ namespace Sources.Frameworks.GameServices.Repositories.Services.Implementation
         
         public void Add(IEntity entity)
         {
+            Debug.Log(entity.Type);
+            Debug.Log(entity.Id);
+            
             if (_entities.ContainsKey(entity.Id))
                 throw new InvalidOperationException($"Entity {entity.Id} with this Id already exists");
             

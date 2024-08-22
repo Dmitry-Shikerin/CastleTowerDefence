@@ -13,8 +13,9 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 {
@@ -47,6 +48,7 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 
         public override void Enable()
         {
+            Debug.Log($"CharacterSpawn");
             SpawnMelee();
             SpawnRange();
             _characterSpawnAbility.AbilityApplied += OnAbilityApplied;

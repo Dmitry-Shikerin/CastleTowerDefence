@@ -2,9 +2,9 @@
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Implementation;
 using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {
