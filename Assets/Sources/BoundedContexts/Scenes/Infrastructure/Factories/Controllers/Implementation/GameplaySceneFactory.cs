@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
+using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Scenes.Controllers;
@@ -37,6 +38,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly IAdvertisingService _advertisingService;
         private readonly ILocalizationService _localizationService;
         private readonly ITutorialService _tutorialService;
+        private readonly IGameCompletedService _gameCompletedService;
         private readonly ICurtainView _curtainView;
         private readonly ISignalControllersCollector _signalControllersCollector;
 
@@ -54,6 +56,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             IAdvertisingService advertisingService,
             ILocalizationService localizationService,
             ITutorialService tutorialService,
+            IGameCompletedService gameCompletedService,
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
@@ -73,6 +76,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
             _localizationService = localizationService ?? throw new ArgumentNullException(nameof(localizationService));
+            _gameCompletedService = gameCompletedService ??
+                                    throw new ArgumentNullException(nameof(gameCompletedService));
             _curtainView = curtainView ?? throw new ArgumentNullException(nameof(curtainView));
             _signalControllersCollector = signalControllersCollector ?? 
                                           throw new ArgumentNullException(nameof(signalControllersCollector));
@@ -94,6 +99,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
                 _advertisingService,
                 _localizationService,
                 _tutorialService,
+                _gameCompletedService,
                 _curtainView,
                 _signalControllersCollector);
 

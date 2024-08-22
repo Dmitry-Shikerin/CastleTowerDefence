@@ -1,7 +1,8 @@
-﻿namespace Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces
+﻿using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
+
+namespace Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces
 {
-    public interface IGameCompletedService
+    public interface IGameCompletedService : IInitialize, IDestroy
     {
-        
     }
 }

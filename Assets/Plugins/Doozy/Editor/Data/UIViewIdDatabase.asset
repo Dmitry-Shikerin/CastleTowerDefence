@@ -29,13 +29,13 @@ MonoBehaviour:
     - Category: Gameplay
       Name: EnemySpawnerTutorial
     - Category: Gameplay
+      Name: GameCompleted
+    - Category: Gameplay
       Name: GameOver
     - Category: Gameplay
       Name: Hud
     - Category: Gameplay
       Name: KamikazeEnemyTutorial
-    - Category: Gameplay
-      Name: LevelCompleted
     - Category: Gameplay
       Name: Pause
     - Category: Gameplay
