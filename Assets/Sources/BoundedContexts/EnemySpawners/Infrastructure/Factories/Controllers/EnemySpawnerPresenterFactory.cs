@@ -39,8 +39,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Control
                 view,
                 _enemyViewFactory,
                 _enemyKamikazeViewFactory,
-                _enemyBossViewFactory,
-                _tutorialService);
+                _enemyBossViewFactory);
         }
     }
 }

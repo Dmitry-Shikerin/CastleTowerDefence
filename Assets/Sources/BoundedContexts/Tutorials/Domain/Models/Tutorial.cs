@@ -1,17 +1,12 @@
 ﻿using System;
-using Sources.BoundedContexts.Ids;
 using Sources.BoundedContexts.Ids.Domain.Constant;
-using Sources.Domain.Models.Data;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 
-namespace Sources.BoundedContexts.Tutorials.Domain
+namespace Sources.BoundedContexts.Tutorials.Domain.Models
 {
     public class Tutorial : IEntity
     {
-        public Tutorial(TutorialDto tutorialDto)
-            : this(tutorialDto.Id, tutorialDto.HasCompleted)
-        {
-        }
+        private bool _hasCompleted;
 
         public Tutorial()
             : this(ModelId.Tutorial, false)
@@ -24,10 +19,22 @@ namespace Sources.BoundedContexts.Tutorials.Domain
             HasCompleted = hasCompleted;
         }
 
-        public bool HasCompleted { get; set; }
+        public event Action OnCompleted;
+
+        public bool HasCompleted
+        {
+            get => _hasCompleted;
+            set
+            {
+                if (_hasCompleted == value)
+                    return;
+                
+                _hasCompleted = value;
+                OnCompleted?.Invoke();
+            }
+        }
 
         public string Id { get; }
-
         public Type Type => GetType();
     }
 }

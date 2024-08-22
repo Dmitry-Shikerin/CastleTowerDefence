@@ -8,6 +8,7 @@ using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Tutorials.Domain;
+using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain;
@@ -49,6 +50,7 @@ namespace Sources.BoundedContexts.Scenes.Domain
             MusicVolume = musicVolume;
             SoundsVolume = soundsVolume;
             Achievements = achievements;
+            HealthBooster = healthBooster;
             Tutorial = tutorial;
         }
 
@@ -66,6 +68,7 @@ namespace Sources.BoundedContexts.Scenes.Domain
         public Volume MusicVolume { get; }
         public Volume SoundsVolume { get; }
         public IEnumerable<Achievement> Achievements { get; }
+        public HealthBooster HealthBooster { get; }
         public Tutorial Tutorial { get; }
     }
 }

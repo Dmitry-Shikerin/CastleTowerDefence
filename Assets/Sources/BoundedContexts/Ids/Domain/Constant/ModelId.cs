@@ -9,6 +9,7 @@ using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Tutorials.Domain;
+using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Data;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Domain.Models.Data;
@@ -87,10 +88,13 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
 
         public static IReadOnlyList<string> ModelsIds { get; } = new List<string>()
         {
+            HealthUpgrade,
+            AttackUpgrade,
+            NukeUpgrade,
+            FlamethrowerUpgrade,
+            Bunker,
+            EnemySpawner,
             ScoreCounter,
-            SavedLevel,
-            GameData,
-            Gameplay,
             PlayerWallet,
             KillEnemyCounter,
             Tutorial,
