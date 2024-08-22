@@ -125,10 +125,6 @@ namespace Sources.App.DIContainers.Gameplay
             //Upgrades
             Container.Bind<UpgradePresenterFactory>().AsSingle();
             Container.Bind<UpgradeViewFactory>().AsSingle();
-            Container
-                .Bind<UpgradeConfigContainer>()
-                .FromResources("Configs/Upgrades/UpgradeConfigContainer")
-                .AsSingle();
         }
     }
 }

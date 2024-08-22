@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using Object = UnityEngine.Object;
 
-namespace Sources.Frameworks.GameServices.Prefabs.Implementation
+namespace Sources.Frameworks.GameServices.Prefabs.Interfaces
 {
-    public interface IPrefabCollector
+    public interface IAssetCollector
     {
         IReadOnlyDictionary<Type, Object> Prefabs { get; }
         

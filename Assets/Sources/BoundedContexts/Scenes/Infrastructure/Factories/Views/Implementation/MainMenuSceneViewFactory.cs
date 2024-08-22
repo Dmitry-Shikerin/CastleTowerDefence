@@ -10,6 +10,7 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Factories;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
@@ -22,7 +23,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 {
     public class MainMenuSceneViewFactory : ISceneViewFactory
     {
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly IAssetCollector _assetCollector;
         private readonly IEntityRepository _entityRepository;
         private readonly MainMenuHud _mainMenuHud;
         private readonly ILoadService _loadService;
@@ -32,7 +33,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly DailyRewardViewFactory _dailyRewardViewFactory;
 
         public MainMenuSceneViewFactory(
-            IPrefabCollector prefabCollector,
+            IAssetCollector assetCollector,
             IEntityRepository entityRepository,
             MainMenuHud hud,
             ILoadService loadService,
@@ -41,7 +42,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             VolumeViewFactory volumeViewFactory,
             DailyRewardViewFactory dailyRewardViewFactory)
         {
-            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _mainMenuHud = hud ?? throw new ArgumentNullException(nameof(hud));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
@@ -73,7 +74,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
             for (int i = 0; i < achievements.Count; i++)
             {
-                AchievementConfig config = _prefabCollector
+                AchievementConfig config = _assetCollector
                     .Get<AchievementConfigCollector>()
                     .Configs
                     .First(config => config.Id == achievements[i].Id);

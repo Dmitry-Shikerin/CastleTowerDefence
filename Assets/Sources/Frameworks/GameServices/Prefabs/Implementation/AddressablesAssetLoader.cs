@@ -9,12 +9,12 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
 {
     public class AddressablesAssetLoader : IAddressablesAssetLoader
     {
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly IAssetCollector _assetCollector;
         private readonly List<Object> _objects;
 
-        public AddressablesAssetLoader(IPrefabCollector prefabCollector)
+        public AddressablesAssetLoader(IAssetCollector assetCollector)
         {
-            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
             _objects = new List<Object>();
         }
         
@@ -30,14 +30,14 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
                 throw new InvalidOperationException(nameof(asset));
             
             _objects.Add(asset);
-            _prefabCollector.Add(typeof(T), component);
+            _assetCollector.Add(typeof(T), component);
             
             return component;
         }
 
         public void ReleaseAll()
         {
-            _objects.ForEach(_prefabCollector.Remove);
+            _objects.ForEach(_assetCollector.Remove);
             _objects.ForEach(UnityEngine.AddressableAssets.Addressables.Release);
             _objects.Clear();
         }

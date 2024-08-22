@@ -6,6 +6,7 @@ using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private readonly List<T> _collection = new List<T>();
         private readonly Transform _parent = new GameObject($"Pool of {typeof(T).Name}").transform;
         private readonly IPoolBaker<T> _poolBaker;
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly IAssetCollector _assetCollector;
         private readonly Transform _root;
 
         private int _maxCount = -1;
@@ -29,12 +30,12 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
         private PoolManagerConfig _config;
 
         public ObjectPool(
-            IPrefabCollector prefabCollector,
+            IAssetCollector assetCollector,
             Transform parent = null,
             PoolManagerConfig poolManagerConfig = null)
         {
-            _prefabCollector = prefabCollector ??
-                                     throw new ArgumentNullException(nameof(prefabCollector));
+            _assetCollector = assetCollector ??
+                                     throw new ArgumentNullException(nameof(assetCollector));
             _root = parent;
             _parent.SetParent(parent);
             _poolBaker = new PoolBaker<T>(_root);
@@ -152,7 +153,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation
 
         private T CreateObject()
         {
-            T resourceObject = _prefabCollector.Get<T>();
+            T resourceObject = _assetCollector.Get<T>();
             T gameObject = Object.Instantiate(resourceObject);
             PoolableObject poolableObject = gameObject.AddComponent<PoolableObject>();
             PoolBaker.Add(gameObject);

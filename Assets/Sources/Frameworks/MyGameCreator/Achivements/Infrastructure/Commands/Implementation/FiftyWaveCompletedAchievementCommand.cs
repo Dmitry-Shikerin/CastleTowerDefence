@@ -3,6 +3,7 @@ using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation.Base;
@@ -21,13 +22,13 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public FiftyWaveCompletedAchievementCommand(
             IEntityRepository entityRepository,
-            IPrefabCollector prefabCollector,
+            IAssetCollector assetCollector,
             ILoadService loadService,
             AchievementView achievementView,
             DiContainer container) 
             : base(
                 achievementView, 
-                prefabCollector,
+                assetCollector,
                 loadService,
                 container)
         {

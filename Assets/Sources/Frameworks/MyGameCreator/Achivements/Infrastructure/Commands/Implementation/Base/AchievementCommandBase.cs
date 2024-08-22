@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
@@ -20,18 +21,18 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         
         private SignalStream _stream;
         private AchievementView _achievementView;
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly IAssetCollector _assetCollector;
         private readonly ILoadService _loadService;
 
         public AchievementCommandBase(
             AchievementView achievementView,
-            IPrefabCollector prefabCollector,
+            IAssetCollector assetCollector,
             ILoadService loadService,
             DiContainer container)
         {
             _achievementView = achievementView ?? 
                                throw new ArgumentNullException(nameof(achievementView));
-            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _container = container ?? throw new ArgumentNullException(nameof(container));
         }
@@ -43,7 +44,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
 
         public virtual void Execute(Achievement achievement)
         {
-            AchievementConfig config =_prefabCollector
+            AchievementConfig config =_assetCollector
                 .Get<AchievementConfigCollector>()
                 .Configs
                 .First(config => config.Id == achievement.Id);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
@@ -21,6 +22,8 @@ using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Data;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
+using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
@@ -33,19 +36,17 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
     {
         private readonly IEntityRepository _entityRepository;
         private readonly ILoadService _loadService;
-        private readonly UpgradeConfigContainer _upgradeConfigContainer;
+        private readonly IAssetCollector _assetCollector;
 
         public GameplayModelsCreatorService(
-            IAchievementService achievementService,
             IEntityRepository entityRepository,
             ILoadService loadService,
-            UpgradeConfigContainer upgradeConfigContainer)
+            IAssetCollector assetCollector)
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            _upgradeConfigContainer = upgradeConfigContainer ?? 
-                                      throw new ArgumentNullException(nameof(upgradeConfigContainer));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
         }
 
         public GameplayModel Load()
@@ -140,7 +141,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
         private Upgrade CreateUpgrade(string id)
         {
-            UpgradeConfig config = _upgradeConfigContainer.UpgradeConfigs
+            UpgradeConfig config = _assetCollector.Get<UpgradeConfigContainer>()
+                .UpgradeConfigs
                 .First(config => config.Id == id);
 
             List<RuntimeUpgradeLevel> levels = new List<RuntimeUpgradeLevel>();

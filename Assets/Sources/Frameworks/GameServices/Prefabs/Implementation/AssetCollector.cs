@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Object = UnityEngine.Object;
 
 namespace Sources.Frameworks.GameServices.Prefabs.Implementation
 {
-    public class PrefabCollector : IPrefabCollector
+    public class AssetCollector : IAssetCollector
     {
         private readonly Dictionary<Type, Object> _prefabs = new Dictionary<Type, Object>();
         
