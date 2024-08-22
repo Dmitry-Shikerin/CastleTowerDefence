@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.BoundedContexts.Abilities.Controllers;
-using Sources.BoundedContexts.Abilities.Domain;
 using Sources.BoundedContexts.Abilities.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 

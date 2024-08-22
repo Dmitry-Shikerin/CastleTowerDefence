@@ -65,7 +65,7 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
             SoundyManager.SetVolume(soundName, _soundsVolume.VolumeValue);
         }
 
-        public async void PlaySequence(string databaseName, string soundName)
+        public void PlaySequence(string databaseName, string soundName)
         {
             _musicSoundName = soundName;
             SoundyManager.PlaySequence(databaseName, soundName, _musicVolume);

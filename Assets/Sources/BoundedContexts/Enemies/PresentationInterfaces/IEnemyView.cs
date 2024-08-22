@@ -1,5 +1,4 @@
 using NodeCanvas.StateMachines;
-using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Interfaces;

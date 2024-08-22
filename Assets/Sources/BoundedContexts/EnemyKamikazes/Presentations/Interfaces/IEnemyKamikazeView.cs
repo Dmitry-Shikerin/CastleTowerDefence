@@ -1,4 +1,4 @@
-using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;

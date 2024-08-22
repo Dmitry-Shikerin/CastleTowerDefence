@@ -69,7 +69,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
 
         public override void Enable()
         {
-            Debug.Log($"Current wave: {_enemySpawner.CurrentWaveNumber}");
             _cancellationTokenSource = new CancellationTokenSource();
             _killEnemyCounter.KillZombiesCountChanged += OnKillZombiesCountChanged;
             OnStartSpawn();
@@ -108,7 +107,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
                 for (int i = startWave; i < _enemySpawner.Waves.Count; i++)
                 {
                     _enemySpawner.ClearSpawnedEnemies();
-                    Debug.Log($"Spawn wave: {_enemySpawner.CurrentWave.EnemyCount}");
 
                     for (int j = 0; j < _enemySpawner.Waves[i].BossesCount; j++)
                     {

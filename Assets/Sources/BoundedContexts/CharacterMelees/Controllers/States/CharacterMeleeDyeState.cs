@@ -4,7 +4,6 @@ using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {

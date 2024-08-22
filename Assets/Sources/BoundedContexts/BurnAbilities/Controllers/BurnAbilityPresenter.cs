@@ -13,6 +13,8 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
         private readonly IBurnAbilityView _view;
 
         private CancellationTokenSource _tokenSource;
+        private readonly TimeSpan _burnDelay;
+        private readonly TimeSpan _abilityCooldown;
 
         public BurnAbilityPresenter(
             BurnAbility burnAbility, 
@@ -20,11 +22,14 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
         {
             _burnAbility = burnAbility ?? throw new ArgumentNullException(nameof(burnAbility));
             _view = view ?? throw new ArgumentNullException(nameof(view));
+            _burnDelay = TimeSpan.FromSeconds(1f);
+            _abilityCooldown = TimeSpan.FromSeconds(_burnAbility.Cooldown);
         }
 
         public override void Enable()
         {
             _tokenSource = new CancellationTokenSource();
+
         }
 
         public override void Disable()
@@ -56,7 +61,7 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
             try
             {
                 _burnAbility.IsAvailable = false;
-                await UniTask.Delay(TimeSpan.FromSeconds(_burnAbility.Cooldown), cancellationToken: cancellationToken);
+                await UniTask.Delay(_abilityCooldown, cancellationToken: cancellationToken);
                 _burnAbility.IsAvailable = true;
             }
             catch (OperationCanceledException)
@@ -70,12 +75,11 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
             {
                 _view.PlayBurnParticle();
 
-                for (int i = 0; i < _burnAbility.BurnTime; i++)
+                for (int i = 0; i < _burnAbility.BurnTick; i++)
                 {
                     _view.EnemyHealthView.TakeDamage(overtimeDamage);
 
-                    await UniTask.Delay(TimeSpan.FromSeconds(
-                        1f), cancellationToken: cancellationToken);
+                    await UniTask.Delay(_burnDelay, cancellationToken: cancellationToken);
                 }
 
                 _view.StopBurnParticle();

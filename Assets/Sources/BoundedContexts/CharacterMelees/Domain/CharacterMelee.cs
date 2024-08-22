@@ -2,7 +2,6 @@
 {
     public class CharacterMelee
     {
-
         public CharacterMelee(CharacterHealths.Domain.CharacterHealth characterHealth)
         {
             CharacterHealth = characterHealth;

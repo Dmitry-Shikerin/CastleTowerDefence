@@ -1,13 +1,11 @@
 ﻿using System;
-using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterRanges.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Services;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.Prefabs;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
-using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using UnityEngine;
 

@@ -1,7 +1,6 @@
 ﻿using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;

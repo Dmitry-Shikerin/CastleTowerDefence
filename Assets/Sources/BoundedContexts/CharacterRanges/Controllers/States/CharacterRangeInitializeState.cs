@@ -1,10 +1,14 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterRanges.Domain;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using UnityEngine;
+using Zenject;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 {
@@ -13,7 +17,8 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
     public class CharacterRangeInitializeState : FSMState
     {
         private CharacterRangeDependencyProvider _provider;
-        
+        private IEntityRepository _entityRepository;
+
         private ICharacterRangeView View => _provider.View;
         private ICharacterRangeAnimation Animation => _provider.Animation;
         private CharacterRange CharacterRange => _provider.CharacterRange;
@@ -29,6 +34,13 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
             Animation.PlayIdle();
             CharacterRange.IsInitialized = true;
             View.CharacterSpawnPoint.SetCharacterHealth(View.CharacterHealth);
+        }
+
+        [Inject]
+        private void Construct(IEntityRepository entityRepository)
+        {
+            Debug.Log($"INJECT!!!!!!");
+            _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
         }
     }
 }

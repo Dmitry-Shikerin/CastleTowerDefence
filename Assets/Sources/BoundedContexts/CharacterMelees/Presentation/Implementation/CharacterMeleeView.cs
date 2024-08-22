@@ -1,5 +1,4 @@
-﻿using System;
-using NodeCanvas.StateMachines;
+﻿using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
@@ -11,7 +10,6 @@ using Sources.BoundedContexts.Healths.Presentation.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation

@@ -1,7 +1,8 @@
-﻿using NodeCanvas.StateMachines;
+﻿using System;
+using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
+using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;
@@ -36,6 +37,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         public ICharacterHealthView CharacterHealth => _healthView;
         public IEnemyHealthView EnemyHealth { get; private set; }
         public ICharacterSpawnPoint CharacterSpawnPoint { get; private set; }
+        
 
         public override void Destroy()
         {
@@ -49,8 +51,13 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         public void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint) =>
             CharacterSpawnPoint = spawnPoint;
 
-        public void StartFsm() =>
+        public void StartFsm()
+        {
+            foreach (FSMState state in _fsmOwner.behaviour.GetAllNodesOfType<FSMState>())
+                _provider.Container.Inject(state);
+            
             _fsmOwner.StartBehaviour();
+        }
 
         public void StopFsm() =>
             _fsmOwner.StopBehaviour();

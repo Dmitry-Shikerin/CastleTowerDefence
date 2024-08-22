@@ -15,8 +15,6 @@ namespace Sources.BoundedContexts.CharacterHealths.Domain
         {
             _healthUpgrader = healthUpgrade;
             CurrentHealth = MaxHealth;
-            Debug.Log(healthUpgrade.CurrentAmount);
-            Debug.Log(healthUpgrade.Levels.Count);
         }
 
         public event Action HealthChanged;

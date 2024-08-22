@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sources.BoundedContexts.CharacterHealth.PresentationInterfaces
+namespace Sources.BoundedContexts.CharacterHealths.PresentationInterfaces
 {
     public interface ICharacterHealthView
     {

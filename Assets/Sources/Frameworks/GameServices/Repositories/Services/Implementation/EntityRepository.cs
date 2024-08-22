@@ -15,9 +15,6 @@ namespace Sources.Frameworks.GameServices.Repositories.Services.Implementation
         
         public void Add(IEntity entity)
         {
-            Debug.Log(entity.Type);
-            Debug.Log(entity.Id);
-            
             if (_entities.ContainsKey(entity.Id))
                 throw new InvalidOperationException($"Entity {entity.Id} with this Id already exists");
             

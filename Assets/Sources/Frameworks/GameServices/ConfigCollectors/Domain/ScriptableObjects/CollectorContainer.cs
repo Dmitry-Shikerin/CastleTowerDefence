@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Constants;
+using Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using UnityEditor;
 using UnityEngine;
