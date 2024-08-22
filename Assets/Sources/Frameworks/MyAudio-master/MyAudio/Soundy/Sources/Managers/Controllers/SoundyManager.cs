@@ -203,7 +203,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                     //     () => audioSource.time + 0.1f > audioSource.clip.length,
                     //     cancellationToken: cancellationTokenSource.Token);
                     await UniTask.WaitUntil(
-                        () => soundyController.IsPlaying);
+                        () => soundyController.IsPlaying == false);
                 }
             }
             catch (OperationCanceledException)
