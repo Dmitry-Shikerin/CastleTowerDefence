@@ -25,15 +25,15 @@ namespace MyAudios.Soundy.Sources.Settings.Domain.Configs
                     "Assets/Resources/Soundy/Settings/SoundySettings.asset");
 #else
                 s_instance = Resources.Load<SoundySettings>(
-                    "Assets/Resources/Soundy/Settings/SoundySettings.asset");
+                    "Assets/Resources/Soundy/Settings/SoundySettings");
+                Debug.Log($"Loaded SoundySettings");
 #endif          
                 
                 if (s_instance != null)
                     return s_instance;
 
-                s_instance = CreateInstance<SoundySettings>();
-
 #if UNITY_EDITOR
+                s_instance = CreateInstance<SoundySettings>();
                 AssetDatabase.CreateAsset(s_instance,
                     SoundySettingsConst.ResourcesPath + SoundySettingsConst.FileName + ".asset");
                 AssetDatabase.SaveAssets();
