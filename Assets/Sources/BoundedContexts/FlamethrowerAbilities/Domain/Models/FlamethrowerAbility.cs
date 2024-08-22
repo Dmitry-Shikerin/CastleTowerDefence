@@ -26,8 +26,8 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models
 
         public void ApplyAbility()
         {
-            AbilityApplied?.Invoke();
             IsApplied = true;
+            AbilityApplied?.Invoke();
         }
     }
 }
