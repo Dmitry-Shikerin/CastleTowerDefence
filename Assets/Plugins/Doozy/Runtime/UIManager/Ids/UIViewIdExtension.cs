@@ -35,6 +35,7 @@ namespace Doozy.Runtime.UIManager
             Achievements,
             Background,
             BossEnemyTutorial,
+            BunkerTutorial,
             Damage,
             EnemySpawnerTutorial,
             GameCompleted,
