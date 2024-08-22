@@ -12,6 +12,7 @@ using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
+using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.InfrastructureInterfaces.Services.Repositories;
 using Sources.Utils.Extentions;
@@ -24,6 +25,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
     {
         private readonly EnemySpawner _enemySpawner;
         private readonly KillEnemyCounter _killEnemyCounter;
+        private readonly Tutorial _tutorial;
         private readonly IEnemySpawnerView _view;
         private readonly EnemyViewFactory _enemyViewFactory;
         private readonly EnemyKamikazeViewFactory _enemyKamikazeViewFactory;
@@ -41,6 +43,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _enemySpawner = entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner);
             _killEnemyCounter = entityRepository.Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
+            _tutorial = entityRepository.Get<Tutorial>(ModelId.Tutorial);
             _view = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
             _enemyKamikazeViewFactory = enemyKamikazeViewFactory ?? throw new ArgumentNullException(nameof(enemyKamikazeViewFactory));
@@ -66,14 +69,24 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         public override void Enable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            Spawn(_cancellationTokenSource.Token);
             _killEnemyCounter.KillZombiesCountChanged += OnKillZombiesCountChanged;
+            OnStartSpawn();
+            _tutorial.OnCompleted += OnStartSpawn;
         }
 
         public override void Disable()
         {
             _killEnemyCounter.KillZombiesCountChanged -= OnKillZombiesCountChanged;
+            _tutorial.OnCompleted -= OnStartSpawn;
             _cancellationTokenSource.Cancel();
+        }
+
+        private void OnStartSpawn()
+        {
+            if (_tutorial.HasCompleted == false)
+                return;
+            
+            Spawn(_cancellationTokenSource.Token);
         }
 
         private void OnKillZombiesCountChanged()

@@ -1,5 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
+using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Tutorials.Services.Implementation;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Implementation;
@@ -34,6 +35,7 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<ILinecastService>().To<LinecastService>().AsSingle();
             Container.Bind<IPoolManager>().To<PoolManager>().AsSingle();
             Container.Bind<AdvertisingAfterWaveService>().AsSingle();
+            Container.Bind<SaveAfterWaveService>().AsSingle();
             
             //Camera
             Container.Bind<CameraView>().FromInstance(_cameraView).AsSingle();

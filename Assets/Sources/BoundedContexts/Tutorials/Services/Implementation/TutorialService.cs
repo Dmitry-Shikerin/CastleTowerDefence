@@ -1,6 +1,7 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
 using Sources.BoundedContexts.Tutorials.Domain;
+using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
@@ -33,11 +34,6 @@ namespace Sources.BoundedContexts.Tutorials.Services.Implementation
             
             _stream.SendSignal(true);
             _pauseService.Pause();
-
-            // if (_savedLevel.SavedLevelId != ModelId.Gameplay)
-            //     return;
-            //
-            // _formService.Show(FormId.GreetingTutorial);
         }
 
         public void Construct(Tutorial tutorial)

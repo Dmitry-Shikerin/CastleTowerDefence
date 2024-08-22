@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
+using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Scenes.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
@@ -23,6 +24,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class GameplaySceneFactory : ISceneFactory
     {
+        private readonly SaveAfterWaveService _saveAfterWaveService;
         private readonly AdvertisingAfterWaveService _advertisingAfterWaveService;
         private readonly ICompositeAssetService _compositeAssetService;
         private readonly ISkyAndWeatherService _skyAndWeatherService;
@@ -39,6 +41,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplaySceneFactory(
+            SaveAfterWaveService saveAfterWaveService,
             AdvertisingAfterWaveService advertisingAfterWaveService,
             ICompositeAssetService compositeAssetService,
             ISkyAndWeatherService skyAndWeatherService,
@@ -54,6 +57,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _saveAfterWaveService = saveAfterWaveService ?? throw new ArgumentNullException(nameof(saveAfterWaveService));
             _advertisingAfterWaveService = advertisingAfterWaveService ?? 
                                            throw new ArgumentNullException(nameof(advertisingAfterWaveService));
             _compositeAssetService = compositeAssetService ?? 
@@ -77,6 +81,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene gameplayScene = new GameplayScene(
+                _saveAfterWaveService,
                 _advertisingAfterWaveService,
                 _compositeAssetService,
                 _skyAndWeatherService,

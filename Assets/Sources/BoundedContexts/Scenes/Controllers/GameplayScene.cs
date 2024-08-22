@@ -4,6 +4,7 @@ using MyAudios.MyUiFramework.Utils.Soundies.Domain.Constant;
 using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
+using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
@@ -22,6 +23,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
+        private readonly SaveAfterWaveService _saveAfterWaveService;
         private readonly AdvertisingAfterWaveService _advertisingAfterWaveService;
         private readonly ICompositeAssetService _compositeAssetService;
         private readonly ISkyAndWeatherService _skyAndWeatherService;
@@ -38,6 +40,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplayScene(
+            SaveAfterWaveService saveAfterWaveService,
             AdvertisingAfterWaveService advertisingAfterWaveService,
             ICompositeAssetService compositeAssetService,
             ISkyAndWeatherService skyAndWeatherService,
@@ -53,6 +56,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _saveAfterWaveService = saveAfterWaveService ?? throw new ArgumentNullException(nameof(saveAfterWaveService));
             _advertisingAfterWaveService = advertisingAfterWaveService ?? throw new ArgumentNullException(nameof(advertisingAfterWaveService));
             _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _skyAndWeatherService = skyAndWeatherService ?? throw new ArgumentNullException(nameof(skyAndWeatherService));
@@ -89,6 +93,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _skyAndWeatherService.Initialize();
             _gameOverService.Initialize();
             _tutorialService.Initialize();
+            _saveAfterWaveService.Initialize();
             // await _curtainView.HideAsync();
         }
 
@@ -101,6 +106,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _skyAndWeatherService.Destroy();
             _achievementService.Destroy();
             _gameOverService.Destroy();
+            _saveAfterWaveService.Destroy();
             _advertisingAfterWaveService.Destroy();
             _compositeAssetService.Release();
         }
