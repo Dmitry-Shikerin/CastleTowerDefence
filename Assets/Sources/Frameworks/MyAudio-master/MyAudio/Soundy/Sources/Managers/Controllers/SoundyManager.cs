@@ -194,14 +194,16 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             {
                 while (cancellationTokenSource.Token.IsCancellationRequested == false)
                 {
-                    SoundyController soundyManager = Play(databaseName, soundName);
+                    SoundyController soundyController = Play(databaseName, soundName);
                     SetVolume(soundName, musicVolume.VolumeValue);
-                    AudioSource audioSource = soundyManager.AudioSource;
+                    AudioSource audioSource = soundyController.AudioSource;
                     audioSource.mute = musicVolume.IsVolumeMuted;
 
+                    // await UniTask.WaitUntil(
+                    //     () => audioSource.time + 0.1f > audioSource.clip.length,
+                    //     cancellationToken: cancellationTokenSource.Token);
                     await UniTask.WaitUntil(
-                        () => audioSource.time + 0.1f > audioSource.clip.length,
-                        cancellationToken: cancellationTokenSource.Token);
+                        () => soundyController.IsPlaying);
                 }
             }
             catch (OperationCanceledException)

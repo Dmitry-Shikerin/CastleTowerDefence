@@ -16,18 +16,10 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
     [DefaultExecutionOrder(SoundyExecutionOrder.SoundyController)]
     public class SoundyController : MonoBehaviour
     {
-        #region Static Properties
-
-        /// <summary> Internal list of all the available controllers </summary>
         private static List<SoundyController> s_database = new List<SoundyController>();
-
-        /// <summary> Global variable that keeps track if all controllers are paused or not </summary>
         private static bool s_pauseAllControllers;
-
-        /// <summary> Global variable that keeps track if all controllers are muted or not </summary>
         private static bool s_muteAllControllers;
 
-        /// <summary> Global toggle to pause / unpause all controllers </summary>
         public static bool PauseAllControllers
         {
             get => s_pauseAllControllers;
@@ -45,7 +37,6 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             }
         }
 
-        /// <summary> Global toggle to mute / unmute all controllers </summary>
         public static bool MuteAllControllers
         {
             get => s_muteAllControllers;
@@ -62,104 +53,68 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
                     controller.Unmute();
             }
         }
-
-        #endregion
         
-        #region Private Variables
-
-        /// <summary> Internal variable that keeps a reference to the self Transform </summary>
         private Transform _transform;
-
-        /// <summary> Internal variable that keeps a reference to the current follow target </summary>
         private Transform _followTarget;
-
-        /// <summary> Internal variable that keeps a reference to the target AudioSource </summary>
         private AudioSource _audioSource;
-
-        /// <summary> Internal variable that keeps track if this controller is in use or idle </summary>
         private bool _inUse;
-
-        /// <summary> Internal variable that keeps track of the currently playing AudioClip play progress </summary>
         private float _playProgress;
-
-        /// <summary> Internal variable that keeps track if this controller is paused or not </summary>
         private bool _isPaused;
-
-        /// <summary> Internal variable that keeps track if this controller is muted or not </summary>
         private bool _isMuted;
-
-        /// <summary> Internal variable that keeps track of when was the last time this controller was used </summary>
         private float _lastPlayedTime;
-
-        /// <summary> Internal variable that keeps track if the Play() method has been called on this controller. It's set to FALSE when the Stop() method is called. </summary>
         private bool _isPlaying;
-
-        /// <summary> Internal variable used to detect then Unity Pauses this controller's AudioSource (this happens on app switch for example and Unity does not give any info about this happening) </summary>
         private bool _autoPaused;
-
         private bool _muted;
         private bool _paused;
-        
         private string _name;
+        private float _savedClipTime;
 
-        #endregion
+        public bool IsPlaying => _isPlaying;
         
-        #region Properties
-
         public string Name
         {
             get => _name;
             set => _name = value;
         }
         
-        /// <summary> Target AudioSource component </summary>
         public AudioSource AudioSource
         {
             get => _audioSource;
             private set => _audioSource = value;
         }
 
-        /// <summary> Keeps track if this controller is in use or idle </summary>
         public bool InUse
         {
             get => _inUse;
             private set => _inUse = value;
         }
 
-        /// <summary> Keeps track of the currently playing AudioClip play progress </summary>
         public float PlayProgress
         {
             get => _playProgress;
             private set => _playProgress = value;
         }
 
-        /// <summary> Keeps track if this controller is paused or not </summary>
         public bool IsPaused
         {
             get => _isPaused || s_pauseAllControllers;
             private set => _isPaused = value;
         }
 
-        /// <summary> Keeps track if this controller is muted or not </summary>
         public bool IsMuted
         {
             get => _isMuted || MuteAllControllers;
             private set => _isMuted = value;
         }
 
-        /// <summary> Keeps track of when was the last time this controller was used (info needed for the dynamic pooling system) </summary>
         public float LastPlayedTime
         {
             get => _lastPlayedTime;
             private set => _lastPlayedTime = value;
         }
 
-        /// <summary> Returns the duration since this controller has been used last </summary>
         public float IdleDuration => Time.realtimeSinceStartup - LastPlayedTime;
-
-        #endregion
         
-        #region Unity Methods
 
         private void Reset() =>
             ResetController();
@@ -189,10 +144,16 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             if (IsPaused != _paused)
             {
                 if (IsPaused && AudioSource.isPlaying)
+                {
+                    _savedClipTime = AudioSource.time;
                     AudioSource.Pause();
-                
-                if (IsPaused == false) 
+                }
+
+                if (IsPaused == false)
+                {
+                    AudioSource.time = _savedClipTime;
                     AudioSource.UnPause();
+                } 
                 
                 _paused = IsPaused;
             }
@@ -219,30 +180,22 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             FollowTarget();
         }
 
-        #endregion
-
-        #region Public Methods
-
-        /// <summary> Stop playing and destroy the GameObject this controller is attached to </summary>
         public void Kill()
         {
             Stop();
             Destroy(gameObject);
         }
 
-        /// <summary> Mute the target AudioSource </summary>
         public void Mute()
         {
             IsMuted = true;
         }
 
-        /// <summary> Pause the target AudioSource </summary>
         public void Pause()
         {
             IsPaused = true;
         }
 
-        /// <summary> Start Play on the target AudioSource </summary>
         public void Play()
         {
             InUse = true;
@@ -251,13 +204,9 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             AudioSource.Play();
         }
 
-        /// <summary> Set a follow target Transform that this controller needs to follow while playing </summary>
-        /// <param name="followTarget"> The target Transform </param>
         public void SetFollowTarget(Transform followTarget) =>
             _followTarget = followTarget;
 
-        /// <summary> Set an output AudioMixerGroup to the target AudioSource of this controller </summary>
-        /// <param name="outputAudioMixerGroup"> Target output AudioMixerGroup </param>
         public void SetOutputAudioMixerGroup(AudioMixerGroup outputAudioMixerGroup)
         {
             if (outputAudioMixerGroup == null)
@@ -266,17 +215,9 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             AudioSource.outputAudioMixerGroup = outputAudioMixerGroup;
         }
 
-        /// <summary> Set the position in world space from where this controller will be playing from </summary>
-        /// <param name="position"> The new position </param>
         public void SetPosition(Vector3 position) =>
             _transform.position = position;
 
-        /// <summary> Set the given settings to the target AudioSource </summary>
-        /// <param name="clip"> The AudioClip to play </param>
-        /// <param name="volume"> The volume of the audio source (0.0 to 1.0) </param>
-        /// <param name="pitch"> The pitch of the audio source </param>
-        /// <param name="loop"> Is the audio clip looping? </param>
-        /// <param name="spatialBlend"> Sets how much this AudioSource is affected by 3D spatialisation calculations (attenuation, doppler etc). 0.0 makes the sound full 2D, 1.0 makes it full 3D </param>
         public void SetSourceProperties(AudioClip clip, float volume, float pitch, bool loop, float spatialBlend)
         {
             if (clip == null)
@@ -292,7 +233,6 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             AudioSource.spatialBlend = spatialBlend;
         }
 
-        /// <summary> Stop the target AudioSource from playing </summary>
         public void Stop()
         {
             Unpause();
@@ -303,21 +243,15 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             SoundyPooler.PutControllerInPool(this);
         }
 
-        /// <summary> Unmute the target AudioSource if it was previously muted </summary>
         public void Unmute()
         {
             IsMuted = false;
         }
 
-        /// <summary> Unpause the target AudioSource if it was previously paused </summary>
         public void Unpause()
         {
             IsPaused = false;
         }
-
-        #endregion
-
-        #region Private Methods
 
         private void FollowTarget()
         {
@@ -349,10 +283,6 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             PlayProgress = Mathf.Clamp01(AudioSource.time / AudioSource.clip.length);
         }
 
-        #endregion
-
-        #region Static Methods
-
         public static SoundyController CreateController()
         {
             SoundyController controller = new GameObject(
@@ -366,7 +296,6 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
         public static SoundyController GetControllerByName(string name) =>
             s_database.First(controller => controller.Name == name);
 
-        /// <summary> Stop all controllers from playing and destroy the GameObjects they are attached to </summary>
         public static void KillAll()
         {
             RemoveNullControllersFromDatabase();
@@ -375,25 +304,21 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
                 controller.Kill();
         }
 
-        /// <summary> Mute all the controllers </summary>
         public static void MuteAll()
         {
             RemoveNullControllersFromDatabase();
             MuteAllControllers = true;
         }
 
-        /// <summary> Pause all the controllers that are currently playing </summary>
         public static void PauseAll()
         {
             RemoveNullControllersFromDatabase();
             PauseAllControllers = true;
         }
 
-        /// <summary> Remove any null controller references from the database </summary>
         public static void RemoveNullControllersFromDatabase() =>
             s_database = s_database.Where(sc => sc != null).ToList();
 
-        /// <summary> Stop all the controllers that are currently playing </summary>
         public static void StopAll()
         {
             RemoveNullControllersFromDatabase();
@@ -407,19 +332,15 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
             }
         }
 
-        /// <summary> Unmute all the controllers that were previously muted </summary>
         public static void UnmuteAll()
         {
             RemoveNullControllersFromDatabase();
             MuteAllControllers = false;
         }
 
-        /// <summary> Unpause all the controllers that were previously paused </summary>
         public static void UnpauseAll() =>
             PauseAllControllers = false;
-
-        #endregion
-
+        
         public static void Stop(string databaseName, string soundName)
         {
             s_database
