@@ -92,14 +92,14 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _achievementService.Initialize();
             _signalControllersCollector.Initialize();
             _soundyService.Initialize();
-            _soundyService.PlaySequence(
-                SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
             _advertisingAfterWaveService.Initialize();
             _skyAndWeatherService.Initialize();
             _gameOverService.Initialize();
             _gameCompletedService.Initialize();
             _saveAfterWaveService.Initialize();
             await _curtainView.HideAsync();
+            _soundyService.PlaySequence(
+                SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
             _tutorialService.Initialize();
         }
 
