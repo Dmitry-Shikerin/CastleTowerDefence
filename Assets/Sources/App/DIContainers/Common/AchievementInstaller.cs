@@ -19,6 +19,9 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<FirstWaveCompletedAchievementCommand>().AsSingle();
             Container.Bind<ScullsDiggerAchievementCommand>().AsSingle();
             Container.Bind<MaxUpgradeAchievementCommand>().AsSingle();
+            Container.Bind<FiftyWaveCompletedAchievementCommand>().AsSingle();
+            Container.Bind<AllAbilitiesUsedAchievementCommand>().AsSingle();
+            Container.Bind<CompleteGameWithOneHealthAchievementCommand>().AsSingle();
         }
     }
 }

@@ -52,23 +52,27 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
 
         //Achievements
         public const string FirstEnemyKillAchievement = "FirstEnemyKillAchievement";
-        //public const string FirstHealthRemovedAchievement = "FirstHealthRemovedAchievement";
         public const string FirstUpgradeAchievement = "FirstUpgradeAchievement";
         public const string FirstHealthBoosterUsageAchievement = "FirstHealthBoosterUsageAchievement";
         public const string FirstWaveCompletedAchievement = "FirstWaveCompletedAchievement";
         public const string ScullsDiggerAchievement = "ScullsDiggerAchievement";
         public const string MaxUpgradeAchievement = "MaxUpgradeAchievement";
+        public const string FiftyWaveCompletedAchievement = "FiftyWaveCompletedAchievement";
+        public const string AllAbilitiesUsedAchievementCommand = "AllAbilitiesUsedAchievementCommand";
+        public const string CompleteGameWithOneHealthAchievementCommand = "CompleteGameWithOneHealthAchievementCommand";
 
 
         public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
         {
             FirstEnemyKillAchievement,
-            //FirstHealthRemovedAchievement,
             FirstUpgradeAchievement,
             FirstHealthBoosterUsageAchievement,
             FirstWaveCompletedAchievement,
             ScullsDiggerAchievement,
             MaxUpgradeAchievement,
+            FiftyWaveCompletedAchievement,
+            AllAbilitiesUsedAchievementCommand,
+            CompleteGameWithOneHealthAchievementCommand,
         };
 
         public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()
@@ -121,6 +125,9 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             [FirstWaveCompletedAchievement] = typeof(Achievement),
             [ScullsDiggerAchievement] = typeof(Achievement),
             [MaxUpgradeAchievement] = typeof(Achievement),
+            [FiftyWaveCompletedAchievement] = typeof(Achievement),
+            [AllAbilitiesUsedAchievementCommand] = typeof(Achievement),
+            [CompleteGameWithOneHealthAchievementCommand] = typeof(Achievement),
             [Tutorial] = typeof(Tutorial),
         };
     }

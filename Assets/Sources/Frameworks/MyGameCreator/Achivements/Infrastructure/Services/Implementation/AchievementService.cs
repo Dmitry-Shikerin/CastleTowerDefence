@@ -31,7 +31,10 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
             FirstHealthBoosterUsageAchievementCommand firstHealthBoosterUsageAchievementCommand,
             FirstWaveCompletedAchievementCommand firstWaveCompletedAchievementCommand,
             ScullsDiggerAchievementCommand scullsDiggerAchievementCommand,
-            MaxUpgradeAchievementCommand maxUpgradeAchievementCommand)
+            MaxUpgradeAchievementCommand maxUpgradeAchievementCommand,
+            FiftyWaveCompletedAchievementCommand fiftyWaveCompletedAchievementCommand,
+            AllAbilitiesUsedAchievementCommand allAbilitiesUsedAchievementCommand,
+            CompleteGameWithOneHealthAchievementCommand completeGameWithOneHealthAchievementCommand)
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
@@ -46,6 +49,9 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
                 firstWaveCompletedAchievementCommand,
                 scullsDiggerAchievementCommand,
                 maxUpgradeAchievementCommand,
+                fiftyWaveCompletedAchievementCommand,
+                allAbilitiesUsedAchievementCommand,
+                completeGameWithOneHealthAchievementCommand,
             };
         }
 

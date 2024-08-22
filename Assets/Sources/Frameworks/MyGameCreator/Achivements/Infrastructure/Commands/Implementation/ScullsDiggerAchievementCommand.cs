@@ -56,8 +56,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             if (_playerWallet.Coins < 100)
                 return;
             
-            _achievement.IsCompleted = true;
-            
             Execute(_achievement);
         }
 
