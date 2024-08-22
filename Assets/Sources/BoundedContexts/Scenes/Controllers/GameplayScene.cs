@@ -98,9 +98,9 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _skyAndWeatherService.Initialize();
             _gameOverService.Initialize();
             _gameCompletedService.Initialize();
-            _tutorialService.Initialize();
             _saveAfterWaveService.Initialize();
             await _curtainView.HideAsync();
+            _tutorialService.Initialize();
         }
 
         public void Exit()

@@ -752,8 +752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Gameplay
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 129, y: -38.000008, z: 0}
-  EditorScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  EditorPosition: {x: 90, y: -8, z: 0}
+  EditorScale: {x: 0.57175326, y: 0.57175326, z: 1}
   Id: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   GraphName: Flow Graph
   GraphDescription: 
@@ -932,7 +932,8 @@ MonoBehaviour:
     PortId: 798e0fb4-1bc5-4d78-a823-a9d5c91c9639
     Direction: 0
     Capacity: 1
-    Connections: []
+    Connections:
+    - 595e5938-6917-4ae2-9f91-b48ab572c091
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -989,7 +990,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 8fbd8c2c-4d23-400c-80ef-7fa6a453c3e5
   NodeType: 1
-  NodeName: Portal
+  NodeName: Tutorial Portal
   NodeDescription: 
   InputPorts: []
   OutputPorts:
@@ -1010,7 +1011,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 34.980114, y: 335.80917}
+  Position: {x: 35.000046, y: 435}
   Trigger: 0
   SignalPayload:
     StreamId:
@@ -1055,7 +1056,7 @@ MonoBehaviour:
   FlowGraphId: 76845bbe-4e4c-4855-86a7-0cba8f2eadf3
   NodeId: 3292cf3d-8749-4e05-99ed-e2814ffbc634
   NodeType: 1
-  NodeName: Portal
+  NodeName: GameCompleted Portal
   NodeDescription: 
   InputPorts: []
   OutputPorts:
@@ -1063,7 +1064,8 @@ MonoBehaviour:
     PortId: 595e5938-6917-4ae2-9f91-b48ab572c091
     Direction: 1
     Capacity: 0
-    Connections: []
+    Connections:
+    - 798e0fb4-1bc5-4d78-a823-a9d5c91c9639
     Value: 
     ValueTypeQualifiedName: 
     CanBeDeleted: 0
@@ -1075,16 +1077,16 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 248.63, y: 316.07748}
+  Position: {x: 163.00003, y: 291}
   Trigger: 0
   SignalPayload:
     StreamId:
-      Category: None
-      Name: None
+      Category: Gameplay
+      Name: GameCompleted
       Custom: 0
-    SignalValueType: 0
+    SignalValueType: 2
     IntegerValue: 0
-    BooleanValue: 0
+    BooleanValue: 1
     FloatValue: 0
     StringValue: 
     ColorValue: {r: 0, g: 0, b: 0, a: 0}
