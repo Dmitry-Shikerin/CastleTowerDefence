@@ -31,7 +31,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
 
         public string Id { get; set; }
         public Type Type => GetType();
-        public IReadOnlyList<RuntimeEnemySpawnerWave> Waves { get; set; }
+        public List<RuntimeEnemySpawnerWave> Waves { get; set; }
         public RuntimeEnemySpawnerConfig Config { get; set; }
 
         [JsonIgnore]

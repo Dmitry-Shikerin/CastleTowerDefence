@@ -11,8 +11,8 @@ using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
-using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
+using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
@@ -51,8 +51,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             KillEnemyCounter killEnemyCounter = _loadService.Load<KillEnemyCounter>(ModelId.KillEnemyCounter);
             
             //Characters
-            // CharacterSpawnAbility characterSpawnAbility = 
-            //     _loadService.Load<CharacterSpawnAbility>(ModelId.SpawnAbility);
             CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility(ModelId.SpawnAbility);
             _entityRepository.Add(characterSpawnAbility);
             

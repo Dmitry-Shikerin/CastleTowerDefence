@@ -23,7 +23,8 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Models
 
         public string Id { get; set; }
         public Type Type => GetType();
-        public IReadOnlyList<RuntimeUpgradeLevel> Levels  { get; set; }
+        public List<RuntimeUpgradeLevel> Levels  { get; set; }
+        public RuntimeUpgradeConfig Config { get; set; }
         public int CurrentLevel { get; private set; }
         [JsonIgnore]
         public float CurrentAmount => Levels[CurrentLevel].CurrentAmount;

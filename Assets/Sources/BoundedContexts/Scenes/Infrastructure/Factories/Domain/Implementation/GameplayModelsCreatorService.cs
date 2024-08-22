@@ -142,11 +142,22 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
         {
             UpgradeConfig config = _upgradeConfigContainer.UpgradeConfigs
                 .First(config => config.Id == id);
-            
+
             List<RuntimeUpgradeLevel> levels = new List<RuntimeUpgradeLevel>();
-            config.Levels.ForEach(level => levels.Add(new RuntimeUpgradeLevel(level)));
+            RuntimeUpgradeConfig runtimeConfig = new RuntimeUpgradeConfig()
+            {
+                Id = config.Id,
+                Levels = levels,
+            };
+            config.Levels.ForEach(level => levels.Add(new RuntimeUpgradeLevel()
+            {
+                Id = level.Id,
+                MoneyPerUpgrade = level.MoneyPerUpgrade,
+                CurrentAmount = level.CurrentAmount,
+            }));
             Upgrade upgrade = new Upgrade()
             {
+                Config = runtimeConfig,
                 Levels = levels,
                 Id = config.Id,
             };
@@ -195,11 +206,13 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
         private EnemySpawner CreateEnemySpawner()
         {
-                        EnemySpawnerConfig enemySpawnerConfig = 
+            EnemySpawnerConfig enemySpawnerConfig = 
                 Resources.Load<EnemySpawnerConfig>(
                     PrefabPath.EnemySpawnerConfigContainer);
             List<RuntimeEnemySpawnerWave> waves = new List<RuntimeEnemySpawnerWave>();
+
             foreach (EnemySpawnerWave wave in enemySpawnerConfig.Waves)
+            {
                 waves.Add(new RuntimeEnemySpawnerWave()
                 {
                     WaveId = wave.WaveId,
@@ -209,6 +222,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                     KamikazeEnemyCount = wave.KamikazeEnemyCount,
                     MoneyPerResilenceCharacters = wave.MoneyPerResilenceCharacters,
                 });
+            }
+            
             RuntimeEnemySpawnerConfig runtimeEnemySpawnerConfig = new RuntimeEnemySpawnerConfig()
             {
                 StartEnemyAttackPower = enemySpawnerConfig.StartEnemyAttackPower,
@@ -231,6 +246,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             };
             EnemySpawner enemySpawner = new EnemySpawner()
             {
+                Waves = waves,
                 Config = runtimeEnemySpawnerConfig,
                 Id = ModelId.EnemySpawner
             };

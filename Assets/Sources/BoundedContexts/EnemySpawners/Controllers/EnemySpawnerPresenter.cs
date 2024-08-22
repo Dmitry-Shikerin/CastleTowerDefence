@@ -46,7 +46,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             _tutorial = entityRepository.Get<Tutorial>(ModelId.Tutorial);
             _view = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
-            _enemyKamikazeViewFactory = enemyKamikazeViewFactory ?? throw new ArgumentNullException(nameof(enemyKamikazeViewFactory));
+            _enemyKamikazeViewFactory = enemyKamikazeViewFactory ??
+                                        throw new ArgumentNullException(nameof(enemyKamikazeViewFactory));
             _enemyBossViewFactory = enemyBossViewFactory ??
                                     throw new ArgumentNullException(nameof(enemyBossViewFactory));
 
@@ -86,7 +87,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             if (_tutorial.HasCompleted == false)
                 return;
-            
+
             Spawn(_cancellationTokenSource.Token);
         }
 
@@ -102,55 +103,56 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             try
             {
-                    int startWave = _enemySpawner.CurrentWaveNumber;
+                int startWave = _enemySpawner.CurrentWaveNumber;
 
-                    for (int i = startWave; i < _enemySpawner.Waves.Count; i++)
+                for (int i = startWave; i < _enemySpawner.Waves.Count; i++)
+                {
+                    _enemySpawner.ClearSpawnedEnemies();
+                    Debug.Log($"Spawn wave: {_enemySpawner.CurrentWave.EnemyCount}");
+
+                    for (int j = 0; j < _enemySpawner.Waves[i].BossesCount; j++)
                     {
-                        _enemySpawner.ClearSpawnedEnemies();
+                        int randomSpawnPoint = Random.Range(0, _view.SpawnPoints.Count);
+                        SpawnBoss(_view.SpawnPoints[randomSpawnPoint]);
 
-                        for (int j = 0; j < _enemySpawner.Waves[i].BossesCount; j++)
+                        await UniTask.Delay(TimeSpan.FromSeconds(
+                                _enemySpawner.Waves[i].SpawnDelay),
+                            cancellationToken: cancellationToken);
+                    }
+
+                    for (int j = 0; j < _enemySpawner.Waves[i].EnemyCount; j++)
+                    {
+                        int randomSpawnPoint = Random.Range(0, _view.SpawnPoints.Count);
+                        SpawnEnemy(_view.SpawnPoints[randomSpawnPoint]);
+
+                        int percent =
+                            _enemySpawner.SpawnedEnemiesInCurrentWave.IntToPercent(
+                                _enemySpawner.Waves[i].EnemyCount);
+
+                        await UniTask.Delay(TimeSpan.FromSeconds(
+                                _enemySpawner.Waves[i].SpawnDelay),
+                            cancellationToken: cancellationToken);
+
+                        if (_enemySpawner.SpawnedKamikazeInCurrentWave ==
+                            _enemySpawner.Waves[i].KamikazeEnemyCount)
+                            continue;
+
+                        if (percent >= 50)
                         {
-                            int randomSpawnPoint = Random.Range(0, _view.SpawnPoints.Count);
-                            SpawnBoss(_view.SpawnPoints[randomSpawnPoint]);
-                            
-                            await UniTask.Delay(TimeSpan.FromSeconds(
-                                    _enemySpawner.Waves[i].SpawnDelay),
-                                cancellationToken: cancellationToken);
-                        }
-                        
-                        for (int j = 0; j < _enemySpawner.Waves[i].EnemyCount; j++)
-                        {
-                            int randomSpawnPoint = Random.Range(0, _view.SpawnPoints.Count);
-                            SpawnEnemy(_view.SpawnPoints[randomSpawnPoint]);
-
-                            int percent =
-                                _enemySpawner.SpawnedEnemiesInCurrentWave.IntToPercent(
-                                    _enemySpawner.Waves[i].EnemyCount);
-
-                            await UniTask.Delay(TimeSpan.FromSeconds(
-                                    _enemySpawner.Waves[i].SpawnDelay),
-                                cancellationToken: cancellationToken);
-                            
-                            if (_enemySpawner.SpawnedKamikazeInCurrentWave == 
-                                _enemySpawner.Waves[i].KamikazeEnemyCount)
-                                continue;
-                            
-                            if (percent >= 50)
+                            for (int x = 0; x < _enemySpawner.Waves[i].KamikazeEnemyCount; x++)
                             {
-                                for (int x = 0; x < _enemySpawner.Waves[i].KamikazeEnemyCount; x++)
-                                {
-                                    int randomSpawnPoint2 = Random.Range(0, _view.SpawnPoints.Count);
-                                    SpawnEnemyKamikaze(_view.SpawnPoints[randomSpawnPoint2]);
+                                int randomSpawnPoint2 = Random.Range(0, _view.SpawnPoints.Count);
+                                SpawnEnemyKamikaze(_view.SpawnPoints[randomSpawnPoint2]);
 
-                                    await UniTask.Delay(TimeSpan.FromSeconds(
-                                            _enemySpawner.Waves[i].SpawnDelay),
-                                        cancellationToken: cancellationToken);
-                                }
+                                await UniTask.Delay(TimeSpan.FromSeconds(
+                                        _enemySpawner.Waves[i].SpawnDelay),
+                                    cancellationToken: cancellationToken);
                             }
                         }
-                        
-                        _enemySpawner.CurrentWaveNumber++;
                     }
+
+                    _enemySpawner.CurrentWaveNumber++;
+                }
             }
             catch (OperationCanceledException)
             {
