@@ -1,9 +1,11 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using System;
+using JetBrains.Annotations;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterMelees.Domain;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
@@ -11,18 +13,19 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     [UsedImplicitly]
     public class CharacterMeleeDyeState : FSMState
     {
-        private CharacterMeleeDependencyProvider _provider;
-        private ICharacterMeleeView View => _provider.View;
+        private ICharacterMeleeView _view;
+        private CharacterMelee _characterMelee;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(CharacterMelee characterMelee, CharacterMeleeView characterMeleeView)
         {
-            _provider = 
-                graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
+            _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
+            _view = characterMeleeView ?? throw new ArgumentNullException(nameof(characterMeleeView));
         }
 
         protected override void OnEnter()
         {
-            View.Destroy();
+            _view.Destroy();
         }
     }
 }

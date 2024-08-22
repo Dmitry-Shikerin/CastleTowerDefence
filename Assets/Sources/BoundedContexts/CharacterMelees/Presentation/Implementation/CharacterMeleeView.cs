@@ -26,6 +26,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
         private IPODestroyerService _poDestroyerService = new PODestroyerService();
         
         public HealthBarView HealthBarView => _healthBarView;
+        public FSMOwner FsmOwner => _fsmOwner;
         public float FindRange => _findRange;
         public Vector3 Position => transform.position;
         public ICharacterMeleeAnimation MeleeAnimation => meleeAnimation;

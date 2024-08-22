@@ -1,10 +1,13 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Domain;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
@@ -12,23 +15,23 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     [UsedImplicitly]
     public class CharacterMeleeInitializeState : FSMState
     {
-        private CharacterMeleeDependencyProvider _provider;
-        
-        private ICharacterMeleeView View => _provider.View;
-        private ICharacterMeleeAnimation Animation => _provider.Animation;
-        private CharacterMelee CharacterMelee => _provider.CharacterMelee;
+        private ICharacterMeleeView _view;
+        private ICharacterMeleeAnimation _animation;
+        private CharacterMelee _characterMelee;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(CharacterMelee characterMelee, CharacterMeleeView view)
         {
-            _provider = 
-                graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
+            _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
+            _animation = view.MeleeAnimation;
         }
 
         protected override void OnEnter()
         {
-            Animation.PlayIdle();
-            CharacterMelee.IsInitialized = true;
-            View.CharacterSpawnPoint.SetCharacterHealth(View.HealthView);
+            _animation.PlayIdle();
+            _characterMelee.IsInitialized = true;
+            _view.CharacterSpawnPoint.SetCharacterHealth(_view.HealthView);
         }
     }
 }

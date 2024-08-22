@@ -1,10 +1,15 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
+using Sources.BoundedContexts.CharacterMelees.Domain;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
+using Zenject;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
@@ -12,63 +17,72 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     [UsedImplicitly]
     public class CharacterMeleeAttackState : FSMState
     {
-        private CharacterMeleeDependencyProvider _provider;
-        
-        private ICharacterMeleeView View => _provider.View;
-        private ICharacterMeleeAnimation Animation => _provider.Animation;
-        private ICharacterRotationService RotationService => _provider.CharacterRotationService;
+        private CharacterMeleeView _view;
+        private CharacterMelee _characterMelee;
+        private ICharacterMeleeAnimation _animation;
+        private ICharacterRotationService _rotationService;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(
+            CharacterMelee characterMelee, 
+            CharacterMeleeView characterMeleeView)
         {
-            _provider = 
-                graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
+            _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
+            _view = characterMeleeView ?? throw new ArgumentNullException(nameof(characterMeleeView));
+            _animation = _view.MeleeAnimation;
+        }
+
+        [Inject]
+        private void Construct(ICharacterRotationService rotationService)
+        {
+            _rotationService = rotationService ?? throw new ArgumentNullException(nameof(rotationService));
         }
 
         protected override void OnEnter()
         {
-            Animation.Attacking += OnAttack;
-            Animation.PlayAttack();
+            _animation.Attacking += OnAttack;
+            _animation.PlayAttack();
         }
 
         protected override void OnUpdate()
         {
-            if (View.EnemyHealth == null)
+            if (_view.EnemyHealth == null)
                 return;
 
-            if (View.EnemyHealth.CurrentHealth <= 0)
-                View.SetEnemyHealth(null);
+            if (_view.EnemyHealth.CurrentHealth <= 0)
+                _view.SetEnemyHealth(null);
             
             ChangeLookDirection();
         }
 
         protected override void OnExit()
         {
-            Animation.Attacking -= OnAttack;
+            _animation.Attacking -= OnAttack;
         }
 
         private void OnAttack()
         {
-            if (View.EnemyHealth == null)
+            if (_view.EnemyHealth == null)
                 return;
 
-            if (View.EnemyHealth.CurrentHealth <= 0)
+            if (_view.EnemyHealth.CurrentHealth <= 0)
             {
-                View.SetEnemyHealth(null);
+                _view.SetEnemyHealth(null);
                 
                 return;
             }
             
-            View.EnemyHealth.TakeDamage(10);
+            _view.EnemyHealth.TakeDamage(10);
         }
         
         private void ChangeLookDirection()
         {
-            if (View.EnemyHealth == null)
+            if (_view.EnemyHealth == null)
                 return;
 
-            float angle = RotationService.GetAngleRotation(
-                View.EnemyHealth.Position, View.Position);
-            View.SetLookRotation(angle);
+            float angle = _rotationService.GetAngleRotation(
+                _view.EnemyHealth.Position, _view.Position);
+            _view.SetLookRotation(angle);
         }
     }
 }
