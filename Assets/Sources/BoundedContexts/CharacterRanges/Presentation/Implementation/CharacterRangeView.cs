@@ -28,6 +28,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
 
         private IPODestroyerService _poDestroyerService = new PODestroyerService();
         
+        public FSMOwner FsmOwner => _fsmOwner;
         public HealthBarView HealthBarView => _healthBarView;
         public ICharacterRangeAnimation RangeAnimation => _rangeAnimation;
         public CharacterHealthView HealthView => _healthView;
@@ -53,9 +54,6 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
 
         public void StartFsm()
         {
-            foreach (FSMState state in _fsmOwner.behaviour.GetAllNodesOfType<FSMState>())
-                _provider.Container.Inject(state);
-            
             _fsmOwner.StartBehaviour();
         }
 
