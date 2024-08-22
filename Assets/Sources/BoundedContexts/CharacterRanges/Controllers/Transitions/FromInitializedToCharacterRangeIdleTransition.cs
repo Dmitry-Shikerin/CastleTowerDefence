@@ -1,30 +1,27 @@
-﻿using JetBrains.Annotations;
+﻿using System;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterRanges.Domain;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.Transitions
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class FromInitializedToCharacterRangeIdleTransition : ConditionTask
     {
-        private CharacterRangeDependencyProvider _provider;
-        
-        private ICharacterRangeView View => _provider.View;
-        private CharacterRange CharacterRange => _provider.CharacterRange;
+        private ICharacterRangeView _view;
+        private CharacterRange _characterRange;
 
-        protected override string OnInit()
+        [Construct]
+        private void Construct(CharacterRange characterRange, CharacterRangeView view)
         {
-            _provider =
-                blackboard.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
-
-            return null;
+            _characterRange = characterRange ?? throw new ArgumentNullException(nameof(characterRange));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
         protected override bool OnCheck() =>
-            CharacterRange.IsInitialized;
+            _characterRange.IsInitialized;
     }
 }

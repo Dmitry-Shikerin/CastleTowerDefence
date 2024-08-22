@@ -7,7 +7,6 @@ using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Services;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
@@ -72,7 +71,6 @@ namespace Sources.App.DIContainers.Gameplay
             
             Container.Bind<CharacterMeleeViewFactory>().AsSingle();
 
-            Container.Bind<CharacterRangeDependencyProviderFactory>().AsSingle();
             Container.Bind<CharacterRangeViewFactory>().AsSingle();
 
             Container.Bind<CharacterHealthPresenterFactory>().AsSingle();

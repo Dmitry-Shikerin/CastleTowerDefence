@@ -2,47 +2,53 @@
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
-using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterRanges.Domain;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
+using Zenject;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterRangeIdleState : FSMState
     {
-        private CharacterRangeDependencyProvider _provider;
-        
-        private ICharacterRangeView View => _provider.View;
-        private ICharacterRangeAnimation Animation => _provider.Animation;
-        private IOverlapService OverlapService => _provider.OverlapService;
+        private CharacterRange _characterRange;
+        private ICharacterRangeView _view;
+        private ICharacterRangeAnimation _animation;
+        private IOverlapService _overlapService;
         
         private CancellationTokenSource _cancellationTokenSource;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(CharacterRange characterRange, CharacterRangeView view)
         {
-            _provider = 
-                graphBlackboard.parent.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
+            _characterRange = characterRange ?? throw new ArgumentNullException(nameof(characterRange));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
+        [Inject]
+        private void Construct(IOverlapService overlapService)
+        {
+            _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
+        }
+        
         protected override void OnEnter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            Animation.PlayIdle();
+            _animation.PlayIdle();
             StartFind(_cancellationTokenSource.Token);
         }
 
         protected override void OnUpdate()
         {
-            View.SetLookRotation(0);
+            _view.SetLookRotation(0);
         }
 
         protected override void OnExit()
@@ -68,8 +74,8 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
         private void FindTarget()
         {
             IEnemyHealthView enemyHealthView = 
-                OverlapService.OverlapSphere<EnemyHealthView>(
-                        View.Position, View.FindRange, 
+                _overlapService.OverlapSphere<EnemyHealthView>(
+                        _view.Position, _view.FindRange, 
                         LayerConst.Enemy, 
                         LayerConst.Defaul)
                     .FirstOrDefault();
@@ -78,7 +84,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
                 return;
             
             if (enemyHealthView != null)
-                View.SetEnemyHealth(enemyHealthView);
+                _view.SetEnemyHealth(enemyHealthView);
         }
     }
 }

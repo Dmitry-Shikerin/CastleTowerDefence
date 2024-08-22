@@ -1,32 +1,29 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using System;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterRanges.Domain;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterRangeDyeState : FSMState
     {
-        private CharacterRangeDependencyProvider _provider;
-        
-        private ICharacterRangeView View => _provider.View;
-        private ICharacterRangeAnimation Animation => _provider.Animation;
-        private ICharacterRotationService RotationService => _provider.CharacterRotationService;
+        private ICharacterRangeView _view;
+        private CharacterRange _characterRange;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(CharacterRange characterRange, CharacterRangeView view)
         {
-            _provider = 
-                graphBlackboard.parent.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
+            _characterRange = characterRange ?? throw new ArgumentNullException(nameof(characterRange));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
         protected override void OnEnter()
         {
-            View.Destroy();
+            _view.Destroy();
         }
     }
 }
