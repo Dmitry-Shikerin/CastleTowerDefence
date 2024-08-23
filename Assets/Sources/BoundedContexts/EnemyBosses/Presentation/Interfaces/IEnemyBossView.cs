@@ -10,7 +10,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces
         float FindRange { get; }
 
         void PlayMassAttackParticle();
-        void SetAgentSpeed(float speed);
         void SetCharacterMeleePoint(ICharacterSpawnPoint characterSpawnPoint);
     }
 }

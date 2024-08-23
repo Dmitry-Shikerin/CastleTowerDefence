@@ -21,9 +21,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Presentation.Implementation
         public void PlayMassAttackParticle() =>
             _massAttackParticle.Play();
 
-        public void SetAgentSpeed(float speed) =>
-            NavMeshAgent.speed = speed;
-
         public void SetCharacterMeleePoint(ICharacterSpawnPoint characterSpawnPoint) =>
             CharacterMeleePoint = characterSpawnPoint ?? throw new ArgumentNullException(nameof(characterSpawnPoint));
     }

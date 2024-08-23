@@ -1,4 +1,3 @@
-using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 
@@ -9,8 +8,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces
         IEnemyAnimation Animation { get; } 
         ICharacterSpawnPoint CharacterMeleePoint { get; }
         float FindRange { get; }
-
-        void SetTargetFollow(ICharacterHealthView characterViewHealthView);
+        
         void SetCharacterMeleePoint(ICharacterSpawnPoint spawnPoint);
     }
 }
