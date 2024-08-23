@@ -14,17 +14,13 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     public class CharacterMeleeAttackState : FSMState
     {
         private CharacterMeleeView _view;
-        private CharacterMelee _characterMelee;
         private ICharacterMeleeAnimation _animation;
         private ICharacterRotationService _rotationService;
 
         [Construct]
-        private void Construct(
-            CharacterMelee characterMelee, 
-            CharacterMeleeView characterMeleeView)
+        private void Construct(CharacterMeleeView view)
         {
-            _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
-            _view = characterMeleeView ?? throw new ArgumentNullException(nameof(characterMeleeView));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
             _animation = _view.MeleeAnimation;
         }
 

@@ -1,6 +1,5 @@
 ﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
@@ -23,10 +22,8 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         private KillEnemyCounter _killEnemyCounter;
 
         [Construct]
-        private void Construct(EnemyView view)
-        {
+        private void Construct(EnemyView view) =>
             _view = view;
-        }
 
         [Inject]
         private void Construct(

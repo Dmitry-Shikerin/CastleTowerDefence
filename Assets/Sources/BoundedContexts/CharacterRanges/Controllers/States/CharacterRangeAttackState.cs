@@ -1,7 +1,6 @@
 ﻿using System;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterRanges.Domain;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
@@ -16,21 +15,17 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
         private ICharacterRangeView _view;
         private ICharacterRangeAnimation _animation;
         private ICharacterRotationService _rotationService;
-        private CharacterRange _characterMelee;
 
         [Construct]
-        private void Construct(CharacterRange characterRange, CharacterRangeView view)
+        private void Construct(CharacterRangeView view)
         {
-            _characterMelee = characterRange ?? throw new ArgumentNullException(nameof(characterRange));
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _animation = view.RangeAnimation;
         }
 
         [Inject]
-        private void Construct(ICharacterRotationService rotationService)
-        {
+        private void Construct(ICharacterRotationService rotationService) =>
             _rotationService = rotationService ?? throw new ArgumentNullException(nameof(rotationService));
-        }
 
         protected override void OnEnter()
         {

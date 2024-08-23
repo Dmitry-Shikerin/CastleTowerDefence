@@ -4,7 +4,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterMelees.Domain;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
@@ -20,16 +19,14 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     public class CharacterMeleeIdleState : FSMState
     {
         private ICharacterMeleeView _view;
-        private CharacterMelee _characterMelee;
         private ICharacterMeleeAnimation _animation;
         private IOverlapService _overlapService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
         [Construct]
-        private void Construct(CharacterMelee characterMelee, CharacterMeleeView characterMeleeView)
+        private void Construct(CharacterMeleeView characterMeleeView)
         {
-            _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
             _view = characterMeleeView ?? throw new ArgumentNullException(nameof(characterMeleeView));
             _animation = characterMeleeView.MeleeAnimation;
         }

@@ -10,16 +10,13 @@ using UnityEngine;
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.Transitions
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterRangeAttackTransition : ConditionTask
     {
         private ICharacterRangeView _view;
 
         [Construct]
-        private void Construct(CharacterRangeView view)
-        {
+        private void Construct(CharacterRangeView view) =>
             _view = view ?? throw new ArgumentNullException(nameof(view));
-        }
 
         protected override bool OnCheck() =>
             _view.EnemyHealth != null && Vector3.Distance(
