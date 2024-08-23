@@ -41,7 +41,6 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         {
             _view.Button.onClickEvent.AddListener(OnClick);
             StartTimer();
-            ActivateButton();
         }
 
         public override void Disable()
@@ -56,6 +55,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             {
                 _tokenSource = new CancellationTokenSource();
                 _dailyReward.ServerTime = _timeService.GetTime();
+                
                 await UniTask.Delay(
                     _dailyReward.Delay, 
                     cancellationToken: _tokenSource.Token, 
@@ -66,6 +66,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
                     _dailyReward.ServerTime += TimeSpan.FromSeconds(1);
                     _dailyReward.SetCurrentTime();
                     _view.TimerText.SetText(_dailyReward.TimerText);
+                    ActivateButton();
 
                     await UniTask.Delay(
                         _dailyReward.Delay, 
@@ -87,8 +88,8 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         {
             ActivateButton();
             
-            //if (_dailyReward.TrySetTargetRewardTime() == false)
-            //    return;
+            if (_dailyReward.TrySetTargetRewardTime() == false)
+                return;
             
             _view.Animator.Play();
             _loadService.Save(ModelId.DailyReward);
@@ -96,6 +97,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
 
         private void ActivateButton()
         {
+            Debug.Log($"daily reward {_dailyReward.IsAvailable}");
             if (_dailyReward.IsAvailable == false)
             {
                 _view.LockImage.ShowImage();
