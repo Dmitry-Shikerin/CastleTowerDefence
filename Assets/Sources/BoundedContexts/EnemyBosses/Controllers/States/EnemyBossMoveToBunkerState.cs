@@ -44,7 +44,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         protected override void OnEnter()
         {
             _animation.PlayWalk();
-            _sequence.Start();
+            _sequence.StartAsync();
         }
 
         protected override void OnUpdate() =>

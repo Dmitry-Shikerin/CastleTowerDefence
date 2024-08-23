@@ -9,10 +9,10 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
     [Category("Custom/Enemy")]
     public class EnemyFromMoveToMoveToBunkerTransition : ConditionTask
     {
-        private IEnemyView _view;
+        private EnemyViewBase _view;
 
         [Construct]
-        private void Construct(EnemyView view) =>
+        private void Construct(EnemyViewBase view) =>
             _view = view;
 
         protected override bool OnCheck() =>

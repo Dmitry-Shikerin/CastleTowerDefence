@@ -1,6 +1,4 @@
-﻿using System;
-using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
+﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using UnityEngine;
@@ -14,14 +12,9 @@ namespace Sources.BoundedContexts.EnemyBosses.Presentation.Implementation
         [SerializeField] private float _findRange;
         
         public IEnemyBossAnimation Animation => enemyBossAnimation;
-        public ICharacterSpawnPoint CharacterMeleePoint { get; set; }
-
         public float FindRange => _findRange;
 
         public void PlayMassAttackParticle() =>
             _massAttackParticle.Play();
-
-        public void SetCharacterMeleePoint(ICharacterSpawnPoint characterSpawnPoint) =>
-            CharacterMeleePoint = characterSpawnPoint ?? throw new ArgumentNullException(nameof(characterSpawnPoint));
     }
 }

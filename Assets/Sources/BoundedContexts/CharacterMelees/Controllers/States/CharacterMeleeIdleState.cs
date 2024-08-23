@@ -48,7 +48,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         protected override void OnEnter()
         {
             _animation.PlayIdle();
-            _sequence.Start();
+            _sequence.StartAsync();
         }
 
         protected override void OnUpdate()

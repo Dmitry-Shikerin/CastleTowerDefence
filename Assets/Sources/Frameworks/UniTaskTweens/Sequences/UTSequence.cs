@@ -3,16 +3,47 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Frameworks.UniTaskTweens.Sequences.Types;
-using Sources.Frameworks.UniTaskTwins.Sequences;
 
 namespace Sources.Frameworks.UniTaskTweens.Sequences
 {
-    public class UTSequence : IUTSequence
+    public class UTSequence
     {
         private CancellationTokenSource _token = new CancellationTokenSource();
         private List<Func<CancellationToken, UniTask>>_tasks = new List<Func<CancellationToken, UniTask>>();
         
         private LoopType _loopType = LoopType.None;
+        private bool _isComplete;
+        private bool _isStarted;
+
+        public event Action Completed;
+        public event Action Started;
+
+        public bool IsStarted
+        {
+            get => _isStarted;
+            set
+            {
+                _isStarted = value;
+
+                if (_isStarted)
+                    Started?.Invoke();
+            }
+        }
+
+        public bool IsComplete
+        {
+            get => _isComplete;
+            set
+            {
+                _isComplete = value;
+                
+                if (_isComplete)
+                {
+                    Completed?.Invoke();
+                    _token.Cancel();
+                }
+            }
+        }
 
         public UTSequence Add(Func<CancellationToken, UniTask> task)
         {
@@ -32,19 +63,33 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
             return this;
         }
 
+        public UTSequence Add(UTSequence sequence)
+        {
+            _tasks.Add(_ =>
+            {
+                UniTask task = sequence.StartAsync();
+                sequence.IsStarted = false;
+                sequence.IsComplete = false;
+                return task;
+            });
+            return this;
+        }
+
         public UTSequence AddDelayFromSeconds(float seconds)
         {
             _tasks.Add( token => UniTask.Delay(TimeSpan.FromSeconds(seconds), cancellationToken: token));
             return this;
         }
 
-        public async void Start()
+        public async UniTask StartAsync()
         {
             _token = new CancellationTokenSource();
             
             try
             {
+                IsStarted = true;
                 await StartSequence().Invoke();
+                IsComplete = true;
             }
             catch (OperationCanceledException)
             {
@@ -54,6 +99,18 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
         public UTSequence SetLoop()
         {
             _loopType = LoopType.Loop;
+            return this;
+        }
+
+        public UTSequence OnComplete(Action action)
+        {
+            Completed = action;
+            return this;
+        }
+        
+        public UTSequence OnStart(Action action)
+        {
+            Started = action;
             return this;
         }
 

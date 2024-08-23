@@ -50,7 +50,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         {
             _animation.Attacking += OnAttack;
             _animation.PlayAttack();
-            _sequence.Start();
+            _sequence.StartAsync();
         }
         
         protected override void OnUpdate() =>

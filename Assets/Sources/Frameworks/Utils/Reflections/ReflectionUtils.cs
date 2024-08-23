@@ -76,6 +76,8 @@ namespace Sources.Frameworks.Utils.Reflections
                         dependenciesList.Add(dependency);
                     else if (dependency.GetType().BaseType?.BaseType == parameter.ParameterType)
                         dependenciesList.Add(dependency);
+                    else if (dependency.GetType().BaseType?.BaseType?.BaseType == parameter.ParameterType)
+                        dependenciesList.Add(dependency);
                 }
             }
 

@@ -6,10 +6,9 @@ namespace Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces
     public interface IEnemyBossView : IEnemyViewBase
     {
         IEnemyBossAnimation Animation { get; }
-        ICharacterSpawnPoint CharacterMeleePoint { get; set; }
+
         float FindRange { get; }
 
         void PlayMassAttackParticle();
-        void SetCharacterMeleePoint(ICharacterSpawnPoint characterSpawnPoint);
     }
 }
