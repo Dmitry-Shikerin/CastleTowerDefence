@@ -1137,7 +1137,7 @@ RectTransform:
   m_Father: {fileID: 1696783851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -45441,6 +45441,7 @@ GameObject:
   - component: {fileID: 1488888764}
   - component: {fileID: 1488888766}
   - component: {fileID: 1488888765}
+  - component: {fileID: 1488888767}
   m_Layer: 5
   m_Name: Title_Text
   m_TagString: Untagged
@@ -45464,8 +45465,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 195}
-  m_SizeDelta: {x: 998.0823, y: 132.1724}
+  m_AnchoredPosition: {x: 0, y: 257.04645}
+  m_SizeDelta: {x: 998.0823, y: 256.2652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488888765
 MonoBehaviour:
@@ -45487,7 +45488,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CASTLE TOWER DEFENCE
+  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0410\u041F\u041E\u041A\u0410\u041B\u0418\u041F\u0421\u0418\u0421:\n\u0417\u0410\u0429\u0418\u0422\u0410
+    \u0423\u0411\u0415\u0416\u0418\u0429\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
   m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
@@ -45564,6 +45566,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488888763}
   m_CullTransparentMesh: 1
+--- !u!114 &1488888767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488888763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Title
+  _disableTexts: 0
+  _russianText: "\u0417\u041E\u041C\u0411\u0418 \u0410\u041F\u041E\u041A\u0410\u041B\u0418\u041F\u0421\u0418\u0421:\n\u0417\u0410\u0429\u0418\u0422\u0410
+    \u0423\u0411\u0415\u0416\u0418\u0429\u0410"
+  _englishText: 'ZOMBIE APOCALYPSE:
+
+    SHELTER PROTECTION'
+  _turkishText: "ZOMB\u0130 KIYAMET\u0130:\nBARINAK SAVUNMASI"
+  _tmpText: {fileID: 1488888765}
 --- !u!1 &1495436980
 GameObject:
   m_ObjectHideFlags: 0
@@ -46451,7 +46475,7 @@ RectTransform:
   m_Father: {fileID: 1383691318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -49173,7 +49197,7 @@ RectTransform:
   m_Father: {fileID: 677544057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
