@@ -16,10 +16,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
 
         public ButtonCommandId Id => ButtonCommandId.ShowRewardedAdvertising;
 
-        public void Handle()
-        {
-            // uiButton.Disable();
+        public void Handle() => 
             _videoAdService.ShowVideo(null);
-        }
     }
 }
