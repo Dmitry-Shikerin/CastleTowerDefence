@@ -1,47 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
-using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
-using Sources.BoundedContexts.EnemyBosses.Domain;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
-using UnityEngine;
+using Sources.Frameworks.Utils.Reflections.Attributes;
+using Zenject;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyBossAttackState : FSMState
     {
-        private EnemyBossDependencyProvider _provider;
-        
-        private EnemyAttacker EnemyAttacker => _provider.BossEnemy.EnemyAttacker;
-        private IEnemyBossView View => _provider.View;
-        private IEnemyBossAnimation Animation => _provider.Animation;
-        private IOverlapService OverlapService => _provider.OverlapService;
+        private EnemyAttacker _enemyAttacker;
+        private IEnemyBossView _view;
+        private IEnemyBossAnimation _animation;
+        private IOverlapService _overlapService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(Enemy enemy, EnemyBossView view)
         {
-            _provider =
-                graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
+            _enemyAttacker = enemy.EnemyAttacker;
+            _view = view;
+            _animation = _view.Animation;
         }
-        
+
+        [Inject]
+        private void Construct(IOverlapService overlapService) =>
+            _overlapService = overlapService;
+
+
         protected override void OnEnter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            Animation.Attacking += OnAttack;
-            Animation.PlayAttack();
+            _animation.Attacking += OnAttack;
+            _animation.PlayAttack();
             StartTimer(_cancellationTokenSource.Token);
         }
         
@@ -50,8 +52,8 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         
         protected override void OnExit()
         {
-            Animation.Attacking -= OnAttack;
-            View.SetCharacterHealth(null);
+            _animation.Attacking -= OnAttack;
+            _view.SetCharacterHealth(null);
             _cancellationTokenSource.Cancel();
         }
         
@@ -59,21 +61,21 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         {
             SetCharacterHealth();
         
-            if (View.CharacterHealthView == null)
+            if (_view.CharacterHealthView == null)
                         return;
         
-            View.CharacterHealthView.TakeDamage(EnemyAttacker.Damage);
+            _view.CharacterHealthView.TakeDamage(_enemyAttacker.Damage);
         }
         
         private void SetCharacterHealth()
         {
-            if (View.CharacterHealthView == null)
+            if (_view.CharacterHealthView == null)
                 return;
                     
-            if (View.CharacterHealthView.CurrentHealth > 0)
+            if (_view.CharacterHealthView.CurrentHealth > 0)
                 return;
         
-            View.SetCharacterHealth(null);
+            _view.SetCharacterHealth(null);
         }
         
         private async void StartTimer(CancellationToken cancellationToken)
@@ -94,18 +96,18 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         private void PlayMassAttack()
         {
             IReadOnlyList<CharacterHealthView> characterHealthViews =
-                OverlapService.OverlapSphere<CharacterHealthView>(
-                        View.Position, View.FindRange,
+                _overlapService.OverlapSphere<CharacterHealthView>(
+                        _view.Position, _view.FindRange,
                         LayerConst.Character,
                         LayerConst.Defaul);
 
-            View.PlayMassAttackParticle();
+            _view.PlayMassAttackParticle();
             
             if (characterHealthViews.Count == 0)
                 return;
 
             foreach (CharacterHealthView characterHealthView in characterHealthViews)
-                characterHealthView.TakeDamage(EnemyAttacker.MassAttackDamage);
+                characterHealthView.TakeDamage(_enemyAttacker.MassAttackDamage);
         }
     }
 }

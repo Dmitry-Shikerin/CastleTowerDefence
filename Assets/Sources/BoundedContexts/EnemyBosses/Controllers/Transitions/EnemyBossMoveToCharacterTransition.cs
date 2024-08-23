@@ -1,29 +1,20 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
-using UnityEngine;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyBossMoveToCharacterTransition : ConditionTask
     {
-        private EnemyBossDependencyProvider _provider;
-        
-        private IEnemyBossView View => _provider.View;
+        private IEnemyBossView _view;
 
-        protected override string OnInit()
-        {
-            _provider = 
-                blackboard.GetVariable<EnemyBossDependencyProvider>("_provider").value;
-            
-            return null;
-        }
+        [Construct]
+        private void Construct(IEnemyBossView view) =>
+            _view = view;
 
         protected override bool OnCheck() =>
-            View.CharacterHealthView != null && View.CharacterHealthView.CurrentHealth > 0;
+            _view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth > 0;
     }
 }

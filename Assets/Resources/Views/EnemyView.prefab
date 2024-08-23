@@ -1782,7 +1782,6 @@ GameObject:
   - component: {fileID: 5176623936762462039}
   - component: {fileID: 2153056909352687614}
   - component: {fileID: 8647694516050573320}
-  - component: {fileID: 8472846847038663704}
   - component: {fileID: 8435948641295468632}
   - component: {fileID: 3818196743991438505}
   - component: {fileID: 7517836906647101126}
@@ -1902,29 +1901,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"_provider":{"_value":1,"_name":"_provider","_id":"0fe3a99e-01c6-4eef-9cb3-2a362dbd0498","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
-    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 8472846847038663704}
-  _serializedVariables:
-  - _json: '{"_value":1,"_name":"_provider","_id":"0fe3a99e-01c6-4eef-9cb3-2a362dbd0498","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers.EnemyDependencyProvider,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references:
-    - {fileID: 0}
-    - {fileID: 8472846847038663704}
---- !u!114 &8472846847038663704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3391113285427405577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da3251133364b8ea6fe56e948095c6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _serializedBlackboard: '{"_variables":{}}'
+  _objectReferences: []
+  _serializedVariables: []
 --- !u!114 &8435948641295468632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1994,7 +1973,6 @@ MonoBehaviour:
   _healthBarView: {fileID: 6003326834073596623}
   _burnAbilityView: {fileID: 8573076104433981301}
   _findRange: 3
-  _provider: {fileID: 8472846847038663704}
   _animation: {fileID: 3818196743991438505}
 --- !u!114 &3818196743991438505
 MonoBehaviour:
@@ -2068,7 +2046,7 @@ MonoBehaviour:
   _editor_DrawExtra: 0
   _editor_horizontal: 1
   _editor_category: 0
-  Editor_InIsolatedScene: 0
+  Editor_InIsolatedScene: 1
   Editor_JustCreated: 1
   UseDOTS: 0
   DOTSObstacleType: 2

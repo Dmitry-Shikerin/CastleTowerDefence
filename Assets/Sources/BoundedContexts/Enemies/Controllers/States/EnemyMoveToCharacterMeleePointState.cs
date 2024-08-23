@@ -5,7 +5,6 @@ using Cysharp.Threading.Tasks;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
-using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.Layers.Domain;
@@ -25,17 +24,15 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         private IOverlapService _overlapService;
         
         [Construct]
-        private void Construct(Enemy enemy, EnemyView enemyView)
+        private void Construct(EnemyView enemyView)
         {
             _view = enemyView;
             _animation = _view.Animation;
         }
 
         [Inject]
-        private void Construct(IOverlapService overlapService)
-        {
+        private void Construct(IOverlapService overlapService) =>
             _overlapService = overlapService;
-        }
 
         protected override void OnEnter()
         {

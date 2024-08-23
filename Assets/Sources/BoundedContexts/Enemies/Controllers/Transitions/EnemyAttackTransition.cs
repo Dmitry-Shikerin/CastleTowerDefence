@@ -13,11 +13,9 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
         private IEnemyView _view;
         
         [Construct]
-        private void Construct(EnemyView view)
-        {
+        private void Construct(EnemyView view) =>
             _view = view;
-        }
-        
+
         protected override bool OnCheck() =>
             _view.CharacterHealthView != null 
             && _view.CharacterHealthView.CurrentHealth > 0

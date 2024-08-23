@@ -1,31 +1,29 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
-using NodeCanvas.StateMachines;
+﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.EnemyBosses.Domain;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyBossInitializeState : FSMState
     {
-        private EnemyBossDependencyProvider _provider;
-        
-        private IEnemyBossAnimation Animation => _provider.Animation;
-        private BossEnemy Enemy => _provider.BossEnemy;
+        private IEnemyBossAnimation _animation;
+        private BossEnemy _enemy;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(BossEnemy enemy, EnemyBossView view)
         {
-            _provider = graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
+            _enemy = enemy;
+            _animation = view.Animation;
         }
 
         protected override void OnEnter()
         {
-            Enemy.IsInitialized = true;
-            Animation.PlayIdle();
+            _enemy.IsInitialized = true;
+            _animation.PlayIdle();
         }
     }
 }

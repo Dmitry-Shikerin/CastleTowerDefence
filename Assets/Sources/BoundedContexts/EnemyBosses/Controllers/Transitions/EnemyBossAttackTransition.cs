@@ -1,9 +1,9 @@
 ﻿using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.EnemyBosses.Domain;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
@@ -12,22 +12,17 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.Transitions
     [UsedImplicitly]
     public class EnemyBossAttackTransition : ConditionTask
     {
-        private EnemyBossDependencyProvider _provider;
-        
-        private IEnemyBossView View => _provider.View;
+        private IEnemyBossView _view;
 
-        protected override string OnInit()
-        {
-            _provider =
-                blackboard.GetVariable<EnemyBossDependencyProvider>("_provider").value;
+        [Construct]
+        private void Construct(EnemyBossView enemyBossView) =>
+            _view = enemyBossView;
 
-            return null;
-        }
 
         protected override bool OnCheck() =>
-            View.CharacterHealthView != null
-            && View.CharacterHealthView.CurrentHealth > 0
-            && Vector3.Distance(View.Position, View.CharacterHealthView.Position)
-            <= View.StoppingDistance + 0.15f;
+            _view.CharacterHealthView != null
+            && _view.CharacterHealthView.CurrentHealth > 0
+            && Vector3.Distance(_view.Position, _view.CharacterHealthView.Position)
+            <= _view.StoppingDistance + 0.15f;
     }
 }

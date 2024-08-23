@@ -57,8 +57,10 @@ namespace Sources.Frameworks.Utils.Reflections
                     .GetType()
                     .GetInterfaces()
                     .Any(type => type == parameter.ParameterType));
+                bool isNotFoundBaseType = dependencies.Any(dependency => dependency
+                    .GetType().BaseType == parameter.ParameterType);
                 
-                if (isNotFondType == false && isNotFondInterfacesType == false)
+                if (isNotFondType == false && isNotFondInterfacesType == false && isNotFoundBaseType == false)
                 {
                     notFoundTypes.Add(parameter.ParameterType);
                     continue;
@@ -67,15 +69,13 @@ namespace Sources.Frameworks.Utils.Reflections
                 foreach (object dependency in dependencies)
                 {
                     if (parameter.ParameterType == dependency.GetType())
-                    {
                         dependenciesList.Add(dependency);
-                        continue;
-                    }
-
-                    if (dependency.GetType().GetInterfaces().ToList().Contains(parameter.ParameterType))
-                    {
+                    else if (dependency.GetType().GetInterfaces().ToList().Contains(parameter.ParameterType))
                         dependenciesList.Add(dependency);
-                    }
+                    else if (dependency.GetType().BaseType == parameter.ParameterType)
+                        dependenciesList.Add(dependency);
+                    else if (dependency.GetType().BaseType?.BaseType == parameter.ParameterType)
+                        dependenciesList.Add(dependency);
                 }
             }
 
