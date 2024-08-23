@@ -24,12 +24,8 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
 
         public void Handle()
         {
-            // uiButton.Disable();
-
             _playerAccountAuthorizeService.Authorize(() =>
             {
-                // uiButton.Enable();
-                // _formService.Show(FormId.Hud);
             });
         }
     }

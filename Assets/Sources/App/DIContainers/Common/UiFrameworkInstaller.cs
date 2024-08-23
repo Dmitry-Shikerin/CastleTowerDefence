@@ -54,6 +54,7 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<ClearSavesButtonCommand>().AsSingle();
             Container.Bind<SaveVolumeButtonCommand>().AsSingle();
             Container.Bind<ShowDailyRewardViewCommand>().AsSingle();
+            Container.Bind<PlayerAccountAuthorizeButtonCommand>().AsSingle();
 
             //Views
             Container.Bind<UnPauseCommand>().AsSingle();
