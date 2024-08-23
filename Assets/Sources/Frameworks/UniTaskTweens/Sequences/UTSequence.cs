@@ -51,6 +51,12 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
             }
         }
 
+        public UTSequence SetLoop()
+        {
+            _loopType = LoopType.Loop;
+            return this;
+        }
+
         public UTSequence SetLoopType(LoopType loopType)
         {
             _loopType = loopType;

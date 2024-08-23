@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using Cysharp.Threading.Tasks;
+﻿using System.Linq;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
@@ -9,6 +6,8 @@ using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.UniTaskTweens;
+using Sources.Frameworks.UniTaskTweens.Sequences;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 using Zenject;
 
@@ -20,9 +19,8 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         private IEnemyBossView _view;
         private IEnemyBossAnimation _animation;
         private IOverlapService _overlapService;
-
-        private CancellationTokenSource _cancellationTokenSource;
-
+        private UTSequence _sequence;
+        
         [Construct]
         private void Construct(EnemyBossView view)
         {
@@ -34,33 +32,26 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         private void Construct(IOverlapService overlapService) =>
             _overlapService = overlapService;
 
+        protected override void OnInit()
+        {
+            _sequence = UTTween
+                .Sequence()
+                .AddDelayFromSeconds(0.5f)
+                .Add(FindTarget)
+                .SetLoop();
+        }
+
         protected override void OnEnter()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
             _animation.PlayWalk();
-            StartFind(_cancellationTokenSource.Token);
+            _sequence.Start();
         }
 
         protected override void OnUpdate() =>
             _view.Move(_view.BunkerView.Position);
 
         protected override void OnExit() =>
-            _cancellationTokenSource.Cancel();
-
-        private async void StartFind(CancellationToken cancellationToken)
-        {
-            try
-            {
-                while (cancellationToken.IsCancellationRequested == false)
-                {
-                    await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: cancellationToken);
-                    FindTarget();
-                }
-            }
-            catch (OperationCanceledException)
-            {
-            }
-        }
+            _sequence.Stop();
 
         private void FindTarget()
         {

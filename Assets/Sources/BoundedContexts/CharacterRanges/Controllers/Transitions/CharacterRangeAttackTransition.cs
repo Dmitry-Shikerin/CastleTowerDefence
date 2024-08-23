@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;

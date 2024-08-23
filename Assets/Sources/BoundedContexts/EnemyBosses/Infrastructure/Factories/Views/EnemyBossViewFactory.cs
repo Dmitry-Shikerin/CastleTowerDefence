@@ -15,7 +15,7 @@ using Sources.Frameworks.Utils.Reflections;
 using UnityEngine;
 using Zenject;
 
-namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Implementation
+namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views
 {
     public class EnemyBossViewFactory
     {

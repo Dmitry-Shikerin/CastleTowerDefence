@@ -39,9 +39,10 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         protected override void OnInit()
         {
             _sequence = UTTween
-                .Sequence(LoopType.Loop)
+                .Sequence()
                 .AddDelayFromSeconds(0.5f)
-                .Add(FindTarget);
+                .Add(FindTarget)
+                .SetLoop();
         }
 
         protected override void OnEnter()

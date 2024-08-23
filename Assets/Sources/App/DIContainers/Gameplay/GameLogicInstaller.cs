@@ -15,7 +15,7 @@ using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Vi
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;

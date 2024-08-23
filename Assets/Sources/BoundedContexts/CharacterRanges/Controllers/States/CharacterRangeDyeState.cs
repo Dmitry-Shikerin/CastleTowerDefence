@@ -16,9 +16,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
         private void Construct(CharacterRangeView view) =>
             _view = view ?? throw new ArgumentNullException(nameof(view));
 
-        protected override void OnEnter()
-        {
+        protected override void OnEnter() =>
             _view.Destroy();
-        }
     }
 }

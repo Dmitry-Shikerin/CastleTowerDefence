@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using Cysharp.Threading.Tasks;
+﻿using System.Collections.Generic;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
@@ -11,6 +8,8 @@ using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.UniTaskTweens;
+using Sources.Frameworks.UniTaskTweens.Sequences;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 using Zenject;
 
@@ -23,8 +22,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         private IEnemyBossView _view;
         private IEnemyBossAnimation _animation;
         private IOverlapService _overlapService;
-
-        private CancellationTokenSource _cancellationTokenSource;
+        private UTSequence _sequence;
 
         [Construct]
         private void Construct(Enemy enemy, EnemyBossView view)
@@ -39,12 +37,20 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
             _overlapService = overlapService;
 
 
+        protected override void OnInit()
+        {
+            _sequence = UTTween
+                .Sequence()
+                .AddDelayFromSeconds(4f)
+                .Add(PlayMassAttack)
+                .SetLoop();
+        }
+
         protected override void OnEnter()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
             _animation.Attacking += OnAttack;
             _animation.PlayAttack();
-            StartTimer(_cancellationTokenSource.Token);
+            _sequence.Start();
         }
         
         protected override void OnUpdate() =>
@@ -54,7 +60,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
         {
             _animation.Attacking -= OnAttack;
             _view.SetCharacterHealth(null);
-            _cancellationTokenSource.Cancel();
+            _sequence.Stop();
         }
         
         private void OnAttack()
@@ -76,21 +82,6 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
                 return;
         
             _view.SetCharacterHealth(null);
-        }
-        
-        private async void StartTimer(CancellationToken cancellationToken)
-        {
-            try
-            {
-                while (cancellationToken.IsCancellationRequested == false)
-                {
-                    await UniTask.Delay(TimeSpan.FromSeconds(4f), cancellationToken: cancellationToken);
-                    PlayMassAttack();
-                }
-            }
-            catch (OperationCanceledException)
-            {
-            }
         }
 
         private void PlayMassAttack()
