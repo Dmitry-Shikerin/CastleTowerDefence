@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Doozy.Runtime.UIManager.Components;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.GameServices.DailyRewards.Presentation;
 using Sources.Frameworks.GameServices.Volumes.Presentations;
@@ -28,6 +29,9 @@ namespace Sources.BoundedContexts.Huds.Presentations
         [Required] [SerializeField] private List<AchievementView> _achievementViews;
         [FoldoutGroup("Achievements")]
         [Required] [SerializeField] private AchievementView _emptyAchievementView;
+
+        [FoldoutGroup("LoadGame")]
+        [Required] [SerializeField] private UIButton _loadGameButton;
         
         public IReadOnlyList<LeaderBoardElementView> LeaderBoardElementViews => _leaderBoardElementViews;
         public IReadOnlyList<AchievementView> AchievementViews => _achievementViews;
@@ -36,5 +40,6 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public VolumeView SoundVolumeView => _soundVolumeView;
         public UiCollector UiCollector => _uiCollector;
         public DailyRewardView DailyRewardView => _dailyRewardView;
+        public UIButton LoadGameButton => _loadGameButton;
     }
 }

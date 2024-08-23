@@ -1495,7 +1495,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39431577}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2140,12 +2140,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -530, y: -84.746, z: 0}
-      ToValue: {x: -530, y: -84.746, z: 0}
+      FromValue: {x: 0, y: -67.09961, z: 0}
+      ToValue: {x: 0, y: -67.09961, z: 0}
       CurrentValue: {x: -530, y: -84.746, z: 0}
       Enabled: 0
       AnimationType: 5
-      StartPosition: {x: -530, y: -84.746, z: 0}
+      StartPosition: {x: 0, y: -67.09961, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -2410,12 +2410,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -530, y: -84.746, z: 0}
-      ToValue: {x: -530, y: -84.746, z: 0}
+      FromValue: {x: 0, y: -67.09961, z: 0}
+      ToValue: {x: 0, y: -67.09961, z: 0}
       CurrentValue: {x: 0, y: 0, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: -530, y: -84.746, z: 0}
+      StartPosition: {x: 0, y: -67.09961, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -2680,12 +2680,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -530, y: -84.746, z: 0}
-      ToValue: {x: -530, y: -84.746, z: 0}
+      FromValue: {x: 0, y: -67.09961, z: 0}
+      ToValue: {x: 0, y: -67.09961, z: 0}
       CurrentValue: {x: -530, y: -84.746, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: -530, y: -84.746, z: 0}
+      StartPosition: {x: 0, y: -67.09961, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -2950,12 +2950,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -530, y: -84.746, z: 0}
-      ToValue: {x: -530, y: -84.746, z: 0}
+      FromValue: {x: 0, y: -67.09961, z: 0}
+      ToValue: {x: 0, y: -67.09961, z: 0}
       CurrentValue: {x: 0, y: 0, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: -530, y: -84.746, z: 0}
+      StartPosition: {x: 0, y: -67.09961, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -3220,12 +3220,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -530, y: -84.746, z: 0}
-      ToValue: {x: -530, y: -84.746, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: 0, y: -67.09961, z: 0}
+      ToValue: {x: 0, y: -67.09961, z: 0}
+      CurrentValue: {x: 0, y: -67.09961, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: -530, y: -84.746, z: 0}
+      StartPosition: {x: 0, y: -67.09961, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -3289,7 +3289,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 0, y: 0, z: 0}
       ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: -0, y: 0, z: 0}
       Enabled: 0
       StartRotation: {x: -0, y: 0, z: 0}
       FromReferenceValue: 1
@@ -3353,7 +3353,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 1, y: 1, z: 1}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 0
       StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 1
@@ -3417,13 +3417,13 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: 1
       ToValue: 1
-      CurrentValue: 0
+      CurrentValue: 1
       Enabled: 0
       StartAlpha: 1
-      FromReferenceValue: 1
-      ToReferenceValue: 0
-      FromCustomValue: 1
-      ToCustomValue: 1
+      FromReferenceValue: 2
+      ToReferenceValue: 2
+      FromCustomValue: 0
+      ToCustomValue: 0
       FromOffset: 0
       ToOffset: 0
 --- !u!225 &39431585
@@ -53348,6 +53348,7 @@ MonoBehaviour:
   - {fileID: 469995320}
   - {fileID: 1455943234}
   _emptyAchievementView: {fileID: 624505395}
+  _loadGameButton: {fileID: 39431581}
 --- !u!114 &2083160722
 MonoBehaviour:
   m_ObjectHideFlags: 0

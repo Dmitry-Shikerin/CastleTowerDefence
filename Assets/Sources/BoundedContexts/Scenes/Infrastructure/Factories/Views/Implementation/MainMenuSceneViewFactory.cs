@@ -87,6 +87,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //leaderboard
             _leaderboardInitializeService.Construct(_mainMenuHud.LeaderBoardElementViews);
+
+            ActivateLoadGameButton();
         }
         
         private MainMenuModel Load(IScenePayload payload)
@@ -99,6 +101,17 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             }
             
             return _mainMenuModelsCreatorService.Load();
+        }
+
+        private void ActivateLoadGameButton()
+        {
+            if (_loadService.HasKey(ModelId.PlayerWallet))
+            {
+                _mainMenuHud.LoadGameButton.gameObject.SetActive(true);
+                return;
+            }
+            
+            _mainMenuHud.LoadGameButton.gameObject.SetActive(false);
         }
     }
 }
