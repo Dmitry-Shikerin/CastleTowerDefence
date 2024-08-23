@@ -2,40 +2,49 @@
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
-using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
-using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
+using Zenject;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyMoveToBunkerState : FSMState
     {
-        [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
-        
         private CancellationTokenSource _cancellationTokenSource;
         
-        private IEnemyView View => _provider.value.View;
-        private IEnemyAnimation Animation => _provider.value.Animation;
-        private IOverlapService OverlapService => _provider.value.OverlapService;
+        private IEnemyView _view;
+        private IEnemyAnimation _animation;
+        private IOverlapService _overlapService;
 
+        [Construct]
+        private void Construct(EnemyView enemyView)
+        {
+            _view = enemyView;
+            _animation = _view.Animation;
+        }
+
+        [Inject]
+        private void Construct(IOverlapService overlapService)
+        {
+            _overlapService = overlapService;
+        }
         
         protected override void OnEnter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            Animation.PlayWalk();
+            _animation.PlayWalk();
             StartFind(_cancellationTokenSource.Token);
         }
 
         protected override void OnUpdate() =>
-            View.Move(View.BunkerView.Position);
+            _view.Move(_view.BunkerView.Position);
 
         protected override void OnExit() =>
             _cancellationTokenSource.Cancel();
@@ -58,8 +67,8 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         private void FindTarget()
         {
             var characterHealthView =
-                OverlapService.OverlapSphere<CharacterHealthView>(
-                        View.Position, View.FindRange,
+                _overlapService.OverlapSphere<CharacterHealthView>(
+                        _view.Position, _view.FindRange,
                         LayerConst.Character,
                         LayerConst.Defaul)
                     .FirstOrDefault();
@@ -70,7 +79,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
             if (characterHealthView.CurrentHealth <= 0)
                 return;
 
-            View.SetCharacterHealth(characterHealthView);
+            _view.SetCharacterHealth(characterHealthView);
         }
     }
 }

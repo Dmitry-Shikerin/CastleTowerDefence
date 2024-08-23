@@ -31,6 +31,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
         {
             _characterRange = characterRange ?? throw new ArgumentNullException(nameof(characterRange));
             _view = view ?? throw new ArgumentNullException(nameof(view));
+            _animation = view.RangeAnimation ?? throw new ArgumentNullException(nameof(view.RangeAnimation));
         }
 
         [Inject]

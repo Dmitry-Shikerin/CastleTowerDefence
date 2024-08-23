@@ -13,7 +13,6 @@ using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
-using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Services.Providers;
@@ -84,7 +83,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<EnemySpawnerUiFactory>().AsSingle();
             
             //Enemies
-            Container.Bind<EnemyDependencyProviderFactory>().AsSingle();
             Container.Bind<EnemyViewFactory>().AsSingle();
 
             Container.Bind<EnemyBossDependencyProviderFactory>().AsSingle();

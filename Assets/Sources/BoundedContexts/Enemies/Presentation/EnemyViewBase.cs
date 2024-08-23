@@ -29,6 +29,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         private readonly IPODestroyerService _poDestroyerService = 
             new PODestroyerService();
         
+        public FSMOwner FsmOwner => _fsmOwner;
         public BurnAbilityView BurnAbilityView => _burnAbilityView;
         public HealthBarView HealthBarView => _healthBarView;
         public EnemyHealthView EnemyHealthView => _healthView;
