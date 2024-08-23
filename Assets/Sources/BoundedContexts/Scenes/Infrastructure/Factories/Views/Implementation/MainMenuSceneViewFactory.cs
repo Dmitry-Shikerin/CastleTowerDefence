@@ -17,6 +17,7 @@ using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementation;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
@@ -29,6 +30,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly ILoadService _loadService;
         private readonly MainMenuModelsLoaderService _mainMenuModelsLoaderService;
         private readonly MainMenuModelsCreatorService _mainMenuModelsCreatorService;
+        private readonly YandexLeaderboardInitializeService _yandexLeaderboardInitializeService;
         private readonly VolumeViewFactory _volumeViewFactory;
         private readonly DailyRewardViewFactory _dailyRewardViewFactory;
 
@@ -39,6 +41,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             ILoadService loadService,
             MainMenuModelsLoaderService mainMenuModelsLoaderService,
             MainMenuModelsCreatorService mainMenuModelsCreatorService,
+            YandexLeaderboardInitializeService yandexLeaderboardInitializeService,
             VolumeViewFactory volumeViewFactory,
             DailyRewardViewFactory dailyRewardViewFactory)
         {
@@ -48,6 +51,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _mainMenuModelsLoaderService = mainMenuModelsLoaderService ?? throw new ArgumentNullException(nameof(mainMenuModelsLoaderService));
             _mainMenuModelsCreatorService = mainMenuModelsCreatorService ?? throw new ArgumentNullException(nameof(mainMenuModelsCreatorService));
+            _yandexLeaderboardInitializeService = yandexLeaderboardInitializeService ?? throw new ArgumentNullException(nameof(yandexLeaderboardInitializeService));
             _volumeViewFactory = volumeViewFactory ??
                                  throw new ArgumentNullException(nameof(volumeViewFactory));
             _dailyRewardViewFactory = dailyRewardViewFactory ?? 
@@ -80,6 +84,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                     .First(config => config.Id == achievements[i].Id);
                 _mainMenuHud.AchievementViews[i].Construct(achievements[i], config);
             }
+            
+            //leaderboard
+            _yandexLeaderboardInitializeService.Construct(_mainMenuHud.LeaderBoardElementViews);
         }
         
         private MainMenuModel Load(IScenePayload payload)
