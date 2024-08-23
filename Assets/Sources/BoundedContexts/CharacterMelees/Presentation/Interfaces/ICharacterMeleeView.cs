@@ -1,13 +1,9 @@
-using NodeCanvas.StateMachines;
 using Sources.BoundedContexts.AttackTargetFinders.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
-using Sources.PresentationsInterfaces.Views;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces
 {
@@ -16,14 +12,11 @@ namespace Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces
         public Vector3 Position { get; }
         public ICharacterMeleeAnimation MeleeAnimation { get; }
         public CharacterHealthView HealthView { get; }
-        public CharacterMeleeDependencyProvider Provider { get; }
         public IEnemyHealthView EnemyHealth { get; }
         public ICharacterSpawnPoint CharacterSpawnPoint { get; }
         
         public void SetEnemyHealth(IEnemyHealthView enemyHealthView);
         void SetLookRotation(float angle);
         void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint);
-        void StartBehaviour();
-        void StopBehaviour();
     }
 }

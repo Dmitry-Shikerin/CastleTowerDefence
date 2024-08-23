@@ -1,34 +1,33 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using System;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterRanges.Domain;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterRangeInitializeState : FSMState
     {
-        private CharacterRangeDependencyProvider _provider;
-        
-        private ICharacterRangeView View => _provider.View;
-        private ICharacterRangeAnimation Animation => _provider.Animation;
-        private CharacterRange CharacterRange => _provider.CharacterRange;
+        private ICharacterRangeView _view;
+        private ICharacterRangeAnimation _animation;
+        private CharacterRange _characterRange;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(CharacterRange characterRange, CharacterRangeView characterRangeView)
         {
-            _provider =
-                graphBlackboard.parent.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
+            _characterRange = characterRange ?? throw new ArgumentNullException(nameof(characterRange));
+            _view = characterRangeView ?? throw new ArgumentNullException(nameof(characterRangeView));
+            _animation = characterRangeView.RangeAnimation;
         }
 
         protected override void OnEnter()
         {
-            Animation.PlayIdle();
-            CharacterRange.IsInitialized = true;
-            View.CharacterSpawnPoint.SetCharacterHealth(View.CharacterHealth);
+            _animation.PlayIdle();
+            _characterRange.IsInitialized = true;
+            _view.CharacterSpawnPoint.SetCharacterHealth(_view.CharacterHealth);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Domain;
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Presentation;
 using Sources.Frameworks.MyGameCreator.SkyAndWeawers.Domain;
@@ -16,23 +17,23 @@ namespace Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Service
     public class SkyAndWeatherService : ISkyAndWeatherService
     {
         private readonly SkyAndWeatherView _skyAndWeatherView;
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly IAssetCollector _assetCollector;
         private SkyAndWeatherCollector _skyWeatherCollector;
         private CancellationTokenSource _token;
 
         public SkyAndWeatherService(
             SkyAndWeatherView skyAndWeatherView,
-            IPrefabCollector prefabCollector)
+            IAssetCollector assetCollector)
         {
             _skyAndWeatherView = skyAndWeatherView ?? throw new ArgumentNullException(nameof(skyAndWeatherView));
-            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
         }
 
         private float Duration => _skyWeatherCollector.DayTime / 1000;
 
         public void Initialize()
         {
-            _skyWeatherCollector = _prefabCollector.Get<SkyAndWeatherCollector>();
+            _skyWeatherCollector = _assetCollector.Get<SkyAndWeatherCollector>();
             _token = new CancellationTokenSource();
             Start();
         }

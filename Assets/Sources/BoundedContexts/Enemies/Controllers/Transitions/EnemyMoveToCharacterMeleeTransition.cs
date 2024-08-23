@@ -1,21 +1,20 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.Enemies.Domain;
 using Sources.BoundedContexts.Enemies.Domain.Models;
-using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyMoveToCharacterMeleeTransition : ConditionTask
     {
-        [RequiredField] public BBParameter<EnemyDependencyProvider> Provider;
-        
-        private Enemy Enemy => Provider.value.Enemy;
-        
+        private Enemy _enemy;
+
+        [Construct]
+        private void Construct(Enemy enemy) =>
+            _enemy = enemy;
+
         protected override bool OnCheck() =>
-            Enemy.IsInitialized;
+            _enemy.IsInitialized;
     }
 }

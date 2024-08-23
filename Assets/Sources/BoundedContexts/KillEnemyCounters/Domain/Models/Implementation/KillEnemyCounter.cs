@@ -6,25 +6,19 @@ namespace Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation
 {
     public class KillEnemyCounter : IEntity
     {
-        public KillEnemyCounter(KillEnemyCounterDto dto)
-        {
-            Id = dto.Id;
-            KillZombies = dto.KillZombies;
-        }
-
-        public KillEnemyCounter(
-            string id,
-            int killZombies)
-        {
-            Id = id;
-            KillZombies = killZombies;
-        }
+        // public KillEnemyCounter(
+        //     string id,
+        //     int killZombies)
+        // {
+        //     Id = id;
+        //     KillZombies = killZombies;
+        // }
 
         public event Action KillZombiesCountChanged;
 
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
-        public int KillZombies { get; private set; }
+        public int KillZombies { get; set; }
 
         public void IncreaseKillCount()
         {

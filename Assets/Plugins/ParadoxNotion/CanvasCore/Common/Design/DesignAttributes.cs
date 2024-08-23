@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace ParadoxNotion.Design
 {
@@ -63,6 +64,7 @@ namespace ParadoxNotion.Design
     }
 
     ///<summary>Use for categorization</summary>
+    [MeansImplicitUse(ImplicitUseKindFlags.Assign)]
     [AttributeUsage(AttributeTargets.All)]
     public class CategoryAttribute : Attribute
     {

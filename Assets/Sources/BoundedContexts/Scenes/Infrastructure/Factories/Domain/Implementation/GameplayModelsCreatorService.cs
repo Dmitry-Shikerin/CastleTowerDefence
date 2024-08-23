@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
+using Sources.BoundedContexts.EnemySpawners.Domain.Data;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.HealthBoosters.Domain;
@@ -17,12 +19,15 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
+using Sources.BoundedContexts.Upgrades.Domain.Data;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
+using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
@@ -31,19 +36,17 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
     {
         private readonly IEntityRepository _entityRepository;
         private readonly ILoadService _loadService;
-        private readonly UpgradeConfigContainer _upgradeConfigContainer;
+        private readonly IAssetCollector _assetCollector;
 
         public GameplayModelsCreatorService(
-            IAchievementService achievementService,
             IEntityRepository entityRepository,
             ILoadService loadService,
-            UpgradeConfigContainer upgradeConfigContainer)
+            IAssetCollector assetCollector)
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            _upgradeConfigContainer = upgradeConfigContainer ?? 
-                                      throw new ArgumentNullException(nameof(upgradeConfigContainer));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
         }
 
         public GameplayModel Load()
@@ -59,13 +62,13 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(bunker);
             
             //Enemies
-            EnemySpawnerConfig enemySpawnerConfig = 
-                Resources.Load<EnemySpawnerConfig>(
-                    PrefabPath.EnemySpawnerConfigContainer);
-            EnemySpawner enemySpawner = new EnemySpawner(enemySpawnerConfig, ModelId.EnemySpawner);
-            _entityRepository.Add(enemySpawner);
+            EnemySpawner enemySpawner = CreateEnemySpawner();
             
-            KillEnemyCounter killEnemyCounter = new KillEnemyCounter(ModelId.KillEnemyCounter, 0);
+            KillEnemyCounter killEnemyCounter = new KillEnemyCounter()
+            {
+                Id = ModelId.KillEnemyCounter,
+                KillZombies = 0,
+            };
             _entityRepository.Add(killEnemyCounter);
             
             //Characters
@@ -81,7 +84,11 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(flamethrowerAbility);
             
             //PlayerWallet
-            PlayerWallet playerWallet = new PlayerWallet(50, ModelId.PlayerWallet);
+            PlayerWallet playerWallet = new PlayerWallet()
+            {
+                Coins = 15,
+                Id = ModelId.PlayerWallet,
+            };
             _entityRepository.Add(playerWallet);
             
             //Volume
@@ -92,7 +99,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             List<Achievement> achievements = LoadAchievements();
             
             //HealthBooster
-            HealthBooster healthBooster = new HealthBooster(ModelId.HealthBooster);
+            HealthBooster healthBooster = new HealthBooster()
+            {
+                Id = ModelId.HealthBooster,
+            };
             healthBooster.Amount++;
             _entityRepository.Add(healthBooster);
             
@@ -131,9 +141,28 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
         private Upgrade CreateUpgrade(string id)
         {
-            UpgradeConfig config = _upgradeConfigContainer.UpgradeConfigs
+            UpgradeConfig config = _assetCollector.Get<UpgradeConfigContainer>()
+                .UpgradeConfigs
                 .First(config => config.Id == id);
-            Upgrade upgrade = new Upgrade(config);
+
+            List<RuntimeUpgradeLevel> levels = new List<RuntimeUpgradeLevel>();
+            RuntimeUpgradeConfig runtimeConfig = new RuntimeUpgradeConfig()
+            {
+                Id = config.Id,
+                Levels = levels,
+            };
+            config.Levels.ForEach(level => levels.Add(new RuntimeUpgradeLevel()
+            {
+                Id = level.Id,
+                MoneyPerUpgrade = level.MoneyPerUpgrade,
+                CurrentAmount = level.CurrentAmount,
+            }));
+            Upgrade upgrade = new Upgrade()
+            {
+                Config = runtimeConfig,
+                Levels = levels,
+                Id = config.Id,
+            };
             _entityRepository.Add(upgrade);
 
             return upgrade;
@@ -175,6 +204,57 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(tutorial);
             
             return tutorial;
+        }
+
+        private EnemySpawner CreateEnemySpawner()
+        {
+            EnemySpawnerConfig enemySpawnerConfig = 
+                Resources.Load<EnemySpawnerConfig>(
+                    PrefabPath.EnemySpawnerConfigContainer);
+            List<RuntimeEnemySpawnerWave> waves = new List<RuntimeEnemySpawnerWave>();
+
+            foreach (EnemySpawnerWave wave in enemySpawnerConfig.Waves)
+            {
+                waves.Add(new RuntimeEnemySpawnerWave()
+                {
+                    WaveId = wave.WaveId,
+                    SpawnDelay = wave.SpawnDelay,
+                    EnemyCount = wave.EnemyCount,
+                    BossesCount = wave.BossesCount,
+                    KamikazeEnemyCount = wave.KamikazeEnemyCount,
+                    MoneyPerResilenceCharacters = wave.MoneyPerResilenceCharacters,
+                });
+            }
+            
+            RuntimeEnemySpawnerConfig runtimeEnemySpawnerConfig = new RuntimeEnemySpawnerConfig()
+            {
+                StartEnemyAttackPower = enemySpawnerConfig.StartEnemyAttackPower,
+                AddedEnemyAttackPower = enemySpawnerConfig.AddedEnemyAttackPower,
+                StartEnemyHealth = enemySpawnerConfig.StartEnemyHealth,
+                AddedEnemyHealth = enemySpawnerConfig.AddedEnemyHealth,
+                StartBossAttackPower = enemySpawnerConfig.StartBossAttackPower,
+                AddedBossAttackPower = enemySpawnerConfig.AddedBossAttackPower,
+                StartBossMassAttackPower = enemySpawnerConfig.StartBossMassAttackPower,
+                AddedBossMassAttackPower = enemySpawnerConfig.AddedBossMassAttackPower,
+                StartBossHealth = enemySpawnerConfig.StartBossHealth,
+                AddedBossHealth = enemySpawnerConfig.AddedBossHealth,
+                StartKamikazeMassAttackPower = enemySpawnerConfig.StartKamikazeMassAttackPower,
+                AddedKamikazeMassAttackPower = enemySpawnerConfig.AddedKamikazeMassAttackPower,
+                StartKamikazeAttackPower = enemySpawnerConfig.StartKamikazeAttackPower,
+                AddedKamikazeAttackPower = enemySpawnerConfig.AddedKamikazeAttackPower,
+                StartKamikazeHealth = enemySpawnerConfig.StartKamikazeHealth,
+                AddedKamikazeHealth = enemySpawnerConfig.AddedKamikazeHealth,
+                Waves = waves,
+            };
+            EnemySpawner enemySpawner = new EnemySpawner()
+            {
+                Waves = waves,
+                Config = runtimeEnemySpawnerConfig,
+                Id = ModelId.EnemySpawner
+            };
+            _entityRepository.Add(enemySpawner);
+            
+            return enemySpawner;
         }
     }
 }

@@ -4,18 +4,15 @@ using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Providers;
+using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Services;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
-using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Services.Providers;
@@ -37,7 +34,6 @@ using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Zenject;
@@ -72,10 +68,8 @@ namespace Sources.App.DIContainers.Gameplay
             //Characters
             Container.Bind<ICharacterRotationService>().To<CharacterRotationService>().AsSingle();
             
-            Container.Bind<CharacterMeleeDependencyProviderFactory>().AsSingle();
             Container.Bind<CharacterMeleeViewFactory>().AsSingle();
 
-            Container.Bind<CharacterRangeDependencyProviderFactory>().AsSingle();
             Container.Bind<CharacterRangeViewFactory>().AsSingle();
 
             Container.Bind<CharacterHealthPresenterFactory>().AsSingle();
@@ -89,7 +83,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<EnemySpawnerUiFactory>().AsSingle();
             
             //Enemies
-            Container.Bind<EnemyDependencyProviderFactory>().AsSingle();
             Container.Bind<EnemyViewFactory>().AsSingle();
 
             Container.Bind<EnemyBossDependencyProviderFactory>().AsSingle();
@@ -125,10 +118,6 @@ namespace Sources.App.DIContainers.Gameplay
             //Upgrades
             Container.Bind<UpgradePresenterFactory>().AsSingle();
             Container.Bind<UpgradeViewFactory>().AsSingle();
-            Container
-                .Bind<UpgradeConfigContainer>()
-                .FromResources("Configs/Upgrades/UpgradeConfigContainer")
-                .AsSingle();
         }
     }
 }

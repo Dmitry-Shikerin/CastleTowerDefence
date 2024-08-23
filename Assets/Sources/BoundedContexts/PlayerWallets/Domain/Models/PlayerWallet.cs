@@ -6,25 +6,19 @@ namespace Sources.BoundedContexts.PlayerWallets.Domain.Models
 {
     public class PlayerWallet : IEntity
     {
-        public PlayerWallet(
-            int coins,
-            string id)
-        {
-            Coins = coins;
-            Id = id;
-        }
-
-        public PlayerWallet(PlayerWalletDto playerWalletDto)
-        {
-            Coins = playerWalletDto.Coins;
-            Id = playerWalletDto.Id;
-        }
+        // public PlayerWallet(
+        //     int coins,
+        //     string id)
+        // {
+        //     Coins = coins;
+        //     Id = id;
+        // }
 
         public event Action CoinsChanged;
 
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
-        public int Coins { get; private set; }
+        public int Coins { get; set; }
 
         public void AddCoins(int amount)
         {

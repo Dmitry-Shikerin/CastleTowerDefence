@@ -237,7 +237,6 @@ namespace Doozy.Engine.Soundy
             
             controller.gameObject.name = "[" + SoundName + "]-(" + m_lastPlayedAudioData.AudioClip.name + ")";
             controller.Name = SoundName;
-            Debug.Log(SoundName);
             controller.Play();
             
             return controller;

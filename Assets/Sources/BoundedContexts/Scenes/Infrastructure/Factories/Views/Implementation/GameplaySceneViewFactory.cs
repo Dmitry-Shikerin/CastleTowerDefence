@@ -19,20 +19,23 @@ using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
     public class GameplaySceneViewFactory : ISceneViewFactory
     {
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly ILoadService _loadService;
+        private readonly IAssetCollector _assetCollector;
         private readonly IEntityRepository _entityRepository;
         private readonly GameplayHud _gameplayHud;
         private readonly UiCollectorFactory _uiCollectorFactory;
@@ -54,7 +57,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly ITutorialService _tutorialService;
 
         public GameplaySceneViewFactory(
-            IPrefabCollector prefabCollector,
+            ILoadService loadService,
+            IAssetCollector assetCollector,
             IEntityRepository entityRepository,
             GameplayHud gameplayHud,
             UiCollectorFactory uiCollectorFactory,
@@ -75,7 +79,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             VolumeViewFactory volumeViewFactory,
             ITutorialService tutorialService)
         {
-            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _gameplayHud = gameplayHud ?? throw new ArgumentNullException(nameof(gameplayHud));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
@@ -161,7 +166,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
             for (int i = 0; i < achievements.Count; i++)
             {
-                AchievementConfig config = _prefabCollector
+                AchievementConfig config = _assetCollector
                     .Get<AchievementConfigCollector>()
                     .Configs
                     .First(config => config.Id == achievements[i].Id);
@@ -174,7 +179,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
         private GameplayModel Load(IScenePayload payload)
         {
-            if (payload != null && payload.CanLoad)
+            // if (payload != null && payload.CanLoad)
+            //     return _gameplayModelsLoaderService.Load();
+            if (_loadService.HasKey(ModelId.PlayerWallet))
                 return _gameplayModelsLoaderService.Load();
             
             return _gameplayModelsCreatorService.Load();

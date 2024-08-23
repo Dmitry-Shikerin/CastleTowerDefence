@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.BoundedContexts.Bunkers.Controllers;
-using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;

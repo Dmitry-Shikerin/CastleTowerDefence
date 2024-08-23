@@ -1,4 +1,5 @@
 ﻿using Sources.Frameworks.GameServices.ConfigCollectors;
+using Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects;
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Domain;
 using UnityEngine;
 

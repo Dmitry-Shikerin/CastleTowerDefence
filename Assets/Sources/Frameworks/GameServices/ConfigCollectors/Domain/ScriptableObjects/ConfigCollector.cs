@@ -5,9 +5,9 @@ using MyAudios.MyUiFramework.Utils;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using UnityEditor;
-using UnityEngine; 
+using UnityEngine;
 
-namespace Sources.Frameworks.GameServices.ConfigCollectors
+namespace Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects
 {
     public class ConfigCollector<T> : ScriptableObject
         where T : Config

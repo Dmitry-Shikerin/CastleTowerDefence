@@ -6,8 +6,8 @@ using MyAudios.Soundy.Sources.AudioControllers.Controllers;
 using MyAudios.Soundy.Sources.Managers.Controllers;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Implementation
@@ -65,7 +65,7 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
             SoundyManager.SetVolume(soundName, _soundsVolume.VolumeValue);
         }
 
-        public async void PlaySequence(string databaseName, string soundName)
+        public void PlaySequence(string databaseName, string soundName)
         {
             _musicSoundName = soundName;
             SoundyManager.PlaySequence(databaseName, soundName, _musicVolume);

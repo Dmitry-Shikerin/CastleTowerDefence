@@ -1,65 +1,73 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using System;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterRanges.Domain;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
+using Zenject;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterRangeAttackState : FSMState
     {
-        private CharacterRangeDependencyProvider _provider;
-        
-        private ICharacterRangeView View => _provider.View;
-        private ICharacterRangeAnimation Animation => _provider.Animation;
-        private ICharacterRotationService RotationService => _provider.CharacterRotationService;
+        private ICharacterRangeView _view;
+        private ICharacterRangeAnimation _animation;
+        private ICharacterRotationService _rotationService;
+        private CharacterRange _characterMelee;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(CharacterRange characterRange, CharacterRangeView view)
         {
-            _provider = 
-                graphBlackboard.parent.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
+            _characterMelee = characterRange ?? throw new ArgumentNullException(nameof(characterRange));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
+            _animation = view.RangeAnimation;
+        }
+
+        [Inject]
+        private void Construct(ICharacterRotationService rotationService)
+        {
+            _rotationService = rotationService ?? throw new ArgumentNullException(nameof(rotationService));
         }
 
         protected override void OnEnter()
         {
-            Animation.Attacking += OnAttack;
-            Animation.PlayAttack();
+            _animation.Attacking += OnAttack;
+            _animation.PlayAttack();
         }
 
         protected override void OnUpdate()
         {
             ChangeLookDirection();
             
-            if(View.EnemyHealth.CurrentHealth <= 0)
-                View.SetEnemyHealth(null);
+            if(_view.EnemyHealth.CurrentHealth <= 0)
+                _view.SetEnemyHealth(null);
         }
 
         protected override void OnExit()
         {
-            Animation.Attacking -= OnAttack;
+            _animation.Attacking -= OnAttack;
         }
 
         private void OnAttack()
         {
-            if (View.EnemyHealth == null)
+            if (_view.EnemyHealth == null)
                 return;
             
-            View.PlayShootParticle();
-            View.EnemyHealth.TakeDamage(2);
+            _view.PlayShootParticle();
+            _view.EnemyHealth.TakeDamage(2);
         }
         
         private void ChangeLookDirection()
         {
-            if (View.EnemyHealth == null)
+            if (_view.EnemyHealth == null)
                 return;
 
-            float angle = RotationService.GetAngleRotation(
-                View.EnemyHealth.Position, View.Position);
-            View.SetLookRotation(angle);
+            float angle = _rotationService.GetAngleRotation(
+                _view.EnemyHealth.Position, _view.Position);
+            _view.SetLookRotation(angle);
         }
     }
 }

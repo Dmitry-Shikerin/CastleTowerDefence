@@ -2,47 +2,54 @@
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
-using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterMelees.Domain;
+using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
+using Zenject;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 {
     [Category("Custom/Character")]
-    [UsedImplicitly]
     public class CharacterMeleeIdleState : FSMState
     {
-        private CharacterMeleeDependencyProvider _provider;
-        
-        private ICharacterMeleeView View => _provider.View;
-        private ICharacterMeleeAnimation Animation => _provider.Animation;
-        private IOverlapService OverlapService => _provider.OverlapService;
+        private ICharacterMeleeView _view;
+        private CharacterMelee _characterMelee;
+        private ICharacterMeleeAnimation _animation;
+        private IOverlapService _overlapService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(CharacterMelee characterMelee, CharacterMeleeView characterMeleeView)
         {
-            _provider =
-                graphBlackboard.parent.GetVariable<CharacterMeleeDependencyProvider>("_provider").value;
+            _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
+            _view = characterMeleeView ?? throw new ArgumentNullException(nameof(characterMeleeView));
+            _animation = characterMeleeView.MeleeAnimation;
+        }
+
+        [Inject]
+        private void Construct(IOverlapService overlapService)
+        {
+            _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
         }
 
         protected override void OnEnter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            Animation.PlayIdle();
+            _animation.PlayIdle();
             StartFind(_cancellationTokenSource.Token);
         }
 
         protected override void OnUpdate()
         {
-            View.SetLookRotation(0);
+            _view.SetLookRotation(0);
         }
 
         protected override void OnExit()
@@ -68,8 +75,8 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         private void FindTarget()
         {
             IEnemyHealthView enemyHealthView =
-                OverlapService.OverlapSphere<EnemyHealthView>(
-                        View.Position, View.FindRange,
+                _overlapService.OverlapSphere<EnemyHealthView>(
+                        _view.Position, _view.FindRange,
                         LayerConst.Enemy,
                         LayerConst.Defaul)
                     .FirstOrDefault();
@@ -77,7 +84,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
             if (enemyHealthView == null)
                 return;
 
-            View.SetEnemyHealth(enemyHealthView);
+            _view.SetEnemyHealth(enemyHealthView);
         }
     }
 }

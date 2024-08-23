@@ -1,39 +1,41 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
-using NodeCanvas.StateMachines;
+﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.Enemies.Domain;
-using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.Enemies.Domain.Models;
+using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
-using UnityEngine;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyMoveToCharacterState : FSMState
     {
-        [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
+        private IEnemyView _view;
+        private IEnemyAnimation _animation;
         
-        private IEnemyView View => _provider.value.View;
-        private IEnemyAnimation Animation => _provider.value.Animation;
+        [Construct]
+        private void Construct(EnemyView enemyView)
+        {
+            _view = enemyView;
+            _animation = _view.Animation;
+        }
         
         protected override void OnEnter() =>
-            Animation.PlayWalk();
+            _animation.PlayWalk();
 
         protected override void OnUpdate()
         {
-            if (View.CharacterHealthView == null)
+            if (_view.CharacterHealthView == null)
                 return;
             
-            if (View.CharacterHealthView.CurrentHealth <= 0)
+            if (_view.CharacterHealthView.CurrentHealth <= 0)
             {
-                View.SetCharacterHealth(null);
+                _view.SetCharacterHealth(null);
                 
                 return;
             }
             
-            View.Move(View.CharacterHealthView.Position);
+            _view.Move(_view.CharacterHealthView.Position);
         }
     }
 }
