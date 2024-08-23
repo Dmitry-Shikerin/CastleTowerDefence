@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
-using Cysharp.Threading.Tasks;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
@@ -10,6 +9,9 @@ using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.UniTaskTweens;
+using Sources.Frameworks.UniTaskTweens.Sequences;
+using Sources.Frameworks.UniTaskTweens.Sequences.Types;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 using Zenject;
 
@@ -21,8 +23,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         private ICharacterMeleeView _view;
         private ICharacterMeleeAnimation _animation;
         private IOverlapService _overlapService;
-
-        private CancellationTokenSource _cancellationTokenSource;
+        private UTSequence _sequence;
 
         [Construct]
         private void Construct(CharacterMeleeView characterMeleeView)
@@ -32,16 +33,21 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         }
 
         [Inject]
-        private void Construct(IOverlapService overlapService)
-        {
+        private void Construct(IOverlapService overlapService) =>
             _overlapService = overlapService ?? throw new ArgumentNullException(nameof(overlapService));
+
+        protected override void OnInit()
+        {
+            _sequence = UTTween
+                .Sequence(LoopType.Loop)
+                .AddDelayFromSeconds(0.5f)
+                .Add(FindTarget);
         }
 
         protected override void OnEnter()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
             _animation.PlayIdle();
-            StartFind(_cancellationTokenSource.Token);
+            _sequence.Start();
         }
 
         protected override void OnUpdate()
@@ -51,22 +57,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
 
         protected override void OnExit()
         {
-            _cancellationTokenSource.Cancel();
-        }
-
-        private async void StartFind(CancellationToken cancellationToken)
-        {
-            try
-            {
-                while (cancellationToken.IsCancellationRequested == false)
-                {
-                    await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: cancellationToken);
-                    FindTarget();
-                }
-            }
-            catch (OperationCanceledException)
-            {
-            }
+            _sequence.Stop();
         }
 
         private void FindTarget()

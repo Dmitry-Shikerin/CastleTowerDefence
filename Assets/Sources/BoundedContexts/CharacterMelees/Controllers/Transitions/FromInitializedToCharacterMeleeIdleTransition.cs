@@ -9,7 +9,6 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.Transitions
     [Category("Custom/Character")]
     public class FromInitializedToCharacterMeleeIdleTransition : ConditionTask
     {
-
         private CharacterMelee _characterMelee;
 
         [Construct]

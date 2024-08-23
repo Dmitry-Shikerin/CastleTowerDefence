@@ -13,14 +13,10 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         private ICharacterMeleeView _view;
 
         [Construct]
-        private void Construct(CharacterMeleeView characterMeleeView)
-        {
+        private void Construct(CharacterMeleeView characterMeleeView) =>
             _view = characterMeleeView ?? throw new ArgumentNullException(nameof(characterMeleeView));
-        }
 
-        protected override void OnEnter()
-        {
+        protected override void OnEnter() =>
             _view.Destroy();
-        }
     }
 }
