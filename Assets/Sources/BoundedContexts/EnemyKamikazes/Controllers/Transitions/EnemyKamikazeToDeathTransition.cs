@@ -1,28 +1,21 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.Transitions
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyKamikazeToDeathTransition : ConditionTask
     {
-        private EnemyKamikazeDependencyProvider _provider;
-        
-        private IEnemyKamikazeView View => _provider.View;
+        private IEnemyKamikazeView _view;
 
-        protected override string OnInit()
-        {
-            _provider =
-                blackboard.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-
-            return null;
-        }
+        [Construct]
+        private void Construct(EnemyKamikazeView view) =>
+            _view = view;
 
         protected override bool OnCheck() =>
-            View.EnemyHealthView.CurrentHealth <= 0;
+            _view.EnemyHealthView.CurrentHealth <= 0;
     }
 }

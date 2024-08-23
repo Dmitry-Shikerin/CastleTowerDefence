@@ -16,7 +16,6 @@ using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Providers;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
@@ -86,7 +85,6 @@ namespace Sources.App.DIContainers.Gameplay
 
             Container.Bind<EnemyBossViewFactory>().AsSingle();
 
-            Container.Bind<EnemyKamikazeDependencyProviderFactory>().AsSingle();
             Container.Bind<EnemyKamikazeViewFactory>().AsSingle();
             
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();

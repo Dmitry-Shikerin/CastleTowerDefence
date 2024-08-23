@@ -1,29 +1,20 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.EnemyKamikazes.Domain;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.Transitions
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyKamikazeMoveToCharacterMeleeTransition : ConditionTask
     {
-        private EnemyKamikazeDependencyProvider _provider;
-        
-        private EnemyKamikaze Enemy => _provider.EnemyKamikaze;
+        private EnemyKamikaze _enemy;
 
-        protected override string OnInit()
-        {
-            _provider =
-                blackboard.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-            
-            return null;
-        }
+        [Construct]
+        private void Construct(EnemyKamikaze enemyKamikaze) =>
+            _enemy = enemyKamikaze;
 
         protected override bool OnCheck() =>
-            Enemy.IsInitialized;
+            _enemy.IsInitialized;
     }
 }

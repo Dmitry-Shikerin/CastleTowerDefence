@@ -1,55 +1,61 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
-using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.EnemyKamikazes.Domain;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Cameras.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 using Sources.InfrastructureInterfaces.Services.Cameras;
 using UnityEngine;
+using Zenject;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyKamikazeBomberState : FSMState
     {
-        private EnemyKamikazeDependencyProvider _provider;
+        private EnemyKamikaze _enemy;
+        private IEnemyKamikazeView _view;
         private ICameraService _cameraService;
+        private IOverlapService _overlapService;
+        private ExplosionBodyViewFactory _explosionBodyViewFactory;
 
-        private EnemyKamikaze Enemy => _provider.EnemyKamikaze;
-        private IEnemyKamikazeView View => _provider.View;
-        private IOverlapService OverlapService => _provider.OverlapService;
-        private ExplosionBodyViewFactory ExplosionBodyViewFactory => 
-            _provider.ExplosionBodyViewFactory;
-
-        protected override void OnInit()
+        [Construct]
+        private void Construct(EnemyKamikaze enemyKamikaze, IEnemyKamikazeView view)
         {
-            _provider =
-                graphBlackboard.parent.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-            _cameraService = _provider.CameraService;
+            _enemy = enemyKamikaze;
+            _view = view;
+        }
+
+        [Inject]
+        private void Construct(
+            ICameraService cameraService, 
+            IOverlapService overlapService, 
+            ExplosionBodyViewFactory explosionBodyViewFactory)
+        {
+            _cameraService = cameraService;
+            _overlapService = overlapService;
+            _explosionBodyViewFactory = explosionBodyViewFactory;
         }
 
         protected override void OnEnter()
         {
             _cameraService.SetOnTimeCamera(CameraId.Explosion, 1.5f);
-            Vector3 spawnPosition = View.Position + Vector3.up;
-            ExplosionBodyViewFactory.Create(spawnPosition);
+            Vector3 spawnPosition = _view.Position + Vector3.up;
+            _explosionBodyViewFactory.Create(spawnPosition);
             Explode();
-            View.Destroy();
+            _view.Destroy();
         }
 
         private void Explode()
         {
             IReadOnlyList<CharacterHealthView> characterHealthViews =
-                OverlapService.OverlapSphere<CharacterHealthView>(
-                    View.Position, View.FindRange,
+                _overlapService.OverlapSphere<CharacterHealthView>(
+                    _view.Position, _view.FindRange,
                     LayerConst.Character,
                     LayerConst.Defaul);
 
@@ -57,7 +63,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
                 return;
 
             foreach (CharacterHealthView characterHealthView in characterHealthViews)
-                characterHealthView.TakeDamage(Enemy.EnemyAttacker.MassAttackDamage);
+                characterHealthView.TakeDamage(_enemy.EnemyAttacker.MassAttackDamage);
         }
     }
 }

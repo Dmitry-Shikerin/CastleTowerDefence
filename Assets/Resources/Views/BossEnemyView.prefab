@@ -2007,7 +2007,6 @@ GameObject:
   - component: {fileID: 8208917591704278497}
   - component: {fileID: 557896707797218651}
   - component: {fileID: 7356655251733159986}
-  - component: {fileID: 6066335486042126730}
   - component: {fileID: 6106732187483106532}
   - component: {fileID: 8122484730840737286}
   - component: {fileID: 2084021712754520029}
@@ -2126,13 +2125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.EnemyBosses.Presentation.Implementation.EnemyBossView.Provider","_name":"_provider","_id":"01d7b84b-fdd2-487b-a09b-f142c07f0da8","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers.EnemyBossDependencyProvider,
-    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _serializedBlackboard: '{"_variables":{}}'
   _objectReferences: []
-  _serializedVariables:
-  - _json: '{"_propertyPath":"Sources.BoundedContexts.EnemyBosses.Presentation.Implementation.EnemyBossView.Provider","_name":"_provider","_id":"01d7b84b-fdd2-487b-a09b-f142c07f0da8","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers.EnemyBossDependencyProvider,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
+  _serializedVariables: []
 --- !u!114 &7356655251733159986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,20 +2149,7 @@ MonoBehaviour:
   _burnAbilityView: {fileID: 6753943412273236927}
   enemyBossAnimation: {fileID: 6106732187483106532}
   _massAttackParticle: {fileID: 945649008539658765}
-  _provider: {fileID: 6066335486042126730}
   _findRange: 3
---- !u!114 &6066335486042126730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3979446576400855832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470c5277b81949b693641515927c94e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6106732187483106532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,7 +2222,7 @@ MonoBehaviour:
   _editor_DrawExtra: 0
   _editor_horizontal: 1
   _editor_category: 0
-  Editor_InIsolatedScene: 0
+  Editor_InIsolatedScene: 1
   Editor_JustCreated: 1
   UseDOTS: 0
   DOTSObstacleType: 2

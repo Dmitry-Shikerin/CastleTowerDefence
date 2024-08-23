@@ -1,47 +1,47 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
-using NodeCanvas.StateMachines;
+﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
-using Sources.Frameworks.GameServices.Cameras.Domain;
-using Sources.InfrastructureInterfaces.Services.Cameras;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 using UnityEngine;
+using Zenject;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyKamikazeDieState : FSMState
     {
-        private EnemyKamikazeDependencyProvider _provider;
         private PlayerWallet _playerWallet;
-        private ICameraService _cameraService;
+        private KillEnemyCounter _killEnemyCounter;
+        private IEnemyKamikazeView _view; 
+        private ExplosionBodyBloodyViewFactory _explosionBodyBloodyViewFactory;
 
-        private IEnemyKamikazeView View => _provider.View; 
-        private ExplosionBodyBloodyViewFactory ExplosionBodyBloodyViewFactory => 
-            _provider.ExplosionBodyBloodyViewFactory;
+        [Construct]
+        private void Construct(EnemyKamikazeView view) =>
+            _view = view;
 
-        protected override void OnInit()
+        [Inject]
+        private void Construct(
+            ExplosionBodyBloodyViewFactory explosionBodyBloodyViewFactory,
+            IEntityRepository entityRepository)
         {
-            _provider = 
-                graphBlackboard.parent.GetVariable<EnemyKamikazeDependencyProvider>("_provider").value;
-            _playerWallet = _provider.PlayerWallet;
-            _cameraService = _provider.CameraService;
+            _explosionBodyBloodyViewFactory = explosionBodyBloodyViewFactory;
+            _playerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
+            _killEnemyCounter = entityRepository.Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
         }
+
 
         protected override void OnEnter()
         {
-            _provider.EntityRepository
-                .Get<KillEnemyCounter>(ModelId.KillEnemyCounter)
-                .IncreaseKillCount();
-            Vector3 spawnPosition = View.Position + Vector3.up;
-            ExplosionBodyBloodyViewFactory.Create(spawnPosition);
-            View.Destroy();
+            _killEnemyCounter.IncreaseKillCount();
+            Vector3 spawnPosition = _view.Position + Vector3.up;
+            _explosionBodyBloodyViewFactory.Create(spawnPosition);
+            _view.Destroy();
             _playerWallet.AddCoins(1);
         }
     }
