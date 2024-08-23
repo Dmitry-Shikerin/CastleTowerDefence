@@ -70,8 +70,13 @@ namespace Doozy.Runtime.Signals
 
         public enum Gameplay
         {
+            GameCompleted,
             GameOver,
             ReceivedAchievement,
+            Saving,
+            ShowBossEnemyTutorial,
+            ShowKamikazeEnemyTutorial,
+            ShowSimpleEnemyTutorial,
             ShowTutorial
         }
 
