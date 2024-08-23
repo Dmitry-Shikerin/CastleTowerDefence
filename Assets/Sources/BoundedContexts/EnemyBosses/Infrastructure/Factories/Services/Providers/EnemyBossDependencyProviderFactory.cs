@@ -4,7 +4,7 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Services.Providers
 {

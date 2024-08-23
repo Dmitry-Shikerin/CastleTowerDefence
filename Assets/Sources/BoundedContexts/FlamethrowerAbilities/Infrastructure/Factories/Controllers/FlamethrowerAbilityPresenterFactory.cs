@@ -4,7 +4,7 @@ using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.FlamethrowerAbilities.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers
 {

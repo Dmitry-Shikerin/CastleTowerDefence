@@ -1,4 +1,6 @@
-﻿using DevDunk.AutoLOD;
+﻿using System;
+using DevDunk.AutoLOD;
+using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Bakers.Generic;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 using TeoGames.Mesh_Combiner.Scripts.Combine;
@@ -26,12 +28,11 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers
             
         }
 
-        public void Add<T>(T gameObject)
-            where T : IView
+        public void Add(IView view)
         {
-            gameObject.SetParent(_meshCombiner.transform);
+            view.SetParent(_meshCombiner.transform);
             InitializeMeshRenderer();
-            SetSkinnedMesh(gameObject);
+            SetSkinnedMesh(view);
         }
 
         private void InitializeMeshRenderer()
@@ -43,9 +44,12 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers
             _skinnedMeshRenderer = _meshCombiner.GetComponentInChildren<SkinnedMeshRenderer>();
         }
 
-        private void SetSkinnedMesh<T>(T gameObject)
+        private void SetSkinnedMesh(IView view)
         {
-            if((gameObject as View).TryGetComponent(out AnimatorLODObject animatorLOD) == false)
+            if (view is not View concrete)
+                throw new InvalidCastException();
+            
+            if(concrete.TryGetComponent(out AnimatorLODObject animatorLOD) == false)
                 return;
 
             if (_skinnedMeshRenderer == null)

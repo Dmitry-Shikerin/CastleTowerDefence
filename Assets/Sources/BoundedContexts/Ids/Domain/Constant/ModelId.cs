@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Doozy.Runtime.UIManager;
 using Sources.BoundedContexts.Bunkers.Domain;
-using Sources.BoundedContexts.EnemySpawners.Domain.Data;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
+using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
-using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
-using Sources.BoundedContexts.Upgrades.Domain.Data;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
-using Sources.Domain.Models.Data;
-using Sources.Frameworks.Domain.Implementation.Data;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
@@ -96,12 +91,12 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             FlamethrowerUpgrade,
             Bunker,
             EnemySpawner,
-            ScoreCounter,
             PlayerWallet,
             KillEnemyCounter,
             Tutorial,
             SoundsVolume,
-            MusicVolume
+            MusicVolume,
+            HealthBooster,
         };
 
         public static IReadOnlyDictionary<string, Type> Types { get; } = new Dictionary<string, Type>()
@@ -129,6 +124,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             [AllAbilitiesUsedAchievementCommand] = typeof(Achievement),
             [CompleteGameWithOneHealthAchievementCommand] = typeof(Achievement),
             [Tutorial] = typeof(Tutorial),
+            [HealthBooster] = typeof(HealthBooster),
         };
     }
 }

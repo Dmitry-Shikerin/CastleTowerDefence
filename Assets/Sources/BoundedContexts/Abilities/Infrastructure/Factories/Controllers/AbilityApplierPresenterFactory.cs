@@ -1,8 +1,7 @@
 ﻿using System;
 using Sources.BoundedContexts.Abilities.Controllers;
-using Sources.BoundedContexts.Abilities.Domain;
 using Sources.BoundedContexts.Abilities.Presentation.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.BoundedContexts.Abilities.Infrastructure.Factories.Controllers
 {

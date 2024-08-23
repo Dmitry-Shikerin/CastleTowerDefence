@@ -5,27 +5,28 @@ using JetBrains.Annotations;
 using Sirenix.Utilities;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Implementation
 {
     public class AchievementService : IAchievementService
     {
         private readonly IEntityRepository _entityRepository;
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly IAssetCollector _assetCollector;
         private readonly Dictionary<string, Achievement> _achievements;
         private Dictionary<string, AchievementConfig> _achievementsConfigs;
         private readonly IEnumerable<IAchievementCommand> _achievementCommands;
         
         public AchievementService(
             IEntityRepository entityRepository,
-            IPrefabCollector prefabCollector,
+            IAssetCollector assetCollector,
             FirstKillEnemyAchievementCommand firstKillEnemyAchievementCommand,
             FirstUpgradeAchievementCommand firstUpgradeAchievementCommand,
             FirstHealthBoosterUsageAchievementCommand firstHealthBoosterUsageAchievementCommand,
@@ -38,8 +39,8 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
-            _prefabCollector = prefabCollector ??
-                               throw new ArgumentNullException(nameof(prefabCollector));
+            _assetCollector = assetCollector ??
+                               throw new ArgumentNullException(nameof(assetCollector));
             _achievements = new Dictionary<string, Achievement>();
             _achievementCommands = new List<IAchievementCommand>()
             {
@@ -60,7 +61,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
             _entityRepository
                 .GetAll<Achievement>(ModelId.AchievementModels)
                 .ToDictionary(achievement => achievement.Id, achievement => achievement);
-            _achievementsConfigs = _prefabCollector
+            _achievementsConfigs = _assetCollector
                 .Get<AchievementConfigCollector>()
                 .Configs
                 .ToDictionary(config => config.Id, config => config);

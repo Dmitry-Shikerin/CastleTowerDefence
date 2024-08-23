@@ -1,5 +1,5 @@
 ﻿using System;
-using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
 namespace Sources.BoundedContexts.CharacterHealths.Controllers

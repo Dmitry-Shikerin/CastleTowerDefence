@@ -10,12 +10,12 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
 {
     public class ResourcesAssetLoader : IResourcesAssetLoader
     {
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly IAssetCollector _assetCollector;
         private readonly List<Object> _objects;
 
-        public ResourcesAssetLoader(IPrefabCollector prefabCollector)
+        public ResourcesAssetLoader(IAssetCollector assetCollector)
         {
-            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
             _objects = new List<Object>();
         }
         
@@ -30,14 +30,14 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
                 throw new InvalidOperationException(typeof(T).Name);
             
             _objects.Add(asset);
-            _prefabCollector.Add(typeof(T), component);
+            _assetCollector.Add(typeof(T), component);
             
             return component;
         }
 
         public void ReleaseAll()
         {
-            _objects.ForEach(_prefabCollector.Remove);
+            _objects.ForEach(_assetCollector.Remove);
             _objects.Clear();
         }
     }

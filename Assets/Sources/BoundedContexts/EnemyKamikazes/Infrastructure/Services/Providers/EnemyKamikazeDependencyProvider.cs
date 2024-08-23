@@ -7,8 +7,8 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Cameras;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers

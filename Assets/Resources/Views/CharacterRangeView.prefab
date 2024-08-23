@@ -1609,7 +1609,6 @@ GameObject:
   - component: {fileID: 7946206599948069554}
   - component: {fileID: 5111550227928131273}
   - component: {fileID: 8782936900031788647}
-  - component: {fileID: 2574268755531843099}
   - component: {fileID: 1019744461117765255}
   - component: {fileID: 3008916966335420997}
   - component: {fileID: 5827751256711953580}
@@ -1703,13 +1702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"_provider":{"_propertyPath":"Sources.BoundedContexts.CharacterRanges.Presentation.Implementation.CharacterRangeView.Provider","_name":"_provider","_id":"89db9ca2-81e4-4e2f-9de6-5db968b0598a","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers.CharacterRangeDependencyProvider,
-    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _serializedBlackboard: '{"_variables":{}}'
   _objectReferences: []
-  _serializedVariables:
-  - _json: '{"_propertyPath":"Sources.BoundedContexts.CharacterRanges.Presentation.Implementation.CharacterRangeView.Provider","_name":"_provider","_id":"89db9ca2-81e4-4e2f-9de6-5db968b0598a","$type":"NodeCanvas.Framework.Variable`1[[Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers.CharacterRangeDependencyProvider,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
+  _serializedVariables: []
 --- !u!114 &8782936900031788647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,21 +1721,8 @@ MonoBehaviour:
   _rangeAnimation: {fileID: 1019744461117765255}
   _healthBarView: {fileID: 6486729287640737444}
   _healthView: {fileID: 6118652786860346868}
-  _provider: {fileID: 2574268755531843099}
   _fsmOwner: {fileID: 7946206599948069554}
   _shootParticle: {fileID: 8187736667615609897}
---- !u!114 &2574268755531843099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4906587123687682222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80cf6d9f8f394b1eae3b3744835effda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1019744461117765255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,7 +1772,7 @@ MonoBehaviour:
   _editor_DrawExtra: 0
   _editor_horizontal: 1
   _editor_category: 0
-  Editor_InIsolatedScene: 0
+  Editor_InIsolatedScene: 1
   Editor_JustCreated: 1
   UseDOTS: 0
   DOTSObstacleType: 2

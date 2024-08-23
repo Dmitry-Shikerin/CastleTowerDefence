@@ -1,30 +1,33 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using System;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.Enemies.Domain.Models;
-using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyAttackState : FSMState
     {
-        [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
-        
-        private Enemy Enemy => _provider.value.Enemy;
-        private EnemyAttacker EnemyAttacker => Enemy.EnemyAttacker;
-        private IEnemyView View => _provider.value.View;
-        private IEnemyAnimation Animation => _provider.value.Animation;
+        private EnemyAttacker _enemyAttacker;
+        private IEnemyView _view;
+        private IEnemyAnimation _animation;
+
+        [Construct]
+        private void Construct(Enemy enemy, IEnemyView view)
+        {
+            _view = view ?? throw new ArgumentNullException(nameof(view));
+            _animation = _view.Animation;
+            _enemyAttacker = enemy.EnemyAttacker;
+        }
         
         protected override void OnEnter()
         {
-            Animation.Attacking += OnAttack;
-            View.Move(View.CharacterHealthView.Position);
-            Animation.PlayAttack();
+            _animation.Attacking += OnAttack;
+            _view.Move(_view.CharacterHealthView.Position);
+            _animation.PlayAttack();
         }
 
         protected override void OnUpdate() =>
@@ -32,29 +35,29 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
 
         protected override void OnExit()
         {
-            Animation.Attacking -= OnAttack;
-            View.SetCharacterHealth(null);
+            _animation.Attacking -= OnAttack;
+            _view.SetCharacterHealth(null);
         }
 
         private void OnAttack()
         {
             SetCharacterHealth();
 
-            if (View.CharacterHealthView == null)
+            if (_view.CharacterHealthView == null)
                 return;
 
-            View.CharacterHealthView.TakeDamage(EnemyAttacker.Damage);
+            _view.CharacterHealthView.TakeDamage(_enemyAttacker.Damage);
         }
 
         private void SetCharacterHealth()
         {
-            if (View.CharacterHealthView == null)
+            if (_view.CharacterHealthView == null)
                 return;
             
-            if (View.CharacterHealthView.CurrentHealth > 0)
+            if (_view.CharacterHealthView.CurrentHealth > 0)
                 return;
 
-            View.SetCharacterHealth(null);
+            _view.SetCharacterHealth(null);
         }
     }
 }

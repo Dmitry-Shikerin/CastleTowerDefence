@@ -9,7 +9,7 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
 {
     internal class RuntimeStatusEffectList
     {
-                // MEMBERS: -------------------------------------------------------------------------------
+        // MEMBERS: -------------------------------------------------------------------------------
 
         private readonly List<RuntimeStatusEffectData> m_List = new List<RuntimeStatusEffectData>();
 
@@ -27,10 +27,9 @@ namespace Sources.Frameworks.MyGameCreator.Stats.Runtime
         
         // EVENTS: --------------------------------------------------------------------------------
 
-        public event Action<IdString> EventChange;
-        
-        public event Action<IdString> EventAdd;
-        public event Action<IdString> EventRemove;
+        // public event Action<IdString> EventChange;
+        // public event Action<IdString> EventAdd;
+        // public event Action<IdString> EventRemove;
 
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 

@@ -4,7 +4,7 @@ using Sources.BoundedContexts.Animations.Presentations;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.CharacterMelees.Presentation
+namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
 {
     public class CharacterMeleeAnimation : AnimationViewBase, ICharacterMeleeAnimation
     {

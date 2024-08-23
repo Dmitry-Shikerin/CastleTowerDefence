@@ -5,7 +5,7 @@ using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
-using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.Healths.Presentation.Implementation;
@@ -29,6 +29,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         private readonly IPODestroyerService _poDestroyerService = 
             new PODestroyerService();
         
+        public FSMOwner FsmOwner => _fsmOwner;
         public BurnAbilityView BurnAbilityView => _burnAbilityView;
         public HealthBarView HealthBarView => _healthBarView;
         public EnemyHealthView EnemyHealthView => _healthView;

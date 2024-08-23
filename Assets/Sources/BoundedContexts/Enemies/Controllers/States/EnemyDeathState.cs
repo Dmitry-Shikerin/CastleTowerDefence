@@ -1,36 +1,51 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
-using NodeCanvas.StateMachines;
+﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.Enemies.Domain.Models;
+using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 using UnityEngine;
+using Zenject;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyDeathState : FSMState
     {
-        [RequiredField] public BBParameter<EnemyDependencyProvider> _provider;
-        
-        private IEnemyView View => _provider.value.View;
-        private ExplosionBodyBloodyViewFactory ExplosionBodyBloodyViewFactory => 
-            _provider.value.ExplosionBodyBloodyViewFactory;
-        private PlayerWallet _playerWallet => _provider.value.PlayerWallet;
+        private IEnemyView _view;
+        private ExplosionBodyBloodyViewFactory _explosionBodyBloodyViewFactory;
+        private PlayerWallet _playerWallet;
+        private KillEnemyCounter _killEnemyCounter;
+
+        [Construct]
+        private void Construct(EnemyView view)
+        {
+            _view = view;
+        }
+
+        [Inject]
+        private void Construct(
+            ExplosionBodyBloodyViewFactory explosionBodyViewFactory, 
+            IEntityRepository entityRepository)
+        {
+            _explosionBodyBloodyViewFactory = explosionBodyViewFactory;
+            _playerWallet = entityRepository
+                .Get<PlayerWallet>(ModelId.PlayerWallet);
+            _killEnemyCounter = entityRepository
+                .Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
+        }
         
         protected override void OnEnter()
         {
-            _provider.value.EntityRepository
-                .Get<KillEnemyCounter>(ModelId.KillEnemyCounter)
-                .IncreaseKillCount();
-            Vector3 spawnPosition = View.Position + Vector3.up;
-            ExplosionBodyBloodyViewFactory.Create(spawnPosition);
-            View.Destroy();
+            _killEnemyCounter.IncreaseKillCount();
+            Vector3 spawnPosition = _view.Position + Vector3.up;
+            _explosionBodyBloodyViewFactory.Create(spawnPosition);
+            _view.Destroy();
             _playerWallet.AddCoins(1);
         }
     }

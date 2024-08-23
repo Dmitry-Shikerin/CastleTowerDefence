@@ -3,76 +3,78 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
+using Sources.BoundedContexts.EnemySpawners.Domain.Data;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 
 namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
 {
     public class EnemySpawner : IEntity
     {
-        private readonly EnemySpawnerConfig _enemySpawnerConfig;
         private int _currentWaveNumber;
         private int _spawnedAllEnemies;
         private int _killedWaves;
 
-        public EnemySpawner(EnemySpawnerConfig enemySpawnerConfig, string id)
-        {
-            if (enemySpawnerConfig == null) 
-                throw new ArgumentNullException(nameof(enemySpawnerConfig));
-            
-            _enemySpawnerConfig = enemySpawnerConfig;
-
-            Waves = enemySpawnerConfig.Waves;
-            Id = id;
-        }
+        // public EnemySpawner(EnemySpawnerConfig enemySpawnerConfig, string id)
+        // {
+        //     if (enemySpawnerConfig == null) 
+        //         throw new ArgumentNullException(nameof(enemySpawnerConfig));
+        //     
+        //     _enemySpawnerConfig = new RuntimeEnemySpawnerConfig(enemySpawnerConfig);
+        //
+        //     Waves = _enemySpawnerConfig.Waves;
+        //     Id = id;
+        // }
 
         public event Action WaveChanged;
         public event Action SpawnedAllEnemiesChanged;
         public event Action WaveKilled;
 
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
-        public IReadOnlyList<EnemySpawnerWave> Waves { get; private set; }
+        public List<RuntimeEnemySpawnerWave> Waves { get; set; }
+        public RuntimeEnemySpawnerConfig Config { get; set; }
+
         [JsonIgnore]
-        public EnemySpawnerWave CurrentWave => Waves[CurrentWaveNumber];
+        public RuntimeEnemySpawnerWave CurrentWave => Waves[CurrentWaveNumber];
         [JsonIgnore]
         public int EnemyHealth => 
-            _enemySpawnerConfig.StartEnemyHealth + 
-            _enemySpawnerConfig.AddedEnemyHealth * 
+            Config.StartEnemyHealth + 
+            Config.AddedEnemyHealth * 
             CurrentWaveNumber;
         [JsonIgnore]
         public int EnemyAttackPower => 
-            _enemySpawnerConfig.StartEnemyAttackPower + 
-            _enemySpawnerConfig.AddedEnemyAttackPower * 
+            Config.StartEnemyAttackPower + 
+            Config.AddedEnemyAttackPower * 
             CurrentWaveNumber;
         [JsonIgnore]
         public int KamikazeHealth =>
-            _enemySpawnerConfig.StartKamikazeHealth + 
-            _enemySpawnerConfig.AddedKamikazeHealth * 
+            Config.StartKamikazeHealth + 
+            Config.AddedKamikazeHealth * 
             CurrentWaveNumber;
         [JsonIgnore]
         public int KamikazeAttackPower => 
-            _enemySpawnerConfig.StartKamikazeAttackPower + 
-            _enemySpawnerConfig.AddedKamikazeAttackPower * 
+            Config.StartKamikazeAttackPower + 
+            Config.AddedKamikazeAttackPower * 
             CurrentWaveNumber;
         [JsonIgnore]
         public int KamikazeMassAttackPower => 
-            _enemySpawnerConfig.StartKamikazeMassAttackPower + 
-            _enemySpawnerConfig.AddedKamikazeMassAttackPower * 
+            Config.StartKamikazeMassAttackPower + 
+            Config.AddedKamikazeMassAttackPower * 
             CurrentWaveNumber;
         [JsonIgnore]
         public int BossMassAttackPower => 
-            _enemySpawnerConfig.StartBossMassAttackPower + 
-            _enemySpawnerConfig.AddedBossMassAttackPower * 
+            Config.StartBossMassAttackPower + 
+            Config.AddedBossMassAttackPower * 
             CurrentWaveNumber;
         [JsonIgnore]
         public int BossAttackPower => 
-            _enemySpawnerConfig.StartBossAttackPower + 
-            _enemySpawnerConfig.AddedBossAttackPower * 
+            Config.StartBossAttackPower + 
+            Config.AddedBossAttackPower * 
             CurrentWaveNumber;
         [JsonIgnore]
         public float BossHealth => 
-            _enemySpawnerConfig.StartBossHealth + 
-            _enemySpawnerConfig.AddedBossHealth * 
+            Config.StartBossHealth + 
+            Config.AddedBossHealth * 
             CurrentWaveNumber;
 
         public int KilledWaves

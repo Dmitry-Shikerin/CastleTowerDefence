@@ -6,7 +6,7 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers

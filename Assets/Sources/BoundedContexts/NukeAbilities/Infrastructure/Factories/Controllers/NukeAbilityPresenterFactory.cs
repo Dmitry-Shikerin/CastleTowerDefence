@@ -5,8 +5,8 @@ using Sources.BoundedContexts.NukeAbilities.Controllers;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.InfrastructureInterfaces.Services.Cameras;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers
 {

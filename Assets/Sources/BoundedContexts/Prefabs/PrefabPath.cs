@@ -17,5 +17,6 @@
         public const string SkyAndWeatherCollector = "Configs/SkyAndWeathers/SkyAndWeatherCollector";
         public const string PoolManagerCollector = "Services/PoolManagers/PoolManagerCollector";
         public const string AchievementConfigCollector = "Configs/Achievements/AchievementConfigCollector";
+        public const string UpgradeConfigContainer = "Configs/Upgrades/UpgradeConfigContainer";
     }
 }

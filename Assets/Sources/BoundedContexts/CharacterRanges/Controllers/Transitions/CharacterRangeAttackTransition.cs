@@ -1,8 +1,10 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.CharacterRanges.Controllers.Transitions
@@ -11,20 +13,16 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.Transitions
     [UsedImplicitly]
     public class CharacterRangeAttackTransition : ConditionTask
     {
-        private CharacterRangeDependencyProvider _provider;
-        
-        private ICharacterRangeView View => _provider.View;
+        private ICharacterRangeView _view;
 
-        protected override string OnInit()
+        [Construct]
+        private void Construct(CharacterRangeView view)
         {
-            _provider =
-                blackboard.GetVariable<CharacterRangeDependencyProvider>("_provider").value;
-            
-            return null;
+            _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
         protected override bool OnCheck() =>
-            View.EnemyHealth != null && Vector3.Distance(
-                View.Position, View.EnemyHealth.Position) < View.FindRange;
+            _view.EnemyHealth != null && Vector3.Distance(
+                _view.Position, _view.EnemyHealth.Position) < _view.FindRange;
     }
 }

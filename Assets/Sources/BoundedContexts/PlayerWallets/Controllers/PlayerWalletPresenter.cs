@@ -2,8 +2,8 @@
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.BoundedContexts.PlayerWallets.Controllers
 {

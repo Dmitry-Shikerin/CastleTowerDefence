@@ -6,7 +6,6 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Prefabs;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
-using Sources.Domain.Models.Constants;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Implementation;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Services.Implementation;

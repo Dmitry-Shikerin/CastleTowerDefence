@@ -4,8 +4,8 @@ using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.Frameworks.GameServices.DailyRewards.Controllers;
 using Sources.Frameworks.GameServices.DailyRewards.Presentation;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.ServerTimes.Services;
-using Sources.InfrastructureInterfaces.Services.Repositories;
 
 namespace Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Factories
 {

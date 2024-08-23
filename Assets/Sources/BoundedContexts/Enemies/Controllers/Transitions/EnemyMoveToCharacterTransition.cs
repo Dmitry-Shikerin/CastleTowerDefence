@@ -1,20 +1,21 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
+﻿using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.Enemies.Controllers.Transitions
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyMoveToCharacterTransition : ConditionTask
     {        
-        [RequiredField] public BBParameter<EnemyDependencyProvider> Provider;
-        
-        private IEnemyView View => Provider.value.View;
-        
+        private IEnemyView _view;
+
+        [Construct]
+        public void Construct(EnemyView view) =>
+            _view = view;
+
         protected override bool OnCheck() =>
-            View.CharacterHealthView != null && View.CharacterHealthView.CurrentHealth > 0;
+            _view.CharacterHealthView != null && _view.CharacterHealthView.CurrentHealth > 0;
     }
 }

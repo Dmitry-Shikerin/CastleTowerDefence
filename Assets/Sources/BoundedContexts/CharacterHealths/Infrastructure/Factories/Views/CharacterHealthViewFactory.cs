@@ -1,10 +1,10 @@
 ﻿using System;
-using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterHealths.Controllers;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
+using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 
-namespace Sources.BoundedContexts.CharacterHealth.Infrastructure.Factories.Views
+namespace Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views
 {
     public class CharacterHealthViewFactory
     {

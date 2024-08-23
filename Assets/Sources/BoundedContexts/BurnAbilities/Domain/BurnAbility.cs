@@ -4,6 +4,6 @@
     {
         public float Cooldown { get; } = 1.5f;
         public bool IsAvailable { get; set; } = true;
-        public double BurnTime { get; set; } = 4f;
+        public double BurnTick { get; set; } = 4f;
     }
 }

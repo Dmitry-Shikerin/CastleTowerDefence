@@ -2,7 +2,7 @@
 using Sources.BoundedContexts.PlayerWallets.Controllers;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Presentation.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Controllers
 {

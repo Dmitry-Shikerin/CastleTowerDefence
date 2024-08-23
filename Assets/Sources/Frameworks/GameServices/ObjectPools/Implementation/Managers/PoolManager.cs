@@ -5,6 +5,7 @@ using Sources.Frameworks.GameServices.ObjectPools.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
+using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 using UnityEngine;
@@ -13,15 +14,15 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
 {
     public class PoolManager : IPoolManager
     {
-        private readonly IPrefabCollector _prefabCollector;
+        private readonly IAssetCollector _assetCollector;
         private readonly Transform _root = new GameObject("Root of Pools").transform;
         private readonly Dictionary<Type, IObjectPool> _pools = new Dictionary<Type, IObjectPool>();
         
         private PoolManagerCollector _poolManagerCollector;
 
-        public PoolManager(IPrefabCollector prefabCollector)
+        public PoolManager(IAssetCollector assetCollector)
         {
-            _prefabCollector = prefabCollector ?? throw new ArgumentNullException(nameof(prefabCollector));
+            _assetCollector = assetCollector ?? throw new ArgumentNullException(nameof(assetCollector));
         }
 
         public T Get<T>() where T : View
@@ -33,7 +34,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
                 PoolManagerConfig config = _poolManagerCollector.Configs
                     .FirstOrDefault(config => config.Type == typeof(T));
                 _pools[typeof(T)] = new ObjectPool<T>(
-                    _prefabCollector, _root, config);
+                    _assetCollector, _root, config);
             }
 
             return (T)_pools[typeof(T)].Get<T>()?.Show();
@@ -56,7 +57,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
             if (_poolManagerCollector != null)
                 return;
             
-            _poolManagerCollector = _prefabCollector.Get<PoolManagerCollector>();
+            _poolManagerCollector = _assetCollector.Get<PoolManagerCollector>();
         }
     }
 }

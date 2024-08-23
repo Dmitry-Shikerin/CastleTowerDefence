@@ -1,6 +1,6 @@
 ﻿using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterHealths.Controllers;
+using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using UnityEngine;
 

@@ -2,11 +2,9 @@
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.Enemies.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Services.Providers;
-using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
 {

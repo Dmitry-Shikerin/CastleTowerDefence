@@ -1,8 +1,7 @@
 ﻿using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.CharacterHealth.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Services.Providers;
+using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.Characters.Domain;
 using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
@@ -21,21 +20,21 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         [Required] [SerializeField] private CharacterRangeAnimation _rangeAnimation;
         [Required] [SerializeField] private HealthBarView _healthBarView;
         [Required] [SerializeField] private CharacterHealthView _healthView;
-        [Required] [SerializeField] private CharacterRangeDependencyProvider _provider;
         [Required] [SerializeField] private FSMOwner _fsmOwner;
         [Required] [SerializeField] private ParticleSystem _shootParticle;
 
         private IPODestroyerService _poDestroyerService = new PODestroyerService();
         
+        public FSMOwner FsmOwner => _fsmOwner;
         public HealthBarView HealthBarView => _healthBarView;
         public ICharacterRangeAnimation RangeAnimation => _rangeAnimation;
         public CharacterHealthView HealthView => _healthView;
-        public CharacterRangeDependencyProvider Provider => _provider;
         public float FindRange => _findRange;
         public Vector3 Position => transform.position;
         public ICharacterHealthView CharacterHealth => _healthView;
         public IEnemyHealthView EnemyHealth { get; private set; }
         public ICharacterSpawnPoint CharacterSpawnPoint { get; private set; }
+        
 
         public override void Destroy()
         {
@@ -49,8 +48,10 @@ namespace Sources.BoundedContexts.CharacterRanges.Presentation.Implementation
         public void SetCharacterSpawnPoint(ICharacterSpawnPoint spawnPoint) =>
             CharacterSpawnPoint = spawnPoint;
 
-        public void StartFsm() =>
+        public void StartFsm()
+        {
             _fsmOwner.StartBehaviour();
+        }
 
         public void StopFsm() =>
             _fsmOwner.StopBehaviour();

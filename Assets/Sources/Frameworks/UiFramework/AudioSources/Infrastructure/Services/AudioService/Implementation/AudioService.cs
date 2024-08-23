@@ -44,7 +44,7 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
 
             _audioClips = audioServiceDataBase.AudioClips;
             _audioGroups = audioServiceDataBase.AudioGroups;
-            _audioSourcePool = new ObjectPool<UiAudioSource>(new PrefabCollector());
+            _audioSourcePool = new ObjectPool<UiAudioSource>(new AssetCollector());
             _audioSourcePool.SetPoolCount(_audioServiceDataBase.PoolCount);
             IAudioContainerFactory audioContainerFactory = new AudioContainerFactory(_audioSourcePool);
             _audioSourceSpawner = new AudioSourceSpawner(_audioSourcePool, audioContainerFactory);

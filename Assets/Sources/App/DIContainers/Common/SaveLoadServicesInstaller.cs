@@ -9,7 +9,7 @@ using Sources.Frameworks.GameServices.Prefabs.Implementation.Composites;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
 using Sources.Frameworks.GameServices.Repositories.Services.Implementation;
-using Sources.InfrastructureInterfaces.Services.Repositories;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Zenject;
 
 namespace Sources.App.DIContainers.Common
@@ -24,7 +24,7 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<IMapperCollector>().To<MapperCollector>().AsSingle();
             
             //Assets
-            Container.Bind<IPrefabCollector>().To<PrefabCollector>().AsSingle();
+            Container.Bind<IAssetCollector>().To<AssetCollector>().AsSingle();
             Container.Bind<IResourcesAssetLoader>().To<ResourcesAssetLoader>().AsSingle();
             Container.Bind<IAddressablesAssetLoader>().To<AddressablesAssetLoader>().AsSingle();
             Container.Bind<ICompositeAssetService>().To<CompositeAssetService>().AsSingle();
