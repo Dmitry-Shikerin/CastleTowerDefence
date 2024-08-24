@@ -1,7 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;

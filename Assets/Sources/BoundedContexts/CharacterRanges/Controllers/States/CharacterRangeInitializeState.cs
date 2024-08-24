@@ -4,6 +4,7 @@ using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterRanges.Domain;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
+using Sources.BoundedContexts.Characters.Domain;
 using Sources.BoundedContexts.Characters.Presentation.Interfaces;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 
@@ -14,10 +15,10 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
     {
         private ICharacterRangeView _view;
         private ICharacterAnimation _animation;
-        private CharacterRange _characterRange;
+        private Character _characterRange;
 
         [Construct]
-        private void Construct(CharacterRange characterRange, CharacterRangeView characterRangeView)
+        private void Construct(Character characterRange, CharacterRangeView characterRangeView)
         {
             _characterRange = characterRange ?? throw new ArgumentNullException(nameof(characterRange));
             _view = characterRangeView ?? throw new ArgumentNullException(nameof(characterRangeView));

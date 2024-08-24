@@ -6085,10 +6085,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _findRange: 2.2
-  meleeAnimation: {fileID: 1226039983881749220}
+  _animation: {fileID: 1226039983881749220}
+  _healthBarView: {fileID: 5824879900162487103}
   _healthView: {fileID: 6934783632022637132}
   _fsmOwner: {fileID: 3755755198892554804}
-  _healthBarView: {fileID: 5824879900162487103}
 --- !u!114 &6126525677090142937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6125,7 +6125,7 @@ MonoBehaviour:
   _editor_DrawExtra: 0
   _editor_horizontal: 1
   _editor_category: 2
-  Editor_InIsolatedScene: 1
+  Editor_InIsolatedScene: 0
   Editor_JustCreated: 1
   UseDOTS: 0
   DOTSObstacleType: 2

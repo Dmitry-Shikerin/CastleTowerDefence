@@ -6,8 +6,8 @@ using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Controllers
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterRotations.Services.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers;

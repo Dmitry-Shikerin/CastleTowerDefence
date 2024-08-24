@@ -2,6 +2,7 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Domain;
+using Sources.BoundedContexts.Characters.Domain;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.Transitions
@@ -9,13 +10,13 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.Transitions
     [Category("Custom/Character")]
     public class FromInitializedToCharacterMeleeIdleTransition : ConditionTask
     {
-        private CharacterMelee _characterMelee;
+        private Character _character;
 
         [Construct]
-        private void Construct(CharacterMelee characterMelee) =>
-            _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
+        private void Construct(Character character) =>
+            _character = character ?? throw new ArgumentNullException(nameof(character));
 
         protected override bool OnCheck() =>
-            _characterMelee.IsInitialized;
+            _character.IsInitialized;
     }
 }

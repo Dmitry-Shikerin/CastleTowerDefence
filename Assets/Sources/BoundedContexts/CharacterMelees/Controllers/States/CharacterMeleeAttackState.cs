@@ -1,8 +1,8 @@
 ﻿using System;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
+using Sources.BoundedContexts.Characters.Presentation.Implementation;
 using Sources.BoundedContexts.Characters.Presentation.Interfaces;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 using Zenject;
@@ -12,12 +12,12 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     [Category("Custom/Character")]
     public class CharacterMeleeAttackState : FSMState
     {
-        private CharacterMeleeView _view;
+        private CharacterView _view;
         private ICharacterAnimation _animation;
         private ICharacterRotationService _rotationService;
 
         [Construct]
-        private void Construct(CharacterMeleeView view)
+        private void Construct(CharacterView view)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _animation = _view.Animation;
@@ -59,7 +59,6 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
             if (_view.EnemyHealth.CurrentHealth <= 0)
             {
                 _view.SetEnemyHealth(null);
-                
                 return;
             }
             
