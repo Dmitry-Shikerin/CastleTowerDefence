@@ -35,7 +35,6 @@ namespace Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services
 
         private void OnSave()
         {
-            Debug.Log($"Save");
             _loadService.Save(ModelId.ModelsIds);
             _loadService.Save(ModelId.AchievementModels);
         }
