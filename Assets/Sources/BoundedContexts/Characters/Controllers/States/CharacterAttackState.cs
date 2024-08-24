@@ -9,7 +9,6 @@ using Zenject;
 
 namespace Sources.BoundedContexts.Characters.Controllers.States
 {
-    [Category("Custom/Character")]
     public abstract class CharacterAttackState : FSMState
     {
         private CharacterView _view;
@@ -24,11 +23,9 @@ namespace Sources.BoundedContexts.Characters.Controllers.States
         }
         
         [Inject]
-        private void Construct(ICharacterRotationService rotationService)
-        {
+        private void Construct(ICharacterRotationService rotationService) =>
             _rotationService = rotationService ?? throw new ArgumentNullException(nameof(rotationService));
-        }
-        
+
         protected override void OnEnter()
         {
             _animation.Attacking += OnAttack;

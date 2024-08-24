@@ -19,36 +19,57 @@ namespace Sources.Frameworks.Utils.Reflections
                 .GetAllTasksOfType<ConditionTask>()
                 .CheckAttributes(dependencies);
         }
-        
+
+        private static readonly List<Func<object, Type>> _targetTypes = new List<Func<object, Type>>()
+        {
+            obj => obj.GetType(),
+            obj => obj.GetType().BaseType,
+            obj => obj.GetType().BaseType?.BaseType,
+            obj => obj.GetType().BaseType?.BaseType?.BaseType,
+        };
+
         private static void CheckAttributes(this IEnumerable<object> objects, params object[] dependencies)
         {
             foreach (object state in objects)
             {
-                Type type = state.GetType();
-                BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
-                
-                foreach (MethodInfo method in type.GetMethods(flags))
+                ResolveDependencies(state, dependencies);
+            }
+        }
+
+        private static void ResolveDependencies(object targetObject, object[] dependencies)
+        {
+            foreach (Func<object, Type> type in _targetTypes)
+            {
+                Resolve(targetObject, type.Invoke(targetObject), dependencies);
+            }
+        }
+
+        private static void Resolve(object targetObject, Type type, object[] dependencies)
+        {
+            BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+
+            foreach (MethodInfo method in type.GetMethods(flags))
+            {
+                if (method.GetCustomAttribute<ConstructAttribute>() != null)
                 {
-                    if (method.GetCustomAttribute<ConstructAttribute>() != null)
-                    {
-                        ParameterInfo[] parameterInfos = method.GetParameters();
-                        CheckDependenciesLength(parameterInfos, method, dependencies);
-                        object[] parameters = GetParameters(parameterInfos, method, dependencies);
-                        
-                        method.Invoke(state, parameters);
-                    }
+                    ParameterInfo[] parameterInfos = method.GetParameters();
+                    CheckDependenciesLength(parameterInfos, method, dependencies);
+                    object[] parameters = GetParameters(parameterInfos, method, dependencies);
+                    CheckDependenciesLength(parameterInfos, method, parameters);
+
+                    method.Invoke(targetObject, parameters);
                 }
             }
         }
 
         private static object[] GetParameters(
-            ParameterInfo[] parameters, 
-            MethodInfo method, 
+            ParameterInfo[] parameters,
+            MethodInfo method,
             object[] dependencies)
         {
             List<object> dependenciesList = new List<object>();
             List<Type> notFoundTypes = new List<Type>();
-            
+
             foreach (ParameterInfo parameter in parameters)
             {
                 bool isNotFondType = dependencies.Any(
@@ -59,26 +80,37 @@ namespace Sources.Frameworks.Utils.Reflections
                     .Any(type => type == parameter.ParameterType));
                 bool isNotFoundBaseType = dependencies.Any(dependency => dependency
                     .GetType().BaseType == parameter.ParameterType);
-                
+
                 if (isNotFondType == false && isNotFondInterfacesType == false && isNotFoundBaseType == false)
                 {
                     notFoundTypes.Add(parameter.ParameterType);
                     continue;
                 }
-                
+
                 foreach (object dependency in dependencies)
                 {
-                    if (parameter.ParameterType == dependency.GetType())
+                    if (dependency.GetType().GetInterfaces().ToList().Contains(parameter.ParameterType))
+                    {
                         dependenciesList.Add(dependency);
-                    else if (dependency.GetType().GetInterfaces().ToList().Contains(parameter.ParameterType))
+                        continue;
+                    }
+                    
+                    foreach (Func<object, Type> type in _targetTypes)
+                    {
+                        if (parameter.ParameterType != type.Invoke(dependency))
+                            continue;
+
                         dependenciesList.Add(dependency);
-                    else if (dependency.GetType().BaseType == parameter.ParameterType)
-                        dependenciesList.Add(dependency);
-                    else if (dependency.GetType().BaseType?.BaseType == parameter.ParameterType)
-                        dependenciesList.Add(dependency);
-                    else if (dependency.GetType().BaseType?.BaseType?.BaseType == parameter.ParameterType)
-                        dependenciesList.Add(dependency);
+                        break;
+                    }
                 }
+            }
+
+            if (parameters.Length < dependenciesList.Count)
+            {
+                throw new IndexOutOfRangeException(
+                    $"Dependencies count more parameters length {method.Name} " +
+                    $"({string.Join(", ", dependenciesList.Select(dependency => dependency.GetType().Name))})");
             }
 
             if (notFoundTypes.Count > 0)
@@ -92,8 +124,8 @@ namespace Sources.Frameworks.Utils.Reflections
         }
 
         private static void CheckDependenciesLength(
-            ParameterInfo[] parameters, 
-            MethodInfo method, 
+            ParameterInfo[] parameters,
+            MethodInfo method,
             object[] dependencies)
         {
             if (parameters.Length > dependencies.Length)
@@ -106,11 +138,11 @@ namespace Sources.Frameworks.Utils.Reflections
                     {
                         if (parameter.ParameterType == dependency.GetType())
                             continue;
-                                    
+
                         targetTypes.Add(parameter.ParameterType);
                     }
                 }
-                            
+
                 throw new IndexOutOfRangeException(
                     $"Not enough dependencies for {method.Name} " +
                     $"({string.Join(", ", targetTypes)})");
