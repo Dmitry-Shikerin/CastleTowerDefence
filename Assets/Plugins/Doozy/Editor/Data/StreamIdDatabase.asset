@@ -23,6 +23,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: ReceivedAchievement
     - Category: Gameplay
+      Name: Saving
+    - Category: Gameplay
       Name: ShowBossEnemyTutorial
     - Category: Gameplay
       Name: ShowKamikazeEnemyTutorial

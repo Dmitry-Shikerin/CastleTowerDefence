@@ -41,7 +41,6 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         {
             _view.Button.onClickEvent.AddListener(OnClick);
             StartTimer();
-            ActivateButton();
         }
 
         public override void Disable()
@@ -56,6 +55,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             {
                 _tokenSource = new CancellationTokenSource();
                 _dailyReward.ServerTime = _timeService.GetTime();
+                
                 await UniTask.Delay(
                     _dailyReward.Delay, 
                     cancellationToken: _tokenSource.Token, 
@@ -66,6 +66,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
                     _dailyReward.ServerTime += TimeSpan.FromSeconds(1);
                     _dailyReward.SetCurrentTime();
                     _view.TimerText.SetText(_dailyReward.TimerText);
+                    ActivateButton();
 
                     await UniTask.Delay(
                         _dailyReward.Delay, 
@@ -85,20 +86,18 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
 
         private void OnClick()
         {
-            Debug.Log($"3daily reward {_dailyReward.IsAvailable}");
             ActivateButton();
             
             if (_dailyReward.TrySetTargetRewardTime() == false)
                 return;
             
-            Debug.Log($"4daily reward {_dailyReward.IsAvailable}");
             _view.Animator.Play();
             _loadService.Save(ModelId.DailyReward);
         }
 
         private void ActivateButton()
         {
-            Debug.Log($"1daily reward {_dailyReward.IsAvailable}");
+            Debug.Log($"daily reward {_dailyReward.IsAvailable}");
             if (_dailyReward.IsAvailable == false)
             {
                 _view.LockImage.ShowImage();
@@ -113,8 +112,6 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             _view.Button.interactable = true;
             _view.TimerView.alpha = 0;
             _view.Button.SetState(UISelectionState.Normal);
-            
-            Debug.Log($"2daily reward {_dailyReward.IsAvailable}");
         }
     }
 }

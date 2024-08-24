@@ -19,8 +19,8 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Domain
         
         public void ApplyAbility()
         {
-            AbilityApplied?.Invoke();
             IsApplied = true;
+            AbilityApplied?.Invoke();
         }
 
         public string Id { get; }

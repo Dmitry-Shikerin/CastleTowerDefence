@@ -21,9 +21,9 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Domain
         public bool IsAvailable => CurrentTime <= TimeSpan.Zero;
         public string TimerText => GetText();
 
-        public void SetCurrentTime() =>
+        public void SetCurrentTime() => 
             CurrentTime = TargetRewardTime - ServerTime;
-        
+
         public bool TrySetTargetRewardTime()
         {
             if (IsAvailable == false)

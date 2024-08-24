@@ -15,7 +15,8 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             NewGameCommand newGameCommand,
             ShowLeaderboardCommand showLeaderBoardCommand,
             SaveVolumeButtonCommand saveVolumeButtonCommand,
-            ShowDailyRewardViewCommand showDailyRewardViewCommand)
+            ShowDailyRewardViewCommand showDailyRewardViewCommand,
+            PlayerAccountAuthorizeButtonCommand playerAccountAuthorizeButtonCommand)
         {
             Add(loadMainMenuSceneCommand);
             Add(unPauseButtonCommand);
@@ -25,6 +26,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             Add(showLeaderBoardCommand);
             Add(saveVolumeButtonCommand);
             Add(showDailyRewardViewCommand);
+            Add(playerAccountAuthorizeButtonCommand);
         }
     }
 }

@@ -28,8 +28,8 @@ namespace Sources.BoundedContexts.NukeAbilities.Domain.Models
 
         public void ApplyAbility()
         {
-            AbilityApplied?.Invoke();
             IsApplied = true;
+            AbilityApplied?.Invoke();
         }
     }
 }

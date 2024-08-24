@@ -14,8 +14,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             PauseButtonCommand pauseButtonCommand,
             ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
             ClearSavesButtonCommand clearSavesButtonCommand,
-            NewGameCommand newGameCommand,
-            ShowLeaderboardCommand showLeaderBoardCommand)
+            NewGameCommand newGameCommand)
         {
             Add(completeTutorialCommand);
             Add(loadMainMenuSceneCommand);
@@ -23,7 +22,6 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             Add(showRewardedAdvertisingButtonCommand);
             Add(clearSavesButtonCommand);
             Add(newGameCommand);
-            Add(showLeaderBoardCommand);
             Add(pauseButtonCommand);
         }
 

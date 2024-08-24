@@ -25,6 +25,8 @@ MonoBehaviour:
     - Category: Gameplay
       Name: BossEnemyTutorial
     - Category: Gameplay
+      Name: BunkerTutorial
+    - Category: Gameplay
       Name: Damage
     - Category: Gameplay
       Name: EnemySpawnerTutorial
