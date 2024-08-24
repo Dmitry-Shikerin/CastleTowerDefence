@@ -4,6 +4,7 @@ using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
+using Sources.BoundedContexts.Characters.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
@@ -20,7 +21,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
     public class CharacterRangeIdleState : FSMState
     {
         private ICharacterRangeView _view;
-        private ICharacterRangeAnimation _animation;
+        private ICharacterAnimation _animation;
         private IOverlapService _overlapService;
         private UTSequence _sequence;
 
@@ -28,7 +29,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
         private void Construct(CharacterRangeView view)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
-            _animation = view.RangeAnimation ?? throw new ArgumentNullException(nameof(view.RangeAnimation));
+            _animation = view.Animation ?? throw new ArgumentNullException(nameof(view.Animation));
         }
 
         [Inject]

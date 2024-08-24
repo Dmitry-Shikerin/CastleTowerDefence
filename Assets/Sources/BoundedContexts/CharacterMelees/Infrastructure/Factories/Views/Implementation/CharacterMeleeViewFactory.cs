@@ -46,7 +46,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
             
             view.FsmOwner.ConstructFsm(characterMelee, view);
             view.FsmOwner.InjectFsm(_container);
-            view.StartBehaviour();
+            view.StartFsm();
             
             view.SetPosition(position);
             view.Show();

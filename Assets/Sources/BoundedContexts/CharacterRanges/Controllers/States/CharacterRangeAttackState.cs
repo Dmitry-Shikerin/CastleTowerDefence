@@ -4,6 +4,7 @@ using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
+using Sources.BoundedContexts.Characters.Presentation.Interfaces;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 using Zenject;
 
@@ -13,14 +14,14 @@ namespace Sources.BoundedContexts.CharacterRanges.Controllers.States
     public class CharacterRangeAttackState : FSMState
     {
         private ICharacterRangeView _view;
-        private ICharacterRangeAnimation _animation;
+        private ICharacterAnimation _animation;
         private ICharacterRotationService _rotationService;
 
         [Construct]
         private void Construct(CharacterRangeView view)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
-            _animation = view.RangeAnimation;
+            _animation = view.Animation;
         }
 
         [Inject]

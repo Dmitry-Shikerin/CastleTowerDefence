@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Sources.BoundedContexts.CharacterRanges.Presentation.Interfaces
+namespace Sources.BoundedContexts.Characters.Presentation.Interfaces
 {
-    public interface ICharacterRangeAnimation
+    public interface ICharacterAnimation
     {
         event Action Attacking;
         

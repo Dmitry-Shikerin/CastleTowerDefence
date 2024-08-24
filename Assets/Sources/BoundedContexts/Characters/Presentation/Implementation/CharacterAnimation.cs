@@ -1,12 +1,12 @@
 ﻿using System;
 using JetBrains.Annotations;
 using Sources.BoundedContexts.Animations.Presentations;
-using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.BoundedContexts.Characters.Presentation.Interfaces;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.CharacterMelees.Presentation.Implementation
+namespace Sources.BoundedContexts.Characters.Presentation.Implementation
 {
-    public class CharacterMeleeAnimation : AnimationViewBase, ICharacterMeleeAnimation
+    public class CharacterAnimation : AnimationViewBase, ICharacterAnimation
     {
         private static int s_isIdle = Animator.StringToHash("IsIdle");
         private static int s_isAttack = Animator.StringToHash("IsAttack");

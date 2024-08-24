@@ -4,6 +4,7 @@ using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Domain;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.BoundedContexts.Characters.Presentation.Interfaces;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
@@ -12,7 +13,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     public class CharacterMeleeInitializeState : FSMState
     {
         private ICharacterMeleeView _view;
-        private ICharacterMeleeAnimation _animation;
+        private ICharacterAnimation _animation;
         private CharacterMelee _characterMelee;
 
         [Construct]
@@ -20,7 +21,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         {
             _characterMelee = characterMelee ?? throw new ArgumentNullException(nameof(characterMelee));
             _view = view ?? throw new ArgumentNullException(nameof(view));
-            _animation = view.MeleeAnimation;
+            _animation = view.Animation;
         }
 
         protected override void OnEnter()

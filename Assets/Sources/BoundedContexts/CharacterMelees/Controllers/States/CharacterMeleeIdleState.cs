@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Interfaces;
+using Sources.BoundedContexts.Characters.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.UniTaskTweens;
 using Sources.Frameworks.UniTaskTweens.Sequences;
-using Sources.Frameworks.UniTaskTweens.Sequences.Types;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 using Zenject;
 
@@ -21,7 +20,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
     public class CharacterMeleeIdleState : FSMState
     {
         private ICharacterMeleeView _view;
-        private ICharacterMeleeAnimation _animation;
+        private ICharacterAnimation _animation;
         private IOverlapService _overlapService;
         private UTSequence _sequence;
 
@@ -29,7 +28,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
         private void Construct(CharacterMeleeView characterMeleeView)
         {
             _view = characterMeleeView ?? throw new ArgumentNullException(nameof(characterMeleeView));
-            _animation = characterMeleeView.MeleeAnimation;
+            _animation = characterMeleeView.Animation;
         }
 
         [Inject]
