@@ -15,6 +15,7 @@ namespace Sources.Editor.Tool
             {
                 Debug.Log($"Deleted {id}");
                 PlayerPrefs.DeleteKey(id);
+                ES3.DeleteKey(id);
             }
 
             PlayerPrefs.Save();

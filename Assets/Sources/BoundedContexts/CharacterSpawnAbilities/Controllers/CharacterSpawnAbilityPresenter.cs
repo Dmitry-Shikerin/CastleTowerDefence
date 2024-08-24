@@ -48,7 +48,6 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Controllers
 
         public override void Enable()
         {
-            Debug.Log($"CharacterSpawn");
             SpawnMelee();
             SpawnRange();
             _characterSpawnAbility.AbilityApplied += OnAbilityApplied;
