@@ -21,7 +21,8 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<ILoadService>().To<LoadService>().AsSingle();
             Container.Bind<IEntityRepository>().To<EntityRepository>().AsSingle();
             Container.Bind<IDataService>().To<PlayerPrefsDataService>().AsSingle();
-            Container.Bind<IMapperCollector>().To<MapperCollector>().AsSingle();
+            // Container.Bind<IDataService>().To<EasySaveDataService>().AsSingle();
+            // Container.Bind<IMapperCollector>().To<MapperCollector>().AsSingle();
             
             //Assets
             Container.Bind<IAssetCollector>().To<AssetCollector>().AsSingle();

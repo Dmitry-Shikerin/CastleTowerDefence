@@ -31,11 +31,9 @@ namespace Sources.BoundedContexts.Enemies.Controllers.States
         }
 
         [Inject]
-        private void Construct(IOverlapService overlapService)
-        {
+        private void Construct(IOverlapService overlapService) =>
             _overlapService = overlapService;
-        }
-        
+
         protected override void OnEnter()
         {
             _cancellationTokenSource = new CancellationTokenSource();

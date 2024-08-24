@@ -59,8 +59,7 @@ namespace Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Implem
                 .Except(new List<VirtualCameraView>() {virtualCamera})
                 .ToList()
                 .ForEach(camera => camera.Hide());
-
-            Debug.Log($"Show camera: {cameraId}");
+            
             virtualCamera.Show();
             CurrentCameraId = cameraId;
             CameraChanged?.Invoke();

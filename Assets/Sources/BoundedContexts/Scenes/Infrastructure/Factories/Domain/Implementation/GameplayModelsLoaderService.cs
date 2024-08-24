@@ -84,8 +84,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             //Tutorial
             Tutorial tutorial = _loadService.Load<Tutorial>(ModelId.Tutorial);
             
-            Debug.Log($"Load models");
-            
+            // Debug.Log($"Load models");
+            //
             return new GameplayModel(
                 characterHealthUpgrade,
                 characterAttackUpgrade,

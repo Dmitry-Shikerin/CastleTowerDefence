@@ -3,7 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;

@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
+using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.Healths.Presentation.Implementation;
@@ -28,7 +29,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
 
         private readonly IPODestroyerService _poDestroyerService = 
             new PODestroyerService();
-        
+
         public FSMOwner FsmOwner => _fsmOwner;
         public BurnAbilityView BurnAbilityView => _burnAbilityView;
         public HealthBarView HealthBarView => _healthBarView;
@@ -36,6 +37,7 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         public IReadOnlyList<ISkinView> Skins => _skins;
         public ICharacterHealthView CharacterHealthView { get; private set; }
         public IBunkerView BunkerView { get; private set; }
+        public ICharacterSpawnPoint CharacterMeleePoint { get; private set; }
 
         public override void Destroy()
         {
@@ -45,6 +47,9 @@ namespace Sources.BoundedContexts.Enemies.Presentation
 
         public void SetBunkerView(IBunkerView bunkerView) =>
             BunkerView = bunkerView ?? throw new ArgumentNullException(nameof(bunkerView));
+
+        public void SetCharacterMeleePoint(ICharacterSpawnPoint characterSpawnPoint) =>
+            CharacterMeleePoint = characterSpawnPoint ?? throw new ArgumentNullException(nameof(characterSpawnPoint));
 
         public void SetCharacterHealth(ICharacterHealthView characterHealthView) =>
             CharacterHealthView = characterHealthView;

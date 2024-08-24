@@ -31,6 +31,9 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
             
             if (entity is not T concrete)
                 throw new InvalidCastException(nameof(T));
+
+            if (concrete.Id == null)
+                throw new NullReferenceException(typeof(T).Name);
             
             _entityRepository.Add(concrete);
 

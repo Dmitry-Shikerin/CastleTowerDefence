@@ -6,8 +6,8 @@ using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Controllers
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterRotations.Services.Implementation;
 using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers;
@@ -15,9 +15,7 @@ using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Vi
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Services.Providers;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Providers;
+using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
@@ -85,10 +83,8 @@ namespace Sources.App.DIContainers.Gameplay
             //Enemies
             Container.Bind<EnemyViewFactory>().AsSingle();
 
-            Container.Bind<EnemyBossDependencyProviderFactory>().AsSingle();
             Container.Bind<EnemyBossViewFactory>().AsSingle();
 
-            Container.Bind<EnemyKamikazeDependencyProviderFactory>().AsSingle();
             Container.Bind<EnemyKamikazeViewFactory>().AsSingle();
             
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();

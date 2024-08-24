@@ -24,7 +24,6 @@ namespace Sources.BoundedContexts.CharacterHealths.Domain
         public float MaxHealth => _healthUpgrader.CurrentAmount;
         public bool IsDied { get; private set; }
 
-
         public float CurrentHealth
         {
             get => _currentHealth;

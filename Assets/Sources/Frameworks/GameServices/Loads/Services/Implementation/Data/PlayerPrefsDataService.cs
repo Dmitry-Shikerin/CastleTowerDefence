@@ -1,6 +1,5 @@
 ﻿using System;
 using Newtonsoft.Json;
-using Sources.Frameworks.Domain.Interfaces.Data;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Data;
 using UnityEngine;
@@ -13,14 +12,14 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation.Data
             where T : IEntity => 
             (T)LoadData(key, typeof(T));
 
-        public object LoadData(string key, Type dtoType)
+        public object LoadData(string key, Type type)
         {
             string json = PlayerPrefs.GetString(key, string.Empty);
 
             if (string.IsNullOrEmpty(json))
                 throw new NullReferenceException(nameof(key));
 
-            return JsonConvert.DeserializeObject(json, dtoType) ?? 
+            return JsonConvert.DeserializeObject(json, type) ?? 
                    throw new NullReferenceException(nameof(json));
         }
         

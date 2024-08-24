@@ -14,9 +14,7 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation.Collecto
         public MapperCollector()
         {
             _toDtoMappers = new Dictionary<Type, Func<IEntity, IDto>>();
-
             _toModelMappers = new Dictionary<Type, Func<IDto, IEntity>>();
-            
         }
 
         public Func<IEntity, IDto> GetToDtoMapper(Type type)

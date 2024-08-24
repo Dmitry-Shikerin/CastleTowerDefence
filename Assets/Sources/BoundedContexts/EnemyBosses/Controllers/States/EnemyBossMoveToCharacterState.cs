@@ -1,44 +1,39 @@
-﻿using JetBrains.Annotations;
-using NodeCanvas.Framework;
-using NodeCanvas.StateMachines;
+﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.EnemyBosses.Domain;
-using Sources.BoundedContexts.EnemyBosses.Infrastructure.Services.Providers;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
+using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
 {
     [Category("Custom/Enemy")]
-    [UsedImplicitly]
     public class EnemyBossMoveToCharacterState : FSMState
     {
-        private EnemyBossDependencyProvider _provider;
-        
-        private IEnemyBossView View => _provider.View;
-        private IEnemyBossAnimation Animation => _provider.Animation;
+        private IEnemyBossView _view;
+        private IEnemyBossAnimation _animation;
 
-        protected override void OnInit()
+        [Construct]
+        private void Construct(IEnemyBossView view)
         {
-            _provider = 
-                graphBlackboard.parent.GetVariable<EnemyBossDependencyProvider>("_provider").value;
+            _view = view;
+            _animation = _view.Animation;
         }
-
+        
         protected override void OnEnter() =>
-            Animation.PlayWalk();
+            _animation.PlayWalk();
 
         protected override void OnUpdate()
         {
-            if (View.CharacterHealthView == null)
+            if (_view.CharacterHealthView == null)
                 return;
             
-            if (View.CharacterHealthView.CurrentHealth <= 0)
+            if (_view.CharacterHealthView.CurrentHealth <= 0)
             {
-                View.SetCharacterHealth(null);
+                _view.SetCharacterHealth(null);
                 
                 return;
             }
             
-            View.Move(View.CharacterHealthView.Position);
+            _view.Move(_view.CharacterHealthView.Position);
         }
     }
 }
