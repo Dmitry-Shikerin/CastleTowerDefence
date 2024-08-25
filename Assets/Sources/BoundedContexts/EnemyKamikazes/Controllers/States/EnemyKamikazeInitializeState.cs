@@ -1,7 +1,7 @@
 ﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
-using Sources.BoundedContexts.EnemyKamikazes.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 
@@ -10,11 +10,11 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
     [Category("Custom/Enemy")]
     public class EnemyKamikazeInitializeState : FSMState
     {
-        private EnemyKamikaze _enemy;
+        private Enemy _enemy;
         private IEnemyAnimation _animation;
 
         [Construct]
-        private void Construct(EnemyKamikaze enemy, IEnemyKamikazeView view)
+        private void Construct(Enemy enemy, IEnemyKamikazeView view)
         {
             _enemy = enemy;
             _animation = view.Animation;

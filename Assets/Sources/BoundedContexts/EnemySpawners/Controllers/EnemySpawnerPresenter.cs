@@ -5,7 +5,7 @@ using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementat
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;

@@ -1,11 +1,10 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemyAttackers.Domain;
 using Sources.BoundedContexts.EnemyHealths.Domain;
-using Sources.BoundedContexts.EnemyKamikazes.Domain;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
@@ -16,7 +15,7 @@ using Sources.Frameworks.Utils.Reflections;
 using UnityEngine;
 using Zenject;
 
-namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation
+namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views
 {
     public class EnemyKamikazeViewFactory
     {
@@ -45,7 +44,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.
         
         public IEnemyKamikazeView Create(EnemySpawner enemySpawner, Vector3 position)
         {
-            EnemyKamikaze enemy = new EnemyKamikaze(
+            Enemy enemy = new Enemy(
                 new EnemyHealth(enemySpawner.KamikazeHealth), 
                 new EnemyAttacker(
                     enemySpawner.KamikazeAttackPower,

@@ -2,7 +2,7 @@
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
-using Sources.BoundedContexts.EnemyKamikazes.Domain;
+using Sources.BoundedContexts.Enemies.Domain.Models;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Layers.Domain;
@@ -18,14 +18,14 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
     [Category("Custom/Enemy")]
     public class EnemyKamikazeBomberState : FSMState
     {
-        private EnemyKamikaze _enemy;
+        private Enemy _enemy;
         private IEnemyKamikazeView _view;
         private ICameraService _cameraService;
         private IOverlapService _overlapService;
         private ExplosionBodyViewFactory _explosionBodyViewFactory;
 
         [Construct]
-        private void Construct(EnemyKamikaze enemyKamikaze, IEnemyKamikazeView view)
+        private void Construct(Enemy enemyKamikaze, IEnemyKamikazeView view)
         {
             _enemy = enemyKamikaze;
             _view = view;
