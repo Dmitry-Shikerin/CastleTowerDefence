@@ -1,10 +1,10 @@
 ﻿using System;
 using JetBrains.Annotations;
-using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.FlamethrowerAbilities.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 
 namespace Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers
 {

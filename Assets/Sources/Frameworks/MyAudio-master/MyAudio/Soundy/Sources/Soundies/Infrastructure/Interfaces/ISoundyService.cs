@@ -1,7 +1,7 @@
 ﻿using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 using UnityEngine;
 
-namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
+namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces
 {
     public interface ISoundyService : IInitialize, IDestroy
     {
@@ -9,5 +9,6 @@ namespace MyAudios.MyUiFramework.Utils.Soundies.Infrastructure
         void Play(string databaseName, string soundName);
         void PlaySequence(string databaseName, string soundName);
         void StopSequence(string databaseName, string soundName);
+        void Stop(string database, string sound);
     }
 }

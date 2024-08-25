@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using MyAudios.Soundy.Sources.AudioControllers.Controllers;
 using MyAudios.Soundy.Sources.Managers.Controllers;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Implementation
@@ -73,6 +73,9 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
 
         public void StopSequence(string databaseName, string soundName) =>
             SoundyManager.StopSequence(databaseName, soundName);
+
+        public void Stop(string database, string sound) =>
+            SoundyManager.Stop(database, sound);
 
         private void OnPauseSoundActivated() =>
             SoundyManager.PauseAllControllers();

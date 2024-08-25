@@ -2,7 +2,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using MyAudios.MyUiFramework.Utils.Soundies.Infrastructure;
 using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation;
@@ -10,6 +9,7 @@ using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
@@ -63,6 +63,7 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
                 await MoveAsync(to, token);
                 await MoveAsync(from, token);
                 _view.StopParticle();
+                _soundyService.Stop("Sounds", "Flamethrower");
                 
             }
             catch (OperationCanceledException)
