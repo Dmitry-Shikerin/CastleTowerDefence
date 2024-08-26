@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
@@ -14,6 +15,7 @@ using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
+using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
 using UnityEngine;
 
@@ -28,6 +30,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly MainMenuModelsLoaderService _mainMenuModelsLoaderService;
         private readonly MainMenuModelsCreatorService _mainMenuModelsCreatorService;
         private readonly ILeaderboardInitializeService _leaderboardInitializeService;
+        private readonly IAdvertisingService _advertisingService;
         private readonly VolumeViewFactory _volumeViewFactory;
         private readonly DailyRewardViewFactory _dailyRewardViewFactory;
 
@@ -39,6 +42,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             MainMenuModelsLoaderService mainMenuModelsLoaderService,
             MainMenuModelsCreatorService mainMenuModelsCreatorService,
             ILeaderboardInitializeService leaderboardInitializeService,
+            IAdvertisingService advertisingService,
             VolumeViewFactory volumeViewFactory,
             DailyRewardViewFactory dailyRewardViewFactory)
         {
@@ -52,6 +56,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                                             throw new ArgumentNullException(nameof(mainMenuModelsCreatorService));
             _leaderboardInitializeService = leaderboardInitializeService ??
                                             throw new ArgumentNullException(nameof(leaderboardInitializeService));
+            _advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
             _volumeViewFactory = volumeViewFactory ??
                                  throw new ArgumentNullException(nameof(volumeViewFactory));
             _dailyRewardViewFactory = dailyRewardViewFactory ?? 
@@ -68,6 +73,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //DailyReward
             _dailyRewardViewFactory.Create(_mainMenuHud.DailyRewardView);
+            
+            //HealthBooster
+            _mainMenuHud.HealthBoosterView.Construct(_entityRepository);
             
             //Achievements
             List<Achievement> achievements = _entityRepository
@@ -87,6 +95,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //leaderboard
             _leaderboardInitializeService.Construct(_mainMenuHud.LeaderBoardElementViews);
+            
+            //advertising
+            _advertisingService.Construct(mainMenuModel.HealthBooster);
 
             ActivateLoadGameButton();
         }

@@ -99,12 +99,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             List<Achievement> achievements = LoadAchievements();
             
             //HealthBooster
-            HealthBooster healthBooster = new HealthBooster()
-            {
-                Id = ModelId.HealthBooster,
-            };
-            healthBooster.Amount++;
-            _entityRepository.Add(healthBooster);
+            HealthBooster healthBooster = LoadBooster(ModelId.HealthBooster);
             
             //Tutorial
             Tutorial tutorial = CreateTutorial(ModelId.Tutorial);
@@ -137,6 +132,17 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(volume);
             
             return volume;
+        }
+
+        private HealthBooster LoadBooster(string key)
+        {
+            if (_loadService.HasKey(key))
+                return _loadService.Load<HealthBooster>(key);
+
+            HealthBooster healthBooster = new HealthBooster(key);
+            _entityRepository.Add(healthBooster);
+
+            return healthBooster;
         }
 
         private Upgrade CreateUpgrade(string id)

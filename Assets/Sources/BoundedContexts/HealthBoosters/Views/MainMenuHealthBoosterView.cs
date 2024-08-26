@@ -1,6 +1,4 @@
-﻿using Doozy.Runtime.UIManager.Components;
-using Sirenix.OdinInspector;
-using Sources.BoundedContexts.Bunkers.Domain;
+﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
@@ -10,13 +8,11 @@ using UnityEngine;
 
 namespace Sources.BoundedContexts.HealthBoosters.Views
 {
-    public class HealthBoosterView : View
+    public class MainMenuHealthBoosterView : View
     {
-        [Required] [SerializeField] private UIButton _button;
         [Required] [SerializeField] private TextView _textView;
         
         private HealthBooster _healthBooster;
-        private Bunker _bunker;
         private bool _isInitialized;
 
         private void OnEnable()
@@ -25,7 +21,6 @@ namespace Sources.BoundedContexts.HealthBoosters.Views
                 return;
             
             OnCountChanged();
-            _button.onClickEvent.AddListener(OnClick);
             _healthBooster.CountChanged += OnCountChanged;
         }
 
@@ -34,7 +29,6 @@ namespace Sources.BoundedContexts.HealthBoosters.Views
             if (_isInitialized == false)
                 return;
             
-            _button.onClickEvent.RemoveListener(OnClick);
             _healthBooster.CountChanged -= OnCountChanged;
         }
 
@@ -42,7 +36,6 @@ namespace Sources.BoundedContexts.HealthBoosters.Views
         {
             Hide();
             _healthBooster = entityRepository.Get<HealthBooster>(ModelId.HealthBooster);
-            _bunker = entityRepository.Get<Bunker>(ModelId.Bunker);
             OnCountChanged();
             _isInitialized = true;
             Show();
@@ -50,13 +43,5 @@ namespace Sources.BoundedContexts.HealthBoosters.Views
 
         private void OnCountChanged() =>
             _textView.SetText(_healthBooster.Amount.ToString());
-
-        private void OnClick()
-        {
-            if (_healthBooster.TryApply() == false)
-                return;
-            
-            _bunker.ApplyBoost();
-        }
     }
 }
