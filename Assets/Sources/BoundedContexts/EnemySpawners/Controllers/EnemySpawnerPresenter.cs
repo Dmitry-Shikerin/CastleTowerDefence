@@ -16,7 +16,6 @@ using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.Utils.Extentions;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Sources.BoundedContexts.EnemySpawners.Controllers

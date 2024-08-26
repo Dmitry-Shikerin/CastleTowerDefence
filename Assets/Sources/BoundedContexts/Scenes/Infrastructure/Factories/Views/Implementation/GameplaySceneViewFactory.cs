@@ -29,6 +29,7 @@ using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Collectors;
+using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
@@ -50,6 +51,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private readonly UpgradeViewFactory _upgradeViewFactory;
         private readonly GameplayModelsCreatorService _gameplayModelsCreatorService;
         private readonly GameplayModelsLoaderService _gameplayModelsLoaderService;
+        private readonly IAdvertisingService _advertisingService;
         private readonly PlayerWalletViewFactory _playerWalletViewFactory;
         private readonly IEcsGameStartUp _ecsGameStartUp;
         private readonly CharacterSpawnAbilityViewFactory _characterSpawnAbilityViewFactory;
@@ -74,6 +76,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             UpgradeViewFactory upgradeViewFactory,
             GameplayModelsCreatorService gameplayModelsCreatorService,
             GameplayModelsLoaderService gameplayModelsLoaderService,
+            IAdvertisingService advertisingService,
             PlayerWalletViewFactory playerWalletViewFactory,
             IEcsGameStartUp ecsGameStartUp,
             VolumeViewFactory volumeViewFactory,
@@ -102,6 +105,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                                             throw new ArgumentNullException(nameof(gameplayModelsCreatorService));
             _gameplayModelsLoaderService = gameplayModelsLoaderService ?? 
                                            throw new ArgumentNullException(nameof(gameplayModelsLoaderService));
+            _advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
             _playerWalletViewFactory = playerWalletViewFactory ??
                                        throw new ArgumentNullException(nameof(playerWalletViewFactory));
             _ecsGameStartUp = ecsGameStartUp ?? throw new ArgumentNullException(nameof(ecsGameStartUp));
@@ -175,6 +179,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //Tutorial
             _tutorialService.Construct(gameplayModel.Tutorial);
+            
+            //advertising
+            _advertisingService.Construct(gameplayModel.HealthBooster);
         }
 
         private GameplayModel Load(IScenePayload payload)

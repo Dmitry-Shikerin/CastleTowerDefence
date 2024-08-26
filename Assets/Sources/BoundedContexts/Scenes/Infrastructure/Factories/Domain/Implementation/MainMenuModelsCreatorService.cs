@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
@@ -47,6 +48,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             DailyReward dailyReward = new DailyReward(ModelId.DailyReward);
             _entityRepository.Add(dailyReward);
             
+            //HealthBooster
+            HealthBooster healthBooster = new HealthBooster(ModelId.HealthBooster);
+            _entityRepository.Add(healthBooster);
+            
             _loadService.Save(ModelId.MainMenuModels);
             _loadService.Save(ModelId.AchievementModels);
             Debug.Log($"Create models");
@@ -55,7 +60,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 musicVolume, 
                 soundsVolume,
                 dailyReward,
-                achievements);
+                achievements,
+                healthBooster);
         }
     }
 }

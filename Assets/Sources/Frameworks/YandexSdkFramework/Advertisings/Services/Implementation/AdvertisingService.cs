@@ -3,7 +3,11 @@ using System.Threading;
 using Agava.WebUtility;
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
+using Sources.BoundedContexts.HealthBoosters.Domain;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Domain.Constant;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
@@ -15,15 +19,16 @@ namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementa
     public class AdvertisingService : IInterstitialAdService, IVideoAdService, IAdvertisingService
     {
         private readonly IPauseService _pauseService;
+        private readonly ILoadService _loadService;
 
-        private PlayerWallet _playerWallet;
-
+        private HealthBooster _healthBooster;
         private CancellationTokenSource _cancellationTokenSource;
         private TimeSpan _timeSpan = TimeSpan.FromSeconds(35);
 
-        public AdvertisingService(IPauseService pauseService)
+        public AdvertisingService(IPauseService pauseService, ILoadService loadService)
         {
             _pauseService = pauseService ?? throw new ArgumentNullException(nameof(pauseService));
+            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
         }
 
         public bool IsAvailable { get; private set; } = true;
@@ -34,8 +39,8 @@ namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementa
         public void Destroy() =>
             _cancellationTokenSource.Cancel();
 
-        public void Construct(PlayerWallet playerWallet) =>
-            _playerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
+        public void Construct(HealthBooster healthBooster) =>
+            _healthBooster = healthBooster ?? throw new ArgumentNullException(nameof(healthBooster));
 
         public void ShowInterstitial()
         {
@@ -113,7 +118,10 @@ namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementa
                     }
                 },
                 () =>
-                    _playerWallet.AddCoins(AdvertisingConst.ScullsAmount),
+                {
+                    _healthBooster.Amount += HealthBoosterConst.BoosterAmount;
+                    _loadService.Save(ModelId.HealthBooster);
+                },
                 () =>
                 {
                     if (isContinue)

@@ -10,7 +10,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
 {
     public class EnemySpawner : IEntity
     {
-        private int _currentWaveNumber;
+        private int _currentWaveNumber = 1;
         private int _spawnedAllEnemies;
         private int _killedWaves;
 

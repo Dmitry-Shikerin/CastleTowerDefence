@@ -1,13 +1,10 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
-using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Tutorials.Services.Implementation
 {
@@ -39,21 +36,6 @@ namespace Sources.BoundedContexts.Tutorials.Services.Implementation
         public void Construct(Tutorial tutorial)
         {
             _tutorial = tutorial ?? throw new ArgumentNullException(nameof(tutorial));
-        }
-
-        public void ShowSimpleEnemyTutorial()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ShowKamikazeEnemyTutorial()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ShowBossEnemyTutorial()
-        {
-            throw new NotImplementedException();
         }
 
         public void Complete()

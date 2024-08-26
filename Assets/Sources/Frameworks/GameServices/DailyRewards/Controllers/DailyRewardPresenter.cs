@@ -4,6 +4,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Doozy.Runtime.UIManager;
 using JetBrains.Annotations;
+using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.DailyRewards.Presentation;
@@ -23,6 +24,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         private readonly DailyReward _dailyReward;
         
         private CancellationTokenSource _tokenSource;
+        private HealthBooster _healthBooster;
 
         public DailyRewardPresenter(
             IEntityRepository entityRepository, 
@@ -34,6 +36,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
             _timeService = timeService ?? throw new ArgumentNullException(nameof(timeService));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _dailyReward = entityRepository.Get<DailyReward>(ModelId.DailyReward);
+            _healthBooster = entityRepository.Get<HealthBooster>(ModelId.HealthBooster);
         }
 
         public override void Enable()
@@ -91,12 +94,13 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
                 return;
             
             _view.Animator.Play();
+            _healthBooster.Amount += HealthBoosterConst.BoosterAmount;
+            _loadService.Save(ModelId.HealthBooster);
             _loadService.Save(ModelId.DailyReward);
         }
 
         private void ActivateButton()
         {
-            Debug.Log($"daily reward {_dailyReward.IsAvailable}");
             if (_dailyReward.IsAvailable == false)
             {
                 _view.LockImage.ShowImage();

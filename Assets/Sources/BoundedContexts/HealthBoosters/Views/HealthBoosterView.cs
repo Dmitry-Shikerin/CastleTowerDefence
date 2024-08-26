@@ -53,7 +53,6 @@ namespace Sources.BoundedContexts.HealthBoosters.Views
 
         private void OnClick()
         {
-            Debug.Log($"Apply healthBuster");
             if (_healthBooster.TryApply() == false)
                 return;
             

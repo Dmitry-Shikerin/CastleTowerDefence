@@ -1,4 +1,5 @@
-﻿using Doozy.Runtime.Reactor.Animators;
+﻿using System.Collections.Generic;
+using Doozy.Runtime.Reactor.Animators;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.PlayerWallets.Controllers;
 using Sources.BoundedContexts.PlayerWallets.Presentation.Interfaces;
@@ -11,10 +12,10 @@ namespace Sources.BoundedContexts.PlayerWallets.Presentation.Implementation
 {
     public class PlayerWalletView : PresentableView<PlayerWalletPresenter>, IPlayerWalletView
     {
-        [Required] [SerializeField] private TextView _moneyText;
+        [Required] [SerializeField] private List<TextView> _moneyTexts;
         [Required] [SerializeField] private UIAnimator _scullAnimator;
 
-        public ITextView MoneyText => _moneyText;
+        public IReadOnlyList<ITextView> MoneyTexts => _moneyTexts;
         public UIAnimator ScullAnimator => _scullAnimator;
     }
 }
