@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;

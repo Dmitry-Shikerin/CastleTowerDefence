@@ -5,6 +5,8 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces
 {
     public interface IFlamethrowerView : IView
     {
+        float Speed { get; }
+        Transform Transform { get; }
         Vector3 FromPosition { get; }
         Vector3 ToPosition { get; }
         Vector3 Position { get; }

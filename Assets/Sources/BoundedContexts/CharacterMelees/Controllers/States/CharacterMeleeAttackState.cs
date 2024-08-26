@@ -16,6 +16,6 @@ namespace Sources.BoundedContexts.CharacterMelees.Controllers.States
             _view = view ?? throw new ArgumentNullException(nameof(view));
 
         protected override void OnAfterAttack() =>
-            _view.CharacterHealth.TakeDamage(10);
+            _view.EnemyHealth.TakeDamage(10);
     }
 }

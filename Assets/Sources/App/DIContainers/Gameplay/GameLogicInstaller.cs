@@ -16,7 +16,7 @@ using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
