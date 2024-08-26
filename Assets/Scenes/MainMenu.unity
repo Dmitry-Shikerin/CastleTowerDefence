@@ -14201,6 +14201,7 @@ GameObject:
   - component: {fileID: 523957887}
   - component: {fileID: 523957889}
   - component: {fileID: 523957888}
+  - component: {fileID: 523957890}
   m_Layer: 5
   m_Name: Title_Text
   m_TagString: Untagged
@@ -14324,6 +14325,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523957886}
   m_CullTransparentMesh: 0
+--- !u!114 &523957890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523957886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a26398ecb6734db99a8b20546a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
+  _localizationId: Achievements
+  _disableTexts: 0
+  _russianText: "\u0414\u041E\u0421\u0422\u0418\u0416\u0415\u041D\u0418\u042F"
+  _englishText: ACHIEVEMENTS
+  _turkishText: "BA\u015EARILAR"
+  _tmpText: {fileID: 523957888}
 --- !u!1 &541235919
 GameObject:
   m_ObjectHideFlags: 0
@@ -35854,7 +35874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982785992}
   m_Layer: 5
-  m_Name: Graphic_Container
+  m_Name: Gameplay_Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59584,7 +59604,7 @@ GameObject:
   - component: {fileID: 6096504560693009559}
   - component: {fileID: 3602678669346125587}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Background_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
