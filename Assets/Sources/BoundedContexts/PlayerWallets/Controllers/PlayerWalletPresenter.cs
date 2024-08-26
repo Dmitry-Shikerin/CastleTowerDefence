@@ -4,6 +4,7 @@ using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Texts;
 
 namespace Sources.BoundedContexts.PlayerWallets.Controllers
 {
@@ -32,7 +33,9 @@ namespace Sources.BoundedContexts.PlayerWallets.Controllers
 
         private void OnCoinsChanged()
         {
-            _view.MoneyText.SetText(_playerWallet.Coins.ToString());
+            foreach (ITextView textView in _view.MoneyTexts) 
+                textView.SetText(_playerWallet.Coins.ToString());
+            
             _view.ScullAnimator.Play();
         }
     }

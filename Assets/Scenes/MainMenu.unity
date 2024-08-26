@@ -29254,11 +29254,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: <size=18><b><color=#FF7F50><i>UiLocalizationText</i></color></b></size>
-  _localizationId: Leaderboard
+  _localizationId: Achievements
   _disableTexts: 0
-  _russianText: "\u0422\u0410\u0411\u041B\u0418\u0426\u0410 \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
-  _englishText: LEADERBOARD
-  _turkishText: "L\u0130DERLER SIRALAMASI"
+  _russianText: "\u0414\u041E\u0421\u0422\u0418\u0416\u0415\u041D\u0418\u042F"
+  _englishText: ACHIEVEMENTS
+  _turkishText: "BA\u015EARILAR"
   _tmpText: {fileID: 921676899}
 --- !u!114 &921676899
 MonoBehaviour:
