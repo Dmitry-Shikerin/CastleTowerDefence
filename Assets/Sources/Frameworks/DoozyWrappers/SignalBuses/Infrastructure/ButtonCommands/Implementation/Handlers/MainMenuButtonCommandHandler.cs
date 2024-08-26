@@ -1,14 +1,8 @@
-﻿using System.Collections.Generic;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
-
-namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers
+﻿namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers
 {
     public class MainMenuButtonCommandHandler : ButtonCommandHandler
     {
         public MainMenuButtonCommandHandler(
-            LoadMainMenuSceneCommand loadMainMenuSceneCommand,
             UnPauseButtonCommand unPauseButtonCommand,
             ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
             ClearSavesButtonCommand clearSavesButtonCommand,
@@ -16,9 +10,10 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             ShowLeaderboardCommand showLeaderBoardCommand,
             SaveVolumeButtonCommand saveVolumeButtonCommand,
             ShowDailyRewardViewCommand showDailyRewardViewCommand,
-            PlayerAccountAuthorizeButtonCommand playerAccountAuthorizeButtonCommand)
+            PlayerAccountAuthorizeButtonCommand playerAccountAuthorizeButtonCommand,
+            LoadGameCommand loadGameCommand)
         {
-            Add(loadMainMenuSceneCommand);
+            Add(loadGameCommand);
             Add(unPauseButtonCommand);
             Add(showRewardedAdvertisingButtonCommand);
             Add(clearSavesButtonCommand);

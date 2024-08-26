@@ -75,6 +75,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             SoundsVolume,
             MusicVolume,
             DailyReward,
+            HealthBooster
         };
 
         public static IReadOnlyList<string> DeletedModelsIds { get; } = new List<string>()

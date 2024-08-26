@@ -1481,6 +1481,7 @@ GameObject:
   - component: {fileID: 39431585}
   - component: {fileID: 39431584}
   - component: {fileID: 39431586}
+  - component: {fileID: 39431587}
   m_Layer: 5
   m_Name: Continue_Button
   m_TagString: Untagged
@@ -3457,6 +3458,23 @@ MonoBehaviour:
     SoundName: Click
     AudioClip: {fileID: 0}
     OutputAudioMixerGroup: {fileID: 0}
+--- !u!114 &39431587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39431577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32a18db22984b7eb49fa15ac7395602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _labele: <size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>
+  _button: {fileID: 39431581}
+  _onClickCommandId: 03000000
+  _enableCommandId: 
+  _disableCommandId: 
 --- !u!1 &42652408
 GameObject:
   m_ObjectHideFlags: 0
@@ -51444,6 +51462,7 @@ GameObject:
   - component: {fileID: 2047160082}
   - component: {fileID: 2047160081}
   - component: {fileID: 2047160088}
+  - component: {fileID: 2047160089}
   m_Layer: 5
   m_Name: Yes_Button
   m_TagString: Untagged
@@ -53420,6 +53439,23 @@ MonoBehaviour:
     SoundName: Click
     AudioClip: {fileID: 0}
     OutputAudioMixerGroup: {fileID: 0}
+--- !u!114 &2047160089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047160079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32a18db22984b7eb49fa15ac7395602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _labele: <size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>
+  _button: {fileID: 2047160085}
+  _onClickCommandId: 04000000
+  _enableCommandId: 
+  _disableCommandId: 
 --- !u!1 &2065621089
 GameObject:
   m_ObjectHideFlags: 0
