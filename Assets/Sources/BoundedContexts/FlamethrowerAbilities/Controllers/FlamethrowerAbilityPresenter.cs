@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
-using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
+using Sources.Frameworks.UniTaskTweens;
+using Sources.Frameworks.UniTaskTweens.Sequences;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
@@ -19,8 +19,8 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
         private readonly FlamethrowerAbility _flamethrowerAbility;
         private readonly ISoundyService _soundyService;
         private readonly IFlamethrowerAbilityView _view;
-
-        private CancellationTokenSource _cancellationTokenSource;
+        
+        private UTSequence _sequence;
 
         public FlamethrowerAbilityPresenter(
             IEntityRepository entityRepository,
@@ -35,40 +35,38 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 
+        public override void Initialize()
+        {
+            IFlamethrowerView view = _view.FlamethrowerView;
+            Vector3 from = view.FromPosition;
+            Vector3 to = view.ToPosition;
+
+            _sequence = UTTween
+                .Sequence()
+                .Add(() => view.SetPosition(from))
+                .Add(() => view.Show())
+                .Add(_view.PlayParticle)
+                .Add(() => _soundyService.Play("Sounds", "Flamethrower"))
+                .Add(token => MoveAsync(to, token))
+                .Add(token => MoveAsync(from, token))
+                .Add(_view.StopParticle)
+                .Add(() => _soundyService.Stop("Sounds", "Flamethrower"));
+        }
+
         public override void Enable()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
             _flamethrowerAbility.AbilityApplied += ApplyAbility;
         }
 
         public override void Disable()
         {
-            _cancellationTokenSource.Cancel();
+            _sequence.Stop();
             _flamethrowerAbility.AbilityApplied -= ApplyAbility;
         }
 
-        private async void ApplyAbility()
+        private void ApplyAbility()
         {
-            try
-            {
-                IFlamethrowerView view = _view.FlamethrowerView;
-                Vector3 from = view.FromPosition;
-                Vector3 to = view.ToPosition;
-                CancellationToken token = _cancellationTokenSource.Token;
-                
-                view.SetPosition(from);
-                view.Show();
-                _view.PlayParticle();
-                _soundyService.Play("Sounds", "Flamethrower");
-                await MoveAsync(to, token);
-                await MoveAsync(from, token);
-                _view.StopParticle();
-                _soundyService.Stop("Sounds", "Flamethrower");
-                
-            }
-            catch (OperationCanceledException)
-            {
-            }
+            _sequence.StartAsync();
         }
 
         private async UniTask MoveAsync(Vector3 target, CancellationToken cancellationToken)

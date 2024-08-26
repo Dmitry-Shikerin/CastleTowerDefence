@@ -13,11 +13,10 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementat
     {
         [Required] [SerializeField] private ParticleSystem _particleSystem;
         [Required] [SerializeField] private FlamethrowerView _flamethrowerView;
-        [FormerlySerializedAs("burnAbilityCollicion")]
-        [FormerlySerializedAs("_burnAbilityTrigger")]
         [Space(5)] 
         [Required] [SerializeField] private BurnAbilityCollision burnAbilityCollision;
 
+        public Transform Transform => transform;
         public IFlamethrowerView FlamethrowerView => _flamethrowerView;
 
         protected override void OnAfterEnable() =>

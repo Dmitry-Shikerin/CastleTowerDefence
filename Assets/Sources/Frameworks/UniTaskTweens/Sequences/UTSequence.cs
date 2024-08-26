@@ -9,8 +9,8 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
     public class UTSequence
     {
         private CancellationTokenSource _token = new CancellationTokenSource();
-        private List<Func<CancellationToken, UniTask>>_tasks = new List<Func<CancellationToken, UniTask>>();
-        
+        private List<Func<CancellationToken, UniTask>> _tasks = new List<Func<CancellationToken, UniTask>>();
+
         private LoopType _loopType = LoopType.None;
         private bool _isComplete;
         private bool _isStarted;
@@ -36,7 +36,7 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
             set
             {
                 _isComplete = value;
-                
+
                 if (_isComplete)
                 {
                     Completed?.Invoke();
@@ -50,7 +50,7 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
             _tasks.Add(task);
             return this;
         }
-        
+
         public UTSequence Add(Action action)
         {
             _tasks.Add(async _ => action.Invoke());
@@ -67,7 +67,7 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
         {
             _tasks.Add(_ =>
             {
-                UniTask task = sequence.StartAsync();
+                UniTask task = sequence.StartAsync(_token);
                 sequence.IsStarted = false;
                 sequence.IsComplete = false;
                 return task;
@@ -77,14 +77,17 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
 
         public UTSequence AddDelayFromSeconds(float seconds)
         {
-            _tasks.Add( token => UniTask.Delay(TimeSpan.FromSeconds(seconds), cancellationToken: token));
+            _tasks.Add(token => UniTask.Delay(TimeSpan.FromSeconds(seconds), cancellationToken: token));
             return this;
         }
 
-        public async UniTask StartAsync()
+        public async UniTask StartAsync(CancellationTokenSource cancellationToken = default)
         {
-            _token = new CancellationTokenSource();
-            
+            if (cancellationToken == default)
+                _token = new CancellationTokenSource();
+            else
+                _token = cancellationToken;
+
             try
             {
                 IsStarted = true;
@@ -107,7 +110,7 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
             Completed = action;
             return this;
         }
-        
+
         public UTSequence OnStart(Action action)
         {
             Started = action;
@@ -119,7 +122,7 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
             _loopType = loopType;
             return this;
         }
-        
+
         public void Stop()
         {
             _token.Cancel();
