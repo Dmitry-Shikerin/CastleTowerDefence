@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using UnityEngine;
 
-namespace Sources.Frameworks.GameServices.ConfigCollectors
+namespace Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects
 {
     public class Config : ScriptableObject
     {

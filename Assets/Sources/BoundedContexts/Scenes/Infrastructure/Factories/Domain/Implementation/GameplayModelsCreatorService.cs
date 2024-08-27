@@ -12,7 +12,6 @@ using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
-using Sources.BoundedContexts.Prefabs;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
@@ -24,7 +23,6 @@ using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
 {
@@ -210,9 +208,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
         private EnemySpawner CreateEnemySpawner()
         {
-            EnemySpawnerConfig enemySpawnerConfig = 
-                Resources.Load<EnemySpawnerConfig>(
-                    PrefabPath.EnemySpawnerConfigContainer);
+            EnemySpawnerConfig enemySpawnerConfig = _assetCollector.Get<EnemySpawnerConfig>();
             List<RuntimeEnemySpawnerWave> waves = new List<RuntimeEnemySpawnerWave>();
 
             foreach (EnemySpawnerWave wave in enemySpawnerConfig.Waves)
@@ -248,9 +244,22 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 AddedKamikazeHealth = enemySpawnerConfig.AddedKamikazeHealth,
                 Waves = waves,
             };
+            EnemySpawnStrategyCollector enemySpawnStrategyCollector =
+                _assetCollector.Get<EnemySpawnStrategyCollector>();
+            List<RuntimeEnemySpawnStrategy> spawnStrategies = new List<RuntimeEnemySpawnStrategy>();
+
+            foreach (EnemySpawnStrategy config in enemySpawnStrategyCollector.Configs)
+            {
+                spawnStrategies.Add(new RuntimeEnemySpawnStrategy()
+                {
+                    SpawnPoints = config.SpawnPoints
+                });
+            }
+            
             EnemySpawner enemySpawner = new EnemySpawner()
             {
                 Waves = waves,
+                SpawnStrategies = spawnStrategies,
                 Config = runtimeEnemySpawnerConfig,
                 Id = ModelId.EnemySpawner
             };

@@ -1,15 +1,20 @@
 ﻿using Sirenix.OdinInspector;
 using Sirenix.Utilities;
+using Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
 {
-    [CreateAssetMenu(fileName = "EnemySpawnStrategy", menuName = "Configs/EnemySpawnStrategy", order = 51)]
-    public class EnemySpawnStrategy : SerializedScriptableObject
+    public class EnemySpawnStrategy : Config
     {
-        [TableMatrix(DrawElementMethod = "Draw", ResizableColumns = false, RowHeight = 40)] 
-        [SerializeField] private bool[,] _spawnPoints;
-        
+        [ShowInInspector]
+        [TableMatrix(
+            HorizontalTitle = "Custom Cell Drawing", 
+            DrawElementMethod = nameof(Draw), 
+            ResizableColumns = false, 
+            RowHeight = 40)]
+        public bool[,] SpawnPoints;
+
         private static bool Draw(Rect rect, bool value)
         {
 #if UNITY_EDITOR
@@ -34,20 +39,19 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
         [OnInspectorInit]
         private void CreateData()
         {
-            if(_spawnPoints != null)
-                return;
-            
-            _spawnPoints = new bool[4, 4];
-            
-            Debug.Log($"CreateData");
-            
-            for (int i = 0; i < _spawnPoints.GetLength(0); i++)
-            {
-                for (int j = 0; j < _spawnPoints.GetLength(1); j++)
-                {
-                    _spawnPoints[i, j] = false;
-                }
-            }
+             if(SpawnPoints != null)
+                 return;
+             
+             SpawnPoints = new bool[2, 4];
+             
+             for (int i = 0; i < SpawnPoints.GetLength(0); i++)
+             {
+                 for (int j = 0; j < SpawnPoints.GetLength(1); j++)
+                 {
+                     SpawnPoints[i, j] = false;
+                 }
+             }
         }
+
     }
 }

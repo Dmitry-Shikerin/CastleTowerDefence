@@ -17,9 +17,22 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation.Implementation
         [ChildGameObjectsOnly]
         [SerializeField] private List<EnemySpawnPoint> _enemySpawnPoints;
 
-        public IReadOnlyList<IEnemySpawnPoint> SpawnPoints => _enemySpawnPoints;
         public IBunkerView BunkerView { get; private set; }
         public ICharacterMeleeView CharacterMeleeView { get; private set; }
+        public IEnemySpawnPoint[,] SpawnPoints { get; private set; }
+
+        private void Awake()
+        {
+            SpawnPoints = new IEnemySpawnPoint[2, 4];
+             
+            for (int i = 0; i < SpawnPoints.GetLength(0); i++)
+            {
+                for (int j = 0; j < SpawnPoints.GetLength(1); j++)
+                {
+                    SpawnPoints[i, j] = _enemySpawnPoints[i * 4 + j];
+                }
+            }
+        }
 
         public void StartSpawn() =>
             Presenter.OnStartSpawn();
