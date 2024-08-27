@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
+using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views;
+using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
@@ -16,6 +21,8 @@ using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.Utils.Extentions;
+using TeoGames.Mesh_Combiner.Scripts.Extension;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Sources.BoundedContexts.EnemySpawners.Controllers
@@ -106,45 +113,10 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
                 {
                     _enemySpawner.ClearSpawnedEnemies();
 
-                    for (int j = 0; j < _enemySpawner.Waves[i].BossesCount; j++)
+                    for (int j = 0; j < _enemySpawner.Waves[i].SumEnemies; j++)
                     {
-                        int randomSpawnPoint = Random.Range(0, _view.SpawnPoints.Count);
-                        SpawnBoss(_view.SpawnPoints[randomSpawnPoint]);
-
-                        await UniTask.Delay(TimeSpan.FromSeconds(
-                                _enemySpawner.Waves[i].SpawnDelay),
-                            cancellationToken: cancellationToken);
-                    }
-
-                    for (int j = 0; j < _enemySpawner.Waves[i].EnemyCount; j++)
-                    {
-                        int randomSpawnPoint = Random.Range(0, _view.SpawnPoints.Count);
-                        SpawnEnemy(_view.SpawnPoints[randomSpawnPoint]);
-
-                        int percent =
-                            _enemySpawner.SpawnedEnemiesInCurrentWave.IntToPercent(
-                                _enemySpawner.Waves[i].EnemyCount);
-
-                        await UniTask.Delay(TimeSpan.FromSeconds(
-                                _enemySpawner.Waves[i].SpawnDelay),
-                            cancellationToken: cancellationToken);
-
-                        if (_enemySpawner.SpawnedKamikazeInCurrentWave ==
-                            _enemySpawner.Waves[i].KamikazeEnemyCount)
-                            continue;
-
-                        if (percent >= 50)
-                        {
-                            for (int x = 0; x < _enemySpawner.Waves[i].KamikazeEnemyCount; x++)
-                            {
-                                int randomSpawnPoint2 = Random.Range(0, _view.SpawnPoints.Count);
-                                SpawnEnemyKamikaze(_view.SpawnPoints[randomSpawnPoint2]);
-
-                                await UniTask.Delay(TimeSpan.FromSeconds(
-                                        _enemySpawner.Waves[i].SpawnDelay),
-                                    cancellationToken: cancellationToken);
-                            }
-                        }
+                        await RandomSpawn(cancellationToken);
+                        _enemySpawner.SpawnedAllEnemies++;
                     }
 
                     _enemySpawner.CurrentWaveNumber++;
@@ -155,6 +127,81 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             }
         }
 
+        private async UniTask RandomSpawn(CancellationToken cancellationToken)
+        {
+            int random = Random.Range(0, 100);
+
+            if (random <= 33 && _enemySpawner.CanSpawnBoss)
+            {
+                if (TrySpawnBoss() == false)
+                {
+                    await RandomSpawn(cancellationToken);
+                    
+                    return;
+                }
+                
+                SpawnBoss(GetRandomSpawnPoint());
+                await Wait(cancellationToken);
+            }
+            else if (random is > 33 and <= 66 && _enemySpawner.CanSpawnKamikaze)
+            {
+                if (TrySpawnKamikaze() == false)
+                {
+                    await RandomSpawn(cancellationToken);
+                    
+                    return;
+                }
+                
+                SpawnEnemyKamikaze(GetRandomSpawnPoint());
+                await Wait(cancellationToken);
+            }
+            else if (random > 66 && _enemySpawner.CanSpawnEnemy)
+            {
+                SpawnEnemy(GetRandomSpawnPoint());
+                await Wait(cancellationToken);
+            }
+            else
+                await RandomSpawn(cancellationToken);
+        }
+
+        private bool TrySpawnBoss()
+        {
+            if (_enemySpawner.SpawnedAllEnemies++ == _enemySpawner.CurrentWave.SumEnemies)
+                return true;
+
+            if (_enemySpawner.LastSpawnedEnemyType != typeof(EnemyBossView))
+                return true;
+
+            if (_enemySpawner.SpawnedEnemiesInCurrentWave == _enemySpawner.CurrentWave.EnemyCount)
+                return true;
+
+            return false;
+        }
+
+        private bool TrySpawnKamikaze()
+        {
+            if (_enemySpawner.SpawnedAllEnemies++ == _enemySpawner.CurrentWave.SumEnemies)
+                return true;
+
+            if (_enemySpawner.LastSpawnedEnemyType != typeof(EnemyKamikazeView))
+                return true;
+
+            if (_enemySpawner.SpawnedEnemiesInCurrentWave == _enemySpawner.CurrentWave.EnemyCount)
+                return true;
+
+            return false;
+        }
+        
+        private async UniTask Wait(CancellationToken cancellationToken)
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(
+                    _enemySpawner.CurrentWave.SpawnDelay),
+                cancellationToken: cancellationToken);
+        }
+
+        private IEnemySpawnPoint GetRandomSpawnPoint() =>
+            _view.SpawnPoints[Random.Range(0, _view.SpawnPoints.Count)];
+
         private void SpawnEnemy(IEnemySpawnPoint spawnPoint)
         {
             IEnemyView enemyView = _enemyViewFactory.Create(_enemySpawner, spawnPoint.Position);
@@ -162,7 +209,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             enemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
 
             _enemySpawner.SpawnedEnemiesInCurrentWave++;
-            _enemySpawner.SpawnedAllEnemies++;
+            _enemySpawner.LastSpawnedEnemyType = typeof(EnemyView);
         }
 
         private void SpawnEnemyKamikaze(IEnemySpawnPoint spawnPoint)
@@ -172,7 +219,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             enemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
 
             _enemySpawner.SpawnedKamikazeInCurrentWave++;
-            _enemySpawner.SpawnedAllEnemies++;
+            _enemySpawner.LastSpawnedEnemyType = typeof(EnemyKamikazeView);
         }
 
         private void SpawnBoss(IEnemySpawnPoint spawnPoint)
@@ -182,7 +229,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             bossEnemyView.SetCharacterMeleePoint(spawnPoint.CharacterMeleeSpawnPoint);
 
             _enemySpawner.SpawnedBossesInCurrentWave++;
-            _enemySpawner.SpawnedAllEnemies++;
+            _enemySpawner.LastSpawnedEnemyType = typeof(EnemyBossView);
         }
     }
 }
