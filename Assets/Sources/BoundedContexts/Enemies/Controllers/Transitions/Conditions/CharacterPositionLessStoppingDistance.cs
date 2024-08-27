@@ -16,7 +16,7 @@ namespace Sources.BoundedContexts.Enemies.Controllers.Transitions.Conditions
             _view = view;
 
         protected override bool OnCheck() =>
-            Vector3.Distance(_view.Position, _view.CharacterMeleePoint.Position)
+            Vector3.Distance(_view.Position, _view.CharacterHealthView.Position)
             <= _view.StoppingDistance + 0.15f;
     }
 }

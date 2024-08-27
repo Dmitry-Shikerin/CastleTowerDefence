@@ -33,6 +33,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
         public Type Type => GetType();
         public List<RuntimeEnemySpawnerWave> Waves { get; set; }
         public RuntimeEnemySpawnerConfig Config { get; set; }
+        public Type LastSpawnedEnemyType { get; set; }
 
         [JsonIgnore]
         public RuntimeEnemySpawnerWave CurrentWave => Waves[CurrentWaveNumber];
@@ -76,6 +77,12 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
             Config.StartBossHealth + 
             Config.AddedBossHealth * 
             CurrentWaveNumber;
+        [JsonIgnore]
+        public bool CanSpawnBoss => SpawnedBossesInCurrentWave < CurrentWave.BossesCount;
+        [JsonIgnore]
+        public bool CanSpawnKamikaze => SpawnedKamikazeInCurrentWave < CurrentWave.KamikazeEnemyCount;
+        [JsonIgnore]
+        public bool CanSpawnEnemy => SpawnedEnemiesInCurrentWave < CurrentWave.SumEnemies;
 
         public int KilledWaves
         {
