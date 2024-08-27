@@ -7,7 +7,7 @@ using MyAudios.Soundy.Sources.Managers.Controllers;
 using MyAudios.Soundy.Sources.Settings.Domain.Configs;
 using UnityEngine;
 
-namespace MyAudios.Soundy.Sources.AudioPoolers.Controllers
+namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.AudioPoolers.Controllers
 {
     /// <inheritdoc />
     /// <summary>

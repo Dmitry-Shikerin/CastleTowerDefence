@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Doozy.Engine.Soundy;
 using MyAudios.MyUiFramework.Utils;
 using MyAudios.Soundy.Sources.AudioControllers.Controllers;
-using MyAudios.Soundy.Sources.AudioPoolers.Controllers;
 using MyAudios.Soundy.Sources.DataBases.Domain.Data;
 using MyAudios.Soundy.Sources.Managers.Domain.Constants;
 using MyAudios.Soundy.Sources.Settings.Domain.Configs;
 using MyAudios.Soundy.Sources.SoundSources.Enums;
 using Sirenix.Utilities;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.AudioPoolers.Controllers;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -130,6 +131,16 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
                 SoundyPooler.GetControllerFromPool().Stop();
         }
 
+        public static void Pause(string soundName)
+        {
+            SoundyController.Pause(soundName);
+        }
+
+        public static void UnPause(string soundName)
+        {
+            SoundyController.Unpause(soundName);
+        }
+
         public static void ClearTokens()
         {
             _tokens.Values
@@ -149,7 +160,7 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             s_isMusicVolumeMuted = isMusicMuted;
             s_isSoundVolumeMuted = isSoundMuted;
         }
-        
+
         public static void KillAllControllers() =>
             SoundyController.KillAll();
 
@@ -395,8 +406,8 @@ namespace MyAudios.Soundy.Sources.Managers.Controllers
             }
 
             return null;
-        } 
-        
+        }
+
         public static SoundyController Play(SoundyData data, bool isSound)
         {
             SoundyController controller = Play(data);
