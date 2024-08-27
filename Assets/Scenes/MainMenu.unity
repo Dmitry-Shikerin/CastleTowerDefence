@@ -45831,7 +45831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _labele: <size=18><b><color=#C71585><i>UiButtonSignalSender</i></color></b></size>
   _button: {fileID: 2047160085}
-  _onClickCommandId: 04000000
+  _onClickCommandId: 0900000003000000
   _enableCommandId: 
   _disableCommandId: 
 --- !u!1 &2065621089
