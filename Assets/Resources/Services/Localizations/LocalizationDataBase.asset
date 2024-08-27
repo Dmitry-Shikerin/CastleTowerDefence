@@ -732,6 +732,43 @@ MonoBehaviour:
   _english: Level4
   _editTurkish: 0
   _turkish: Seviye4
+--- !u!114 &-3089776812635371540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: BunkerTutorial_Description_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: BunkerTutorial_Description
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+    \u0436\u0438\u0437\u043D\u0435\u0439 \u0432\u0430\u0448\u0435\u0433\u043E \u0431\u0443\u043D\u043A\u0435\u0440\u0430.
+    \u0415\u0441\u043B\u0438 \u0432\u0440\u0430\u0433 \u0434\u043E\u0431\u0438\u0440\u0430\u0435\u0442\u0441\u044F
+    \u0434\u043E \u0431\u0443\u043D\u043A\u0435\u0440\u0430, \u0442\u043E \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435
+    \u0443\u043C\u0435\u043D\u044C\u0448\u0430\u0435\u0442\u0441\u044F \u043D\u0430
+    \u043E\u0434\u043D\u0443 \u0436\u0438\u0437\u043D\u044C. \u041A\u043E\u0433\u0434\u0430
+    \u0436\u0438\u0437\u043D\u0438 \u0443\u043C\u0435\u043D\u044C\u0448\u0430\u044E\u0442\u0441\u044F,
+    \u0431\u0443\u043D\u043A\u0435\u0440 \u043F\u043E\u0434\u0441\u0432\u0435\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044F
+    \u043A\u0440\u0430\u0441\u043D\u044B\u043C."
+  _editEnglish: 0
+  _english: This is the number of lives of your bunker. If the enemy gets to the
+    bunker, the health is reduced by one life. When the lives decrease, the bunker
+    is highlighted in red.
+  _editTurkish: 0
+  _turkish: "Bu, s\u0131\u011F\u0131na\u011F\u0131n\u0131z\u0131n can say\u0131s\u0131d\u0131r.
+    D\xFC\u015Fman s\u0131\u011F\u0131na\u011Fa ula\u015F\u0131rsa, sa\u011Fl\u0131k
+    bir can i\xE7in azal\u0131r. Canlar azald\u0131k\xE7a s\u0131\u011F\u0131nak
+    k\u0131rm\u0131z\u0131yla ayd\u0131nlat\u0131l\u0131r."
 --- !u!114 &-3045387330775180738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,6 +1041,41 @@ MonoBehaviour:
   _english: First wave successfully completed.
   _editTurkish: 0
   _turkish: "\u0130lk dalga ba\u015Far\u0131yla ge\xE7ti."
+--- !u!114 &-1509137246326993814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: AbilitiesTutorial_Description_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: AbilitiesTutorial_Description
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u0432\u0430\u0448\u0438 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438.
+    \u041F\u0435\u0440\u0432\u0430\u044F \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
+    \u0441\u0431\u0440\u0430\u0441\u044B\u0432\u0430\u0435\u0442 \u0430\u0442\u043E\u043C\u043D\u0443\u044E
+    \u0431\u043E\u043C\u0431\u0443 \u043D\u0430 \u0437\u043E\u043C\u0431\u0438. \u0412\u0442\u043E\u0440\u0430\u044F
+    \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442
+    \u0432\u0441\u0435\u0445 \u0432\u0430\u0448\u0438\u0445 \u0431\u043E\u0439\u0446\u043E\u0432.
+    \u0422\u0440\u0435\u0442\u044C\u044F \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
+    \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u0443\u0435\u0442 \u043E\u0433\u043D\u0435\u043C\u0451\u0442."
+  _editEnglish: 0
+  _english: These are your abilities. The first ability drops an atomic bomb on a
+    zombie. The second ability restores all your fighters. The third ability activates
+    the flamethrower.
+  _editTurkish: 0
+  _turkish: "Bunlar sizin yetenekleriniz. \u0130lk yetenek zombilere atom bombas\u0131
+    at\u0131yor. \u0130kinci yetenek, t\xFCm sava\u015F\xE7\u0131lar\u0131n\u0131z\u0131
+    geri y\xFCkler. \xDC\xE7\xFCnc\xFC yetenek alev makinesini etkinle\u015Ftirir."
 --- !u!114 &-1169646632141698292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,13 +1095,19 @@ MonoBehaviour:
   _localizationId: UpgradeTopAbilitiesDescription
   _textId: 
   _editRussian: 0
-  _russian: "\u042D\u0442\u043E \u0441\u043F\u0438\u0441\u043E\u043A \u0432\u0441\u0435\u0445
-    \u0432\u0430\u0448\u0438\u0445 \u0438\u043C\u0435\u044E\u0449\u0438\u0445\u0441\u044F
-    \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0439."
+  _russian: "\u042D\u0442\u043E \u043A\u043D\u043E\u043F\u043A\u0438 \u043F\u0440\u043E\u043A\u0430\u0447\u043A\u0438
+    \u0432\u0430\u0448\u0438\u0445 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439.
+    \u041A\u0430\u0436\u0434\u0430\u044F \u043F\u0440\u043E\u043A\u0430\u0447\u043A\u0430
+    \u043E\u0442\u043D\u0438\u043C\u0430\u0435\u0442 \u0443 \u0432\u0430\u0441 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+    \u043E\u0447\u043A\u043E\u0432. \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439
+    \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u043F\u0440\u043E\u043A\u0430\u0447\u043A\u0438
+    - \u043F\u044F\u0442\u044B\u0439."
   _editEnglish: 0
-  _english: This is a list of all your available improvements.
+  _english: These are the buttons for leveling up your abilities. Each upgrade takes
+    away the number of points from you. The maximum level of leveling is the fifth.
   _editTurkish: 0
-  _turkish: "Bu, mevcut t\xFCm iyile\u015Ftirmelerinizin bir listesidir."
+  _turkish: "Bunlar yeteneklerinizi seviyelendirme d\xFC\u011Fmeleridir. Her pompalama
+    sizden puan say\u0131s\u0131n\u0131 al\u0131r. Maksimum pompalama seviyesi be\u015Fincidir."
 --- !u!114 &-920647093419064292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,15 +1314,29 @@ MonoBehaviour:
   - {fileID: -6245651734904918740}
   - {fileID: -7485049250364022501}
   - {fileID: 5969787248905984405}
+  - {fileID: -3089776812635371540}
+  - {fileID: 4153720819052683178}
+  - {fileID: -1509137246326993814}
   _scopes: []
-  _enableTextId: 0
-  _textId: Add
-  _enableRussian: 0
-  _russian: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"
-  _enableEnglish: 0
-  _english: Add
-  _enableTurkish: 0
-  _turkish: Eklemek
+  _enableTextId: 1
+  _textId: AbilitiesTutorial_Description
+  _enableRussian: 1
+  _russian: "\u042D\u0442\u043E \u0432\u0430\u0448\u0438 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438.
+    \u041F\u0435\u0440\u0432\u0430\u044F \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
+    \u0441\u0431\u0440\u0430\u0441\u044B\u0432\u0430\u0435\u0442 \u0430\u0442\u043E\u043C\u043D\u0443\u044E
+    \u0431\u043E\u043C\u0431\u0443 \u043D\u0430 \u0437\u043E\u043C\u0431\u0438. \u0412\u0442\u043E\u0440\u0430\u044F
+    \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442
+    \u0432\u0441\u0435\u0445 \u0432\u0430\u0448\u0438\u0445 \u0431\u043E\u0439\u0446\u043E\u0432.
+    \u0422\u0440\u0435\u0442\u044C\u044F \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
+    \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u0443\u0435\u0442 \u043E\u0433\u043D\u0435\u043C\u0451\u0442."
+  _enableEnglish: 1
+  _english: These are your abilities. The first ability drops an atomic bomb on a
+    zombie. The second ability restores all your fighters. The third ability activates
+    the flamethrower.
+  _enableTurkish: 1
+  _turkish: "Bunlar sizin yetenekleriniz. \u0130lk yetenek zombilere atom bombas\u0131
+    at\u0131yor. \u0130kinci yetenek, t\xFCm sava\u015F\xE7\u0131lar\u0131n\u0131z\u0131
+    geri y\xFCkler. \xDC\xE7\xFCnc\xFC yetenek alev makinesini etkinle\u015Ftirir."
 --- !u!114 &526446998994294440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1635,15 +1727,20 @@ MonoBehaviour:
   _localizationId: EnemySpawnTutorialDescription
   _textId: 
   _editRussian: 0
-  _russian: "\u042D\u0442\u043E \u043C\u0435\u0441\u0442\u0430, \u043E\u0442\u043A\u0443\u0434\u0430
-    \u0432\u044B\u0445\u043E\u0434\u044F\u0442 \u0437\u043E\u043C\u0431\u0438. \u0412\u044B
-    \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
-    \u0432 \u044D\u0442\u0438 \u043C\u0435\u0441\u0442\u0430."
+  _russian: "\u042D\u0442\u043E \u0448\u043A\u0430\u043B\u0430 \u0432\u043E\u043B\u043D
+    \u0432\u0440\u0430\u0433\u043E\u0432. \u041E\u043D\u0430 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442,
+    \u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0437\u043E\u043C\u0431\u0438 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
+    \u0434\u043E \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439 \u0432\u043E\u043B\u043D\u044B.
+    \u0410 \u0442\u0430\u043A\u0436\u0435 \u043E\u043D\u0430 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442
+    \u0438\u043D\u0434\u0435\u043A\u0441 \u0442\u0435\u043A\u0443\u0449\u0435\u0439
+    \u0432\u043E\u043B\u043D\u044B."
   _editEnglish: 0
-  _english: These are the places where zombies come out. You can't go to these places.
+  _english: This is the enemy wave scale. It shows how many zombies are left until
+    the next wave. And it also shows the index of the current wave.
   _editTurkish: 0
-  _turkish: "Bunlar zombilerin \xE7\u0131kt\u0131\u011F\u0131 yerler. Bu yerlere
-    gidemezsiniz."
+  _turkish: "Bu, d\xFC\u015Fman dalgalar\u0131n\u0131n \xF6l\xE7e\u011Fidir. Bir
+    sonraki dalgaya kadar ka\xE7 zombinin kald\u0131\u011F\u0131n\u0131 g\xF6steriyor.
+    Ayr\u0131ca mevcut dalgan\u0131n indeksini de g\xF6sterir."
 --- !u!114 &3148240805187373749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,6 +1863,39 @@ MonoBehaviour:
   _english: LEVEL COMPLETED!
   _editTurkish: 0
   _turkish: "SEV\u0130YE TAMAMLANDI!"
+--- !u!114 &4153720819052683178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: HealthBooster_Description_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: HealthBooster_Description
+  _textId: 
+  _editRussian: 0
+  _russian: "\u042D\u0442\u043E \u043A\u043D\u043E\u043F\u043A\u0430 \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u044F
+    \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445
+    \u0436\u0438\u0437\u043D\u0435\u0439 \u0432\u0430\u0448\u0435\u043C\u0443 \u0431\u0443\u043D\u043A\u0435\u0440\u0443.
+    \u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
+    \u0436\u0438\u0437\u043D\u0438 \u043C\u043E\u0436\u043D\u043E, \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0432
+    \u0440\u0435\u043A\u043B\u0430\u043C\u0443 \u0438\u043B\u0438 \u043E\u0442\u043A\u0440\u044B\u0432
+    \u0435\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u0443\u044E \u043D\u0430\u0433\u0440\u0430\u0434\u0443."
+  _editEnglish: 0
+  _english: This is the button for adding extra lives to your bunker. You can get
+    extra lives by watching an advertisement or opening a daily reward.
+  _editTurkish: 0
+  _turkish: "Bu, s\u0131\u011F\u0131na\u011F\u0131n\u0131za fazladan can ekleme d\xFC\u011Fmesidir.
+    Reklam\u0131 izleyerek veya g\xFCnl\xFCk bir \xF6d\xFCl a\xE7arak ek canlar elde
+    edebilirsiniz."
 --- !u!114 &4826722777252017251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,23 +2322,20 @@ MonoBehaviour:
   _localizationId: ScoreTutorialDescription
   _textId: 
   _editRussian: 0
-  _russian: "\u042D\u0442\u043E \u0432\u0430\u0448\u0438 \u043E\u0447\u043A\u0438,
-    \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0432\u044B \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0435
-    \u0437\u0430 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u043E \u0437\u043E\u043C\u0431\u0438.
-    \u0412\u0441\u0435 \u043E\u0447\u043A\u0438, \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u044B\u0435
-    \u0432\u043E \u0432\u0441\u0435\u0445 \u0432\u0430\u0448\u0438\u0445 \u0438\u0433\u0440\u0430\u0445,
-    \u0441\u0443\u043C\u043C\u0438\u0440\u0443\u044E\u0442\u0441\u044F. \u0417\u0430
-    \u0443\u0441\u043F\u0435\u0448\u043D\u043E\u0435 \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u0435
-    \u0443\u0440\u043E\u0432\u043D\u044F \u043E\u0447\u043A\u0438 \u0443\u0434\u0432\u0430\u0438\u0432\u0430\u044E\u0442\u0441\u044F."
+  _russian: "\u042D\u0442\u043E \u0448\u043A\u0430\u043B\u0430 \u0432\u0430\u0448\u0438\u0445
+    \u043E\u0447\u043A\u043E\u0432. \u0417\u0430 \u043A\u0430\u0436\u0434\u043E\u0433\u043E
+    \u0443\u0431\u0438\u0442\u043E\u0433\u043E \u0437\u043E\u043C\u0431\u0438 \u0432\u044B
+    \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0435 \u043E\u0434\u043D\u043E
+    \u043E\u0447\u043A\u043E. \u041E\u0447\u043A\u0438 \u043C\u043E\u0436\u043D\u043E
+    \u043F\u043E\u0442\u0440\u0430\u0442\u044C \u043D\u0430 \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F
+    \u0432\u0430\u0448\u0438\u0445 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439."
   _editEnglish: 0
-  _english: These are your points that you get for killing zombies. All points earned
-    in all your games are summed up. Points are doubled for successful completion
-    of the level.
+  _english: This is the scale of your points. For every zombie you kill, you get
+    one point. Points can be spent on improving your abilities.
   _editTurkish: 0
-  _turkish: "Bunlar zombileri \xF6ld\xFCrd\xFC\u011F\xFCn\xFCz i\xE7in ald\u0131\u011F\u0131n\u0131z
-    puanlard\u0131r. T\xFCm oyunlar\u0131n\u0131zda kazan\u0131lan t\xFCm puanlar
-    toplan\u0131r. Seviyeyi ba\u015Far\u0131yla tamamlad\u0131\u011F\u0131n\u0131zda
-    puanlar ikiye katlan\u0131r."
+  _turkish: "Bu, puanlar\u0131n\u0131z\u0131n \xF6l\xE7e\u011Fidir. \xD6ld\xFCr\xFClen
+    her zombi i\xE7in bir puan kazan\u0131rs\u0131n\u0131z. Yeteneklerinizi geli\u015Ftirmek
+    i\xE7in puanlar harcanabilir."
 --- !u!114 &7968120111115877996
 MonoBehaviour:
   m_ObjectHideFlags: 0

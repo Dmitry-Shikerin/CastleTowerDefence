@@ -34,7 +34,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
 
                 return;
             }
-
+            
             _sceneService.ChangeSceneAsync(ModelId.Gameplay);
         }
     }

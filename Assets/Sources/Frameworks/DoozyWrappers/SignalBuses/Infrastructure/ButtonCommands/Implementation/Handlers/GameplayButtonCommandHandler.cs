@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
-using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces.Handlers;
-
-namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers
+﻿namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation.Handlers
 {
     public class GameplayButtonCommandHandler : ButtonCommandHandler
     {
@@ -14,6 +9,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             PauseButtonCommand pauseButtonCommand,
             ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
             ClearSavesButtonCommand clearSavesButtonCommand,
+            SaveVolumeButtonCommand saveVolumeButtonCommand,
             NewGameCommand newGameCommand)
         {
             Add(completeTutorialCommand);
@@ -23,6 +19,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
             Add(clearSavesButtonCommand);
             Add(newGameCommand);
             Add(pauseButtonCommand);
+            Add(saveVolumeButtonCommand);
         }
 
     }
