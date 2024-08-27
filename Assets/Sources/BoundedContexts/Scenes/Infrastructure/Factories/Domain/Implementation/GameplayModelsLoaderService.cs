@@ -12,7 +12,6 @@ using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
-using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
@@ -67,7 +66,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             
             //Volumes
             Volume musicVolume = _loadService.Load<Volume>(ModelId.MusicVolume);
+            Debug.Log($"Music volume: {musicVolume.IsVolumeMuted}");
             Volume soundsVolume = _loadService.Load<Volume>(ModelId.SoundsVolume);
+            Debug.Log($"Sounds volume: {soundsVolume.IsVolumeMuted}");
             
             //Achievements
             List<Achievement> achievements = new List<Achievement>();
