@@ -97,7 +97,7 @@ MonoBehaviour:
   _waveId: 25
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 13
+  _enemyCount: 14
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &-6286932152814063673
@@ -136,10 +136,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 35
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 18
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 4
 --- !u!114 &-6160706877553736391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,10 +216,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 29
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 16
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 4
 --- !u!114 &-3497566403805953450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,10 +256,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 30
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
-  _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 14
+  _bossesCount: 2
+  _kamikazeEnemyCount: 4
 --- !u!114 &-1786651826683821326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
   _waveId: 23
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 12
+  _enemyCount: 13
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &11400000
@@ -420,10 +420,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 26
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 14
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 4
 --- !u!114 &1335403943375302006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,10 +440,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 28
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 15
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 4
 --- !u!114 &1485793479507170223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,10 +500,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 32
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 16
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 5
 --- !u!114 &2520747633675662377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
   _waveId: 21
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 11
+  _enemyCount: 12
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &3720306546432299003
@@ -560,10 +560,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 34
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 18
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 4
 --- !u!114 &5326304262265565895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,10 +600,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 31
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 16
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 4
 --- !u!114 &5722576420714049027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,10 +640,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 27
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 15
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 4
 --- !u!114 &7279127488495669432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,10 +720,10 @@ MonoBehaviour:
   _parent: {fileID: 11400000}
   _waveId: 33
   _moneyPerResilenceCharacters: 0
-  _spawnDelay: 0
-  _enemyCount: 0
+  _spawnDelay: 2
+  _enemyCount: 17
   _bossesCount: 0
-  _kamikazeEnemyCount: 0
+  _kamikazeEnemyCount: 4
 --- !u!114 &8948478608034842370
 MonoBehaviour:
   m_ObjectHideFlags: 0
