@@ -37,22 +37,26 @@ namespace Sources.Frameworks.GameServices.Volumes.Presentations
         {
             _volume = volume ?? throw new ArgumentNullException(nameof(volume));
             SetSliderValue();
+            SetToggleValue();
         }
 
         private void SetSliderValue()
+        { 
+            _slider.value = _volume.VolumeValue;
+        }
+
+        private void SetToggleValue()
         {
-            if (_volume.VolumeValue > 0)
+            if (_volume.IsVolumeMuted)
             {
-                _slider.value = _volume.VolumeValue;
-                _toggle.isOn = true;
-                
-                EnableSlider();
+                _toggle.isOn = false;
+                DisableSlider();
                 
                 return;
             }
             
-            DisableSlider();
-            _toggle.isOn = false;
+            _toggle.isOn = true;
+            EnableSlider();
         }
 
         private void EnableSlider()
