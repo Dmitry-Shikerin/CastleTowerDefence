@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
@@ -16,18 +15,15 @@ using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Prefabs;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
-using Sources.BoundedContexts.Tutorials.Domain;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Data;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
-using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
-using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
