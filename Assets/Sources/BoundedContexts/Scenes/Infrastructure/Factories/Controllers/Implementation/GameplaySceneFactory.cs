@@ -1,9 +1,9 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
 using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
+using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Scenes.Controllers;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
@@ -25,6 +25,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class GameplaySceneFactory : ISceneFactory
     {
+        private readonly RootGameObject _rootGameObject;
         private readonly SaveAfterWaveService _saveAfterWaveService;
         private readonly AdvertisingAfterWaveService _advertisingAfterWaveService;
         private readonly ICompositeAssetService _compositeAssetService;
@@ -43,6 +44,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly ISignalControllersCollector _signalControllersCollector;
 
         public GameplaySceneFactory(
+            RootGameObject rootGameObject,
             SaveAfterWaveService saveAfterWaveService,
             AdvertisingAfterWaveService advertisingAfterWaveService,
             ICompositeAssetService compositeAssetService,
@@ -60,6 +62,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _saveAfterWaveService = saveAfterWaveService ?? throw new ArgumentNullException(nameof(saveAfterWaveService));
             _advertisingAfterWaveService = advertisingAfterWaveService ?? 
                                            throw new ArgumentNullException(nameof(advertisingAfterWaveService));
@@ -86,6 +89,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene gameplayScene = new GameplayScene(
+                _rootGameObject,
                 _saveAfterWaveService,
                 _advertisingAfterWaveService,
                 _compositeAssetService,

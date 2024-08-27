@@ -2,8 +2,11 @@
 using JetBrains.Annotations;
 using MyAudios.MyUiFramework.Utils.Soundies.Domain.Constant;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
+using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
 using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
+using Sources.BoundedContexts.Huds.Presentations;
+using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
@@ -24,6 +27,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
+        private readonly RootGameObject _rootGameObject;
         private readonly SaveAfterWaveService _saveAfterWaveService;
         private readonly AdvertisingAfterWaveService _advertisingAfterWaveService;
         private readonly ICompositeAssetService _compositeAssetService;
@@ -40,8 +44,10 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly IGameCompletedService _gameCompletedService;
         private readonly ICurtainView _curtainView;
         private readonly ISignalControllersCollector _signalControllersCollector;
+        private readonly EnemySpawnerView _enemySpawnerView;
 
         public GameplayScene(
+            RootGameObject rootGameObject,
             SaveAfterWaveService saveAfterWaveService,
             AdvertisingAfterWaveService advertisingAfterWaveService,
             ICompositeAssetService compositeAssetService,
@@ -59,6 +65,9 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector)
         {
+            _enemySpawnerView = rootGameObject.EnemySpawnerView ?? 
+                                throw new ArgumentNullException(nameof(rootGameObject.EnemySpawnerView));
+            _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _saveAfterWaveService = saveAfterWaveService ?? throw new ArgumentNullException(nameof(saveAfterWaveService));
             _advertisingAfterWaveService = advertisingAfterWaveService ?? throw new ArgumentNullException(nameof(advertisingAfterWaveService));
             _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
@@ -98,9 +107,10 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _gameCompletedService.Initialize();
             _saveAfterWaveService.Initialize();
             await _curtainView.HideAsync();
+            _tutorialService.Initialize();
+            _enemySpawnerView.StartSpawn();
             _soundyService.PlaySequence(
                 SoundyDBConst.BackgroundMusicDB, SoundyDBConst.GameplaySound);
-            _tutorialService.Initialize();
         }
 
         public void Exit()

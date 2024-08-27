@@ -11,7 +11,8 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces
         IReadOnlyList<IEnemySpawnPoint> SpawnPoints { get; }
         IBunkerView BunkerView { get; }
         ICharacterMeleeView CharacterMeleeView { get; }
-        
+
+        void StartSpawn();
         void SetCharacterView(ICharacterMeleeView characterMeleeView);
         void SetBunkerView(IBunkerView bunkerView);
     }

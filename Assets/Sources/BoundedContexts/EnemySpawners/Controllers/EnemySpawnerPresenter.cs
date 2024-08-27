@@ -70,7 +70,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         {
             _cancellationTokenSource = new CancellationTokenSource();
             _killEnemyCounter.KillZombiesCountChanged += OnKillZombiesCountChanged;
-            OnStartSpawn();
             _tutorial.OnCompleted += OnStartSpawn;
         }
 
@@ -81,7 +80,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             _cancellationTokenSource.Cancel();
         }
 
-        private void OnStartSpawn()
+        public void OnStartSpawn()
         {
             if (_tutorial.HasCompleted == false)
                 return;

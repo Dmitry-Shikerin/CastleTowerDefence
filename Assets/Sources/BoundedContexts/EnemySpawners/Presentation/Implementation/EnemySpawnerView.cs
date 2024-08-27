@@ -16,12 +16,14 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation.Implementation
     {
         [ChildGameObjectsOnly]
         [SerializeField] private List<EnemySpawnPoint> _enemySpawnPoints;
-        [ChildGameObjectsOnly]
 
         public IReadOnlyList<IEnemySpawnPoint> SpawnPoints => _enemySpawnPoints;
         public IBunkerView BunkerView { get; private set; }
         public ICharacterMeleeView CharacterMeleeView { get; private set; }
-        
+
+        public void StartSpawn() =>
+            Presenter.OnStartSpawn();
+
         public void SetCharacterView(ICharacterMeleeView characterMeleeView) =>
             CharacterMeleeView = characterMeleeView;
 
