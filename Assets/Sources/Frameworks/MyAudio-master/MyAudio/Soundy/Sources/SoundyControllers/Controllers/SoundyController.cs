@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MyAudios.MyUiFramework.Utils;
-using MyAudios.Soundy.Sources.AudioPoolers.Controllers;
 using Sirenix.Utilities;
+using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.AudioPoolers.Controllers;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -291,6 +291,20 @@ namespace MyAudios.Soundy.Sources.AudioControllers.Controllers
                 typeof(SoundyController)).GetComponent<SoundyController>();
             
             return controller;
+        }
+
+        public static void Pause(string soundName)
+        {
+            s_database
+                .Where(controller => controller.Name == soundName)
+                .ForEach(controller => controller.Pause());
+        }
+        
+        public static void Unpause(string soundName)
+        {
+            s_database
+                .Where(controller => controller.Name == soundName)
+                .ForEach(controller => controller.Unpause());
         }
 
         public static SoundyController GetControllerByName(string name) =>

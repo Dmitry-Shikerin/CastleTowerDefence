@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Doozy.Engine.Soundy;
 using MyAudios.Soundy.Sources.AudioControllers.Controllers;
+using MyAudios.Soundy.Sources.DataBases.Domain.Data;
 using MyAudios.Soundy.Sources.Managers.Controllers;
+using MyAudios.Soundy.Sources.Settings.Domain.Configs;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
@@ -17,7 +20,8 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
         private readonly IPauseService _pauseService;
         private readonly IEntityRepository _entityRepository;
         private readonly Dictionary<string, Dictionary<string, CancellationTokenSource>> _tokens;
-
+        
+        private List<string> _soundNames;
         private Volume _musicVolume;
         private Volume _soundsVolume;
 
@@ -34,9 +38,12 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
 
         public void Initialize()
         {
+            _soundNames = GetSoundNames();
             _musicVolume = _entityRepository.Get<Volume>(ModelId.MusicVolume);
             _soundsVolume = _entityRepository.Get<Volume>(ModelId.SoundsVolume);
             OnSoundsVolumeChanged();
+            _pauseService.PauseActivated += OnPause;
+            _pauseService.ContinueActivated += OnContinue;
             _pauseService.PauseSoundActivated += OnPauseSoundActivated;
             _pauseService.ContinueSoundActivated += OnContinueSoundActivated;
             _musicVolume.VolumeChanged += OnMusicVolumeChanged;
@@ -47,6 +54,8 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
 
         public void Destroy()
         {
+            _pauseService.PauseActivated -= OnPause;
+            _pauseService.ContinueActivated -= OnContinue;
             _pauseService.PauseSoundActivated -= OnPauseSoundActivated;
             _pauseService.ContinueSoundActivated -= OnContinueSoundActivated;
             _musicVolume.VolumeChanged -= OnMusicVolumeChanged;
@@ -56,6 +65,16 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
             SoundyManager.ClearTokens();
         }
 
+        private void OnPause()
+        {
+            _soundNames.ForEach(soundName => SoundyManager.Pause(soundName));
+        }
+
+        private void OnContinue()
+        {
+            _soundNames.ForEach(soundName => SoundyManager.UnPause(soundName));
+        }
+
         public void Play(string databaseName, string soundName, Vector3 position) =>
             SoundyManager.Play(databaseName, soundName, position);
 
@@ -63,6 +82,24 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
         {
             SoundyManager.Play(databaseName, soundName);
             SoundyManager.SetVolume(soundName, _soundsVolume.VolumeValue);
+        }
+
+        public List<string> GetSoundNames()
+        {
+            List<string> soundNames = new List<string>();
+            
+            foreach (SoundDatabase soundDatabase in SoundySettings.Database.SoundDatabases)
+            {
+                foreach (SoundGroupData soundGroupData in soundDatabase.Database)
+                {
+                    if (soundGroupData.SoundName == _musicSoundName)
+                        continue;
+                    
+                    soundNames.Add(soundGroupData.SoundName);
+                }
+            }
+
+            return soundNames;
         }
 
         public void PlaySequence(string databaseName, string soundName)
@@ -87,7 +124,8 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
         {
             SoundyManager.SetVolumes(
                 _musicVolume.VolumeValue,
-                _soundsVolume.VolumeValue);   
+                _soundsVolume.VolumeValue);
+            _soundNames.ForEach(name => SoundyManager.SetVolume(name, _soundsVolume.VolumeValue));
         }
 
         private void OnMusicVolumeChanged()
