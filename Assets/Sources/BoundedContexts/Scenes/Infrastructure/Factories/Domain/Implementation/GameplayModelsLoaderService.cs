@@ -66,9 +66,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             
             //Volumes
             Volume musicVolume = _loadService.Load<Volume>(ModelId.MusicVolume);
-            Debug.Log($"Music volume: {musicVolume.IsVolumeMuted}");
             Volume soundsVolume = _loadService.Load<Volume>(ModelId.SoundsVolume);
-            Debug.Log($"Sounds volume: {soundsVolume.IsVolumeMuted}");
             
             //Achievements
             List<Achievement> achievements = new List<Achievement>();
