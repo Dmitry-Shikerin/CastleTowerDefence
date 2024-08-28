@@ -6,7 +6,7 @@ using Sources.Frameworks.MyGameCreator.Achivements.Domain;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
+using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using UnityEngine;
 using Zenject;
 

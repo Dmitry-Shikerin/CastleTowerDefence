@@ -10,7 +10,7 @@ using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastr
 using Sources.Frameworks.UiFramework.Collectors;
 using Sources.Frameworks.UiFramework.Core.Services.Forms.Implementation;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementation;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
+using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using UnityEngine;
