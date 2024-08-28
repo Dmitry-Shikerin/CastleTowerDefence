@@ -9,6 +9,6 @@ namespace Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces
     {
         ITextView CurrentWaveText { get; }
         UISlider SpawnerProgressSlider { get; }
-        WavePopUpView WavePopUpView { get; }
+        UIAnimator PopUpAnimator { get; }
     }
 }

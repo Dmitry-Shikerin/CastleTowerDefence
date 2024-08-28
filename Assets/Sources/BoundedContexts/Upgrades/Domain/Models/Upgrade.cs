@@ -25,7 +25,7 @@ namespace Sources.BoundedContexts.Upgrades.Domain.Models
         public Type Type => GetType();
         public List<RuntimeUpgradeLevel> Levels  { get; set; }
         public RuntimeUpgradeConfig Config { get; set; }
-        public int CurrentLevel { get; private set; }
+        public int CurrentLevel { get; set; }
         [JsonIgnore]
         public float CurrentAmount => Levels[CurrentLevel].CurrentAmount;
         [JsonIgnore]

@@ -4,6 +4,7 @@ using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
+using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementation
@@ -11,14 +12,16 @@ namespace Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementati
     public class GameOverService : IGameOverService
     {
         private readonly IEntityRepository _entityRepository;
+        private readonly ILoadService _loadService;
         private Bunker _bunker;
         private bool _isDeath;
 
         private SignalStream _signalStream;
 
-        public GameOverService(IEntityRepository entityRepository)
+        public GameOverService(IEntityRepository entityRepository, ILoadService loadService)
         {
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
+            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
         }
 
         public void Initialize()
@@ -40,6 +43,7 @@ namespace Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementati
             if (_isDeath)
                 return;
 
+            _loadService.ClearAll();
             _signalStream.SendSignal(true);
             _isDeath = true;
         }
