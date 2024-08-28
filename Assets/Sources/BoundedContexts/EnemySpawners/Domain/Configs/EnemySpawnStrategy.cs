@@ -9,7 +9,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
     {
         [ShowInInspector]
         [TableMatrix(
-            HorizontalTitle = "Custom Cell Drawing", 
+            HorizontalTitle = "Spawn Points", 
             DrawElementMethod = nameof(Draw), 
             ResizableColumns = false, 
             RowHeight = 40)]
