@@ -7,13 +7,13 @@ using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
-using TMPro;
+using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementation
 {
-    [RequireComponent(typeof(TextMeshProUGUI))]
+    [RequireComponent(typeof(Image))]
     public class UiLocalizationSprite : View, ISelfValidator
     {
         [DisplayAsString(false)] [HideLabel] 
@@ -27,14 +27,17 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementatio
         [TabGroup("GetId", "Translations")] 
         [TextArea(1, 20)] [Space(10)] 
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
+        [PreviewField(250)]
         [SerializeField] private Sprite _russianSprite;
         [TabGroup("GetId", "Translations")] 
         [TextArea(1, 20)] [Space(10)]        
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
+        [PreviewField(250)]
         [SerializeField] private Sprite _englishSprite;
         [TabGroup("GetId", "Translations")] 
         [TextArea(1, 20)] [Space(10)]         
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
+        [PreviewField(250)]
         [SerializeField] private Sprite _turkishSprite;
         [Space(10)]
         [SerializeField] private Image _image;
@@ -62,8 +65,11 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementatio
         public void Disable() =>
             _image.enabled = false;
 
+        public void SetSprite(Sprite sprite) =>
+            _image.sprite = sprite;
+
         [OnInspectorGUI]
-        public void SetImage() =>
+        private void SetImage() =>
             _image = GetComponent<Image>();
 
         [UsedImplicitly]
@@ -73,7 +79,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementatio
         [UsedImplicitly]
         private void GetPhrase()
         {
-            var phrase = LocalizationDataBase.Instance.Phrases
+            LocalizationPhrase phrase = LocalizationDataBase.Instance.Phrases
                 .FirstOrDefault(phrase => phrase.LocalizationId == _localizationId);
 
             if (phrase == null)

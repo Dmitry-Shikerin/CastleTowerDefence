@@ -10,6 +10,7 @@ using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
+using Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementation;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
@@ -21,7 +22,9 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
         [Indent(8)]
         [SerializeField] private string _lebel = UiConstant.UiCollectorLabel;
         [TabGroup("Tab1", "Texts", true, 1)] 
-        [SerializeField] private List<UiLocalizationText> _uiTexts;
+        [SerializeField] private List<UiLocalizationText> _uiTexts;        
+        [TabGroup("Tab1", "Texts", true, 1)] 
+        [SerializeField] private List<UiLocalizationSprite> _uiLocalizationSprites;
         [TabGroup("Tab1", "Texts", true, 1)] 
         [EnumToggleButtons] [HideLabel] [LabelText("IncludeInactive", SdfIconType.Search)]
         [SerializeField] private Enable _includeTexts = Enable.Enable;
@@ -44,12 +47,18 @@ namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
 
         public Localization Localization => _localization;
         public IReadOnlyList<IUiLocalizationText> UiTexts => _uiTexts;
+        public IReadOnlyList<UiLocalizationSprite> UiLocalizationSprites => _uiLocalizationSprites;
         public IReadOnlyList<IUiAudioSource> UiAudioSources => _uiAudioSources;
         
         [TabGroup("Tab1","Texts", true, 1)] 
         [Button(ButtonSizes.Large)] 
         private void AddTexts() =>
-            _uiTexts = GetComponentsInChildren<UiLocalizationText>(IncludeTexts).ToList();
+            _uiTexts = GetComponentsInChildren<UiLocalizationText>(IncludeTexts).ToList();  
+        
+        [TabGroup("Tab1","Texts", true, 1)] 
+        [Button(ButtonSizes.Large)] 
+        private void AddSprites() =>
+            _uiLocalizationSprites = GetComponentsInChildren<UiLocalizationSprite>(IncludeTexts).ToList();
 
         [TabGroup("Tab1","Texts", true, 1)] 
         [Button(ButtonSizes.Medium)] 

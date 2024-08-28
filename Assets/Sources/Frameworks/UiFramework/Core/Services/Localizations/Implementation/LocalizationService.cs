@@ -7,6 +7,7 @@ using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
+using Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementation;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using UnityEngine;
@@ -19,6 +20,8 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
         private readonly List<IUiLocalizationText> _textViews = new List<IUiLocalizationText>();
         private readonly Dictionary<string, IReadOnlyDictionary<string, string>> _textDictionary;
         private IReadOnlyDictionary<string, string> _currentLanguageDictionary;
+        private readonly Dictionary<string, IReadOnlyDictionary<string, Sprite>> _spriteDictionary;
+        private IReadOnlyDictionary<string, Sprite> _currentLanguageSprites;
 
         public LocalizationService(UiCollector uiCollector, LocalizationDataBase localizationDataBase)
         {
@@ -34,6 +37,15 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
                     .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.English),
                 [LocalizationConst.TurkishCode] = localizationDataBase.Phrases
                     .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.Turkish),
+            };
+            _spriteDictionary = new Dictionary<string, IReadOnlyDictionary<string, Sprite>>()
+            {
+                [LocalizationConst.RussianCode] = localizationDataBase.Phrases
+                    .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.RussianSprite),
+                [LocalizationConst.EnglishCode] = localizationDataBase.Phrases
+                    .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.EnglishSprite),
+                [LocalizationConst.TurkishCode] = localizationDataBase.Phrases
+                    .ToDictionary(phrase => phrase.LocalizationId, phrase => phrase.TurkishSprite),
             };
         }
         
@@ -56,7 +68,10 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
 
         public Sprite GetSprite(string key)
         {
-            throw new NotImplementedException();
+            if(_currentLanguageSprites.ContainsKey(key) == false)
+                throw new KeyNotFoundException(nameof(key));
+            
+            return _currentLanguageSprites[key];
         }
 
         private void TranslateViews(string key)
@@ -84,12 +99,32 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
             }
         }
 
+        private void TranslateSprites(string key)
+        {
+            _currentLanguageSprites = _spriteDictionary[key];
+            
+            foreach (UiLocalizationSprite localizationSprite in _uiCollector.UiLocalizationSprites)
+            {
+                if (string.IsNullOrWhiteSpace(localizationSprite.Id))
+                {
+                    Debug.Log($"LocalizationService: {localizationSprite.gameObject.name} has empty id");
+                }
+
+                if (_currentLanguageDictionary.ContainsKey(localizationSprite.Id) == false)
+                {
+                    Debug.Log($"LocalizationService: {localizationSprite.Id} not found in LocalizationData");
+                    
+                    continue;
+                }
+                
+                localizationSprite.SetSprite(_currentLanguageSprites[localizationSprite.Id]);
+            }
+        }
+
         private void AddTextViews(UiCollector uiCollector)
         {
             foreach (IUiLocalizationText textView in uiCollector.UiTexts)
-            {
                 _textViews.Add(textView);
-            }
         }
 
         private void ChangeCollectorLanguage()
@@ -103,6 +138,7 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
             };
 
             TranslateViews(key);
+            TranslateSprites(key);
         }
         
         private void ChangeSdcLanguage()

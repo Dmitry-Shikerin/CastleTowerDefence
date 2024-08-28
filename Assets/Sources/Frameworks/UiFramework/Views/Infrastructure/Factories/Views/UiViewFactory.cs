@@ -1,12 +1,9 @@
 ﻿using System;
-using Sources.Frameworks.UiFramework.Controllers.Forms;
-using Sources.Frameworks.UiFramework.Infrastructure.Factories.Controllers.Views;
-using Sources.Frameworks.UiFramework.Infrastructure.Services.Forms;
-using Sources.Frameworks.UiFramework.Presentation.Forms;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
+using Sources.Frameworks.UiFramework.Views.Controllers;
+using Sources.Frameworks.UiFramework.Views.Infrastructure.Factories.Controllers;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Factories.Views.Forms
+namespace Sources.Frameworks.UiFramework.Views.Infrastructure.Factories.Views
 {
     public class UiViewFactory
     {
