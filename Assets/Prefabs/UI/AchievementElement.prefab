@@ -131,7 +131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.186, y: 0.596}
   m_AnchorMax: {x: 0.9855593, y: 0.9377627}
-  m_AnchoredPosition: {x: 0.37634277, y: -0.018997192}
+  m_AnchoredPosition: {x: 0.37634277, y: -0.019012451}
   m_SizeDelta: {x: 0.32321167, y: -0.6139002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1263166864847971621
@@ -164,8 +164,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Kill 100 Monsters
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
-  m_sharedMaterial: {fileID: 309006581435752132, guid: fdae5b5730fe49040955c4bc695961f2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 195d7bfcd8aa49641ada3427cde0ed44, type: 2}
+  m_sharedMaterial: {fileID: 3064175076636122337, guid: 195d7bfcd8aa49641ada3427cde0ed44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -189,8 +189,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -312,8 +312,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: qetejrsyrew4ryhr
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 22ddedf4468709943a0da9977aac5a21, type: 2}
-  m_sharedMaterial: {fileID: 1495117937269356286, guid: 22ddedf4468709943a0da9977aac5a21, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 195d7bfcd8aa49641ada3427cde0ed44, type: 2}
+  m_sharedMaterial: {fileID: 3064175076636122337, guid: 195d7bfcd8aa49641ada3427cde0ed44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -337,8 +337,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0

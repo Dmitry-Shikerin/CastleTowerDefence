@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1299882878689388698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace43b02e8b64ff8a6ee05e2e5c9bfc5, type: 3}
+  m_Name: Level_7
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: 7
+  _parent: {fileID: 11400000}
+  _moneyPerUpgrade: 150
+  _currentAmount: 130
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21,6 +38,11 @@ MonoBehaviour:
   - {fileID: 8849787696251565772}
   - {fileID: 313750581999993315}
   - {fileID: 6607150781372934942}
+  - {fileID: 8442086034133658625}
+  - {fileID: -1299882878689388698}
+  - {fileID: 2330903194708955940}
+  - {fileID: 5025609498512617105}
+  - {fileID: 4376908145354017105}
 --- !u!114 &313750581999993315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,7 +59,7 @@ MonoBehaviour:
   _id: 4
   _parent: {fileID: 11400000}
   _moneyPerUpgrade: 40
-  _currentAmount: 45
+  _currentAmount: 80
 --- !u!114 &2163438401659524035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +76,24 @@ MonoBehaviour:
   _id: 1
   _parent: {fileID: 11400000}
   _moneyPerUpgrade: 10
-  _currentAmount: 30
+  _currentAmount: 50
+--- !u!114 &2330903194708955940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace43b02e8b64ff8a6ee05e2e5c9bfc5, type: 3}
+  m_Name: Level_8
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: 8
+  _parent: {fileID: 11400000}
+  _moneyPerUpgrade: 200
+  _currentAmount: 150
 --- !u!114 &3004995229721873969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +110,41 @@ MonoBehaviour:
   _id: 2
   _parent: {fileID: 11400000}
   _moneyPerUpgrade: 15
-  _currentAmount: 35
+  _currentAmount: 60
+--- !u!114 &4376908145354017105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace43b02e8b64ff8a6ee05e2e5c9bfc5, type: 3}
+  m_Name: Level_10
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: 10
+  _parent: {fileID: 11400000}
+  _moneyPerUpgrade: 300
+  _currentAmount: 250
+--- !u!114 &5025609498512617105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace43b02e8b64ff8a6ee05e2e5c9bfc5, type: 3}
+  m_Name: Level_9
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: 9
+  _parent: {fileID: 11400000}
+  _moneyPerUpgrade: 250
+  _currentAmount: 200
 --- !u!114 &6607150781372934942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +161,24 @@ MonoBehaviour:
   _id: 5
   _parent: {fileID: 11400000}
   _moneyPerUpgrade: 70
-  _currentAmount: 50
+  _currentAmount: 90
+--- !u!114 &8442086034133658625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace43b02e8b64ff8a6ee05e2e5c9bfc5, type: 3}
+  m_Name: Level_6
+  m_EditorClassIdentifier: 
+  _enable: 0
+  _id: 6
+  _parent: {fileID: 11400000}
+  _moneyPerUpgrade: 100
+  _currentAmount: 110
 --- !u!114 &8849787696251565772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,4 +195,4 @@ MonoBehaviour:
   _id: 3
   _parent: {fileID: 11400000}
   _moneyPerUpgrade: 25
-  _currentAmount: 40
+  _currentAmount: 70
