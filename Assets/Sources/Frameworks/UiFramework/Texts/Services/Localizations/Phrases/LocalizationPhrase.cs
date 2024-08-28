@@ -30,29 +30,38 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
 
         [FoldoutGroup("Russian")] [EnumToggleButtons] [LabelText("Russian")]
         [SerializeField] private Enable _editRussian;
-
         [FoldoutGroup("Russian")] [TextArea(1, 20)] [HideLabel]
         [EnableIf("_editRussian", Enable.Enable)]
         [SerializeField] private string _russian;
+        [FoldoutGroup("Russian")]
+        [EnableIf("_editRussian", Enable.Enable)]
+        [SerializeField] private Sprite _russianSprite;
 
         [FoldoutGroup("English")] [EnumToggleButtons] [LabelText("English")]
         [SerializeField] private Enable _editEnglish;
-
         [EnableIf("_editEnglish", Enable.Enable)] 
         [FoldoutGroup("English")] [TextArea(1, 20)] [HideLabel]
         [SerializeField] private string _english;
+        [EnableIf("_editEnglish", Enable.Enable)]
+        [FoldoutGroup("English")]
+        [SerializeField] private Sprite _englishSprite;
 
         [FoldoutGroup("Turkish")] [EnumToggleButtons] [LabelText("Turkish")]
         [SerializeField] private Enable _editTurkish;
-
         [EnableIf("_editTurkish", Enable.Enable)] 
         [FoldoutGroup("Turkish")] [TextArea(1, 20)] [HideLabel]
         [SerializeField] private string _turkish;
+        [EnableIf("_editTurkish", Enable.Enable)]
+        [FoldoutGroup("Turkish")]
+        [SerializeField] private Sprite _turkishSprite;
 
         public string LocalizationId => _localizationId;
         public string Russian => _russian;
+        public Sprite RussianSprite => _russianSprite;
         public string English => _english;
+        public Sprite EnglishSprite => _englishSprite;
         public string Turkish => _turkish;
+        public Sprite TurkishSprite => _turkishSprite;
         
         public LocalizationScope Scope => _scope;
         

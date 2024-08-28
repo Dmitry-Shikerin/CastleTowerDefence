@@ -4,8 +4,8 @@ using System.Linq;
 using Agava.WebUtility;
 using Agava.YandexGames;
 using Sources.Domain.Models.Constants;
+using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
@@ -52,6 +52,11 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
                 throw new KeyNotFoundException(nameof(key));
             
             return _currentLanguageDictionary[key];
+        }
+
+        public Sprite GetSprite(string key)
+        {
+            throw new NotImplementedException();
         }
 
         private void TranslateViews(string key)

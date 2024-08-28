@@ -19,7 +19,7 @@ using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Services.Implementation;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Localizations;
+using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
 
