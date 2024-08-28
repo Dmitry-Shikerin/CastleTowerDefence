@@ -200,7 +200,9 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         }
 
         private IEnemySpawnPoint GetRandomSpawnPoint() =>
-            _view.SpawnPoints[Random.Range(0, _view.SpawnPoints.Count)];
+            _view.SpawnPoints[Random.Range(0, 
+                _view.SpawnPoints.GetLength(0)), 
+                Random.Range(0, _view.SpawnPoints.GetLength(1))];
 
         private void SpawnEnemy(IEnemySpawnPoint spawnPoint)
         {

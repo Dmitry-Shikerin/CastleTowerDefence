@@ -1,5 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.Frameworks.GameServices.ConfigCollectors;
+using Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects;
 using UnityEngine;
 
 namespace Sources.Frameworks.MyGameCreator.SkyAndWeathers.Domain

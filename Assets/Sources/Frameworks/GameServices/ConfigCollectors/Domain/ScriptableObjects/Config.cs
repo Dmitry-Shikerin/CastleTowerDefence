@@ -3,9 +3,9 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using UnityEngine;
 
-namespace Sources.Frameworks.GameServices.ConfigCollectors
+namespace Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects
 {
-    public class Config : ScriptableObject
+    public class Config : SerializedScriptableObject
     {
         [EnumToggleButtons] [HideLabel] [UsedImplicitly]
         [SerializeField] private Enable _enable = Enable.Disable;

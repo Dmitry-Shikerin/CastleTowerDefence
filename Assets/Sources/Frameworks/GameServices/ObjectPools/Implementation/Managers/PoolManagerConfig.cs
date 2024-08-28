@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
 using Sources.Frameworks.GameServices.ConfigCollectors;
+using Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Unity.VisualScripting;

@@ -105,6 +105,7 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
         public void PlaySequence(string databaseName, string soundName)
         {
             _musicSoundName = soundName;
+            _soundNames = GetSoundNames();
             SoundyManager.PlaySequence(databaseName, soundName, _musicVolume);
         }
 
@@ -125,7 +126,7 @@ namespace Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infr
             SoundyManager.SetVolumes(
                 _musicVolume.VolumeValue,
                 _soundsVolume.VolumeValue);
-            _soundNames.ForEach(name => SoundyManager.SetVolume(name, _soundsVolume.VolumeValue));
+            _soundNames?.ForEach(name => SoundyManager.SetVolume(name, _soundsVolume.VolumeValue));
         }
 
         private void OnMusicVolumeChanged()

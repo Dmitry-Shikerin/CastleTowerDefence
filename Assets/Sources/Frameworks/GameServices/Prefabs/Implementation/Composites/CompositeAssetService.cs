@@ -6,6 +6,7 @@ using Sources.BoundedContexts.Enemies.Domain.Constants;
 using Sources.BoundedContexts.Enemies.Presentation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
+using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
 using Sources.BoundedContexts.Prefabs;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
@@ -44,6 +45,8 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation.Composites
             await _resourcesAssetLoader.LoadAsset<EnemyBossView>(PrefabPath.BossEnemy);
             await _resourcesAssetLoader.LoadAsset<EnemyKamikazeView>(PrefabPath.EnemyKamikaze);
             await _resourcesAssetLoader.LoadAsset<UpgradeConfigContainer>(PrefabPath.UpgradeConfigContainer);
+            await _resourcesAssetLoader.LoadAsset<EnemySpawnStrategyCollector>(PrefabPath.EnemySpawnStrategyCollector);
+            await _resourcesAssetLoader.LoadAsset<EnemySpawnerConfig>(PrefabPath.EnemySpawnerConfigContainer);
         }
 
         public void Release()

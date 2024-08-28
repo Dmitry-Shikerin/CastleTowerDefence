@@ -32,6 +32,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
         public string Id { get; set; }
         public Type Type => GetType();
         public List<RuntimeEnemySpawnerWave> Waves { get; set; }
+        public List<RuntimeEnemySpawnStrategy> SpawnStrategies { get; set; }
         public RuntimeEnemySpawnerConfig Config { get; set; }
         public Type LastSpawnedEnemyType { get; set; }
 
