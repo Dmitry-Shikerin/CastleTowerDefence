@@ -39,7 +39,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
         private void OnWaveChanged()
         {
             SetWaveProgress();
-            _view.WavePopUpView.PlayAnimation();
+            _view.PopUpAnimator.Play();
         }
 
         private void OnSpawnedEnemiesInCurrentWaveChanged()
