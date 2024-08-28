@@ -15,7 +15,7 @@ MonoBehaviour:
   _enable: 0
   _id: 7
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 150
+  _moneyPerUpgrade: 60
   _currentAmount: 130
 --- !u!114 &11400000
 MonoBehaviour:
@@ -58,7 +58,7 @@ MonoBehaviour:
   _enable: 0
   _id: 4
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 40
+  _moneyPerUpgrade: 30
   _currentAmount: 80
 --- !u!114 &2163438401659524035
 MonoBehaviour:
@@ -92,7 +92,7 @@ MonoBehaviour:
   _enable: 0
   _id: 8
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 200
+  _moneyPerUpgrade: 70
   _currentAmount: 150
 --- !u!114 &3004995229721873969
 MonoBehaviour:
@@ -126,7 +126,7 @@ MonoBehaviour:
   _enable: 0
   _id: 10
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 300
+  _moneyPerUpgrade: 100
   _currentAmount: 250
 --- !u!114 &5025609498512617105
 MonoBehaviour:
@@ -143,7 +143,7 @@ MonoBehaviour:
   _enable: 0
   _id: 9
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 250
+  _moneyPerUpgrade: 80
   _currentAmount: 200
 --- !u!114 &6607150781372934942
 MonoBehaviour:
@@ -160,7 +160,7 @@ MonoBehaviour:
   _enable: 0
   _id: 5
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 70
+  _moneyPerUpgrade: 40
   _currentAmount: 90
 --- !u!114 &8442086034133658625
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   _enable: 0
   _id: 6
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 100
+  _moneyPerUpgrade: 50
   _currentAmount: 110
 --- !u!114 &8849787696251565772
 MonoBehaviour:
@@ -194,5 +194,5 @@ MonoBehaviour:
   _enable: 0
   _id: 3
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 25
+  _moneyPerUpgrade: 20
   _currentAmount: 70
