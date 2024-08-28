@@ -137,7 +137,7 @@ MonoBehaviour:
   _waveId: 35
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 18
+  _enemyCount: 25
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &-6160706877553736391
@@ -217,7 +217,7 @@ MonoBehaviour:
   _waveId: 29
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 16
+  _enemyCount: 17
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &-3497566403805953450
@@ -257,7 +257,7 @@ MonoBehaviour:
   _waveId: 30
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 14
+  _enemyCount: 17
   _bossesCount: 2
   _kamikazeEnemyCount: 4
 --- !u!114 &-1786651826683821326
@@ -441,7 +441,7 @@ MonoBehaviour:
   _waveId: 28
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 15
+  _enemyCount: 16
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &1485793479507170223
@@ -501,7 +501,7 @@ MonoBehaviour:
   _waveId: 32
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 16
+  _enemyCount: 22
   _bossesCount: 0
   _kamikazeEnemyCount: 5
 --- !u!114 &2520747633675662377
@@ -561,7 +561,7 @@ MonoBehaviour:
   _waveId: 34
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 18
+  _enemyCount: 24
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &5326304262265565895
@@ -601,7 +601,7 @@ MonoBehaviour:
   _waveId: 31
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 16
+  _enemyCount: 20
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &5722576420714049027
@@ -721,7 +721,7 @@ MonoBehaviour:
   _waveId: 33
   _moneyPerResilenceCharacters: 0
   _spawnDelay: 2
-  _enemyCount: 17
+  _enemyCount: 23
   _bossesCount: 0
   _kamikazeEnemyCount: 4
 --- !u!114 &8948478608034842370
