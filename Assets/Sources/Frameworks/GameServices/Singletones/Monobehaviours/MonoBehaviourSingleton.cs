@@ -6,7 +6,7 @@ namespace Sources.Frameworks.GameServices.Singletones.Monobehaviours
     {
         private static T s_instance;
 
-        public static T SInstance
+        public static T Instance
         {
             get
             {

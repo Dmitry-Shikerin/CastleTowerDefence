@@ -37,6 +37,8 @@ namespace Sources.App.Factories
             sceneFactories[ModelId.MainMenu] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<ISceneFactory>().Create(payload);
             sceneFactories[ModelId.Gameplay] = (payload, sceneContext) =>
+                sceneContext.Container.Resolve<ISceneFactory>().Create(payload);            
+            sceneFactories["TestGameplay"] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<ISceneFactory>().Create(payload);
 
             sceneService.AddBeforeSceneChangeHandler(async _ => await curtainView.ShowAsync());

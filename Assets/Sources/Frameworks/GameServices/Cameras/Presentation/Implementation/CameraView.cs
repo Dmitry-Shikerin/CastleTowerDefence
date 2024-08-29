@@ -7,7 +7,9 @@ namespace Sources.Frameworks.GameServices.Cameras.Presentation.Implementation
     public class CameraView : View
     {
         [SerializeField] private List<VirtualCameraView> _cameras;
+        [SerializeField] private List<PlayableDirectorView> _playableDirectors;
         
         public IReadOnlyList<VirtualCameraView> Cameras => _cameras;
+        public IReadOnlyList<PlayableDirectorView> Directors => _playableDirectors;
     }
 }

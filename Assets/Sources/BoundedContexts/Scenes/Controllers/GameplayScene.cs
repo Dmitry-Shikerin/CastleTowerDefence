@@ -13,6 +13,7 @@ using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
+using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
@@ -44,6 +45,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly IGameCompletedService _gameCompletedService;
         private readonly ICurtainView _curtainView;
         private readonly ISignalControllersCollector _signalControllersCollector;
+        private readonly ICameraService _cameraService;
         private readonly EnemySpawnerView _enemySpawnerView;
 
         public GameplayScene(
@@ -63,7 +65,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ITutorialService tutorialService,
             IGameCompletedService gameCompletedService,
             ICurtainView curtainView,
-            ISignalControllersCollector signalControllersCollector)
+            ISignalControllersCollector signalControllersCollector,
+            ICameraService cameraService)
         {
             _enemySpawnerView = rootGameObject.EnemySpawnerView ?? 
                                 throw new ArgumentNullException(nameof(rootGameObject.EnemySpawnerView));
@@ -89,6 +92,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _curtainView = curtainView ?? throw new ArgumentNullException(nameof(curtainView));
             _signalControllersCollector = signalControllersCollector ?? 
                                           throw new ArgumentNullException(nameof(signalControllersCollector));
+            _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         }
 
         public async void Enter(object payload = null)
@@ -126,6 +130,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _saveAfterWaveService.Destroy();
             _advertisingAfterWaveService.Destroy();
             _compositeAssetService.Release();
+            _cameraService.Destroy();
         }
 
         public void Update(float deltaTime)

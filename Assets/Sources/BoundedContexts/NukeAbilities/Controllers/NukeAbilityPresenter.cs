@@ -11,11 +11,11 @@ using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces;
 using Sources.Frameworks.Domain.Implementation.Constants;
 using Sources.Frameworks.GameServices.Cameras.Domain;
+using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Cameras;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.NukeAbilities.Controllers
