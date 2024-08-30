@@ -1,8 +1,8 @@
 ﻿using Cinemachine;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.GameServices.Cameras.Domain;
+using Sources.Frameworks.GameServices.Cameras.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.PresentationsInterfaces.Views.Cameras;
 using UnityEngine;
 namespace Sources.Frameworks.GameServices.Cameras.Presentation.Implementation
 {
@@ -16,6 +16,9 @@ namespace Sources.Frameworks.GameServices.Cameras.Presentation.Implementation
         
         public void Follow(Transform target) =>
             _virtualCamera.Follow = target;
+
+        public void LookAt(Transform target) =>
+            _virtualCamera.LookAt = target;
 
         [OnInspectorInit]
         private void SetCamera()

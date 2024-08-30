@@ -7,9 +7,9 @@ using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Cameras.Domain;
+using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
 using Sources.Frameworks.Utils.Reflections.Attributes;
-using Sources.InfrastructureInterfaces.Services.Cameras;
 using UnityEngine;
 using Zenject;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
 using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
@@ -12,6 +13,7 @@ using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.ControllersInterfaces.Scenes;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
+using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
@@ -42,6 +44,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly IGameCompletedService _gameCompletedService;
         private readonly ICurtainView _curtainView;
         private readonly ISignalControllersCollector _signalControllersCollector;
+        private readonly ICameraService _cameraService;
 
         public GameplaySceneFactory(
             RootGameObject rootGameObject,
@@ -60,7 +63,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ITutorialService tutorialService,
             IGameCompletedService gameCompletedService,
             ICurtainView curtainView,
-            ISignalControllersCollector signalControllersCollector)
+            ISignalControllersCollector signalControllersCollector,
+            ICameraService cameraService)
         {
             _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _saveAfterWaveService = saveAfterWaveService ?? throw new ArgumentNullException(nameof(saveAfterWaveService));
@@ -84,6 +88,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             _curtainView = curtainView ?? throw new ArgumentNullException(nameof(curtainView));
             _signalControllersCollector = signalControllersCollector ?? 
                                           throw new ArgumentNullException(nameof(signalControllersCollector));
+            _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         }
 
         public UniTask<IScene> Create(object payload)
@@ -105,7 +110,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
                 _tutorialService,
                 _gameCompletedService,
                 _curtainView,
-                _signalControllersCollector);
+                _signalControllersCollector,
+                _cameraService);
 
             return UniTask.FromResult(gameplayScene);
         }

@@ -4,6 +4,7 @@ using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Tutorials.Services.Implementation;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Implementation;
+using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.GameServices.Cameras.Presentation.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
@@ -13,7 +14,6 @@ using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Services.Im
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Presentation;
 using Sources.Frameworks.Services.Linecasts;
 using Sources.Frameworks.Services.Linecasts.Interfaces;
-using Sources.InfrastructureInterfaces.Services.Cameras;
 using UnityEngine;
 using Zenject;
 
