@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Abilities.Presentation.Implementation;
+using Sources.BoundedContexts.AdvertisingAfterWaves.Presentation;
 using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
 using Sources.BoundedContexts.HealthBoosters.Views;
@@ -57,6 +58,9 @@ namespace Sources.BoundedContexts.Huds.Presentations
         [FoldoutGroup("Achievements")]
         [Required] [SerializeField] private List<AchievementView> _achievementViews;
         
+        [FoldoutGroup("Ad")]
+        [Required] [SerializeField] private AdvertisingAfterWaveView _advertisingView;
+        
         public UiCollector UiCollector => _uiCollector;
 
         public AbilityApplierView NukeAbilityApplier => _nukeAbilityApplier;
@@ -78,5 +82,6 @@ namespace Sources.BoundedContexts.Huds.Presentations
         public HealthBoosterView HealthBoosterView => _healthBoosterView;
         public AchievementView PopUpAchievementView => _popUpAchievementView;
         public IReadOnlyList<AchievementView> AchievementViews => _achievementViews;
+        public AdvertisingAfterWaveView AdvertisingView => _advertisingView;
     }
 }

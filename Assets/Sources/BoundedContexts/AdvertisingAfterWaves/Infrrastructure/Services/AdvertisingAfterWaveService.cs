@@ -1,4 +1,6 @@
 ﻿using System;
+using JetBrains.Annotations;
+using Sources.BoundedContexts.AdvertisingAfterWaves.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
@@ -13,15 +15,18 @@ namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services
         
         private readonly IEntityRepository _entityRepository;
         private readonly IInterstitialAdService _interstitialAdService;
+        private readonly AdvertisingAfterWaveView _advertisingView;
         private EnemySpawner _enemySpawner;
 
         public AdvertisingAfterWaveService(
             IEntityRepository entityRepository, 
-            IInterstitialAdService interstitialAdService)
+            IInterstitialAdService interstitialAdService,
+            AdvertisingAfterWaveView advertisingView)
         {
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _interstitialAdService = interstitialAdService ?? 
                                   throw new ArgumentNullException(nameof(interstitialAdService));
+            _advertisingView = advertisingView ?? throw new ArgumentNullException(nameof(advertisingView));
         }
 
         public void Initialize()
