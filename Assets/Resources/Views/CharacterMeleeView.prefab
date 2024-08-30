@@ -6125,7 +6125,7 @@ MonoBehaviour:
   _editor_DrawExtra: 0
   _editor_horizontal: 1
   _editor_category: 2
-  Editor_InIsolatedScene: 0
+  Editor_InIsolatedScene: 1
   Editor_JustCreated: 1
   UseDOTS: 0
   DOTSObstacleType: 2
@@ -7520,7 +7520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2095451711199221274
 RectTransform:
   m_ObjectHideFlags: 0
