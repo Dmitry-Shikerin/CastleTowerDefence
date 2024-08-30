@@ -573,6 +573,33 @@ MonoBehaviour:
     belirli say\u0131da zombi vard\u0131r. Seviyeniz ne kadar y\xFCksek olursa, o
     kadar \xE7ok zombiyi \xF6ld\xFCrmeniz gerekir."
   _turkishSprite: {fileID: 0}
+--- !u!114 &-5748358494766720214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: WavePopUp_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: WavePopUp
+  _textId: 
+  _editRussian: 0
+  _russian: 
+  _russianSprite: {fileID: 21300000, guid: ab80ac1fe5385944db723bdd2eddeca5, type: 3}
+  _editEnglish: 0
+  _english: 
+  _englishSprite: {fileID: 21300000, guid: d96f8a17b37581a4a99766857f86bf74, type: 3}
+  _editTurkish: 0
+  _turkish: 
+  _turkishSprite: {fileID: 21300000, guid: 1aefe23726069fc479b347921fd45127, type: 3}
 --- !u!114 &-5718483366672282658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1459,15 +1486,24 @@ MonoBehaviour:
   - {fileID: 4153720819052683178}
   - {fileID: -1509137246326993814}
   - {fileID: 3956707870985481566}
+  - {fileID: -5748358494766720214}
+  - {fileID: 2661683150511159699}
   _scopes: []
   _enableTextId: 1
-  _textId: Saving
+  _textId: WavePopUpTutorial
   _enableRussian: 1
-  _russian: "\u0421\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0435"
+  _russian: "\u041F\u043E\u0441\u043B\u0435 \u0442\u043E\u0433\u043E, \u043A\u0430\u043A
+    \u0432\u044B \u0443\u0431\u044A\u0435\u0442\u0435 \u0432\u0441\u0435\u0445 \u0432\u0440\u0430\u0433\u043E\u0432
+    \u0432 \u0432\u043E\u043B\u043D\u0435, \u0431\u0443\u0434\u0435\u0442 \u043F\u043E\u043A\u0430\u0437\u0430\u043D\u043E
+    \u0432\u0441\u043F\u043B\u044B\u0432\u0430\u044E\u0449\u0435\u0435 \u043E\u043A\u043D\u043E
+    \u043E \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0438\u0438 \u0432\u043E\u043B\u043D\u044B."
   _enableEnglish: 1
-  _english: Saving
+  _english: After you kill all the enemies in the wave, a pop-up window will be shown
+    about the completion of the wave.
   _enableTurkish: 1
-  _turkish: Kaydetme
+  _turkish: "Dalgadaki t\xFCm d\xFC\u015Fmanlar\u0131 \xF6ld\xFCrd\xFCkten sonra,
+    dalgan\u0131n sona erdi\u011Fini g\xF6steren bir a\xE7\u0131l\u0131r pencere
+    g\xF6sterilecektir."
 --- !u!114 &526446998994294440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1883,6 +1919,40 @@ MonoBehaviour:
   _englishSprite: {fileID: 0}
   _editTurkish: 0
   _turkish: "\u0130sim"
+  _turkishSprite: {fileID: 0}
+--- !u!114 &2661683150511159699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b47770bff74a2d91593ebd8dcce095, type: 3}
+  m_Name: WavePopUpTutorial_Phrase
+  m_EditorClassIdentifier: 
+  _headere: <size=18><b><color=#FF7F50><i>UiLocalizationPhrase</i></color></b></size>
+  _editParent: 0
+  _parent: {fileID: 11400000}
+  _scope: {fileID: 0}
+  _localizationId: WavePopUpTutorial
+  _textId: 
+  _editRussian: 0
+  _russian: "\u041F\u043E\u0441\u043B\u0435 \u0442\u043E\u0433\u043E, \u043A\u0430\u043A
+    \u0432\u044B \u0443\u0431\u044A\u0435\u0442\u0435 \u0432\u0441\u0435\u0445 \u0432\u0440\u0430\u0433\u043E\u0432
+    \u0432 \u0432\u043E\u043B\u043D\u0435, \u0431\u0443\u0434\u0435\u0442 \u043F\u043E\u043A\u0430\u0437\u0430\u043D\u043E
+    \u0432\u0441\u043F\u043B\u044B\u0432\u0430\u044E\u0449\u0435\u0435 \u043E\u043A\u043D\u043E
+    \u043E \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0438\u0438 \u0432\u043E\u043B\u043D\u044B."
+  _russianSprite: {fileID: 0}
+  _editEnglish: 0
+  _english: After you kill all the enemies in the wave, a pop-up window will be shown
+    about the completion of the wave.
+  _englishSprite: {fileID: 0}
+  _editTurkish: 0
+  _turkish: "Dalgadaki t\xFCm d\xFC\u015Fmanlar\u0131 \xF6ld\xFCrd\xFCkten sonra,
+    dalgan\u0131n sona erdi\u011Fini g\xF6steren bir a\xE7\u0131l\u0131r pencere
+    g\xF6sterilecektir."
   _turkishSprite: {fileID: 0}
 --- !u!114 &3073514162943602889
 MonoBehaviour:

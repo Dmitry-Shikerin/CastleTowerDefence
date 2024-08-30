@@ -35,7 +35,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         [SerializeField] private string _russian;
         [FoldoutGroup("Russian")]
         [EnableIf("_editRussian", Enable.Enable)]
-        [PreviewField(250)]
+        [PreviewField(200)] [HideLabel]
         [SerializeField] private Sprite _russianSprite;
 
         [FoldoutGroup("English")] [EnumToggleButtons] [LabelText("English")]
@@ -45,7 +45,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         [SerializeField] private string _english;
         [EnableIf("_editEnglish", Enable.Enable)]
         [FoldoutGroup("English")]
-        [PreviewField(250)]
+        [PreviewField(200)] [HideLabel]
         [SerializeField] private Sprite _englishSprite;
 
         [FoldoutGroup("Turkish")] [EnumToggleButtons] [LabelText("Turkish")]
@@ -55,7 +55,7 @@ namespace Sources.Frameworks.UiFramework.Texts.Services.Localizations.Phrases
         [SerializeField] private string _turkish;
         [EnableIf("_editTurkish", Enable.Enable)]
         [FoldoutGroup("Turkish")]
-        [PreviewField(250)]
+        [PreviewField(200)] [HideLabel]
         [SerializeField] private Sprite _turkishSprite;
 
         public string LocalizationId => _localizationId;

@@ -25,17 +25,17 @@ namespace Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementatio
         [TabGroup("GetId", "Translations")] [EnumToggleButtons] [Space(10)]
         [SerializeField] private Enable _disableTexts = Core.Presentation.CommonTypes.Enable.Disable;
         [TabGroup("GetId", "Translations")] 
-        [TextArea(1, 20)] [Space(10)] 
+        [Space(10)] 
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
         [PreviewField(250)]
         [SerializeField] private Sprite _russianSprite;
         [TabGroup("GetId", "Translations")] 
-        [TextArea(1, 20)] [Space(10)]        
+        [Space(10)]        
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
         [PreviewField(250)]
         [SerializeField] private Sprite _englishSprite;
         [TabGroup("GetId", "Translations")] 
-        [TextArea(1, 20)] [Space(10)]         
+        [Space(10)]         
         [DisableIf("_disableTexts", Core.Presentation.CommonTypes.Enable.Disable)]
         [PreviewField(250)]
         [SerializeField] private Sprite _turkishSprite;

@@ -58,6 +58,19 @@ namespace ES3Editor
             if (EditorUtility.DisplayDialog("Clear PlayerPrefs", "Are you sure you wish to clear PlayerPrefs?\nThis action cannot be reversed.", "Clear", "Cancel"))
                 PlayerPrefs.DeleteAll();
         }
+        
+        //удалить
+        [MenuItem("Tools/Easy Save 3/Set fast game mode", false, 200)]
+        private static void SetFastMode()
+        {
+	        Time.timeScale = 1.25f;
+        }
+        
+        [MenuItem("Tools/Easy Save 3/Set normal game mode", false, 200)]
+        private static void SetNormalMode()
+        {
+	        Time.timeScale = 1f;
+        }
     }
 
 	/*public static class OSFileBrowser
