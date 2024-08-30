@@ -47,6 +47,7 @@ namespace Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Implem
             
             try
             {
+                HideCameras();
                 director.Play();
                 Debug.Log($"Start play");
                 _isDirectorPlaying = true;
@@ -98,6 +99,13 @@ namespace Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Implem
             virtualCamera.Show();
             CurrentCameraId = cameraId;
             CameraChanged?.Invoke();
+        }
+
+        private void HideCameras()
+        {
+            _cameraView.Cameras
+                .ToList()
+                .ForEach(camera => camera.Hide());
         }
 
         public void SetFollower<T>() where T : ICameraFollowable
