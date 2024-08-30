@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Sources.BoundedContexts.AdvertisingAfterWaves.Presentation;
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation;
@@ -44,6 +45,9 @@ namespace Sources.App.DIContainers.Gameplay
             
             //AchievementPopUp
             Container.Bind<AchievementView>().FromInstance(_gameplayHud.PopUpAchievementView).AsSingle();
+            
+            //Advertising
+            Container.Bind<AdvertisingAfterWaveView>().FromInstance(_gameplayHud.AdvertisingView).AsSingle();
         }
     }
 }
