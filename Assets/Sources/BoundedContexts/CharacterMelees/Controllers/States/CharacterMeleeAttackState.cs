@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.Characters.Controllers.States;
 using Sources.BoundedContexts.Characters.Presentation.Implementation;
-using Sources.BoundedContexts.Enemies.Presentation;
-using Sources.BoundedContexts.EnemyHealths.Domain;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.Layers.Domain;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
