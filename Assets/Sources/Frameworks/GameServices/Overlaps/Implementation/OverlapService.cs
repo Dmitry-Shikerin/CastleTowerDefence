@@ -9,7 +9,7 @@ namespace Sources.Frameworks.GameServices.Overlaps.Implementation
     public class OverlapService : IOverlapService
     {
         private readonly Collider[] _colliders = new Collider[32];
-        private readonly Collider[] _boxColliders = new Collider[32];
+        private readonly Collider[] _boxColliders = new Collider[150];
         private readonly ILinecastService _linecastService;
 
         public OverlapService(ILinecastService linecastService)

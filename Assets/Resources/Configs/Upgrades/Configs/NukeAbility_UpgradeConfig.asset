@@ -49,7 +49,7 @@ MonoBehaviour:
   _enable: 0
   _id: 5
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 70
+  _moneyPerUpgrade: 100
   _currentAmount: 0.035
 --- !u!114 &11400000
 MonoBehaviour:
@@ -105,7 +105,7 @@ MonoBehaviour:
   _enable: 0
   _id: 4
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 50
+  _moneyPerUpgrade: 70
   _currentAmount: 0.03
 --- !u!114 &6747011904357664325
 MonoBehaviour:
@@ -122,5 +122,5 @@ MonoBehaviour:
   _enable: 0
   _id: 6
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 100
+  _moneyPerUpgrade: 150
   _currentAmount: 0.04

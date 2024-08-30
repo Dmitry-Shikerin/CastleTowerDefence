@@ -27,20 +27,22 @@ namespace Sources.BoundedContexts.EnemySpawners.Controllers
             SetWaveProgress();
             OnSpawnedEnemiesInCurrentWaveChanged();
             _enemySpawner.WaveChanged += OnWaveChanged;
+            _enemySpawner.WaveKilled += OnWaveKilled;
             _enemySpawner.SpawnedAllEnemiesChanged += OnSpawnedEnemiesInCurrentWaveChanged;
         }
 
         public override void Disable()
         {
             _enemySpawner.WaveChanged -= OnWaveChanged;
+            _enemySpawner.WaveKilled -= OnWaveKilled;
             _enemySpawner.SpawnedAllEnemiesChanged -= OnSpawnedEnemiesInCurrentWaveChanged;
         }
 
-        private void OnWaveChanged()
-        {
+        private void OnWaveChanged() => 
             SetWaveProgress();
+
+        private void OnWaveKilled() => 
             _view.PopUpAnimator.Play();
-        }
 
         private void OnSpawnedEnemiesInCurrentWaveChanged()
         {
