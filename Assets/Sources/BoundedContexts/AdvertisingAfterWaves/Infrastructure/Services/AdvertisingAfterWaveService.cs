@@ -1,13 +1,15 @@
 ﻿using System;
-using JetBrains.Annotations;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
+using Sources.Frameworks.YandexSdcFramework.Advertisings.Domain.Constant;
 using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.AdverticingServices;
 
-namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services
+namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrastructure.Services
 {
     public class AdvertisingAfterWaveService : IInitialize, IDestroy
     {
@@ -16,7 +18,10 @@ namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services
         private readonly IEntityRepository _entityRepository;
         private readonly IInterstitialAdService _interstitialAdService;
         private readonly AdvertisingAfterWaveView _advertisingView;
+        
         private EnemySpawner _enemySpawner;
+        private CancellationTokenSource _cancellationTokenSource;
+        private TimeSpan _timerTimeSpan = TimeSpan.FromSeconds(AdvertisingConst.Delay);
 
         public AdvertisingAfterWaveService(
             IEntityRepository entityRepository, 
@@ -33,17 +38,23 @@ namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services
         {
             _enemySpawner = _entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner);
             _enemySpawner.WaveChanged += OnShowInterstitial;
+            _cancellationTokenSource = new CancellationTokenSource();
+            
+            _advertisingView.Hide();
         }
 
         public void Destroy()
         {
-            _enemySpawner.WaveChanged -= OnShowInterstitial;   
+            _enemySpawner.WaveChanged -= OnShowInterstitial;
+            _cancellationTokenSource.Cancel();
         }
 
-        private void OnShowInterstitial()
+        private async void OnShowInterstitial()
         {
             if (CheckShow() == false)
                 return;
+
+            await ShowTimerAsync(_cancellationTokenSource.Token);
             
             _interstitialAdService.ShowInterstitial();
         }
@@ -61,6 +72,19 @@ namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services
             }
 
             return false;
+        }
+        
+        public async UniTask ShowTimerAsync(CancellationToken cancellationToken)
+        {
+            _advertisingView.Show();
+            
+            for (int i = 3; i > 0 ; i--)
+            {
+                _advertisingView.TimerText.SetText($"{i}");
+                await UniTask.Delay(_timerTimeSpan, cancellationToken: cancellationToken);
+            }
+            
+            _advertisingView.Hide();
         }
     }
 }

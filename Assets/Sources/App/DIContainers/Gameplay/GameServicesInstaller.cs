@@ -1,5 +1,5 @@
 ﻿using Sirenix.OdinInspector;
-using Sources.BoundedContexts.AdvertisingAfterWaves.Infrrastructure.Services;
+using Sources.BoundedContexts.AdvertisingAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Tutorials.Services.Implementation;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
