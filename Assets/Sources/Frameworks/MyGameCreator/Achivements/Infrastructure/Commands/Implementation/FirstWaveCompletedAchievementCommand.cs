@@ -46,7 +46,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
             _achievement = _entityRepository
                 .Get<Achievement>(ModelId.FirstWaveCompletedAchievement);
 
-            _enemySpawner.WaveChanged += OnCompleted;
+            _enemySpawner.WaveKilled += OnCompleted;
         }
 
         private void OnCompleted()
@@ -58,6 +58,6 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.I
         }
 
         public override void Destroy() => 
-            _enemySpawner.WaveChanged -= OnCompleted;
+            _enemySpawner.WaveKilled -= OnCompleted;
     }
 }
