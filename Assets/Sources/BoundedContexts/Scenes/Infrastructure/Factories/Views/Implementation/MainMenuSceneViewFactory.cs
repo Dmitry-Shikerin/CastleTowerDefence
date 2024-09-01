@@ -14,9 +14,8 @@ using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
-using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
@@ -95,9 +94,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             //leaderboard
             _leaderboardInitializeService.Construct(_mainMenuHud.LeaderBoardElementViews);
             
-            //advertising
-            _advertisingService.Construct(mainMenuModel.HealthBooster);
-
             ActivateLoadGameButton();
         }
         

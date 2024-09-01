@@ -1,6 +1,6 @@
 ﻿using Sources.Frameworks.GameServices.UpdateServices.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.PresentationsInterfaces.Views.Constructors;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Constructors;
 using UnityEngine;
 using Zenject;
 
@@ -37,10 +37,10 @@ namespace Sources.BoundedContexts.Cameras.Presentation
         }
 
         [Inject]
-        public void Construct(IUpdateRegister updateRegister)
+        public void Construct(IUpdateRegister leaderBoardElementViews)
         {
             Hide();
-            _updateRegister = updateRegister;
+            _updateRegister = leaderBoardElementViews;
             Show();
         }
     }

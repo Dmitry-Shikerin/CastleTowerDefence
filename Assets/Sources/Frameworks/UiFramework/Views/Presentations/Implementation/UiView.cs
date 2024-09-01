@@ -11,7 +11,6 @@ using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
 using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
 using Sources.Frameworks.UiFramework.PresentationsInterfaces;
 using Sources.Frameworks.UiFramework.Views.Controllers;
-using Sources.Presentations.Views;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation

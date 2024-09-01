@@ -28,7 +28,6 @@ using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Zenject;
 
@@ -103,7 +102,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<BurnAbilityViewFactory>().AsSingle();
             
             //Upgrades
-            Container.Bind<UpgradePresenterFactory>().AsSingle();
             Container.Bind<UpgradeViewFactory>().AsSingle();
         }
     }

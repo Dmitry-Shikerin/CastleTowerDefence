@@ -52,7 +52,11 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             Upgrade flamethrowerAbilityUpgrade = CreateUpgrade(ModelId.FlamethrowerUpgrade);
             
             //Bunker
-            Bunker bunker = new Bunker(15, ModelId.Bunker);
+            Bunker bunker = new Bunker()
+            {
+                Health = 15,
+                Id = ModelId.Bunker,
+            };
             _entityRepository.Add(bunker);
             
             //Enemies
@@ -66,7 +70,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(killEnemyCounter);
             
             //Characters
-            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility(ModelId.SpawnAbility);
+            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility()
+            {
+                Id = ModelId.SpawnAbility,
+            };
             _entityRepository.Add(characterSpawnAbility);
             
             //Abilities
@@ -203,7 +210,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             if (_loadService.HasKey(key))
                 return _loadService.Load<Tutorial>(key);
 
-            Tutorial tutorial = new Tutorial();
+            Tutorial tutorial = new Tutorial()
+            {
+                Id = key,
+            };
             _entityRepository.Add(tutorial);
             
             return tutorial;

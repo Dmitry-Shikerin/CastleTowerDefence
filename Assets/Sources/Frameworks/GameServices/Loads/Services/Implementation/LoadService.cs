@@ -95,6 +95,12 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
                 _dataService.Clear(id);
         }
 
+        public void Clear(IEnumerable<string> ids)
+        {
+            foreach (string id in ids)
+                _dataService.Clear(id);
+        }
+
         public bool HasKey(string id) =>
             _dataService.HasKey(id);
     }

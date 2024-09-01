@@ -2,6 +2,7 @@
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Domain.Implementation;
 using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
@@ -18,6 +19,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
         public ButtonCommandId Id => ButtonCommandId.LoadMainMenuScene;
 
         public void Handle() => 
-            _sceneService.ChangeSceneAsync(ModelId.MainMenu);
+            _sceneService.ChangeSceneAsync(
+                ModelId.MainMenu, new ScenePayload(ModelId.MainMenu, false, true));
     }
 }

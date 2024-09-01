@@ -26,7 +26,7 @@ using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.Collectors;
-using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
@@ -173,12 +173,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                     .First(config => config.Id == achievements[i].Id);
                 _gameplayHud.AchievementViews[i].Construct(achievements[i], config);
             }
-            
-            //Tutorial
-            _tutorialService.Construct(gameplayModel.Tutorial);
-            
-            //advertising
-            _advertisingService.Construct(gameplayModel.HealthBooster);
         }
 
         private GameplayModel Load(IScenePayload payload)

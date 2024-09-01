@@ -1,4 +1,4 @@
-﻿namespace Sources.ECSBoundedContexts.SearchlightMoves.Components
+﻿namespace Sources.ECSBoundedContexts.SearchlightMoves.Domain.Components
 {
     public struct SearchlightTag
     {

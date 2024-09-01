@@ -82,6 +82,12 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         {
             PlayerWallet,
             KillEnemyCounter,
+            HealthUpgrade,
+            AttackUpgrade,
+            NukeUpgrade,
+            FlamethrowerUpgrade,
+            Bunker,
+            EnemySpawner,
         };
 
         public static IReadOnlyList<string> ModelsIds { get; } = new List<string>()

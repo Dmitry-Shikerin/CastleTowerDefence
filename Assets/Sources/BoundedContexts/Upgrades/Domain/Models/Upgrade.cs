@@ -2,23 +2,13 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
-using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Data;
 using Sources.Frameworks.Domain.Interfaces.Entities;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Upgrades.Domain.Models
 {
     public class Upgrade : IEntity
     {
-        // public Upgrade(UpgradeConfig config)
-        // {
-        //     List<RuntimeUpgradeLevel> levels = new List<RuntimeUpgradeLevel>();
-        //     config.Levels.ForEach(level => levels.Add(new RuntimeUpgradeLevel(level)));
-        //     Levels = levels;
-        //     Id = config.Id;
-        // }
-        
         public event Action LevelChanged;
 
         public string Id { get; set; }

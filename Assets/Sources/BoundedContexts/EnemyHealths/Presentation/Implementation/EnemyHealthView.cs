@@ -4,7 +4,6 @@ using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Controllers;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemyHealths.Presentation.Implementation

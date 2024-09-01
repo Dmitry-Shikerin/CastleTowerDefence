@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.Presenters;
-using Sources.Presentations.Views;
 
 namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views
 {

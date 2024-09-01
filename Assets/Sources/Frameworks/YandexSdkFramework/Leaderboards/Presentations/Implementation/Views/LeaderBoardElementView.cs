@@ -1,6 +1,5 @@
 ﻿using Sources.Controllers.YandexSDK;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using Sources.PresentationsInterfaces.Views.YandexSDK;
 using TMPro;
 using UnityEngine;

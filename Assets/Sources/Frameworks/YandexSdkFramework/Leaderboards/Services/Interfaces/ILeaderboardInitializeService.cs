@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Constructors;
 using Sources.Frameworks.YandexSdcFramework.Presentations.Views;
-using Sources.PresentationsInterfaces.Views.Constructors;
 
 namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces
 {

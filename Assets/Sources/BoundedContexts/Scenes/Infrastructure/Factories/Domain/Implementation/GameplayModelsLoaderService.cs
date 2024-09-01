@@ -49,7 +49,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             KillEnemyCounter killEnemyCounter = _loadService.Load<KillEnemyCounter>(ModelId.KillEnemyCounter);
             
             //Characters
-            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility(ModelId.SpawnAbility);
+            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility()
+            {
+                Id = ModelId.SpawnAbility,
+            };
             _entityRepository.Add(characterSpawnAbility);
             
             //Abilities

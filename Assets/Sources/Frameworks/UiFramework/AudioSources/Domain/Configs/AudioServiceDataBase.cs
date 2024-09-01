@@ -1,9 +1,9 @@
 ﻿using System;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Constructors;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Dictionaries;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
-using Sources.PresentationsInterfaces.Views.Constructors;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Configs
@@ -32,8 +32,8 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Configs
         public int PoolCount => _poolCount;
         public float Volume => _volume;
 
-        public void Construct(Volume updateRegister) =>
-            _volumeModel = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
+        public void Construct(Volume leaderBoardElementViews) =>
+            _volumeModel = leaderBoardElementViews ?? throw new ArgumentNullException(nameof(leaderBoardElementViews));
         
         private void ChangeVolume()
         {
