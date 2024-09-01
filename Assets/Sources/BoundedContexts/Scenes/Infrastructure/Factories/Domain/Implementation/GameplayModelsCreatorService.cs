@@ -220,7 +220,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                     EnemyCount = wave.EnemyCount,
                     BossesCount = wave.BossesCount,
                     KamikazeEnemyCount = wave.KamikazeEnemyCount,
-                    MoneyPerResilenceCharacters = wave.MoneyPerResilenceCharacters,
+                    MoneyPerResurrectCharacters = wave.MoneyPerResilenceCharacters,
                 });
             }
             

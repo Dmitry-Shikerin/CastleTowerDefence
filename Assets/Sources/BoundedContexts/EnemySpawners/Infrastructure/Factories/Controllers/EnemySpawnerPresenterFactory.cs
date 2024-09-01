@@ -4,7 +4,6 @@ using Sources.BoundedContexts.EnemyBosses.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemySpawners.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
-using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
 namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers
@@ -15,21 +14,18 @@ namespace Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Control
         private readonly EnemyViewFactory _enemyViewFactory;
         private readonly EnemyKamikazeViewFactory _enemyKamikazeViewFactory;
         private readonly EnemyBossViewFactory _enemyBossViewFactory;
-        private readonly ITutorialService _tutorialService;
 
         public EnemySpawnerPresenterFactory(
             IEntityRepository entityRepository,
             EnemyViewFactory enemyViewFactory,
             EnemyKamikazeViewFactory enemyKamikazeViewFactory,
-            EnemyBossViewFactory enemyBossViewFactory,
-            ITutorialService tutorialService)
+            EnemyBossViewFactory enemyBossViewFactory)
         {
             _entityRepository = entityRepository ?? 
                                 throw new ArgumentNullException(nameof(entityRepository));
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
             _enemyKamikazeViewFactory = enemyKamikazeViewFactory ?? throw new ArgumentNullException(nameof(enemyKamikazeViewFactory));
             _enemyBossViewFactory = enemyBossViewFactory ?? throw new ArgumentNullException(nameof(enemyBossViewFactory));
-            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
         }
 
         public EnemySpawnerPresenter Create(IEnemySpawnerView view)

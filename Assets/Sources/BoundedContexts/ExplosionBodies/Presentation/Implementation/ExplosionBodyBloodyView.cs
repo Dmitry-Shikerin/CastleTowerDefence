@@ -1,5 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using Sources.BoundedContexts.ExplosionBodies.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Destroyers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
@@ -7,7 +6,7 @@ using UnityEngine;
 
 namespace Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation
 {
-    public class ExplosionBodyBloodyView : View, IExplosionBodyBloodyView
+    public class ExplosionBodyBloodyView : View
     {
         [Required] [SerializeField] private ParticleSystem _particleSystem;
         

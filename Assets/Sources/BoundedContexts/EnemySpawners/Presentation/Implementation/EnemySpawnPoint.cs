@@ -3,7 +3,6 @@ using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementatio
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
-using Sources.BoundedContexts.SpawnPoints.Presentation.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemySpawners.Presentation.Implementation
