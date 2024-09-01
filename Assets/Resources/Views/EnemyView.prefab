@@ -1269,6 +1269,7 @@ MonoBehaviour:
   - {fileID: 6262614585315681159}
   _healthBarView: {fileID: 6003326834073596623}
   _burnAbilityView: {fileID: 8573076104433981301}
+  _lookAtCamera: {fileID: 2760913697945640503}
   _findRange: 3
   _animation: {fileID: 3818196743991438505}
 --- !u!114 &3818196743991438505

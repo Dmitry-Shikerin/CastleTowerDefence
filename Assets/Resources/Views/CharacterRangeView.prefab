@@ -1722,6 +1722,7 @@ MonoBehaviour:
   _healthBarView: {fileID: 6486729287640737444}
   _healthView: {fileID: 6118652786860346868}
   _fsmOwner: {fileID: 7946206599948069554}
+  _lookAtCamera: {fileID: 96079558496377498}
   _shootParticle: {fileID: 8187736667615609897}
 --- !u!114 &3008916966335420997
 MonoBehaviour:

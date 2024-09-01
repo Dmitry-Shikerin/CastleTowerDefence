@@ -6089,6 +6089,7 @@ MonoBehaviour:
   _healthBarView: {fileID: 5824879900162487103}
   _healthView: {fileID: 6934783632022637132}
   _fsmOwner: {fileID: 3755755198892554804}
+  _lookAtCamera: {fileID: 7412053483483630435}
   _massAttackPoint: {fileID: 1888609334427849646}
   _massAttackRange: 1
 --- !u!114 &6126525677090142937

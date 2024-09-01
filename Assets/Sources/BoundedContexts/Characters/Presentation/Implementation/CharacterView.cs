@@ -1,5 +1,6 @@
 ﻿using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
+using Sources.BoundedContexts.Cameras.Presentation;
 using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.BoundedContexts.Characters.Domain;
@@ -21,9 +22,11 @@ namespace Sources.BoundedContexts.Characters.Presentation.Implementation
         [Required] [SerializeField] private HealthBarView _healthBarView;
         [Required] [SerializeField] private CharacterHealthView _healthView;
         [Required] [SerializeField] private FSMOwner _fsmOwner;
+        [Required] [SerializeField] private LookAtCamera _lookAtCamera;
 
         private IPODestroyerService _poDestroyerService = new PODestroyerService();
         
+        public LookAtCamera LookAtCamera => _lookAtCamera;
         public FSMOwner FsmOwner => _fsmOwner;
         public HealthBarView HealthBarView => _healthBarView;
         public ICharacterAnimation Animation => _animation;

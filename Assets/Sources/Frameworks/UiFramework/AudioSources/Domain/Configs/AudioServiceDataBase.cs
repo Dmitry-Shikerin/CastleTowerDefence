@@ -32,8 +32,8 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Configs
         public int PoolCount => _poolCount;
         public float Volume => _volume;
 
-        public void Construct(Volume volume) =>
-            _volumeModel = volume ?? throw new ArgumentNullException(nameof(volume));
+        public void Construct(Volume updateRegister) =>
+            _volumeModel = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
         
         private void ChangeVolume()
         {

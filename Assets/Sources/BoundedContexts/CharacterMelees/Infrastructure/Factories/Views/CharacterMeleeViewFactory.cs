@@ -47,6 +47,7 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
             
             view.FsmOwner.ConstructFsm(character, view);
             view.FsmOwner.InjectFsm(_container);
+            _container.Inject(view.LookAtCamera);
             view.StartFsm();
             
             view.SetPosition(position);

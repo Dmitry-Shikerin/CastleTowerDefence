@@ -28,8 +28,8 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Groups
 
         public float CurrentTime => _currentTime;
 
-        public void Construct(IAudioService soundService) =>
-            _audioService = soundService ?? throw new ArgumentNullException(nameof(soundService));
+        public void Construct(IAudioService updateRegister) =>
+            _audioService = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
 
         public void Destroy()
         {

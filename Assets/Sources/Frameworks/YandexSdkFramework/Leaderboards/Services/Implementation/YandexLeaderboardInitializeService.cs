@@ -23,8 +23,8 @@ namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementa
                                              throw new ArgumentNullException(nameof(leaderBoardElementViewFactory));
         }
 
-        public void Construct(IReadOnlyList<LeaderBoardElementView> views) =>
-            _leaderBoardElementViews = views ?? throw new ArgumentNullException(nameof(views));
+        public void Construct(IReadOnlyList<LeaderBoardElementView> updateRegister) =>
+            _leaderBoardElementViews = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
 
         public void Fill()
         {

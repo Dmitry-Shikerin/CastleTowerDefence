@@ -2,6 +2,6 @@
 {
     public interface IConstruct<in T>
     {
-        void Construct(T playerWallet);
+        void Construct(T updateRegister);
     }
 }

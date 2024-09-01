@@ -10,6 +10,7 @@ using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using Sources.Frameworks.GameServices.Overlaps.Implementation;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
+using Sources.Frameworks.GameServices.UpdateServices.Implementation;
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Services.Implementation;
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Presentation;
 using Sources.Frameworks.Services.Linecasts;
@@ -32,6 +33,7 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<IPoolManager>().To<PoolManager>().AsSingle();
             Container.Bind<AdvertisingAfterWaveService>().AsSingle();
             Container.Bind<SaveAfterWaveService>().AsSingle();
+            Container.BindInterfacesTo<UpdateService>().AsSingle();
             
             //Camera
             Container.Bind<CameraView>().FromInstance(_cameraView).AsSingle();

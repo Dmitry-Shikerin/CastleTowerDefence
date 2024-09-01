@@ -39,8 +39,8 @@ namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementa
         public void Destroy() =>
             _cancellationTokenSource.Cancel();
 
-        public void Construct(HealthBooster healthBooster) =>
-            _healthBooster = healthBooster ?? throw new ArgumentNullException(nameof(healthBooster));
+        public void Construct(HealthBooster updateRegister) =>
+            _healthBooster = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
 
         public void ShowInterstitial()
         {

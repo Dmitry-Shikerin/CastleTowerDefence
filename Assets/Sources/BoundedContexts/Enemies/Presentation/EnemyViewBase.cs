@@ -5,6 +5,7 @@ using NodeCanvas.StateMachines;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
+using Sources.BoundedContexts.Cameras.Presentation;
 using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
@@ -26,10 +27,12 @@ namespace Sources.BoundedContexts.Enemies.Presentation
         [SerializeField] private List<SkinView> _skins;
         [Required] [SerializeField] private HealthBarView _healthBarView;
         [Required] [SerializeField] private BurnAbilityView _burnAbilityView;
+        [Required] [SerializeField] private LookAtCamera _lookAtCamera;
 
         private readonly IPODestroyerService _poDestroyerService = 
             new PODestroyerService();
 
+        public LookAtCamera LookAtCamera => _lookAtCamera;
         public FSMOwner FsmOwner => _fsmOwner;
         public BurnAbilityView BurnAbilityView => _burnAbilityView;
         public HealthBarView HealthBarView => _healthBarView;

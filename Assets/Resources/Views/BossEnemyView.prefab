@@ -1342,7 +1342,8 @@ MonoBehaviour:
   - {fileID: 5485547633374444984}
   _healthBarView: {fileID: 5936573074405426777}
   _burnAbilityView: {fileID: 6753943412273236927}
-  enemyBossAnimation: {fileID: 6106732187483106532}
+  _lookAtCamera: {fileID: 4904352460984035628}
+  _enemyBossAnimation: {fileID: 6106732187483106532}
   _massAttackParticle: {fileID: 945649008539658765}
   _findRange: 3
 --- !u!114 &6106732187483106532

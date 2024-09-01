@@ -17,6 +17,7 @@ using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Interfaces
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
+using Sources.Frameworks.GameServices.UpdateServices.Interfaces;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.MyGameCreator.SkyAndWeathers.Infrastructure.Services.Implementation;
@@ -46,6 +47,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly ICurtainView _curtainView;
         private readonly ISignalControllersCollector _signalControllersCollector;
         private readonly ICameraService _cameraService;
+        private readonly IUpdateService _updateService;
         private readonly EnemySpawnerView _enemySpawnerView;
 
         public GameplayScene(
@@ -66,11 +68,12 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             IGameCompletedService gameCompletedService,
             ICurtainView curtainView,
             ISignalControllersCollector signalControllersCollector,
-            ICameraService cameraService)
+            ICameraService cameraService,
+            IUpdateService updateService)
         {
+            _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _enemySpawnerView = rootGameObject.EnemySpawnerView ?? 
                                 throw new ArgumentNullException(nameof(rootGameObject.EnemySpawnerView));
-            _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _saveAfterWaveService = saveAfterWaveService ?? throw new ArgumentNullException(nameof(saveAfterWaveService));
             _advertisingAfterWaveService = advertisingAfterWaveService ?? throw new ArgumentNullException(nameof(advertisingAfterWaveService));
             _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
@@ -93,6 +96,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             _signalControllersCollector = signalControllersCollector ?? 
                                           throw new ArgumentNullException(nameof(signalControllersCollector));
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
+            _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
         }
 
         public async void Enter(object payload = null)
@@ -135,6 +139,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 
         public void Update(float deltaTime)
         {
+            _updateService.Update(deltaTime);
         }
 
         public void UpdateLate(float deltaTime)

@@ -46,6 +46,7 @@ namespace Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views
             
             view.FsmOwner.InjectFsm(_diContainer);
             view.FsmOwner.ConstructFsm(characterRange, view);
+            _diContainer.Inject(view.LookAtCamera);
             view.StartFsm();
             
             view.SetPosition(position);
