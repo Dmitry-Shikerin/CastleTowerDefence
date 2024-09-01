@@ -4,14 +4,13 @@ using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.CharacterRotations.Services.Implementation;
-using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
-using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers;
-using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
+using Sources.BoundedContexts.Characters.Services.Implementation;
+using Sources.BoundedContexts.Characters.Services.Interfaces;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
@@ -70,7 +69,6 @@ namespace Sources.App.DIContainers.Gameplay
 
             Container.Bind<CharacterRangeViewFactory>().AsSingle();
 
-            Container.Bind<CharacterHealthPresenterFactory>().AsSingle();
             Container.Bind<CharacterHealthViewFactory>().AsSingle();
             
             //EnemiesSpawners

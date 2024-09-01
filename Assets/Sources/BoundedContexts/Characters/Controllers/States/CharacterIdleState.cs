@@ -49,16 +49,12 @@ namespace Sources.BoundedContexts.Characters.Controllers.States
             _sequence.StartAsync();
         }
         
-        protected override void OnUpdate()
-        {
+        protected override void OnUpdate() =>
             _view.SetLookRotation(0);
-        }
-                
-        protected override void OnExit() 
-        { 
+
+        protected override void OnExit() =>
             _sequence.Stop();
-        }
-        
+
         private void FindTarget() 
         {
             IEnemyHealthView enemyHealthView =

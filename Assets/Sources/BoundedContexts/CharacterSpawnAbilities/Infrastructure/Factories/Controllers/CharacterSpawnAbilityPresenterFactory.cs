@@ -1,14 +1,12 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Controllers;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
-using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 
-namespace Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers
+namespace Sources.BoundedContexts.CharacterSpawnAbilities.Infrastructure.Factories.Controllers
 {
     public class CharacterSpawnAbilityPresenterFactory
     {

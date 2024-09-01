@@ -1,7 +1,7 @@
-﻿using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
+﻿using Sources.BoundedContexts.Characters.Services.Interfaces;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.CharacterRotations.Services.Implementation
+namespace Sources.BoundedContexts.Characters.Services.Implementation
 {
     public class CharacterRotationService : ICharacterRotationService
     {

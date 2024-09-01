@@ -1,4 +1,3 @@
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 
 namespace Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces

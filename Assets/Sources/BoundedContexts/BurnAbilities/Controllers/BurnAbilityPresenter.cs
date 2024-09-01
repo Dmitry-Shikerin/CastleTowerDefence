@@ -26,16 +26,11 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
             _abilityCooldown = TimeSpan.FromSeconds(_burnAbility.Cooldown);
         }
 
-        public override void Enable()
-        {
+        public override void Enable() =>
             _tokenSource = new CancellationTokenSource();
 
-        }
-
-        public override void Disable()
-        {
+        public override void Disable() =>
             _tokenSource.Cancel();
-        }
 
         public void Burn(int instantDamage, int overtimeDamage)
         {
@@ -78,7 +73,6 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
                 for (int i = 0; i < _burnAbility.BurnTick; i++)
                 {
                     _view.EnemyHealthView.TakeDamage(overtimeDamage);
-
                     await UniTask.Delay(_burnDelay, cancellationToken: cancellationToken);
                 }
 

@@ -1,8 +1,6 @@
 ﻿using Sources.Frameworks.GameServices.Loads.Services.Implementation;
-using Sources.Frameworks.GameServices.Loads.Services.Implementation.Collectors;
 using Sources.Frameworks.GameServices.Loads.Services.Implementation.Data;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
-using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Data;
 using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.GameServices.Prefabs.Implementation.Composites;
@@ -22,7 +20,6 @@ namespace Sources.App.DIContainers.Common
             Container.Bind<IEntityRepository>().To<EntityRepository>().AsSingle();
             Container.Bind<IDataService>().To<PlayerPrefsDataService>().AsSingle();
             // Container.Bind<IDataService>().To<EasySaveDataService>().AsSingle();
-            // Container.Bind<IMapperCollector>().To<MapperCollector>().AsSingle();
             
             //Assets
             Container.Bind<IAssetCollector>().To<AssetCollector>().AsSingle();

@@ -1,5 +1,4 @@
-﻿using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
-using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation;
+﻿using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
 using Zenject;

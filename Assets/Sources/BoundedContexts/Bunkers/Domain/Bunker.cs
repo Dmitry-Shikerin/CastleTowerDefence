@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.Frameworks.Domain.Interfaces.Entities;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Bunkers.Domain
 {

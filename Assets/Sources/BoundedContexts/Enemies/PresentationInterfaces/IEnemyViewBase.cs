@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.NavMeshAgents.Presentation.Interfaces;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;

@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Huds.Presentations;

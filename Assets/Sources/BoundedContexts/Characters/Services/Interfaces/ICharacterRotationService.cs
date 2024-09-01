@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Sources.BoundedContexts.CharacterRotations.Services.Interfaces
+namespace Sources.BoundedContexts.Characters.Services.Interfaces
 {
     public interface ICharacterRotationService
     {

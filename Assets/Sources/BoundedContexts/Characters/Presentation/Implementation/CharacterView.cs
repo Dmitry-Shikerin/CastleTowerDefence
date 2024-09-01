@@ -4,7 +4,7 @@ using Sources.BoundedContexts.CharacterHealths.Presentation;
 using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.BoundedContexts.Characters.Domain;
 using Sources.BoundedContexts.Characters.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Interfaces;
 using Sources.BoundedContexts.Healths.Presentation.Implementation;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;
