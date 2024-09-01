@@ -9,7 +9,6 @@ using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using Sources.Frameworks.YandexSdcFramework.Presentations.Views;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.Huds.Presentations
 {

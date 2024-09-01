@@ -5,8 +5,6 @@ using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.NavMeshAgents.Presentation.Interfaces;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;
-using Sources.BoundedContexts.TargetPoints.Presentation.Interfaces;
-using Sources.PresentationsInterfaces.Views;
 
 namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
 {
@@ -21,9 +19,5 @@ namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
         void SetBunkerView(IBunkerView bunkerView);
         public void SetCharacterMeleePoint(ICharacterSpawnPoint characterSpawnPoint);
         void SetCharacterHealth(ICharacterHealthView characterHealthView);
-        void EnableNavmeshAgent();
-        void DisableNavmeshAgent();
-        void StartFsm();
-        void StopFsm();
     }
 }

@@ -1,5 +1,4 @@
-﻿using Doozy.Runtime.UIManager.Components;
-using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
+﻿using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces

@@ -12,9 +12,7 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementat
         [Required] [SerializeField] private Transform _to;
         [Range(0.5f, 5)]
         [SerializeField] private float _speed;
-
-        public float Speed => _speed;
-        public Transform Transform => transform;
+        
         public Vector3 FromPosition => _from.position;
         public Vector3 ToPosition => _to.position;
         public Vector3 Position => transform.position;

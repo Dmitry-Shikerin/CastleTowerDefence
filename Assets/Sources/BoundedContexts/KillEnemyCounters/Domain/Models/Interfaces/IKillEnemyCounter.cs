@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sources.DomainInterfaces.Models.Gameplay
+namespace Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Interfaces
 {
     public interface IKillEnemyCounter
     {

@@ -2,7 +2,6 @@
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
-using TeoGames.Mesh_Combiner.Scripts.Combine;
 using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -27,19 +26,6 @@ namespace Sources.BoundedContexts.ObjectPools.Infrastructure.Factories
             enemyView
                 .AddComponent<PoolableObject>()
                 .SetPool(_pool);
-            //
-            // if (enemyView.TryGetComponent(out Renderer renderer))
-            // {
-            //     enemyView.AddComponent<Combinable>();
-            // }
-            //
-            // if (enemyView.GetComponentInChildren<Renderer>() != null)
-            // {
-            //     foreach (Renderer concreteRenderer in enemyView.GetComponentsInChildren<Renderer>())
-            //     {
-            //         concreteRenderer.gameObject.AddComponent<Combinable>();
-            //     }
-            // }
 
             _pool.AddToCollection(enemyView);
 

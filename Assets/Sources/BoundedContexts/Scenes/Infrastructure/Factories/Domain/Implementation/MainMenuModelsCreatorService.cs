@@ -49,7 +49,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(dailyReward);
             
             //HealthBooster
-            HealthBooster healthBooster = new HealthBooster(ModelId.HealthBooster);
+            HealthBooster healthBooster = new HealthBooster()
+            {
+                Id = ModelId.HealthBooster,
+            };
             _entityRepository.Add(healthBooster);
             
             _loadService.Save(ModelId.MainMenuModels);

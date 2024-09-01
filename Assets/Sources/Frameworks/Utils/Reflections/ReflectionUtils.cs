@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
+using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.Frameworks.Utils.Reflections
@@ -147,6 +148,14 @@ namespace Sources.Frameworks.Utils.Reflections
                     $"Not enough dependencies for {method.Name} " +
                     $"({string.Join(", ", targetTypes)})");
             }
+        }
+        
+        public static IEnumerable<Type> GetFilteredTypeList<T>()
+        {
+            return typeof(T).Assembly.GetTypes()
+                .Where(type => type.IsAbstract == false)
+                .Where(type => type.IsGenericTypeDefinition == false)
+                .Where(type => typeof(T).IsAssignableFrom(type));
         }
     }
 }

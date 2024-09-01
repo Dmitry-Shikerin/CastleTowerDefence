@@ -1,6 +1,5 @@
-﻿using Sources.BoundedContexts.BurnAbilities.Presentation.Implementation;
-using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
-using Sources.BoundedContexts.Triggers.Presentation.Common;
+﻿using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
+using Sources.BoundedContexts.Triggers.Presentation.Common.Generic;
 
 namespace Sources.BoundedContexts.Triggers.Presentation
 {

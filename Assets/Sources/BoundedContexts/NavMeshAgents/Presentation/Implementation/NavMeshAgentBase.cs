@@ -1,13 +1,10 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.NavMeshAgents.Presentation.Interfaces;
-using Sources.ControllersInterfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
-namespace Sources.BoundedContexts.NavMeshAgents.Presentation
+namespace Sources.BoundedContexts.NavMeshAgents.Presentation.Implementation
 {
     public class NavMeshAgentBase : View, INavMeshAgent
     {

@@ -2,7 +2,6 @@
 using Sources.BoundedContexts.Bunkers.Presentation.Implementation;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
-using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Implementation;
 using UnityEngine;

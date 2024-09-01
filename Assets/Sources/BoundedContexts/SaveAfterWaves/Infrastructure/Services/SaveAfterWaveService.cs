@@ -2,12 +2,10 @@
 using Doozy.Runtime.Signals;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Ids.Domain.Constant;
-using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services
 {
@@ -30,14 +28,11 @@ namespace Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services
         {
             _enemySpawner = _entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner);
             _stream = SignalStream.Get(StreamConst.Gameplay, StreamConst.Saving);
-            
             _enemySpawner.WaveChanged += OnSave;
         }
 
-        public void Destroy()
-        {
+        public void Destroy() =>
             _enemySpawner.WaveChanged -= OnSave;
-        }
 
         private void OnSave()
         {

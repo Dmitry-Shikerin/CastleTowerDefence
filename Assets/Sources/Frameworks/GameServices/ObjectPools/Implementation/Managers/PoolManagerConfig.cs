@@ -8,6 +8,7 @@ using Sources.Frameworks.GameServices.ConfigCollectors;
 using Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
+using Sources.Frameworks.Utils.Reflections;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -49,23 +50,17 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
         public GameObject Prefab => _prefab;
 
         private Type GetTypeByName() =>
-            GetFilteredTypeList().FirstOrDefault(type => type.Name == _type)
+            ReflectionUtils.GetFilteredTypeList<View>()
+                .FirstOrDefault(type => type.Name == _type)
             ?? throw new NullReferenceException($"Type {nameof(_type)} not found");
 
         private List<string> GetFilteredNames()
         {
-            return GetFilteredTypeList()
+            return ReflectionUtils.GetFilteredTypeList<View>()
                 .Select(type => type.Name)
                 .ToList();
         }
-
-        private IEnumerable<Type> GetFilteredTypeList()
-        {
-            return typeof(View).Assembly.GetTypes()
-                .Where(type => type.IsAbstract == false)
-                .Where(type => type.IsGenericTypeDefinition == false)
-                .Where(type => typeof(View).IsAssignableFrom(type));
-        }
+        
         
         private void GetPrefab()
         {

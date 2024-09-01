@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
@@ -105,11 +104,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         private MainMenuModel Load(IScenePayload payload)
         {
             if (_loadService.HasKey(ModelId.SoundsVolume))
-            {
-                Debug.Log(_loadService.HasKey(ModelId.SoundsVolume));
-                Debug.Log($"Load models");
                 return _mainMenuModelsLoaderService.Load();
-            }
             
             return _mainMenuModelsCreatorService.Load();
         }

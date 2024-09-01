@@ -19,17 +19,14 @@ using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Implementation;
-using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces;
+using Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Implementation;
+using Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementation;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
-using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
@@ -48,7 +45,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<IGameCompletedService>().To<GameCompletedService>().AsSingle();
             
             //PlayerWallet
-            Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
             Container.Bind<PlayerWalletViewFactory>().AsSingle();
             
             //Bunkers
@@ -59,7 +55,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<BunkerUiFactory>().AsSingle();
             
             //Healths
-            Container.Bind<HealthBarPresenterFactory>().AsSingle();
             Container.Bind<HealthBarViewFactory>().AsSingle();
             
             //Characters
@@ -101,7 +96,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<CharacterSpawnAbilityPresenterFactory>().AsSingle();
             Container.Bind<CharacterSpawnAbilityViewFactory>().AsSingle();
 
-            Container.Bind<FlamethrowerAbilityPresenterFactory>().AsSingle();
             Container.Bind<FlamethrowerAbilityViewFactory>().AsSingle();
             
             //Abilities

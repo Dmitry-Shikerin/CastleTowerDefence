@@ -1,5 +1,5 @@
 ﻿using Sources.BoundedContexts.Enemies.PresentationInterfaces;
-using Sources.BoundedContexts.Triggers.Presentation.Common;
+using Sources.BoundedContexts.Triggers.Presentation.Common.Generic;
 
 namespace Sources.BoundedContexts.Triggers.Presentation
 {

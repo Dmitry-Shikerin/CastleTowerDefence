@@ -12,6 +12,7 @@ using Sources.BoundedContexts.Enemies.PresentationInterfaces;
 using Sources.BoundedContexts.EnemyHealths.Presentation.Implementation;
 using Sources.BoundedContexts.Healths.Presentation.Implementation;
 using Sources.BoundedContexts.NavMeshAgents.Presentation;
+using Sources.BoundedContexts.NavMeshAgents.Presentation.Implementation;
 using Sources.BoundedContexts.Skins.Presentation;
 using Sources.BoundedContexts.Skins.PresentationInterfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Destroyers;

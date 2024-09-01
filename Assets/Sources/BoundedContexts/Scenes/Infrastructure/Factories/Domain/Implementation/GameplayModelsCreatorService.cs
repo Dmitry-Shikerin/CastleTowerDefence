@@ -133,7 +133,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             if (_loadService.HasKey(key))
                 return _loadService.Load<HealthBooster>(key);
 
-            HealthBooster healthBooster = new HealthBooster(key);
+            HealthBooster healthBooster = new HealthBooster()
+            {
+                Id = key,
+            };
             _entityRepository.Add(healthBooster);
 
             return healthBooster;

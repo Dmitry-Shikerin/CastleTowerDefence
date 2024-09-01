@@ -5,7 +5,6 @@ using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.Triggers.Presentation;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation
 {
@@ -13,22 +12,18 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementat
     {
         [Required] [SerializeField] private ParticleSystem _particleSystem;
         [Required] [SerializeField] private FlamethrowerView _flamethrowerView;
-        [Space(5)] 
-        [Required] [SerializeField] private BurnAbilityCollision burnAbilityCollision;
-
-        public Transform Transform => transform;
+        [Required] [SerializeField] private BurnAbilityCollision _burnAbilityCollision;
+        
         public IFlamethrowerView FlamethrowerView => _flamethrowerView;
 
         protected override void OnAfterEnable() =>
-            burnAbilityCollision.Entered += OnEnter;
+            _burnAbilityCollision.Entered += OnEnter;
 
         protected override void OnAfterDisable() =>
-            burnAbilityCollision.Entered -= OnEnter;
+            _burnAbilityCollision.Entered -= OnEnter;
 
-        private void OnEnter(IBurnable obj)
-        {
+        private void OnEnter(IBurnable obj) =>
             Presenter.DealDamage(obj);
-        }
 
         public void PlayParticle() =>
             _particleSystem.Play();

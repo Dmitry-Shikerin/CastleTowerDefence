@@ -1,11 +1,9 @@
 ﻿using System;
-using JetBrains.Annotations;
 using MyAudios.MyUiFramework.Utils.Soundies.Domain.Constant;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Implementation;
-using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces;
+using Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
-using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.SaveAfterWaves.Infrastructure.Services;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
@@ -29,7 +27,6 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class GameplayScene : IScene
     {
-        private readonly RootGameObject _rootGameObject;
         private readonly SaveAfterWaveService _saveAfterWaveService;
         private readonly AdvertisingAfterWaveService _advertisingAfterWaveService;
         private readonly ICompositeAssetService _compositeAssetService;
@@ -71,7 +68,6 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICameraService cameraService,
             IUpdateService updateService)
         {
-            _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
             _enemySpawnerView = rootGameObject.EnemySpawnerView ?? 
                                 throw new ArgumentNullException(nameof(rootGameObject.EnemySpawnerView));
             _saveAfterWaveService = saveAfterWaveService ?? throw new ArgumentNullException(nameof(saveAfterWaveService));

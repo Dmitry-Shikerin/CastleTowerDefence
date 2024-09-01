@@ -28,7 +28,6 @@ namespace Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementati
         {
             _bunker = _entityRepository.Get<Bunker>(ModelId.Bunker) ?? 
                       throw new NullReferenceException(nameof(_bunker));
-            
             _bunker.Death += OnDeath;
             _signalStream = SignalStream.Get(StreamConst.Gameplay, StreamConst.GameOver);
         }
