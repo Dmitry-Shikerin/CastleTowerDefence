@@ -19,7 +19,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewComman
         
         public void Handle()
         {
-            _loadService.Clear(ModelId.DeletedModelsIds);
+            _loadService.Clear(ModelId.ModelData.Keys);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
         public T Load<T>(string id) 
             where T : class, IEntity
         {
-            object entity = _dataService.LoadData(id, ModelId.Types[id]);
+            object entity = _dataService.LoadData(id, ModelId.ModelData[id].Type);
 
             if (entity == null)
                 throw new NullReferenceException(id);
@@ -53,16 +53,16 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
         {
             foreach (string id in ids)
             {
-                object entity = _dataService.LoadData(id, ModelId.Types[id]);
+                object entity = _dataService.LoadData(id, ModelId.ModelData[id].Type);
                 _entityRepository.Add((IEntity)entity);
             }
         }
 
         public void LoadAll()
         {
-            foreach (string id in ModelId.ModelsIds)
+            foreach (string id in ModelId.ModelData.Keys)
             {
-                Type type = ModelId.Types[id];
+                Type type = ModelId.ModelData[id].Type;
                 object entity = _dataService.LoadData(id, type);
                 _entityRepository.Add((IEntity)entity);
             }
@@ -91,7 +91,7 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Implementation
 
         public void ClearAll()
         {
-            foreach (string id in ModelId.DeletedModelsIds)
+            foreach (string id in ModelId.ModelData.Keys)
                 _dataService.Clear(id);
         }
 

@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
@@ -9,7 +10,9 @@ using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
+using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
+using Sources.Frameworks.GameServices.Loads.Domain;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 
@@ -43,8 +46,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string GameData = "GameData";
         public const string Tutorial = "Tutorial";
         public const string Gameplay = "Gameplay";
-
-
+        
         //Achievements
         public const string FirstEnemyKillAchievement = "FirstEnemyKillAchievement";
         public const string FirstUpgradeAchievement = "FirstUpgradeAchievement";
@@ -55,83 +57,42 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         public const string FiftyWaveCompletedAchievement = "FiftyWaveCompletedAchievement";
         public const string AllAbilitiesUsedAchievementCommand = "AllAbilitiesUsedAchievementCommand";
         public const string CompleteGameWithOneHealthAchievementCommand = "CompleteGameWithOneHealthAchievementCommand";
-
-
-        public static IReadOnlyList<string> AchievementModels { get; } = new List<string>()
+        
+        public static IReadOnlyDictionary<string, EntityData> ModelData { get; } = new Dictionary<string, EntityData>()
         {
-            FirstEnemyKillAchievement,
-            FirstUpgradeAchievement,
-            FirstHealthBoosterUsageAchievement,
-            FirstWaveCompletedAchievement,
-            ScullsDiggerAchievement,
-            MaxUpgradeAchievement,
-            FiftyWaveCompletedAchievement,
-            AllAbilitiesUsedAchievementCommand,
-            CompleteGameWithOneHealthAchievementCommand,
+             [HealthUpgrade] = new (HealthUpgrade, typeof(Upgrade), true),
+             [AttackUpgrade] = new (AttackUpgrade, typeof(Upgrade), true),
+             [NukeUpgrade] = new (NukeUpgrade, typeof(Upgrade), true),
+             [FlamethrowerUpgrade] = new (FlamethrowerUpgrade, typeof(Upgrade), true),
+             [PlayerWallet] = new (PlayerWallet, typeof(PlayerWallet), true),
+             [Bunker] = new (Bunker, typeof(Bunker), true),
+             [EnemySpawner] = new (EnemySpawner, typeof(EnemySpawner), true),
+             [NukeAbility] = new (NukeAbility, typeof(NukeAbility), true),
+             [FlamethrowerAbility] = new (FlamethrowerAbility, typeof(FlamethrowerAbility), true),
+             [KillEnemyCounter] = new (KillEnemyCounter, typeof(KillEnemyCounter), true),
+             [MusicVolume] = new (MusicVolume, typeof(Volume), false),
+             [SoundsVolume] = new (SoundsVolume, typeof(Volume), false),
+             [DailyReward] = new (DailyReward, typeof(DailyReward), false),
+             [FirstEnemyKillAchievement] = new (FirstEnemyKillAchievement, typeof(Achievement), false),
+             [FirstUpgradeAchievement] = new (FirstUpgradeAchievement, typeof(Achievement), false),
+             [FirstHealthBoosterUsageAchievement] = new (FirstHealthBoosterUsageAchievement, typeof(Achievement), false),
+             [FirstWaveCompletedAchievement] = new (FirstWaveCompletedAchievement, typeof(Achievement), false),
+             [ScullsDiggerAchievement] = new (ScullsDiggerAchievement, typeof(Achievement), false),
+             [MaxUpgradeAchievement] = new (MaxUpgradeAchievement, typeof(Achievement), false),
+             [FiftyWaveCompletedAchievement] = new (FiftyWaveCompletedAchievement, typeof(Achievement), false),
+             [AllAbilitiesUsedAchievementCommand] = new (AllAbilitiesUsedAchievementCommand, typeof(Achievement), false),
+             [CompleteGameWithOneHealthAchievementCommand] = new (CompleteGameWithOneHealthAchievementCommand, typeof(Achievement), false),
+             [Tutorial] = new (Tutorial, typeof(Tutorial), false),
+             [HealthBooster] = new (HealthBooster, typeof(HealthBooster), false),
         };
 
-        public static IReadOnlyList<string> MainMenuModels { get; } = new List<string>()
+        public static IReadOnlyList<string> GetIds<T>() 
+            where T : IEntity
         {
-            SoundsVolume,
-            MusicVolume,
-            DailyReward,
-            HealthBooster
-        };
-
-        public static IReadOnlyList<string> DeletedModelsIds { get; } = new List<string>()
-        {
-            PlayerWallet,
-            KillEnemyCounter,
-            HealthUpgrade,
-            AttackUpgrade,
-            NukeUpgrade,
-            FlamethrowerUpgrade,
-            Bunker,
-            EnemySpawner,
-        };
-
-        public static IReadOnlyList<string> ModelsIds { get; } = new List<string>()
-        {
-            HealthUpgrade,
-            AttackUpgrade,
-            NukeUpgrade,
-            FlamethrowerUpgrade,
-            Bunker,
-            EnemySpawner,
-            PlayerWallet,
-            KillEnemyCounter,
-            Tutorial,
-            SoundsVolume,
-            MusicVolume,
-            HealthBooster,
-        };
-
-        public static IReadOnlyDictionary<string, Type> Types { get; } = new Dictionary<string, Type>()
-        {
-            [HealthUpgrade] = typeof(Upgrade),
-            [AttackUpgrade] = typeof(Upgrade),
-            [NukeUpgrade] = typeof(Upgrade),
-            [FlamethrowerUpgrade] = typeof(Upgrade),
-            [PlayerWallet] = typeof(PlayerWallet),
-            [Bunker] = typeof(Bunker),
-            [EnemySpawner] = typeof(EnemySpawner),
-            [NukeAbility] = typeof(NukeAbility),
-            [FlamethrowerAbility] = typeof(FlamethrowerAbility),
-            [KillEnemyCounter] = typeof(KillEnemyCounter),
-            [MusicVolume] = typeof(Volume),
-            [SoundsVolume] = typeof(Volume),
-            [DailyReward] = typeof(DailyReward),
-            [FirstEnemyKillAchievement] = typeof(Achievement),
-            [FirstUpgradeAchievement] = typeof(Achievement),
-            [FirstHealthBoosterUsageAchievement] = typeof(Achievement),
-            [FirstWaveCompletedAchievement] = typeof(Achievement),
-            [ScullsDiggerAchievement] = typeof(Achievement),
-            [MaxUpgradeAchievement] = typeof(Achievement),
-            [FiftyWaveCompletedAchievement] = typeof(Achievement),
-            [AllAbilitiesUsedAchievementCommand] = typeof(Achievement),
-            [CompleteGameWithOneHealthAchievementCommand] = typeof(Achievement),
-            [Tutorial] = typeof(Tutorial),
-            [HealthBooster] = typeof(HealthBooster),
-        };
+            return ModelData.Values
+                .Where(data => data.Type == typeof(Achievement))
+                .Select(data => data.ID)
+                .ToList();
+        }
     }
 }

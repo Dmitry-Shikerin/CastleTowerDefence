@@ -184,7 +184,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
             if (_loadService.HasKey(ModelId.FirstUpgradeAchievement))
             {
-                foreach (string id in ModelId.AchievementModels)
+                foreach (string id in ModelId.GetIds<Achievement>())
                 {
                     Achievement achievement = _loadService.Load<Achievement>(id);
                     achievements.Add(achievement);
@@ -193,14 +193,14 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 return achievements;
             }
             
-            foreach (string id in ModelId.AchievementModels)
+            foreach (string id in ModelId.GetIds<Achievement>())
             {
                 Achievement achievement = new Achievement(id);
                 _entityRepository.Add(achievement);
                 achievements.Add(achievement);
             }
             
-            _loadService.Save(ModelId.AchievementModels);
+            _loadService.Save(ModelId.GetIds<Achievement>());
             
             return achievements;
         }

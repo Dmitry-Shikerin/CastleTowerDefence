@@ -77,7 +77,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             
             //Achievements
             List<Achievement> achievements = _entityRepository
-                .GetAll<Achievement>(ModelId.AchievementModels).ToList();
+                .GetAll<Achievement>(ModelId.GetIds<Achievement>()).ToList();
 
             if (achievements.Count != _mainMenuHud.AchievementViews.Count)
                 throw new IndexOutOfRangeException(nameof(achievements));

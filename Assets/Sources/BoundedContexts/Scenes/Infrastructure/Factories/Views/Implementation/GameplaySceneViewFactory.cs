@@ -160,7 +160,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _gameplayHud.HealthBoosterView.Construct(_entityRepository);
             
             //Achievements
-            List<Achievement> achievements = _entityRepository.GetAll<Achievement>(ModelId.AchievementModels).ToList();
+            List<Achievement> achievements = _entityRepository
+                .GetAll<Achievement>(ModelId.GetIds<Achievement>())
+                .ToList();
 
             if (achievements.Count != _gameplayHud.AchievementViews.Count)
                 throw new IndexOutOfRangeException(nameof(achievements));

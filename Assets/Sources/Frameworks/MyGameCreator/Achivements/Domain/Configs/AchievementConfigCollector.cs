@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using UnityEditor;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs
         }
 
         private IReadOnlyList<string> GetId() =>
-            ModelId.AchievementModels;
+            ModelId.GetIds<Achievement>();
 
         [UsedImplicitly]
         [ResponsiveButtonGroup("Buttons")]

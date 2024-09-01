@@ -59,7 +59,7 @@ namespace Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.I
         public void Initialize()
         {
             _entityRepository
-                .GetAll<Achievement>(ModelId.AchievementModels)
+                .GetAll<Achievement>(ModelId.GetIds<Achievement>())
                 .ToDictionary(achievement => achievement.Id, achievement => achievement);
             _achievementsConfigs = _assetCollector
                 .Get<AchievementConfigCollector>()

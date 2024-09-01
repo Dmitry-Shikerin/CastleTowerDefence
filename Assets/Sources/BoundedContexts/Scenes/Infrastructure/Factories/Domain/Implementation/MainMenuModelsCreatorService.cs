@@ -31,7 +31,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             //Achievements
             List<Achievement> achievements = new List<Achievement>();
             
-            foreach (string id in ModelId.AchievementModels)
+            foreach (string id in ModelId.GetIds<Achievement>())
             {
                 Achievement achievement = new Achievement(id);
                 _entityRepository.Add(achievement);
@@ -55,8 +55,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             };
             _entityRepository.Add(healthBooster);
             
-            _loadService.Save(ModelId.MainMenuModels);
-            _loadService.Save(ModelId.AchievementModels);
+            _loadService.SaveAll();
             Debug.Log($"Create models");
             
             return new MainMenuModel(

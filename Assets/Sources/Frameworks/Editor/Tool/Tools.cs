@@ -1,17 +1,15 @@
-﻿using System.Linq;
-using Sources.BoundedContexts.Ids;
-using Sources.BoundedContexts.Ids.Domain.Constant;
+﻿using Sources.BoundedContexts.Ids.Domain.Constant;
 using UnityEditor;
 using UnityEngine;
 
-namespace Sources.Editor.Tool
+namespace Sources.Frameworks.Editor.Tool
 {
     public class Tools
     {
         [MenuItem("Tools/Clear prefs")]
         public static void ClearPrefs()
         {
-            foreach (string id in ModelId.ModelsIds.Concat(ModelId.AchievementModels))
+            foreach (string id in ModelId.ModelData.Keys)
             {
                 Debug.Log($"Deleted {id}");
                 PlayerPrefs.DeleteKey(id);

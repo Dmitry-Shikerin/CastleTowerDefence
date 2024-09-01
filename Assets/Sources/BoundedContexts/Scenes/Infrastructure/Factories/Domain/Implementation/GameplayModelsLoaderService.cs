@@ -73,7 +73,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             //Achievements
             List<Achievement> achievements = new List<Achievement>();
             
-            foreach (string id in ModelId.AchievementModels)
+            foreach (string id in ModelId.GetIds<Achievement>())
             {
                 Achievement achievement = _loadService.Load<Achievement>(id);
                 achievements.Add(achievement);
