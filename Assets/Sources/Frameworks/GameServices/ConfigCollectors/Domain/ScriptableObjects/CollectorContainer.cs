@@ -2,15 +2,11 @@
 using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.Upgrades.Domain.Configs;
-using Sources.BoundedContexts.Upgrades.Domain.Constants;
-using Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Sources.Frameworks.GameServices.ConfigCollectors
+namespace Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects
 {
     public class CollectorContainer<TCollector, TConfig> : ScriptableObject
         where TCollector : ConfigCollector<TConfig>

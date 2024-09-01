@@ -6,12 +6,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Domain
 {
     public class DailyReward : IEntity
     {
-        public DailyReward(string id)
-        {
-            Id = id;
-        }
-
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
         public DateTime LastRewardTime { get; set; }
         public TimeSpan CurrentTime { get; set; }

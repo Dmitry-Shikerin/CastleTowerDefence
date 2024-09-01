@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace MyAudios.MyUiFramework.Utils
+namespace Sources.Frameworks.MyAudio_master.MyAudio.MyUiFramework.Utils
 {
     public static class EditorDialogUtils
     {

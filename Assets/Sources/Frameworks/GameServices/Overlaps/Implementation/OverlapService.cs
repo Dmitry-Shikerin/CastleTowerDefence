@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Frameworks.GameServices.Linecasts.Interfaces;
 using Sources.Frameworks.GameServices.Overlaps.Interfaces;
-using Sources.Frameworks.Services.Linecasts.Interfaces;
 using UnityEngine;
 
 namespace Sources.Frameworks.GameServices.Overlaps.Implementation

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
@@ -90,7 +89,7 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
             where T : IEntity
         {
             return ModelData.Values
-                .Where(data => data.Type == typeof(Achievement))
+                .Where(data => data.Type == typeof(T))
                 .Select(data => data.ID)
                 .ToList();
         }

@@ -1,4 +1,4 @@
-namespace Sources.InfrastructureInterfaces.Services.Registers
+namespace Sources.Frameworks.GameServices.ActionRegisters.Interfaces
 {
     public interface IAllUnregister
     {

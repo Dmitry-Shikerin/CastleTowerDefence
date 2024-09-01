@@ -3,7 +3,6 @@ using System.Net.Sockets;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Doozy.Runtime.UIManager;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
@@ -12,7 +11,6 @@ using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.ServerTimes.Services;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using UnityEngine;
 
 namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
 {

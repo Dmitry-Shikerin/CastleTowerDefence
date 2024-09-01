@@ -45,7 +45,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(soundsVolume);
             
             //DailyReward
-            DailyReward dailyReward = new DailyReward(ModelId.DailyReward);
+            DailyReward dailyReward = new DailyReward()
+            {
+                Id = ModelId.DailyReward,
+            };
             _entityRepository.Add(dailyReward);
             
             //HealthBooster
