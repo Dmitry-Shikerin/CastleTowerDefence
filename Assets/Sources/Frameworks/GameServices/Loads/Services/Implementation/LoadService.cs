@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.Domain.Interfaces.Entities;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces.Data;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;

@@ -11,11 +11,10 @@ using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
-using Sources.Frameworks.GameServices.Loads.Domain;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
 using Sources.Frameworks.MyGameCreator.Achievements.Domain.Models;
 
-namespace Sources.BoundedContexts.Ids.Domain.Constant
+namespace Sources.Frameworks.GameServices.Loads.Domain.Constant
 {
     public static class ModelId
     {
@@ -90,6 +89,14 @@ namespace Sources.BoundedContexts.Ids.Domain.Constant
         {
             return ModelData.Values
                 .Where(data => data.Type == typeof(T))
+                .Select(data => data.ID)
+                .ToList();
+        }
+
+        public static IReadOnlyList<string> GetDeleteIds()
+        {
+            return ModelData.Values
+                .Where(data => data.IsDeleted)
                 .Select(data => data.ID)
                 .ToList();
         }

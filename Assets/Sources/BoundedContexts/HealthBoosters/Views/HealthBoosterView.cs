@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.HealthBoosters.Domain;
-using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Texts;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;

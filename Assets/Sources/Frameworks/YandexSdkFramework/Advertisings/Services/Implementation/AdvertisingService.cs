@@ -4,7 +4,7 @@ using Agava.WebUtility;
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.HealthBoosters.Domain;
-using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;

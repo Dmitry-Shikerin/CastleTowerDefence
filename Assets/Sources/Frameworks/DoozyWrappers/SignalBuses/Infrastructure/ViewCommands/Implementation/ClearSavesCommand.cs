@@ -1,6 +1,6 @@
 ﻿using System;
-using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.UiFramework.Views.Domain;
 
@@ -19,7 +19,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewComman
         
         public void Handle()
         {
-            _loadService.Clear(ModelId.ModelData.Keys);
+            _loadService.Clear(ModelId.GetDeleteIds());
         }
     }
 }
