@@ -49,7 +49,7 @@ namespace Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Implemen
             if (_isCompleted)
                 return;
 
-            if (_enemySpawner.CurrentWaveNumber != 99) //todo поменять на константу
+            if (_enemySpawner.CurrentWaveNumber != 90) //todo поменять на константу
                 return;
 
             int score = _entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet).Coins;
