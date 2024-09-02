@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Sources.Domain.Models.Constants;
+using Sources.Frameworks.GameServices.Pauses.Domain.Constants;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using UnityEngine;
 

@@ -8,7 +8,8 @@ using UnityEngine;
 
 namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers
 {
-    public class PoolBaker<T> : IPoolBaker<T> where T : IView
+    public class PoolBaker<T> : IPoolBaker<T>
+        where T : IView
     {
         private MeshCombiner _meshCombiner;
         private MeshRenderer _meshRenderer;
@@ -21,11 +22,6 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Bakers
                 .AddComponent<MeshCombiner>();
             _meshCombiner.bakeMaterials = true;
             _meshCombiner.transform.SetParent(parent);
-        }
-
-        public void Bake()
-        {
-            
         }
 
         public void Add(IView view)

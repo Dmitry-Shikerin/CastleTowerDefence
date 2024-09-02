@@ -1,4 +1,4 @@
-﻿namespace Sources.Domain.Models.Constants
+﻿namespace Sources.Frameworks.GameServices.Pauses.Domain.Constants
 {
     public class TimeScaleConst
     {

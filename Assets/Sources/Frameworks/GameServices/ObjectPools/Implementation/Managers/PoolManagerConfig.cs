@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
-using Sources.BoundedContexts.CharacterMelees.Presentation.Implementation;
-using Sources.Frameworks.GameServices.ConfigCollectors;
 using Sources.Frameworks.GameServices.ConfigCollectors.Domain.ScriptableObjects;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.UiFramework.Texts.Extensions;
 using Sources.Frameworks.Utils.Reflections;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
 {

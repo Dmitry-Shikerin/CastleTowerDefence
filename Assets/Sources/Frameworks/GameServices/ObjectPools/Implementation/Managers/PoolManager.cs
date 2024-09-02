@@ -4,7 +4,6 @@ using System.Linq;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Generic;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
-using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
@@ -50,7 +49,7 @@ namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers
 
         public bool Contains<T>(T @object) 
             where T : View =>
-            (_pools[typeof(T)] as IObjectPool<T>).Contains(@object);
+            (_pools[typeof(T)] as IObjectPool<T>)!.Contains(@object);
 
         private void Init()
         {

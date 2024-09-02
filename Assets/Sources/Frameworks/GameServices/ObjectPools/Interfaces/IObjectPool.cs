@@ -1,5 +1,4 @@
 ﻿using System;
-using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 
