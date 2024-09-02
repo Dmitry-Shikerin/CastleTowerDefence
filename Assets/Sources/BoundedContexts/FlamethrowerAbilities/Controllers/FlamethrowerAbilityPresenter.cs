@@ -83,7 +83,7 @@ namespace Sources.BoundedContexts.FlamethrowerAbilities.Controllers
         {
             int instantDamage = 5;
             int overtimeDamage = 1;
-            burnable.Burn(instantDamage, overtimeDamage);
+            burnable.Burn();
         }
     }
 }

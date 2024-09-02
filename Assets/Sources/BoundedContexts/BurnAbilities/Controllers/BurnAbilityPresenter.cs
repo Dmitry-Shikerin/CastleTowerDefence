@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.BurnAbilities.Domain;
 using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
+using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Constants;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
 namespace Sources.BoundedContexts.BurnAbilities.Controllers
@@ -32,7 +33,7 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
         public override void Disable() =>
             _tokenSource.Cancel();
 
-        public void Burn(int instantDamage, int overtimeDamage)
+        public void Burn()
         {
             try
             {
@@ -42,9 +43,9 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
                 _tokenSource.Cancel();
                 _tokenSource = new CancellationTokenSource();
                 
-                _view.EnemyHealthView.TakeDamage(instantDamage);
+                _view.EnemyHealthView.TakeDamage(_view.EnemyHealthView.MaxHealth * FlamethrowerConts.InstantDamage);
                 StartCooldown(_tokenSource.Token);
-                StartBurn(_tokenSource.Token, overtimeDamage);
+                StartBurn(_tokenSource.Token);
             }
             catch (OperationCanceledException)
             {
@@ -64,7 +65,7 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
             }
         }
         
-        private async void StartBurn(CancellationToken cancellationToken, int overtimeDamage)
+        private async void StartBurn(CancellationToken cancellationToken)
         {
             try
             {
@@ -72,7 +73,7 @@ namespace Sources.BoundedContexts.BurnAbilities.Controllers
 
                 for (int i = 0; i < _burnAbility.BurnTick; i++)
                 {
-                    _view.EnemyHealthView.TakeDamage(overtimeDamage);
+                    _view.EnemyHealthView.TakeDamage(_view.EnemyHealthView.MaxHealth * FlamethrowerConts.OvertimeDamage);
                     await UniTask.Delay(_burnDelay, cancellationToken: cancellationToken);
                 }
 

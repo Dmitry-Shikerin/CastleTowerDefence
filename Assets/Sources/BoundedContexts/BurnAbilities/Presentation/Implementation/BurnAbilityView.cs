@@ -21,7 +21,7 @@ namespace Sources.BoundedContexts.BurnAbilities.Presentation.Implementation
         public void StopBurnParticle() =>
             _particleSystem.Stop();
 
-        public void Burn(int instantDamage, int overtimeDamage) =>
-            Presenter.Burn(instantDamage, overtimeDamage);
+        public void Burn() =>
+            Presenter.Burn();
     }
 }

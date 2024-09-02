@@ -2,6 +2,6 @@
 {
     public interface IBurnable
     {
-        void Burn(int instantDamage, int overtimeDamage);
+        void Burn();
     }
 }
