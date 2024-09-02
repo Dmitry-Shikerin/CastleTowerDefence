@@ -1,8 +1,7 @@
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
-using Sources.PresentationsInterfaces.Views;
 using UnityEngine.Events;
 
-namespace Sources.PresentationsInterfaces.UI.Sliders
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Sliders
 {
     public interface ISliderView : IView
     {

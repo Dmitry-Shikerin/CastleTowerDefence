@@ -1,6 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.PresentationsInterfaces.UI.Sliders;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Sliders;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
