@@ -2,10 +2,12 @@
 using Doozy.Runtime.Signals;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Interfaces;
+using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
 
 namespace Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Implementation
 {
@@ -13,15 +15,20 @@ namespace Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Implemen
     {
         private readonly IEntityRepository _entityRepository;
         private readonly ILoadService _loadService;
+        private readonly ILeaderBoardScoreSetter _leaderBoardScoreSetter;
 
         private SignalStream _signalStream;
         private EnemySpawner _enemySpawner;
         private bool _isCompleted;
 
-        public GameCompletedService(IEntityRepository entityRepository, ILoadService loadService)
+        public GameCompletedService(
+            IEntityRepository entityRepository,
+            ILoadService loadService,
+            ILeaderBoardScoreSetter leaderBoardScoreSetter)
         {
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
+            _leaderBoardScoreSetter = leaderBoardScoreSetter ?? throw new ArgumentNullException(nameof(leaderBoardScoreSetter));
         }
 
         public event Action GameCompleted;
@@ -45,6 +52,8 @@ namespace Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Implemen
             if (_enemySpawner.CurrentWaveNumber != 99) //todo поменять на константу
                 return;
 
+            int score = _entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet).Coins;
+            _leaderBoardScoreSetter.SetPlayerScore(score);
             _loadService.ClearAll();
             _signalStream.SendSignal(true);
             _isCompleted = true;
