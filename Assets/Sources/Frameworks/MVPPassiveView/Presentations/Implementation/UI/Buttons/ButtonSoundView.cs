@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Sources.Presentations.UI.Buttons
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Buttons
 {
     public class ButtonSoundView : ButtonView
     {

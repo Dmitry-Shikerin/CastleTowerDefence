@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.Frameworks.Domain.Interfaces.Entities;
-using UnityEngine;
 
 namespace Sources.BoundedContexts.Bunkers.Domain
 {
@@ -8,19 +7,12 @@ namespace Sources.BoundedContexts.Bunkers.Domain
     {
         private bool _isDead;
 
-        public Bunker(int health, string id)
-        {
-            Health = health;
-            Id = id;
-        }
-
         public event Action Death;
         public event Action HealthChanged;
 
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
-        public int Health { get; private set; }
-
+        public int Health { get; set; }
 
         public void TakeDamage()
         {

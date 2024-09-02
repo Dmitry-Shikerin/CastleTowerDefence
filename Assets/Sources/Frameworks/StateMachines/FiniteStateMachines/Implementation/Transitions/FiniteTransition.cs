@@ -1,8 +1,8 @@
 ﻿using System;
-using Sources.Infrastructure.StateMachines.FiniteStateMachines.States;
-using Sources.InfrastructureInterfaces.StateMachines.FiniteStateMachines.Transitions;
+using Sources.Frameworks.StateMachines.FiniteStateMachines.Implementation.States;
+using Sources.Frameworks.StateMachines.FiniteStateMachines.Interfaces.Transitions;
 
-namespace Sources.Infrastructure.StateMachines.FiniteStateMachines.Transitions
+namespace Sources.Frameworks.StateMachines.FiniteStateMachines.Implementation.Transitions
 {
     public abstract class FiniteTransition : IFiniteTransition
     {

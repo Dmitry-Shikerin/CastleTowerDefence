@@ -1,5 +1,4 @@
 ﻿using System;
-using Newtonsoft.Json;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Interfaces;
 
@@ -10,15 +9,10 @@ namespace Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation
         private float _volumeValue = 0.2f;
         private bool _isVolumeMuted;
 
-        public Volume(string id)
-        {
-            Id = id;
-        }
-
         public event Action VolumeChanged;
         public event Action VolumeMuted;
 
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
 
         public float VolumeValue

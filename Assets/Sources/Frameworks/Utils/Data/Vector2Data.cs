@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Sources.Domain.Data
+namespace Sources.Frameworks.Utils.Data
 {
     public class Vector2Data
     {

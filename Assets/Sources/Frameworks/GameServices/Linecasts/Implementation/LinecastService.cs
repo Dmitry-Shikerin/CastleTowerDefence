@@ -1,7 +1,7 @@
-﻿using Sources.Frameworks.Services.Linecasts.Interfaces;
+﻿using Sources.Frameworks.GameServices.Linecasts.Interfaces;
 using UnityEngine;
 
-namespace Sources.Frameworks.Services.Linecasts
+namespace Sources.Frameworks.GameServices.Linecasts.Implementation
 {
     public class LinecastService : ILinecastService
     {

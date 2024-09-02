@@ -1,4 +1,4 @@
-﻿namespace Sources.Frameworks.UniTaskTwins.Sequences
+﻿namespace Sources.Frameworks.UniTaskTweens.Sequences
 {
     public interface IUTSequence
     {

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Sources.Utils.Dictionaries
+namespace Sources.Frameworks.Utils.Dictionaries
 {
     public class SerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
     {

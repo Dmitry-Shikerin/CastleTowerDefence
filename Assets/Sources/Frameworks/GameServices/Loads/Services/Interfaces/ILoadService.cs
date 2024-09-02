@@ -16,6 +16,7 @@ namespace Sources.Frameworks.GameServices.Loads.Services.Interfaces
         void Clear(IEntity entity);
         void Clear(string id);
         void ClearAll();
+        void Clear(IEnumerable<string> ids);
         bool HasKey(string id);
     }
 }

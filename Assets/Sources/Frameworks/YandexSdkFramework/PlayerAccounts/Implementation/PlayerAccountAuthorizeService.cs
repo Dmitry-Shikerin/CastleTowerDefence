@@ -1,9 +1,9 @@
 ﻿using System;
 using Agava.WebUtility;
 using Agava.YandexGames;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
+using Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Interfaces;
 
-namespace Sources.Frameworks.YandexSdcFramework.Services.PlayerAccounts
+namespace Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Implementation
 {
     public class PlayerAccountAuthorizeService : IPlayerAccountAuthorizeService
     {

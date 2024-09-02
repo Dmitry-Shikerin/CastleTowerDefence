@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.EnemySpawners.Domain.Configs
 {

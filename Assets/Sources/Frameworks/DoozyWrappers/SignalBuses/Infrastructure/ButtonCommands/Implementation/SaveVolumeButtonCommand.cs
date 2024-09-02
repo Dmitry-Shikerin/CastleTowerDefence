@@ -22,7 +22,6 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
         {
             _loadService.Save(ModelId.SoundsVolume);
             _loadService.Save(ModelId.MusicVolume);
-            Debug.Log($"Volume saved");
         }
     }
 }

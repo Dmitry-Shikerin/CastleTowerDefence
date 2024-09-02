@@ -1,7 +1,5 @@
 ﻿using Leopotam.Ecs;
 using Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Systems;
-using UnityEngine;
-using Zenject;
 
 namespace Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Features
 {

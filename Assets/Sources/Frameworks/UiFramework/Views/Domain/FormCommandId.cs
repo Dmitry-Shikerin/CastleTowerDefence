@@ -1,4 +1,4 @@
-﻿namespace Sources.Frameworks.UiFramework.Domain.Commands
+﻿namespace Sources.Frameworks.UiFramework.Views.Domain
 {
     public enum FormCommandId
     {

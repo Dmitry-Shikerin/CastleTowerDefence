@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Sources.ECSBoundedContexts.SearchlightMoves.Components
+namespace Sources.ECSBoundedContexts.SearchlightMoves.Domain.Components
 {
     [Serializable]
     public struct SearchlightMoveComponent

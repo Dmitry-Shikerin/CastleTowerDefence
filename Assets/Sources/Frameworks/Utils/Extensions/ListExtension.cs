@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Sources.Utils.Extensions
+namespace Sources.Frameworks.Utils.Extensions
 {
     public static class ListExtension
     {

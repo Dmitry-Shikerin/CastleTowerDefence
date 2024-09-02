@@ -4,7 +4,7 @@ using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.Utils.Extentions;
+using Sources.Frameworks.Utils.Extensions;
 
 namespace Sources.BoundedContexts.EnemySpawners.Controllers
 {

@@ -1,19 +1,17 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.Scenes.Controllers;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
-using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
+using Sources.Frameworks.GameServices.Scenes.Controllers.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Controllers.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Infrastructure.Views.Interfaces;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
-using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
-using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
-using Sources.Frameworks.YandexSdcFramework.Services.Stickies;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.SdcInitializeServices;
+using Sources.Frameworks.YandexSdkFramework.Focuses.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Stickies.Interfaces;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation
 {

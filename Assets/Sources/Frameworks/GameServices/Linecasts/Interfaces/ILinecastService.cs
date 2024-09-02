@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Sources.Frameworks.Services.Linecasts.Interfaces
+namespace Sources.Frameworks.GameServices.Linecasts.Interfaces
 {
     public interface ILinecastService
     {

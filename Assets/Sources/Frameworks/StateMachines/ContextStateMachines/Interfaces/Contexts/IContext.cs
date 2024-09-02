@@ -1,4 +1,4 @@
-﻿namespace Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Contexts
+﻿namespace Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Contexts
 {
     public interface IContext
     {

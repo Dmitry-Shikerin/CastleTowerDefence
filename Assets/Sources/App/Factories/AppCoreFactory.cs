@@ -4,10 +4,10 @@ using Cysharp.Threading.Tasks;
 using Sources.App.Core;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Prefabs;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Interfaces;
-using Sources.ControllersInterfaces.Scenes;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Implementation;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Controllers.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Services.Implementation;
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
 using UnityEngine;
@@ -42,7 +42,6 @@ namespace Sources.App.Factories
                 sceneContext.Container.Resolve<ISceneFactory>().Create(payload);
 
             sceneService.AddBeforeSceneChangeHandler(async _ => await curtainView.ShowAsync());
-            
             sceneService.AddBeforeSceneChangeHandler(async sceneName =>
                 await projectContext.Container.Resolve<ISceneLoaderService>().Load(sceneName));
 

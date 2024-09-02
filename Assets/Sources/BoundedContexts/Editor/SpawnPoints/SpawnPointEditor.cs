@@ -1,6 +1,4 @@
-﻿using ParadoxNotion.Design;
-using Sources.BoundedContexts.SpawnPoints.Presentation;
-using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
+﻿using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using UnityEditor;
 using UnityEngine;
@@ -19,7 +17,7 @@ namespace Sources.BoundedContexts.Editor.SpawnPoints
 
         private static Color SetColor(SpawnPoint spawnPoint)
         {
-            return  spawnPoint.Type switch
+            return spawnPoint.Type switch
             {
                 SpawnPointType.CharacterMelee => Color.green,
                 SpawnPointType.CharacterRanged => Color.blue,

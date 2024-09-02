@@ -1,6 +1,4 @@
-﻿using Sources.BoundedContexts.Upgrades.Domain.Configs;
-
-namespace Sources.BoundedContexts.Upgrades.Domain.Data
+﻿namespace Sources.BoundedContexts.Upgrades.Domain.Data
 {
     public class RuntimeUpgradeLevel
     {

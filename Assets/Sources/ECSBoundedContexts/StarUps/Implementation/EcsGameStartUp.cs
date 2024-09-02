@@ -17,10 +17,7 @@ namespace Sources.ECSBoundedContexts.StarUps.Implementation
         {
             _container = container ?? throw new ArgumentNullException(nameof(container));
         }
-
-        public void Construct(DiContainer container) =>
-            _container = container ?? throw new ArgumentNullException(nameof(container));
-
+        
         public void Initialize()
         {
             _ecsWorld = new EcsWorld();

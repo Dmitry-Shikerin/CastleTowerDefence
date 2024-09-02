@@ -58,6 +58,7 @@ namespace Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Impleme
             
             view.FsmOwner.ConstructFsm(enemy, view);
             view.FsmOwner.InjectFsm(_container);
+            _container.Inject(view.LookAtCamera);
             view.StartFsm();
             
             view.DisableNavmeshAgent();

@@ -5,13 +5,10 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Domain.Commands;
-using Sources.Frameworks.UiFramework.Domain.Constants;
-using Sources.Frameworks.UiFramework.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
-using Sources.Frameworks.UiFramework.PresentationsInterfaces;
 using Sources.Frameworks.UiFramework.Views.Controllers;
-using Sources.Presentations.Views;
+using Sources.Frameworks.UiFramework.Views.Domain;
+using Sources.Frameworks.UiFramework.Views.Presentations.Implementation.Types;
+using Sources.Frameworks.UiFramework.Views.Presentations.Interfaces;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation

@@ -1,7 +1,7 @@
-﻿using Sources.Domain.Data;
+﻿using Sources.Frameworks.Utils.Data;
 using UnityEngine;
 
-namespace Sources.Utils.Extensions
+namespace Sources.Frameworks.Utils.Extensions
 {
     public static class Vector2Extension
     {

@@ -6,11 +6,6 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Domain
 {
     public class CharacterSpawnAbility : IAbilityApplier, IEntity
     {
-        public CharacterSpawnAbility(string id)
-        {
-            Id = id;
-        }
-
         public event Action AbilityApplied;
         
         public float Cooldown { get; } = 0.04f;
@@ -23,7 +18,7 @@ namespace Sources.BoundedContexts.CharacterSpawnAbilities.Domain
             AbilityApplied?.Invoke();
         }
 
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
     }
 }

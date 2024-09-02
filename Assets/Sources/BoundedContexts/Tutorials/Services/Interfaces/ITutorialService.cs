@@ -6,7 +6,5 @@ namespace Sources.BoundedContexts.Tutorials.Services.Interfaces
     public interface ITutorialService : IInitialize
     {
         void Complete();
-
-        void Construct(Tutorial tutorial);
     }
 }

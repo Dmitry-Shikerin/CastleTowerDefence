@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Contexts;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.States;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Transitions;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Contexts;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.States;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Transitions;
 
-namespace Sources.Infrastructure.StateMachines.ContextStateMachines.States
+namespace Sources.Frameworks.StateMachines.ContextStateMachines.Implementation.States
 {
     public abstract class ContextStateBase : IContextState
     {

@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Objects;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using UnityEngine;
 
 namespace Sources.Frameworks.GameServices.ObjectPools.Implementation.Objects
 {

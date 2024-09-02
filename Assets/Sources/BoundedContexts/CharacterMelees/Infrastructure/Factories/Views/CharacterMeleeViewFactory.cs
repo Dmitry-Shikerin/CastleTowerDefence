@@ -37,16 +37,17 @@ namespace Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views
         
         public ICharacterMeleeView Create(Upgrade characterHealthUpgrade, Vector3 position)
         {
-            Character characterMelee = new Character(
+            Character character = new Character(
                 new CharacterHealth(characterHealthUpgrade));
             
             CharacterMeleeView view = _poolManager.Get<CharacterMeleeView>();
 
-            _characterHealthViewFactory.Create(characterMelee.CharacterHealth, view.HealthView);
-            _healthBarViewFactory.Create(characterMelee.CharacterHealth, view.HealthBarView);
+            _characterHealthViewFactory.Create(character.CharacterHealth, view.HealthView);
+            _healthBarViewFactory.Create(character.CharacterHealth, view.HealthBarView);
             
-            view.FsmOwner.ConstructFsm(characterMelee, view);
+            view.FsmOwner.ConstructFsm(character, view);
             view.FsmOwner.InjectFsm(_container);
+            _container.Inject(view.LookAtCamera);
             view.StartFsm();
             
             view.SetPosition(position);

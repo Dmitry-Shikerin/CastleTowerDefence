@@ -1,7 +1,8 @@
 ﻿using System;
+using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.UiFramework.Views.Domain;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Implementation
 {
@@ -18,7 +19,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewComman
         
         public void Handle()
         {
-            _loadService.ClearAll();
+            _loadService.Clear(ModelId.ModelData.Keys);
         }
     }
 }

@@ -4,6 +4,5 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Co
 {
     public interface ISignalControllersCollector : IInitialize, IDestroy
     {
-        
     }
 }

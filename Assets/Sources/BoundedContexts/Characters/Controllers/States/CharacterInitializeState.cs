@@ -27,7 +27,6 @@ namespace Sources.BoundedContexts.Characters.Controllers.States
         {
             _animation.PlayIdle();
             _characterRange.IsInitialized = true;
-            _view.CharacterSpawnPoint.SetCharacterHealth(_view.CharacterHealth);
         }
     }
 }

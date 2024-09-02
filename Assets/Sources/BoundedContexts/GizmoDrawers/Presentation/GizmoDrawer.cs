@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 namespace Sources.BoundedContexts.GizmoDrawers.Presentation
 {
     public class GizmoDrawerView : MonoBehaviour
     {
-        [FormerlySerializedAs("_range")] [SerializeField] private float _radius;
+        [SerializeField] private float _radius;
         
         private void OnDrawGizmos()
         {

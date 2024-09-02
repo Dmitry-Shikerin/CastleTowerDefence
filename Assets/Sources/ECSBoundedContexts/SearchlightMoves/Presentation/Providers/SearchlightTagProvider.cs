@@ -1,4 +1,4 @@
-﻿using Sources.ECSBoundedContexts.SearchlightMoves.Components;
+﻿using Sources.ECSBoundedContexts.SearchlightMoves.Domain.Components;
 using Voody.UniLeo;
 
 namespace Sources.ECSBoundedContexts.SearchlightMoves.Presentation.Providers

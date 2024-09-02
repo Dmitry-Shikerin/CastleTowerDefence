@@ -1,25 +1,31 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.FlamethrowerAbilities.Controllers;
-using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
-using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 
 namespace Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views
 {
     public class FlamethrowerAbilityViewFactory
     {
-        private readonly FlamethrowerAbilityPresenterFactory _presenterFactory;
+        private readonly IEntityRepository _entityRepository;
+        private readonly ISoundyService _soundyService;
 
-        public FlamethrowerAbilityViewFactory(FlamethrowerAbilityPresenterFactory presenterFactory)
+        public FlamethrowerAbilityViewFactory(
+            IEntityRepository entityRepository,
+            ISoundyService soundyService)
         {
-            _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
+            _entityRepository = entityRepository ?? 
+                                throw new ArgumentNullException(nameof(entityRepository));
+            _soundyService = soundyService ?? 
+                             throw new ArgumentNullException(nameof(soundyService));
         }
 
         public IFlamethrowerAbilityView Create(FlamethrowerAbilityView view)
         {
-            FlamethrowerAbilityPresenter presenter = _presenterFactory.Create(view);
+            FlamethrowerAbilityPresenter presenter = new FlamethrowerAbilityPresenter(
+                _entityRepository, _soundyService, view);
             view.Construct(presenter);
 
             return view;

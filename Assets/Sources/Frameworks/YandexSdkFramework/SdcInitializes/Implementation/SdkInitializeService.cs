@@ -1,9 +1,9 @@
 ﻿using Agava.WebUtility;
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.SdcInitializeServices;
+using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces;
 
-namespace Sources.Frameworks.YandexSdcFramework.Services.SdcInitializeServices
+namespace Sources.Frameworks.YandexSdkFramework.SdcInitializes.Implementation
 {
     public class SdkInitializeService : ISdkInitializeService
     {

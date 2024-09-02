@@ -7,7 +7,7 @@ using Sources.Frameworks.GameServices.DailyRewards.Domain;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Models;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
@@ -27,26 +27,24 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
         public MainMenuModel Load()
         {
-            _loadService.Load(ModelId.MainMenuModels);
-            
             //Achievements
             List<Achievement> achievements = new List<Achievement>();
             
-            foreach (string id in ModelId.AchievementModels)
+            foreach (string id in ModelId.GetIds<Achievement>())
             {
                 Achievement achievement = _loadService.Load<Achievement>(id);
                 achievements.Add(achievement);
             }
             
             //Volumes
-            Volume musicVolume = _entityRepository.Get<Volume>(ModelId.MusicVolume);
-            Volume soundsVolume = _entityRepository.Get<Volume>(ModelId.SoundsVolume);
+            Volume musicVolume = _loadService.Load<Volume>(ModelId.MusicVolume);
+            Volume soundsVolume = _loadService.Load<Volume>(ModelId.SoundsVolume);
             
             //DailyReward
-            DailyReward dailyReward = _entityRepository.Get<DailyReward>(ModelId.DailyReward);
+            DailyReward dailyReward = _loadService.Load<DailyReward>(ModelId.DailyReward);
             
             //HealthBooster
-            HealthBooster healthBooster = _entityRepository.Get<HealthBooster>(ModelId.HealthBooster);
+            HealthBooster healthBooster = _loadService.Load<HealthBooster>(ModelId.HealthBooster);
             
             Debug.Log($"Load models");
             

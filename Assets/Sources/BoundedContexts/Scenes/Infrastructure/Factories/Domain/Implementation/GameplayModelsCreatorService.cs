@@ -13,7 +13,6 @@ using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Scenes.Domain;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Data;
@@ -21,8 +20,9 @@ using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Models;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
 {
@@ -52,7 +52,11 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             Upgrade flamethrowerAbilityUpgrade = CreateUpgrade(ModelId.FlamethrowerUpgrade);
             
             //Bunker
-            Bunker bunker = new Bunker(15, ModelId.Bunker);
+            Bunker bunker = new Bunker()
+            {
+                Health = 15,
+                Id = ModelId.Bunker,
+            };
             _entityRepository.Add(bunker);
             
             //Enemies
@@ -66,7 +70,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(killEnemyCounter);
             
             //Characters
-            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility(ModelId.SpawnAbility);
+            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility()
+            {
+                Id = ModelId.SpawnAbility,
+            };
             _entityRepository.Add(characterSpawnAbility);
             
             //Abilities
@@ -122,7 +129,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             if (_loadService.HasKey(key))
                 return _loadService.Load<Volume>(key);
 
-            Volume volume = new Volume(key);
+            Volume volume = new Volume()
+            {
+                Id = key,
+            };
             _entityRepository.Add(volume);
             
             return volume;
@@ -133,7 +143,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             if (_loadService.HasKey(key))
                 return _loadService.Load<HealthBooster>(key);
 
-            HealthBooster healthBooster = new HealthBooster(key);
+            HealthBooster healthBooster = new HealthBooster()
+            {
+                Id = key,
+            };
             _entityRepository.Add(healthBooster);
 
             return healthBooster;
@@ -174,7 +187,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
 
             if (_loadService.HasKey(ModelId.FirstUpgradeAchievement))
             {
-                foreach (string id in ModelId.AchievementModels)
+                foreach (string id in ModelId.GetIds<Achievement>())
                 {
                     Achievement achievement = _loadService.Load<Achievement>(id);
                     achievements.Add(achievement);
@@ -183,14 +196,14 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                 return achievements;
             }
             
-            foreach (string id in ModelId.AchievementModels)
+            foreach (string id in ModelId.GetIds<Achievement>())
             {
                 Achievement achievement = new Achievement(id);
                 _entityRepository.Add(achievement);
                 achievements.Add(achievement);
             }
             
-            _loadService.Save(ModelId.AchievementModels);
+            _loadService.Save(ModelId.GetIds<Achievement>());
             
             return achievements;
         }
@@ -200,7 +213,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             if (_loadService.HasKey(key))
                 return _loadService.Load<Tutorial>(key);
 
-            Tutorial tutorial = new Tutorial();
+            Tutorial tutorial = new Tutorial()
+            {
+                Id = key,
+            };
             _entityRepository.Add(tutorial);
             
             return tutorial;
@@ -220,7 +236,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
                     EnemyCount = wave.EnemyCount,
                     BossesCount = wave.BossesCount,
                     KamikazeEnemyCount = wave.KamikazeEnemyCount,
-                    MoneyPerResilenceCharacters = wave.MoneyPerResilenceCharacters,
+                    MoneyPerResurrectCharacters = wave.MoneyPerResilenceCharacters,
                 });
             }
             

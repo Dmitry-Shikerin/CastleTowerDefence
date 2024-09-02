@@ -14,7 +14,7 @@ namespace Sources.BoundedContexts.Abilities.Controllers
         private readonly IAbilityApplier _abilityApplier;
         private readonly IAbilityApplierView _view;
         
-        private CancellationTokenSource _tokenSource = new CancellationTokenSource();
+        private CancellationTokenSource _tokenSource;
         private TimeSpan _cooldown;
 
         public AbilityApplierPresenter(

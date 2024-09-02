@@ -1,7 +1,5 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.NukeAbilities.Controllers;
-using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Presentation.Interfaces;

@@ -2,7 +2,7 @@
 
 namespace Sources.Frameworks.GameServices.Scenes.Domain.Implementation
 {
-    public class ScenePayload : IScenePayload
+    public struct ScenePayload : IScenePayload
     {
         public ScenePayload(string sceneId, bool canLoad, bool canFromGameplay)
         {

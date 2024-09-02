@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Random = UnityEngine.Random;
 
-namespace Sources.Utils.Extensions
+namespace Sources.Frameworks.Utils.Extensions
 {
     public static class ShuffleExtension
     {

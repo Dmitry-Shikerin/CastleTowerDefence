@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.Abilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
-using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Huds.Presentations;
@@ -15,21 +14,19 @@ using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.RootGameObjects.Presentation;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Sources.ECSBoundedContexts.StarUps.Interfaces;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
-using Sources.Frameworks.GameServices.Prefabs.Implementation;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Infrastructure.Views.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
-using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Configs;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Models;
 using Sources.Frameworks.UiFramework.Collectors;
-using Sources.Frameworks.YandexSdcFramework.Advertisings.Services.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implementation
 {
@@ -163,7 +160,9 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
             _gameplayHud.HealthBoosterView.Construct(_entityRepository);
             
             //Achievements
-            List<Achievement> achievements = _entityRepository.GetAll<Achievement>(ModelId.AchievementModels).ToList();
+            List<Achievement> achievements = _entityRepository
+                .GetAll<Achievement>(ModelId.GetIds<Achievement>())
+                .ToList();
 
             if (achievements.Count != _gameplayHud.AchievementViews.Count)
                 throw new IndexOutOfRangeException(nameof(achievements));
@@ -176,12 +175,6 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
                     .First(config => config.Id == achievements[i].Id);
                 _gameplayHud.AchievementViews[i].Construct(achievements[i], config);
             }
-            
-            //Tutorial
-            _tutorialService.Construct(gameplayModel.Tutorial);
-            
-            //advertising
-            _advertisingService.Construct(gameplayModel.HealthBooster);
         }
 
         private GameplayModel Load(IScenePayload payload)

@@ -8,9 +8,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
     {
         public ButtonCommandId Id => ButtonCommandId.ShowDailyReward;
 
-        public void Handle()
-        {
+        public void Handle() =>
             Signal.Send(StreamId.MainMenu.DailyReward, true);
-        }
     }
 }

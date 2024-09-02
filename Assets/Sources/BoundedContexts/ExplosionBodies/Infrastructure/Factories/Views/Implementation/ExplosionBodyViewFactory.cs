@@ -1,8 +1,5 @@
 ﻿using System;
 using Sources.BoundedContexts.ExplosionBodies.Presentation.Implementation;
-using Sources.BoundedContexts.ExplosionBodies.Presentation.Interfaces;
-using Sources.BoundedContexts.Prefabs;
-using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.ObjectPools.Interfaces.Managers;
 using UnityEngine;
 
@@ -17,14 +14,7 @@ namespace Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views
             _poolManager = poolManager ?? throw new ArgumentNullException(nameof(poolManager));
         }
         
-        public IExplosionBodyView Create(
-            ExplosionBodyView view, 
-            Vector3 position)
-        {
-            return view;
-        }
-        
-        public IExplosionBodyView Create(Vector3 position)
+        public ExplosionBodyView Create(Vector3 position)
         {
             ExplosionBodyView view = _poolManager.Get<ExplosionBodyView>();
             view.SetPosition(position);

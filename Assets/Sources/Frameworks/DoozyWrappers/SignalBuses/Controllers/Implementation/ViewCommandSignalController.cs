@@ -4,7 +4,7 @@ using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Signals;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.UiFramework.Views.Domain;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Implementation
 {

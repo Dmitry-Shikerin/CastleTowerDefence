@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Agava.WebUtility;
 using Agava.YandexGames;
 using Sources.Domain.Models.Constants;
-using Sources.Domain.Models.YandexSDK;
-using Sources.Frameworks.YandexSdcFramework.Presentations.Views;
+using Sources.Frameworks.YandexSdkFramework.Infrastructure.Factories.Views;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Domain.Constants;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Domain.Models;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Presentations.Implementation.Views;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
-using Sources.Infrastructure.Factories.Views.YandexSDK;
 
 namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementation
 {
@@ -23,8 +24,9 @@ namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementa
                                              throw new ArgumentNullException(nameof(leaderBoardElementViewFactory));
         }
 
-        public void Construct(IReadOnlyList<LeaderBoardElementView> views) =>
-            _leaderBoardElementViews = views ?? throw new ArgumentNullException(nameof(views));
+        public void Construct(IReadOnlyList<LeaderBoardElementView> leaderBoardElementViews) =>
+            _leaderBoardElementViews = leaderBoardElementViews ?? 
+                                       throw new ArgumentNullException(nameof(leaderBoardElementViews));
 
         public void Fill()
         {

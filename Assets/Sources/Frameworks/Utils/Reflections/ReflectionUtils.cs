@@ -148,5 +148,13 @@ namespace Sources.Frameworks.Utils.Reflections
                     $"({string.Join(", ", targetTypes)})");
             }
         }
+        
+        public static IEnumerable<Type> GetFilteredTypeList<T>()
+        {
+            return typeof(T).Assembly.GetTypes()
+                .Where(type => type.IsAbstract == false)
+                .Where(type => type.IsGenericTypeDefinition == false)
+                .Where(type => typeof(T).IsAssignableFrom(type));
+        }
     }
 }

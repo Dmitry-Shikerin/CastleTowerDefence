@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sources.Utils.Repositories.CollectionRepository.Containers;
-using Sources.Utils.Repositories.CollectionRepository.ContainersInterfaces;
+using Sources.Frameworks.Utils.Repositories.CollectionRepository.Containers;
+using Sources.Frameworks.Utils.Repositories.CollectionRepository.ContainersInterfaces;
 
-namespace Sources.Utils.Repositories.CollectionRepository
+namespace Sources.Frameworks.Utils.Repositories.CollectionRepository
 {
     public class CollectionRepository
     {

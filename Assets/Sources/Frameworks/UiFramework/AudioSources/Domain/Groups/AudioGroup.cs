@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
+using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Constructors;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
-using Sources.PresentationsInterfaces.Views.Constructors;
-using Sources.Utils.Extentions;
+using Sources.Frameworks.Utils.Extensions;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Groups
@@ -28,8 +28,8 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Groups
 
         public float CurrentTime => _currentTime;
 
-        public void Construct(IAudioService soundService) =>
-            _audioService = soundService ?? throw new ArgumentNullException(nameof(soundService));
+        public void Construct(IAudioService leaderBoardElementViews) =>
+            _audioService = leaderBoardElementViews ?? throw new ArgumentNullException(nameof(leaderBoardElementViews));
 
         public void Destroy()
         {

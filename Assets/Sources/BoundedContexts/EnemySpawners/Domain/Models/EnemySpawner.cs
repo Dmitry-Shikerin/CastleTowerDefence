@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
-using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
 using Sources.BoundedContexts.EnemySpawners.Domain.Data;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 
@@ -13,18 +11,7 @@ namespace Sources.BoundedContexts.EnemySpawners.Domain.Models
         private int _currentWaveNumber = 1;
         private int _spawnedAllEnemies;
         private int _killedWaves;
-
-        // public EnemySpawner(EnemySpawnerConfig enemySpawnerConfig, string id)
-        // {
-        //     if (enemySpawnerConfig == null) 
-        //         throw new ArgumentNullException(nameof(enemySpawnerConfig));
-        //     
-        //     _enemySpawnerConfig = new RuntimeEnemySpawnerConfig(enemySpawnerConfig);
-        //
-        //     Waves = _enemySpawnerConfig.Waves;
-        //     Id = id;
-        // }
-
+        
         public event Action WaveChanged;
         public event Action SpawnedAllEnemiesChanged;
         public event Action WaveKilled;

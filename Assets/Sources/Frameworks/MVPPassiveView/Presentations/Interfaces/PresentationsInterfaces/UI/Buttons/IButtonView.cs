@@ -1,8 +1,7 @@
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
-using Sources.PresentationsInterfaces.Views;
 using UnityEngine.Events;
 
-namespace Sources.PresentationsInterfaces.UI.Buttons
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.UI.Buttons
 {
     public interface IButtonView : IView
     {

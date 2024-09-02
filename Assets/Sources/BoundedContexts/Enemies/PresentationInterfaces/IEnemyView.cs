@@ -1,4 +1,4 @@
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 
 namespace Sources.BoundedContexts.Enemies.PresentationInterfaces
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.Frameworks.GameServices.Cameras.Domain;
+using Sources.Frameworks.GameServices.Cameras.Presentation.Interfaces.Points;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
-using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Cameras.Points;
 
 namespace Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Interfaces
 {

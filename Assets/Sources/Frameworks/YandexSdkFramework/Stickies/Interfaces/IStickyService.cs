@@ -1,4 +1,4 @@
-namespace Sources.Frameworks.YandexSdcFramework.Services.Stickies
+namespace Sources.Frameworks.YandexSdkFramework.Stickies.Interfaces
 {
     public interface IStickyService
     {

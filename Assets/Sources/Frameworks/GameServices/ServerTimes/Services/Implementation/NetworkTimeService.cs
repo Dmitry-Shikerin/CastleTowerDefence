@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using Sources.Frameworks.GameServices.ServerTimes.Services.Interfaces;
 
-namespace Sources.Frameworks.GameServices.ServerTimes.Services
+namespace Sources.Frameworks.GameServices.ServerTimes.Services.Implementation
 {
     public class NetworkTimeService : ITimeService
     {

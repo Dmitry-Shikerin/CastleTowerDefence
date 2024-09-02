@@ -8,12 +8,12 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
+using Sources.Frameworks.UiFramework.Texts.Presentations.Views.Interfaces;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using TMPro;
 using UnityEngine;
 
-namespace Sources.Frameworks.UiFramework.Texts.Presentations.Implementation
+namespace Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementation
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class UiLocalizationText : View, IUiLocalizationText, ISelfValidator

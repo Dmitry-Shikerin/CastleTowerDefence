@@ -1,8 +1,8 @@
 ﻿using System;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts;
+using Sources.Frameworks.UiFramework.Core.Services.Forms.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Interfaces;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {
@@ -24,6 +24,7 @@ namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonComm
 
         public void Handle()
         {
+            //TODO здесь нужно выкинуть игрока на хад
             _playerAccountAuthorizeService.Authorize(() =>
             {
             });

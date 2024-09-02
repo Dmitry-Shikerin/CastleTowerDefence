@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
@@ -20,9 +18,6 @@ using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation.Types;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.Utils.Extentions;
-using TeoGames.Mesh_Combiner.Scripts.Extension;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Sources.BoundedContexts.EnemySpawners.Controllers

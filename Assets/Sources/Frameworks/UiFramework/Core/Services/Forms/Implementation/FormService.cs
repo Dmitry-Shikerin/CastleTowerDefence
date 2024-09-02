@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
-using Sources.Frameworks.UiFramework.PresentationsInterfaces;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
+using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
+using Sources.Frameworks.UiFramework.Core.Services.Forms.Interfaces;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
-using Sources.Presentations.Views;
+using Sources.Frameworks.UiFramework.Views.Presentations.Implementation.Types;
+using Sources.Frameworks.UiFramework.Views.Presentations.Interfaces;
 
 namespace Sources.Frameworks.UiFramework.Core.Services.Forms.Implementation
 {

@@ -2,7 +2,6 @@
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.BoundedContexts.Upgrades.Domain.Configs
 {

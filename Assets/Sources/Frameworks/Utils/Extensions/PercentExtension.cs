@@ -1,7 +1,6 @@
-﻿using Sources.Domain.Models.Constants;
-using Sources.Frameworks.Domain.Implementation.Constants;
+﻿using Sources.Frameworks.Domain.Implementation.Constants;
 
-namespace Sources.Utils.Extentions
+namespace Sources.Frameworks.Utils.Extensions
 {
     public static class PercentExtension
     {

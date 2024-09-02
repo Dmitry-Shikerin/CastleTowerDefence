@@ -1,9 +1,9 @@
 ﻿using System;
-using Sources.Domain.Models.YandexSDK;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.PresentationsInterfaces.Views.YandexSDK;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Domain.Models;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Presentations.Interfaces.Views;
 
-namespace Sources.Controllers.YandexSDK
+namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Controllers
 {
     public class LeaderBoardElementPresenter : PresenterBase
     {

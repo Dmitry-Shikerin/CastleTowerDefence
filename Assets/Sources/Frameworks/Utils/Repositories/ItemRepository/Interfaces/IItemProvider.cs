@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Sources.Utils.Repositories.ItemRepository.Interfaces
+namespace Sources.Frameworks.Utils.Repositories.ItemRepository.Interfaces
 {
     public interface IItemProvider<T1>
     {

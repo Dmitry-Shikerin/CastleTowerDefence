@@ -1,9 +1,8 @@
 ﻿using System;
 using NodeCanvas.StateMachines;
-using ParadoxNotion.Design;
-using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
 using Sources.BoundedContexts.Characters.Presentation.Implementation;
 using Sources.BoundedContexts.Characters.Presentation.Interfaces;
+using Sources.BoundedContexts.Characters.Services.Interfaces;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 using Zenject;
 
@@ -43,11 +42,9 @@ namespace Sources.BoundedContexts.Characters.Controllers.States
             ChangeLookDirection();
         }
         
-        protected override void OnExit()
-        {
+        protected override void OnExit() =>
             _animation.Attacking -= OnAttack;
-        }
-        
+
         private void OnAttack()
         {
             if (_view.EnemyHealth == null)

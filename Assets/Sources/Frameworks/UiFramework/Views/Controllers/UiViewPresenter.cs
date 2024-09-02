@@ -1,8 +1,8 @@
 ﻿using System;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
+using Sources.Frameworks.UiFramework.Core.Services.Forms.Interfaces;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
+using Sources.Frameworks.UiFramework.Views.Presentations.Implementation.Types;
 using Sources.Frameworks.UiFramework.Views.Services.Interfaces;
 
 namespace Sources.Frameworks.UiFramework.Views.Controllers

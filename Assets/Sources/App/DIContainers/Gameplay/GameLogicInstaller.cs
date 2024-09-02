@@ -4,14 +4,13 @@ using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Bunkers.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.BurnAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.CharacterHealths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterMelees.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.CharacterRanges.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.CharacterRotations.Services.Implementation;
-using Sources.BoundedContexts.CharacterRotations.Services.Interfaces;
-using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Controllers;
-using Sources.BoundedContexts.CharacterSpawnAbilities.Ifrastructure.Factories.Views;
+using Sources.BoundedContexts.Characters.Services.Implementation;
+using Sources.BoundedContexts.Characters.Services.Interfaces;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Infrastructure.Factories.Controllers;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.Enemies.Infrastructure.Factories.Views.Implementation;
@@ -20,19 +19,15 @@ using Sources.BoundedContexts.EnemyKamikazes.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.EnemySpawners.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
-using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.FlamethrowerAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Implementation;
-using Sources.BoundedContexts.GameCompleteds.Infrastructure.Services.Interfaces;
+using Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Implementation;
+using Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Interfaces;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Implementation;
 using Sources.BoundedContexts.GameOvers.Infrastructure.Services.Interfaces;
-using Sources.BoundedContexts.Healths.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Healths.Infrastructure.Factories.Views;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.NukeAbilities.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.PlayerWallets.Infrastructure.Factories.Views;
-using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Controllers;
 using Sources.BoundedContexts.Upgrades.Infrastructure.Factories.Views;
 using Zenject;
 
@@ -49,7 +44,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<IGameCompletedService>().To<GameCompletedService>().AsSingle();
             
             //PlayerWallet
-            Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
             Container.Bind<PlayerWalletViewFactory>().AsSingle();
             
             //Bunkers
@@ -60,7 +54,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<BunkerUiFactory>().AsSingle();
             
             //Healths
-            Container.Bind<HealthBarPresenterFactory>().AsSingle();
             Container.Bind<HealthBarViewFactory>().AsSingle();
             
             //Characters
@@ -70,14 +63,12 @@ namespace Sources.App.DIContainers.Gameplay
 
             Container.Bind<CharacterRangeViewFactory>().AsSingle();
 
-            Container.Bind<CharacterHealthPresenterFactory>().AsSingle();
             Container.Bind<CharacterHealthViewFactory>().AsSingle();
             
             //EnemiesSpawners
             Container.Bind<EnemySpawnerPresenterFactory>().AsSingle();
             Container.Bind<EnemySpawnerViewFactory>().AsSingle();
 
-            Container.Bind<EnemySpawnerUiPresenterFactory>().AsSingle();
             Container.Bind<EnemySpawnerUiFactory>().AsSingle();
             
             //Enemies
@@ -104,7 +95,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<CharacterSpawnAbilityPresenterFactory>().AsSingle();
             Container.Bind<CharacterSpawnAbilityViewFactory>().AsSingle();
 
-            Container.Bind<FlamethrowerAbilityPresenterFactory>().AsSingle();
             Container.Bind<FlamethrowerAbilityViewFactory>().AsSingle();
             
             //Abilities
@@ -112,7 +102,6 @@ namespace Sources.App.DIContainers.Gameplay
             Container.Bind<BurnAbilityViewFactory>().AsSingle();
             
             //Upgrades
-            Container.Bind<UpgradePresenterFactory>().AsSingle();
             Container.Bind<UpgradeViewFactory>().AsSingle();
         }
     }

@@ -1,7 +1,7 @@
-﻿using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Contexts;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.States;
+﻿using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Contexts;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.States;
 
-namespace Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Transitions
+namespace Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Transitions
 {
     public interface IContextTransition
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Sources.InfrastructureInterfaces.StateMachines.FiniteStateMachines.Transitions;
+using Sources.Frameworks.StateMachines.FiniteStateMachines.Interfaces.Transitions;
 
-namespace Sources.Infrastructure.StateMachines.FiniteStateMachines.States
+namespace Sources.Frameworks.StateMachines.FiniteStateMachines.Implementation.States
 {
     public class FiniteState
     {

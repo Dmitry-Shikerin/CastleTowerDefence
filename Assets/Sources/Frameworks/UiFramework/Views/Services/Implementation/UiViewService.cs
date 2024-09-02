@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ViewCommands.Interfaces.Handlers;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.UiFramework.Views.Domain;
 using Sources.Frameworks.UiFramework.Views.Services.Interfaces;
 
-namespace Sources.Frameworks.UiFramework.Infrastructure.Services.Forms
+namespace Sources.Frameworks.UiFramework.Views.Services.Implementation
 {
     public class UiViewService : IUiViewService
     {

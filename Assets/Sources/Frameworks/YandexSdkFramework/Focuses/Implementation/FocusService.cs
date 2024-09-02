@@ -1,7 +1,7 @@
 ﻿using System;
 using Agava.WebUtility;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
-using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Focuses.Interfaces;
 using UnityEngine;
 
 namespace Sources.Frameworks.YandexSdkFramework.Focuses.Implementation

@@ -1,6 +1,6 @@
 using System;
 
-namespace Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.PlayerAccounts
+namespace Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Interfaces
 {
     public interface IPlayerAccountAuthorizeService
     {

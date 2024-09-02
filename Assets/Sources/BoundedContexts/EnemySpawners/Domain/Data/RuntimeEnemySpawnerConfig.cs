@@ -1,41 +1,9 @@
 ﻿using System.Collections.Generic;
-using Sources.BoundedContexts.EnemySpawners.Domain.Configs;
 
 namespace Sources.BoundedContexts.EnemySpawners.Domain.Data
 {
     public class RuntimeEnemySpawnerConfig
     {
-        // public RuntimeEnemySpawnerConfig(EnemySpawnerConfig enemySpawnerConfig)
-        // {
-        //     StartEnemyAttackPower = enemySpawnerConfig.StartEnemyAttackPower;
-        //     AddedEnemyAttackPower = enemySpawnerConfig.AddedEnemyAttackPower;
-        //     StartEnemyHealth = enemySpawnerConfig.StartEnemyHealth;
-        //     AddedEnemyHealth = enemySpawnerConfig.AddedEnemyHealth;
-        //     StartBossAttackPower = enemySpawnerConfig.StartBossAttackPower;
-        //     AddedBossAttackPower = enemySpawnerConfig.AddedBossAttackPower;
-        //     StartBossMassAttackPower = enemySpawnerConfig.StartBossMassAttackPower;
-        //     AddedBossMassAttackPower = enemySpawnerConfig.AddedBossMassAttackPower;
-        //     StartBossHealth = enemySpawnerConfig.StartBossHealth;
-        //     AddedBossHealth = enemySpawnerConfig.AddedBossHealth;
-        //     StartKamikazeMassAttackPower = enemySpawnerConfig.StartKamikazeMassAttackPower;
-        //     AddedKamikazeMassAttackPower = enemySpawnerConfig.AddedKamikazeMassAttackPower;
-        //     StartKamikazeAttackPower = enemySpawnerConfig.StartKamikazeAttackPower;
-        //     AddedKamikazeAttackPower = enemySpawnerConfig.AddedKamikazeAttackPower;
-        //     StartKamikazeHealth = enemySpawnerConfig.StartKamikazeHealth;
-        //     AddedKamikazeHealth = enemySpawnerConfig.AddedKamikazeHealth;
-        //     
-        //     foreach (EnemySpawnerWave wave in enemySpawnerConfig.Waves)
-        //         _waves.Add(new RuntimeEnemySpawnerWave()
-        //         {
-        //             WaveId = wave.WaveId,
-        //             SpawnDelay = wave.SpawnDelay,
-        //             EnemyCount = wave.EnemyCount,
-        //             BossesCount = wave.BossesCount,
-        //             KamikazeEnemyCount = wave.KamikazeEnemyCount,
-        //             MoneyPerResilenceCharacters = wave.MoneyPerResilenceCharacters,
-        //         });
-        // }
-
         public IReadOnlyList<RuntimeEnemySpawnerWave> Waves { get; set; }
 
         public int StartEnemyAttackPower { get; set; }

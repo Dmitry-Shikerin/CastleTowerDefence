@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.BoundedContexts.CharacterHealths.Domain;
 using Sources.BoundedContexts.CharacterHealths.PresentationInterfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
@@ -7,10 +8,10 @@ namespace Sources.BoundedContexts.CharacterHealths.Controllers
     public class CharacterHealthPresenter : PresenterBase
     {
         private readonly ICharacterHealthView _characterHealthView;
-        private readonly Domain.CharacterHealth _characterHealth;
+        private readonly CharacterHealth _characterHealth;
 
         public CharacterHealthPresenter(
-            Domain.CharacterHealth characterHealth,
+            CharacterHealth characterHealth,
             ICharacterHealthView characterHealthView)
         {
             _characterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));

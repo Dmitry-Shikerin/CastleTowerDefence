@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 using Sources.Frameworks.GameServices.Cameras.Domain;
 using Sources.Frameworks.GameServices.Cameras.Infrastructure.Services.Interfaces;
 using Sources.Frameworks.GameServices.Cameras.Presentation.Implementation;
-using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Cameras.Points;
+using Sources.Frameworks.GameServices.Cameras.Presentation.Interfaces.Points;
 using UnityEngine;
 using UnityEngine.Playables;
 

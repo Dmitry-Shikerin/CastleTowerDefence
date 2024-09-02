@@ -1,6 +1,5 @@
 ﻿using Doozy.Runtime.Reactor.Animators;
 using Doozy.Runtime.UIManager.Components;
-using Doozy.Runtime.UIManager.Containers;
 using Sirenix.OdinInspector;
 using Sources.Frameworks.GameServices.DailyRewards.Controllers;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Images;

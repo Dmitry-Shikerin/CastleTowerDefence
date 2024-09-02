@@ -13,7 +13,6 @@ namespace Sources.BoundedContexts.Upgrades.Controllers
     {
         private readonly Upgrade _upgrade;
         private readonly PlayerWallet _playerWallet;
-        private readonly string _upgradeId;
         private readonly IUpgradeView _view;
 
         public UpgradePresenter(
@@ -26,7 +25,6 @@ namespace Sources.BoundedContexts.Upgrades.Controllers
             
             _upgrade = entityRepository.Get<Upgrade>(upgradeId);
             _playerWallet = entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
-            _upgradeId = upgradeId;
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
 

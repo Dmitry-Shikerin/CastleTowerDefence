@@ -1,8 +1,6 @@
-﻿using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
-using Sources.PresentationsInterfaces.Views;
+﻿using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 
-namespace Sources.Presentations.Views
+namespace Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views
 {
     public class ContainerView : View
     {

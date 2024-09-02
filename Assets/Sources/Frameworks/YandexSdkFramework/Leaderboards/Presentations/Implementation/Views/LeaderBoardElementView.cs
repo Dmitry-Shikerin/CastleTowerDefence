@@ -1,11 +1,10 @@
-﻿using Sources.Controllers.YandexSDK;
-using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Presentations.Views;
-using Sources.PresentationsInterfaces.Views.YandexSDK;
+﻿using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Controllers;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Presentations.Interfaces.Views;
 using TMPro;
 using UnityEngine;
 
-namespace Sources.Frameworks.YandexSdcFramework.Presentations.Views
+namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Presentations.Implementation.Views
 {
     public class LeaderBoardElementView : PresentableView<LeaderBoardElementPresenter>, ILeaderBoardElementView
     {

@@ -1,5 +1,5 @@
 ﻿using Leopotam.Ecs;
-using Sources.ECSBoundedContexts.SearchlightMoves.Components;
+using Sources.ECSBoundedContexts.SearchlightMoves.Domain.Components;
 using UnityEngine;
 using Zenject;
 
@@ -29,7 +29,6 @@ namespace Sources.ECSBoundedContexts.SearchlightMoves.Infrastructure.Systems
 
         private void Move(ref SearchlightMoveComponent moveComponent, float targetAngle, bool isFromPosition)
         {
-            //TODO как исправить ротейшн? чтобы не нулился x и y
             float xAngle = moveComponent.Transform.rotation.x;
             float yAngle = moveComponent.Transform.rotation.y;
             Quaternion targetRotation = Quaternion.Euler(xAngle, targetAngle, yAngle);

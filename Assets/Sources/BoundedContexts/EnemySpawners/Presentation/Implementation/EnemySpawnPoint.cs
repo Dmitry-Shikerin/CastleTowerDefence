@@ -1,9 +1,8 @@
 ﻿using Sirenix.OdinInspector;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Implementation;
-using Sources.BoundedContexts.CharacterSpawners.Presentation.Interfaces;
+using Sources.BoundedContexts.CharacterSpawnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.EnemySpawners.Presentation.Interfaces;
 using Sources.BoundedContexts.SpawnPoints.Presentation.Implementation;
-using Sources.BoundedContexts.SpawnPoints.Presentation.Interfaces;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.EnemySpawners.Presentation.Implementation

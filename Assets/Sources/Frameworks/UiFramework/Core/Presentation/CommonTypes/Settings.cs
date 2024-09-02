@@ -1,4 +1,4 @@
-﻿namespace Sources.Frameworks.UiFramework.Presentation.CommonTypes
+﻿namespace Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes
 {
     public enum Settings
     {

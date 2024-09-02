@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Sources.BoundedContexts.Upgrades.Domain.Configs;
 
 namespace Sources.BoundedContexts.Upgrades.Domain.Data
 {

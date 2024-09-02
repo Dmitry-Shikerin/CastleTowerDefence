@@ -10,14 +10,13 @@ using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Scenes.Domain;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
-using UnityEngine;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Models;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
 {
@@ -50,7 +49,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             KillEnemyCounter killEnemyCounter = _loadService.Load<KillEnemyCounter>(ModelId.KillEnemyCounter);
             
             //Characters
-            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility(ModelId.SpawnAbility);
+            CharacterSpawnAbility characterSpawnAbility = new CharacterSpawnAbility()
+            {
+                Id = ModelId.SpawnAbility,
+            };
             _entityRepository.Add(characterSpawnAbility);
             
             //Abilities
@@ -71,7 +73,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             //Achievements
             List<Achievement> achievements = new List<Achievement>();
             
-            foreach (string id in ModelId.AchievementModels)
+            foreach (string id in ModelId.GetIds<Achievement>())
             {
                 Achievement achievement = _loadService.Load<Achievement>(id);
                 achievements.Add(achievement);

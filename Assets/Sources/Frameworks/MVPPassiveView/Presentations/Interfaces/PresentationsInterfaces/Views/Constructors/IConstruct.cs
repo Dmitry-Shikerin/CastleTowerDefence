@@ -1,7 +1,7 @@
-﻿namespace Sources.PresentationsInterfaces.Views.Constructors
+﻿namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Constructors
 {
     public interface IConstruct<in T>
     {
-        void Construct(T playerWallet);
+        void Construct(T leaderBoardElementViews);
     }
 }

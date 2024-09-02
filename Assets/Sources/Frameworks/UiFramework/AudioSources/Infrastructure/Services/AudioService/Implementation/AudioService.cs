@@ -50,8 +50,8 @@ namespace Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.Au
             _audioSourceSpawner = new AudioSourceSpawner(_audioSourcePool, audioContainerFactory);
         }
 
-        public void Construct(Volume volume) =>
-            _volume = volume ?? throw new ArgumentNullException(nameof(volume));
+        public void Construct(Volume leaderBoardElementViews) =>
+            _volume = leaderBoardElementViews ?? throw new ArgumentNullException(nameof(leaderBoardElementViews));
 
         public void Initialize()
         {

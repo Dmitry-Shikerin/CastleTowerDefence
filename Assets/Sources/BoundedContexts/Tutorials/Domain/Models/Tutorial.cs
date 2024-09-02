@@ -1,5 +1,4 @@
 ﻿using System;
-using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.Domain.Interfaces.Entities;
 
 namespace Sources.BoundedContexts.Tutorials.Domain.Models
@@ -7,17 +6,6 @@ namespace Sources.BoundedContexts.Tutorials.Domain.Models
     public class Tutorial : IEntity
     {
         private bool _hasCompleted;
-
-        public Tutorial()
-            : this(ModelId.Tutorial, false)
-        {
-        }
-
-        private Tutorial(string id, bool hasCompleted)
-        {
-            Id = id;
-            HasCompleted = hasCompleted;
-        }
 
         public event Action OnCompleted;
 
@@ -34,7 +22,7 @@ namespace Sources.BoundedContexts.Tutorials.Domain.Models
             }
         }
 
-        public string Id { get; }
+        public string Id { get; set; }
         public Type Type => GetType();
     }
 }

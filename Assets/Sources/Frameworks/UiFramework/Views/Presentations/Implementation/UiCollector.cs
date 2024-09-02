@@ -7,10 +7,9 @@ using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Interfaces;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
 using Sources.Frameworks.UiFramework.Core.Presentation.CommonTypes;
-using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
-using Sources.Frameworks.UiFramework.Texts.Presentations.Implementation;
-using Sources.Frameworks.UiFramework.Texts.Presentations.Interfaces;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementation;
+using Sources.Frameworks.UiFramework.Texts.Presentations.Views.Interfaces;
+using Sources.Frameworks.UiFramework.Views.Presentations.Implementation.Types;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.Views.Presentations.Implementation
