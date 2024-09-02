@@ -2,7 +2,7 @@
 {
     public static class FlamethrowerConts
     {
-        public const float OvertimeDamage = 0.01f;
-        public const float InstantDamage = 0.05f;
+        public const float OvertimeDamage = 0.02f;
+        public const float InstantDamage = 0.15f;
     }
 }
