@@ -1,9 +1,9 @@
 ﻿using System;
 using Doozy.Runtime.UIManager;
-using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 

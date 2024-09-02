@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sources.BoundedContexts.HealthBoosters.Domain;
-using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.Frameworks.GameServices.DailyRewards.Domain;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;

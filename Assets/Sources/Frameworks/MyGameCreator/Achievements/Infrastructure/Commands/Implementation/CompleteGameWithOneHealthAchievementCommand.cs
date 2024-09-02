@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.GameCompleted.Infrastructure.Services.Interfaces;
-using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;

@@ -3,7 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.AdvertisingAfterWaves.Presentation;
 using Sources.BoundedContexts.EnemySpawners.Domain.Models;
-using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 using Sources.Frameworks.YandexSdkFramework.Advertisings.Domain.Constant;

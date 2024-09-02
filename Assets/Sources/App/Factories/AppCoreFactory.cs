@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sources.App.Core;
-using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Prefabs;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Implementation;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Scenes.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Services.Implementation;

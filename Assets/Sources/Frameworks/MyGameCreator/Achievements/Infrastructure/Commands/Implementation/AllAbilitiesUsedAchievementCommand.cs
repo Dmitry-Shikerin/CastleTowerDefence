@@ -1,8 +1,8 @@
 ﻿using System;
 using Sources.BoundedContexts.CharacterSpawnAbilities.Domain;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
-using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;

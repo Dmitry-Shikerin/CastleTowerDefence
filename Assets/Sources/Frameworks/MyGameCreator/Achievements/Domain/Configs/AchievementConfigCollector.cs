@@ -2,7 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
-using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.MyGameCreator.Achievements.Domain.Models;
 using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using UnityEditor;

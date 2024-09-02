@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.BurnAbilities.Presentation.Interfaces;
 using Sources.BoundedContexts.FlamethrowerAbilities.Domain.Models;
 using Sources.BoundedContexts.FlamethrowerAbilities.Presentation.Interfaces;
-using Sources.BoundedContexts.Ids.Domain.Constant;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;

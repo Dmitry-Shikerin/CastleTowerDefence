@@ -1,10 +1,10 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
 using JetBrains.Annotations;
-using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Tutorials.Services.Interfaces;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
