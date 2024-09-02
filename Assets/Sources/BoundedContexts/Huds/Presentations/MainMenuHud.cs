@@ -7,7 +7,7 @@ using Sources.Frameworks.GameServices.Volumes.Presentations;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds;
 using Sources.Frameworks.MyGameCreator.Achievements.Presentation;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
-using Sources.Frameworks.YandexSdcFramework.Presentations.Views;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Presentations.Implementation.Views;
 using UnityEngine;
 
 namespace Sources.BoundedContexts.Huds.Presentations

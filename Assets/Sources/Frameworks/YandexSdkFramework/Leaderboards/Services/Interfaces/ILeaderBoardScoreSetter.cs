@@ -1,4 +1,4 @@
-﻿namespace Sources.InfrastructureInterfaces.Services.YandexSDKServices
+﻿namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces
 {
     public interface ILeaderBoardScoreSetter
     {

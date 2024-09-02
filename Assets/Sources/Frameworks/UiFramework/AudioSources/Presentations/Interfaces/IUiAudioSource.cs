@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Groups;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
-using Sources.PresentationsInterfaces.Views;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.AudioSources.Presentations.Interfaces

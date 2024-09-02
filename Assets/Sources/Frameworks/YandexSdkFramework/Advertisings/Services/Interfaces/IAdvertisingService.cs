@@ -1,6 +1,4 @@
-﻿using Sources.BoundedContexts.HealthBoosters.Domain;
-using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
-using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Constructors;
+﻿using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 
 namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces
 {

@@ -1,4 +1,4 @@
-﻿namespace Sources.PresentationsInterfaces.Views.YandexSDK
+﻿namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Presentations.Interfaces.Views
 {
     public interface ILeaderBoardElementView
     {

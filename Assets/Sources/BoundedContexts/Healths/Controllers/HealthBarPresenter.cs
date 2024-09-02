@@ -3,7 +3,7 @@ using Sources.BoundedContexts.Healths.DomainInterfaces;
 using Sources.BoundedContexts.Healths.Presentation.Interfaces;
 using Sources.Frameworks.Domain.Implementation.Constants;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
-using Sources.Utils.Extentions;
+using Sources.Frameworks.Utils.Extensions;
 
 namespace Sources.BoundedContexts.Healths.Controllers
 {

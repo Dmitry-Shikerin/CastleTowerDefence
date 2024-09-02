@@ -9,9 +9,9 @@ using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Controller
 using Sources.Frameworks.GameServices.Scenes.Infrastructure.Views.Interfaces;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
-using Sources.Frameworks.YandexSdcFramework.Focuses.Interfaces;
-using Sources.Frameworks.YandexSdcFramework.Services.Stickies;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.SdcInitializeServices;
+using Sources.Frameworks.YandexSdkFramework.Focuses.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Stickies.Interfaces;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Implementation
 {

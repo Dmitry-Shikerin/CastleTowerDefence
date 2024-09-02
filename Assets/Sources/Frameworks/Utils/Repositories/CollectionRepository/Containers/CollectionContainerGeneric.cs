@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Sources.Utils.Repositories.CollectionRepository.ContainersInterfaces;
+using Sources.Frameworks.Utils.Repositories.CollectionRepository.ContainersInterfaces;
 
-namespace Sources.Utils.Repositories.CollectionRepository.Containers
+namespace Sources.Frameworks.Utils.Repositories.CollectionRepository.Containers
 {
     public class CollectionContainerGeneric<T> : ICollectionContainerGeneric<T>
     {

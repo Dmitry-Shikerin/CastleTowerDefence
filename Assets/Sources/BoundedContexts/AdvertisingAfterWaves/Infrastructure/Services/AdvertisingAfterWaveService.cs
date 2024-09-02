@@ -6,8 +6,8 @@ using Sources.BoundedContexts.EnemySpawners.Domain.Models;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
-using Sources.Frameworks.YandexSdcFramework.Advertisings.Domain.Constant;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.AdverticingServices;
+using Sources.Frameworks.YandexSdkFramework.Advertisings.Domain.Constant;
+using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces;
 
 namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrastructure.Services
 {

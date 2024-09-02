@@ -3,15 +3,11 @@ using System.Threading;
 using Agava.WebUtility;
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.BoundedContexts.Ids.Domain.Constant;
-using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
-using Sources.Frameworks.YandexSdcFramework.Advertisings.Domain.Constant;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.AdverticingServices;
 using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces;
 
 namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementation

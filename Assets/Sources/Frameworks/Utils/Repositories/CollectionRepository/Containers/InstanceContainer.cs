@@ -1,4 +1,4 @@
-﻿namespace Sources.Utils.Repositories.CollectionRepository.Containers
+﻿namespace Sources.Frameworks.Utils.Repositories.CollectionRepository.Containers
 {
     public class InstanceContainer<T> : IInstanceContainer
     {

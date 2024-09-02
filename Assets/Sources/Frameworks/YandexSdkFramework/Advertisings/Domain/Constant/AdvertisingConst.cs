@@ -1,4 +1,4 @@
-﻿namespace Sources.Frameworks.YandexSdcFramework.Advertisings.Domain.Constant
+﻿namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Domain.Constant
 {
     public static class AdvertisingConst
     {

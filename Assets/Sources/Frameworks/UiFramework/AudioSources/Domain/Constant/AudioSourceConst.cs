@@ -1,4 +1,4 @@
-﻿namespace Sources.Frameworks.UiFramework.AudioSources.Domain
+﻿namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Constant
 {
     public class AudioSourceConst
     {

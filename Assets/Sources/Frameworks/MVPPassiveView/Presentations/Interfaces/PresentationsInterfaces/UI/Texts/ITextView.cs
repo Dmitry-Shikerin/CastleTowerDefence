@@ -1,5 +1,4 @@
 using System.Threading;
-using Sources.Domain.Models.TextViewTypes;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 using UnityEngine;
 

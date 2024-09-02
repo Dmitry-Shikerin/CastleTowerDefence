@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
 using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Views.Constructors;
 using Sources.Frameworks.UiFramework.AudioSources.Infrastructure.Services.AudioService.Interfaces;
-using Sources.Utils.Extentions;
+using Sources.Frameworks.Utils.Extensions;
 using UnityEngine;
 
 namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Groups

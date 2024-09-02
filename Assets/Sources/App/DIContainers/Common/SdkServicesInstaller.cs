@@ -1,18 +1,17 @@
 ﻿using Sources.Frameworks.GameServices.ServerTimes.Services;
 using Sources.Frameworks.GameServices.ServerTimes.Services.Implementation;
 using Sources.Frameworks.GameServices.ServerTimes.Services.Interfaces;
-using Sources.Frameworks.YandexSdcFramework.Services.Leaderboards;
-using Sources.Frameworks.YandexSdcFramework.Services.SdcInitializeServices;
-using Sources.Frameworks.YandexSdcFramework.Services.Stickies;
-using Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.SdcInitializeServices;
 using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementation;
+using Sources.Frameworks.YandexSdkFramework.Infrastructure.Factories.Controllers;
+using Sources.Frameworks.YandexSdkFramework.Infrastructure.Factories.Views;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementation;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Implementation;
 using Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Interfaces;
-using Sources.Infrastructure.Factories.Controllers.YandexSDK;
-using Sources.Infrastructure.Factories.Views.YandexSDK;
-using Sources.InfrastructureInterfaces.Services.YandexSDKServices;
+using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Implementation;
+using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Stickies.Implementation;
+using Sources.Frameworks.YandexSdkFramework.Stickies.Interfaces;
 using Zenject;
 
 namespace Sources.App.DIContainers.Common

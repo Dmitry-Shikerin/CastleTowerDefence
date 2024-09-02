@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 
-namespace Sources.Frameworks.YandexSdcFramework.ServicesInterfaces.SdcInitializeServices
+namespace Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces
 {
     public interface ISdkInitializeService
     {

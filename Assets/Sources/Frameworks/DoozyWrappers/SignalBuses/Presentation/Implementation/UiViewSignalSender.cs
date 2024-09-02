@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Constants;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Signals;
 using Sources.Frameworks.UiFramework.Core.Domain.Constants;
-using Sources.Frameworks.UiFramework.Domain.Commands;
+using Sources.Frameworks.UiFramework.Views.Domain;
 using UnityEngine;
 using UnityEngine.Serialization;
 

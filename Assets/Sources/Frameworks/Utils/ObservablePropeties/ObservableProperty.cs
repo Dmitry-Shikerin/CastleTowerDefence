@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sources.Utils.ObservablePropeties
+namespace Sources.Frameworks.Utils.ObservablePropeties
 {
     public class ObservableProperty<T>
     {

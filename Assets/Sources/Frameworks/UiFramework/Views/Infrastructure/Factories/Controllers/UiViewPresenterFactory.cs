@@ -1,5 +1,5 @@
 ﻿using System;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
+using Sources.Frameworks.UiFramework.Core.Services.Forms.Interfaces;
 using Sources.Frameworks.UiFramework.Views.Controllers;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Views.Services.Interfaces;

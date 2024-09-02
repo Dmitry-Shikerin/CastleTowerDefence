@@ -5,7 +5,7 @@ using Sources.Frameworks.DoozyWrappers.SignalBuses.Domain.Domain;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Interfaces;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
-using Sources.Frameworks.UiFramework.ServicesInterfaces.Forms;
+using Sources.Frameworks.UiFramework.Core.Services.Forms.Interfaces;
 
 namespace Sources.Frameworks.DoozyWrappers.SignalBuses.Infrastructure.ButtonCommands.Implementation
 {

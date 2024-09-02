@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
-using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.Utils.Reflections.Attributes;
 
 namespace Sources.Frameworks.Utils.Reflections

@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using Sources.Frameworks.UiFramework.AudioSources.Domain.Groups;
 using Sources.Frameworks.UiFramework.AudioSources.Presentations.Implementation.Types;
-using Sources.Utils.Dictionaries;
+using Sources.Frameworks.Utils.Dictionaries;
 
 namespace Sources.Frameworks.UiFramework.AudioSources.Domain.Dictionaries
 {

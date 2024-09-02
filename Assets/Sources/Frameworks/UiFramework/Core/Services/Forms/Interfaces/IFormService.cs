@@ -1,6 +1,6 @@
-using Sources.Frameworks.UiFramework.Presentation.Forms.Types;
+using Sources.Frameworks.UiFramework.Views.Presentations.Implementation.Types;
 
-namespace Sources.Frameworks.UiFramework.ServicesInterfaces.Forms
+namespace Sources.Frameworks.UiFramework.Core.Services.Forms.Interfaces
 {
     public interface IFormService
     {

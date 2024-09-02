@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sources.Utils.Repositories.ItemRepository.Interfaces;
+using Sources.Frameworks.Utils.Repositories.ItemRepository.Interfaces;
 
-namespace Sources.Utils.Repositories.ItemRepository
+namespace Sources.Frameworks.Utils.Repositories.ItemRepository
 {
     public class ItemProvider<T1> : IItemProvider<T1>
     {
