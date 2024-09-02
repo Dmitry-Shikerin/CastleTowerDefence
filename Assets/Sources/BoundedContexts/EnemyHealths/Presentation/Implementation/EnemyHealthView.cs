@@ -14,6 +14,7 @@ namespace Sources.BoundedContexts.EnemyHealths.Presentation.Implementation
         
         public Vector3 Position => transform.position;
         public float CurrentHealth => Presenter.CurrentHealth;
+        public float MaxHealth => Presenter.MaxHealth;
 
         public void TakeDamage(float damage) =>
             Presenter.TakeDamage(damage);

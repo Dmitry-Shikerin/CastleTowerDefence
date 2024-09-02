@@ -17,6 +17,7 @@ namespace Sources.BoundedContexts.EnemyHealths.Controllers
         }
 
         public float CurrentHealth => _enemyHealth.CurrentHealth;
+        public float MaxHealth => _enemyHealth.MaxHealth;
         
         public void TakeDamage(float damage)
         {

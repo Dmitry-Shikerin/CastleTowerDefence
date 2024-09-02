@@ -1,5 +1,6 @@
 ﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
+using Sources.BoundedContexts.Enemies.Domain.Constants;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Implementation;
 using Sources.BoundedContexts.EnemyBosses.Presentation.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
@@ -41,7 +42,7 @@ namespace Sources.BoundedContexts.EnemyBosses.Controllers.States
             Vector3 spawnPosition = _view.Position + Vector3.up;
             _explosionBodyBloodySpawnService.Create(spawnPosition);
             _view.Destroy();
-            _playerWallet.AddCoins(1);
+            _playerWallet.AddCoins(EnemyConst.BossReward);
         }
     }
 }
