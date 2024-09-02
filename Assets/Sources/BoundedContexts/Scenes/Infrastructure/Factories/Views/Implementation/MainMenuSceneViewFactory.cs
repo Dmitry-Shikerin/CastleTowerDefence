@@ -5,15 +5,15 @@ using Sources.BoundedContexts.Huds.Presentations;
 using Sources.BoundedContexts.Ids.Domain.Constant;
 using Sources.BoundedContexts.Scenes.Domain;
 using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Interfaces;
 using Sources.Frameworks.GameServices.DailyRewards.Infrastructure.Factories;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Domain.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Infrastructure.Views.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Infrastucture.Factories;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Configs;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Models;
 using Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
 

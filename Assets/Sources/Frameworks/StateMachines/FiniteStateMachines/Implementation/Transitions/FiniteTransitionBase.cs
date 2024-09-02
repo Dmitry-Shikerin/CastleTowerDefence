@@ -1,7 +1,7 @@
 ﻿using System;
-using Sources.Infrastructure.StateMachines.FiniteStateMachines.States;
+using Sources.Frameworks.StateMachines.FiniteStateMachines.Implementation.States;
 
-namespace Sources.Infrastructure.StateMachines.FiniteStateMachines.Transitions
+namespace Sources.Frameworks.StateMachines.FiniteStateMachines.Implementation.Transitions
 {
     public class FiniteTransitionBase : FiniteTransition
     {

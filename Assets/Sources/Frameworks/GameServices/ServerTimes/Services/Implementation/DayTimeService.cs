@@ -1,6 +1,7 @@
 ﻿using System;
+using Sources.Frameworks.GameServices.ServerTimes.Services.Interfaces;
 
-namespace Sources.Frameworks.GameServices.ServerTimes.Services
+namespace Sources.Frameworks.GameServices.ServerTimes.Services.Implementation
 {
     public class DayTimeService : ITimeService
     {

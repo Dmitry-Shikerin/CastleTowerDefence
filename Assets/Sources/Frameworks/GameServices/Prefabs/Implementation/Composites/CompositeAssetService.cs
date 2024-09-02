@@ -13,7 +13,7 @@ using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.Frameworks.GameServices.ObjectPools.Implementation.Managers;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Configs;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Configs;
 using Sources.Frameworks.MyGameCreator.SkyAndWeawers.Domain;
 
 namespace Sources.Frameworks.GameServices.Prefabs.Implementation.Composites

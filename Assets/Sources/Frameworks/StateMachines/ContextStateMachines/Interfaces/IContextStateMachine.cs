@@ -1,6 +1,6 @@
-﻿using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Contexts;
+﻿using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Contexts;
 
-namespace Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines
+namespace Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces
 {
     public interface IContextStateMachine
     {

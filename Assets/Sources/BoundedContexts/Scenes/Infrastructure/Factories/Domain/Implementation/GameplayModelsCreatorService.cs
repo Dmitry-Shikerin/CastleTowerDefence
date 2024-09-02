@@ -13,7 +13,6 @@ using Sources.BoundedContexts.KillEnemyCounters.Domain.Models.Implementation;
 using Sources.BoundedContexts.NukeAbilities.Domain.Models;
 using Sources.BoundedContexts.PlayerWallets.Domain.Models;
 using Sources.BoundedContexts.Scenes.Domain;
-using Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.BoundedContexts.Tutorials.Domain.Models;
 using Sources.BoundedContexts.Upgrades.Domain.Configs;
 using Sources.BoundedContexts.Upgrades.Domain.Data;
@@ -21,8 +20,9 @@ using Sources.BoundedContexts.Upgrades.Domain.Models;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
+using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Domain.Interfaces;
 using Sources.Frameworks.GameServices.Volumes.Domain.Models.Implementation;
-using Sources.Frameworks.MyGameCreator.Achivements.Domain.Models;
+using Sources.Frameworks.MyGameCreator.Achievements.Domain.Models;
 
 namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Implementation
 {
@@ -129,7 +129,10 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             if (_loadService.HasKey(key))
                 return _loadService.Load<Volume>(key);
 
-            Volume volume = new Volume(key);
+            Volume volume = new Volume()
+            {
+                Id = key,
+            };
             _entityRepository.Add(volume);
             
             return volume;

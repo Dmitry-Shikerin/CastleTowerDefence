@@ -1,9 +1,9 @@
 ﻿using System;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
-using Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Triggers;
+using Sources.Frameworks.MyGameCreator.Triggers.Interfaces;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.Triggers.Presentation.Common.Generic
+namespace Sources.Frameworks.MyGameCreator.Triggers.Implementation.Common.Generic
 {
     public abstract class TriggerBase<T> : View, ITrigger<T>
     {

@@ -1,9 +1,9 @@
 ﻿using System;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Contexts;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.States;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Contexts;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.States;
 
-namespace Sources.Infrastructure.StateMachines.ContextStateMachines
+namespace Sources.Frameworks.StateMachines.ContextStateMachines.Implementation
 {
     public class ContextStateMachine : IContextStateMachine, IContextStateChanger
     {

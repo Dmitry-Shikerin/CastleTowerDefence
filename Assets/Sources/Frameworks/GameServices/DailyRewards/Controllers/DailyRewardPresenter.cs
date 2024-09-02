@@ -10,6 +10,7 @@ using Sources.Frameworks.GameServices.DailyRewards.Presentation;
 using Sources.Frameworks.GameServices.Loads.Services.Interfaces;
 using Sources.Frameworks.GameServices.Repositories.Services.Interfaces;
 using Sources.Frameworks.GameServices.ServerTimes.Services;
+using Sources.Frameworks.GameServices.ServerTimes.Services.Interfaces;
 using Sources.Frameworks.MVPPassiveView.Controllers.Implementation;
 
 namespace Sources.Frameworks.GameServices.DailyRewards.Controllers

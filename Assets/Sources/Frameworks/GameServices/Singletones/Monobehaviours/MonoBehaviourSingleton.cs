@@ -2,7 +2,8 @@
 
 namespace Sources.Frameworks.GameServices.Singletones.Monobehaviours
 {
-    public class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
+    public class MonoBehaviourSingleton<T> : MonoBehaviour
+        where T : MonoBehaviour
     {
         private static T s_instance;
 

@@ -1,9 +1,8 @@
-﻿using Sources.ControllersInterfaces.ControllerLifetimes;
-using Sources.Frameworks.GameServices.UpdateServices.Interfaces.Methods;
-using Sources.InfrastructureInterfaces.Services.UpdateServices.Methods;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Contexts;
+﻿using Sources.Frameworks.GameServices.UpdateServices.Interfaces.Methods;
+using Sources.Frameworks.MVPPassiveView.Controllers.Interfaces.ControllerLifetimes;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Contexts;
 
-namespace Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.States
+namespace Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.States
 {
     public interface IContextState : IEnterable, IExitable, IUpdatable
     {

@@ -1,8 +1,8 @@
 ﻿using System;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.Contexts;
-using Sources.InfrastructureInterfaces.StateMachines.ContextStateMachines.States;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.Contexts;
+using Sources.Frameworks.StateMachines.ContextStateMachines.Interfaces.States;
 
-namespace Sources.Infrastructure.StateMachines.ContextStateMachines.Transitions
+namespace Sources.Frameworks.StateMachines.ContextStateMachines.Implementation.Transitions
 {
     public class FuncContextTransition : ContextTransitionBase
     {

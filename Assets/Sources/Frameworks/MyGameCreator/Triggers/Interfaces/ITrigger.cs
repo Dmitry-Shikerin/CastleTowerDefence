@@ -1,6 +1,4 @@
-﻿using Sources.PresentationsInterfaces.Triggers;
-
-namespace Sources.Frameworks.MVPPassiveView.Presentations.Interfaces.PresentationsInterfaces.Triggers
+﻿namespace Sources.Frameworks.MyGameCreator.Triggers.Interfaces
 {
     public interface ITrigger<out T> : IEnteredTrigger<T>, IExitedTrigger<T>
     {

@@ -1,6 +1,6 @@
-﻿using Sources.Infrastructure.StateMachines.FiniteStateMachines.States;
+﻿using Sources.Frameworks.StateMachines.FiniteStateMachines.Implementation.States;
 
-namespace Sources.Infrastructure.StateMachines.FiniteStateMachines
+namespace Sources.Frameworks.StateMachines.FiniteStateMachines.Implementation
 {
     public class FiniteStateMachine
     {

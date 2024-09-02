@@ -6,7 +6,7 @@ using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.Views;
 using Sources.Frameworks.Utils.Reflections;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.Triggers.Presentation.Common
+namespace Sources.Frameworks.MyGameCreator.Triggers.Implementation.Common
 {
     public class TriggerBase : View
     {

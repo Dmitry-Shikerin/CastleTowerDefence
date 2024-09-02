@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Sources.BoundedContexts.Triggers.Presentation.Common
+namespace Sources.Frameworks.MyGameCreator.Triggers.Implementation.Common
 {
     public class Trigger : TriggerBase
     {

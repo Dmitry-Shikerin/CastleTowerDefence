@@ -1,8 +1,8 @@
 ﻿using System;
-using Sources.InfrastructureInterfaces.StateMachines.SceneStateMachines;
-using Sources.InfrastructureInterfaces.StateMachines.States;
+using Sources.Frameworks.StateMachines.SceneStateMachines.Interfaces;
+using Sources.Frameworks.StateMachines.States;
 
-namespace Sources.Infrastructure.StateMachines.SceneStateMachines
+namespace Sources.Frameworks.StateMachines.SceneStateMachines.Implementation
 {
     public class SceneStateMachine : ISceneStateMachine
     {

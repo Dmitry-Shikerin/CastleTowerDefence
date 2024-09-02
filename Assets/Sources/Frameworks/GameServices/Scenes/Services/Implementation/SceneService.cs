@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Sources.ControllersInterfaces.Scenes;
+using Sources.Frameworks.GameServices.Scenes.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
-using Sources.Infrastructure.StateMachines.SceneStateMachines;
+using Sources.Frameworks.StateMachines.SceneStateMachines.Implementation;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -39,18 +39,14 @@ namespace Sources.Frameworks.GameServices.Scenes.Services.Implementation
         {
             try
             {
-                if (_sceneFactories.TryGetValue(
-                        sceneName,
-                        out Func<object, SceneContext, UniTask<IScene>> sceneFactory) == false)
+                if (_sceneFactories.TryGetValue(sceneName, out Func<object, SceneContext, UniTask<IScene>> sceneFactory) == false)
                     throw new InvalidOperationException(nameof(sceneName));
 
                 foreach (Func<string, UniTask> enteringHandler in _enteringHandlers)
                     await enteringHandler.Invoke(sceneName);
 
                 SceneContext sceneContext = Object.FindObjectOfType<SceneContext>();
-
                 IScene scene = await sceneFactory.Invoke(payload, sceneContext);
-
                 _stateMachine.ChangeState(scene, payload);
 
                 foreach (Func<UniTask> exitingHandler in _exitingHandlers)

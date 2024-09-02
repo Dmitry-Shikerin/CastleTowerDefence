@@ -5,7 +5,7 @@ using Sources.BoundedContexts.HealthBoosters.Views;
 using Sources.Frameworks.GameServices.DailyRewards.Presentation;
 using Sources.Frameworks.GameServices.Volumes.Presentations;
 using Sources.Frameworks.MVPPassiveView.Presentations.Implementation.UI.Huds;
-using Sources.Frameworks.MyGameCreator.Achivements.Presentation;
+using Sources.Frameworks.MyGameCreator.Achievements.Presentation;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using Sources.Frameworks.YandexSdcFramework.Presentations.Views;
 using UnityEngine;

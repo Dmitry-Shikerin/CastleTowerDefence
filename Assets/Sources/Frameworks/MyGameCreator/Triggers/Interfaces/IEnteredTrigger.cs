@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sources.PresentationsInterfaces.Triggers
+namespace Sources.Frameworks.MyGameCreator.Triggers.Interfaces
 {
     public interface IEnteredTrigger<out T>
     {

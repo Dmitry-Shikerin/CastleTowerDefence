@@ -1,6 +1,6 @@
-﻿using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Commands.Implementation;
-using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Implementation;
-using Sources.Frameworks.MyGameCreator.Achivements.Infrastructure.Services.Interfaces;
+﻿using Sources.Frameworks.MyGameCreator.Achievements.Infrastructure.Commands.Implementation;
+using Sources.Frameworks.MyGameCreator.Achievements.Infrastructure.Services.Implementation;
+using Sources.Frameworks.MyGameCreator.Achievements.Infrastructure.Services.Interfaces;
 using Zenject;
 
 namespace Sources.App.DIContainers.Common

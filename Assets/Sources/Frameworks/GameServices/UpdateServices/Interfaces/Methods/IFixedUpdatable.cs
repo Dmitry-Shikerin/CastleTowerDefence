@@ -1,4 +1,4 @@
-﻿namespace Sources.InfrastructureInterfaces.Services.UpdateServices.Methods
+﻿namespace Sources.Frameworks.GameServices.UpdateServices.Interfaces.Methods
 {
     public interface IFixedUpdatable
     {
