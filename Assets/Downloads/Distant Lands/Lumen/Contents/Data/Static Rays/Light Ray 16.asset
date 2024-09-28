@@ -20,11 +20,11 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
-    open: 1
+    open: 0
   globalScale: 0.8
   rayMaterial: {fileID: 2100000, guid: e349799befeba9948a28f3e1a260fa29, type: 2}
   globalRotation: {x: 0, y: 0, z: 0}
-  globalBrightness: 0.159
+  globalBrightness: 0.212
   variationSpeed: 1
   variationScale: 10
   variationColor: {r: 1, g: 1, b: 1, a: 1}
