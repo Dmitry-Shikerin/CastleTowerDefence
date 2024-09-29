@@ -15,8 +15,8 @@ MonoBehaviour:
   _enable: 0
   _id: 2
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 15
-  _currentAmount: 0.02
+  _moneyPerUpgrade: 20
+  _currentAmount: 0.012
 --- !u!114 &-6593325635281052912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   _id: 5
   _parent: {fileID: 11400000}
   _moneyPerUpgrade: 100
-  _currentAmount: 0.035
+  _currentAmount: 0.02
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,8 +88,8 @@ MonoBehaviour:
   _enable: 0
   _id: 3
   _parent: {fileID: 11400000}
-  _moneyPerUpgrade: 30
-  _currentAmount: 0.025
+  _moneyPerUpgrade: 40
+  _currentAmount: 0.015
 --- !u!114 &3532113614285812238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   _id: 4
   _parent: {fileID: 11400000}
   _moneyPerUpgrade: 70
-  _currentAmount: 0.03
+  _currentAmount: 0.018
 --- !u!114 &6747011904357664325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,4 +123,4 @@ MonoBehaviour:
   _id: 6
   _parent: {fileID: 11400000}
   _moneyPerUpgrade: 150
-  _currentAmount: 0.04
+  _currentAmount: 0.025

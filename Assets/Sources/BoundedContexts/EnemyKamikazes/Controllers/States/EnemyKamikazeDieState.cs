@@ -1,5 +1,6 @@
 ﻿using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
+using Sources.BoundedContexts.Enemies.Domain.Constants;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Implementation;
 using Sources.BoundedContexts.EnemyKamikazes.Presentations.Interfaces;
 using Sources.BoundedContexts.ExplosionBodies.Infrastructure.Factories.Views.Implementation;
@@ -42,7 +43,7 @@ namespace Sources.BoundedContexts.EnemyKamikazes.Controllers.States
             Vector3 spawnPosition = _view.Position + Vector3.up;
             _explosionBodyBloodyViewFactory.Create(spawnPosition);
             _view.Destroy();
-            _playerWallet.AddCoins(1);
+            _playerWallet.AddCoins(EnemyConst.KamikazeReward);
         }
     }
 }
