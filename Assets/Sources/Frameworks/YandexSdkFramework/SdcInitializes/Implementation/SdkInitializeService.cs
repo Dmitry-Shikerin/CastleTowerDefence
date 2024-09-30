@@ -1,6 +1,7 @@
 ﻿using Agava.WebUtility;
 using Cysharp.Threading.Tasks;
 using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces;
+using YG;
 
 namespace Sources.Frameworks.YandexSdkFramework.SdcInitializes.Implementation
 {
@@ -12,7 +13,7 @@ namespace Sources.Frameworks.YandexSdkFramework.SdcInitializes.Implementation
                 return;
 
             //TODO закоментил
-            // YandexGamesSdk.GameReady();
+            YandexGame.GameReadyAPI();
         }
 
         public void EnableCallbackLogging()

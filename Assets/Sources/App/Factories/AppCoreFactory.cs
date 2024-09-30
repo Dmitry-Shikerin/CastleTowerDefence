@@ -11,6 +11,7 @@ using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Controller
 using Sources.Frameworks.GameServices.Scenes.Services.Implementation;
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
 using UnityEngine;
+using YG;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -21,6 +22,7 @@ namespace Sources.App.Factories
         public AppCore Create()
         {
             AppCore appCore = new GameObject(nameof(AppCore)).AddComponent<AppCore>();
+            Object.Instantiate(Resources.Load<YandexGame>(PrefabPath.YandexGame));
 
             ProjectContext projectContext = Object.FindObjectOfType<ProjectContext>();
             CurtainView curtainView =
