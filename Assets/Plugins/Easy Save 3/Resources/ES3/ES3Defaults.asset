@@ -32,8 +32,6 @@ MonoBehaviour:
     assemblyNames:
     - Agava.WebUtility
     - Agava.WebUtility.Tests
-    - Agava.YandexGames
-    - Agava.YandexGames.Tests
     - AnimatorLOD
     - AnimatorLOD.Sample
     - Assembly-CSharp

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Agava.WebUtility;
-using Agava.YandexGames;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementation;
@@ -11,6 +10,7 @@ using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation.Types;
 using UnityEngine;
+using YG;
 
 namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementation
 {
@@ -146,7 +146,7 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            string languageCode = YandexGamesSdk.Environment.i18n.lang switch
+            string languageCode = YandexGame.lang switch
             {
                 LocalizationConst.English => LocalizationConst.EnglishCode,
                 LocalizationConst.Turkish => LocalizationConst.TurkishCode,

@@ -1,5 +1,4 @@
 ﻿using Agava.WebUtility;
-using Agava.YandexGames;
 using Sources.Frameworks.YandexSdkFramework.Stickies.Interfaces;
 
 namespace Sources.Frameworks.YandexSdkFramework.Stickies.Implementation
@@ -11,7 +10,8 @@ namespace Sources.Frameworks.YandexSdkFramework.Stickies.Implementation
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            StickyAd.Show();
+            //TODO закоментил
+            // StickyAd.Show();
         }
     }
 }

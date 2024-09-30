@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using Agava.WebUtility;
-using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
 using Sources.BoundedContexts.HealthBoosters.Domain;
 using Sources.Frameworks.GameServices.Loads.Domain.Constant;
@@ -60,31 +59,32 @@ namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementa
             bool isContinue = false;
             bool isContinueSound = false;
 
-            InterstitialAd.Show(
-                () =>
-                {
-                    if (_pauseService.IsPaused == false)
-                    {
-                        isContinue = true;
-                        _pauseService.Pause();
-                    }
-
-                    if (_pauseService.IsSoundPaused == false)
-                    {
-                        isContinueSound = true;
-                        _pauseService.PauseSound();
-                    }
-                },
-                _ =>
-                {
-                    if (isContinue)
-                        _pauseService.Continue();
-
-                    if (isContinueSound)
-                        _pauseService.ContinueSound();
-                    
-                    StartTimer(_cancellationTokenSource.Token);
-                });
+            //TODO закоментил
+            // InterstitialAd.Show(
+            //     () =>
+            //     {
+            //         if (_pauseService.IsPaused == false)
+            //         {
+            //             isContinue = true;
+            //             _pauseService.Pause();
+            //         }
+            //
+            //         if (_pauseService.IsSoundPaused == false)
+            //         {
+            //             isContinueSound = true;
+            //             _pauseService.PauseSound();
+            //         }
+            //     },
+            //     _ =>
+            //     {
+            //         if (isContinue)
+            //             _pauseService.Continue();
+            //
+            //         if (isContinueSound)
+            //             _pauseService.ContinueSound();
+            //         
+            //         StartTimer(_cancellationTokenSource.Token);
+            //     });
         }
 
         public void ShowVideo(Action onCloseCallback)
@@ -106,36 +106,37 @@ namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementa
             bool isContinue = false;
             bool isContinueSound = false;
 
-            VideoAd.Show(
-                () =>
-                {
-                    if (_pauseService.IsPaused == false)
-                    {
-                        isContinue = true;
-                        _pauseService.Pause();
-                    }
-
-                    if (_pauseService.IsSoundPaused == false)
-                    {
-                        isContinueSound = true;
-                        _pauseService.PauseSound();
-                    }
-                },
-                () =>
-                {
-                    _healthBooster.Amount += HealthBoosterConst.BoosterAmount;
-                    _loadService.Save(ModelId.HealthBooster);
-                },
-                () =>
-                {
-                    if (isContinue)
-                        _pauseService.Continue();
-
-                    if (isContinueSound)
-                        _pauseService.ContinueSound();
-
-                    onCloseCallback?.Invoke();
-                });
+            //TODO закоментил
+            // VideoAd.Show(
+            //     () =>
+            //     {
+            //         if (_pauseService.IsPaused == false)
+            //         {
+            //             isContinue = true;
+            //             _pauseService.Pause();
+            //         }
+            //
+            //         if (_pauseService.IsSoundPaused == false)
+            //         {
+            //             isContinueSound = true;
+            //             _pauseService.PauseSound();
+            //         }
+            //     },
+            //     () =>
+            //     {
+            //         _healthBooster.Amount += HealthBoosterConst.BoosterAmount;
+            //         _loadService.Save(ModelId.HealthBooster);
+            //     },
+            //     () =>
+            //     {
+            //         if (isContinue)
+            //             _pauseService.Continue();
+            //
+            //         if (isContinueSound)
+            //             _pauseService.ContinueSound();
+            //
+            //         onCloseCallback?.Invoke();
+            //     });
         }
 
         private async void StartTimer(CancellationToken cancellationToken)
