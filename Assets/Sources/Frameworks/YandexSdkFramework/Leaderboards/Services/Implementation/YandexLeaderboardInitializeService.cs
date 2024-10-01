@@ -37,8 +37,6 @@ namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementa
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            //TODO закоментил
-            
             if (YandexGame.auth == false)
                 return;
             
@@ -48,8 +46,13 @@ namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementa
                 5, 
                 5, 
                 "medium");
-            YandexGame.onGetLeaderboard += OnGetLeaderboard;
         }
+
+        public void Initialize() =>
+            YandexGame.onGetLeaderboard += OnGetLeaderboard;
+
+        public void Destroy() =>
+            YandexGame.onGetLeaderboard -= OnGetLeaderboard;
 
         private void OnGetLeaderboard(LBData result)
         {
@@ -76,9 +79,6 @@ namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementa
                     new LeaderBoardPlayer(rank, name, score),
                     _leaderBoardElementViews[i]);
             }
-            
-            //TODO порефакторить
-            YandexGame.onGetLeaderboard -= OnGetLeaderboard;
         }
     }
 }
