@@ -84,10 +84,8 @@ namespace MyAudios.Soundy.Editor.AudioDatas.Presentation.View.Implementation
         public void StopAllSounds() =>
             _soundGroupDataView.StopAllAudioData();
 
-        public void SetSoundGroupData(ISoundGroupDataView soundGroupDataView)
-        {
+        public void SetSoundGroupData(ISoundGroupDataView soundGroupDataView) =>
             _soundGroupDataView = soundGroupDataView ?? throw new ArgumentNullException(nameof(soundGroupDataView));
-        }
 
         public void Dispose()
         {

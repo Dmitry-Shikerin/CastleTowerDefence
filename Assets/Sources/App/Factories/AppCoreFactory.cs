@@ -9,6 +9,7 @@ using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Scenes.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Infrastructure.Factories.Controllers.Interfaces;
 using Sources.Frameworks.GameServices.Scenes.Services.Implementation;
+using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
 using UnityEngine;
 using YG;
@@ -22,7 +23,7 @@ namespace Sources.App.Factories
         public AppCore Create()
         {
             AppCore appCore = new GameObject(nameof(AppCore)).AddComponent<AppCore>();
-            Object.Instantiate(Resources.Load<YandexGame>(PrefabPath.YandexGame));
+            // Object.Instantiate(Resources.Load<YandexGame>(PrefabPath.YandexGame));
 
             ProjectContext projectContext = Object.FindObjectOfType<ProjectContext>();
             CurtainView curtainView =
@@ -30,11 +31,11 @@ namespace Sources.App.Factories
                 throw new NullReferenceException(nameof(CurtainView));
             projectContext.Container.Bind<ICurtainView>().To<CurtainView>().FromInstance(curtainView);
             curtainView.Hide();
-
+            
             Dictionary<string, Func<object, SceneContext, UniTask<IScene>>> sceneFactories =
                 new Dictionary<string, Func<object, SceneContext, UniTask<IScene>>>();
             SceneService sceneService = new SceneService(sceneFactories);
-            projectContext.Container.BindInterfacesAndSelfTo<SceneService>().FromInstance(sceneService);
+            projectContext.Container.Bind<ISceneService>().To<SceneService>().FromInstance(sceneService);
 
             sceneFactories[ModelId.MainMenu] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<ISceneFactory>().Create(payload);

@@ -20,7 +20,7 @@ namespace Sources.Frameworks.Utils.Reflections
                 .CheckAttributes(dependencies);
         }
 
-        private static readonly List<Func<object, Type>> _targetTypes = new List<Func<object, Type>>()
+        private static readonly List<Func<object, Type>> s_targetTypes = new List<Func<object, Type>>()
         {
             obj => obj.GetType(),
             obj => obj.GetType().BaseType,
@@ -38,7 +38,7 @@ namespace Sources.Frameworks.Utils.Reflections
 
         private static void ResolveDependencies(object targetObject, object[] dependencies)
         {
-            foreach (Func<object, Type> type in _targetTypes)
+            foreach (Func<object, Type> type in s_targetTypes)
             {
                 Resolve(targetObject, type.Invoke(targetObject), dependencies);
             }
@@ -95,7 +95,7 @@ namespace Sources.Frameworks.Utils.Reflections
                         continue;
                     }
                     
-                    foreach (Func<object, Type> type in _targetTypes)
+                    foreach (Func<object, Type> type in s_targetTypes)
                     {
                         if (parameter.ParameterType != type.Invoke(dependency))
                             continue;

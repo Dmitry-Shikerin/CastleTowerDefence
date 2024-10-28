@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using HighlightPlus;
 using Sources.BoundedContexts.Bunkers.Domain;
 using Sources.BoundedContexts.Bunkers.Presentation.Interfaces;
 using Sources.BoundedContexts.Enemies.PresentationInterfaces;
@@ -54,24 +55,22 @@ namespace Sources.BoundedContexts.Bunkers.Controllers
         {
             _tokenSource.Cancel();
             _tokenSource = new CancellationTokenSource();
+            HighlightEffect highlight = _view.HighlightEffect;
+            float highlightDelta = _view.HighlightDelta;
             
             try
             {
-                _view.HighlightEffect.glow = 5f;
-                _view.HighlightEffect.overlay = 1f;
+                highlight.glow = 5f;
+                highlight.overlay = 1f;
 
-                while (_view.HighlightEffect.glow > 0f &&
-                       _view.HighlightEffect.overlay > 0f && 
-                       _tokenSource.Token.IsCancellationRequested == false)
+                while (highlight.glow > 0f 
+                       && highlight.overlay > 0f 
+                       && _tokenSource.Token.IsCancellationRequested == false)
                 {
-                    _view.HighlightEffect.glow = Mathf.MoveTowards(
-                        _view.HighlightEffect.glow, 
-                        0, 
-                        _view.HighlightDelta * 5 * Time.deltaTime);
-                   _view.HighlightEffect.overlay = Mathf.MoveTowards(
-                       _view.HighlightEffect.overlay, 
-                       0, 
-                       _view.HighlightDelta * Time.deltaTime);
+                    highlight.glow = Mathf.MoveTowards(
+                        highlight.glow, 0, highlightDelta * 5 * Time.deltaTime);
+                    highlight.overlay = Mathf.MoveTowards(
+                        highlight.overlay, 0, highlightDelta * Time.deltaTime);
                     
                     await UniTask.Yield(_tokenSource.Token);
                 }

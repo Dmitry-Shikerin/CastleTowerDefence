@@ -34,19 +34,21 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation.Composites
         
         public async UniTask LoadAsync()
         {
-            await _resourcesAssetLoader.LoadAsset<AchievementConfigCollector>(PrefabPath.AchievementConfigCollector);
-            await _resourcesAssetLoader.LoadAsset<SkyAndWeatherCollector>(PrefabPath .SkyAndWeatherCollector);
-            await _resourcesAssetLoader.LoadAsset<PoolManagerCollector>(PrefabPath.PoolManagerCollector);
-            await _resourcesAssetLoader.LoadAsset<ExplosionBodyBloodyView>(PrefabPath.ExplosionBodyBloody);
-            await _resourcesAssetLoader.LoadAsset<ExplosionBodyView>(PrefabPath.ExplosionBody);
-            await _resourcesAssetLoader.LoadAsset<CharacterMeleeView>(PrefabPath.CharacterMeleeView);
-            await _resourcesAssetLoader.LoadAsset<CharacterRangeView>(PrefabPath.CharacterRangeView);
-            await _resourcesAssetLoader.LoadAsset<EnemyView>(EnemyConst.PrefabPath);
-            await _resourcesAssetLoader.LoadAsset<EnemyBossView>(PrefabPath.BossEnemy);
-            await _resourcesAssetLoader.LoadAsset<EnemyKamikazeView>(PrefabPath.EnemyKamikaze);
-            await _resourcesAssetLoader.LoadAsset<UpgradeConfigContainer>(PrefabPath.UpgradeConfigContainer);
-            await _resourcesAssetLoader.LoadAsset<EnemySpawnStrategyCollector>(PrefabPath.EnemySpawnStrategyCollector);
-            await _resourcesAssetLoader.LoadAsset<EnemySpawnerConfig>(PrefabPath.EnemySpawnerConfigContainer);
+            await UniTask.WhenAll(
+                _resourcesAssetLoader.LoadAsset<AchievementConfigCollector>(PrefabPath.AchievementConfigCollector),
+                _resourcesAssetLoader.LoadAsset<SkyAndWeatherCollector>(PrefabPath.SkyAndWeatherCollector),
+                _resourcesAssetLoader.LoadAsset<PoolManagerCollector>(PrefabPath.PoolManagerCollector),
+                _resourcesAssetLoader.LoadAsset<ExplosionBodyBloodyView>(PrefabPath.ExplosionBodyBloody),
+                _resourcesAssetLoader.LoadAsset<ExplosionBodyView>(PrefabPath.ExplosionBody),
+                _resourcesAssetLoader.LoadAsset<CharacterMeleeView>(PrefabPath.CharacterMeleeView),
+                _resourcesAssetLoader.LoadAsset<CharacterRangeView>(PrefabPath.CharacterRangeView),
+                _resourcesAssetLoader.LoadAsset<EnemyView>(EnemyConst.PrefabPath),
+                _resourcesAssetLoader.LoadAsset<EnemyBossView>(PrefabPath.BossEnemy),
+                _resourcesAssetLoader.LoadAsset<EnemyKamikazeView>(PrefabPath.EnemyKamikaze),
+                _resourcesAssetLoader.LoadAsset<UpgradeConfigContainer>(PrefabPath.UpgradeConfigContainer),
+                _resourcesAssetLoader.LoadAsset<EnemySpawnStrategyCollector>(PrefabPath.EnemySpawnStrategyCollector),
+                _resourcesAssetLoader.LoadAsset<EnemySpawnerConfig>(PrefabPath.EnemySpawnerConfigContainer)
+            );
         }
 
         public void Release()

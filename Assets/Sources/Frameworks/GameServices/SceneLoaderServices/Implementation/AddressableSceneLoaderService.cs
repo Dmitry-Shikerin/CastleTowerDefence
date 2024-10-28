@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Sources.InfrastructureInterfaces.Services.SceneLoaderService;
+using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace Sources.Frameworks.GameServices.SceneLoaderServices.Implementation
@@ -13,7 +14,7 @@ namespace Sources.Frameworks.GameServices.SceneLoaderServices.Implementation
             if(_currentScene != null) 
                 await Unload();
         
-            _currentScene = await UnityEngine.AddressableAssets.Addressables.LoadSceneAsync(sceneName);
+            _currentScene = await Addressables.LoadSceneAsync(sceneName);
         }
 
         public async UniTask Unload()
@@ -21,7 +22,7 @@ namespace Sources.Frameworks.GameServices.SceneLoaderServices.Implementation
             if (_currentScene is not SceneInstance scene)
                 return;
         
-            await UnityEngine.AddressableAssets.Addressables.UnloadSceneAsync(scene);
+            await Addressables.UnloadSceneAsync(scene);
         
             _currentScene = null;
         }
