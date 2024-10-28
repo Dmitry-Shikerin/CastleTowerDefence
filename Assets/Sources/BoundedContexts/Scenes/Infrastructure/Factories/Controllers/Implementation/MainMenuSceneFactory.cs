@@ -10,6 +10,7 @@ using Sources.Frameworks.GameServices.Scenes.Infrastructure.Views.Interfaces;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Focuses.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Stickies.Interfaces;
 
@@ -17,6 +18,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
 {
     public class MainMenuSceneFactory : ISceneFactory
     {
+        private readonly ILeaderboardInitializeService _leaderboardInitializeService;
         private readonly ICompositeAssetService _compositeAssetService;
         private readonly ISoundyService _soundyService;
         private readonly ISceneViewFactory _sceneViewFactory;
@@ -28,6 +30,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         private readonly IStickyService _stickyService;
 
         public MainMenuSceneFactory(
+            ILeaderboardInitializeService leaderboardInitializeService,
             ICompositeAssetService compositeAssetService,
             ISoundyService soundyService,
             ISceneViewFactory sceneViewFactory,
@@ -38,6 +41,8 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
             ICurtainView curtainView,
             IStickyService stickyService)
         {
+            _leaderboardInitializeService = leaderboardInitializeService ?? 
+                                            throw new ArgumentNullException(nameof(leaderboardInitializeService));
             _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _sceneViewFactory = sceneViewFactory ??
@@ -56,6 +61,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Controllers.Im
         public UniTask<IScene> Create(object payload)
         {
             IScene mainMenuScene = new MainMenuScene(
+                _leaderboardInitializeService,
                 _compositeAssetService,
                 _soundyService,
                 _sceneViewFactory,

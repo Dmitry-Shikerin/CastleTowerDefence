@@ -19,10 +19,10 @@ namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrastructure.Services
         private readonly IEntityRepository _entityRepository;
         private readonly IInterstitialAdService _interstitialAdService;
         private readonly AdvertisingAfterWaveView _advertisingView;
+        private readonly TimeSpan _timerTimeSpan = TimeSpan.FromSeconds(AdvertisingConst.Delay);
         
         private EnemySpawner _enemySpawner;
         private CancellationTokenSource _cancellationTokenSource;
-        private TimeSpan _timerTimeSpan = TimeSpan.FromSeconds(AdvertisingConst.Delay);
 
         public AdvertisingAfterWaveService(
             IEntityRepository entityRepository, 

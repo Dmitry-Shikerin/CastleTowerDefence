@@ -1,7 +1,7 @@
 ﻿using Agava.WebUtility;
-using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
 using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces;
+using YG;
 
 namespace Sources.Frameworks.YandexSdkFramework.SdcInitializes.Implementation
 {
@@ -12,7 +12,8 @@ namespace Sources.Frameworks.YandexSdkFramework.SdcInitializes.Implementation
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            YandexGamesSdk.GameReady();
+            //TODO закоментил
+            YandexGame.GameReadyAPI();
         }
 
         public void EnableCallbackLogging()
@@ -20,10 +21,11 @@ namespace Sources.Frameworks.YandexSdkFramework.SdcInitializes.Implementation
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            if (YandexGamesSdk.CallbackLogging)
-                return;
-
-            YandexGamesSdk.CallbackLogging = true;
+            //TODO закоментил
+            // if (YandexGamesSdk.CallbackLogging)
+            //     return;
+            //
+            // YandexGamesSdk.CallbackLogging = true;
         }
 
         public async UniTask Initialize()
@@ -31,10 +33,11 @@ namespace Sources.Frameworks.YandexSdkFramework.SdcInitializes.Implementation
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            if (YandexGamesSdk.IsInitialized)
-                return;
-
-            await YandexGamesSdk.Initialize();
+            //TODO закоментил
+            // if (YandexGamesSdk.IsInitialized)
+            //     return;
+            //
+            // await YandexGamesSdk.Initialize();
         }
     }
 }

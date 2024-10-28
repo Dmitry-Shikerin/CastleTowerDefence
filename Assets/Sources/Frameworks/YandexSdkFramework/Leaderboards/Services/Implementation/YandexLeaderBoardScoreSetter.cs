@@ -1,7 +1,8 @@
 ﻿using Agava.WebUtility;
-using Agava.YandexGames;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Domain.Constants;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
+using UnityEngine.SocialPlatforms.Impl;
+using YG;
 
 namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementation
 {
@@ -12,14 +13,16 @@ namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementa
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            if (PlayerAccount.IsAuthorized == false)
+            //TODO закоментил
+            if (YandexGame.auth == false)
                 return;
             
-            Leaderboard.GetPlayerEntry(LeaderBoardNameConst.Leaderboard, result =>
-            {
-                if (result.score < score)
-                    Leaderboard.SetScore(LeaderBoardNameConst.Leaderboard, score);
-            });
+            YandexGame.NewLeaderboardScores(LeaderBoardNameConst.Leaderboard, score);
+            // Leaderboard.GetPlayerEntry(LeaderBoardNameConst.Leaderboard, result =>
+            // {
+            //     if (result.score < score)
+            //         Leaderboard.SetScore(LeaderBoardNameConst.Leaderboard, score);
+            // });
         }
     }
 }

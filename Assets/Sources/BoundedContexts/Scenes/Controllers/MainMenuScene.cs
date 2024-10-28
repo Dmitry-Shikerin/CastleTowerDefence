@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.Frameworks.DoozyWrappers.SignalBuses.Controllers.Interfaces.Collectors;
 using Sources.Frameworks.GameServices.Curtains.Presentation.Interfaces;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces.Composites;
@@ -9,6 +10,7 @@ using Sources.Frameworks.GameServices.Scenes.Infrastructure.Views.Interfaces;
 using Sources.Frameworks.MyAudio_master.MyAudio.Soundy.Sources.Soundies.Infrastructure.Interfaces;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Focuses.Interfaces;
+using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.SdcInitializes.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Stickies.Interfaces;
 
@@ -16,6 +18,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 {
     public class MainMenuScene : IScene
     {
+        private readonly ILeaderboardInitializeService _leaderboardInitializeService;
         private readonly ICompositeAssetService _compositeAssetService;
         private readonly ISoundyService _soundyService;
         private readonly ISceneViewFactory _sceneViewFactory;
@@ -27,6 +30,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         private readonly IStickyService _stickyService;
 
         public MainMenuScene(
+            ILeaderboardInitializeService leaderboardInitializeService,
             ICompositeAssetService compositeAssetService,
             ISoundyService soundyService,
             ISceneViewFactory mainMenuSceneViewFactory,
@@ -37,6 +41,8 @@ namespace Sources.BoundedContexts.Scenes.Controllers
             ICurtainView curtainView,
             IStickyService stickyService)
         {
+            _leaderboardInitializeService = leaderboardInitializeService ?? 
+                                            throw new ArgumentNullException(nameof(leaderboardInitializeService));
             _compositeAssetService = compositeAssetService ?? throw new ArgumentNullException(nameof(compositeAssetService));
             _soundyService = soundyService ?? throw new ArgumentNullException(nameof(soundyService));
             _sceneViewFactory = mainMenuSceneViewFactory ??
@@ -55,6 +61,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
         {
             await InitializeAsync((IScenePayload)payload);
             await _compositeAssetService.LoadAsync();
+            _leaderboardInitializeService.Initialize();
             _focusService.Initialize();
             _localizationService.Translate();
             _sceneViewFactory.Create(null);
@@ -67,6 +74,7 @@ namespace Sources.BoundedContexts.Scenes.Controllers
 
         public void Exit()
         {
+            _leaderboardInitializeService.Destroy();
             _signalControllersCollector.Destroy();
             _soundyService.StopSequence("BackgroundMusic", "MainMenu");
             _soundyService.Destroy();

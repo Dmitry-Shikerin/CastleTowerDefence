@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Agava.WebUtility;
-using Agava.YandexGames;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.YandexSdkFramework.Infrastructure.Factories.Views;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Domain.Constants;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Domain.Models;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Presentations.Implementation.Views;
 using Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Interfaces;
+using YG;
+using YG.Utils.LB;
 
 namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementation
 {
@@ -36,35 +37,48 @@ namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementa
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            if (PlayerAccount.IsAuthorized == false)
+            if (YandexGame.auth == false)
                 return;
             
-            Leaderboard.GetEntries(LeaderBoardNameConst.Leaderboard, result =>
+            YandexGame.GetLeaderboard(
+                LeaderBoardNameConst.Leaderboard, 
+                5, 
+                5, 
+                5, 
+                "medium");
+        }
+
+        public void Initialize() =>
+            YandexGame.onGetLeaderboard += OnGetLeaderboard;
+
+        public void Destroy() =>
+            YandexGame.onGetLeaderboard -= OnGetLeaderboard;
+
+        private void OnGetLeaderboard(LBData result)
+        {
+            var count = result.entries.Length < _leaderBoardElementViews.Count
+                ? result.entries.Length
+                : _leaderBoardElementViews.Count;
+
+            for (var i = 0; i < count; i++)
             {
-                var count = result.entries.Length < _leaderBoardElementViews.Count
-                    ? result.entries.Length
-                    : _leaderBoardElementViews.Count;
-                
-                for (var i = 0; i < count; i++)
-                {
-                    var rank = result.entries[i].rank;
-                    var score = result.entries[i].score;
-                    var name = result.entries[i].player.publicName;
+                var rank = result.players[i].rank;
+                var score = result.players[i].score;
+                var name = result.players[i].name;
 
-                    if (string.IsNullOrEmpty(name))
-                        name = YandexGamesSdk.Environment.i18n.lang switch
-                        {
-                            LocalizationConst.English => AnonymousConst.English,
-                            LocalizationConst.Turkish => AnonymousConst.Turkish,
-                            LocalizationConst.Russian => AnonymousConst.Russian,
-                            _ => AnonymousConst.English
-                        };
+                if (string.IsNullOrEmpty(name))
+                    name = YandexGame.lang switch
+                    {
+                        LocalizationConst.English => AnonymousConst.English,
+                        LocalizationConst.Turkish => AnonymousConst.Turkish,
+                        LocalizationConst.Russian => AnonymousConst.Russian,
+                        _ => AnonymousConst.English
+                    };
 
-                    _leaderBoardElementViewFactory.Create(
-                        new LeaderBoardPlayer(rank, name, score),
-                        _leaderBoardElementViews[i]);
-                }
-            });
+                _leaderBoardElementViewFactory.Create(
+                    new LeaderBoardPlayer(rank, name, score),
+                    _leaderBoardElementViews[i]);
+            }
         }
     }
 }

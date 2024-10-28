@@ -24,7 +24,8 @@ namespace MyAudios.Soundy.Editor.AudioDatas.Controllers
             _audioData = audioData ?? throw new ArgumentNullException(nameof(audioData));
             _soundGroupData = soundGroupData ?? throw new ArgumentNullException(nameof(soundGroupData));
             _view = view ?? throw new ArgumentNullException(nameof(view));
-            _audioSource = Object.FindObjectOfType<AudioSource>();
+            _audioSource = Object.FindObjectOfType<AudioSource>() 
+                           ?? throw new ArgumentNullException(nameof(_audioSource));
         }
 
         public void Initialize()

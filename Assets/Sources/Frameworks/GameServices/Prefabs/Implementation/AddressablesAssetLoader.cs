@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using Sirenix.Utilities;
 using Sources.Frameworks.GameServices.Prefabs.Interfaces;
+using UnityEngine.AddressableAssets;
 using Object = UnityEngine.Object;
 
 namespace Sources.Frameworks.GameServices.Prefabs.Implementation
@@ -14,11 +15,11 @@ namespace Sources.Frameworks.GameServices.Prefabs.Implementation
         }
         
         protected override async UniTask<Object> LoadAssetAsync<T>(string address) =>
-            await UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<T>(address).Task;
+            await Addressables.LoadAssetAsync<T>(address).Task;
 
         public override void ReleaseAll()
         {
-            Objects.ForEach(UnityEngine.AddressableAssets.Addressables.Release);
+            Objects.ForEach(Addressables.Release);
             base.ReleaseAll();
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Agava.WebUtility;
-using Agava.YandexGames;
 using Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Interfaces;
+using YG;
 
 namespace Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Implementation
 {
@@ -12,7 +12,7 @@ namespace Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Implementation
             if (WebApplication.IsRunningOnWebGL == false)
                 return false;
 
-            if (PlayerAccount.IsAuthorized == false)
+            if (YandexGame.auth == false)
                 return false;
 
             return true;
@@ -22,11 +22,13 @@ namespace Sources.Frameworks.YandexSdkFramework.PlayerAccounts.Implementation
         {
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
-
-            if (PlayerAccount.IsAuthorized)
+            
+            if (YandexGame.auth)
                 return;
-
-            PlayerAccount.Authorize(onSuccessCallback);
+            
+            //Todo нормально ли?
+            YandexGame.RequestAuth();
+            YandexGame.GetDataEvent += onSuccessCallback.Invoke;
         }
     }
 }

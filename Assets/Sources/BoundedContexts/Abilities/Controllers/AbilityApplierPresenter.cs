@@ -65,7 +65,6 @@ namespace Sources.BoundedContexts.Abilities.Controllers
                         _view.TimerImage.FillAmount,
                         1,
                         Time.deltaTime * _abilityApplier.Cooldown);
-
                     _view.TimerImage.SetFillAmount(fillAmount);
 
                     await UniTask.Yield(cancellationToken);
