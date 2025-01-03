@@ -83,10 +83,7 @@ namespace Sources.Frameworks.UniTaskTweens.Sequences
 
         public async UniTask StartAsync(CancellationTokenSource cancellationToken = default)
         {
-            if (cancellationToken == default)
-                _token = new CancellationTokenSource();
-            else
-                _token = cancellationToken;
+            _token = cancellationToken ?? new CancellationTokenSource();
 
             try
             {

@@ -48,8 +48,10 @@ namespace Sources.Frameworks.YandexSdkFramework.Leaderboards.Services.Implementa
                 "medium");
         }
 
-        public void Initialize() =>
+        public void Initialize()
+        {
             YandexGame.onGetLeaderboard += OnGetLeaderboard;
+        }
 
         public void Destroy() =>
             YandexGame.onGetLeaderboard -= OnGetLeaderboard;

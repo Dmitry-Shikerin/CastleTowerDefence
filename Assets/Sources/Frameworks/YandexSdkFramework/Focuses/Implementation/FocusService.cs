@@ -3,6 +3,7 @@ using Agava.WebUtility;
 using Sources.Frameworks.GameServices.Pauses.Services.Interfaces;
 using Sources.Frameworks.YandexSdkFramework.Focuses.Interfaces;
 using UnityEngine;
+using YG;
 
 namespace Sources.Frameworks.YandexSdkFramework.Focuses.Implementation
 {
@@ -20,11 +21,14 @@ namespace Sources.Frameworks.YandexSdkFramework.Focuses.Implementation
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
 
-            OnInBackgroundChangeWeb(WebApplication.InBackground);
-            OnInBackgroundChangeApp(Application.isFocused);
+            // OnInBackgroundChangeWeb(WebApplication.InBackground);
+            // OnInBackgroundChangeApp(Application.isFocused);
+            //
+            // Application.focusChanged += OnInBackgroundChangeApp;
+            // WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+            OnInBackgroundChangeApp(YandexGame.isVisibilityWindowGame);
             
-            Application.focusChanged += OnInBackgroundChangeApp;
-            WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+            YandexGame.onVisibilityWindowGame += OnInBackgroundChangeWeb;
         }
 
         public void Destroy()
@@ -32,8 +36,9 @@ namespace Sources.Frameworks.YandexSdkFramework.Focuses.Implementation
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
             
-            Application.focusChanged -= OnInBackgroundChangeApp;
-            WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
+            // Application.focusChanged -= OnInBackgroundChangeApp;
+            // WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
+            YandexGame.onVisibilityWindowGame -= OnInBackgroundChangeWeb;
         }
 
         private void OnInBackgroundChangeApp(bool inApp)

@@ -16,10 +16,10 @@ namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementa
         private readonly IEntityRepository _entityRepository;
         private readonly IPauseService _pauseService;
         private readonly ILoadService _loadService;
+        private readonly TimeSpan _timeSpan = TimeSpan.FromSeconds(35);
 
         private HealthBooster _healthBooster;
         private CancellationTokenSource _cancellationTokenSource;
-        private TimeSpan _timeSpan = TimeSpan.FromSeconds(35);
 
         public AdvertisingService(
             IEntityRepository entityRepository,
@@ -41,9 +41,6 @@ namespace Sources.Frameworks.YandexSdkFramework.Advertisings.Services.Implementa
 
         public void Destroy() =>
             _cancellationTokenSource.Cancel();
-
-        public void Construct(HealthBooster updateRegister) =>
-            _healthBooster = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
 
         public void ShowInterstitial()
         {

@@ -36,7 +36,6 @@ MonoBehaviour:
     - AnimatorLOD.Sample
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
-    - BakeryRuntimeAssembly
     - Cinemachine
     - FlowCanvas
     - Leopotam.Ecs
