@@ -58,7 +58,6 @@ namespace Sources.Frameworks.MyGameCreator.Triggers.Implementation.Common
             if (other.TryGetComponent(Type, out Component component))
             {
                 _component = component;
-                Debug.Log(component.ToString());
                 action?.Invoke();
                 
                 return;

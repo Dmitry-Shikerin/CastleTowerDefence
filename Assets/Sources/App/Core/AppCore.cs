@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Frameworks.GameServices.Loads.Domain.Constant;
 using Sources.Frameworks.GameServices.Scenes.Domain.Implementation;
 using Sources.Frameworks.GameServices.Scenes.Services.Interfaces;
 using UnityEngine;
@@ -17,9 +18,16 @@ namespace Sources.App.Core
         {
             try
             {
+// #if UNITY_EDITOR
+//                 await _sceneService.ChangeSceneAsync(
+//                     SceneManager.GetActiveScene().name,
+//                     new ScenePayload(SceneManager.GetActiveScene().name, false, false));
+//                 
+//                 return;
+// #endif
                 await _sceneService.ChangeSceneAsync(
-                    SceneManager.GetActiveScene().name,
-                    new ScenePayload(SceneManager.GetActiveScene().name, false, false));
+                    ModelId.MainMenu,
+                    new ScenePayload(ModelId.MainMenu, false, false));
             }
             catch(ArgumentNullException)
             {

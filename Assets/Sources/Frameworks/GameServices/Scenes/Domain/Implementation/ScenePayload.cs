@@ -4,7 +4,10 @@ namespace Sources.Frameworks.GameServices.Scenes.Domain.Implementation
 {
     public struct ScenePayload : IScenePayload
     {
-        public ScenePayload(string sceneId, bool canLoad, bool canFromGameplay)
+        public ScenePayload(
+            string sceneId, 
+            bool canLoad, 
+            bool canFromGameplay)
         {
             SceneId = sceneId;
             CanLoad = canLoad;
