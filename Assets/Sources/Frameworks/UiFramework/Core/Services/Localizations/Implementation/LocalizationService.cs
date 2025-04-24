@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Agava.WebUtility;
 using Sources.Domain.Models.Constants;
 using Sources.Frameworks.UiFramework.Core.Services.Localizations.Interfaces;
 using Sources.Frameworks.UiFramework.Texts.Presentations.Views.Implementation;
@@ -10,7 +9,6 @@ using Sources.Frameworks.UiFramework.Texts.Services.Localizations.Configs;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation;
 using Sources.Frameworks.UiFramework.Views.Presentations.Implementation.Types;
 using UnityEngine;
-using YG;
 
 namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementation
 {
@@ -52,10 +50,10 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
         public void Translate()
         {
             //todo вынести в отдельный сервис
-            if(WebApplication.IsRunningOnWebGL)
-                ChangeSdcLanguage();
-            else
-                ChangeCollectorLanguage();
+            // if(WebApplication.IsRunningOnWebGL)
+            //     ChangeSdcLanguage();
+            // else
+            ChangeCollectorLanguage();
         }
 
         public string GetText(string key)
@@ -143,18 +141,18 @@ namespace Sources.Frameworks.UiFramework.Core.Services.Localizations.Implementat
         
         private void ChangeSdcLanguage()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
+            // if (WebApplication.IsRunningOnWebGL == false)
+            //     return;
 
-            string languageCode = YandexGame.lang switch
-            {
-                LocalizationConst.English => LocalizationConst.EnglishCode,
-                LocalizationConst.Turkish => LocalizationConst.TurkishCode,
-                LocalizationConst.Russian => LocalizationConst.RussianCode,
-                _ => LocalizationConst.EnglishCode
-            };
+            // string languageCode = YandexGame.lang switch
+            // {
+            //     LocalizationConst.English => LocalizationConst.EnglishCode,
+            //     LocalizationConst.Turkish => LocalizationConst.TurkishCode,
+            //     LocalizationConst.Russian => LocalizationConst.RussianCode,
+            //     _ => LocalizationConst.EnglishCode
+            // };
 
-            TranslateViews(languageCode);
+            TranslateViews(LocalizationConst.EnglishCode);
         }
     }
 }
