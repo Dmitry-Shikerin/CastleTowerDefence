@@ -107,7 +107,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
         private void ActivateLoadGameButton()
         {
-            if (_loadService.HasKey(ModelId.DailyReward))
+            if (_loadService.HasKey(ModelId.PlayerWallet))
             {
                 _mainMenuHud.LoadGameButton.gameObject.SetActive(true);
                 return;
