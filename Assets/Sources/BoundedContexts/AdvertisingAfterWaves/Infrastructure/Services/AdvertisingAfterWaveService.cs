@@ -38,7 +38,7 @@ namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrastructure.Services
         public void Initialize()
         {
             _enemySpawner = _entityRepository.Get<EnemySpawner>(ModelId.EnemySpawner);
-            _enemySpawner.WaveChanged += OnShowInterstitial;
+            //_enemySpawner.WaveChanged += OnShowInterstitial;
             _cancellationTokenSource = new CancellationTokenSource();
             
             _advertisingView.Hide();
@@ -46,7 +46,7 @@ namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrastructure.Services
 
         public void Destroy()
         {
-            _enemySpawner.WaveChanged -= OnShowInterstitial;
+            //_enemySpawner.WaveChanged -= OnShowInterstitial;
             _cancellationTokenSource.Cancel();
         }
 
@@ -56,7 +56,6 @@ namespace Sources.BoundedContexts.AdvertisingAfterWaves.Infrastructure.Services
                 return;
 
             await ShowTimerAsync(_cancellationTokenSource.Token);
-            
             _interstitialAdService.ShowInterstitial();
         }
 
