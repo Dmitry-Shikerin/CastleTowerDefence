@@ -46,7 +46,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             //HealthBooster
             HealthBooster healthBooster = _loadService.Load<HealthBooster>(ModelId.HealthBooster);
             
-            Debug.Log($"Load models");
+            //Debug.Log($"Load models");
             
             return new MainMenuModel(
                 musicVolume, 
