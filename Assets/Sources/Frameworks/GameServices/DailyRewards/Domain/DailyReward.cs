@@ -26,7 +26,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Domain
             
             LastRewardTime = ServerTime;
             TargetRewardTime = LastRewardTime + TimeSpan.FromDays(1);
-            Debug.Log($"SetTargetRewardTime: {TargetRewardTime}");
+            //Debug.Log($"SetTargetRewardTime: {TargetRewardTime}");
             return true;
         }
         

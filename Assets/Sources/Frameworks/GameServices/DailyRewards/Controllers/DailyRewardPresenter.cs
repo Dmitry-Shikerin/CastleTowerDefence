@@ -42,6 +42,7 @@ namespace Sources.Frameworks.GameServices.DailyRewards.Controllers
         {
             _view.Button.onClickEvent.AddListener(OnClick);
             StartTimer();
+            _view.Hide();
         }
 
         public override void Disable()

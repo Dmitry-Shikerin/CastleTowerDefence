@@ -64,7 +64,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Domain.Impleme
             _entityRepository.Add(healthBooster);
             
             _loadService.SaveAll();
-            Debug.Log($"Create models");
+            //Debug.Log($"Create models");
             
             return new MainMenuModel(
                 musicVolume, 

@@ -46,6 +46,8 @@ namespace Sources.BoundedContexts.HealthBoosters.Views
             OnCountChanged();
             _isInitialized = true;
             Show();
+            //Todo remove
+            Hide();
         }
 
         private void OnCountChanged() =>

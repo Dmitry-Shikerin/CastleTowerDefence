@@ -99,7 +99,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
         
         private MainMenuModel Load(IScenePayload payload)
         {
-            if (_loadService.HasKey(ModelId.SoundsVolume))
+            if (_loadService.HasKey(ModelId.DailyReward))
                 return _mainMenuModelsLoaderService.Load();
             
             return _mainMenuModelsCreatorService.Load();
@@ -107,7 +107,7 @@ namespace Sources.BoundedContexts.Scenes.Infrastructure.Factories.Views.Implemen
 
         private void ActivateLoadGameButton()
         {
-            if (_loadService.HasKey(ModelId.PlayerWallet))
+            if (_loadService.HasKey(ModelId.DailyReward))
             {
                 _mainMenuHud.LoadGameButton.gameObject.SetActive(true);
                 return;
